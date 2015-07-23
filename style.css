@@ -1,0 +1,53 @@
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  padding: 1rem;
+  line-height: 1.5rem;
+}
+nav a {
+   margin-right: 2rem;
+}
+.post-content p, .post-content ul {
+  max-width: 40rem;
+}
+.post-list {
+  padding: 0;
+}
+.post-list > li {
+  list-style: none;
+  display: inline-block;
+  width: 320px;
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 1rem 1rem 0;
+}
+.post-list > li > .post-link {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+.post-list > li > .post-link > .post-link-text {
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+  background: white;
+  padding: 0 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.post-list > li > .post-link > .post-link-text > .post-title {
+  font-weight: bold;
+}
+.post-list > li > .post-link > .post-thumbnail {
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
