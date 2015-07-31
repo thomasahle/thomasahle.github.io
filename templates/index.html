@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>{{me.name}}</title>
+</head>
+<body>
+   <h1>{{me.name}}</h1>
+   <div id='main'>
+      <p>
+         I am a PhD student fonded by the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project at ITU Copenhagen. Since 2015 I have been supervised by <a href='{{coauthors['pagh'].href}}'>Prof. Rasmus Pagh</a>.
+      </p>
+
+      <h2>Publications</h2>
+      <ul>
+      {% for paper in papers %}
+         <li><strong>{{paper.title}}</strong>,
+            {% for a in paper.authors %}
+               {{coauthors[a].name}},
+            {% endfor %}
+            {{paper.year}}.
+            {% for f in paper.files %}
+               (<a href='{{f.href}}'>{{f.format}}</a>)
+            {% endfor %}
+         </li>
+      {% endfor %}
+      </ul>
+
+      <h2>Contact</h2>
+      At thdy@itu.dk
+
+   </div>
+   <div id='side'>
+      <img src='{{me.photo}}' alt='A photo of me' id='me'/>
+      <h3>Coauthors</h3>
+      <ul>
+      {% for person in coauthors.values() %}
+         {% if person != me %}
+            <li><a href='{{person.website}}'>{{person.name}}</a></li>
+         {% endif %}
+      {% endfor %}
+      </ul>
+   </div>
+</body>
+</html>
+
