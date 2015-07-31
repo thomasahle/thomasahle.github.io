@@ -1,6 +1,6 @@
 body {
   font-family: Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
-  padding: 1rem;
+  padding: 1rem .33rem;
   line-height: 1.42rem;
   max-width: 42rem;
   margin-left: auto;
@@ -12,7 +12,7 @@ h1 {
    flex: 1 100%;
 }
 #main {
-   flex: 2 14rem;
+   flex: 2.618 16rem;
 }
 #main p:first-child {
    margin-top: 0;
@@ -20,13 +20,22 @@ h1 {
 #side {
    flex: 1 7rem;
 }
-#main, #side, #h1 {
-   margin-left: .33rem;
-   margin-right: .33rem;
+h1 {
+  margin-left: .66rem;
+  margin-right: .67rem;
 }
-#side ul {
+#main, #side {
+  margin: 0 .66rem 2rem .67rem;
+}
+ul {
    list-style-type: none;
    padding: 0;
+}
+#side li {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 img {
    width: 100%;
