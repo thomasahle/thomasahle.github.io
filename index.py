@@ -23,8 +23,8 @@ class Vars:
 
     papers = [
         Paper('On the Complexity of Maximum Inner Product Search',
-            ['thdy', 'pagh', 'ilya', 'fran'], 2015, 'subm', '',
-            files=[File('pdf','papers/SODA_2016_v1.pdf')])
+            ['thdy', 'pagh', 'ilya', 'fran'], 2015, 'subm', '', files=[])
+            #files=[File('pdf','papers/SODA_2016_v1.pdf')])
     ]
 
     join_authors = lambda ps: ', '.join(Vars.coauthors[p].name for p in ps)
