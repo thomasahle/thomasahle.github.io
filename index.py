@@ -17,14 +17,20 @@ class Vars:
     me = coauthors['thdy']
 
     conferences = {
+        'arxiv': Conference('ArXiv'),
         'subm': Conference('Submitted'),
-        'soda': Conference('Proceedings of Symposium on Discrete Algorithms')
+        'soda': Conference('Proceedings of Symposium on Discrete Algorithms'),
+        'pods': Conference('Symposium on Principles of Database Systems')
     }
 
     papers = [
-        Paper('On the Complexity of Maximum Inner Product Search',
-            ['thdy', 'pagh', 'ilya', 'fran'], 2015, 'subm', '', files=[])
-            #files=[File('pdf','papers/SODA_2016_v1.pdf')])
+        Paper(
+            'On the Complexity of Inner Product Similarity Join',
+            ['thdy', 'pagh', 'ilya', 'fran'],
+            2015, 'subm', '', files=[
+                File('pdf', 'papers/mips/paper.pdf'),
+                File('arxiv', 'http://arxiv.org/abs/1510.02824')
+            ])
     ]
 
     join_authors = lambda ps: ', '.join(Vars.coauthors[p].name for p in ps)
