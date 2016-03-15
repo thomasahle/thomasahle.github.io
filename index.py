@@ -1,7 +1,7 @@
 from jinja2 import Environment, FileSystemLoader
 from collections import namedtuple
 
-Person = namedtuple('Person', ['name', 'website', 'photo'])
+Person = namedtuple('Person', ['name', 'abrv', 'website', 'photo'])
 Person.__new__.__defaults__ = ('Anonymous', '', '')
 Paper = namedtuple('Paper', ['title', 'authors', 'year', 'conference', 'comment', 'files'])
 Conference = namedtuple('Conference', ['name'])
@@ -9,10 +9,10 @@ File = namedtuple('File', ['format', 'href'])
 
 class Vars:
     coauthors = {
-        'thdy': Person('Thomas Dybdahl Ahle', '/', 'me.png'),
-        'pagh': Person('Rasmus Pagh', 'https://www.itu.dk/people/pagh/'),
-        'ilya': Person('Ilya Razenshteyn', 'http://www.ilyaraz.org/'),
-        'fran': Person('Francesco Silvestri', 'http://itu.dk/people/fras/')
+        'thdy': Person('Thomas Dybdahl Ahle', 'TA', '/', 'me.png'),
+        'pagh': Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/'),
+        'ilya': Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/'),
+        'fran': Person('Francesco Silvestri', 'F Silvestri', 'http://itu.dk/people/fras/')
     }
     me = coauthors['thdy']
 
@@ -27,15 +27,13 @@ class Vars:
         Paper(
             'On the Complexity of Inner Product Similarity Join',
             ['thdy', 'pagh', 'ilya', 'fran'],
-            2015, 'subm', '', files=[
+            2016, 'pods', '', files=[
                 File('pdf', 'papers/mips/paper.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1510.02824')
             ])
     ]
 
-    join_authors = lambda ps: ', '.join(Vars.coauthors[p].name for p in ps)
-
-env = Environment(loader=FileSystemLoader('templates'))
-template = env.get_template('index.html')
+env = Environment(loader=FileSystemLoader('.'))
+template = env.get_template('template.html')
 print(template.render(Vars.__dict__))
 
