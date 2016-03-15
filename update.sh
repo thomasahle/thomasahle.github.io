@@ -1,6 +1,8 @@
 #!/bin/sh
-pypy3 index.py > index.html
-scp index.html ssh.itu.dk:~/public_html
+python3 -m pip install --upgrade pip
+python3 index.py > output.html
+scp output.html ssh.itu.dk:~/public_html/index.html
+rm output.html
 git add .
 git commit
 git push
