@@ -29,7 +29,8 @@ class Vars:
             ['thdy', 'pagh', 'ilya', 'fran'],
             2016, 'pods', '', files=[
                 File('pdf', 'papers/mips/paper.pdf'),
-                File('arxiv', 'http://arxiv.org/abs/1510.02824')
+                File('arxiv', 'http://arxiv.org/abs/1510.02824'),
+                File('slides', 'https://docs.google.com/presentation/d/1y_BZ5Ctyn67Vam8rWzrskMkrkc-yIelCQsFLz1g4_bM/edit?usp=sharing')
             ])
     ]
 
