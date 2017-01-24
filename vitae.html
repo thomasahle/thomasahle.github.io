@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
   <title>{{me.name}}</title>
 </head>
 <body>
@@ -21,36 +19,26 @@
       </p>
 
       <h2>Publications</h2>
-      <ul id="publications">
+      <ul>
       {% for paper in papers %}
          <li>
-            <div class='shown'>
-               {%- for a in paper.authors -%}
-                  {%- if coauthors[a] != me -%}
-                     <a href='{{coauthors[a].website}}'>{{coauthors[a].abrv}}</a>
-                  {%- else -%}
-                     {{me.abrv}}
-                  {%- endif -%}
-                  {%- if not loop.last -%}, {% endif -%}
-               {%- endfor %} —
-               {{paper.year}} <br />
-               <strong>{{paper.title}}</strong>.
-               {{conferences[paper.conference].name}},
-               ({%- for f in paper.files -%}
-                  <a href='{{f.href}}'>{{f.format}}</a>
-                  {%- if not loop.last -%} , {% endif -%}
-               {%- endfor -%})
-            </div>
-            <div class='abstract'> {{paper.abstract}} </div>
+            {%- for a in paper.authors -%}
+               {%- if coauthors[a] != me -%}
+                  <a href='{{coauthors[a].website}}'>{{coauthors[a].abrv}}</a>
+               {%- else -%}
+                  {{me.abrv}}
+               {%- endif -%}
+               {%- if not loop.last -%}, {% endif -%}
+            {%- endfor %} —
+            {{paper.year}} <br />
+            <strong>{{paper.title}}</strong>.
+            {{conferences[paper.conference].name}},
+            ({%- for f in paper.files -%}
+               <a href='{{f.href}}'>{{f.format}}</a>
+               {%- if not loop.last -%} , {% endif -%}
+            {%- endfor -%})
          </li>
       {% endfor %}
-      </ul>
-
-      <h2>Media</h2>
-      <ul>
-         {% for m in media %}
-            <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}</li>
-         {% endfor %}
       </ul>
 
       <h2>Contact</h2>
@@ -61,7 +49,6 @@
 
       <h2>Other</h2>
       <ul>
-         <li><a href='https://github.com/thomasahle/mtime'>mtime</a> - helps managing the ITU time management</li>
          <li><a href='http://pychess.org/'>PyChess</a> - a chess engine and Internet chess client</li>
          <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> - a minimalist chess engine</li>
          <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> - a fast solver for numberlink puzzles</li>
