@@ -1,7 +1,7 @@
 from jinja2 import Environment, FileSystemLoader
 from collections import namedtuple
 
-Person = namedtuple('Person', ['name', 'abrv', 'website', 'photo'])
+Person = namedtuple('Person', ['name', 'abrv', 'href', 'photo'])
 Person.__new__.__defaults__ = ('Anonymous', '', '')
 Paper = namedtuple('Paper', ['title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
 Conference = namedtuple('Conference', ['name'])
@@ -9,14 +9,16 @@ File = namedtuple('File', ['format', 'href'])
 Newspaper = namedtuple('Newspaper', ['name', 'date', 'title', 'href'])
 
 class Vars:
-    coauthors = {
+    authors = {
         'thdy': Person('Thomas Dybdahl Ahle', 'TA', '/', 'me.png'),
         'pagh': Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/'),
         'ilya': Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/'),
         'fran': Person('Francesco Silvestri', 'F Silvestri', 'http://itu.dk/people/fras/'),
         'maau': Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/'),
     }
-    me = coauthors['thdy']
+    me = authors['thdy']
+    coauthors = [p for k, p in authors.items() if k != 'thdy']
+    coauthors.sort(key = lambda p: p.name.split()[-1])
 
     conferences = {
         '': Conference('Not Published'),
@@ -54,7 +56,12 @@ class Vars:
             'http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/'
             ),
         Newspaper(
-            'Computerworld', 'Juni 2015',
+            'Pressreader', 'December 2015',
+            'Python: Sunfish chess engine',
+            'www.pressreader.com/australia/linux-format/20151222/282802125292910'
+            ),
+        Newspaper(
+            'Computerworld', 'June 2015',
             'Med landsholdet i programmering til VM: Kodesport gør dig mere præcis',
             'http://www.computerworld.dk/art/234196'
             ),
