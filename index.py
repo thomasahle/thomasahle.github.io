@@ -30,6 +30,13 @@ class Vars:
 
     papers = [
         Paper(
+            'Optimal Las Vegas Locality Sensitive Data Structures',
+            ['thdy'],
+            open('abstracts/lasvegas').read(),
+            2017, 'subm', '', files=[
+                File('pdf', 'papers/lasvegas.pdf'),
+            ]),
+        Paper(
             'Parameter-free Locality Sensitive Hashing for Spherical Range Reporting',
             ['thdy', 'maau', 'pagh'],
             open('abstracts/output-sensitive-lsh-for-knn').read(),
