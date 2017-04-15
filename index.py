@@ -35,6 +35,7 @@ class Vars:
             open('abstracts/lasvegas').read(),
             2017, 'subm', '', files=[
                 File('pdf', 'papers/lasvegas.pdf'),
+                File('arxiv', 'http://arxiv.org/abs/1704.02054'),
             ]),
         Paper(
             'Parameter-free Locality Sensitive Hashing for Spherical Range Reporting',
