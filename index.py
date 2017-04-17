@@ -66,7 +66,7 @@ class Vars:
         Newspaper(
             'Pressreader', 'December 2015',
             'Python: Sunfish chess engine',
-            'www.pressreader.com/australia/linux-format/20151222/282802125292910'
+            'http://www.pressreader.com/australia/linux-format/20151222/282802125292910'
             ),
         Newspaper(
             'Computerworld', 'June 2015',
