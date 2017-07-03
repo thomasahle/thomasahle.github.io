@@ -25,7 +25,8 @@ class Vars:
         'arxiv': Conference('ArXiv'),
         'subm': Conference('Submitted'),
         'soda': Conference('Proceedings of Symposium on Discrete Algorithms'),
-        'pods': Conference('Symposium on Principles of Database Systems')
+        'pods': Conference('Symposium on Principles of Database Systems'),
+        'focs': Conference('Foundations of Computer Science')
     }
 
     papers = [
@@ -33,7 +34,7 @@ class Vars:
             'Optimal Las Vegas Locality Sensitive Data Structures',
             ['thdy'],
             open('abstracts/lasvegas').read(),
-            2017, 'subm', '', files=[
+            2017, 'focs', '', files=[
                 File('pdf', 'papers/lasvegas.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1704.02054'),
             ]),
