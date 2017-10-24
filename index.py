@@ -37,6 +37,7 @@ class Vars:
             2017, 'focs', '', files=[
                 File('pdf', 'papers/lasvegas.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1704.02054'),
+                File('slides', 'https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit?usp=sharing')
             ]),
         Paper(
             'Parameter-free Locality Sensitive Hashing for Spherical Range Reporting',
