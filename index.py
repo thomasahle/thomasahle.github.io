@@ -34,7 +34,7 @@ class Vars:
             'Optimal Las Vegas Locality Sensitive Data Structures',
             ['thdy'],
             open('abstracts/lasvegas').read(),
-            2017, 'focs', '', files=[
+            2017, 'focs', 'Updated Jun 2018', files=[
                 File('pdf', 'papers/lasvegas.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1704.02054'),
                 File('slides', 'https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit?usp=sharing')
