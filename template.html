@@ -34,7 +34,11 @@
                   {%- endif -%}
                   {%- if not loop.last -%}, {% endif -%}
                {%- endfor %} —
-               {{paper.year}} <br />
+               {{paper.year}}
+               {%- if paper.comment -%}
+                  , <span class="comment">{{paper.comment}}</span>
+               {%- endif -%}
+               <br />
                <strong>{{paper.title}}</strong>.
                {{conferences[paper.conference].name}},
                ({%- for f in paper.files -%}
