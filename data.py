@@ -1,16 +1,20 @@
-from jinja2 import Environment, FileSystemLoader
 from collections import namedtuple
+import datetime
 
-Person = namedtuple('Person', ['name', 'abrv', 'href', 'photo'])
+Person = namedtuple('Person', ['name', 'abrv', 'href', 'photo', 'email'])
 Person.__new__.__defaults__ = ('Anonymous', '', '')
 Paper = namedtuple('Paper', ['title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
 Conference = namedtuple('Conference', ['name'])
 File = namedtuple('File', ['format', 'href'])
 Newspaper = namedtuple('Newspaper', ['name', 'date', 'title', 'href'])
+Award = namedtuple('Award', ['name', 'place', 'giver', 'date'])
+Job = namedtuple('Job', ['title', 'company', 'date'])
 
 class Vars:
+    now = datetime.datetime.now()
+
     authors = {
-        'thdy': Person('Thomas Dybdahl Ahle', 'TA', '/', 'thomas_farve.png'),
+        'thdy': Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/thomas_farve.png', 'thdy@itu.dk'),
         'pagh': Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/'),
         'ilya': Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/'),
         'fran': Person('Francesco Silvestri', 'F Silvestri', 'http://itu.dk/people/fras/'),
@@ -77,7 +81,35 @@ class Vars:
             ),
     ]
 
-env = Environment(loader=FileSystemLoader('.'))
-template = env.get_template('template.html')
-print(template.render(Vars.__dict__))
+    awards = [
+        Award(
+            'Travel Grant', '',
+            'Stibo-Foundation',
+            2016
+            ),
+        Award(
+            'Northwestern Europe Regional Contest', '1st',
+            'Association for Computing Machinery',
+            2014
+            ),
+        Award(
+            'Oxford Computer Science Competition', '1st',
+            'University of Oxford',
+            2013
+            ),
+        Award(
+            'Les Trophées du Libre', '1st',
+            'Free Software Foundation Europe',
+            2007
+            ),
+    ]
+
+    jobs = [
+            Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018'),
+            Job('Teaching', 'IT University of Copenhagen', '2015 - 2016'),
+            Job('Teaching', 'University of Copenhagen', '2014'),
+            Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014'),
+            Job('Software Engineer Intern', 'Palantir', '2012'),
+            Job('Software Engineer', 'XION', '2010-2012'),
+    ]
 

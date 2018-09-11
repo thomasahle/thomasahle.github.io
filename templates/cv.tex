@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfsync}
+\usepackage{enumitem}
+
+% Table spacing
+%  1 is the default, change whatever you need
+\def\arraystretch{1}
+\linespread{1.2}
+\setlength{\tabcolsep}{.8em}
+
+\title{Curriculum vitae}
+\author{\VAR{me.name}}
+\date{\VAR{now.strftime('%B %Y')}}
+\begin{document}
+\maketitle
+
+
+\paragraph{Education}
+\begin{itemize}
+   \item[]
+      2019 (expected)
+      Doctor of Philosophy,
+      IT University of Copenhagen \& University of Copenhagen, DIKU.
+   \item[]
+      2016
+      Master of Science,
+      IT University of Copenhagen.
+   \item[]
+      2013
+      Bachelor of Arts,
+      University of Oxford.
+\end{itemize}
+
+\paragraph{Publications}
+\begin{itemize}
+%% for paper in papers
+   \item[]
+   `\VAR{paper.title}'.
+   \BLOCK{for a in paper.authors -}
+      \VAR{authors[a].abrv}
+      \BLOCK{- if not loop.last}, \BLOCK{endif -}
+   \BLOCK{endfor}
+   at
+   \VAR{conferences[paper.conference].name},
+   \VAR{paper.year}
+%% endfor
+\end{itemize}
+
+\paragraph{Awards and Scholarships}
+\begin{itemize}
+%% for award in awards
+   \item[]
+   `\VAR{award.name}'
+   \BLOCK{- if award.place -}
+      \VAR{award.place}
+   \BLOCK{- endif -},
+   \VAR{award.giver},
+   \VAR{award.date}
+%% endfor
+\end{itemize}
+
+\paragraph{Employment}
+\begin{itemize}
+%% for job in jobs
+   \item[]
+   \VAR{job.title}
+   at
+   \VAR{job.company},
+   \VAR{job.date}
+%% endfor
+\end{itemize}
+
+\paragraph{Contact}
+\begin{itemize}
+   \item[]
+      Email: \VAR{authors['thdy'].email}
+\end{itemize}
+
+\end{document}
