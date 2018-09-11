@@ -10,7 +10,7 @@ Newspaper = namedtuple('Newspaper', ['name', 'date', 'title', 'href'])
 
 class Vars:
     authors = {
-        'thdy': Person('Thomas Dybdahl Ahle', 'TA', '/', 'me.png'),
+        'thdy': Person('Thomas Dybdahl Ahle', 'TA', '/', 'thomas_farve.png'),
         'pagh': Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/'),
         'ilya': Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/'),
         'fran': Person('Francesco Silvestri', 'F Silvestri', 'http://itu.dk/people/fras/'),
