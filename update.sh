@@ -1,4 +1,9 @@
 #!/bin/sh
+
+git add .
+git commit
+git push
+
 python3 -m pip install --upgrade pip
 mkdir compiled
 
@@ -11,12 +16,6 @@ cd ..
 
 scp compiled/index.html ssh.itu.dk:~/public_html/
 scp compiled/cv.pdf ssh.itu.dk:~/public_html/
-scp -R static/ ssh.itu.dk:~/public_html/
+scp -r static/ ssh.itu.dk:~/public_html/
 
-rm compiled/*
-rmdir compiled
-
-git add .
-git commit
-git push
 

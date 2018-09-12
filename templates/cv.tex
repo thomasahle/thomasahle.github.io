@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[left=4cm, right=4cm, top=3cm, bottom=4cm]{geometry}
 \usepackage{pdfsync}
 \usepackage{enumitem}
 
@@ -21,11 +22,11 @@
    \item[]
       2019 (expected)
       Doctor of Philosophy,
-      IT University of Copenhagen \& University of Copenhagen, DIKU.
+      IT University of Copenhagen.
    \item[]
       2016
       Master of Science,
-      IT University of Copenhagen.
+      IT University of Copenhagen \& University of Copenhagen, DIKU.
    \item[]
       2013
       Bachelor of Arts,
@@ -36,14 +37,15 @@
 \begin{itemize}
 %% for paper in papers
    \item[]
-   `\VAR{paper.title}'.
-   \BLOCK{for a in paper.authors -}
-      \VAR{authors[a].abrv}
+   ``\VAR{paper.title}''.
+   By
+   \BLOCK{for a in paper.authors}
+      \VAR{me.name if authors[a]==me else authors[a].abrv}
       \BLOCK{- if not loop.last}, \BLOCK{endif -}
    \BLOCK{endfor}
    at
    \VAR{conferences[paper.conference].name},
-   \VAR{paper.year}
+   \VAR{paper.year}.
 %% endfor
 \end{itemize}
 
@@ -51,12 +53,12 @@
 \begin{itemize}
 %% for award in awards
    \item[]
-   `\VAR{award.name}'
-   \BLOCK{- if award.place -}
-      \VAR{award.place}
-   \BLOCK{- endif -},
+   \VAR{award.name},
+   \BLOCK{if award.place}
+      \VAR{award.place},
+   \BLOCK{endif}
    \VAR{award.giver},
-   \VAR{award.date}
+   \VAR{award.date}.
 %% endfor
 \end{itemize}
 
@@ -67,14 +69,14 @@
    \VAR{job.title}
    at
    \VAR{job.company},
-   \VAR{job.date}
+   \VAR{job.date}.
 %% endfor
 \end{itemize}
 
 \paragraph{Contact}
 \begin{itemize}
    \item[]
-      Email: \VAR{authors['thdy'].email}
+      Email: \VAR{authors['thdy'].email}.
 \end{itemize}
 
 \end{document}
