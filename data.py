@@ -18,17 +18,15 @@ class Vars:
 
     authors = {
         'thdy':
-        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/thomas_farve.png',
-               'thdy@itu.dk')
+        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/thomas_farve.png', 'thdy@itu.dk')
         , 'pagh':
         Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/')
         , 'ilya':
         Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
         , 'fran':
-        Person('Francesco Silvestri', 'F Silvestri',
-               'http://itu.dk/people/fras/')
+        Person('Francesco Silvestri', 'F Silvestri', 'http://itu.dk/people/fras/')
         , 'maau':
-        Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/'),
+        Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/')
         , 'jbtk':
         Person('Jakob Bæk Tejs Knudsen', 'J Knudsen', 'https://di.ku.dk/english/staff/?pure=en/persons/493157'),
     }
@@ -42,7 +40,7 @@ class Vars:
         'subm': Conference('Submitted'),
         'soda': Conference('Proceedings of Symposium on Discrete Algorithms'),
         'pods': Conference('Symposium on Principles of Database Systems'),
-        'focs': Conference('Foundations of Computer Science')
+        'focs': Conference('Foundations of Computer Science'),
         'icalp': Conference('International Colloquium on Automata, Languages and Programming')
     }
 
