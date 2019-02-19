@@ -19,16 +19,18 @@ class Vars:
     authors = {
         'thdy':
         Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/thomas_farve.png',
-               'thdy@itu.dk'),
-        'pagh':
-        Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/'),
-        'ilya':
-        Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/'),
-        'fran':
+               'thdy@itu.dk')
+        , 'pagh':
+        Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/')
+        , 'ilya':
+        Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
+        , 'fran':
         Person('Francesco Silvestri', 'F Silvestri',
-               'http://itu.dk/people/fras/'),
-        'maau':
+               'http://itu.dk/people/fras/')
+        , 'maau':
         Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/'),
+        , 'jbtk':
+        Person('Jakob Bæk Tejs Knudsen', 'J Knudsen', 'https://di.ku.dk/english/staff/?pure=en/persons/493157'),
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -41,9 +43,19 @@ class Vars:
         'soda': Conference('Proceedings of Symposium on Discrete Algorithms'),
         'pods': Conference('Symposium on Principles of Database Systems'),
         'focs': Conference('Foundations of Computer Science')
+        'icalp': Conference('International Colloquium on Automata, Languages and Programming')
     }
 
     papers = [
+        Paper(
+            'High Probability Tensor Sketch', ['thdy', 'jbtk'],
+            open('abstracts/tensorsketch2').read(),
+            2019,
+            'subm',
+            '',
+            files=[
+                File('pdf', 'papers/tensorsketch2.pdf'),
+            ]),
         Paper(
             'Optimal Las Vegas Locality Sensitive Data Structures', ['thdy'],
             open('abstracts/lasvegas').read(),

@@ -1,0 +1,13 @@
+We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form x = x^(1) ⊗ ... ⊗ x^(c) ∈ ℝ^(d^c)$ in time nearly c⋅d.
+That is, exponentially faster than writing out the Kronecker product and then mapping down.
+
+These matrices, M, which preserves the norm of any x ∈ ℝ^(d^c), such that |||Mx||_2-||x|||_2 < ε with probability  1-δ , can be taken to have just  Õ(c^2 ε^-2 (log1/δ)^3)  rows.
+This is within c^2 (\log1/δ)^2  of optimal for any JL matrix [Larsen & Nelson], and improves upon earlier 'Tensor Sketch' constructions by Pagh and Pham, which used  Õ(3^c ε^-2 δ-1)  rows, by an exponential amount in both  c  and  δ^-1 .
+
+It was shown by Avron, Nguyen and Woodruff that Tensor Sketch is a subspace embedding.
+This has a large number of applications, such as guaranteeing the correctness of kernel-linear regression performed directly on the reduced vectors.
+We show that our construction is a subspace embedding too, improving again upon the exponential dependency on  c  and  δ-1 , enabling sketching of much higher order polynomial kernels, such as Taylor approximations to the ubiquitous Gaussian radial basis function.
+
+Technically, we construct our matrix  M  such that  M(x ⊗ y) = Tx ∘ T'y$ where  ∘  is the Hadamard (element-wise) product and  T  and  T'  support fast matrix-vector multiplication ala [Ailon Chazelle].
+To analyze the behavior of  Mx  on non-simple  x , we show a higher order version of Khintchine's inequality, related to the higher order Gaussian chaos analysis by Latała.
+Finally we show that such sketches can be combined recursively, in a way that doesn't increase the dependency on  c  by much.
