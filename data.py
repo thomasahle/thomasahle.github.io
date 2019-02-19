@@ -24,7 +24,7 @@ class Vars:
         , 'ilya':
         Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
         , 'fran':
-        Person('Francesco Silvestri', 'F Silvestri', 'http://itu.dk/people/fras/')
+        Person('Francesco Silvestri', 'F Silvestri', 'http://www.dei.unipd.it/~silvestri/')
         , 'maau':
         Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/')
         , 'jbtk':
