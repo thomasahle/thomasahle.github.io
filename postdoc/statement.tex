@@ -39,6 +39,8 @@ Anything nontrivial for the exact version would imply a breakthrough in the $k$-
 Meanwhile the approximate version turns out to be feasible using so called Locality Sensitive Hashing (LSH) in which one designs a good partition of the vector space which is used for bucketing of the data points.
 In practice the resulting algorithms are often useful for exact nearest neighbour as well, since in many pratical data sets the nearest neighbour is nearest by a large margin.
 
+\paragraph{Sketching.} In~TODO, together with Jakob Tejs Bæk Knudsen we show how to make Tensor Sketch much faster.
+
 \paragraph{Impossibility.} In~\cite{ahle2016complexity} I showed together with Rasmus Pagh, Francesco Silvestri, and Ilya Razenshteyn that even approximate nearest neighbour can be hard. (Meaning queries have to take time equal to brute force, given sub-exponential space for the data structure.) We showed this for the problem of “Maximum Inner Product” search, which is used in many practical applications such as multi-label linear classifiers.
 We showed this by reducing the approximate inner product search problem to the Strong Exponential Time Hypothesis (SETH), which had previously been used for reductions from other exact problems, but not from approximate ones.
 This work was later extended by the seminal work~\cite{DBLP:journals/corr/AbboudR17}, which today lays the foundation for all approximative SETH lower bounds.

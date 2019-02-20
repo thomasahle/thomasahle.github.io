@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet">
   <link rel="stylesheet" href="static/style.css">
+  {% include 'static/tagmanager_head.html' %}
   <script src="static/script.js"></script>
   <title>{{me.name}}</title>
 </head>
 <body>
    {% include 'static/analyticstracking.html' %}
+   {% include 'static/tagmanager_body.html' %}
    <h1>{{me.name}}</h1>
    <div id='main'>
       <p>
