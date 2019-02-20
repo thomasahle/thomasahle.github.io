@@ -27,7 +27,7 @@
       <ul id="publications">
       {%- for paper in papers -%}
          <li>
-            <div class='shown'>
+            <div class='shown' id='paper-{{paper.tag}}'>
                {%- for a in paper.authors -%}
                   {%- if authors[a] != me -%}
                      <a href='{{authors[a].href}}'>{{authors[a].abrv}}</a>
@@ -44,7 +44,9 @@
                <strong>{{paper.title}}</strong>.
                {{conferences[paper.conference].name}},
                ({%- for f in paper.files -%}
-                  <a href='{{f.href}}'>{{f.format}}</a>
+                  <a href='{{f.href}}'
+                     onclick="dataLayer.push({'event': 'download_{{paper.tag}}_{{f.format}}'});"
+                     >{{f.format}}</a>
                   {%- if not loop.last -%} , {% endif -%}
                {%- endfor -%})
             </div>

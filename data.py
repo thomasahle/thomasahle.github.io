@@ -5,7 +5,7 @@ Person = namedtuple('Person', ['name', 'abrv', 'href', 'photo', 'email'])
 Person.__new__.__defaults__ = ('Anonymous', '', '')
 Paper = namedtuple(
     'Paper',
-    ['title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
+    ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
 Conference = namedtuple('Conference', ['name'])
 File = namedtuple('File', ['format', 'href'])
 Newspaper = namedtuple('Newspaper', ['name', 'date', 'title', 'href'])
@@ -46,6 +46,7 @@ class Vars:
 
     papers = [
         Paper(
+            'tensorsketch2',
             'High Probability Tensor Sketch', ['thdy', 'jbtk'],
             open('abstracts/tensorsketch2').read(),
             2019,
@@ -55,6 +56,7 @@ class Vars:
                 File('pdf', 'papers/tensorsketch2.pdf'),
             ]),
         Paper(
+            'lasvegas',
             'Optimal Las Vegas Locality Sensitive Data Structures', ['thdy'],
             open('abstracts/lasvegas').read(),
             2017,
@@ -69,6 +71,7 @@ class Vars:
                 )
             ]),
         Paper(
+            'output-sensitive',
             'Parameter-free Locality Sensitive Hashing for Spherical Range Reporting',
             ['thdy', 'maau', 'pagh'],
             open('abstracts/output-sensitive-lsh-for-knn').read(),
@@ -84,6 +87,7 @@ class Vars:
                 )
             ]),
         Paper(
+            'mips',
             'On the Complexity of Inner Product Similarity Join',
             ['thdy', 'pagh', 'ilya', 'fran'],
             open('abstracts/mips').read(),
