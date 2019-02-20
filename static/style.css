@@ -8,6 +8,7 @@ body {
   margin-right: auto;
   display: flex;
   flex-flow: row wrap;
+  background: #fcfcfc;
 }
 h1 {
    flex: 1 100%;
@@ -34,12 +35,20 @@ ul {
 }
 #publications li {
    border: 1px solid rgba(0,0,0,.1);
-   box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);
+   box-shadow: 0px 1px 2px 0px rgba(0,0,0,.05);
    border-radius: 2px;
    margin-bottom: 10px;
+   background: #fdfdfd;
+}
+#publications li:hover {
+   box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);
+   background: white;
+}
+#publications li:active {
+   background: #fafafa;
 }
 .shown {
-   padding: 5px 10px;
+   padding: 8px 10px;
 }
 .abstract {
    border-top: 1px solid rgba(0,0,0,.1);
