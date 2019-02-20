@@ -11,4 +11,11 @@ window.onload = function () {
           }
       }
    }
+   var img = document.getElementById('me');
+   img.onmouseover = function() {
+     img.setAttribute('src', 'static/water.jpg');
+   }
+   img.onmouseout = function() {
+     img.setAttribute('src', 'static/thomas_farve.png');
+   }
 }
