@@ -8,7 +8,7 @@ Paper = namedtuple(
     ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
 Conference = namedtuple('Conference', ['name'])
 File = namedtuple('File', ['format', 'href'])
-Newspaper = namedtuple('Newspaper', ['name', 'date', 'title', 'href'])
+Newspaper = namedtuple('Newspaper', ['name', 'date', 'title', 'href', 'description'])
 Award = namedtuple('Award', ['name', 'place', 'giver', 'date'])
 Job = namedtuple('Job', ['title', 'company', 'date'])
 
@@ -107,16 +107,20 @@ class Vars:
     media = [
         Newspaper(
             'Stibo', 'August 2016', 'The Stibo-Foundation supports IT-talents',
-            'http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/'
+            'http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/',
+            'The announcement of my winning the Stibo Travel grant.'
         ),
         Newspaper(
             'Pressreader', 'December 2015', 'Python: Sunfish chess engine',
-            'http://www.pressreader.com/australia/linux-format/20151222/282802125292910'
+            'http://www.pressreader.com/australia/linux-format/20151222/282802125292910',
+            'A article about my Sunfish chess software.'
         ),
         Newspaper(
             'Computerworld', 'June 2015',
             'Med landsholdet i programmering til VM: Kodesport gør dig mere præcis',
-            'http://www.computerworld.dk/art/234196'),
+            'http://www.computerworld.dk/art/234196',
+            'Coverage of my teams participation in the ICPC World Finals.'
+            ),
     ]
 
     awards = [

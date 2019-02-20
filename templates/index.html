@@ -15,13 +15,29 @@
    <h1>{{me.name}}</h1>
    <div id='main'>
       <p>
-         Hi, I'm Thomas. I am a graduate student in Theoretical Computer Science with <a href='{{authors['pagh'].href}}'>Rasmus Pagh</a>, since 2015 at the IT University of Copenhagen.
-      </p><p>
-        My research has primarily involved the theoretical foundations of massive data, similarity search (which is also my primary funding through <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a>), high dimensional geometry, communication and conditional lower bounds, sublinear algorithms and intrinsic dimensionality.
-      </p><p>
-        Previously I have been at University of Copenhagen and University of Oxford.
+         Hi, I'm Thomas. I am a graduate student in Theoretical Computer Science with <a href='{{authors['pagh'].href}}'>Rasmus Pagh</a> at the IT University of Copenhagen,
+         and a researcher at <a href='https://barc.ku.dk/'>Basic Algorithms Research Copenhagen</a>.
+        Previously I have been at University of Texas at Austin, and University of Oxford.
         <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
+      </p><p>
+        My research has primarily involved the theoretical foundations of massive data, similarity search (which is also my primary funding through <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a>), high dimensional geometry, sketching and derandomization.
+        See also my <a href='statement.pdf'>research program</a>.
       </p>
+
+      <h2>News</h2>
+      <dl>
+         <dt>1/feb/19</dt>
+         <dd>The date for handing in my PhD. is now set at April 1st.
+               I am interested in hearing about Post Doc positions anywhere in the world.
+         </dd>
+         <dt>1/oct/18</dt>
+         <dd>I have decided to leave SupWiz and return to Academia.
+            Looking forward to work with everyone!
+         </dd>
+         <dt>1/sep/18</dt>
+         <dd>I am taking a 1 year sabatical to start up a new Machine Learning company, <a href='https://supwiz.com'>SupWiz</a>, with former research collegues.
+         </dd>
+      </dl>
 
       <h2>Publications</h2>
       <ul id="publications">
@@ -58,7 +74,7 @@
       <h2>Media</h2>
       <ul>
          {%- for m in media -%}
-            <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}</li>
+         <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}.<br/>{{m.description}}</li>
          {%- endfor -%}
       </ul>
 
@@ -68,6 +84,8 @@
          <li><a href='http://pychess.org/'>PyChess</a> - a chess engine and Internet chess client</li>
          <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> - a minimalist chess engine</li>
          <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> - a fast solver for numberlink puzzles</li>
+         <li><a href='https://github.com/thomasahle/codenames'>codenames</a> - an AI that plays Codenames using Glove vectors.
+         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> - an experiment into using the Fasttext library to play chess.
       </ul>
 
    </div>
