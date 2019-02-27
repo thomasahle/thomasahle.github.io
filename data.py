@@ -104,6 +104,46 @@ class Vars:
             ])
     ]
 
+    manuscripts = [
+        Paper(
+            'verification',
+            'It is NP-hard to verify an LSF on the sphere',
+            ['thdy'],
+            'We show a reduction from verifying that an LSF family `covers` the sphere, in the sense of Las Vegas LSF, to 3-sat.',
+            2017,
+            '',
+            '',
+            files=[
+                File('pdf', 'papers/verification.pdf')
+            ]),
+        Paper(
+            'minhash',
+            'Minhash without false negatives',
+            ['thdy'],
+            open('abstracts/minhash').read(),
+            2017,
+            '', # Not published
+            'Master thesis',
+            files=[
+                File('pdf', 'papers/minhash.pdf'),
+                File(
+                    'slides',
+                    'https://docs.google.com/presentation/d/1oT-L5EON7ZCVScuYRoMzVHxf7x2Y6cig8deQXMmpP0I/edit?usp=sharing'
+                )
+            ]),
+        Paper(
+            'tails',
+            'Asymptotic Tail Bound and Applications',
+            ['thdy'],
+            open('abstracts/tails').read(),
+            2017,
+            '', # Not published
+            '',
+            files=[
+                File('pdf', 'papers/tails.pdf'),
+            ]),
+    ]
+
     media = [
         Newspaper(
             'Stibo', 'August 2016', 'The Stibo-Foundation supports IT-talents',

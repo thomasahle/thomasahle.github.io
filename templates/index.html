@@ -39,37 +39,39 @@
          </dd>
       </dl>
 
-      <h2>Publications</h2>
-      <ul id="publications">
-      {%- for paper in papers -%}
-         <li>
-            <div class='shown' id='paper-{{paper.tag}}'>
-               {%- for a in paper.authors -%}
-                  {%- if authors[a] != me -%}
-                     <a href='{{authors[a].href}}'>{{authors[a].abrv}}</a>
-                  {%- else -%}
-                     {{me.abrv}}
+      {% for type, articles in [('Publications', papers), ('Manuscripts', manuscripts)] %}
+         <h2>{{type}}</h2>
+         <ul class="publications">
+         {%- for paper in articles -%}
+            <li>
+               <div class='shown' id='paper-{{paper.tag}}'>
+                  {%- for a in paper.authors -%}
+                     {%- if authors[a] != me -%}
+                        <a href='{{authors[a].href}}'>{{authors[a].abrv}}</a>
+                     {%- else -%}
+                        {{me.abrv}}
+                     {%- endif -%}
+                     {%- if not loop.last -%}, {% endif -%}
+                  {%- endfor %} —
+                  {{paper.year}}
+                  {%- if paper.comment -%}
+                     , <span class="comment">{{paper.comment}}</span>
                   {%- endif -%}
-                  {%- if not loop.last -%}, {% endif -%}
-               {%- endfor %} —
-               {{paper.year}}
-               {%- if paper.comment -%}
-                  , <span class="comment">{{paper.comment}}</span>
-               {%- endif -%}
-               <br />
-               <strong>{{paper.title}}</strong>.
-               {{conferences[paper.conference].name}},
-               ({%- for f in paper.files -%}
-                  <a href='{{f.href}}'
-                     onclick="dataLayer.push({'event': 'download_{{paper.tag}}_{{f.format}}'});"
-                     >{{f.format}}</a>
-                  {%- if not loop.last -%} , {% endif -%}
-               {%- endfor -%})
-            </div>
-            <div class='abstract'>{{paper.abstract}}</div>
-         </li>
-      {%- endfor -%}
-      </ul>
+                  <br />
+                  <strong>{{paper.title}}</strong>.
+                  {{conferences[paper.conference].name}},
+                  ({%- for f in paper.files -%}
+                     <a href='{{f.href}}'
+                        onclick="dataLayer.push({'event': 'download_{{paper.tag}}_{{f.format}}'});"
+                        >{{f.format}}</a>
+                     {%- if not loop.last -%} , {% endif -%}
+                  {%- endfor -%})
+               </div>
+               <div class='abstract'>{{paper.abstract}}</div>
+            </li>
+         {%- endfor -%}
+         </ul>
+      {% endfor %}
 
       <h2>Media</h2>
       <ul>

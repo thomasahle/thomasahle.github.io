@@ -37,18 +37,18 @@ dd {
    font-style: italic;
    margin-left: 2em;
 }
-#publications li {
+.publications li {
    border: 1px solid rgba(0,0,0,.1);
    box-shadow: 0px 1px 2px 0px rgba(0,0,0,.05);
    border-radius: 2px;
    margin-bottom: 10px;
    background: #fdfdfd;
 }
-#publications li:hover {
+.publications li:hover {
    box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);
    background: white;
 }
-#publications li:active {
+.publications li:active {
    background: #fafafa;
 }
 .shown {
