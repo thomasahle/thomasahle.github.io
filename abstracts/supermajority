@@ -1,0 +1,4 @@
+   We consider the problem of designing Locality Sensitive Filters (LSF) for set overlaps, also known as maximum inner product search on binary data.
+   We give a simple data structure that generalizes and outperforms previous algorithms such as MinHash [J. Discrete Algorithms 1998], SimHash [STOC 2002], Spherical LSF [SODA 2017] and Chosen Path [STOC 2017];
+   and we show matching lower bounds using hypercontractive inequalities for a wide range of space/time trade-offs.
+   This answers the main open question in Christiani and Pagh [STOC 2017] on unifying the landscape of Locality Sensitive (non-data-dependent) set similarity search.

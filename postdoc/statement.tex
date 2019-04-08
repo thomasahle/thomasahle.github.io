@@ -76,7 +76,7 @@ From a theoretical side, proving optimality in this range requires new, sharper 
 A natural continuation of my work in~\cite{ahle2017optimal} is to make a completely deterministic LSH data structure with little or no loss in the various performance parameters.
 
 \paragraph{Unified theory of LSH metrics.}
-We now really promising results in LSH for symmetric norms~\cite{DBLP:journals/siamcomp/AndoniKR18}.
+We now have really promising results in LSH for symmetric norms~\cite{DBLP:journals/siamcomp/AndoniKR18}.
 It is however not clear if their approximation factors are optimal, and lots of work still has to be done before this important work becomes near practical - or the tradeoffs are properly understood.
 Going beyond normed spacers, there are a large number of metrics we don’t have any good data structures for.
 Important examples are edit distance and earth mover distance, which are prevailing in both computational biology and natural language processing.
@@ -84,14 +84,14 @@ Other metrics are implicitly induced by neural networks, and similar modern mach
 
 \paragraph{Nearest Neighbours beyond LSH.}
 While modern LSH data structures have been improved using so called ``data dependency''~\cite{DBLP:journals/corr/AndoniR15, DBLP:conf/stoc/AndoniNNRW18}, the basic algorithm hasn’t changed since Indyk and Motwani.
-Using LSH for Approximate Closest Pair yields a $n^{1+eps}$ algorithm, but we know that algebraic algorithms allow an $n^{1+eps^{1/3}}$ algorithm~\cite{DBLP:journals/corr/AlmanCW16}.
+Using LSH for Approximate Closest Pair yields a $n^{1-\Omega(\epsilon)}$ algorithm, but we know that algebraic algorithms allow an $n^{1-\Omega(\epsilon^{1/3})}$ algorithm~\cite{DBLP:journals/corr/AlmanCW16}.
 It is a very interesting open problem whether these techniques generalizes to data structures, or conversely, if lower bounds can be shown separating Closest Pair from Nearest Neighbour.
 
 \section{Other work}
 
 During my undergrad at University of Oxford I was focused on programming languages and artificial intelligence.
 I started multiple open source chess engines, some projects of which I am still managing today.
-Eventually I got into programming competitions, which stoked my interest in algorithms.
+Eventually I got into programming competitions, which sparked my interest in algorithms.
 I since helped mentor young students wanting to take a similar path into theoretical computer science.
 
 \bibliographystyle{apalike}

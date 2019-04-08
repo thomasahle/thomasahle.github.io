@@ -46,6 +46,16 @@ class Vars:
 
     papers = [
         Paper(
+            'supermajority',
+            'Subsets and Supermajorities: Unifying Hashing-based Set Similarity Search', ['thdy'],
+            open('abstracts/supermajority').read(),
+            2019,
+            'subm',
+            '',
+            files=[
+                File('pdf', 'papers/supermajority.pdf'),
+            ]),
+        Paper(
             'tensorsketch2',
             'High Probability Tensor Sketch', ['thdy', 'jbtk'],
             open('abstracts/tensorsketch2').read(),
