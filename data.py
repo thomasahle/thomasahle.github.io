@@ -54,6 +54,7 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/supermajority.pdf'),
+                File('arxiv', 'http://arxiv.org/abs/1904.04045'),
             ]),
         Paper(
             'tensorsketch2',
@@ -64,7 +65,6 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/tensorsketch2.pdf'),
-                File('arxiv', 'http://arxiv.org/abs/1904.04045'),
             ]),
         Paper(
             'lasvegas',
