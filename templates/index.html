@@ -76,7 +76,15 @@
       <h2>Media</h2>
       <ul>
          {%- for m in media -%}
-         <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}.<br/>{{m.description}}</li>
+         <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}.
+            "{{m.title}}."
+            <br/>{{m.description}}
+            {% for f in m.files -%}
+               <a href='{{f.href}}'
+                  onclick="dataLayer.push({'event': 'downloadmedia_{{f.format}}'});"
+                  >[{{f.format}}]</a>
+            {%- endfor -%}
+         </li>
          {%- endfor -%}
       </ul>
 
