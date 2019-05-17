@@ -82,7 +82,7 @@
             {% for f in m.files -%}
                <a href='{{f.href}}'
                   onclick="dataLayer.push({'event': 'downloadmedia_{{f.format}}'});"
-                  >[{{f.format}}]</a>
+                  >({{f.format}})</a>
             {%- endfor -%}
          </li>
          {%- endfor -%}
