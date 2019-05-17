@@ -8,9 +8,9 @@ Paper = namedtuple(
     ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
 Conference = namedtuple('Conference', ['name'])
 File = namedtuple('File', ['format', 'href'])
-Newspaper = namedtuple('Newspaper', ['name', 'date', 'title', 'href', 'description', 'files'])
-Award = namedtuple('Award', ['name', 'place', 'giver', 'date'])
-Job = namedtuple('Job', ['title', 'company', 'date'])
+Newspaper = namedtuple('Newspaper', ['author', 'name', 'date', 'title', 'href', 'description', 'files'])
+Award = namedtuple('Award', ['name', 'place', 'giver', 'date', 'description'])
+Job = namedtuple('Job', ['title', 'company', 'date', 'description'])
 
 
 class Vars:
@@ -157,18 +157,23 @@ class Vars:
 
     media = [
         Newspaper(
-            'Stibo', 'August 2016', 'The Stibo-Foundation supports IT-talents',
+            '',
+            'Stibo', 'August 2016',
+            'The Stibo-Foundation supports IT-talents',
             'http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/',
             'The announcement of my winning the Stibo Travel grant.'
             , files=[]
         ),
         Newspaper(
-            'Pressreader', 'December 2015', 'Python: Sunfish chess engine',
+            'Bidwell, Jonni',
+            'Linux Format', 'January 2016',
+            'Python: Sunfish chess engine',
             'http://www.pressreader.com/australia/linux-format/20151222/282802125292910',
             'Article about my Sunfish chess software.'
             , files=[File('pdf','papers/sunfish.pdf')]
         ),
         Newspaper(
+            '',
             'Computerworld', 'June 2015',
             'Med landsholdet i programmering til VM: Kodesport gør dig mere præcis',
             'http://www.computerworld.dk/art/234196',
@@ -178,20 +183,38 @@ class Vars:
     ]
 
     awards = [
-        Award('Travel Grant', '', 'Stibo-Foundation', 2016),
-        Award('Northwestern Europe Regional Contest', '1st',
-              'Association for Computing Machinery', 2014),
+        Award('Research Travel Grant', '', 'Stibo-Foundation', 2016,
+              'Given to just two Danish students a year, to collaborate in research abroad.'),
+        Award('Northwestern Europe Regional Programming Contest', '1st',
+              'Association for Computing Machinery', 2014,
+              'With my team Lambdabamserne, becoming the first ever Danish team to qualify for the ACM wold finals.'),
         Award('Oxford Computer Science Competition', '1st',
-              'University of Oxford', 2013),
+              'University of Oxford', 2013,
+              'For my Numberlink solving software, giving the first fixed parameter polynomial algorithm for the problem.'),
         Award('Les Trophées du Libre', '1st',
-              'Free Software Foundation Europe', 2007),
+              'Free Software Foundation Europe', 2007,
+              'For my work on the PyChess free software chess suite.'),
     ]
 
     jobs = [
-        Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018'),
-        Job('Teaching', 'IT University of Copenhagen', '2015 - 2016'),
-        Job('Teaching', 'University of Copenhagen', '2014'),
-        Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014'),
-        Job('Software Engineer Intern', 'Palantir', '2012'),
-        Job('Software Engineer', 'XION', '2010-2012'),
+        Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018',
+            '''I co-founded an NLP start-up with academics from University of Copenhagen.
+               At SupWiz I lead a team of four in developing our chatbot software and putting it into production at three of the largest Danish IT companies.
+               In 2019 the chatbot won the most prestigious prize given by Innovation Fund Denmark.
+               I was also responsible for our hiring efforts, interviewing dozens and employing four engineers over a 5 month period.
+               '''),
+        Job('Teaching', 'IT University of Copenhagen', '2015 - 2019',
+            '''In 2019 I taught Parallel and Concurrent Programming to 100 master students.
+               Earlier years I TA'ed in various algorithms design classes.
+            '''),
+        Job('Teaching', 'University of Copenhagen', '2014',
+            '''I assisted in teaching algorithms to bachelor students.'''),
+        Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
+            '''I developed internal debugging tools for our high throughput ion channel screening machines.'''),
+        Job('Software Engineer Intern', 'Palantir', '2012',
+            '''The Palantir Metropolis software suite was being ported to the web.
+               I made the initial version, rewriting front end Java code in Javascript and generalizing backend services as public facing APIs.'''),
+        Job('Software Engineer', 'XION', '2010-2012',
+            '''I Developed the most popular Danish TV-listings app for Android at the time.
+               This included scrapers to gather TV information from hundreds of channels (consensually) and serving it on a REST API.'''),
     ]
