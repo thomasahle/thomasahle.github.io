@@ -18,7 +18,7 @@ class Vars:
 
     authors = {
         'thdy':
-        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/thomas_farve.png', 'thdy@itu.dk')
+        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/potrait.jpg', 'thdy@itu.dk')
         , 'pagh':
         Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/')
         , 'ilya':
@@ -180,10 +180,17 @@ class Vars:
             'Coverage of my teams participation in the ICPC World Finals.'
             , files=[]
             ),
+        Newspaper(
+            'Elkær, Mads',
+            'Computerworld', 'October 2013',
+            'Her er Danmarks tre bedste programmører',
+            'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
+            '', files=[]
+            )
     ]
 
     awards = [
-        Award('Research Travel Grant', '', 'Stibo-Foundation', 2016,
+        Award('Research Travel Award', '', 'Stibo-Foundation', 2016,
               'Given to just two Danish students a year, to collaborate in research abroad.'),
         Award('Northwestern Europe Regional Programming Contest', '1st',
               'Association for Computing Machinery', 2014,

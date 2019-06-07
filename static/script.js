@@ -16,6 +16,6 @@ window.onload = function () {
      img.setAttribute('src', 'static/water.jpg');
    }
    img.onmouseout = function() {
-     img.setAttribute('src', 'static/thomas_farve.png');
+     img.setAttribute('src', 'static/potrait.jpg');
    }
 }
