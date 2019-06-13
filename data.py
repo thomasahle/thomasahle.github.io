@@ -55,6 +55,7 @@ class Vars:
             files=[
                 File('pdf', 'papers/supermajority.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1904.04045'),
+                File('slides', 'https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE')
             ]),
         Paper(
             'tensorsketch2',
@@ -78,7 +79,7 @@ class Vars:
                 File('arxiv', 'http://arxiv.org/abs/1704.02054'),
                 File(
                     'slides',
-                    'https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit?usp=sharing'
+                    'https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit'
                 )
             ]),
         Paper(
