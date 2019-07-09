@@ -33,27 +33,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <h1>Thomas Dybdahl Ahle</h1>
    <div id='main'>
       <p>
-         Hi, I'm Thomas. I am a graduate student in Theoretical Computer Science with <a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a> at the IT University of Copenhagen,
-         and a researcher at <a href='https://barc.ku.dk/'>Basic Algorithms Research Copenhagen</a>.
-        Previously I have been at University of Texas at Austin, and University of Oxford.
+         Hi, I'm Thomas. I am a Postdoctoral researcher in Theoretical Computer Science at the IT University of Copenhagen and at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC).
+         I did my PhD with <a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
+        previously I have been at University of Texas at Austin, and University of Oxford.
         <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
       </p><p>
-        My research has primarily involved the theoretical foundations of massive data, similarity search (which is also my primary funding through <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a>), high dimensional geometry, sketching and derandomization.
+        My research has primarily involved the theoretical foundations of massive data, similarity search, high dimensional geometry, sketching and derandomization.
         See also my <a href='statement.pdf'>research program</a>.
       </p>
 
       <h2>News</h2>
       <dl>
+         <dt>17/jun/19</dt>
+         <dd>Just defended my PhD! (<a href='https://drive.google.com/open?id=1uGgt99QaP1_SdLWilqksnbqK1en3eSDoCjJMazVattY'>slides</a>) Thanks to everyone who came and to <a href='http://people.eecs.berkeley.edu/~minilek/'>Jelani Nelson</a>, <a href='https://www.itu.dk/people/rikj/'>Riko Jacob</a> and <a href='http://www.imm.dtu.dk/~inge/'>Inge Li Gørtz</a> for being on the comity!
+         </dd>
          <dt>1/feb/19</dt>
          <dd>The date for handing in my PhD. is now set at April 1st.
                I am interested in hearing about Post Doc positions anywhere in the world.
          </dd>
          <dt>1/oct/18</dt>
          <dd>I have decided to leave SupWiz and return to Academia.
-            Looking forward to work with everyone!
+            Looking forward to working with everyone!
          </dd>
          <dt>1/sep/17</dt>
-         <dd>I am taking a 1 year sabatical to start up a new Machine Learning company, <a href='https://supwiz.com'>SupWiz</a>, with former research collegues.
+         <dd>I am taking a 1 year sabbatical to start up a new Natural Language Processing company, <a href='https://supwiz.com'>SupWiz</a>, with former research colleagues.
          </dd>
       </dl>
 
@@ -68,7 +71,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         onclick="dataLayer.push({'event': 'download_supermajority_pdf'});"
                         >pdf</a>, <a href='http://arxiv.org/abs/1904.04045'
                         onclick="dataLayer.push({'event': 'download_supermajority_arxiv'});"
-                        >arxiv</a>)
+                        >arxiv</a>, <a href='https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE'
+                        onclick="dataLayer.push({'event': 'download_supermajority_slides'});"
+                        >slides</a>)
                </div>
                <div class='abstract'>   We consider the problem of designing Locality Sensitive Filters (LSF) for set overlaps, also known as maximum inner product search on binary data.
    We give a simple data structure that generalizes and outperforms previous algorithms such as MinHash [J. Discrete Algorithms 1998], SimHash [STOC 2002], Spherical LSF [SODA 2017] and Chosen Path [STOC 2017];
@@ -76,27 +81,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    This answers the main open question in Christiani and Pagh [STOC 2017] on unifying the landscape of Locality Sensitive (non-data-dependent) set similarity search.
 </div>
             </li><li>
-               <div class='shown' id='paper-tensorsketch2'>TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a> —
+               <div class='shown' id='paper-tensorsketch-joint'>TA, <a href='https://theory.epfl.ch/kapralov/'>M Kapralov</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a>, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a>, <a href='http://www.cs.cmu.edu/~avelingk/'>A Velingker</a>, <a href='http://www.cs.cmu.edu/~dwoodruf/'>D Woodruff</a>, <a href='https://people.epfl.ch/amir.zandieh'>A Zandieh</a> —
                   2019<br />
-                  <strong>High Probability Tensor Sketch</strong>.
+                  <strong>Oblivious Sketching of High-Degree Polynomial Kernels</strong>.
                   Submitted,
-                  (<a href='papers/tensorsketch2.pdf'
-                        onclick="dataLayer.push({'event': 'download_tensorsketch2_pdf'});"
+                  (<a href='papers/tensorsketch-joint.pdf'
+                        onclick="dataLayer.push({'event': 'download_tensorsketch-joint_pdf'});"
                         >pdf</a>)
                </div>
-               <div class='abstract'>We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form x = x^(1) ⊗ ... ⊗ x^(c) ∈ ℝ^(dᶜ)$ in time nearly c⋅d.
-That is, exponentially faster than writing out the Kronecker product and then mapping down.
-
-These matrices, M, which preserves the norm of any x ∈ ℝ^(d^c), such that | ||Mx||₂ - ||x||₂ | < ε with probability  1-δ , can be taken to have just  Õ(c² ε⁻² (log1/δ)³)  rows.
-This is within c² (\log1/δ)²  of optimal for any JL matrix [Larsen & Nelson], and improves upon earlier 'Tensor Sketch' constructions by Pagh and Pham, which used  Õ(3ᶜ ε⁻² δ⁻¹)  rows, by an exponential amount in both  c  and  δ⁻² .
-
-It was shown by Avron, Nguyen and Woodruff that Tensor Sketch is a subspace embedding.
-This has a large number of applications, such as guaranteeing the correctness of kernel-linear regression performed directly on the reduced vectors.
-We show that our construction is a subspace embedding too, improving again upon the exponential dependency on  c  and  δ⁻¹ , enabling sketching of much higher order polynomial kernels, such as Taylor approximations to the ubiquitous Gaussian radial basis function.
-
-Technically, we construct our matrix  M  such that  M(x ⊗ y) = Tx ∘ T'y  where  ∘  is the Hadamard (element-wise) product and  T  and  T'  support fast matrix-vector multiplication ala [Ailon Chazelle].
-To analyze the behavior of  Mx  on non-simple  x , we show a higher order version of Khintchine's inequality, related to the higher order Gaussian chaos analysis by Latała.
-Finally we show that such sketches can be combined recursively, in a way that doesn't increase the dependency on  c  by much.
+               <div class='abstract'>Kernel methods are fundamental tools in machine learning that allow detection of non-linear dependencies between data without explicitly constructing feature vectors in high dimensional spaces. A major disadvantage of kernel methods is their poor scalability: primitives such as kernel PCA or kernel ridge regression generally take prohibitively large quadratic space and (at least) quadratic time, as kernel matrices are usually dense. Some methods for speeding up kernel linear algebra are known, but they all invariably take time exponential in either the dimension of the input point set (e.g., fast multipole methods suffer from the curse of dimensionality) or in the degree of the kernel function.
+Oblivious sketching has emerged as a powerful approach to speeding up numerical linear algebra over the past decade, but our understanding of oblivious sketching solutions for kernel matrices has remained quite limited, suffering from the aforementioned exponential dependence on input parameters. Our main contribution is a general method for applying sketching solutions developed in numerical linear algebra over the past decade to a tensoring of data points without forming the tensoring explicitly. This leads to the first oblivious sketch for the polynomial kernel with a target dimension that is only polynomially dependent on the degree of the kernel function, as well as the first oblivious sketch for the Gaussian kernel on bounded datasets that does not suffer from an exponential dependence on the dimensionality of input data points.
 </div>
             </li><li>
                <div class='shown' id='paper-lasvegas'>TA —
@@ -107,7 +101,7 @@ Finally we show that such sketches can be combined recursively, in a way that do
                         onclick="dataLayer.push({'event': 'download_lasvegas_pdf'});"
                         >pdf</a>, <a href='http://arxiv.org/abs/1704.02054'
                         onclick="dataLayer.push({'event': 'download_lasvegas_arxiv'});"
-                        >arxiv</a>, <a href='https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit?usp=sharing'
+                        >arxiv</a>, <a href='https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit'
                         onclick="dataLayer.push({'event': 'download_lasvegas_slides'});"
                         >slides</a>)
                </div>
@@ -158,6 +152,29 @@ We also show two dimensionality reduction lemmas with 1-sided error.
       
          <h2>Manuscripts</h2>
          <ul class="publications"><li>
+               <div class='shown' id='paper-tensorsketch2'>TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a> —
+                  2019<br />
+                  <strong>High Probability Tensor Sketch</strong>.
+                  Not Published,
+                  (<a href='papers/tensorsketch2.pdf'
+                        onclick="dataLayer.push({'event': 'download_tensorsketch2_pdf'});"
+                        >pdf</a>)
+               </div>
+               <div class='abstract'>We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form x = x^(1) ⊗ ... ⊗ x^(c) ∈ ℝ^(dᶜ)$ in time nearly c⋅d.
+That is, exponentially faster than writing out the Kronecker product and then mapping down.
+
+These matrices, M, which preserves the norm of any x ∈ ℝ^(d^c), such that | ||Mx||₂ - ||x||₂ | < ε with probability  1-δ , can be taken to have just  Õ(c² ε⁻² (log1/δ)³)  rows.
+This is within c² (\log1/δ)²  of optimal for any JL matrix [Larsen & Nelson], and improves upon earlier 'Tensor Sketch' constructions by Pagh and Pham, which used  Õ(3ᶜ ε⁻² δ⁻¹)  rows, by an exponential amount in both  c  and  δ⁻² .
+
+It was shown by Avron, Nguyen and Woodruff that Tensor Sketch is a subspace embedding.
+This has a large number of applications, such as guaranteeing the correctness of kernel-linear regression performed directly on the reduced vectors.
+We show that our construction is a subspace embedding too, improving again upon the exponential dependency on  c  and  δ⁻¹ , enabling sketching of much higher order polynomial kernels, such as Taylor approximations to the ubiquitous Gaussian radial basis function.
+
+Technically, we construct our matrix  M  such that  M(x ⊗ y) = Tx ∘ T'y  where  ∘  is the Hadamard (element-wise) product and  T  and  T'  support fast matrix-vector multiplication ala [Ailon Chazelle].
+To analyze the behavior of  Mx  on non-simple  x , we show a higher order version of Khintchine's inequality, related to the higher order Gaussian chaos analysis by Latała.
+Finally we show that such sketches can be combined recursively, in a way that doesn't increase the dependency on  c  by much.
+</div>
+            </li><li>
                <div class='shown' id='paper-verification'>TA —
                   2017<br />
                   <strong>It is NP-hard to verify an LSF on the sphere</strong>.
@@ -239,7 +256,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
             </li>
          <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> - a fast solver for numberlink puzzles</li>
          <li><a href='https://github.com/thomasahle/codenames'>codenames</a> - an AI that plays Codenames using Glove vectors.
-         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> - an experiment into using the Fasttext library to play chess.
+         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> - an experiment into using the FastText library to play chess.
          <li><a href='https://github.com/thomasahle/mtime'>mtime</a> - helps managing the ITU time management</li>
       </ul>
 
@@ -247,7 +264,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
    <div id='side'>
       <img src='static/potrait.jpg' alt='A photo of me' id='me'/>
       <h3>Coauthors</h3>
-      <ul><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li></ul>
+      <ul><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li></ul>
 
       <h3>Contact</h3>
       <ul>
@@ -255,7 +272,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
          <li>Email: thdy@itu.dk</li>
          <li><a href='statement.pdf'>Academic Statement</a></li>
          <li><a href='cv.pdf'>CV</a></li>
-         <li><a href='https://linkedin.com/in/thomasahle'>Linkedin</a></li>
+         <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
          <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
          <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ'>Google Scholar</a></li>
       </ul>

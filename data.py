@@ -28,7 +28,15 @@ class Vars:
         , 'maau':
         Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/')
         , 'jbtk':
-        Person('Jakob Bæk Tejs Knudsen', 'J Knudsen', 'https://di.ku.dk/english/staff/?pure=en/persons/493157'),
+        Person('Jakob Bæk Tejs Knudsen', 'J Knudsen', 'https://di.ku.dk/english/staff/?pure=en/persons/493157')
+        , 'mika':
+        Person('Michael Kapralov', 'M Kapralov', 'https://theory.epfl.ch/kapralov/')
+        , 'amve':
+        Person('Ameya Velingker', 'A Velingker', 'http://www.cs.cmu.edu/~avelingk/')
+        , 'dawo':
+        Person('David P. Woodruff', 'D Woodruff', 'http://www.cs.cmu.edu/~dwoodruf/')
+        , 'amza':
+        Person('Amir Zandieh', 'A Zandieh', 'https://people.epfl.ch/amir.zandieh')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -58,14 +66,14 @@ class Vars:
                 File('slides', 'https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE')
             ]),
         Paper(
-            'tensorsketch2',
-            'High Probability Tensor Sketch', ['thdy', 'jbtk'],
-            open('abstracts/tensorsketch2').read(),
+            'tensorsketch-joint',
+            'Oblivious Sketching of High-Degree Polynomial Kernels', ['thdy', 'mika', 'jbtk','pagh','amve','dawo','amza'],
+            open('abstracts/tensorsketch-joint').read(),
             2019,
             'subm',
             '',
             files=[
-                File('pdf', 'papers/tensorsketch2.pdf'),
+                File('pdf', 'papers/tensorsketch-joint.pdf'),
             ]),
         Paper(
             'lasvegas',
@@ -117,6 +125,16 @@ class Vars:
     ]
 
     manuscripts = [
+        Paper(
+            'tensorsketch2',
+            'High Probability Tensor Sketch', ['thdy', 'jbtk'],
+            open('abstracts/tensorsketch2').read(),
+            2019,
+            '',
+            '',
+            files=[
+                File('pdf', 'papers/tensorsketch2.pdf'),
+            ]),
         Paper(
             'verification',
             'It is NP-hard to verify an LSF on the sphere',
