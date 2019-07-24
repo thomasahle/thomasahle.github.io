@@ -73,7 +73,7 @@ class Vars:
             'subm',
             '',
             files=[
-                File('pdf', 'papers/tensorsketch-joint.pdf'),
+                #File('pdf', 'papers/tensorsketch-joint.pdf'),
             ]),
         Paper(
             'lasvegas',
@@ -194,7 +194,7 @@ class Vars:
         Newspaper(
             '',
             'Computerworld', 'June 2015',
-            'Med landsholdet i programmering til VM: Kodesport gør dig mere præcis',
+            'With the National Team at the Programming World Cup: Sport Coding Sharpens You',
             'http://www.computerworld.dk/art/234196',
             'Coverage of my teams participation in the ICPC World Finals.'
             , files=[]
@@ -202,7 +202,7 @@ class Vars:
         Newspaper(
             'Elkær, Mads',
             'Computerworld', 'October 2013',
-            'Her er Danmarks tre bedste programmører',
+            'These are Denmark\'s Three Greatest Programmers',
             'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
             '', files=[]
             )
@@ -217,6 +217,9 @@ class Vars:
         Award('Oxford Computer Science Competition', '1st',
               'University of Oxford', 2013,
               'For my Numberlink solving software, giving the first fixed parameter polynomial algorithm for the problem.'),
+        Award('Demyship', '',
+            'Magdalen College', '2010, 2011',
+            'A historic scholarship awarded to the top students each year.'),
         Award('Les Trophées du Libre', '1st',
               'Free Software Foundation Europe', 2007,
               'For my work on the PyChess free software chess suite.'),
@@ -225,22 +228,26 @@ class Vars:
     jobs = [
         Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018',
             '''I co-founded an NLP start-up with academics from University of Copenhagen.
-               At SupWiz I lead a team of four in developing our chatbot software and putting it into production at three of the largest Danish IT companies.
+               At SupWiz I lead a team of four in developing our chatbot software and putting it into production at 3 of the largest Danish IT companies. (Now many more.)
                In 2019 the chatbot won the most prestigious prize given by Innovation Fund Denmark.
-               I was also responsible for our hiring efforts, interviewing dozens and employing four engineers over a 5 month period.
+               I was also responsible for our hiring efforts, interviewing dozens and employing 4 engineers over a 5 month period.
                '''),
         Job('Teaching', 'IT University of Copenhagen', '2015 - 2019',
             '''In 2019 I taught Parallel and Concurrent Programming to 100 master students.
-               Earlier years I TA'ed in various algorithms design classes.
+               Earlier years I assisted in various algorithms design classes.
             '''),
         Job('Teaching', 'University of Copenhagen', '2014',
-            '''I assisted in teaching algorithms to bachelor students.'''),
+            '''I assisted in teaching algorithms to more than 200 bachelor students.'''),
         Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
-            '''I developed internal debugging tools for our high throughput ion channel screening machines.'''),
+            '''I lead a project developing internal debugging tools for sifting through gigabytes of data/second on Sophion's ion channel screening machines.'''),
         Job('Software Engineer Intern', 'Palantir', '2012',
-            '''The Palantir Metropolis software suite was being ported to the web.
-               I made the initial version, rewriting front end Java code in Javascript and generalizing backend services as public facing APIs.'''),
+            '''Ported the Metropolis ontological time-series system (now Foundry) to the web.
+               Acted as coordinating hub for 10 people deciding API and network infrastructure.'''),
         Job('Software Engineer', 'XION', '2010-2012',
             '''I Developed the most popular Danish TV-listings app for Android at the time.
-               This included scrapers to gather TV information from hundreds of channels (consensually) and serving it on a REST API.'''),
+               This included writing scrapers to gather TV information from 100s of TV-stations (consensually) and serving it on a public facing API.'''),
     ]
+
+    oss = [
+            Job('Project Owner', 'PyChess', '2006 - current', 'Developed the most used chess client and engine for the Linux desktop. Currently the 7th most used interface on the Free Internet Chess Server. Translated to more than 35 languages. I lead a team of 4-8 developers and designers. In 2009 we won Les Trophées du Libre in Paris. The project is under the Gnu Public License and has been used by people all over the world for research projects and other experiments.'),
+            ]
