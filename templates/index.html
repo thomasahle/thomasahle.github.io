@@ -76,6 +76,22 @@
          </ul>
       {% endfor %}
 
+      <h2>Teaching</h2>
+      <ul class="publications">
+      {%- for t in teachings -%}
+         <li>
+            <div class='shown' id='teaching-{{t.abrv}}-{{t.year}}'>
+                  {{t.year}}
+                  <strong>{{t.name}}</strong>. ({{t.abrv}})
+                  <br />
+                  <a href='{{t.href}}'>Files and schedule</a>.
+            </div>
+            <div class='abstract'>{{t.description}}</div>
+         </li>
+      {%- endfor -%}
+      </ul>
+
+
       <h2>Media</h2>
       <ul>
          {%- for m in media -%}

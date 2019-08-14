@@ -7,6 +7,7 @@ Paper = namedtuple(
     'Paper',
     ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
 Conference = namedtuple('Conference', ['name'])
+Teaching = namedtuple('Teaching', ['name', 'abrv', 'year', 'description', 'href'])
 File = namedtuple('File', ['format', 'href'])
 Newspaper = namedtuple('Newspaper', ['author', 'name', 'date', 'title', 'href', 'description', 'files'])
 Award = namedtuple('Award', ['name', 'place', 'giver', 'date', 'description'])
@@ -173,6 +174,10 @@ class Vars:
                 File('pdf', 'papers/tails.pdf'),
             ]),
     ]
+
+    teachings = [
+            Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'In this MSc course you learn how to write correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware. The course covers basic mechanisms such as threads, locks and shared memory as well as more advanced mechanisms such as parallel streams for bulk data, transactional memory, message passing, and lock-free data structures with compare-and-swap. It covers concepts such as atomicity, safety, liveness and deadlock. It covers how to measure and understand performance and scalability of parallel programs. It covers methods to find bugs in concurrent programs.', 'teaching/pcpp2019')
+            ]
 
     media = [
         Newspaper(
