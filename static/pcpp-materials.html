@@ -1,0 +1,131 @@
+
+<h3>Mandatory course materials</h3>
+
+<h4>Books</h4>
+
+<ul>
+   <li>Goetz et al: Java Concurrency in Practice, Addison-Wesley 2006. The Academic Bookstore will sell it at ITU at start of term. Also <a href="http://www.amazon.co.uk/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601">at Amazon.co.uk</a>. Example code at <a href="http://jcip.net/">http://jcip.net/</a>.</li>
+
+   <li>Herlihy and Shavit: The Art of Multiprocessor Programming. Revised first edition, Morgan Kaufmann 2012. Chapters 3 (safety and liveness concepts) and 18.1, 18.2 (compositionality, transactional memory). <a href="http://www.amazon.co.uk/The-Multiprocessor-Programming-Revised-Reprint/dp/0123973376">At Amazon.co.uk</a></li>
+
+   <li>Sestoft: Java Precisely 3rd edition (MIT Press 2016, draft), sections 11.13, 11.14, 23, 24, 25. PDF available from LearnIt.</li>
+</ul>
+
+<h4>Articles</h4>
+
+<ul>
+   <li>Sestoft: Microbenchmarks in Java and C#. Free at <a href="http://www.itu.dk/people/sestoft/papers/benchmarking.pdf">http://www.itu.dk/people/sestoft/papers/benchmarking.pdf</a> with the corresponding <a href="http://www.itu.dk/people/sestoft/javaprecisely/benchmarks-java.zip">Java example code</a>.</li>
+
+   <li>Harris, Marlow, Peyton-Jones, Herlihy: Composable memory transactions. Communications of the ACM 51, 8 (August 2008) 91-100; PDF available from LearnIT.</li>
+
+   <li>Cascaval et al: Software Transactional Memory: Why Is It Only a Research Toy? ACM Queue 2008. Free at <a href="http://queue.acm.org/detail.cfm?id=1454466">http://queue.acm.org/detail.cfm?id=1454466</a></li>
+
+   <li>Michael and Scott: Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms. PODC 1996. Free at <a href="http://www.research.ibm.com/people/m/michael/podc-1996.pdf">http://www.research.ibm.com/people/m/michael/podc-1996.pdf</a></li>
+
+   <li>Chase and Lev: Dynamic circular work- stealing deque, SPAA'05, 2005, sections 1, 2 and 5; see also LearnIT.</li>
+
+   <li>Armstrong, Virding, Williams: Concurrent Programming in Erlang. Part 1 free at <a href="http://www.erlang.org/download/erlang-book-part1.pdf">http://www.erlang.org/download/erlang-book-part1.pdf</a>.</li>
+</ul>
+
+<h4>Other</h4>
+
+<ul>
+   <li>The Multiverse Software Transactional Memory library for Java: <a href="http://itu.dk/people/fbie/multiverse-javadoc/index.html?org/multiverse/api/package-summary.html">Multiverse API Javadoc</a> (local copy) and the <a href="multiverse-core-0.7.0.jar">multiverse-core-0.7.0.jar</a> (library implementation).</li>
+</ul>
+
+<h3>Optional course materials</h3>
+
+<ul>
+   <li>Bloch: Effective Java. Third edition, Addison-Wesley 2018. Item 17 on immutability and items 78-84 on concurrency. <a href="http://www.amazon.co.uk/Effective-Java-Edition-Joshua-Bloch/dp/0321356683">At Amazon.co.uk</a>. Contains much other wisdom for Java (and .NET) developers; <b>you should own this book and use it</b>.</li>
+
+   <li>Sestoft: <a href="http://www.itu.dk/people/sestoft/javaprecisely/">Java Precisely</a>. Second edition, MIT Press 2005. Especially chapters 9 and 10 on classes, inner classes and anonymous classes, and chapter 16 on threads. <a href="http://www.amazon.co.uk/Java-Precisely-Peter-Sestoft/dp/0262693259">At Amazon.co.uk</a></li>
+
+   <li>Sutter: The free lunch is over. Free at <a href="http://www.gotw.ca/publications/concurrency-ddj.htm">http://www.gotw.ca/publications/concurrency-ddj.htm</a></li>
+
+   <li>If you want a deep understanding of how modern multicore cache and memory hardware design affects concurrency performance, these seem to be good overviews, although far too detailed for this course: <a href="http://irl.cs.ucla.edu/~yingdi/web/paperreading/whymb.2010.06.07c.pdf">McKenney: Memory barriers, a hardware view for software hackers</a> (IBM, 2010) and <a href="http://www.akkadia.org/drepper/cpumemory.pdf">Drepper: What every programmer should know about memory</a> (Redhat, 2007).</li>
+
+   <li>Budd, Lipton, Sayward, DeMillo: The design of a prototype mutation system for software testing, 1978. Free at <a href="http://www.computer.org/csdl/proceedings/afips/1978/5086/00/50860623.pdf">http://www.computer.org/csdl/proceedings/afips/1978/5086/00/50860623.pdf</a>.</li>
+
+   <li>On transactional memory: <a href="http://research.microsoft.com/pubs/74063/beautiful.pdf">Peyton Jones: Beautiful concurrency, 2007</a>; and <a href="http://dl.acm.org/citation.cfm?id=1364800">Larus and Kozyrakis: Transactional memory, 2008</a> (free access within ITU); and Dan Grossman's very enlightening <a href="http://homes.cs.washington.edu/~djg/papers/analogy_oopsla07.pdf">analogy between transactional memory and garbage collection</a>; and hardware support via the <a href="https://software.intel.com/en-us/blogs/2012/02/07/transactional-synchronization-in-haswell">Intel Transaction Synchronization Extensions</a> (2012) and also pages 8-1 through 8-24 of the <a href="https://software.intel.com/sites/default/files/m/9/2/3/41604">Instruction Set Extensions Programming Reference</a>; Robert Ennals: Software transactional memory should not be obstruction-free, 2006, <a href="ennals-stm-not-obstructionfree.pdf">PDF</a>; and a response to Cascaval's critique of STM by Dragojevic et al: <a href="http://delivery.acm.org/10.1145/1930000/1924440/p70-dragojevic.pdf">Why STM can be more than a research toy</a> CACM, April 2011. (PDF accessible for free from within ITU's network).</li>
+
+   <li>On memory models: see Java Language Specification below; and Ostrovsky: The C# Memory Model in Theory and Practice, in MSDN Magazine, <a href="http://msdn.microsoft.com/en-us/magazine/jj863136.aspx">part 1 (December 2012)</a> and <a href="http://msdn.microsoft.com/en-us/magazine/jj883956.aspx">part 2 (January 2013)</a>; and <a href="http://www.ecma-international.org/publications/standards/Ecma-334.htm">The C# Language Specification</a> (standard Ecma-334), especially section 10.10 and 17.4.3, and Joseph Albahari's Threading in C# <a href="http://www.albahari.com/threading/part4.aspx">Part 4: Advanced Threading</a>.</li>
+
+   <li><a href="http://doc.akka.io/docs/akka/snapshot/java/untyped-actors.html">Akka+Java Actor Snapshot</a></li>
+
+   <li><a href="http://doc.akka.io/docs/akka/2.3.7/java.html">The Akka+Java documentation</a></li>
+
+   <li><a href="https://www.youtube.com/watch?v=GBvtE61Wrto">Video Talk on Akka</a> by Viktor Klang (on YouTube)</li>
+
+   <li>
+      <a href="https://www.youtube.com/watch?v=t4KxWDqGfcs">Video Talk on Akka</a> by Jonas Boner (on YouTube)
+
+      <ul>
+         <li><a href="http://gotocon.com/dl/goto-aar-2012/slides/JonasBonr_UpUpAndOutScalingSoftwareWithAkka.pdf">Slides for the Video Talk on Akka</a> (from GOTO conference, Aarhus, Denmark).</li>
+      </ul>
+   </li>
+</ul>
+
+<h3>Even more optional materials</h3>
+
+<ul>
+   <li>Nancy Leveson's 1995 report on the <a href="http://sunnyday.mit.edu/papers/therac.pdf">Therac-25 accidents</a>, caused by incompetent concurrent programming.</li>
+
+   <li>Per Brinch Hansen on <a href="http://brinch-hansen.net/papers/1999b.pdf">Java's insecure parallelism</a>, 1999.</li>
+
+   <li>Hoare's <a href="http://dl.acm.org/citation.cfm?doid=355620.361161">paper on monitors</a>, CACM 17, 10 (October 1974) 549-557.</li>
+
+   <li>The <a href="https://www.securecoding.cert.org/confluence/display/java/Java+Coding+Guidelines">CERT Secure Coding Standard for Java</a> especially sections 09 on Locking, 10-12 on Threads, and 08 on Visibility and Atomicity.</li>
+
+   <li>McKenney (ed.): Is Parallel Programming Hard, And, If So, What Can You Do About It? IBM 10 March 2014. Free at <a href="https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html">https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html</a>. Chapters 2 and 3.</li>
+
+   <li>A good book about .NET parallel programming is Campbell, Johnson, Miller, Toub: Parallel Programming with Microsoft .NET, Design Patterns for Decomposition and Coordination on Multicore Architectures. Microsoft Press 2010. There is an <a href="http://msdn.microsoft.com/en-us/library/ff963553.aspx">online version</a> and also a <a href="http://www.amazon.com/Parallel-Programming-Microsoft%C2%AE-NET-Decomposition/dp/0735651590">printed version at Amazon.com</a>.</li>
+
+   <li>M. Herlihy: Wait-free synchronization. ACM Toplas 11, 1 (January 1991) 124-149. Free <a href="http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf">PDF at Herlihy's homepage</a>.</li>
+
+   <li>N. Shavit: Data structures in the multicore age. Communications of the ACM 54, 3 (March 2011) 76-84. Free inside ITU from the <a href="http://dl.acm.org/citation.cfm?id=1897873">ACM Digital Library</a>.</li>
+</ul>
+
+<h3>Resources</h3>
+
+<ul>
+   <li>Java concurrency tutorial. Free at <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/">http://docs.oracle.com/javase/tutorial/essential/concurrency/</a>.</li>
+
+   <li>Java streams tutorial, parallelism section. Free at <a href="http://docs.oracle.com/javase/tutorial/collections/streams/parallelism.html">http://docs.oracle.com/javase/tutorial/collections/streams/parallelism.html</a>.</li>
+
+   <li>Java Swing GUI Toolkit tutorial, concurrency lesson at <a href="http://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html">http://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html</a>.</li>
+
+   <li>Java 8 <a href="http://docs.oracle.com/javase/8/docs/api/">class library documentation online</a>.</li>
+
+   <li>Java 8 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">development kit download</a></li>
+
+   <li>Java 8 language specification <a href="http://docs.oracle.com/javase/specs/jls/se8/jls8.pdf">in PDF</a> and <a href="http://docs.oracle.com/javase/specs/jls/se8/html/index.html">online as HTML</a>; especially <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.1">17.1 synchronization</a> and <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.3.1.4">8.3.1.4 volatile fields</a> and <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.5">17.5 final field semantics</a> and the somewhat complicated <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.4">17.4 memory model</a>.</li>
+
+   <li>Brian Goetz about the design of the Java 1.5 memory model: <a href="http://www.ibm.com/developerworks/java/library/j-jtp02244/index.html">part 1</a> and <a href="https://www.ibm.com/developerworks/library/j-jtp03304/">part 2</a>, IBM 2004.</li>
+
+   <li>JSR 305 thread-safety annotations <a href="http://search.maven.org/remotecontent?filepath=com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar">jar file</a> for @GuardedBy and similar. Download the jar file, put it someplace such as <code>~/lib/jsr305-3.0.0.jar</code>, add <code>import javax.annotation.concurrent.GuardedBy;</code> to your Java source files, and mention the jar file on the classpath when compiling Java files, as in <code>javac -cp ~/lib/jsr305-3.0.0.jar *.java</code></li>
+
+   <li>Akka homepage. <a href="http://akka.io/">http://akka.io/</a> (Documentation, FAQ, Download, ...).</li>
+
+   <li><a href="http://doc.akka.io/japi/akka/2.3.7/">Akka+Java API</a></li>
+</ul>
+
+<h3>Archive</h3>
+
+<ul>
+   <li>January 2015 <a href="pcpp-20150107-v2.pdf">exam questions</a> and <a href="Quicksorts-v2.java">supporting code</a>.</li>
+
+   <li>January 2016 <a href="pcpp-20160111.pdf">exam questions</a> and <a href="pcpp-20160111-code.zip">supporting code</a>.</li>
+
+   <li>January 2017 <a href="pcpp-20170110.pdf">exam questions</a> and <a href="pcpp-20170110-code.zip">supporting code</a>.</li>
+
+   <li>The <a href="http://www.itu.dk/people/sestoft/itu/PCPP/E2015/">public course home page for 2015</a></li>
+
+   <li>The <a href="http://www.itu.dk/people/sestoft/itu/PCPP/E2016/">public course home page for 2016</a></li>
+
+   <li>The <a href="
+   http://www.itu.dk/people/rikj/PCPP2017/
+">public course home page for 2017</a></li>
+   <li>The <a href="
+   http://www.itu.dk/people/rikj/PCPP2018/
+">public course home page for 2018</a></li>
+</ul>
