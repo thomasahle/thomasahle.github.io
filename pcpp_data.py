@@ -10,7 +10,7 @@ class Vars:
             Lecture(title = 'Surprises in Parallelism and Java'
                     , desc = 'Concurrent and parallel programming, why, what is so hard. Threads and locks in Java, shared mutable memory, mutual exclusion, visibility, volatile fields, atomic operations, avoiding sharing (thread confinement, stack confinement), immutability, final, safe publication.'
                     , materials = 'Goetz chapters 1, 2, 3; Sutter paper; McKenney chapter 2; Bloch item 66'
-                    , learnit = '#'
+                    , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=104971'
                     , date = startdate
                     )
             , Lecture(title = 'Threads and Locks'
