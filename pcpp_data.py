@@ -15,7 +15,7 @@ class Vars:
                     )
             , Lecture(title = 'Threads and Locks'
                     , desc = 'Designing thread-safe classes. Monitor pattern. Concurrent collections. Documenting thread-safety.'
-                    , materials = 'Goetz chapters 4, 5; Bloch item 15'
+                    , materials = 'Goetz chapters 4, 5; Bloch item 15; <a href="http://jcip.net/jcip-annotations.jar">jcip-annotations.jar</a>'
                     , learnit = '#'
                     , date = startdate + timedelta(weeks=1)
                     )
