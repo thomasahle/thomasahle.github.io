@@ -128,12 +128,13 @@ class Vars:
     manuscripts = [
         Paper(
             'tensorsketch2',
-            'High Probability Tensor Sketch', ['thdy', 'jbtk'],
+            'Almost Optimal Tensor Sketch', ['thdy', 'jbtk'],
             open('abstracts/tensorsketch2').read(),
             2019,
             '',
             '',
             files=[
+                File('arxiv', 'https://arxiv.org/abs/1909.01821'),
                 File('pdf', 'papers/tensorsketch2.pdf'),
             ]),
         Paper(
