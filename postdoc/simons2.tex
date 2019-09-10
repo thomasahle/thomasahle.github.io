@@ -1,11 +1,11 @@
 \documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{pdfsync}
-\usepackage[%paper=a4paper,
+\usepackage[paper=a4paper,
             %marginparwidth=30.5mm,    % Length of section titles
-            %marginparsep=3mm,       % Space between titles and text
-            %margin=40mm,
-            %includemp,
+            marginparsep=3mm,       % Space between titles and text
+            margin=25mm,
+            tmargin=5mm,
             ]{geometry}
 
 \linespread{1.25}
@@ -17,67 +17,67 @@
 \begin{document}
 \maketitle
 
-There is a gap between modern algorithmic theory and what gets used in practical machine learning.
-Contrast this with classical computing, where time proven algorithms are taught from `Introduction to Algorithms'', and implemented routinely.
-A large reason for this is the so called ``curse of dimensionality'', which happens when machine learning datasets are mapped into high-dimensional feature vector spaces.
-Classical algorithms for organizing data tend to fail in this setting due to an exponential time and/or space dependency on the dimension.
+% summarizing his or her Ph.D. thesis work
+% written for a general scientific audience
 
-I want to make machine learning efficient both theoretically and practically.
-My research has focused on algorithms that are scalable, less error prone, and on finding the limits of what can be achieved computationally.
-The resulting algorithms have often been simple, even though the analysis may be mathematically complex.
-%I am interested in continuing this work at Microsoft Research, which has amassed one of the strongest teams in the field today.
+The key idea that has let today's computers efficiently work with complicated objects like images, sound, or genomic sequences, is the idea of high dimensional geometry.
+Even something like a tweet can be written as a \emph{long} vector where the $i$th entry specifies how many copies the tweet contains of the $i$th word in the English language.
+Looking at data as points in a geometry allows us to use concepts of distance to represent similarity and isoperimetry to prove optimal ways of organizing data.
+Different applications lead to different geometries, and only recently did we fully understand the most basic -- the Euclidean geometry.
 
-During the last two years of my PhD I co-founded a startup called SupWiz, specialized in developing Natural Language Processing services.
-For more than a year, I was Chief Machine Learning Officer, primarily responsible for developing our chatbot program, which we developed and rolled out to three different customers during this time.
-Since rejoining academia, this has been a source of inspiration for problems to work on as well as a ton of valuable lessons in planning and teamwork, scaling a company from four to seventeen employees in a year.
+% Connects to rich mathematical areas:
+% Space partitions and isoperimetry: what’s the body with least perimeter?
+% Metric embeddings: can we map some geometries into others well?
+% Only recently we (think we) understood the Euclidean metric
+% Properties of many other geometries remain unsolved!
 
-\section{Research Achievements}
+In my thesis I worked on multiple problems related to search and data structures.
+In~\cite{ahle2016complexity} we showed that there are certain limits of how fast you can search in any geometry.
+We did this by showing that a very fast algorithm for any of a number of problems would allow other too fast algorithms in the fundamental computational area of boolean satisfiability, breaking the so called Strong Exponential Time Hypothesis.
+% (SETH) very long-standing conjectures.
+%This work was later extended by the seminal work~\cite{DBLP:journals/corr/AbboudR17}, which today lays the foundation for all approximative SETH lower bounds.
 
-Much of my published work considers some form of approximate near neighbour search.
-The reason we study approximate near neighbours - rather than exact - is the mentioned “curse of dimensionality”.
-Anything nontrivial for the exact version would imply a breakthrough in the $k$-satisfiability problem.
-Meanwhile the approximate version turns out to be feasible using so called Locality Sensitive Hashing (LSH) in which one designs a good partition of the vector space which is used for bucketing of the data points.
-In practice the resulting algorithms are often useful for exact nearest neighbour as well, since in many pratical data sets the nearest neighbour is nearest by a large margin.
+Another key idea in high dimensional algorithms is randomization.
+%It turns out that the shapes and patterns that best organize even simple data are very hard to describe and program into a computer.
+It turns out that even simple high dimensional problems like packing sphere tightly is very hard mathematically.
+Meanwhile simply placing the spheres at random locations gives a near optimal tightness.
+This however has problems related to the predictability and fairness of the computation.
+All the most efficient algorithms in the field has some chance of failing without any chance of verifying their result!
+In~\cite{ahle2017optimal} I found a way to solve this problem for the two most common geometries and in~\cite{wei2018optimal} the results were extended to cover the Euclidean case.
 
-\paragraph{Sketching.} In~TODO, together with Jakob Tejs Bæk Knudsen we show how to make Tensor Sketch much faster.
+%In my work I achieved the optimal $n^{1/c}$ and with a general approach, which also gives the optimal query time for many other distances.
+%Omri was interested in this, so he must have some related work?
 
-\paragraph{Impossibility.} In~\cite{ahle2016complexity} I showed together with Rasmus Pagh, Francesco Silvestri, and Ilya Razenshteyn that even approximate nearest neighbour can be hard. (Meaning queries have to take time equal to brute force, given sub-exponential space for the data structure.) We showed this for the problem of “Maximum Inner Product” search, which is used in many practical applications such as multi-label linear classifiers.
-We showed this by reducing the approximate inner product search problem to the Strong Exponential Time Hypothesis (SETH), which had previously been used for reductions from other exact problems, but not from approximate ones.
-This work was later extended by the seminal work~\cite{DBLP:journals/corr/AbboudR17}, which today lays the foundation for all approximative SETH lower bounds.
+%Sketching?
+%Omri doesn't have anything about that, but maybe other people at Columbia do?
 
-\paragraph{LSH Without false negatives.} Since Indyk and Motwani introduced LSH, it was a major open problem if the randomized algorithms could be made deterministic. Other than a 3-approximation algorithm by Indyk in~\cite{indyk2007uncertainty} no sub-exponential algorithms are known. In~\cite{ahle2017optimal} I showed the partial result, that LSH can be made Las Vegas. That is, we guarantee that if any point in the data structure is within a given range, it is returned.
-This is in contrast to classical LSH (and all sub-exponential space data structures) which inherently suffers from a positive probability of false negatives.
-A prior algorithm of Rasmus Pagh~\cite{pagh2016locality} achived a similar result, showing that Las Vegas approximate hamming distance near neighbour can be solved with query time roughly $n^{1.38/c}$.
-In my work I achived the optimal $n^{1/c}$ and with a general approach, which also gives the optimal query time for many other distances.
+\section*{Research Plan}
+% research plan if the fellowship is awarded
 
-\paragraph{Output sensitivity.} In~\cite{ahle2017parameter}, together with Rasmus Pagh and Martin Aumüller we show how to achieve query time close to $n^\varepsilon + t$ where t is the number of returned points. Previous versions of LSH all require $t n^\varepsilon$ which for many practical purposes is orders of magnitudes slower. Our algorithms have the side benefit of Parameter freeness, with which the optimal LSH parameters are chosen dynamically on a per query basis for no extra cost. This contrasts with classical hyper parameter tuning of LSH, which optimizes towards the average case query. Techniques inspired by our work was later used for so called “confirmation sampling”.
+At Columbia I plan to work with Omri Weinstein as well as a number of world class researchers in the fields of data structures and high dimensional geometry.
 
-\paragraph{}
-The work on Las Vegas data structures helped me win one of two Travel Scholarships by the Stibo Foundation in 2016.
-This allowed me to travel to Austin for half a year to work with Eric Price at The University of Texas in Austin.
-With Eric Price I worked on using Semidefinite programming for solving robust learning problems, such as gaussian regression.
-A project that unfortunately didn’t end up fruitful, however, while there, I got to work with the other students on problems, such as expanders and the theory of boolean functions.
-Some of which work is still in the pipeline.
+What do I want to do
 
-\section{Research Agenda}
+How do I want to do it with Omri?
+Omri 
 
 I am interested in broadly in sketching, streaming, robust optimization, clustering, boolean functions, dimensionality reduction, fine grained lower bounds, random matrix theory, differential privacy and many other related areas.
 The common thread being a certain statistical and/or geometric intuition.
-Besides the published work, I am currently working on a unified approach to LSH for distances on set/boolean data. This involves new hypergeometric bounds in boolean functions. I am also working on explicit feature embeddings of polynomial kernels.
+Besides the published work, I am currently working on a unified approach to LSH for distances on set/boolean data. This involves new hyper-geometric bounds in boolean functions. I am also working on explicit feature embeddings of polynomial kernels.
 
 In the coming years, I would further like to pursue the following research directions:
 
-\paragraph{The Medium dimensional regime.} Recent results~\cite{DBLP:conf/compgeom/Chan17a} have shown that classical data structures - here kd-trees - can be analyzed more tightly when the dimension is close to $\log n$.
+\paragraph{The Medium dimensional regime.} Recent results~\cite{DBLP:conf/compgeom/Chan17a} have shown that classical data structures - here kd-trees - can be analysed more tightly when the dimension is close to $\log n$.
 At the same time LSH algorithms have been shown in~\cite{becker2016new} to perform somewhat better in this range.
 Unifying the these two approaches is a major open problem with big implications for how data is processes in practice.
-From a theoretical side, proving optimality in this range requires new, sharper bounds on the noise stability of boolean funcitons than what is currently known.
+From a theoretical side, proving optimality in this range requires new, sharper bounds on the noise stability of boolean functions than what is currently known.
 
-\paragraph{Deterministic LSH and limited randomness.} In most of randomized algorithms, we have a good understanding on the tradeoffs between randomized and deterministic variants, and the importance of high quality random bits, k-independence, tabulation hashing etc.
+\paragraph{Deterministic LSH and limited randomness.} In most of randomized algorithms, we have a good understanding on the trade-offs between randomized and deterministic variants, and the importance of high quality random bits, k-independence, tabulation hashing etc.
 A natural continuation of my work in~\cite{ahle2017optimal} is to make a completely deterministic LSH data structure with little or no loss in the various performance parameters.
 
 \paragraph{Unified theory of LSH metrics.}
 We now have really promising results in LSH for symmetric norms~\cite{DBLP:journals/siamcomp/AndoniKR18}.
-It is however not clear if their approximation factors are optimal, and lots of work still has to be done before this important work becomes near practical - or the tradeoffs are properly understood.
+It is however not clear if their approximation factors are optimal, and lots of work still has to be done before this important work becomes near practical - or the trade-offs are properly understood.
 Going beyond normed spacers, there are a large number of metrics we don’t have any good data structures for.
 Important examples are edit distance and earth mover distance, which are prevailing in both computational biology and natural language processing.
 Other metrics are implicitly induced by neural networks, and similar modern machine learning architectures.
@@ -87,14 +87,7 @@ While modern LSH data structures have been improved using so called ``data depen
 Using LSH for Approximate Closest Pair yields a $n^{1-\Omega(\epsilon)}$ algorithm, but we know that algebraic algorithms allow an $n^{1-\Omega(\epsilon^{1/3})}$ algorithm~\cite{DBLP:journals/corr/AlmanCW16}.
 It is a very interesting open problem whether these techniques generalizes to data structures, or conversely, if lower bounds can be shown separating Closest Pair from Nearest Neighbour.
 
-\section{Other work}
-
-During my undergrad at University of Oxford I was focused on programming languages and artificial intelligence.
-I started multiple open source chess engines, some projects of which I am still managing today.
-Eventually I got into programming competitions, which sparked my interest in algorithms.
-I since helped mentor young students wanting to take a similar path into theoretical computer science.
-
 \bibliographystyle{apalike}
-\bibliography{statement}
+\bibliography{simons2}
 
 \end{document}
