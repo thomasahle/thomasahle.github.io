@@ -239,7 +239,7 @@ class Vars:
                I was also responsible for our hiring efforts, interviewing dozens and employing 4 engineers over a 5 month period.
                '''),
         Job('Teaching', 'IT University of Copenhagen', '2015 - 2019',
-            '''In 2019 I taught Parallel and Concurrent Programming to 100 master students.
+            '''In 2019 I co-designed and taught the Parallel and Concurrent Programming course to 140 master students.
                Earlier years I assisted in various algorithms design classes.
             '''),
         Job('Teaching', 'University of Copenhagen', '2014',
