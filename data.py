@@ -47,10 +47,10 @@ class Vars:
         '': Conference('Not Published'),
         'arxiv': Conference('ArXiv'),
         'subm': Conference('Submitted'),
-        'soda': Conference('Proceedings of Symposium on Discrete Algorithms'),
-        'pods': Conference('Symposium on Principles of Database Systems'),
-        'focs': Conference('Foundations of Computer Science'),
-        'icalp': Conference('International Colloquium on Automata, Languages and Programming')
+        'soda': Conference('ACM-SIAM Symposium on Discrete Algorithms'),
+        'pods': Conference('ACM Symposium on Principles of Database Systems'),
+        'focs': Conference('IEEE Symposium on Foundations of Computer Science'),
+        'icalp': Conference('EATCS International Colloquium on Automata, Languages and Programming')
     }
 
     papers = [
