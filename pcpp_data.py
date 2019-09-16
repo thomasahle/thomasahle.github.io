@@ -22,7 +22,7 @@ class Vars:
             , Lecture(title = 'Performance measurements'
                     , desc = ''
                     , materials = 'Sestoft: <a href="http://www.itu.dk/people/sestoft/papers/benchmarking.pdf">Microbenchmarks</a> and <a href="http://www.itu.dk/people/sestoft/javaprecisely/benchmarks-java.zip">supporting Java code</a>;  Optional: McKenney chapter 3, <a href="https://shipilev.net/talks/j1-Oct2011-21682-benchmarking.pdf">(The Art of) (Java) Benchmarking</a>'
-                    , learnit = '#'
+                    , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=105939'
                     , date = startdate + timedelta(weeks=2)
                     )
             , Lecture(title = 'Streams'

@@ -7,6 +7,8 @@
             margin=23mm,
             tmargin=0mm,
             ]{geometry}
+\usepackage{natbib}
+\setlength{\bibsep}{0.1em}
 
 \linespread{1.25}
 \usepackage[all]{nowidow}
@@ -20,11 +22,11 @@
 % summarizing his or her Ph.D. thesis work
 % written for a general scientific audience
 
-Images, sound or genomic sequences are all objects that modern computers can handle because of one key idea: the idea of high dimensional geometry.
+Images, sound or genomic sequences are all objects that modern computers can handle due to one key idea: the idea of high dimensional geometry.
 %The key idea that has let today's computers efficiently work with complicated objects like images, sound, or genomic sequences, is the idea of high dimensional geometry.
-Even something as diverse as a tweet can be written as a (long) vector where the $i$th entry specifies how many copies the tweet contains of the $i$th word in the English language.
-Looking at data as points in a geometry allows us to use the concept of distance to represent similarity and of isoperimetry to understand inherent structure in data domains.
-Different applications lead to different geometries, and only recently did we fully understand the most basic -- the Euclidean geometry.
+Even something as diverse as a tweet can be written as a (long) vector where the $i$th entry denotes how many copies the tweet contains of the $i$th word in the English language.
+Looking at data as points in a geometry allows us to use the concept of distance to represent similarity, and of isoperimetry to understand inherent structure in data domains.
+Different applications lead to different geometries, but only recently did we fully understand the most basic one -- the Euclidean geometry.
 
 % Connects to rich mathematical areas:
 % Space partitions and isoperimetry: what’s the body with least perimeter?
@@ -32,20 +34,20 @@ Different applications lead to different geometries, and only recently did we fu
 % Only recently we (think we) understood the Euclidean metric
 % Properties of many other geometries remain unsolved!
 
-In my thesis I worked on multiple problems related to search and data structures.
-In~\cite{ahle2016complexity} we showed that there are certain limits of how fast you can search in any geometry.
-We did this by showing that the existence of a very fast algorithm would allow other too fast algorithms in the fundamental computational area of boolean satisfiability, breaking the so called Strong Exponential Time Hypothesis.
-The work was extended in~\cite{DBLP:journals/corr/AbboudR17} to become an entire field of study.
+In my thesis, I worked on multiple problems related to search and data structures.
+In~\cite{ahle2016complexity} we showed that there are certain limits to how fast you can search in any geometry.
+We proved that the existence of a very fast algorithm would allow other too fast algorithms in the fundamental computational area of boolean satisfiability, breaking the so-called Strong Exponential Time Hypothesis.
+The work was extended in~\cite{DBLP:journals/corr/AbboudR17} starting the field of approximate hardness for polynomial algorithms.
 % (SETH) very long-standing conjectures.
 %This work was later extended by the seminal work~\cite{DBLP:journals/corr/AbboudR17}, which today lays the foundation for all approximative SETH lower bounds.
 %
 Another key idea in high dimensional algorithms is randomization.
 %It turns out that the shapes and patterns that best organize even simple data are very hard to describe and program into a computer.
-It turns out that even simple high dimensional problems like packing spheres tightly is very hard mathematically.
+It turns out that even simple high dimensional problems, like packing spheres tightly, are very hard mathematically.
 Meanwhile simply placing the spheres at random locations works very well,
 this has problems related to the predictability and fairness of the computation.
-Today all the most efficient algorithms in the field has some chance of failing without any chance of verifying their result!
-In~\cite{ahle2017optimal} I found a way to solve this problem for the two most common geometries, and in~\cite{wei2018optimal} the results were extended to cover the Euclidean case as well.
+Today all the most efficient algorithms in the field have some chance of failing without any chance of verifying their results!
+In~\cite{ahle2017optimal} I found a way to solve this problem for the two most common geometries, and in~\cite{wei2019optimal} the results were extended to cover the Euclidean case as well.
 %
 My most recent work includes a unified approach to LSH for distances on set/boolean data and explicit feature embeddings of polynomial kernels, giving new state of the art results in linear methods in machine learning.
 
@@ -54,30 +56,42 @@ My most recent work includes a unified approach to LSH for distances on set/bool
 
 \paragraph{Research Plan}
 
-At Columbia I will tackle the most important problem in search: Edit Distance.
+At Columbia, I will tackle the most important problem in search: Edit Distance.
 The edit distance between two strings like SIMON and SALOON is the minimum number of insertions, deletions or substitutions required to turn one into the other.
-In the particular case, the answer is 3: delete an O and change AL into SI.
+In this particular case, the answer is 3: delete an O and change AL into SI.
 Given a database of strings and a query, we would like to quickly retrieve the most similar string in the database.
-This problem is deeply linked to natural language processing~\cite{sidorov2015computing}
+This problem is deeply linked to natural language processing
+~\cite{sidorov2015computing}
 % also punyakanok2004natural
-and computational biology~\cite{mcgrane2016biological}, and as of yet a very big computational mystery.
+and computational biology
+~\cite{mcgrane2016biological}
+, and as of yet a very big computational mystery.
 
-Practical solutions include transforming strings into sets (using so called $k$-mers) in which case my recent work~\cite{ahle2019subsets} gives the state of the art algorithm.
-Another approach embeds the strings into a geometry called L1~\cite{jowhari2012efficient, ostrovsky2005low} which is related to the Euclidian geometry and allows fast search.
+Practical solutions include transforming strings into sets (using so-called $k$-mers) in which case my recent work~\cite{ahle2019subsets} gives the state of the art algorithm.
+Another approach embeds the strings into a geometry called L1
+%~\cite{jowhari2012efficient, ostrovsky2005low}
+which is related to the Euclidian geometry and allows fast search.
 Unfortunately both transformations distort the edit distance a great deal, which makes the approach less than ideal.
-In fact for L1~\cite{krauthgamer2009improved} showed that there is no way around this.
+%In fact for L1~\cite{krauthgamer2009improved} showed that there is no way around this.
 %\cite{mccauley2019approximate} similarly uses embedding related methods.
 
-I believe that a more direct approach will yield much better algorithms, leading to many break through from machine learning to biology.
-We know from the very recent paper~\cite{andoni2018data} that all geometric search can be viewed through so-called non-linear spectral cuts.
+I believe that a more direct approach will yield much better algorithms, leading to many breakthrough from machine learning to biology.
+A very recent development of papers~\cite{
+   chakraborty2018approximating,
+   haeupler2019near%
+}
+%chakraborty2016streaming,
+%mccauley2019approximate
+have introduced many new ideas on edit distance,
+and~\cite{andoni2018data} has shown that all geometric search can be viewed through so-called non-linear spectral cuts, giving us a more principled path for research.
 I will study these quantities from both an upper and lower bound perspective.
 For upper bounds, new analytical methods developed in my recent papers allow studying candidate algorithms that this far has been a mystery.
 For lower bounds, new hypercontractive inequalities I have discovered give a new view at spectral cuts.
-Omri Weinstein is the top most expert on lower bounds for data structures, and working with him, and other experts and Columbia University, will make this project much more likely to succeed.
+Omri Weinstein is the topmost expert on lower bounds for data structures, and working with him, and other experts and Columbia University, will make this project much more likely to succeed.
 
 \clearpage
-,
-\vspace{2cm}
+\phantom{,}
+\vspace{1cm}
 \bibliographystyle{apalike}
 \bibliography{simons2}
 

@@ -1,9 +1,10 @@
 \begin{thebibliography}{}
 
-\bibitem[Abboud and Rubinstein, 2017]{DBLP:journals/corr/AbboudR17}
-Abboud, A. and Rubinstein, A. (2017).
-\newblock Distributed {PCP} theorems for hardness of approximation in {P}.
-\newblock {\em CoRR}, abs/1706.06407.
+\bibitem[Abboud et~al., 2017]{DBLP:journals/corr/AbboudR17}
+Abboud, A., Rubinstein, A., and Williams, R. (2017).
+\newblock Distributed pcp theorems for hardness of approximation in p.
+\newblock In {\em 2017 IEEE 58th Annual Symposium on Foundations of Computer
+  Science (FOCS)}, pages 25--36. IEEE.
 
 \bibitem[Ahle, 2017]{ahle2017optimal}
 Ahle, T.~D. (2017).
@@ -29,25 +30,24 @@ Andoni, A., Naor, A., Nikolov, A., Razenshteyn, I., and Waingarten, E. (2018).
 \newblock In {\em Proceedings of the 50th Annual ACM SIGACT Symposium on Theory
   of Computing}, pages 787--800. ACM.
 
-\bibitem[Jowhari, 2012]{jowhari2012efficient}
-Jowhari, H. (2012).
-\newblock Efficient communication protocols for deciding edit distance.
-\newblock In {\em European Symposium on Algorithms}, pages 648--658. Springer.
+\bibitem[Chakraborty et~al., 2018]{chakraborty2018approximating}
+Chakraborty, D., Das, D., Goldenberg, E., Koucky, M., and Saks, M. (2018).
+\newblock Approximating edit distance within constant factor in truly
+  sub-quadratic time.
+\newblock In {\em 2018 IEEE 59th Annual Symposium on Foundations of Computer
+  Science (FOCS)}, pages 979--990. IEEE.
 
-\bibitem[Krauthgamer and Rabani, 2009]{krauthgamer2009improved}
-Krauthgamer, R. and Rabani, Y. (2009).
-\newblock Improved lower bounds for embeddings into l\_1.
-\newblock {\em SIAM Journal on Computing}, 38(6):2487--2498.
+\bibitem[Haeupler et~al., 2019]{haeupler2019near}
+Haeupler, B., Rubinstein, A., and Shahrasbi, A. (2019).
+\newblock Near-linear time insertion-deletion codes and (1+
+  $\varepsilon$)-approximating edit distance via indexing.
+\newblock In {\em Proceedings of the 51st Annual ACM SIGACT Symposium on Theory
+  of Computing}, pages 697--708. ACM.
 
 \bibitem[McGrane and Charleston, 2016]{mcgrane2016biological}
 McGrane, M. and Charleston, M.~A. (2016).
 \newblock Biological network edit distance.
 \newblock {\em Journal of Computational Biology}, 23(9):776--788.
-
-\bibitem[Ostrovsky and Rabani, 2005]{ostrovsky2005low}
-Ostrovsky, R. and Rabani, Y. (2005).
-\newblock Low distortion embeddings for edit distance.
-\newblock In {\em STOC}, pages 218--224.
 
 \bibitem[Sidorov et~al., 2015]{sidorov2015computing}
 Sidorov, G., G{\'o}mez-Adorno, H., Markov, I., Pinto, D., and Loya, N. (2015).
@@ -56,9 +56,10 @@ Sidorov, G., G{\'o}mez-Adorno, H., Markov, I., Pinto, D., and Loya, N. (2015).
   Information Processing Society (NAFIPS) held jointly with 2015 5th World
   Conference on Soft Computing (WConSC)}, pages 1--4. IEEE.
 
-\bibitem[Wei, 2018]{wei2018optimal}
-Wei, A. (2018).
-\newblock Optimal las vegas approximate near neighbors in $\ell_p$.
-\newblock {\em arXiv preprint arXiv:1807.07527}.
+\bibitem[Wei, 2019]{wei2019optimal}
+Wei, A. (2019).
+\newblock Optimal las vegas approximate near neighbors in ℓp.
+\newblock In {\em Proceedings of the Thirtieth Annual ACM-SIAM Symposium on
+  Discrete Algorithms}, pages 1794--1813. SIAM.
 
 \end{thebibliography}

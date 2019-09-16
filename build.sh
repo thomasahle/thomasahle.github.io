@@ -11,5 +11,6 @@ python3 render_tex.py templates/cv_simons.tex > compiled/cv_simons.tex
 
 cd compiled
 pdflatex cv*.tex
+pdflatex cv_simons.tex
 cd ..
 
