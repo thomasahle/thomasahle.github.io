@@ -27,7 +27,7 @@ class Vars:
                     )
             , Lecture(title = 'Streams'
                     , desc = 'Java 8 parallel streams for bulk data and parallel array prefix operations. Functional interfaces, lambda expressions, method reference expressions.'
-                    , materials = 'Sestoft: Java Precisely 3rd edition sections 11.13, 11.14, 23, 24, 25; and associated example code. <a href="words.zip">File with English words</a>.'
+                    , materials = 'Sestoft: Java Precisely <b>3rd edition</b> sections 11.13, 11.14, 23, 24, 25; get <a href="https://learnit.itu.dk/mod/resource/view.php?id=106234">draft on LearnIT</a> and <a href="https://www.itu.dk/people/sestoft/javaprecisely/javaprecisely3-examples.tgz">associated example code</a>. Also <a href="words.zip">File with English words</a>.'
                     , learnit = '#'
                     , date = startdate + timedelta(weeks=3)
                     )
