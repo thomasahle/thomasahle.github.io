@@ -56,7 +56,8 @@ class Vars:
     papers = [
         Paper(
             'supermajority',
-            'Subsets and Supermajorities: Unifying Hashing-based Set Similarity Search', ['thdy'],
+            'Subsets and Supermajorities: Unifying Hashing-based Set Similarity Search',
+            ['thdy'],
             open('abstracts/supermajority').read(),
             2019,
             'subm',
@@ -68,7 +69,8 @@ class Vars:
             ]),
         Paper(
             'tensorsketch-joint',
-            'Oblivious Sketching of High-Degree Polynomial Kernels', ['thdy', 'mika', 'jbtk','pagh','amve','dawo','amza'],
+            'Oblivious Sketching of High-Degree Polynomial Kernels',
+            ['thdy', 'mika', 'jbtk','pagh','amve','dawo','amza'],
             open('abstracts/tensorsketch-joint').read(),
             2019,
             'soda',
@@ -78,7 +80,8 @@ class Vars:
             ]),
         Paper(
             'lasvegas',
-            'Optimal Las Vegas Locality Sensitive Data Structures', ['thdy'],
+            'Optimal Las Vegas Locality Sensitive Data Structures',
+            ['thdy'],
             open('abstracts/lasvegas').read(),
             2017,
             'focs',

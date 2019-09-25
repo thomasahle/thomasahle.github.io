@@ -37,18 +37,21 @@ class Vars:
                     , learnit = '#'
                     , date = startdate + timedelta(weeks=4)
                     )
+            , Break(title = 'Lecture Cancelled'
+                    , date = startdate + timedelta(weeks=5)
+                    )
             , Lecture(title = 'Threads and Locks 3'
                     , desc = 'Concurrent hash maps: performance and scalability case study.'
                     , materials = 'Goetz chapter 11, 13.5'
                     , learnit = '#'
-                    , date = startdate + timedelta(weeks=5)
-                    )
-            , Lecture(title = 'GUI applications'
-                    , desc = 'Cache coherence and performance consequences.'
-                    , materials = 'Goetz chapters 9, 10.1-2; McKenney chapters 1-4'
-                    , learnit = '#'
                     , date = startdate + timedelta(weeks=6)
                     )
+            #, Lecture(title = 'GUI applications'
+                    #, desc = 'Cache coherence and performance consequences.'
+                    #, materials = 'Goetz chapters 9, 10.1-2; McKenney chapters 1-4'
+                    #, learnit = '#'
+                    #, date = startdate + timedelta(weeks=6)
+                    #)
             , Break(title = 'Fall break'
                     , date = startdate + timedelta(weeks=7)
                     )
