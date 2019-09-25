@@ -71,10 +71,10 @@ class Vars:
             'Oblivious Sketching of High-Degree Polynomial Kernels', ['thdy', 'mika', 'jbtk','pagh','amve','dawo','amza'],
             open('abstracts/tensorsketch-joint').read(),
             2019,
-            'subm',
+            'soda',
             '',
             files=[
-                #File('pdf', 'papers/tensorsketch-joint.pdf'),
+                File('pdf', 'papers/tensorsketch-joint.pdf'),
             ]),
         Paper(
             'lasvegas',
