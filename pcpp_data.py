@@ -55,7 +55,7 @@ class Vars:
             , Break(title = 'Fall break'
                     , date = startdate + timedelta(weeks=7)
                     )
-            , Lecture(title = 'Threads and Locks 5'
+            , Lecture(title = 'Threads and Locks 4'
                     , desc = 'Testing concurrent programs.'
                     , materials = 'Goetz chapter 12; Herlihy and Shavit chapter 3'
                     , learnit = '#'
