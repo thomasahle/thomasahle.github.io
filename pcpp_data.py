@@ -79,13 +79,13 @@ class Vars:
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106678'
                     , date = startdate + timedelta(weeks=11)
                     )
-            , Lecture(title = 'Title to be Determined'
+            , Lecture(title = 'Introduction to Message Passing Concurrency'
                     , desc = 'Introduction to message passing concurrency (no mutable shared memory), Introduction to Erlang, Introduction to Java+Akka.'
                     , materials = 'Erlang chapter 1, 2, 5'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106679'
                     , date = startdate + timedelta(weeks=12)
                     )
-            , Lecture(title = 'Title to be Determined'
+            , Lecture(title = 'More about Message Passing Concurrency'
                     , desc = 'Message passing (no mutable shared memory), Erlang, Java+Akka.'
                     , materials = 'Just the slides'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106680'
