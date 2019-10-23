@@ -57,7 +57,7 @@ class Vars:
                     )
             , Lecture(title = 'Threads and Locks 4'
                     , desc = 'Testing concurrent programs.'
-                    , materials = 'Goetz chapter 12; Herlihy and Shavit chapter 3'
+                    , materials = 'Goetz chapter 12; <a href="https://learnit.itu.dk/pluginfile.php/251401/mod_resource/content/1/herlihy-shavit-rfe-ch03.pdf">Herlihy and Shavit chapter 3</a>'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106675'
                     , date = startdate + timedelta(weeks=8)
                     )

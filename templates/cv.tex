@@ -26,6 +26,10 @@
       Doctor of Philosophy,
       IT University of Copenhagen.
    \item[]
+      2019
+      Master of Arts in Computer Science,
+      University of Oxford.
+   \item[]
       2017
       Master of Science,
       IT University of Copenhagen, University of Copenhagen.
@@ -44,9 +48,13 @@
    \BLOCK{for a in paper.authors}
       \VAR{me.name if authors[a]==me else authors[a].abrv}
       \BLOCK{- if not loop.last}, \BLOCK{endif -}
-   \BLOCK{endfor}
-   at
-   \VAR{conferences[paper.conference].name},
+    \BLOCK{endfor -}
+    \BLOCK{- if paper.conference != 'subm'}
+       at
+       \VAR{conferences[paper.conference].name} (\VAR{paper.conference.upper()}),
+    \BLOCK{else}
+       -- Submitted,
+    \BLOCK{endif -}
    \VAR{paper.year}.
 %% endfor
 \end{itemize}
