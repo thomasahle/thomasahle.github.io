@@ -63,17 +63,17 @@ class Vars:
                     )
             , Lecture(title = 'Transactional Memory'
                     , desc = 'Transactional memory with Multiverse: <a href="http://itu.dk/people/fbie/multiverse-javadoc/index.html?org/multiverse/api/package-summary.html">Multiverse API Javadoc</a> and file <a href="multiverse-core-0.7.0.jar">multiverse-core-0.7.0.jar</a>.'
-                    , materials = 'Harris et al 2008 paper; Herlihy and Shavit sections 18.1-18.2; Cascaval et al 2008 paper; Eidenbenz, Wattenhofer 2011 paper;'
+                    , materials = '<a href="https://learnit.itu.dk/mod/resource/view.php?id=108890">Harris et al 2008 paper</a>; <a href="https://learnit.itu.dk/mod/resource/view.php?id=108891">Herlihy and Shavit</a> sections 18.1-18.2; <a href="https://queue.acm.org/detail.cfm?id=1454466">Cascaval et al 2008 paper</a>; <a href="https://learnit.itu.dk/mod/resource/view.php?id=108892">Eidenbenz, Wattenhofer 2011 paper</a>;'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106676'
                     , date = startdate + timedelta(weeks=9)
                     )
-            , Lecture(title = 'Title to be Determined'
+            , Lecture(title = 'Parallel Algorithms 1'
                     , desc = 'Optimistic concurrency, lock-free data structures, Treiber stack, compare-and-swap. Consensus number.'
                     , materials = 'Goetz chapter 15; Herlihy and Shavit sections 5.1-5.2'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106677'
                     , date = startdate + timedelta(weeks=10)
                     )
-            , Lecture(title = 'Title to be Determined'
+            , Lecture(title = 'Parallel Algorithms 2'
                     , desc = 'The Michael and Scott queue, progress concepts, Union Find, work-stealing queues.'
                     , materials = 'Michael and Scott paper and Chase and Lev paper sections 1, 2 and 5'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106678'
