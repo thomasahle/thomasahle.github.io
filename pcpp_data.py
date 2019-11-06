@@ -68,7 +68,7 @@ class Vars:
                     , date = startdate + timedelta(weeks=9)
                     )
             , Lecture(title = 'Parallel Algorithms 1'
-                    , desc = 'Optimistic concurrency, lock-free data structures, Treiber stack, compare-and-swap. Consensus number.'
+                    , desc = '<b>Notice: Lecture will be posted as video thursday afternoon.</b> There won\'t be anyone in the auditorium in the morning; Description: Optimistic concurrency, lock-free data structures, Treiber stack, compare-and-swap. Consensus number.'
                     , materials = 'Goetz chapter 15; Herlihy and Shavit sections 5.1-5.2'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106677'
                     , date = startdate + timedelta(weeks=10)
