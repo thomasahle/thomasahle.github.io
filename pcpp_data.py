@@ -67,13 +67,13 @@ class Vars:
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106676'
                     , date = startdate + timedelta(weeks=9)
                     )
-            , Lecture(title = 'Parallel Algorithms 1'
+            , Lecture(title = 'Compare and Swap 1'
                     , desc = '<b>Notice: Lecture will be posted as video thursday afternoon.</b> There won\'t be anyone in the auditorium in the morning; Description: Optimistic concurrency, lock-free data structures, Treiber stack, compare-and-swap. Consensus number.'
-                    , materials = 'Goetz chapter 15; Herlihy and Shavit sections 5.1-5.2'
+                    , materials = 'Goetz chapter 15; <a href="https://learnit.itu.dk/pluginfile.php/252293/mod_resource/content/1/HerlihyShavit5_1-5_2.pdf">Herlihy and Shavit sections 5.1-5.2</a>'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106677'
                     , date = startdate + timedelta(weeks=10)
                     )
-            , Lecture(title = 'Parallel Algorithms 2'
+            , Lecture(title = 'Compare and Swap 2'
                     , desc = 'The Michael and Scott queue, progress concepts, Union Find, work-stealing queues.'
                     , materials = 'Michael and Scott paper and Chase and Lev paper sections 1, 2 and 5'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106678'
