@@ -75,7 +75,7 @@ class Vars:
                     )
             , Lecture(title = 'Compare and Swap 2'
                     , desc = 'The Michael and Scott queue, progress concepts, Union Find, work-stealing queues.'
-                    , materials = 'Michael and Scott paper and Chase and Lev paper sections 1, 2 and 5'
+                    , materials = '<a href="http://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf">Michael and Scott paper</a> and <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.170.1097&rep=rep1&type=pdf">Chase and Lev paper</a> sections 1, 2 and 5'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106678'
                     , date = startdate + timedelta(weeks=11)
                     )
