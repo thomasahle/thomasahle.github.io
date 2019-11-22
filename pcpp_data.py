@@ -81,7 +81,7 @@ class Vars:
                     )
             , Lecture(title = 'Introduction to Message Passing Concurrency'
                     , desc = 'Introduction to message passing concurrency (no mutable shared memory), Introduction to Erlang, Introduction to Java+Akka.'
-                    , materials = 'Erlang chapter 1, 2, 5'
+                    , materials = 'Erlang chapter 1, 2, 5. <a href="https://learnit.itu.dk/pluginfile.php/246472/mod_forum/attachment/52744/scala.jar">scala.jar</a>.'
                     , learnit = 'https://learnit.itu.dk/mod/assign/view.php?id=106679'
                     , date = startdate + timedelta(weeks=12)
                     )
