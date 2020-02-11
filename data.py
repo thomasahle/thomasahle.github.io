@@ -11,7 +11,7 @@ Teaching = namedtuple('Teaching', ['name', 'abrv', 'year', 'description', 'href'
 File = namedtuple('File', ['format', 'href'])
 Newspaper = namedtuple('Newspaper', ['author', 'name', 'date', 'title', 'href', 'description', 'files'])
 Award = namedtuple('Award', ['name', 'place', 'giver', 'date', 'description'])
-Job = namedtuple('Job', ['title', 'company', 'date', 'description'])
+Job = namedtuple('Job', ['title', 'company', 'date', 'description', 'academic'])
 
 
 class Vars:
@@ -240,23 +240,28 @@ class Vars:
                At SupWiz I lead a team of four in developing our chatbot software and putting it into production at 3 of the largest Danish IT companies. (Now many more.)
                In 2019 the chatbot won the most prestigious prize given by Innovation Fund Denmark.
                I was also responsible for our hiring efforts, interviewing dozens and employing 4 engineers over a 5 month period.
-               '''),
+               ''', True),
         Job('Teaching', 'IT University of Copenhagen', '2015 - 2019',
             '''In 2019 I co-designed and taught the Parallel and Concurrent Programming course to 140 master students.
                Earlier years I assisted in various algorithms design classes.
-            '''),
+            ''', True),
         Job('Teaching', 'University of Copenhagen', '2014',
-            '''I assisted in teaching algorithms to more than 200 bachelor students.'''),
+            '''I assisted in teaching algorithms to more than 200 bachelor students.''',
+            True),
         Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
-            '''I lead a project developing internal debugging tools for sifting through gigabytes of data/second on Sophion's ion channel screening machines.'''),
+            '''I lead a project developing internal debugging tools for sifting through gigabytes of data/second on Sophion's ion channel screening machines.''',
+            False),
         Job('Software Engineer Intern', 'Palantir', '2012',
             '''Ported the Metropolis ontological time-series system (now Foundry) to the web.
-               Acted as coordinating hub for 10 people deciding API and network infrastructure.'''),
+               Acted as coordinating hub for 10 people deciding API and network infrastructure.''',
+               False),
         Job('Software Engineer', 'XION', '2010-2012',
             '''I Developed the most popular Danish TV-listings app for Android at the time.
-               This included writing scrapers to gather TV information from 100s of TV-stations (consensually) and serving it on a public facing API.'''),
+               This included writing scrapers to gather TV information from 100s of TV-stations (consensually) and serving it on a public facing API.''',
+               False),
     ]
 
     oss = [
-            Job('Project Owner', 'PyChess', '2006 - current', 'Developed the most used chess client and engine for the Linux desktop. Currently the 7th most used interface on the Free Internet Chess Server. Translated to more than 35 languages. I lead a team of 4-8 developers and designers. In 2009 we won Les Trophées du Libre in Paris. The project is under the Gnu Public License and has been used by people all over the world for research projects and other experiments.'),
+            Job('Project Owner', 'PyChess', '2006 - current', 'Developed the most used chess client and engine for the Linux desktop. Currently the 7th most used interface on the Free Internet Chess Server. Translated to more than 35 languages. I lead a team of 4-8 developers and designers. In 2009 we won Les Trophées du Libre in Paris. The project is under the Gnu Public License and has been used by people all over the world for research projects and other experiments.',
+                True),
             ]
