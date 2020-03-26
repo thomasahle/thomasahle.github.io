@@ -77,6 +77,7 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/tensorsketch-joint.pdf'),
+                File('arxiv', 'https://arxiv.org/abs/1909.01410v3')
             ]),
         Paper(
             'lasvegas',
