@@ -56,7 +56,7 @@ class Vars:
     papers = [
         Paper(
             'supermajority',
-            'Subsets and Supermajorities: Unifying Hashing-based Set Similarity Search',
+            'Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search',
             ['thdy'],
             open('abstracts/supermajority').read(),
             2019,
