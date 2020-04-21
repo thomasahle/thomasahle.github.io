@@ -204,7 +204,7 @@ class Vars:
         Newspaper(
             '',
             'Computerworld', 'June 2015',
-            'With the National Team at the Programming World Cup: Sport Coding Sharpens You',
+            'The National Team at the Programming World Cup',
             'http://www.computerworld.dk/art/234196',
             'Coverage of my teams participation in the ICPC World Finals.'
             , files=[]
