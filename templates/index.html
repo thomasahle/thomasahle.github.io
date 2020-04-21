@@ -98,7 +98,6 @@
          {%- for m in media -%}
          <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}.
             "{{m.title}}."
-            <br/>
             {% for f in m.files -%}
                <a href='{{f.href}}'
                   onclick="dataLayer.push({'event': 'downloadmedia_{{f.format}}'});"
