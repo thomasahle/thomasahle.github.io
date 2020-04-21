@@ -212,7 +212,7 @@ class Vars:
         Newspaper(
             'Elkær, Mads',
             'Computerworld', 'October 2013',
-            'These are Denmark\'s Three Greatest Programmers',
+            'Denmark\'s Three Greatest Programmers',
             'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
             '', files=[]
             )
