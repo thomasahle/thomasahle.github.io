@@ -81,6 +81,10 @@ class ControlPanel {
       const step = () => {
          graph.step();
          graph.update();
+         if (!graph.isAlive()) {
+            this.playInterval = clearInterval(this.playInterval);
+            this.update();
+         }
       }
       const p = form.append('p').attr('id','buttons');
       p.append('button')
@@ -96,11 +100,8 @@ class ControlPanel {
          });
       p.append('button').text('Step').on('click', step);
       p.append('button').text('Reset').on('click', () => {
-         // TODO: Calc better start degree
          const d = Math.exp(D(this.t, this.p));
          const surv = simulate(this.t, this.p, d, 15);
-         // Round to power to increase stability
-         //const n = Math.pow(Math.ceil(Math.sqrt(1/surv)),2);
          const n = Math.ceil(1/surv);
          graph.reset(n, this.p, this.t, d);
          graph.update();
