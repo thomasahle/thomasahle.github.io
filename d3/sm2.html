@@ -1,0 +1,140 @@
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <link rel='stylesheet' href='style.css' />
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+   </head>
+   <body>
+      <script src="script.js"></script>
+      <script>
+
+function D(t,p) {
+   if (t == 0) return Math.log(1/(1-p));
+   if (t == 1) return Math.log(1/p);
+   return t*Math.log(t/p) + (1-t)*Math.log((1-t)/(1-p));
+}
+
+function simulate(t, p, d, k) {
+   // Also: Should we support c_ell vaulues?
+   console.log([t,p,d,k]);
+   let tot = 0;
+   let s = 0;
+   while (tot == 0 || tot == s || s < (s/Math.min(tot,s-tot))**2 * 10) {
+      s++;
+      let reprs = [0];
+      let size = 1;
+      for (let i = 1; i <= k; i++) {
+         let level_size = Math.ceil(Math.pow(d, i)/size);
+         size *= level_size;
+         const new_reprs = [];
+         for (let ii = 0; ii < reprs.length; ii++) {
+            const v = reprs[ii];
+            for (let j = 0; j < level_size; j++) {
+               // Twisting make no sense here, as we should succeed with
+               // polynomial probability
+               const v1 = v + (Math.random() < p ? 1 : 0);
+               //const sig = Math.sqrt(t*(1-t)*i);
+               const sig = Math.pow(t*(1-t)*i, 1/3);
+               if (t > p ? v1 >= t*i-sig : v1 <= t*i)
+                  new_reprs.push(v1);
+            }
+            // Trim to 20 per level
+            //if (new_reprs.length > 30)
+               //break;
+         }
+         reprs = new_reprs;
+         // A more positive way to trim
+         if (reprs.length == 0 || reprs.length > 30)
+            break;
+      }
+      //console.log(reprs);
+      if (reprs.length != 0)
+         tot++;
+   }
+   const r = Math.log((1-p)/p*t/(1-t));
+   const si = Math.sqrt(t*(1-t));
+   const e = Math.exp(-Math.pow(3*Math.pow(Math.PI*si*r,2) * k / 2, 1/3));
+   console.log(`Expected p: ${e}`);
+   console.log(`Actual p: ${tot/s} (with sigma)`);
+   console.log(`Used ${s} iterations`);
+   return tot/s;
+}
+
+class ControlPanel {
+   constructor(p, t, graph) {
+      this.p = p;
+      this.t = t;
+      this.graph = graph;
+
+      this.playInterval = null;
+   }
+   mount(node) {
+      this.node = node;
+      this.update();
+      this.graph.reset(8, this.p, this.t, Math.exp(D(this.t, this.p)));
+   }
+   update() {
+      this.node.selectAll('*').remove();
+      const form = this.node;
+
+      // Make buttons
+      const step = () => {
+         graph.step();
+         graph.update();
+      }
+      const p = form.append('p').attr('id','buttons');
+      p.append('button')
+         .text(this.playInterval ? 'Stop' : 'Play')
+         .on('click', () => {
+            if (this.playInterval) {
+               this.playInterval = clearInterval(this.playInterval);
+            } else {
+               step();
+               this.playInterval = setInterval(step, 1100);
+            }
+            this.update();
+         });
+      p.append('button').text('Step').on('click', step);
+      p.append('button').text('Reset').on('click', () => {
+         // TODO: Calc better start degree
+         const d = Math.exp(D(this.t, this.p));
+         const surv = simulate(this.t, this.p, d, 15);
+         // Round to power to increase stability
+         //const n = Math.pow(Math.ceil(Math.sqrt(1/surv)),2);
+         const n = Math.ceil(1/surv);
+         graph.reset(n, this.p, this.t, d);
+         graph.update();
+      });
+
+      // Make form
+      [
+         {id: 'p', label: 'Increment probability', symbol:'p', type: 'number', value: this.p},
+         {id: 't', label: 'Survival treshold', symbol:'t', type: 'number', value: this.t},
+         {id: 'D', label: 'Branching factor', symbol:'Δ', type: 'number', value: Math.exp(D(this.t,this.p)), disabled: true}
+      ].forEach(field => {
+         const p = form.append('p');
+         const label = p.append('label').attr('for', field.id);
+         label.append('span').text(field.label).attr('class','label');
+         label.append('span').text(field.symbol+' = ').attr('class','symbol');
+         const input = p.append('input').attr('id', field.id).attr('type', field.type).attr('value', field.value).attr('disabled', field.disabled);
+      });
+      let me = this;
+      form.select('#p').on('change', function() { me.p = this.value; me.update();});
+      form.select('#t').on('change', function() { me.t = this.value; me.update();});
+   }
+}
+
+const form = d3.select('body').append('div').attr('id','form');
+const svg = d3.select('body').append('svg');
+const graph = new RadialTree();
+const cp = new ControlPanel(.5, .8, graph);
+graph.mount(svg);
+cp.mount(form);
+
+cp.update();
+graph.update();
+
+
+      </script>
+   </body>
+</html>

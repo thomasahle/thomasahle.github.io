@@ -1,0 +1,58 @@
+body {
+     padding: 20px 40px;
+     font-family: Helvetica, sans-serif;
+     font-size: medium;
+}
+svg {
+   font-size: small;
+}
+#form {
+     width: 400px;
+     padding: 20px 12px 10px 20px;
+}
+label, input {
+   display: inline-block;
+}
+label {
+   width:50%;
+}
+span.label {
+   display: inline-block;
+   width: 80%;
+}
+span.symbol {
+   display: inline-block;
+   text-align: right;
+   width: 15%;
+}
+input[type=number] {
+     border: 1px solid #C2C2C2;
+     box-shadow: 1px 1px 4px #EBEBEB;
+     border-radius: 3px;
+     padding: 7px;
+     width: 25%;
+}
+input[type=number]:focus {
+     border: 1px solid #0C0;
+}
+#buttons {
+   float:right;
+   padding: 0 10px;
+}
+button {
+     font-size: medium;
+     border: none;
+     padding: 8px 15px 8px 15px;
+     background: #FF8500;
+     color: #fff;
+     box-shadow: 1px 1px 4px #DADADA;
+     border-radius: 3px;
+     display: block;
+     width: 100%;
+     margin-bottom: 10px;
+}
+button:hover{
+     background: #EA7B00;
+     color: #fff;
+}
+   
