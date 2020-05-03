@@ -45,6 +45,7 @@ class RadialTree {
       this.radius = 300;
       this.tree = d3.tree().size([2*Math.PI, this.radius]);
       this.duration = 1000;
+      this.dispatch = d3.dispatch('change');
    }
    reset(init_degree, p, t, d) {
       this.p = p;
@@ -117,6 +118,7 @@ class RadialTree {
    }
    update() {
       this.tree(this.root);
+      this.dispatch.call('change');
       const links = this.root.links();
       const nodes = this.root.descendants();
 

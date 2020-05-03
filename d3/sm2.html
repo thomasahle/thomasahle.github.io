@@ -14,16 +14,17 @@
       <script src="plot.js"></script>
       <script>
 
-const svg = d3.select('body').append('svg').attr('id', 'tree');
-const form = d3.select('body').append('div').attr('id','cp');
 const graph = new RadialTree();
 const cp = new ControlPanel(.5, 1, graph);
-graph.mount(svg);
+const plot = new JoyPlot(graph);
+
+const tree_svg = d3.select('body').append('svg').attr('id', 'tree');
+const form = d3.select('body').append('div').attr('id', 'cp');
+const plot_svg = d3.select('body').append('svg').attr('id', 'plot');
+
+graph.mount(tree_svg);
 cp.mount(form);
-
-cp.update();
-graph.update();
-
+plot.mount(plot_svg);
 
       </script>
    </body>

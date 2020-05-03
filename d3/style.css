@@ -3,8 +3,8 @@ body {
      font-family: Helvetica, sans-serif;
      font-size: medium;
 }
-#tree {
-   margin:auto;
+#tree, #plot {
+   margin: auto;
    display: block;
 }
 #cp {
@@ -42,6 +42,9 @@ button:hover{
     fill: none;
     stroke: #999;
     stroke-width: 1.5;
+}
+#plot path.domain {
+   visibility: hidden;
 }
 #tree .node:not(.inner).alive circle {
    fill: #66b;
