@@ -164,26 +164,32 @@ class RadialTree {
          );
 
       // We do the nodes after the links to have them on top
-      const node = this.g.selectAll("circle")
+      const nodeUpdate = this.g.selectAll('g.node')
          .data(nodes, d => d.data.id);
 
-      const nodeEnter = node.enter().append("circle")
-         .attr("cx", d => d.parent ? d.parent.y0 * Math.cos(d.parent.x0) : 0)
-         .attr("cy", d => d.parent ? d.parent.y0 * Math.sin(d.parent.x0) : 0);
+      const nodeEnter = nodeUpdate.enter().append("g").classed('node', true)
+         .attr('transform', d => `translate(
+               ${d.parent ? d.parent.y0 * Math.cos(d.parent.x0) : 0},
+               ${d.parent ? d.parent.y0 * Math.sin(d.parent.x0) : 0})`);
 
-      node.merge(nodeEnter)
-        .attr("class", d => {
-           if (d.height > 0) return 'inner'
-           return d.data.alive ? 'alive' : 'dead';
-        })
+      // Make shadows
+      nodeEnter.append('circle')
+         .clone()
+         .classed('shadow', true)
+         .lower();
+
+      nodeUpdate.merge(nodeEnter)
+         .classed("inner", d => d.height > 0)
+         .classed("alive", d => d.data.alive)
          .transition(transition)
-         .attr("cx", d => d.y * Math.cos(d.x))
-         .attr("cy", d => d.y * Math.sin(d.x));
+         .attr('transform', d => `translate(
+               ${d.y * Math.cos(d.x)},
+               ${d.y * Math.sin(d.x)})`);
 
       // We just use those for reset.
       // But actually, the new structure doesn't require resets...
       link.exit().remove();
-      node.exit().remove();
+      nodeUpdate.exit().remove();
 
       // Stash the old positions for transition.
       this.root.each(d => {

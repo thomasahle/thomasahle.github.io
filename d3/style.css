@@ -3,68 +3,56 @@ body {
      font-family: Helvetica, sans-serif;
      font-size: medium;
 }
-svg {
-   font-size: small;
+#tree {
+   margin:auto;
+   display: block;
 }
-#form {
-     width: 400px;
+#cp {
      padding: 20px 12px 10px 20px;
-}
-label, input {
-   display: inline-block;
+     max-width: 800px;
+     margin: auto;
 }
 label {
-   width:50%;
-}
-span.label {
-   display: inline-block;
-   width: 80%;
-}
-span.symbol {
-   display: inline-block;
-   text-align: right;
-   width: 15%;
-}
-input[type=number] {
-     border: 1px solid #C2C2C2;
-     box-shadow: 1px 1px 4px #EBEBEB;
-     border-radius: 3px;
-     padding: 7px;
-     width: 25%;
-}
-input[type=number]:focus {
-     border: 1px solid #0C0;
+   font-size: 13px;
+   color: #555;
+   display: block;
 }
 #buttons {
    float:right;
    padding: 0 10px;
 }
 button {
-     font-size: medium;
+     font-size: 20px;
      border: none;
      padding: 8px 15px 8px 15px;
      background: #FF8500;
      color: #fff;
      box-shadow: 1px 1px 4px #DADADA;
      border-radius: 3px;
-     display: block;
-     width: 100%;
-     margin-bottom: 10px;
+     margin: 0 0 0 10px;
+     height: 50;
+     display: inline-flex;
+
 }
 button:hover{
      background: #EA7B00;
      color: #fff;
 }
-path {
+#tree path {
     fill: none;
     stroke: #999;
     stroke-width: 1.5;
 }
-circle.alive {
+#tree .node:not(.inner).alive circle {
    fill: #66b;
    r: 3.5;
 }
-circle.dead {
+#tree .node:not(.inner).alive circle.shadow {
+   r: 10;
+   fill: #66b;
+   opacity: .1;
+}
+#tree .node:not(.alive):not(.inner) circle {
    fill: #999;
    r: 2.5;
 }
