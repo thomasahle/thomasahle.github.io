@@ -31,8 +31,8 @@ function simulate(t, p, d, k) {
                   new_reprs.push(v1);
             }
             // Trim to 20 per level
-            //if (new_reprs.length > 30)
-               //break;
+            if (new_reprs.length > 30)
+               break;
          }
          reprs = new_reprs;
          // A more positive way to trim
@@ -56,6 +56,8 @@ class ControlPanel {
    constructor(p, t, graph) {
       this.p = p;
       this.t = t;
+      this.d = Math.exp(D(this.t, this.p));
+      this.dirty = true;
       this.graph = graph;
 
       this.playInterval = null;
@@ -63,22 +65,29 @@ class ControlPanel {
    mount(node) {
       this.node = node;
       this.create(node);
+      this.reset();
+   }
+   reset() {
+      const surv = simulate(this.t, this.p, this.d, 15);
+      const n = Math.ceil(1/surv);
+      this.graph.reset(n, this.p, this.t, this.d);
+      this.graph.update();
+      this.dirty=false;
       this.update();
-      this.graph.reset(8, this.p, this.t, Math.exp(D(this.t, this.p)));
    }
    update() {
       this.node.select('#play_button')
          .html(this.playInterval ?
-            '<i class="material-icons">pause</i> Stop'
-            : '<i class="material-icons">play_arrow</i> Play')
+            '<i class="material-icons">pause</i> Pause'
+            : '<i class="material-icons">play_arrow</i> Play');
       this.node.select('#step_button')
-         .html('<i class="material-icons">skip_next</i> Step')
+         .html('<i class="material-icons">skip_next</i> Step');
       this.node.select('#reset_button')
-         .html('<i class="material-icons">stop</i> Reset')
+         .html('<i class="material-icons">stop</i> Refresh'
+         + (this.dirty ? '*' : ''));
       this.p_slider.silentValue(this.p);
       this.t_slider.silentValue(this.t);
-      const d = Math.exp(D(this.t, this.p));
-      this.d_slider.silentValue(d).max(Math.ceil(2*d));
+      this.d_slider.silentValue(this.d);
    }
    create(form) {
       // Make buttons
@@ -101,20 +110,23 @@ class ControlPanel {
             }
             this.update();
          });
-      p.append('button').attr('id', 'step_button')
+      p.append('button')
+         .attr('id', 'step_button')
          .on('click', step);
-      p.append('button').attr('id', 'reset_button')
-         .on('click', () => {
-            const d = Math.exp(D(this.t, this.p));
-            const surv = simulate(this.t, this.p, d, 15);
-            const n = Math.ceil(1/surv);
-            this.graph.reset(n, this.p, this.t, d);
-            this.graph.update();
-         });
+      p.append('button')
+         .attr('id', 'reset_button')
+         .on('click', () => this.reset());
 
       p = form.append('p');
       p.append('label')
-         .text('Increment probability (p)');
+         .text('Increment probability (p)')
+         .append('i')
+         .lower()
+         .attr('class', 'tooltip material-icons')
+         .text('info')
+         .append('span')
+         .attr('class', 'tooltip-text')
+         .text('An individuals fitness increases with 1 compared to its parent with this probability.');
       this.p_slider = d3.sliderBottom().width(200)
          .min(0)
          .max(1)
@@ -123,6 +135,8 @@ class ControlPanel {
          .default(this.p)
          .on('onchange', val => {
             this.p = val;
+            this.d = Math.exp(D(this.t, this.p));
+            this.dirty=true;
             this.update()
          });
       p.append('svg').attr('height', 50)
@@ -131,7 +145,9 @@ class ControlPanel {
 
       p = form.append('p');
       p.append('label')
-         .text( 'Survival treshold (t)');
+         .text('Survival treshold (t)')
+         .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
+         .text('An individual is allowed to survive the kth rorund, if its fitness is at least t*k.');
       this.t_slider = d3.sliderBottom().width(200)
          .min(0)
          .max(1)
@@ -140,6 +156,8 @@ class ControlPanel {
          .default(this.p)
          .on('onchange', val => {
             this.t = val;
+            this.d = Math.exp(D(this.t, this.p));
+            this.dirty=true;
             this.update()
          });
       p.append('svg').attr('height', 50)
@@ -148,14 +166,20 @@ class ControlPanel {
 
       p = form.append('p');
       p.append('label')
-         .text('Branching factor (Δ)');
-      const d = Math.ceil(Math.exp(D(this.t,this.p)));
+         .text('Branching factor (Δ)')
+         .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
+         .text('Each individual that survives splits inito Δ descendants, each inheriting the fitness of the parent.');
       this.d_slider = d3.sliderBottom().width(200)
          .min(1)
-         .max(2*d)
+         .max(Math.ceil(2*this.d))
          .tickFormat(d3.format('.5'))
          .ticks(5)
-         .default(d);
+         .default(this.d)
+         .on('onchange', val => {
+            this.d = val;
+            this.dirty=true;
+            this.update()
+         });
       p.append('svg')
          .attr('height', 50)
          .append('g').attr('transform', 'translate(15,15)')
