@@ -58,9 +58,7 @@ class JoyPlot {
              .call(d3.axisLeft(y).tickSize(0).tickPadding(4))
              .call(g => g.select(".domain").remove()));
       const area = d3.area()
-          .curve(d3.curveBasis)
-          //.curve(d3.curveLinear)
-          //.curve(d3.curveStep)
+          .curve(d3.curveMonotoneX)
           .x((d, i) => x(i+1))
           .y0(0)
           .y1(d => z(d));
