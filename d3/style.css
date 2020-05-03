@@ -13,14 +13,14 @@ body {
      margin: auto;
 }
 #cp .slider {
-   width: 400px;
+   width: 380px;
 }
 #cp .slider svg {
    height: 100px;
    width: 100%;
 }
 #cp .slider svg>g {
-   transform: translate(25px,25px) scale(1.7);
+   transform: translate(25px,25px) scale(1.65);
 }
 label {
    font-size: 13px;
@@ -57,16 +57,16 @@ button:hover{
 }
 #tree .node:not(.inner).alive circle {
    fill: #66b;
-   r: 3.5;
+   r: 3.5px;
 }
 #tree .node:not(.inner).alive circle.shadow {
-   r: 10;
+   r: 10px;
    fill: #66b;
    opacity: .1;
 }
 #tree .node:not(.alive):not(.inner) circle {
    fill: #999;
-   r: 2.5;
+   r: 2.5px;
 }
 .tooltip {
   position: relative;

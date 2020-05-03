@@ -68,8 +68,14 @@ class ControlPanel {
       this.reset();
    }
    reset() {
-      const surv = simulate(this.t, this.p, this.d, 15);
-      const n = Math.ceil(1/surv);
+      const ideal_d = Math.exp(D(this.t, this.p));
+      let n;
+      if (this.d >= ideal_d) {
+         const surv = simulate(this.t, this.p, this.d, 15);
+         n = Math.ceil(1/surv);
+      } else {
+         n = 20;
+      }
       this.graph.reset(n, this.p, this.t, this.d);
       this.graph.update();
       this.dirty=false;
