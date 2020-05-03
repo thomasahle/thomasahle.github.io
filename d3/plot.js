@@ -86,7 +86,8 @@ class JoyPlot {
                .attr('class', 'line')
                .attr("fill", "none")
                .attr("d", d => line_flat(d))
-               .attr("stroke", "white");
+               .attr("stroke", "black")
+               .attr("stroke-opacity", "0") ;
             return g;
          });
       rows
@@ -100,7 +101,7 @@ class JoyPlot {
          .select('path.line')
          .transition(transition)
          .attr("d", d => line(d))
-         .attr("stroke", "black");
+         .attr("stroke-opacity", "1");
 
    }
 }
