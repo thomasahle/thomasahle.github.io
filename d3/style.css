@@ -22,6 +22,14 @@ body {
 #cp .slider svg>g {
    transform: translate(25px,25px) scale(1.65);
 }
+h2 {
+   width: 800px;
+   margin: auto;
+   color: #555;
+   font-weight: normal;
+   margin-bottom: 10px;
+   font-size: 20px;
+}
 label {
    font-size: 13px;
    color: #555;
