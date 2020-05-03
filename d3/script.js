@@ -21,28 +21,24 @@ function link(curve) {
 }
 
 function curveArc(context, r0, a0, r1, a1) {
-  var p0 = d3.pointRadial(a0, r0),
-      p1 = d3.pointRadial(a0, (r0 + r1) / 2),
-      p2 = d3.pointRadial(a1, (r0 + r1) / 2),
-      p3 = d3.pointRadial(a1, r1);
-   /*if (r0 == r1 && a0 == a1) {
-      console.log([r0, a0, r1, a1]);
-      return;
-   }*/
-   //console.log([a0, a1, (a1-a0), (a1-a0+2*Math.PI)%(2*Math.PI)]);
+  var p0 = d3.pointRadial(a0+Math.PI/2, r0),
+      p1 = d3.pointRadial(a0+Math.PI/2, (r0 + r1) / 2),
+      p2 = d3.pointRadial(a1+Math.PI/2, (r0 + r1) / 2),
+      p3 = d3.pointRadial(a1+Math.PI/2, r1);
+
   context.moveTo(p0[0], p0[1]);
   context.lineTo(p1[0], p1[1]);
-   //if (Math.abs(a0 - a1) > 1e-3)
-      // We can make a simple a test, since the tree can never wrap all the way around
-     context.arc(0, 0, (r0+r1)/2, a0-Math.PI/2, a1-Math.PI/2, a1<a0);
-  context.moveTo(p2[0], p2[1]);
+  context.arc(0, 0, (r0+r1)/2, a0, a1, a1<a0);
   context.lineTo(p3[0], p3[1]);
+
+  // context.moveTo(p0[0], p0[1]);
+  // context.arc(0, 0, r0, a0-Math.PI/2, a1-Math.PI/2, a1<a0);
+  // context.lineTo(p3[0], p3[1]);
 }
 
 function linkRadial2() {
    return link(curveArc);
 }
-
 
 class RadialTree {
    constructor() {
@@ -111,37 +107,30 @@ class RadialTree {
       return res;
    }
    mount(svg) {
-      this.svg = svg;
-      this.gLink = svg.append("g")
-          .attr("fill", "none")
-          .attr("stroke", "#555")
-          .attr("stroke-opacity", 0.4)
-          .attr("stroke-width", 1.5);
-      this.gNode = svg.append("g")
-          .attr("cursor", "pointer")
-          .attr("pointer-events", "all");
+      const r = this.radius
+      const p = 5;
+      this.svg = svg
+         .attr('width', 2 * r)
+         .attr('height', 2 * r)
+         .attr('viewBox', [-r-p, -r-p, 2*r+2*p, 2*r+2*p])
+      this.g = svg.append("g")
    }
    update() {
       this.tree(this.root);
       const links = this.root.links();
+      const nodes = this.root.descendants();
 
       // Compute the new tree layout.
       //const size = size_radial();
-      const size = {width: this.radius*2, height: this.radius*2};
-
       const transition = this.svg.transition()
          .duration(this.duration)
       // Animate resize of svg element to fit new data
          //.attr("viewBox", [-margin.left, - margin.top, size.width, size.height])
-         .attr("viewBox", [-size.width/2, -size.height/2, size.width, size.height])
-         .attr('width', size.width)
-         .attr('height', size.height)
       // Some sort of hack to make the window realize it needs to resize?
          .tween("resize", window.ResizeObserver ? null : () => () => this.svg.dispatch("toggle"));
 
-
       // Update the links. They take the id of their target.
-      const link = this.gLink.selectAll("path")
+      const link = this.g.selectAll("path")
          .data(links, d => d.target.data.id);
 
       // Helper function for beizer paths
@@ -153,7 +142,10 @@ class RadialTree {
 
       // Transition links to their new position.
       // Note: each link is an object that defines source and target properties
-      link.merge(linkEnter).transition(transition)
+      link.merge(linkEnter)
+         // We hide root links, since they don't really exist
+         .attr('visibility', d => d.source.depth == 0 ? 'hidden' : 'visible')
+         .transition(transition)
          // We need to storre the old positions before they get updated at the end
          // of the function. It turns out attrTween is too late.
          .attr('d', li => {
@@ -170,11 +162,28 @@ class RadialTree {
                 target: {x: (1-t)*d.target.x00 + t*d.target.x,
                          y: (1-t)*d.target.y00 + t*d.target.y}})
          );
-         //.attr("d", diagonal);
+
+      // We do the nodes after the links to have them on top
+      const node = this.g.selectAll("circle")
+         .data(nodes, d => d.data.id);
+
+      const nodeEnter = node.enter().append("circle")
+         .attr("cx", d => d.parent ? d.parent.y0 * Math.cos(d.parent.x0) : 0)
+         .attr("cy", d => d.parent ? d.parent.y0 * Math.sin(d.parent.x0) : 0);
+
+      node.merge(nodeEnter)
+        .attr("class", d => {
+           if (d.height > 0) return 'inner'
+           return d.data.alive ? 'alive' : 'dead';
+        })
+         .transition(transition)
+         .attr("cx", d => d.y * Math.cos(d.x))
+         .attr("cy", d => d.y * Math.sin(d.x));
 
       // We just use those for reset.
       // But actually, the new structure doesn't require resets...
       link.exit().remove();
+      node.exit().remove();
 
       // Stash the old positions for transition.
       this.root.each(d => {

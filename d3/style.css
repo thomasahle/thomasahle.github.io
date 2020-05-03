@@ -55,4 +55,16 @@ button:hover{
      background: #EA7B00;
      color: #fff;
 }
-   
+path {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1.5;
+}
+circle.alive {
+   fill: #66b;
+   r: 3.5;
+}
+circle.dead {
+   fill: #999;
+   r: 2.5;
+}
