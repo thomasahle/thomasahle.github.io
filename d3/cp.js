@@ -117,7 +117,9 @@ class ControlPanel {
          .attr('id', 'reset_button')
          .on('click', () => this.reset());
 
-      p = form.append('p');
+      const slider_width = 200;
+
+      p = form.append('p').attr('class', 'slider');
       p.append('label')
          .text('Increment probability (p)')
          .append('i')
@@ -127,7 +129,7 @@ class ControlPanel {
          .append('span')
          .attr('class', 'tooltip-text')
          .text('An individuals fitness increases with 1 compared to its parent with this probability.');
-      this.p_slider = d3.sliderBottom().width(200)
+      this.p_slider = d3.sliderBottom().width(slider_width)
          .min(0)
          .max(1)
          .tickFormat(d3.format('.2%'))
@@ -139,16 +141,14 @@ class ControlPanel {
             this.dirty=true;
             this.update()
          });
-      p.append('svg').attr('height', 50)
-         .append('g').attr('transform', 'translate(15,15)')
-         .call(this.p_slider);
+      p.append('svg') .append('g') .call(this.p_slider);
 
-      p = form.append('p');
+      p = form.append('p').attr('class', 'slider');
       p.append('label')
          .text('Survival treshold (t)')
          .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
          .text('An individual is allowed to survive the kth rorund, if its fitness is at least t*k.');
-      this.t_slider = d3.sliderBottom().width(200)
+      this.t_slider = d3.sliderBottom().width(slider_width)
          .min(0)
          .max(1)
          .tickFormat(d3.format('.2%'))
@@ -160,16 +160,14 @@ class ControlPanel {
             this.dirty=true;
             this.update()
          });
-      p.append('svg').attr('height', 50)
-         .append('g').attr('transform', 'translate(15,15)')
-         .call(this.t_slider);
+      p.append('svg') .append('g') .call(this.t_slider);
 
-      p = form.append('p');
+      p = form.append('p').attr('class', 'slider');
       p.append('label')
          .text('Branching factor (Δ)')
          .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
          .text('Each individual that survives splits inito Δ descendants, each inheriting the fitness of the parent.');
-      this.d_slider = d3.sliderBottom().width(200)
+      this.d_slider = d3.sliderBottom().width(slider_width)
          .min(1)
          .max(Math.ceil(2*this.d))
          .tickFormat(d3.format('.5'))
@@ -180,10 +178,7 @@ class ControlPanel {
             this.dirty=true;
             this.update()
          });
-      p.append('svg')
-         .attr('height', 50)
-         .append('g').attr('transform', 'translate(15,15)')
-         .call(this.d_slider);
+      p.append('svg') .append('g') .call(this.d_slider);
 
    }
 }

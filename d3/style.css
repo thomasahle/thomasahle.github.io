@@ -1,5 +1,5 @@
 body {
-     padding: 20px 40px;
+     margin: 30px 0 0 0;
      font-family: Helvetica, sans-serif;
      font-size: medium;
 }
@@ -11,6 +11,16 @@ body {
      padding: 20px 12px 10px 20px;
      max-width: 800px;
      margin: auto;
+}
+#cp .slider {
+   width: 400px;
+}
+#cp .slider svg {
+   height: 100px;
+   width: 100%;
+}
+#cp .slider svg>g {
+   transform: translate(25px,25px) scale(1.7);
 }
 label {
    font-size: 13px;
@@ -24,13 +34,12 @@ label {
 button {
      font-size: 20px;
      border: none;
-     padding: 8px 15px 8px 15px;
+     padding: 10px 15px 10px 15px;
      background: #FF8500;
      color: #fff;
      box-shadow: 1px 1px 4px #DADADA;
      border-radius: 3px;
      margin: 0 0 0 10px;
-     height: 50;
      display: inline-flex;
 
 }

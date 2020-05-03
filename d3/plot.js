@@ -1,4 +1,4 @@
-margin = {top: 50, right: 5, bottom: 5, left: 15};
+margin = {top: 50, right: 15, bottom: 5, left: 15};
 width = 800;
 class JoyPlot {
    constructor(graph) {
