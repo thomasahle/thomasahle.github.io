@@ -21,7 +21,11 @@ class JoyPlot {
             series[d.depth].push(0);
          series[d.depth][d.data.value]++;
       });
-      console.log(series);
+      // Add extra row of zeros
+      for (let row of series) {
+         row.push(0);
+         row.push(0);
+      }
 
       const transition = this.svg.transition()
          .duration(this.graph.duration);
@@ -29,8 +33,6 @@ class JoyPlot {
       const max = d3.max(series, d => d3.max(d));
       const margin_top = margin.top;
       const height = Math.max(series.length * 17) + margin_top;
-      console.log('height: '+height);
-      console.log('margin_top: '+margin_top);
       this.svg.attr('height', height+max+margin_top+margin.bottom+100);
       const overlap = 8;
       //const x = d3.scaleLinear()
@@ -75,7 +77,7 @@ class JoyPlot {
          .data(series, (d,i) => i)
          .join(enter => {
             let g = enter.append('g')
-               .attr("transform", (d,i) => `translate(0,${y(i-1)})`);
+               .attr("transform", (d,i) => `translate(0,${i > 0 ? y(i-1) : y(i)})`);
             g.append('path')
                .attr('class', 'area')
                .attr("fill", "#ddd")

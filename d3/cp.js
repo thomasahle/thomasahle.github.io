@@ -27,7 +27,7 @@ function simulate(t, p, d, k) {
                const v1 = v + (Math.random() < p ? 1 : 0);
                //const sig = Math.sqrt(t*(1-t)*i);
                const sig = Math.pow(t*(1-t)*i, 1/3);
-               if (t > p ? v1 >= t*i-sig : v1 <= t*i)
+               if (t > p ? v1 >= t*i-sig : v1 <= t*i+sig)
                   new_reprs.push(v1);
             }
             // Trim to 20 per level
