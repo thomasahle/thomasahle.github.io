@@ -153,7 +153,7 @@ class ControlPanel {
       p.append('label')
          .text('Survival treshold (t)')
          .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
-         .text('An individual is allowed to survive the kth rorund, if its fitness is at least t*k.');
+         .text('An individual is allowed to survive the kth round, if its fitness is at least t·k - σ·√k.');
       this.t_slider = d3.sliderBottom().width(slider_width)
          .min(0)
          .max(1)

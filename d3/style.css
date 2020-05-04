@@ -86,10 +86,11 @@ button:hover{
 .tooltip .tooltip-text {
    font-family: Helvetica, sans-serif;
   display: none;
-  background-color: #ffffaa;
+  background-color: #ffa;
   font-size: 13;
   padding: 7px 12px;
   border-radius: 6px;
+  border: 1px solid #eeb;
   white-space: normal;
   width: 200px;
   color: black;
