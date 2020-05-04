@@ -1,4 +1,4 @@
-margin = {top: 50, right: 15, bottom: 5, left: 15};
+margin = {top: 10, right: 15, bottom: 50, left: 15};
 width = 800;
 class JoyPlot {
    constructor(graph) {
@@ -26,22 +26,27 @@ class JoyPlot {
          row.push(0);
          row.push(0);
       }
+      series.shift();
+      console.log(series);;
 
       const transition = this.svg.transition()
          .duration(this.graph.duration);
 
-      const max = d3.max(series, d => d3.max(d));
-      const margin_top = margin.top;
-      const height = Math.max(series.length * 17) + margin_top;
-      this.svg.attr('height', height+max+margin_top+margin.bottom+100);
+      const step = 17;
       const overlap = 8;
-      //const x = d3.scaleLinear()
-       //   .domain([1, d3.max(series, d => d.length)])
+      const max = d3.max(series, d => d3.max(d));
+      const maxz = d3.max(series, (d,i) => overlap * step * d3.max(d)/max - i * step);
+      // The real step formula is step = (stop - start) / Math.max(1, n - paddingInner + paddingOuter * 2)
+      const len = series.length;
+      const pad = 1;
+      const margin_top = margin.top + len/Math.max(1,len-pad) * maxz;
+      const height = series.length * step + margin_top + margin.bottom;
+      this.svg.transition(transition).attr('height', height);
       const x = d3.scalePoint()
-          .domain(d3.range(1, d3.max(series, d => d.length)+1))
+          .domain(d3.range(0, d3.max(series, d => d.length)))
           .range([margin.left, width - margin.right]);
       const y = d3.scalePoint()
-          .domain(d3.range(series.length))
+          .domain(d3.range(1, series.length+1))
           .range([margin_top, height - margin.bottom]);
       const z = d3.scaleLinear()
           .domain([0, max]).nice()
@@ -61,12 +66,12 @@ class JoyPlot {
              .call(g => g.select(".domain").remove()));
       const area = d3.area()
           .curve(d3.curveMonotoneX)
-          .x((d, i) => x(i+1))
+          .x((d, i) => x(i))
           .y0(0)
           .y1(d => z(d));
       const area_flat = d3.area()
           .curve(d3.curveBasis)
-          .x((d, i) => x(i+1))
+          .x((d, i) => x(i))
           .y0(0)
           .y1(0);
       let line = area.lineY1();
@@ -77,7 +82,7 @@ class JoyPlot {
          .data(series, (d,i) => i)
          .join(enter => {
             let g = enter.append('g')
-               .attr("transform", (d,i) => `translate(0,${i > 0 ? y(i-1) : y(i)})`);
+               .attr("transform", (d,i) => `translate(0,${i > 0 ? y(i) : y(i+1)})`);
             g.append('path')
                .attr('class', 'area')
                .attr("fill", "#ddd")
@@ -92,7 +97,7 @@ class JoyPlot {
          });
       rows
          .transition(transition)
-         .attr("transform", (d,i) => `translate(0,${y(i)})`);
+         .attr("transform", (d,i) => `translate(0,${y(i+1)})`);
       rows
          .select('path.area')
          .transition(transition)
