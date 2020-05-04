@@ -85,13 +85,10 @@ class JoyPlot {
                .attr("transform", (d,i) => `translate(0,${i > 0 ? y(i) : y(i+1)})`);
             g.append('path')
                .attr('class', 'area')
-               .attr("fill", "#ddd")
                .attr("d", d => area_flat(d));
             g.append('path')
                .attr('class', 'line')
-               .attr("fill", "none")
                .attr("d", d => line_flat(d))
-               .attr("stroke", "black")
                .attr("stroke-opacity", "0") ;
             return g;
          });

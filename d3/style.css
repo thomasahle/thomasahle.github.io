@@ -22,6 +22,19 @@ body {
 #cp .slider svg>g {
    transform: translate(25px,25px) scale(1.65);
 }
+#plot path.area {
+   fill: #eee;
+}
+#plot path.line {
+   fill: none;
+   stroke: #999;
+}
+#plot text {
+   color: #555;
+}
+#plot line {
+   stroke: #555;
+}
 h2 {
    width: 800px;
    margin: auto;
