@@ -1,6 +1,6 @@
-margin = {top: 10, right: 15, bottom: 0, left: 100};
+margin = {top: 10, right: 10, bottom: 0, left: 10};
 left_width = 300;
-right_width = 500;
+right_width = 400;
 width = left_width+right_width;
 height = 400;
 sim_center = [left_width + right_width/2, height/2];
@@ -41,7 +41,7 @@ class SimulationPlot {
       this.step_button
             .attr('style', 'visibility:show')
             .html('<i class="material-icons">skip_next</i>'
-                  + (this.clone_step ? 'Multiply' : 'Evolve'));
+                  + (this.clone_step ? 'Multiply' : 'Mutate'));
       this.reps = [];
       for (let i = 0; i < initial_reps; i++) {
          this.reps.push({
@@ -126,7 +126,7 @@ class SimulationPlot {
          else
             this.step_button.html(
                   '<i class="material-icons">skip_next</i>'
-                  + (this.clone_step ? 'Multiply' : 'Evolve'));
+                  + (this.clone_step ? 'Multiply' : 'Mutate'));
          this.update_sim();
       });
    }

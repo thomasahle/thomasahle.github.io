@@ -4,7 +4,7 @@ body {
      font-size: medium;
      text-rendering: optimizeLegibility;
      max-width: 800px;
-     color: #555;
+     color: #333;
 }
 pre {
    font-size: 100%;
@@ -43,9 +43,13 @@ body > p {
    letter-spacing: 0;
    text-rendering: optimizeLegibility;
    background: #fff;
+   text-align: justify;
 }
 #cp {
-     padding: 20px 12px 10px 20px;
+     /* padding: 20px 12px 10px 20px; */
+}
+span.math {
+   font-family: 'Merriweather', serif;
 }
 #cp .slider {
    width: 380px;
@@ -84,19 +88,26 @@ h1 {
    font-size: 3rem;
    font-weight: 700;
 }
+h3 {
+   font-size: 2rem;
+   font-weight: 700;
+}
 label {
    font-size: 13px;
    color: #555;
    display: block;
 }
-#buttons, .buttons {
+.buttons {
    float:right;
    padding: 0 10px;
+   position: relative;
+   top: -30px;
+   z-index: 1;
 }
 button {
      font-size: 20px;
      border: none;
-     padding: 10px 15px 10px 15px;
+     padding: 20px 25px 20px 25px;
      background: #FF8500;
      color: #fff;
      box-shadow: 1px 1px 4px #DADADA;
@@ -128,6 +139,7 @@ button:hover{
 .radial_tree .node:not(.alive):not(.inner) circle {
    fill: #999;
    r: 2.5px;
+   display: none; /* Hide dead leafs */
 }
 .tooltip {
   position: relative;
@@ -156,9 +168,14 @@ button:hover{
 .tooltip:hover .tooltip-text {
   display: block;
 }
+
+#universe_plot {
+   margin: auto;
+   display: block;
+}
 #uni_buttons {
    position: relative;
-   top: -50px;
+   top: -30px;
    z-index: 1;
 }
 .rep_circle {

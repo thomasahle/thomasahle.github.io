@@ -105,8 +105,8 @@ class ControlPanel {
             this.update();
          }
       }
-      let p = form.append('p').attr('id','buttons');
-      p.append('button').attr('id', 'play_button')
+      const buttons = form.append('div').attr('class','buttons');
+      buttons.append('button').attr('id', 'play_button')
          .on('click', () => {
             if (this.playInterval) {
                this.playInterval = clearInterval(this.playInterval);
@@ -116,18 +116,18 @@ class ControlPanel {
             }
             this.update();
          });
-      p.append('button')
+      buttons.append('button')
          .attr('id', 'step_button')
          .on('click', step);
-      p.append('button')
+      buttons.append('button')
          .attr('id', 'reset_button')
          .on('click', () => this.reset());
 
-      const slider_width = 200;
-
-      p = form.append('p').attr('class', 'slider');
+      const slider_width = 120;
+      const sliders = form.append('div').attr('style', 'display:flex; clear:both');
+      let p = sliders.append('p').attr('class', 'slider');
       p.append('label')
-         .text('Increment probability (p)')
+         .html('Increment probability <span class="math">(p)</span>')
          .append('i')
          .lower()
          .attr('class', 'tooltip material-icons')
@@ -149,11 +149,11 @@ class ControlPanel {
          });
       p.append('svg') .append('g') .call(this.p_slider);
 
-      p = form.append('p').attr('class', 'slider');
+      p = sliders.append('p').attr('class', 'slider');
       p.append('label')
-         .text('Survival treshold (t)')
+         .html('Survival treshold <span class="math">(t)</span>')
          .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
-         .text('An individual is allowed to survive the kth round, if its fitness is at least t·k - σ·√k.');
+         .html('An individual is allowed to survive the kth round, if its fitness is at least <span class="math">t · k - √(t(1-t)k)</math>.');
       this.t_slider = d3.sliderBottom().width(slider_width)
          .min(0)
          .max(1)
@@ -168,11 +168,11 @@ class ControlPanel {
          });
       p.append('svg') .append('g') .call(this.t_slider);
 
-      p = form.append('p').attr('class', 'slider');
+      p = sliders.append('p').attr('class', 'slider');
       p.append('label')
-         .text('Branching factor (Δ)')
+         .html('Branching factor <span class="math">(Δ)</span>')
          .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
-         .text('Each individual that survives splits inito Δ descendants, each inheriting the fitness of the parent.');
+         .html('Each individual that survives splits inito <span class="math">Δ</span> descendants, each inheriting the fitness of the parent.');
       this.d_slider = d3.sliderBottom().width(slider_width)
          .min(1)
          .max(Math.ceil(2*this.d))

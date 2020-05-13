@@ -1,11 +1,13 @@
 <html>
    <head>
       <meta charset="UTF-8" />
-      <meta name="viewport" content="width=700, initial-scale=1">
+      <meta name="viewport" content="width=700, initial-scale=.5">
       <link rel='stylesheet' href='style.css' />
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <script src="https://d3js.org/d3.v5.min.js"></script>
       <script src="d3-simple-slider"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
+      <link rel="shortcut icon" type="image/png" href="favicon2.png">
 
       <link rel="stylesheet"
       href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.2/build/styles/github.min.css">
@@ -17,13 +19,13 @@
       <script src="plot.js"></script>
       <script src="uni.js"></script>
 
-      <title>Supermajorities</title>
+      <title>An Evoutionary Data Structure for Sets</title>
    </head>
    <body>
       <div class='time'>4 May 2020 / Thomas Dybdahl Ahle</div>
       <!--<h1>An Evoutionary Algorithm for Finding Similarities</h1>-->
       <!--<h1>An Evoutionary Algorithm better than MinHash</h1>-->
-      <h1>An Evoutionary Data Structure</h1>
+      <h1>An Evoutionary Data Structure for&nbsp;Sets</h1>
       <svg id='picture_tree' height=400></svg>
       <script>
          const picture_tree = new RadialTree(200);
@@ -43,28 +45,67 @@
       </script>
 
       <p>
+      Suppose you are Netflix, and you are storing the list of movies that each user has watched.
+      Now, for a simple recommendation system, you want to know which users film lists have a large overlap with a given set of movies.
+      What you need is a set database.
+      </p>
+
+      <p>
+      I recently published a preprint, together with Jakob Knudsen, describing <a href="https://arxiv.org/abs/1904.04045">a new, optimal data structure for set similarity search</a>.
+      A fun property is that this can be described as an <a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithm</a>.
+      We think it's probably the first time the provably best way to solve a probem has been evolutionary.
+      This post won't go deep into the mathematics, but will contain enough details that you can implement the data structure yourself.
+      </p>
+
+      <p>
+      Naturally, many efficient data structures for sets have already been developed.
+      <!--A common operation is "Subset search", where (e.g.) given a list of movies, we want to know which users have watched all of them.-->
+      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this probem all the way back in 1976.
+      <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> algorithm were developed in the late 90s and are used in everything from  search engines to DNA sequencing to this day.
+      </p>
+
+      <!--
+      <p>
+      , originally developed for the AltaVista search engine in 1997.
+Often this is measured by the tweets having a large <a href="https://en.wikipedia.org/wiki/Jaccard_index">Jaccard similarity</a> and solved with the 
+
+      A common operation is "Similarity search", where (e.g.) given a tweet, we want to find all other tweets with simiar sentiment.
+      Since then it has been used for clustering documents by Google and many others.
+      </p>
+      -->
+
+      <p>
+      Many types of data can be well represented as sets.
+      If you are searching DNA strings, chopped into <a href="https://en.wikipedia.org/wiki/K-mer">k-mers subsequences</a>, you have a set database.
+      In Natural language processing as well as Computer vision, so called <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words models</a> are useful ways of generating semantic representations of text and images, in the form of sets.
+      Today an alternative is to map this data into dense vectors, using perhaps a Neural Network, but in the paper we show that this "densification" will inevitably result in worse performance or recall.
+      </p>
+
+      <p>
+      <img src="Bag_of_words.jpeg" alt="A visual bag of words representation" title="Meritxell.canela / Public domain"/>
+      <i>A picture illustrating the visual Bag-of-words model, <a href="https://commons.wikimedia.org/wiki/File:Bag_of_words.JPG">credit Wikimedia Commons</a>.</i>
+      </p>
+      <h3>An Evoutionary Approach</h3>
+      <!--<h3>An Optimal Algorithm</h3>-->
+      <p>
       Evolutionary algorithms mimic natural selection.
       Given some problem, for which good candidate solutions are hard to come by,
       we create some arbitrary, random individuals, and let them evolve.
       At each step of the evolution we artificially select only those most promising for what we are trying to achieve.
       Evolution has always inspired scientists, due to the beautiful intuition of it, but only recently has a paper shown that it can als obe used to solve complex mathematical challenges.
-      </p><p>
       There are many ways evolution can happen. mutation, reproduction, recombination.
       The simplest is reproduction.
       </p>
       <p>
-      The example is something likme this:
-      You and a friend both want to pick some elements from a set.
-      But you haven't seen it yet.
-      So what do you do?
-      You see a lot of birds, and you want to decide how many of the same birds you have seen.
-      Ideally, for each bird, we would pick a number of 
-      So for each bird 
-
-      meet a lot of people, an
+      The data structure uses evolution in the following way:
+      Each set in the database is compared to a family of representative sets.
+      if the set has a large overlap with the representative, it is <i>assigned</i> to it.
+      The issue is that to work well, we need so many representative sets that comparing to all of them would be very slow.
+      Instead we "grow" candiates.
       </p>
-
-
+      <p>
+      The following model shows what the algorithm looks like in practice:
+      </p>
       <svg id='universe_plot' height=400></svg>
       <div class='buttons' id='uni_buttons'>
          <button id='uni_step_button'><i class="material-icons">skip_next</i> Step</button>
@@ -77,11 +118,29 @@
       </script>
       <div  style='clear:both'></div>
       <p>
+      The circles on the left are the universe of possible elements.
+      The blue circles are the ones present in the set we're decoding.
+      On the right are the representative sets that we are evolving.
+      Each individual is allowed to multiply if it has at least <span class="math">80%</span> elements from our set.
+      </p>
+      <p>
       In the article <a href='https://arxiv.org/abs/1904.04045'>Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search</a>
       The problem of set similarity is as follows:
       Given some optimization problem, 
       </p>
+      <p>
 
+      A family of representative sets 
+
+      The example is something likme this:
+      You and a friend both want to pick some elements from a set.
+      But you haven't seen it yet.
+      So what do you do?
+      You see a lot of birds, and you want to decide how many of the same birds you have seen.
+      Ideally, for each bird, we would pick a number of 
+      So for each bird 
+
+      meet a lot of people, an
       </p>
       <p>Redux elegantly handles complex state interactions that are hard to express with React’s component state. It is essentially a message-passing system, like the kind seen in Object-Oriented programming, but implemented as a library instead of in the language itself¹. As in OOP, Redux inverts the responsibility of control from caller to receiver — the UI doesn’t directly manipulate the state but rather sends it a message for the state to interpret.
 
