@@ -108,7 +108,7 @@ class SimulationPlot {
                   y: par.y - rep.y,
                   ox: par.x - rep.x,
                   oy: par.y - rep.y,
-                  id: par.id,
+                  id: Math.random(),
                });
                rep.ox = rep.x;
                rep.oy = rep.y;
@@ -210,7 +210,7 @@ class SimulationPlot {
                   .append('circle')
                   .attr('class', 'obj')
                   .attr('fill', d => d.color)
-                  .attr('r', d => d.r)
+                  //.attr('r', d => d.r)
                // If the objects arrived by cloning, we are now no longer
                // in the clone step.
                if (!this.clone_step)
@@ -225,9 +225,11 @@ class SimulationPlot {
                   circles
                      .attr('stroke', '#183752')
                      .attr('stroke-width', '1px')
+                     .attr('r', d => 1.5*d.r)
                      .transition()
                      .duration(1000)
                      .attr('stroke', 'transparent')
+                     .attr('r', d => d.r)
                return circles;
             }
          )
