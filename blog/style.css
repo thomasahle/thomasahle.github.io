@@ -1,16 +1,51 @@
 body {
-     margin: 30px 0 0 0;
+     margin: 30px auto 0 auto;
      font-family: Helvetica, sans-serif;
      font-size: medium;
+     text-rendering: optimizeLegibility;
+     max-width: 800px;
+     color: #555;
 }
-#tree, #plot {
+pre {
+   font-size: 100%;
+   font-size: 1.35rem;
+}
+a {
+   color: black;
+}
+a:hover {
+   text-decoration: none;
+}
+#tree, #plot, #picture_tree {
    margin: auto;
    display: block;
 }
+#picture_tree {
+   margin: 30px auto;
+   width: 100%;
+   border: 1px solid #999;
+   border-width: 1px 0;
+   background: #f8f8f8;
+}
+div.time {
+   text-transform: uppercase;
+}
+body > p {
+   display: block;
+   width: 700px;
+   margin: 0 auto 1rem auto;
+
+   font-size: 100%;
+   font-size: 1.2rem;
+   line-height: 1.6em;
+   font-weight: 400;
+   font-style: normal;
+   letter-spacing: 0;
+   text-rendering: optimizeLegibility;
+   background: #fff;
+}
 #cp {
      padding: 20px 12px 10px 20px;
-     max-width: 800px;
-     margin: auto;
 }
 #cp .slider {
    width: 380px;
@@ -35,20 +70,26 @@ body {
 #plot line {
    stroke: #555;
 }
-h2 {
+h1, h2 {
    width: 800px;
    margin: auto;
    color: #555;
    font-weight: normal;
+}
+h2 {
    margin-bottom: 10px;
    font-size: 20px;
+}
+h1 {
+   font-size: 3rem;
+   font-weight: 700;
 }
 label {
    font-size: 13px;
    color: #555;
    display: block;
 }
-#buttons {
+#buttons, .buttons {
    float:right;
    padding: 0 10px;
 }
@@ -62,13 +103,12 @@ button {
      border-radius: 3px;
      margin: 0 0 0 10px;
      display: inline-flex;
-
 }
 button:hover{
      background: #EA7B00;
      color: #fff;
 }
-#tree path {
+.radial_tree path {
     fill: none;
     stroke: #999;
     stroke-width: 1.5;
@@ -76,16 +116,16 @@ button:hover{
 #plot path.domain {
    visibility: hidden;
 }
-#tree .node:not(.inner).alive circle {
+.radial_tree .node:not(.inner).alive circle {
    fill: #66b;
    r: 3.5px;
 }
-#tree .node:not(.inner).alive circle.shadow {
+.radial_tree .node:not(.inner).alive circle.shadow {
    r: 10px;
    fill: #66b;
    opacity: .1;
 }
-#tree .node:not(.alive):not(.inner) circle {
+.radial_tree .node:not(.alive):not(.inner) circle {
    fill: #999;
    r: 2.5px;
 }
@@ -115,5 +155,20 @@ button:hover{
 }
 .tooltip:hover .tooltip-text {
   display: block;
+}
+#uni_buttons {
+   position: relative;
+   top: -50px;
+   z-index: 1;
+}
+:not(.alive) .rep_circle{
+   stroke-width: 1px;
+   stroke: #eee;
+   fill: white;
+}
+.alive .rep_circle {
+   stroke-width: 1px;
+   stroke: #4995c9;
+   fill: white;
 }
 

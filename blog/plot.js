@@ -27,7 +27,6 @@ class JoyPlot {
          row.push(0);
       }
       series.shift();
-      console.log(series);;
 
       const transition = this.svg.transition()
          .duration(this.graph.duration);

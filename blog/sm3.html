@@ -1,0 +1,164 @@
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=800, initial-scale=1">
+      <link rel='stylesheet' href='style.css' />
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <script src="d3-simple-slider"></script>
+
+      <link rel="stylesheet"
+      href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.2/build/styles/github.min.css">
+<script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.2/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+      <script src="tree.js"></script>
+      <script src="cp.js"></script>
+      <script src="plot.js"></script>
+      <script src="uni.js"></script>
+
+      <title>Supermajorities</title>
+   </head>
+   <body>
+      <div class='time'>4 May 2020 / Thomas Dybdahl Ahle</div>
+      <!--<h1>An Evoutionary Algorithm for Finding Similarities</h1>-->
+      <!--<h1>An Evoutionary Algorithm better than MinHash</h1>-->
+      <h1>An Evoutionary Data Structure</h1>
+      <svg id='picture_tree' height=400></svg>
+      <script>
+         const picture_tree = new RadialTree(200);
+         picture_tree.mount(d3.select('#picture_tree'));
+         let tries = 0;
+         while (true) {
+            tries++;
+            picture_tree.reset(6, 0.5, 1, 2);
+            for (let i = 0; i < 10; i++)
+               picture_tree.step();
+            picture_tree.root.count();
+            if (picture_tree.root.value >= 100)
+               break;
+         }
+         console.log(`Tried ${tries} times`);
+         picture_tree.update();
+      </script>
+
+      <p>
+      Evolutionary algorithms mimic natural selection.
+      Given some problem, for which good candidate solutions are hard to come by,
+      we create some arbitrary, random individuals, and let them evolve.
+      At each step of the evolution we artificially select only those most promising for what we are trying to achieve.
+      Evolution has always inspired scientists, due to the beautiful intuition of it, but only recently has a paper shown that it can als obe used to solve complex mathematical challenges.
+      </p><p>
+      There are many ways evolution can happen. mutation, reproduction, recombination.
+      The simplest is reproduction.
+      </p>
+      <p>
+      The example is something likme this:
+      You and a friend both want to pick some elements from a set.
+      But you haven't seen it yet.
+      So what do you do?
+      You see a lot of birds, and you want to decide how many of the same birds you have seen.
+      Ideally, for each bird, we would pick a number of 
+      So for each bird 
+
+      meet a lot of people, an
+      </p>
+
+
+      <svg id='universe_plot' height=400></svg>
+      <div class='buttons' id='uni_buttons'>
+         <button id='uni_step_button'><i class="material-icons">skip_next</i> Step</button>
+         <button id='uni_restart_button'><i class="material-icons">stop</i> Clear</button>
+      </div>
+      <script>
+         const uniplot = new SimulationPlot();
+         uniplot.mount(d3.select('#universe_plot'), d3.select('#uni_step_button'), d3.select('#uni_restart_button'));
+         uniplot.update();
+      </script>
+      <div  style='clear:both'></div>
+      <p>
+      In the article <a href='https://arxiv.org/abs/1904.04045'>Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search</a>
+      The problem of set similarity is as follows:
+      Given some optimization problem, 
+      </p>
+
+      </p>
+      <p>Redux elegantly handles complex state interactions that are hard to express with React’s component state. It is essentially a message-passing system, like the kind seen in Object-Oriented programming, but implemented as a library instead of in the language itself¹. As in OOP, Redux inverts the responsibility of control from caller to receiver — the UI doesn’t directly manipulate the state but rather sends it a message for the state to interpret.
+
+      </p>
+      <pre><code class="python">
+   def __init__(self, n, U, wq, wu, w1):
+      self.n, self. U = n, U
+      self.tq, self.tu = find_tresholds(wq, wu, w1)
+      self.k = find_height(...)
+      self.D = find_branch_factor(...)
+      surv = estimate_survival(self.D, self.k, ...)
+      self.seeds = [random.randrange(U**3) for _ in range(int(1/surv+1))]
+      self.lists = collections.defaultdict(list)
+      </code></pre>
+      <pre><code class="python">
+   def insert(self, point):
+      for rep in self.representatives(point, self.tu):
+          self.lists[rep].append(point)
+
+   def query(self, point):
+       for rep in self.representatives(point, self.tq):
+           for point2 in self.lists[rep]:
+               yield point2
+      </code></pre>
+      <pre><code class="python">
+   def representatives(self, point, t):
+       # Do a smalll number of independent repetitions to ensure success
+       for seed in self.seeds:
+           # Each indivudual stores its value and a random identifier
+           individuals = [(0, seed)]
+           size = 1
+           # Run through k genrations/levels of the process
+           for l in range(1, self.k+1):
+               # The branching factor might not be an integer, so we
+               # round it up, while trying to keep the geometric average
+               # correct
+               level_size = math.ceil(self.D**l / size)
+               size *= level_size
+               new_individuals = []
+               for v, h in individuals:
+                   # Evolve the individual by generating children.
+                   # We seed the random genrator so the children chosen
+                   # are consistent between inserts and queries
+                   random.seed(h)
+                   for x in random.sample(range(self.U), level_size):
+                       h1 = random.randrange(self.U**3)
+                       v1 = v + bool(x in point)
+                       # We allow the value to be "off" by a tiny bit
+                       if abs(v1 - t*l) <= math.sqrt(t*(1-t)*l):
+                           new_individuals.append((v1, h1))
+               individuals = new_individuals
+           yield from (h for v,h in individuals)
+      </code></pre>
+
+      <script>
+
+const graph = new RadialTree(300);
+const cp = new ControlPanel(.5, 1, graph);
+const plot = new JoyPlot(graph);
+
+const tree_svg = d3.select('body').append('svg').attr('id', 'tree').attr('height', 600);
+const form = d3.select('body').append('div').attr('id', 'cp');
+d3.select('body').append('h2')
+         .text('Generation Fitness')
+         .append('i')
+         .lower()
+         .attr('class', 'tooltip material-icons')
+         .text('info')
+         .append('span')
+         .attr('class', 'tooltip-text')
+         .text('Joy Division plot of the fitness of the individuals alive at each generation.');
+const plot_svg = d3.select('body').append('svg').attr('id', 'plot');
+
+graph.mount(tree_svg);
+plot.mount(plot_svg);
+cp.mount(form);
+
+      </script>
+   </body>
+</html>

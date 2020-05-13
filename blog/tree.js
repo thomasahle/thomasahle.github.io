@@ -41,8 +41,8 @@ function linkRadial2() {
 }
 
 class RadialTree {
-   constructor() {
-      this.radius = 300;
+   constructor(radius) {
+      this.radius = radius;
       this.tree = d3.tree().size([2*Math.PI, this.radius]);
       this.duration = 1000;
       this.dispatch = d3.dispatch('change');
@@ -68,6 +68,8 @@ class RadialTree {
    insert(par, data) {
       data.id = this.id_counter++;
       const newNode = d3.hierarchy(data);
+      newNode.x0 = par.x0;
+      newNode.y0 = par.y0;
       newNode.depth = par.depth + 1;
       newNode.parent = par;
       // Walk up the tree, updating the heights of ancestors as needed.
@@ -108,12 +110,13 @@ class RadialTree {
       return res;
    }
    mount(svg) {
-      const r = this.radius
-      const p = 5;
       this.svg = svg
-         .attr('width', 2 * r)
-         .attr('height', 2 * r)
-         .attr('viewBox', [-r-p, -r-p, 2*r+2*p, 2*r+2*p])
+         .classed('radial_tree', true);
+      const r = this.radius;
+      const p = 5;
+      svg.attr('width', 2*r)
+         .attr('height', 2*r)
+         .attr('viewBox', [-r-p, -r-p, 2*r+2*p, 2*r+2*p]);
       this.g = svg.append("g")
    }
    update() {
@@ -121,6 +124,7 @@ class RadialTree {
       this.dispatch.call('change');
       const links = this.root.links();
       const nodes = this.root.descendants();
+      console.log(this.root);
 
       // Compute the new tree layout.
       //const size = size_radial();
