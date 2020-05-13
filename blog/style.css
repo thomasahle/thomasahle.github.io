@@ -161,14 +161,15 @@ button:hover{
    top: -50px;
    z-index: 1;
 }
-:not(.alive) .rep_circle{
-   stroke-width: 1px;
-   stroke: #eee;
+.rep_circle {
    fill: white;
+   stroke-width: 1px;
+   /* Can we transition between dead and alive? */
+   transition: stroke 1s linear;
+}
+:not(.alive) .rep_circle{
+   stroke: #eee;
 }
 .alive .rep_circle {
-   stroke-width: 1px;
    stroke: #4995c9;
-   fill: white;
 }
-

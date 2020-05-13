@@ -17,8 +17,8 @@ class SimulationPlot {
          .attr('y', margin.top)
          .attr('width', right_width)
          .attr('height', height);
-      this.n = 140;
-      this.w = 35;
+      this.n = 200;
+      this.w = 50;
       this.t = .802246;
       this.D = 2;
       this.init_buttons();
@@ -86,8 +86,12 @@ class SimulationPlot {
                      val: rep.val,
                      alive: true
                   };
-                  for (const old_obj of rep.objs)
-                     new_rep.objs.push({...old_obj});
+                  for (const old_obj of rep.objs) {
+                     const obj = {...old_obj};
+                     obj.ox = obj.x;
+                     obj.oy = obj.y;
+                     new_rep.objs.push(obj);
+                  }
                   new_reps.push(new_rep);
                }
             }
@@ -102,6 +106,8 @@ class SimulationPlot {
                   color: par.color,
                   x: par.x - rep.x,
                   y: par.y - rep.y,
+                  ox: par.x - rep.x,
+                  oy: par.y - rep.y,
                   id: par.id,
                });
                rep.ox = rep.x;
@@ -205,6 +211,8 @@ class SimulationPlot {
                   .attr('class', 'obj')
                   .attr('fill', d => d.color)
                   .attr('r', d => d.r)
+               // If the objects arrived by cloning, we are now no longer
+               // in the clone step.
                if (!this.clone_step)
                   circles
                      .attr('r', 0)
@@ -213,6 +221,13 @@ class SimulationPlot {
                      .duration(1000)
                      .attr('r', d => d.r)
                      .attr('opacity', 1)
+               else
+                  circles
+                     .attr('stroke', '#183752')
+                     .attr('stroke-width', '1px')
+                     .transition()
+                     .duration(1000)
+                     .attr('stroke', 'transparent')
                return circles;
             }
          )
@@ -220,10 +235,12 @@ class SimulationPlot {
       rep_nodes
          .each(outer_d => {
                outer_d.sim = d3.forceSimulation(outer_d.objs)
-                .on("tick", () => {
+                .on("tick", function() {
+                   let a = this.alpha();
+                   a = Math.exp(-(Math.log(a)**4));
                    circles
-                      .attr('cx', d => d.x)
-                      .attr('cy', d => d.y);
+                      .attr('cx', d => d.x * (1-a) + d.ox * a)
+                      .attr('cy', d => d.y * (1-a) + d.oy * a);
                 })
                 .force("collide", d3.forceCollide().radius(d => 1 + d.r))
                 .force("x", d3.forceX(0).strength(1e-1))
@@ -237,7 +254,7 @@ class SimulationPlot {
           .on("tick", function() {
              let a = this.alpha();
              if (!this.clone_step)
-                a = d3.easePolyOut(a, .2);
+                a = Math.exp(-(Math.log(a)**8)/8);
              // We filter out dying reps, since they are busy shaking
              sim_g.selectAll('g:not(.dying)')
                 .attr('transform', function(d) {
@@ -246,7 +263,7 @@ class SimulationPlot {
                 return `translate(${x}, ${y})`;
              });
           })
-          .force("collide", d3.forceCollide().radius(d => 2 + d.r))
+          .force("collide", d3.forceCollide().radius(d => 5 + d.r))
           .force("x", d3.forceX(sim_center[0]).strength(5e-2))
           .force("y", d3.forceY(sim_center[1]).strength(5e-2));
 
