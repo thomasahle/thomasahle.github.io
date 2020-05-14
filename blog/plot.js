@@ -1,12 +1,12 @@
-margin = {top: 10, right: 15, bottom: 50, left: 15};
-width = 800;
 class JoyPlot {
    constructor(graph) {
       this.graph = graph;
+      this.margin = {top: 10, right: 15, bottom: 50, left: 15};
+      this.width = 800;
    }
    mount(svg) {
       this.svg = svg;
-      svg.attr('width', width);
+      svg.attr('width', this.width);
       this.gxAxis = svg.append("g");
       this.gyAxis = svg.append("g");
       svg.append('g').attr('id', 'rows');
@@ -31,6 +31,8 @@ class JoyPlot {
       const transition = this.svg.transition()
          .duration(this.graph.duration);
 
+      const margin = this.margin;
+      const width = this.width;
       const step = 17;
       const overlap = 8;
       const max = d3.max(series, d => d3.max(d));

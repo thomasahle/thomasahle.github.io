@@ -1,3 +1,4 @@
+// FIXME: These shouldn't be in the global space
 margin = {top: 10, right: 10, bottom: 0, left: 10};
 left_width = 300;
 right_width = 400;
@@ -115,7 +116,7 @@ class SimulationPlot {
                rep.r = 10 + 10 * Math.sqrt(rep.objs.length);
                rep.val = rep.val + (par.is_set_item ? 1 : 0);
                rep.alive = Math.abs(rep.val - this.t*rep.objs.length)
-                              <= Math.sqrt(this.t*(1-this.t)*rep.objs.length);
+                              <= Math.pow(this.t*(1-this.t)*rep.objs.length, 1/3);
                new_reps.push(rep);
             }
          }

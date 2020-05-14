@@ -19,13 +19,16 @@
       <script src="plot.js"></script>
       <script src="uni.js"></script>
 
-      <title>An Evoutionary Data Structure for Sets</title>
+      <title>An Evolutionary Data Structure for Sets</title>
    </head>
    <body>
       <div class='time'>4 May 2020 / Thomas Dybdahl Ahle</div>
       <!--<h1>An Evoutionary Algorithm for Finding Similarities</h1>-->
       <!--<h1>An Evoutionary Algorithm better than MinHash</h1>-->
-      <h1>An Evoutionary Data Structure for&nbsp;Sets</h1>
+      <h1>An Evolutionary Data Structure for&nbsp;Sets</h1>
+      <p class="byline">
+      <i>How does Netflix recommendation systems and DNA sequencing relate to Corona outbreak&nbsp;simulations?</i>
+      </p>
       <svg id='picture_tree' height=400></svg>
       <script>
          const picture_tree = new RadialTree(200);
@@ -46,22 +49,16 @@
 
       <p>
       Suppose you are Netflix, and you are storing the list of movies that each user has watched.
-      Now, for a simple recommendation system, you want to know which users film lists have a large overlap with a given set of movies.
+      For a simple recommendation system, given a user, you want to know which other users film lists their watched set of movies overlap with.
       What you need is a set database.
       </p>
 
       <p>
       I recently published a preprint, together with Jakob Knudsen, describing <a href="https://arxiv.org/abs/1904.04045">a new, optimal data structure for set similarity search</a>.
-      A fun property is that this can be described as an <a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithm</a>.
+      An interesting way to look at this is as an <a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithm</a>.
       We think it's probably the first time the provably best way to solve a probem has been evolutionary.
-      This post won't go deep into the mathematics, but will contain enough details that you can implement the data structure yourself.
-      </p>
-
-      <p>
-      Naturally, many efficient data structures for sets have already been developed.
-      <!--A common operation is "Subset search", where (e.g.) given a list of movies, we want to know which users have watched all of them.-->
-      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this probem all the way back in 1976.
-      <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> algorithm were developed in the late 90s and are used in everything from  search engines to DNA sequencing to this day.
+      This post won't go deep into the mathematics, but will contain <a href='#python-code'>code samples</a>
+      and some fun <a href="#evolution">gadgets I built to simulate it</a>.
       </p>
 
       <!--
@@ -75,37 +72,137 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       -->
 
       <p>
-      Many types of data can be well represented as sets.
-      If you are searching DNA strings, chopped into <a href="https://en.wikipedia.org/wiki/K-mer">k-mers subsequences</a>, you have a set database.
-      In Natural language processing as well as Computer vision, so called <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words models</a> are useful ways of generating semantic representations of text and images, in the form of sets.
-      Today an alternative is to map this data into dense vectors, using perhaps a Neural Network, but in the paper we show that this "densification" will inevitably result in worse performance or recall.
+      <i>Background:</i>
+      Sets can be used to represent many types of data, other than lists of movies.
+      <!--Sets are just collections of distinct objects.-->
+      In DNA sequencing, the DNA strings are chopped into sets of small snippets (called <a href="https://en.wikipedia.org/wiki/K-mer">k-mess</a>) such that two sets with a large overlap "contains roughly the same genes".
+      When I worked in Machine Learning for customer support, we would sometimes represent the customers queries as a <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words</a>, and two sets with a large overlap would be considered to be about the same issue.
+
+      <!--In Natural language processing as well as Computer vision, so called <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words models</a> are useful ways of generating semantic representations of text and images, in the form of sets.-->
+      <!--Today an alternative is to map this data into dense vectors, using perhaps a Neural Network, but in the paper we show that this "densification" will inevitably result in worse performance or recall.-->
       </p>
 
       <p>
-      <img src="Bag_of_words.jpeg" alt="A visual bag of words representation" title="Meritxell.canela / Public domain"/>
-      <i>A picture illustrating the visual Bag-of-words model, <a href="https://commons.wikimedia.org/wiki/File:Bag_of_words.JPG">credit Wikimedia Commons</a>.</i>
+      Naturally, many efficient data structures for sets have been developed.
+      <!--A common operation is "Subset search", where (e.g.) given a list of movies, we want to know which users have watched all of them.-->
+      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this probed all the way back in 1976.
+      <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> algorithm were developed in the late 90s and are used in everything from search engines to DNA sequencing to this day.
+      Finally there are Machine Learning techniques such as <a href="https://en.wikipedia.org/wiki/Word_embedding">Word embeddings</a> that "densifies" the sets.
+      However it turns out that one can do better by looking at the sets directly.
       </p>
-      <h3>An Evoutionary Approach</h3>
-      <!--<h3>An Optimal Algorithm</h3>-->
+
+
       <p>
-      Evolutionary algorithms mimic natural selection.
-      Given some problem, for which good candidate solutions are hard to come by,
-      we create some arbitrary, random individuals, and let them evolve.
-      At each step of the evolution we artificially select only those most promising for what we are trying to achieve.
-      Evolution has always inspired scientists, due to the beautiful intuition of it, but only recently has a paper shown that it can als obe used to solve complex mathematical challenges.
-      There are many ways evolution can happen. mutation, reproduction, recombination.
-      The simplest is reproduction.
+      <img src="Bag_of_words.jpeg" alt="A visual bag of words representation" title="Meritxell.canela / Public domain" style='display:block'/>
+      <i>A picture illustrating the visual Bag-of-words model for image search, <a href="https://commons.wikimedia.org/wiki/File:Bag_of_words.JPG">credit Wikimedia&nbsp;Commons</a>.</i>
+      </p>
+
+      <a name="simple"></a>
+      <h3>A Simple Set Database</h3>
+      <p>
+      Suppose we are to store the set
+      {<span class="set">
+         Extraction,
+         The Rise of Skywalker,
+         Dangerous Lies,
+         The Half of It,
+         365 Days,
+         Once Upon a Time,
+         The Gentlemen,
+         Parasite,
+         Bad Education</span>
+      }
+      of movies watched by user named Alice.
+      <!--
+      We might considering storing it in alphabetic order.
+      However, then another user, Bob, who have watched the exact same movies, except for <span class="set">365 Days</span> (assuming numbers go first), would be placed in a completely different location in our index, and we would never discover the similarity.
+      </p>-->
+
+      We might make a list of users for every movie that exists,
+      and write down Alice in the lists corresponding to
+      <span class="set">
+         Extraction</span>,
+      <span class="set">
+         The Rise of Skywalker</span>, ... etc.
       </p>
       <p>
-      The data structure uses evolution in the following way:
-      Each set in the database is compared to a family of representative sets.
-      if the set has a large overlap with the representative, it is <i>assigned</i> to it.
-      The issue is that to work well, we need so many representative sets that comparing to all of them would be very slow.
-      Instead we "grow" candiates.
+      If Bob shares just one movie with Alice, he will discover this by looking through the sets in lists corresponding to the movies he has watched himself.
+      Meanwhile, if Bob and Eve have no movies in common, Bob won't waste any time on Eve, as well as the millions of other uses with similar disjoint preferences.
       </p>
+
+      <p>
+      Unfortunately lots of people have at least one movie in common.
+      FiveThirtyEight estimated that <a href="https://fivethirtyeight.com/features/how-many-people-havent-seen-titanic/">211 million American adults</a> hav seen <span class="set">Titanic</span>.
+      Hence Bob hasn't saved much compared to just manually looking at the sets of every other person.
+      </p>
+
+      <p>
+      The solution is to make lists of pairs, triples or in general n-tuples of movies, rather than single movies.
+      For example, Bob and Alice might both store their sets in a list indexed by {<span class="set">Parasite, The Half of It, The Gentlemen</span>}.
+      If we pick the triples at random,
+      it's quite unlikely that two users with vastly different sets of watched movies will appear in the same lists, and so Bob and Alice can identify each other quickly.
+      </p>
+      <p>
+      We are now pretty close to the real algorithm.
+      The last change we will make is to allow people to appear in lists, even if they have only watched, say, 80% of the movies in the list.
+      An example of the data structure is shown below:
+      </p>
+
+      <pre><code class="python">
+   from random import sample
+   movies = [...] # 100 movies in total
+   names = [...] # 200 users in total
+   # Sample a lot of keys of 6 movies each
+   keys = [set(sample(movies, 6)) for _ in range(1000)]
+   # Sample 30 watched movies for each user
+   watched = [(name, set(sample(movies, 30))) for name in names]
+   for key in keys:
+      # Place a user in a list if the overlap with the key is 5/6
+      print(key, '→', [name for name, mvs in watched if len(key & mvs) == 5])
+      </code></pre>
+
+      <p>Output:</p>
+
+      <pre>
+   { <span class="set">Lawrence of Arabia, Forrest Gump, The Wizard of Oz, ...</span>} → [William]
+   { <span class="set">Rocky, Saving Private Ryan, Good Will Hunting, ...</span>} → []
+   { <span class="set">It&#039;s a Wonderful Life, Amadeus, Sunset Blvd., ...</span>} → [Robert, Dennis]
+   { <span class="set">Casablanca, The Princess Bride, Blade Runner, ...</span>} → [Brandon, Kyle]
+   { <span class="set">Singin&#039; in the Rain, The Matrix, Raging Bull, ...</span>} → [Patricia, Ruth, Sarah]
+   ...</pre>
+
+      <p>Now, if we inspect the overlap between movies watched by Patricia and Ruth, we find it is <span class="math">13</span>. Nearly 50% larger than the expected <span class="math">30/100 · 30/100 · 100 = 9</span>.
+      Perfect!
+      We managed to organize the sets so similar ones are close together!
+      </p>
+
+      <p>
+      <i>"But",</i> you ask, <i>"haven't we just replaced the problem of finding a <b>movie set</b> with a large overlap, with finding a <b>key-set</b> with a large overlap?"</i>
+      </p>
+      <p>
+      This is a major problem.
+      The solution is that we can choose the key-sets in a structured way, as long as they are still sufficiently random.
+      This is what finally brings us back to the topic of Evolution and Corona outbreaks.
+      </p>
+
+      <a name="evolution"></a>
+      <h3>An Evolutionary Approach to Key Generation</h3>
+
+      <p>
+      The idea of Evolutionary Algorithms is to mimic natural selection.
+      Given some problem, for which good solutions are hard to come by,
+      we start with a small, random population and let it evolve.
+      At each generation we select only the fittest for reproduction.
+
+      In our case it is the key-sets we want to evolve,
+      and the problem is to find key-sets that have a large overlap with our set of watched movies.
+      Hence we define the fitness to be the size of this overlap.
+
       <p>
       The following model shows what the algorithm looks like in practice:
       </p>
+
+      <p>
       <svg id='universe_plot' height=400></svg>
       <div class='buttons' id='uni_buttons'>
          <button id='uni_step_button'><i class="material-icons">skip_next</i> Step</button>
@@ -117,37 +214,82 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
          uniplot.update();
       </script>
       <div  style='clear:both'></div>
+
       <p>
-      The circles on the left are the universe of possible elements.
-      The blue circles are the ones present in the set we're decoding.
-      On the right are the representative sets that we are evolving.
-      Each individual is allowed to multiply if it has at least <span class="math">80%</span> elements from our set.
+      The circles on the left are the universe of possible set elements.
+      (The total archive of movies.)
+      The blue circles are the movies we have watched.
+      On the right are the key-sets that we are evolving.
+      Each individual is allowed to multiply if roughly <span class="math">80%</span> of its elements are from our set.
       </p>
+
       <p>
-      In the article <a href='https://arxiv.org/abs/1904.04045'>Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search</a>
-      The problem of set similarity is as follows:
-      Given some optimization problem, 
+      <i>Technical point:</i> When new key-sets are evolved by sampling from the universe, they randomness we are using is "coordinated randomness".
+      This is what ensures that two similar users each evolving a family of key-sets are likely to evolve the same key.
+      We might picture that all users evolve the same huge family of key-sets, but each of them focus their attention on the individuals most likely to end up with a large overlap with the users set.
       </p>
+   <a name="life"></a>
+   <h3> The Tree of Life</h3>
       <p>
-
-      A family of representative sets 
-
-      The example is something likme this:
-      You and a friend both want to pick some elements from a set.
-      But you haven't seen it yet.
-      So what do you do?
-      You see a lot of birds, and you want to decide how many of the same birds you have seen.
-      Ideally, for each bird, we would pick a number of 
-      So for each bird 
-
-      meet a lot of people, an
+      In the previous simulation, the fit individuals of each generation would double themselves.
+      If we weren't constantly abandoning a large portion of them, the exponential growth would quickly make them impossible to handle.
       </p>
-      <p>Redux elegantly handles complex state interactions that are hard to express with React’s component state. It is essentially a message-passing system, like the kind seen in Object-Oriented programming, but implemented as a library instead of in the language itself¹. As in OOP, Redux inverts the responsibility of control from caller to receiver — the UI doesn’t directly manipulate the state but rather sends it a message for the state to interpret.
-
+      
+      <p>
+      It turns out, however, that with a fitness threshold of <span class="math">80%</span>, and a density of blue balls of <span class="math">25%</span> as in the example above, a branching rate of <span class="math">2</span> is exactly the right balance to ensure long time survival of the tribe, but never have it grow exponentially.
       </p>
+      
+      <p>
+      The next gadget allows you to try different "blue ball densities" and thresholds, and see how many generations the tribes survive.
+      Note that if you manually modify the branching rate, the tribe will either quickly go extinct, or explode to kill your browser tab.
+      </p>
+      <script>
+const tree_svg = d3.select('body').append('svg').attr('id', 'tree').attr('height', 600);
+const form = d3.select('body').append('div').attr('id', 'cp');
+      </script>
+
+      <p>
+         We can plot the size of each generation to get an idea of how stable our growth is:
+      </p>
+
+   <script>
+
+d3.select('body').append('h2')
+         .text('Generation Fitness')
+         .append('i')
+         .lower()
+         .attr('class', 'tooltip material-icons')
+         .text('info')
+         .append('span')
+         .attr('class', 'tooltip-text')
+         .text('Joy Division plot of the fitness of the individuals alive at each generation.');
+
+
+const graph = new RadialTree(300);
+const cp = new ControlPanel(.5, 1, graph);
+const plot = new JoyPlot(graph);
+
+const plot_svg = d3.select('body').append('svg').attr('id', 'plot');
+
+graph.mount(tree_svg);
+plot.mount(plot_svg);
+cp.mount(form);
+
+      </script>
+
+      <a name="python-code"></a>
+   <h3>A Sample Python Implementation</h3>
+   <p>
+   While the Arxiv paper proves that the above method of searching sets is optimal in terms of big-oh time and space,
+   in practice we probably need a number of hardware and dataset related optimizations to get competitive performance.
+   </p>
+
+   <p>
+   It is however simple to write a toy Python version of the data structure:
+   </p>
       <pre><code class="python">
    def __init__(self, n, U, wq, wu, w1):
-      self.n, self. U = n, U
+      self.n, self.U = n, U
       self.tq, self.tu = find_tresholds(wq, wu, w1)
       self.k = find_height(...)
       self.D = find_branch_factor(...)
@@ -155,6 +297,27 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       self.seeds = [random.randrange(U**3) for _ in range(int(1/surv+1))]
       self.lists = collections.defaultdict(list)
       </code></pre>
+
+      <p>
+      Here <code>n</code> and <code>U</code> are respectively the number of points we want to store, and the size of the universe from which our sets come.
+      The values <code>wq</code> and <code>wu</code> are the density of the sets used for queries and stored in the database respectively.
+      The value <code>w1</code> can be used to specify how correlated we expect the results to be with the queries.
+      If this value is close to <code>wq*wu</code> (the correlation between random sets), the  time per query will be close to <span class="math">Ɵ(n)</span>, since the signal to noise ratio is very low.
+      With a larger <code>w1</code>we get much better performance, but we might not find sets with only a small correlation to the query.
+      </p>
+
+      <p>
+      The thresholds <code>tq</code> and <code>tu</code> are specify the fraction of set elements each key-set must contain.
+      By using different values for queries and stored sets respectively, we can vary the space/time trade-off of the algorithm.
+      The values <code>k</code> and <code>D</code> are the total number of generations to evolve and the branching factor used at each step.
+      The <code>estimate_survival</code> function runs a simple simulation, used for estimating how many individuals need to be in the first generation, to guarantee we don't get early extinction.
+      Finally, the <code>self.list</code> map, stores the actual lists illustrated in <a href="#simple">the previous section</a>.
+      </p>
+
+      <p>
+      The actual methods to insert and query the data structure are incredibly simple:
+      </p>
+
       <pre><code class="python">
    def insert(self, point):
       for rep in self.representatives(point, self.tu):
@@ -165,14 +328,19 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
            for point2 in self.lists[rep]:
                yield point2
       </code></pre>
+
+      <p>
+      The main work is done by the <code>representatives</code> method, which computes (evolves) the key-sets relevant to a given point:
+      </p>
+
       <pre><code class="python">
    def representatives(self, point, t):
-       # Do a smalll number of independent repetitions to ensure success
+       # Do a small number of independent repetitions to ensure success
        for seed in self.seeds:
-           # Each indivudual stores its value and a random identifier
+           # Each individual stores its value and a random identifier
            individuals = [(0, seed)]
            size = 1
-           # Run through k genrations/levels of the process
+           # Run through k generations/levels of the process
            for l in range(1, self.k+1):
                # The branching factor might not be an integer, so we
                # round it up, while trying to keep the geometric average
@@ -182,42 +350,32 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
                new_individuals = []
                for v, h in individuals:
                    # Evolve the individual by generating children.
-                   # We seed the random genrator so the children chosen
+                   # We seed the random generator so the children chosen
                    # are consistent between inserts and queries
                    random.seed(h)
                    for x in random.sample(range(self.U), level_size):
                        h1 = random.randrange(self.U**3)
                        v1 = v + bool(x in point)
                        # We allow the value to be "off" by a tiny bit
-                       if abs(v1 - t*l) <= math.sqrt(t*(1-t)*l):
+                       if abs(v1 - t*l) <= (t*(1-t)*l)**(1/3):
                            new_individuals.append((v1, h1))
                individuals = new_individuals
            yield from (h for v,h in individuals)
       </code></pre>
 
-      <script>
+      <p>The code keeps track of the <i>value</i> (number of sampled items that came from the given set) and a <i>hash</i> of the given key-sets.
+      This hash is enough to identify the individual, so, we don't have to store the elements actually sampled.
+      The hash is also used to seed the random generator, which ensures that a given individual always have the same offspring - what was earlier described as "coordinated randomness".
+      </p>
 
-const graph = new RadialTree(300);
-const cp = new ControlPanel(.5, 1, graph);
-const plot = new JoyPlot(graph);
+   <a name="conclusion"></a>
+   <h3>Conclusion</h3>
+   <p>
+      If you took anything away from this post, it is hopefully that evolution can be finicky and very sensitive to parameters such as the branching factor.
+      There is also a good deal of luck involved.
+      If used responsibly, however, evolutionary algorithms can be an powerful way of solving problems.
+      Even undertakings as abstract as recommendation systems and set databases.
+   </p>
 
-const tree_svg = d3.select('body').append('svg').attr('id', 'tree').attr('height', 600);
-const form = d3.select('body').append('div').attr('id', 'cp');
-d3.select('body').append('h2')
-         .text('Generation Fitness')
-         .append('i')
-         .lower()
-         .attr('class', 'tooltip material-icons')
-         .text('info')
-         .append('span')
-         .attr('class', 'tooltip-text')
-         .text('Joy Division plot of the fitness of the individuals alive at each generation.');
-const plot_svg = d3.select('body').append('svg').attr('id', 'plot');
-
-graph.mount(tree_svg);
-plot.mount(plot_svg);
-cp.mount(form);
-
-      </script>
    </body>
 </html>

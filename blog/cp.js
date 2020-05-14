@@ -26,17 +26,20 @@ function simulate(t, p, d, k) {
                // polynomial probability
                const v1 = v + (Math.random() < p ? 1 : 0);
                //const sig = Math.sqrt(t*(1-t)*i);
+               //const rat = t == 0 || t == 1 ? 0 : Math.log(t/p * (1-p)/(1-t));
+               //const sig = Math.pow(rat * t*(1-t)*i, 1/3);
                const sig = Math.pow(t*(1-t)*i, 1/3);
-               if (t > p ? v1 >= t*i-sig : v1 <= t*i+sig)
+               if (Math.abs(v1 - t*i) <= sig)
                   new_reprs.push(v1);
             }
-            // Trim to 20 per level
+            // Trim to 30 per level
             if (new_reprs.length > 30)
                break;
          }
          reprs = new_reprs;
-         // A more positive way to trim
-         if (reprs.length == 0 || reprs.length > 30)
+         // If we got lots of reps, just declare victory
+         // This can't actually happen right now though...
+         if (reprs.length > 100)
             break;
       }
       //console.log(reprs);
@@ -94,6 +97,8 @@ class ControlPanel {
       this.p_slider.silentValue(this.p);
       this.t_slider.silentValue(this.t);
       this.d_slider.silentValue(this.d);
+      this.d_slider = this.d_slider.max(Math.ceil(this.d));
+      d3.select('#d_slider').call(this.d_slider);
    }
    create(form) {
       // Make buttons
@@ -136,10 +141,10 @@ class ControlPanel {
          .attr('class', 'tooltip-text')
          .text('An individuals fitness increases with 1 compared to its parent with this probability.');
       this.p_slider = d3.sliderBottom().width(slider_width)
-         .min(0)
-         .max(1)
+         .min(0.01)
+         .max(0.99)
          .tickFormat(d3.format('.2%'))
-         .ticks(2)
+         .ticks(3)
          .default(this.p)
          .on('onchange', val => {
             this.p = val;
@@ -153,7 +158,7 @@ class ControlPanel {
       p.append('label')
          .html('Survival treshold <span class="math">(t)</span>')
          .append('i') .lower() .attr('class', 'tooltip material-icons') .text('info') .append('span') .attr('class', 'tooltip-text')
-         .html('An individual is allowed to survive the kth round, if its fitness is at least <span class="math">t · k - √(t(1-t)k)</math>.');
+         .html('An individual is allowed to survive the kth round, if its fitness is at least <span class="math">t · k - (t(1-t)k)<sup>1/3</sup></math>.');
       this.t_slider = d3.sliderBottom().width(slider_width)
          .min(0)
          .max(1)
@@ -177,14 +182,14 @@ class ControlPanel {
          .min(1)
          .max(Math.ceil(2*this.d))
          .tickFormat(d3.format('.5'))
-         .ticks(5)
+         .ticks(3)
          .default(this.d)
          .on('onchange', val => {
             this.d = val;
             this.dirty=true;
             this.update()
          });
-      p.append('svg') .append('g') .call(this.d_slider);
+      p.append('svg') .append('g').attr('id','d_slider') .call(this.d_slider);
 
    }
 }

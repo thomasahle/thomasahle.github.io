@@ -1,10 +1,18 @@
 body {
-     margin: 30px auto 0 auto;
+     margin: 30px auto 300px auto;
      font-family: Helvetica, sans-serif;
      font-size: medium;
      text-rendering: optimizeLegibility;
      max-width: 800px;
      color: #333;
+}
+.byline {
+   text-align: left;
+   margin-left: 0;
+}
+span.set {
+   font-size: 90%;
+   letter-spacing: -.05em;
 }
 pre {
    font-size: 100%;
@@ -58,7 +66,7 @@ span.math {
    height: 100px;
    width: 100%;
 }
-#cp .slider svg>g {
+#cp .slider svg > g {
    transform: translate(25px,25px) scale(1.65);
 }
 #plot path.area {

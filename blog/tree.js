@@ -89,6 +89,11 @@ class RadialTree {
          if (node.depth == level && node.data.alive) {
             for (let i = 0; i < level_size; i++) {
                const val = node.data.value + (Math.random() < this.p ? 1 : 0);
+               // const rat = this.t == 0 || this.t == 1 ? 0
+               //             : Math.log(this.t/this.p * (1-this.p)/(1-this.t));
+               // const sig = Math.pow(rat**2 * this.t*(1-this.t)*level, 1/3);
+               // Maybe the reason 1/3 is good is that I would actually prefer the
+               // process to die at some point, before the browswer gets overloaded.
                const sig = Math.pow(this.t*(1-this.t)*level, 1/3);
                this.insert(node, {
                   name: val+'/'+level,
@@ -124,7 +129,6 @@ class RadialTree {
       this.dispatch.call('change');
       const links = this.root.links();
       const nodes = this.root.descendants();
-      console.log(this.root);
 
       // Compute the new tree layout.
       //const size = size_radial();
