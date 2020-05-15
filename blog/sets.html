@@ -61,10 +61,11 @@
                if (picture_tree.root.value >= minimum)
                   break;
             }
-            console.log(`Tried ${tries} times`);
             picture_tree.update();
          }
-         restartTopTree(100);
+         window.onload = function() {
+            restartTopTree(100);
+         }
       </script>
       <p style='text-align:right; position:relative; top:-60px; left:60px; background: transparent; font-size: small; margin: 0; height: 0'>
       <a onclick="restartTopTree(0)" href="#" style='color:#555'>
@@ -75,7 +76,7 @@
       Suppose you are Netflix, and you are storing the list of movies that each user has watched.
       For a simple recommendation system, given a user, you want to know which other users film lists their watched set of movies overlap with.
       You have too many users to just compare with everyone.
-      You need an index, a set database.
+      You need an index &ndash; a set database.
       </p>
 
       <p>
@@ -86,48 +87,12 @@
       and some fun <a href="#evolution">gadgets I built to simulate it</a>.
       </p>
 
-      <!--
-      <p>
-      , originally developed for the AltaVista search engine in 1997.
-Often this is measured by the tweets having a large <a href="https://en.wikipedia.org/wiki/Jaccard_index">Jaccard similarity</a> and solved with the 
-
-      A common operation is "Similarity search", where (e.g.) given a tweet, we want to find all other tweets with simiar sentiment.
-      Since then it has been used for clustering documents by Google and many others.
-      </p>
-      -->
-
-      <p>
-      <i>Background:</i>
-      Sets can be used to represent many types of data, other than lists of movies.
-      <!--Sets are just collections of distinct objects.-->
-      In DNA sequencing, the DNA strings are chopped into sets of small snippets (called <a href="https://en.wikipedia.org/wiki/K-mer">k-mess</a>) such that two sets with a large overlap "contains roughly the same genes".
-      When I worked in Machine Learning for customer support, we would sometimes represent the customers queries as a <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words</a>, and two sets with a large overlap would be considered to be about the same issue.
-
-      <!--In Natural language processing as well as Computer vision, so called <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words models</a> are useful ways of generating semantic representations of text and images, in the form of sets.-->
-      <!--Today an alternative is to map this data into dense vectors, using perhaps a Neural Network, but in the paper we show that this "densification" will inevitably result in worse performance or recall.-->
-      </p>
-
-      <p>
-      The difficulty of set similarity is related to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">Curse of dimensionality</a>.
-      <!--Naturally, many efficient data structures for sets have been developed.-->
-      <!--A common operation is "Subset search", where (e.g.) given a list of movies, we want to know which users have watched all of them.-->
-      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this problem all the way back in 1976.
-      In the late 90s the methods of
-      <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> were developed, which are used today in everything from search engines to Machine Learning.
-      There are also Machine Learning techniques such as <a href="https://en.wikipedia.org/wiki/Word_embedding">Word embeddings</a> that "densifies" sets to vectors.
-      However it turns out that one can do better by looking at the sets directly.
-      </p>
-
-
-      <p>
-      <img src="Bag_of_words.jpeg" alt="A visual bag of words representation" title="Meritxell.canela / Public domain" style='display:block'/>
-      <i>A picture illustrating the visual Bag-of-words model for image search, <a href="https://commons.wikimedia.org/wiki/File:Bag_of_words.JPG">credit Wikimedia&nbsp;Commons</a>.</i>
-      </p>
+      <p>You should know that <a href='#sets'>sets can represent much more than movies</a>, and that this problem has ben studied in Computer Science since the 70s, but for now lets focus on the concrete.</p>
 
       <a name="simple"></a>
       <h3>A Simple Set Database</h3>
       <p>
-      Suppose we are to store the set
+      Assume Alice has watched the movies
       {<span class="set">
          Extraction,
          The Rise of Skywalker,
@@ -138,8 +103,7 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
          The Gentlemen,
          Parasite,
          Bad Education</span>
-      }
-      of movies watched by a user named Alice.
+      }.
       <!--
       We might considering storing it in alphabetic order.
       However, then another user, Bob, who have watched the exact same movies, except for <span class="set">365 Days</span> (assuming numbers go first), would be placed in a completely different location in our index, and we would never discover the similarity.
@@ -151,27 +115,32 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
          Extraction</span>,
       <span class="set">
          The Rise of Skywalker</span>, ... etc.
-      </p>
-      <p>
+
       If Bob shares just one movie with Alice, he will discover this by looking through the sets in lists corresponding to the movies he has watched himself.
-      Meanwhile, if Bob and Eve have no movies in common, Bob won't waste any time on Eve, as well as the millions of other uses with similar disjoint preferences.
+      Meanwhile, if Bob and Eve have no movies in common, Bob won't waste any time on Eve, since they won't share a list.
       </p>
 
       <p>
-      Unfortunately lots of people have at least one movie in common.
-      FiveThirtyEight estimated that <a href="https://fivethirtyeight.com/features/how-many-people-havent-seen-titanic/">211 million American adults</a> have seen <span class="set">Titanic</span>.
-      Hence Bob hasn't saved much compared to just manually looking at the sets of every other person.
-      </p>
+      Unfortunately everybody has seen <span class="set">Titanic</span> (at least to estimated 
+       to <a href="https://fivethirtyeight.com/features/how-many-people-havent-seen-titanic/">211 million American adults</a> by FiveThirtyEighthave.)
+      Hence the simplest list approach doesn't save Bob much time.
 
-      <p>
       The solution is to make lists of pairs, triples or in general n-tuples of movies, rather than single movies.
+
+      We also pick those tuplets randomly, so even if there are 5 movies everyone has seen, it's unlikely to be a problem.
+
+<!--
       For example, Bob and Alice might both store their sets in a list indexed by {<span class="set">Parasite, The Half of It, The Gentlemen</span>}.
       If we pick the triples at random,
       it's quite unlikely that two users with vastly different sets of watched movies will appear in the same lists, and so Bob and Alice can identify each other quickly.
+-->
       </p>
       <p>
       We are now pretty close to the real algorithm.
       The last change we will make is to allow people to appear in lists, even if they have only watched, say, 80% of the movies in the list.
+      In fact we will require close to exactly 80%, since there is also information in what movies people <i>haven't watched</i>.
+      </p>
+      <p>
       An example of the data structure is shown below:
       </p>
 
@@ -205,18 +174,19 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
 
       <p>
       <i>Inttuition:</i>
-      Why should we actually expect that two sets with a shared key-set have a large overlap?
-      This is basically <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes' theorem from statistics</a>:
+      Why should we expect that two sets with a shared key-set have a large overlap?
+      This follows from <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes' theorem</a> in statistics:
       A given key-set is more likely to appear in two sets with a large overlap.
-      Hence two sets with a large overlap are also more likely to share a key-set.
+      Therefore two sets with a large overlap are also more likely to share a key-set.
       </p>
 
-      <p>
+      <p style='text-align:center'>
       <i>"But",</i> you ask, <i>"haven't we just replaced the problem of <b>finding a movie set</b> with a large overlap, with <b>finding a key-set</b> with a large overlap?"</i>
       </p>
       <p>
       This is a <b>major problem</b>, and it's likely the reason that the simple idea above hasn't been feasible to use before now.
-      The solution is that we can choose the key-sets in a structured way, as long as they are still sufficiently random.
+      It turns out that we can use key-sets that are only <i>partially</i> random.
+            <!--The solution is that we can choose the key-sets in a structured way, as long as they are still sufficiently random.-->
       This is what finally brings us back to the topic of Evolution and Corona outbreaks.
       </p>
 
@@ -261,26 +231,34 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       </p>
 
       <p>
-      <i>Technical point:</i> When new key-sets are evolved by sampling from the universe, the randomness we are using is "coordinated randomness".
-      This is what ensures that two similar users each evolving a family of key-sets are likely to evolve the same key.
-      We might picture that all users evolve the same huge family of key-sets, but each of them focus their attention on the individuals most likely to end up with a large overlap with the users set.
+      <i>Technical point:</i> When new key-sets are evolved by sampling from the universe, the randomness is shared between all users.
+      This means that the total family of key-sets that can be evolved is shared between them.
+      However each user has a different fitness function (the overlap with their personal set), and they focus their effort evolving the key-sets relevant to them.
       </p>
 
       <p><i>Very technical point:</i>
-      The required branching factor for stable growth turns out to be
+      The required branching factor for stable growth (neither exploding nor extincting) turns out to be
       related to the so called <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a>
-      between the density of the set in the unvierse <span class="math">(p)</span> and the survival treshold <span class="math">(t)</span>:
+      between the density of the set in the universe <span class="math">(p)</span> and the survival threshold <span class="math">(t)</span>.
+      We need the branching factor to be exactly
       </p>
       <div style='text-align:center; margin-top: -20px'>
       <img src='f2.png' width='468' /> <!-- 936 -->
       </div>
       <p>
-      However for the real algorithm we need to ensure that two sets with a given overlap <span class="math">p<sub>1</sub></span> and respective densities <span class="math">p<sub>q</sub></span> and <span class="math">p<sub>u</sub></span> both "survive".
-      For that we need a two dimensional versioni of Kullback–Leibler:
+      However for the real algorithm we need to ensure that some key-set survives for both Alice <b>and</b> Bob.
+      That requires a two dimensional version of Kullback–Leibler, which I won't even try to state here.
+      </p>
+      <!--
+      That 
+
+      we need to ensure that two sets with a given overlap <span class="math">p<sub>1</sub></span> and respective densities <span class="math">p<sub>q</sub></span> and <span class="math">p<sub>u</sub></span> both "survive".
+      (In the real version you can also use different thresholds <span class="math">t<sub>q</sub></span>, <span class="math">t<sub>u</sub></span> for Alice and Bob.)
+      For that we need a two dimensional version of Kullback–Leibler:
       </p>
       <div style='text-align:center; margin-top: -20px; margin-bottom: 20px;'>
-      <img src='f1.png' width='593' /> <!-- 1186 -->
-      </div>
+      <img src='f1.png' width='593' /> 
+      </div>-->
 
       <p>
       In the following figure we show what it looks like when <b>both Alice and Bob</b> are running the evolution at the same time, on different sets (resp. blue and orange).
@@ -288,7 +266,8 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       </p>
       <p>
       It is naturally harder to guarantee survival of the tribe, if we have two requirements that must hold at the same time.
-      In the following figure we have thus increased the branching factor to 3:
+      In the following figure we have thus increased the branching factor to 3,
+      (and the fitness threshold to 84%.)
       </p>
 
       <svg id='universe_plot_2' height=400></svg>
@@ -303,15 +282,18 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       </script>
       <div  style='clear:both'></div>
       <p>
-      The figure shows strongly why pairs of sets with a large overlap are likely to resut in shared key-sets:
+      The figure shows clearly why pairs of sets with a large overlap are likely to resut in shared key-sets:
       As you may try, it is nearly impossible to evolve large key-sets without using lots of multi colored balls.
       </p>
 
    <a name="life"></a>
    <h3> The Tree of Life</h3>
+   <p>The <a href="https://en.wikipedia.org/wiki/Tree_of_life_(biology)">Tree of Life in biology</a> illustrates how every species of life originally evolved from one ancestor.
+   Like Darwin, we too can plot the ancestry of the species we evolve.</p>
+
       <p>
-      In the previous simulation, the fit individuals of each generation would double themselves.
-      If we weren't constantly abandoning a large portion of them, the exponential growth would quickly make them impossible to handle.
+      In the first simulation, the fit individuals of each generation would double themselves.
+      If we weren't constantly abandoning a large portion of them, the exponential growth would quickly make them grow to extreme numbers.
       In terms of Coronavirus jargon, this means the reproduction number (or <a href="https://www.bbc.com/news/health-52473523">R value</a>) would be greater than 1.
       </p>
       
@@ -321,7 +303,7 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       
       <p>
       The next gadget allows you to try different "blue ball densities" and thresholds, and see how many generations the tribes survive.
-      Note that if you manually modify the branching rate, the tribe will either quickly go extinct, or explode to kill your browser tab.
+      Note that if you manually modify the branching factor, the tribe will either quickly go extinct, or explode to kill your browser tab.
       </p>
 
       <a name="tree"></a>
@@ -365,61 +347,17 @@ cp.mount(form, 15);
    <h3>A Sample Python Implementation</h3>
    <p>
    While <a href="https://arxiv.org/abs/1904.04045">the arXiv paper</a>
-   proves that the above method of searching sets is optimal in terms of <a href="https://en.wikipedia.org/wiki/Big_O_notation">big-oh</a> time and space,
+   proves that the above method of searching sets is optimal in terms of <a href="https://en.wikipedia.org/wiki/Big_O_notation">big-O</a> time and space,
    in practice we probably need a number of hardware and dataset related optimizations to get competitive performance.
    </p>
 
    <p>
-   It is however simple to write a toy Python version of the data structure:
+   It is however simple to write a toy Python version of the data structure.
+   The most important piece is the method that generates the key-sets:
    </p>
-      <pre><code class="python">
-   def __init__(self, n, U, t):
-      self.n, self.U = n, U
-      self.t = t
-      self.k = find_height(...)
-      self.D = find_branch_factor(...)
-      surv = estimate_survival(self.D, self.k, ...)
-      self.seeds = [random.randrange(U**3) for _ in range(int(1/surv+1))]
-      self.lists = collections.defaultdict(list)
-      </code></pre>
 
-      <p>
-      Here <code>n</code> and <code>U</code> are respectively the number of points we want to store, and the size of the universe from which our sets come.
-      The values <code>wq</code> and <code>wu</code> are the density of the sets used for queries and stored in the database respectively.
-      The value <code>w1</code> can be used to specify how correlated we expect the results to be with the queries.
-      If this value is close to <code>wq*wu</code> (the correlation between random sets), the  time per query will be close to <span class="math">Ɵ(n)</span>, since the signal to noise ratio is very low.
-      With a larger <code>w1</code>we get much better performance, but we might not find sets with only a small correlation to the query.
-      </p>
-
-      <p>
-      The thresholds <code>tq</code> and <code>tu</code> are specify the fraction of set elements each key-set must contain.
-      By using different values for queries and stored sets respectively, we can vary the space/time trade-off of the algorithm.
-      The values <code>k</code> and <code>D</code> are the total number of generations to evolve and the branching factor used at each step.
-      The <code>estimate_survival</code> function runs a simple simulation, used for estimating how many individuals need to be in the first generation, to guarantee we don't get early extinction.
-      Finally, the <code>self.list</code> map, stores the actual lists illustrated in <a href="#simple">the previous section</a>.
-      </p>
-
-      <p>
-      The actual methods to insert and query the data structure are incredibly simple:
-      </p>
-
-      <pre><code class="python">
-   def insert(self, point):
-      for rep in self.representatives(point):
-          self.lists[rep].append(point)
-
-   def query(self, point):
-       for rep in self.representatives(point):
-           for point2 in self.lists[rep]:
-               yield point2
-      </code></pre>
-
-      <p>
-      The main work is done by the <code>representatives</code> method, which computes (evolves) the key-sets relevant to a given point:
-      </p>
-
-      <pre><code class="python">
-   def representatives(self, point):
+      <pre><code class="python"><!--
+-->    def representatives(self, point):
        # Do a small number of independent repetitions to ensure success
        for seed in self.seeds:
            # Each individual stores its value and a random identifier
@@ -445,13 +383,126 @@ cp.mount(form, 15);
                        if abs(v1 - self.t*l) <= (self.t*(1-self.t)*l)**(1/3):
                            new_individuals.append((v1, h1))
                individuals = new_individuals
-           yield from (h for v,h in individuals)
-      </code></pre>
+           yield from (h for v,h in individuals)<!--
+                 --></code></pre>
+
+      <p>
+      There are a number of parameters used:
+      </p>
+      <ul>
+         <li> <code>self.D</code> is the branching factor <span class="math">Δ</span>.</li>
+         <li> <code>self.t</code> is the treshold <span class="math">t</span> requirement for key-set fitness.</li>
+         <li> <code>self.k</code> is the size of the final key-sets we are trying to generate.</li>
+         <li> <code>self.U</code> is the size of the universe from witch the sets are drawn (e.g. all movies in the Netflix catalog.)</li>
+      </ul>
 
       <p>The code keeps track of the <i>value</i> (number of sampled items that came from the given set) and a <i>hash</i> of the given key-sets.
       This hash is enough to identify the individual, so, we don't have to store the elements actually sampled.
       The hash is also used to seed the random generator, which ensures that a given individual always have the same offspring - what was earlier described as "coordinated randomness".
       </p>
+
+      <p>
+      The actual methods to insert and query the data structure are incredibly simple:
+      </p>
+
+      <pre><code class="python"><!--
+-->   def insert(self, point):
+      for rep in self.representatives(point):
+          self.lists[rep].append(point)
+
+   def query(self, point):
+       for rep in self.representatives(point):
+           for point2 in self.lists[rep]:
+               yield point2<!--
+      --></code></pre>
+
+   <p>
+   For the complete code of the Python implementation, see <a href="https://github.com/thomasahle/supermajorities">the Github repository</a>.
+   The only thing it includes beyond the code above, is the following initialization:
+   </p>
+
+      <pre><code class="python"><!--
+-->   def __init__(self, U, t):
+      self.U = U
+      self.t = t
+      self.k = find_height(...)
+      self.D = find_branch_factor(...)
+      surv = estimate_survival(self.D, self.k, ...)
+      self.seeds = [random.randrange(U**3) for _ in range(int(1/surv+1))]
+      self.lists = collections.defaultdict(list)<!--
+      --></code></pre>
+      <p>
+            The <code>estimate_survival</code> function runs a simple simulation, used for estimating how many individuals need to be in the first generation, to guarantee we don't get early extinction.
+      Finally, the <code>self.list</code> map, stores the actual lists illustrated in <a href="#simple">the previous section</a>.
+      </p>
+
+<!--
+      <p>
+      Here <code>n</code> and <code>U</code> are respectively the number of points we want to store, and the size of the universe from which our sets come.
+      The values <code>wq</code> and <code>wu</code> are the density of the sets used for queries and stored in the database respectively.
+      The value <code>w1</code> can be used to specify how correlated we expect the results to be with the queries.
+      If this value is close to <code>wq*wu</code> (the correlation between random sets), the  time per query will be close to <span class="math">Ɵ(n)</span>, since the signal to noise ratio is very low.
+      With a larger <code>w1</code>we get much better performance, but we might not find sets with only a small correlation to the query.
+      </p>
+
+      <p>
+      The thresholds <code>tq</code> and <code>tu</code> are specify the fraction of set elements each key-set must contain.
+      By using different values for queries and stored sets respectively, we can vary the space/time trade-off of the algorithm.
+      The values <code>k</code> and <code>D</code> are the total number of generations to evolve and the branching factor used at each step.
+      The <code>estimate_survival</code> function runs a simple simulation, used for estimating how many individuals need to be in the first generation, to guarantee we don't get early extinction.
+      Finally, the <code>self.list</code> map, stores the actual lists illustrated in <a href="#simple">the previous section</a>.
+      </p>
+
+      <p>
+      The main work is done by the <code>representatives</code> method, which computes (evolves) the key-sets relevant to a given point:
+      </p>
+      -->
+      <a name="rec"></a>
+      <h3>A Real Recommendation System</h3>
+      <p>
+      I promised you 
+      </p>
+
+      <a name="sets"></a>
+      <h3>Background</h3>
+      <!--
+      <p>
+      , originally developed for the AltaVista search engine in 1997.
+Often this is measured by the tweets having a large <a href="https://en.wikipedia.org/wiki/Jaccard_index">Jaccard similarity</a> and solved with the 
+
+      A common operation is "Similarity search", where (e.g.) given a tweet, we want to find all other tweets with simiar sentiment.
+      Since then it has been used for clustering documents by Google and many others.
+      </p>
+      -->
+
+      <p>
+      Sets can be used to represent many types of data, other than lists of movies.
+      <!--Sets are just collections of distinct objects.-->
+      In DNA sequencing, the DNA strings are chopped into sets of small snippets (called <a href="https://en.wikipedia.org/wiki/K-mer">k-mess</a>) such that two sets with a large overlap "contains roughly the same genes".
+      When I worked in Machine Learning for customer support, we would sometimes represent the customers queries as a <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words</a>, and two sets with a large overlap would be considered to be about the same issue.
+
+      <!--In Natural language processing as well as Computer vision, so called <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words models</a> are useful ways of generating semantic representations of text and images, in the form of sets.-->
+      <!--Today an alternative is to map this data into dense vectors, using perhaps a Neural Network, but in the paper we show that this "densification" will inevitably result in worse performance or recall.-->
+      </p>
+
+      <p>
+      The difficulty of set similarity is related to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">Curse of dimensionality</a>.
+      <!--Naturally, many efficient data structures for sets have been developed.-->
+      <!--A common operation is "Subset search", where (e.g.) given a list of movies, we want to know which users have watched all of them.-->
+      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this problem all the way back in 1976.
+      In the late 90s the methods of
+      <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> were developed, which are used today in everything from search engines to Machine Learning.
+      There are also Machine Learning techniques such as <a href="https://en.wikipedia.org/wiki/Word_embedding">Word embeddings</a> that "densifies" sets to vectors.
+      However it turns out that one can do better by looking at the sets directly.
+      </p>
+
+
+      <p>
+      <img src="Bag_of_words.jpeg" alt="A visual bag of words representation" title="Meritxell.canela / Public domain" style='display:block'/>
+      <i>A picture illustrating the visual Bag-of-words model for image search, <a href="https://commons.wikimedia.org/wiki/File:Bag_of_words.JPG">credit Wikimedia&nbsp;Commons</a>.</i>
+      </p>
+
+
 
    <a name="conclusion"></a>
    <h3>Conclusion</h3>
@@ -466,9 +517,6 @@ cp.mount(form, 15);
    Various models have been suggested, such as Subset search and Jaccard similarity search.
    The method described above is the first mathematically optimal algorithm for all of those problems,
    potentially leading to vastly more efficient systems in all areas of Computer Science.
-   </p>
-   <p>
-   For the complete code of the Python implementation, see <a href="https://github.com/thomasahle/supermajorities">the Github repository</a>.
    </p>
 
    </body>

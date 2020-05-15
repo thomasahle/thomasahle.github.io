@@ -37,10 +37,9 @@ class SimulationPlot {
       this.init_buttons();
    }
    restart() {
-      this.id = Math.random();
       if (this.colors == 2) {
          const set1_colors = d3.scaleSequential(d3.interpolateBlues).domain([-3, 2]);
-         const set2_colors = d3.scaleSequential(d3.interpolateOranges).domain([-3, 2]);
+         const set2_colors = d3.scaleSequential(d3.interpolateOranges).domain([-3, 4]);
          const uni_colors = d3.scaleSequential(d3.interpolateGreys).domain([-1, 5]);
          this.data = Array.from({ length: this.n }, (_, i) => {
             const set1_item = Math.random() < this.wq/this.n;
@@ -55,7 +54,7 @@ class SimulationPlot {
               ,color2: set2_item ? set2_colors(lum) : grey
               ,is_set1_item: set1_item
               ,is_set2_item: set2_item
-              ,id: i
+              ,id: Math.random()
             }});
       } else {
          const set_colors = d3.scaleSequential(d3.interpolateBlues).domain([-3, 2]);
@@ -69,7 +68,7 @@ class SimulationPlot {
               ,color2: color
               ,is_set1_item: set_item
               ,is_set2_item: set_item
-              ,id: i
+              ,id: Math.random()
             }});
       }
       this.update_uni();
@@ -254,7 +253,7 @@ class SimulationPlot {
                   .append('circle')
                   .attr('class', 'obj')
                   //.attr('fill', d => d.color)
-                  .attr('fill', d => d.color1 != d.color2 ? `url(#g${this.id+d.pid})` : d.color1)
+                  .attr('fill', d => d.color1 != d.color2 ? `url(#g${d.pid})` : d.color1)
                   //.attr('r', d => d.r)
                // If the objects arrived by cloning, we are now no longer
                // in the clone step.
@@ -328,7 +327,7 @@ class SimulationPlot {
             // them as the old rep are exiting
             exit => exit.delay(2000).remove()
          )
-         .attr('id', d => `g${this.id+d.id}`)
+         .attr('id', d => `g${d.id}`)
          .attr('x1', 0) .attr('y1', 0)
          .attr('x2', 1) .attr('y2', 1)
          .call(lg => lg.append('stop')
@@ -340,7 +339,7 @@ class SimulationPlot {
          .data(this.data, d => d.id)
          .join('circle')
          .attr('r', d => d.r)
-         .attr('fill', d => d.color1 != d.color2 ? `url(#g${this.id+d.id})` : d.color1)
+         .attr('fill', d => d.color1 != d.color2 ? `url(#g${d.id})` : d.color1)
          ;
 
       function tick(nodes) {

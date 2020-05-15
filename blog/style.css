@@ -39,7 +39,7 @@ a:hover {
 div.time {
    text-transform: uppercase;
 }
-body > p {
+body > p, body > ul {
    display: block;
    width: 700px;
    margin: 0 auto 1rem auto;
