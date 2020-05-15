@@ -47,11 +47,12 @@ class SimulationPlot {
             const set2_item = set1_item
                ? Math.random() < this.w1/this.wq
                : Math.random() < (this.wu-this.w1)/(this.n-this.wq);
-            const grey = uni_colors(Math.random());
+            const lum = Math.random();
+            const grey = uni_colors(lum);
             return {
               r: 2 * (4 + Math.random()**2)
-              ,color1: set1_item ? set1_colors(Math.random()) : grey
-              ,color2: set2_item ? set2_colors(Math.random()) : grey
+              ,color1: set1_item ? set1_colors(lum) : grey
+              ,color2: set2_item ? set2_colors(lum) : grey
               ,is_set1_item: set1_item
               ,is_set2_item: set2_item
               ,id: i
@@ -146,6 +147,8 @@ class SimulationPlot {
                   ox: par.x - rep.x,
                   oy: par.y - rep.y,
                   id: Math.random(),
+                  color1: par.color1,
+                  color2: par.color2,
                   pid: par.id, // Used for the gradient
                });
                rep.ox = rep.x;
@@ -251,7 +254,7 @@ class SimulationPlot {
                   .append('circle')
                   .attr('class', 'obj')
                   //.attr('fill', d => d.color)
-                  .attr('fill', d => `url(#g${this.id+d.pid})`)
+                  .attr('fill', d => d.color1 != d.color2 ? `url(#g${this.id+d.pid})` : d.color1)
                   //.attr('r', d => d.r)
                // If the objects arrived by cloning, we are now no longer
                // in the clone step.
@@ -327,17 +330,17 @@ class SimulationPlot {
          .attr('id', d => `g${this.id+d.id}`)
          .attr('x1', 0) .attr('y1', 0)
          .attr('x2', 1) .attr('y2', 1)
-         .html(d => `
+         .html(d => d.color1 != d.color2 ? `
             <stop offset="0%" style="stop-color:${d.color1}" />
             <stop offset="50%" style="stop-color:${d.color1}" />
             <stop offset="50%" style="stop-color:${d.color2}" />
             <stop offset="100%" style="stop-color:${d.color2}" />
-         `);
+         ` : '');
       const nodes = this.box.selectAll('circle')
          .data(this.data, d => d.id)
          .join('circle')
          .attr('r', d => d.r)
-         .attr('fill', d => `url(#g${this.id+d.id})`)
+         .attr('fill', d => d.color1 != d.color2 ? `url(#g${this.id+d.id})` : d.color1)
          ;
 
       function tick(nodes) {
