@@ -318,8 +318,9 @@ class SimulationPlot {
          this.restart();
    }
    update_uni() {
+      const grads = this.data.filter(d => d.color1 != d.color2);
       this.defs.selectAll('linearGradient')
-         .data(this.data, d => d.id)
+         .data(grads, d => d.id)
          .join('linearGradient',
             enter => enter.append('linearGradient'),
             update => update,
@@ -330,12 +331,11 @@ class SimulationPlot {
          .attr('id', d => `g${this.id+d.id}`)
          .attr('x1', 0) .attr('y1', 0)
          .attr('x2', 1) .attr('y2', 1)
-         .html(d => d.color1 != d.color2 ? `
-            <stop offset="0%" style="stop-color:${d.color1}" />
-            <stop offset="50%" style="stop-color:${d.color1}" />
-            <stop offset="50%" style="stop-color:${d.color2}" />
-            <stop offset="100%" style="stop-color:${d.color2}" />
-         ` : '');
+         .call(lg => lg.append('stop')
+            .attr('offset', '.5').attr('style', d=>`stop-color:${d.color1}`))
+         .call(lg => lg.append('stop')
+            .attr('offset', '.5').attr('style', d=>`stop-color:${d.color2}`))
+         ;
       const nodes = this.box.selectAll('circle')
          .data(this.data, d => d.id)
          .join('circle')
