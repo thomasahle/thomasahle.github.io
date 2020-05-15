@@ -82,12 +82,12 @@
       <p>
       I recently published a preprint, together with Jakob Knudsen, describing <a href="https://arxiv.org/abs/1904.04045">a new, optimal data structure for set similarity search</a>.
       An interesting way to look at this is as an <a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithm</a> (aka. Genetic Algorithm).
-      We think it's probably the first time the <i>provably best</i> way to solve a probem has been evolutionary.
+      We think it's probably the first time the <i>provably best</i> way to solve a problem has been evolutionary.
       This post won't go deep into the mathematics, but will contain <a href='#python-code'>code samples</a>
       and some fun <a href="#evolution">gadgets I built to simulate it</a>.
       </p>
 
-      <p>You should know that <a href='#sets'>sets can represent much more than movies</a>, and that this problem has ben studied in Computer Science since the 70s, but for now lets focus on the concrete.</p>
+      <p>You should know that <a href='#sets'>sets can represent much more than movies</a>, and that this problem has been studied in Computer Science since the 70s, but for now lets focus on the concrete.</p>
 
       <a name="simple"></a>
       <h3>A Simple Set Database</h3>
@@ -127,7 +127,7 @@
 
       The solution is to make lists of pairs, triples or in general n-tuples of movies, rather than single movies.
 
-      We also pick those tuplets randomly, so even if there are 5 movies everyone has seen, it's unlikely to be a problem.
+      We also pick those tuples randomly, so even if there are 5 movies everyone has seen, it's unlikely to be a problem.
 
 <!--
       For example, Bob and Alice might both store their sets in a list indexed by {<span class="set">Parasite, The Half of It, The Gentlemen</span>}.
@@ -173,7 +173,7 @@
       </p>
 
       <p>
-      <i>Inttuition:</i>
+      <i>Intuition:</i>
       Why should we expect that two sets with a shared key-set have a large overlap?
       This follows from <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes' theorem</a> in statistics:
       A given key-set is more likely to appear in two sets with a large overlap.
@@ -282,7 +282,7 @@
       </script>
       <div  style='clear:both'></div>
       <p>
-      The figure shows clearly why pairs of sets with a large overlap are likely to resut in shared key-sets:
+      The figure shows clearly why pairs of sets with a large overlap are likely to result in shared key-sets:
       As you may try, it is nearly impossible to evolve large key-sets without using lots of multi colored balls.
       </p>
 
@@ -391,7 +391,7 @@ cp.mount(form, 15);
       </p>
       <ul>
          <li> <code>self.D</code> is the branching factor <span class="math">Δ</span>.</li>
-         <li> <code>self.t</code> is the treshold <span class="math">t</span> requirement for key-set fitness.</li>
+         <li> <code>self.t</code> is the threshold <span class="math">t</span> requirement for key-set fitness.</li>
          <li> <code>self.k</code> is the size of the final key-sets we are trying to generate.</li>
          <li> <code>self.U</code> is the size of the universe from witch the sets are drawn (e.g. all movies in the Netflix catalog.)</li>
       </ul>
