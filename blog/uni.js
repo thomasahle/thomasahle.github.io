@@ -7,8 +7,9 @@ height = 400;
 sim_center = [left_width + right_width/2, height/2];
 
 class SimulationPlot {
-   mount(svg, step_button, restart_button) {
+   mount(svg, step_button, restart_button, colors) {
       this.svg = svg;
+      this.defs = svg.append('defs');
       this.step_button = step_button;
       this.restart_button = restart_button;
       svg.attr('width', width).attr('height', height);
@@ -19,32 +20,66 @@ class SimulationPlot {
          .attr('width', right_width)
          .attr('height', height);
       this.n = 200;
-      this.w = 50;
-      this.t = .802246;
-      this.D = 2;
+      this.colors = colors;
+      if (colors == 2) {
+         this.wq = 50;
+         this.wu = 50;
+         this.w1 = 25;
+         this.t = .843;
+         this.D = 3;
+         this.initial_reps = 30;
+      } else {
+         this.w = 50;
+         this.t = .81071;
+         this.D = 2;
+         this.initial_reps = 15;
+      }
       this.init_buttons();
    }
    restart() {
-      const set_colors = d3.scaleSequential(d3.interpolateBlues).domain([-3, 2]);
-      const uni_colors = d3.scaleSequential(d3.interpolateGreys).domain([-1, 5]);
-      this.data = Array.from({ length: this.n }, (_, i) => {
-         const set_item = Math.random() < this.w/this.n;
-         return {
-           r: 2 * (4 + Math.random()**2)
-           ,color: set_item ? set_colors(Math.random()) : uni_colors(Math.random())
-           ,is_set_item: set_item
-           ,id: i
-         }});
+      this.id = Math.random();
+      if (this.colors == 2) {
+         const set1_colors = d3.scaleSequential(d3.interpolateBlues).domain([-3, 2]);
+         const set2_colors = d3.scaleSequential(d3.interpolateOranges).domain([-3, 2]);
+         const uni_colors = d3.scaleSequential(d3.interpolateGreys).domain([-1, 5]);
+         this.data = Array.from({ length: this.n }, (_, i) => {
+            const set1_item = Math.random() < this.wq/this.n;
+            const set2_item = set1_item
+               ? Math.random() < this.w1/this.wq
+               : Math.random() < (this.wu-this.w1)/(this.n-this.wq);
+            const grey = uni_colors(Math.random());
+            return {
+              r: 2 * (4 + Math.random()**2)
+              ,color1: set1_item ? set1_colors(Math.random()) : grey
+              ,color2: set2_item ? set2_colors(Math.random()) : grey
+              ,is_set1_item: set1_item
+              ,is_set2_item: set2_item
+              ,id: i
+            }});
+      } else {
+         const set_colors = d3.scaleSequential(d3.interpolateBlues).domain([-3, 2]);
+         const uni_colors = d3.scaleSequential(d3.interpolateGreys).domain([-1, 5]);
+         this.data = Array.from({ length: this.n }, (_, i) => {
+            const set_item = Math.random() < this.w/this.n;
+            const color = set_item ? set_colors(Math.random()) : uni_colors(Math.random());
+            return {
+              r: 2 * (4 + Math.random()**2)
+              ,color1: color
+              ,color2: color
+              ,is_set1_item: set_item
+              ,is_set2_item: set_item
+              ,id: i
+            }});
+      }
       this.update_uni();
 
-      const initial_reps = 15;
       this.clone_step = false;
       this.step_button
             .attr('style', 'visibility:show')
             .html('<i class="material-icons">skip_next</i>'
                   + (this.clone_step ? 'Multiply' : 'Mutate'));
       this.reps = [];
-      for (let i = 0; i < initial_reps; i++) {
+      for (let i = 0; i < this.initial_reps; i++) {
          this.reps.push({
             objs: [],
             x: sim_center[0],
@@ -53,7 +88,8 @@ class SimulationPlot {
             oy: sim_center[1],
             r: 15,
             id: Math.random(),
-            val: 0,
+            val1: 0,
+            val2: 0,
             alive: true
          });
       }
@@ -84,7 +120,8 @@ class SimulationPlot {
                      oy: rep.y,
                      id: Math.random(),
                      r: rep.r,
-                     val: rep.val,
+                     val1: rep.val1,
+                     val2: rep.val2,
                      alive: true
                   };
                   for (const old_obj of rep.objs) {
@@ -104,18 +141,21 @@ class SimulationPlot {
                const par = this.data[Math.floor(Math.random()*this.n)];
                rep.objs.push({
                   r: par.r,
-                  color: par.color,
                   x: par.x - rep.x,
                   y: par.y - rep.y,
                   ox: par.x - rep.x,
                   oy: par.y - rep.y,
                   id: Math.random(),
+                  pid: par.id, // Used for the gradient
                });
                rep.ox = rep.x;
                rep.oy = rep.y;
                rep.r = 10 + 10 * Math.sqrt(rep.objs.length);
-               rep.val = rep.val + (par.is_set_item ? 1 : 0);
-               rep.alive = Math.abs(rep.val - this.t*rep.objs.length)
+               rep.val1 = rep.val1 + (par.is_set1_item ? 1 : 0);
+               rep.val2 = rep.val2 + (par.is_set2_item ? 1 : 0);
+               rep.alive = Math.abs(rep.val1 - this.t*rep.objs.length)
+                              <= Math.pow(this.t*(1-this.t)*rep.objs.length, 1/3)
+                           && Math.abs(rep.val2 - this.t*rep.objs.length)
                               <= Math.pow(this.t*(1-this.t)*rep.objs.length, 1/3);
                new_reps.push(rep);
             }
@@ -210,7 +250,8 @@ class SimulationPlot {
                const circles = enter
                   .append('circle')
                   .attr('class', 'obj')
-                  .attr('fill', d => d.color)
+                  //.attr('fill', d => d.color)
+                  .attr('fill', d => `url(#g${this.id+d.pid})`)
                   //.attr('r', d => d.r)
                // If the objects arrived by cloning, we are now no longer
                // in the clone step.
@@ -257,7 +298,7 @@ class SimulationPlot {
           .on("tick", function() {
              let a = this.alpha();
              if (!this.clone_step)
-                a = Math.exp(-(Math.log(a)**8)/8);
+                a = Math.exp(-(Math.log(a)**4)/4);
              // We filter out dying reps, since they are busy shaking
              sim_g.selectAll('g:not(.dying)')
                 .attr('transform', function(d) {
@@ -274,10 +315,30 @@ class SimulationPlot {
          this.restart();
    }
    update_uni() {
+      this.defs.selectAll('linearGradient')
+         .data(this.data, d => d.id)
+         .join('linearGradient',
+            enter => enter.append('linearGradient'),
+            update => update,
+            // Wait a moment before removing the gradients, so we still have
+            // them as the old rep are exiting
+            exit => exit.delay(2000).remove()
+         )
+         .attr('id', d => `g${this.id+d.id}`)
+         .attr('x1', 0) .attr('y1', 0)
+         .attr('x2', 1) .attr('y2', 1)
+         .html(d => `
+            <stop offset="0%" style="stop-color:${d.color1}" />
+            <stop offset="50%" style="stop-color:${d.color1}" />
+            <stop offset="50%" style="stop-color:${d.color2}" />
+            <stop offset="100%" style="stop-color:${d.color2}" />
+         `);
       const nodes = this.box.selectAll('circle')
-         .data(this.data).join('circle')
+         .data(this.data, d => d.id)
+         .join('circle')
          .attr('r', d => d.r)
-         .attr('fill', d => d.color);
+         .attr('fill', d => `url(#g${this.id+d.id})`)
+         ;
 
       function tick(nodes) {
           nodes.attr("cx", d => d.x).attr("cy", d => d.y);

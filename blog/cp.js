@@ -65,19 +65,23 @@ class ControlPanel {
 
       this.playInterval = null;
    }
-   mount(node) {
+   mount(node, fixed_n) {
       this.node = node;
       this.create(node);
-      this.reset();
+      this.reset(fixed_n);
    }
-   reset() {
-      const ideal_d = Math.exp(D(this.t, this.p));
+   reset(fixed_n) {
       let n;
-      if (this.d >= ideal_d) {
-         const surv = simulate(this.t, this.p, this.d, 15);
-         n = Math.ceil(1/surv);
+      if (!fixed_n) {
+         const ideal_d = Math.exp(D(this.t, this.p));
+         if (Math.abs(this.d - ideal_d) < .1) {
+            const surv = simulate(this.t, this.p, this.d, 15);
+            n = Math.ceil(1/surv);
+         } else {
+            n = 20;
+         }
       } else {
-         n = 20;
+         n = fixed_n;
       }
       this.graph.reset(n, this.p, this.t, this.d);
       this.graph.update();

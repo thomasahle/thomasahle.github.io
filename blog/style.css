@@ -1,6 +1,7 @@
 body {
      margin: 30px auto 300px auto;
-     font-family: Helvetica, sans-serif;
+     font-family: Arsenal, Helvetica, sans-serif;
+     /*font-family: Helvetica, sans-serif;*/
      font-size: medium;
      text-rendering: optimizeLegibility;
      max-width: 800px;
@@ -93,7 +94,7 @@ h2 {
    font-size: 20px;
 }
 h1 {
-   font-size: 3rem;
+   font-size: 3.1rem;
    font-weight: 700;
 }
 h3 {
@@ -205,3 +206,8 @@ button:hover{
 g:not(.alive) > .obj {
    opacity: .8;
 }
+/*@media (prefers-color-scheme: dark) {
+   body{
+   background-color: #f55;
+   }
+}*/

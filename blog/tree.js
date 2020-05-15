@@ -118,7 +118,7 @@ class RadialTree {
       this.svg = svg
          .classed('radial_tree', true);
       const r = this.radius;
-      const p = 5;
+      const p = 15;
       svg.attr('width', 2*r)
          .attr('height', 2*r)
          .attr('viewBox', [-r-p, -r-p, 2*r+2*p, 2*r+2*p]);

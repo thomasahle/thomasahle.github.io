@@ -3,17 +3,18 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=700, initial-scale=.5">
       <link rel='stylesheet' href='style.css' />
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
       <script src="https://d3js.org/d3.v5.min.js"></script>
       <script src="d3-simple-slider"></script>
+
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
       <link rel="shortcut icon" type="image/png" href="favicon2.png">
 
-      <link rel="stylesheet"
-      href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.2/build/styles/github.min.css">
-<script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.2/build/highlight.min.js"></script>
+      <link rel="stylesheet" href="github.min.css">
+      <script src="highlight.min.js" async>hljs.initHighlightingOnLoad();</script>
 
-      <script>hljs.initHighlightingOnLoad();</script>
       <script src="tree.js"></script>
       <script src="cp.js"></script>
       <script src="plot.js"></script>
@@ -22,41 +23,65 @@
       <title>An Evolutionary Data Structure for Sets</title>
    </head>
    <body>
-      <div class='time'>4 May 2020 / Thomas Dybdahl Ahle</div>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-337734-4', 'auto');
+        ga('send', 'pageview');
+      </script>
+      <div class='time'>4 May 2020 / <a href="https://thomasahle.com">Thomas Dybdahl Ahle</a></div>
       <!--<h1>An Evoutionary Algorithm for Finding Similarities</h1>-->
       <!--<h1>An Evoutionary Algorithm better than MinHash</h1>-->
-      <h1>An Evolutionary Data Structure for&nbsp;Sets</h1>
+      <!--<h1>An Evolutionary Data Structure for&nbsp;Sets</h1>-->
+      <h1>How Netflix Recommendations relate to the Corona Virus outbreak</h1>
       <p class="byline">
-      <i>How does Netflix recommendation systems and DNA sequencing relate to Corona outbreak&nbsp;simulations?</i>
+      <!--
+         <i>How does Netflix recommendation systems and DNA sequencing relate to Corona outbreak&nbsp;simulations?</i>
+      -->
+      <i>An Evolutionary Data Structure for&nbsp;Sets</i>
+
       </p>
+      <noscript>
+         <img src='top.png' width='800' />
+      </noscript>
       <svg id='picture_tree' height=400></svg>
       <script>
          const picture_tree = new RadialTree(200);
          picture_tree.mount(d3.select('#picture_tree'));
-         let tries = 0;
-         while (true) {
-            tries++;
-            picture_tree.reset(6, 0.5, 1, 2);
-            for (let i = 0; i < 10; i++)
-               picture_tree.step();
-            picture_tree.root.count();
-            if (picture_tree.root.value >= 100)
-               break;
+         function restartTopTree(minimum) {
+            let tries = 0;
+            while (true) {
+               tries++;
+               picture_tree.reset(6, 0.5, 1, 2);
+               for (let i = 0; i < 10; i++)
+                  picture_tree.step();
+               picture_tree.root.count();
+               if (picture_tree.root.value >= minimum)
+                  break;
+            }
+            console.log(`Tried ${tries} times`);
+            picture_tree.update();
          }
-         console.log(`Tried ${tries} times`);
-         picture_tree.update();
+         restartTopTree(100);
       </script>
+      <p style='text-align:right; position:relative; top:-60px; left:60px; background: transparent; font-size: small; margin: 0; height: 0'>
+      <a onclick="restartTopTree(0)" href="#" style='color:#555'>
+         ↻ Refresh</a>,&nbsp;
+      <a href="#tree" style='color:#555'>Interactive widget</a></p>
 
       <p>
       Suppose you are Netflix, and you are storing the list of movies that each user has watched.
       For a simple recommendation system, given a user, you want to know which other users film lists their watched set of movies overlap with.
-      What you need is a set database.
+      You have too many users to just compare with everyone.
+      You need an index, a set database.
       </p>
 
       <p>
       I recently published a preprint, together with Jakob Knudsen, describing <a href="https://arxiv.org/abs/1904.04045">a new, optimal data structure for set similarity search</a>.
-      An interesting way to look at this is as an <a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithm</a>.
-      We think it's probably the first time the provably best way to solve a probem has been evolutionary.
+      An interesting way to look at this is as an <a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithm</a> (aka. Genetic Algorithm).
+      We think it's probably the first time the <i>provably best</i> way to solve a probem has been evolutionary.
       This post won't go deep into the mathematics, but will contain <a href='#python-code'>code samples</a>
       and some fun <a href="#evolution">gadgets I built to simulate it</a>.
       </p>
@@ -83,11 +108,13 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       </p>
 
       <p>
-      Naturally, many efficient data structures for sets have been developed.
+      The difficulty of set similarity is related to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">Curse of dimensionality</a>.
+      <!--Naturally, many efficient data structures for sets have been developed.-->
       <!--A common operation is "Subset search", where (e.g.) given a list of movies, we want to know which users have watched all of them.-->
-      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this probed all the way back in 1976.
-      <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> algorithm were developed in the late 90s and are used in everything from search engines to DNA sequencing to this day.
-      Finally there are Machine Learning techniques such as <a href="https://en.wikipedia.org/wiki/Word_embedding">Word embeddings</a> that "densifies" the sets.
+      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this problem all the way back in 1976.
+      In the late 90s the methods of
+      <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> were developed, which are used today in everything from search engines to Machine Learning.
+      There are also Machine Learning techniques such as <a href="https://en.wikipedia.org/wiki/Word_embedding">Word embeddings</a> that "densifies" sets to vectors.
       However it turns out that one can do better by looking at the sets directly.
       </p>
 
@@ -112,7 +139,7 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
          Parasite,
          Bad Education</span>
       }
-      of movies watched by user named Alice.
+      of movies watched by a user named Alice.
       <!--
       We might considering storing it in alphabetic order.
       However, then another user, Bob, who have watched the exact same movies, except for <span class="set">365 Days</span> (assuming numbers go first), would be placed in a completely different location in our index, and we would never discover the similarity.
@@ -132,7 +159,7 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
 
       <p>
       Unfortunately lots of people have at least one movie in common.
-      FiveThirtyEight estimated that <a href="https://fivethirtyeight.com/features/how-many-people-havent-seen-titanic/">211 million American adults</a> hav seen <span class="set">Titanic</span>.
+      FiveThirtyEight estimated that <a href="https://fivethirtyeight.com/features/how-many-people-havent-seen-titanic/">211 million American adults</a> have seen <span class="set">Titanic</span>.
       Hence Bob hasn't saved much compared to just manually looking at the sets of every other person.
       </p>
 
@@ -148,8 +175,8 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       An example of the data structure is shown below:
       </p>
 
-      <pre><code class="python">
-   from random import sample
+      <pre><code class="python"><!--
+-->   from random import sample
    movies = [...] # 100 movies in total
    names = [...] # 200 users in total
    # Sample a lot of keys of 6 movies each
@@ -158,10 +185,10 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
    watched = [(name, set(sample(movies, 30))) for name in names]
    for key in keys:
       # Place a user in a list if the overlap with the key is 5/6
-      print(key, '→', [name for name, mvs in watched if len(key & mvs) == 5])
-      </code></pre>
+      print(key, '→', [name for name, mvs in watched if len(key & mvs) == 5])<!--
+      --></code></pre>
 
-      <p>Output:</p>
+      <p>Which results in the following output:</p>
 
       <pre>
    { <span class="set">Lawrence of Arabia, Forrest Gump, The Wizard of Oz, ...</span>} → [William]
@@ -177,13 +204,24 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       </p>
 
       <p>
-      <i>"But",</i> you ask, <i>"haven't we just replaced the problem of finding a <b>movie set</b> with a large overlap, with finding a <b>key-set</b> with a large overlap?"</i>
+      <i>Inttuition:</i>
+      Why should we actually expect that two sets with a shared key-set have a large overlap?
+      This is basically <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes' theorem from statistics</a>:
+      A given key-set is more likely to appear in two sets with a large overlap.
+      Hence two sets with a large overlap are also more likely to share a key-set.
+      </p>
+
+      <p>
+      <i>"But",</i> you ask, <i>"haven't we just replaced the problem of <b>finding a movie set</b> with a large overlap, with <b>finding a key-set</b> with a large overlap?"</i>
       </p>
       <p>
-      This is a major problem.
+      This is a <b>major problem</b>, and it's likely the reason that the simple idea above hasn't been feasible to use before now.
       The solution is that we can choose the key-sets in a structured way, as long as they are still sufficiently random.
       This is what finally brings us back to the topic of Evolution and Corona outbreaks.
       </p>
+
+
+
 
       <a name="evolution"></a>
       <h3>An Evolutionary Approach to Key Generation</h3>
@@ -202,7 +240,6 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       The following model shows what the algorithm looks like in practice:
       </p>
 
-      <p>
       <svg id='universe_plot' height=400></svg>
       <div class='buttons' id='uni_buttons'>
          <button id='uni_step_button'><i class="material-icons">skip_next</i> Step</button>
@@ -210,7 +247,7 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       </div>
       <script>
          const uniplot = new SimulationPlot();
-         uniplot.mount(d3.select('#universe_plot'), d3.select('#uni_step_button'), d3.select('#uni_restart_button'));
+         uniplot.mount(d3.select('#universe_plot'), d3.select('#uni_step_button'), d3.select('#uni_restart_button'), 1);
          uniplot.update();
       </script>
       <div  style='clear:both'></div>
@@ -224,15 +261,58 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       </p>
 
       <p>
-      <i>Technical point:</i> When new key-sets are evolved by sampling from the universe, they randomness we are using is "coordinated randomness".
+      <i>Technical point:</i> When new key-sets are evolved by sampling from the universe, the randomness we are using is "coordinated randomness".
       This is what ensures that two similar users each evolving a family of key-sets are likely to evolve the same key.
       We might picture that all users evolve the same huge family of key-sets, but each of them focus their attention on the individuals most likely to end up with a large overlap with the users set.
       </p>
+
+      <p><i>Very technical point:</i>
+      The required branching factor for stable growth turns out to be
+      related to the so called <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a>
+      between the density of the set in the unvierse <span class="math">(p)</span> and the survival treshold <span class="math">(t)</span>:
+      </p>
+      <div style='text-align:center; margin-top: -20px'>
+      <img src='f2.png' width='468' /> <!-- 936 -->
+      </div>
+      <p>
+      However for the real algorithm we need to ensure that two sets with a given overlap <span class="math">p<sub>1</sub></span> and respective densities <span class="math">p<sub>q</sub></span> and <span class="math">p<sub>u</sub></span> both "survive".
+      For that we need a two dimensional versioni of Kullback–Leibler:
+      </p>
+      <div style='text-align:center; margin-top: -20px; margin-bottom: 20px;'>
+      <img src='f1.png' width='593' /> <!-- 1186 -->
+      </div>
+
+      <p>
+      In the following figure we show what it looks like when <b>both Alice and Bob</b> are running the evolution at the same time, on different sets (resp. blue and orange).
+      We only show the key-sets that both Alice and Bob keep, though they naturally don't know each other's sets, so on their parts they have to keep as much as in the previous plot.
+      </p>
+      <p>
+      It is naturally harder to guarantee survival of the tribe, if we have two requirements that must hold at the same time.
+      In the following figure we have thus increased the branching factor to 3:
+      </p>
+
+      <svg id='universe_plot_2' height=400></svg>
+      <div class='buttons' id='uni_buttons_2'>
+         <button id='uni_step_button_2'><i class="material-icons">skip_next</i> Step</button>
+         <button id='uni_restart_button_2'><i class="material-icons">stop</i> Clear</button>
+      </div>
+      <script>
+         const uniplot2 = new SimulationPlot();
+         uniplot2.mount(d3.select('#universe_plot_2'), d3.select('#uni_step_button_2'), d3.select('#uni_restart_button_2'), 2);
+         uniplot2.update();
+      </script>
+      <div  style='clear:both'></div>
+      <p>
+      The figure shows strongly why pairs of sets with a large overlap are likely to resut in shared key-sets:
+      As you may try, it is nearly impossible to evolve large key-sets without using lots of multi colored balls.
+      </p>
+
    <a name="life"></a>
    <h3> The Tree of Life</h3>
       <p>
       In the previous simulation, the fit individuals of each generation would double themselves.
       If we weren't constantly abandoning a large portion of them, the exponential growth would quickly make them impossible to handle.
+      In terms of Coronavirus jargon, this means the reproduction number (or <a href="https://www.bbc.com/news/health-52473523">R value</a>) would be greater than 1.
       </p>
       
       <p>
@@ -243,19 +323,22 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       The next gadget allows you to try different "blue ball densities" and thresholds, and see how many generations the tribes survive.
       Note that if you manually modify the branching rate, the tribe will either quickly go extinct, or explode to kill your browser tab.
       </p>
+
+      <a name="tree"></a>
       <script>
 const tree_svg = d3.select('body').append('svg').attr('id', 'tree').attr('height', 600);
 const form = d3.select('body').append('div').attr('id', 'cp');
       </script>
 
       <p>
-         We can plot the size of each generation to get an idea of how stable our growth is:
+         This simulation doesn't show us how many blue and grey balls are in each individual.
+         Instead we will plot histograms of the fitness of each generation to get an idea of how stable our growth is:
       </p>
 
    <script>
 
 d3.select('body').append('h2')
-         .text('Generation Fitness')
+         .text('Generation Fitness: Number of blue balls amoung key-sets in each generation')
          .append('i')
          .lower()
          .attr('class', 'tooltip material-icons')
@@ -266,21 +349,23 @@ d3.select('body').append('h2')
 
 
 const graph = new RadialTree(300);
-const cp = new ControlPanel(.5, 1, graph);
+const cp = new ControlPanel(.25, 0.81071, graph);
 const plot = new JoyPlot(graph);
 
 const plot_svg = d3.select('body').append('svg').attr('id', 'plot');
 
 graph.mount(tree_svg);
 plot.mount(plot_svg);
-cp.mount(form);
+// hard-coding repetitions for the first value, for faster load times
+cp.mount(form, 15);
 
       </script>
 
       <a name="python-code"></a>
    <h3>A Sample Python Implementation</h3>
    <p>
-   While the Arxiv paper proves that the above method of searching sets is optimal in terms of big-oh time and space,
+   While <a href="https://arxiv.org/abs/1904.04045">the arXiv paper</a>
+   proves that the above method of searching sets is optimal in terms of <a href="https://en.wikipedia.org/wiki/Big_O_notation">big-oh</a> time and space,
    in practice we probably need a number of hardware and dataset related optimizations to get competitive performance.
    </p>
 
@@ -288,9 +373,9 @@ cp.mount(form);
    It is however simple to write a toy Python version of the data structure:
    </p>
       <pre><code class="python">
-   def __init__(self, n, U, wq, wu, w1):
+   def __init__(self, n, U, t):
       self.n, self.U = n, U
-      self.tq, self.tu = find_tresholds(wq, wu, w1)
+      self.t = t
       self.k = find_height(...)
       self.D = find_branch_factor(...)
       surv = estimate_survival(self.D, self.k, ...)
@@ -320,11 +405,11 @@ cp.mount(form);
 
       <pre><code class="python">
    def insert(self, point):
-      for rep in self.representatives(point, self.tu):
+      for rep in self.representatives(point):
           self.lists[rep].append(point)
 
    def query(self, point):
-       for rep in self.representatives(point, self.tq):
+       for rep in self.representatives(point):
            for point2 in self.lists[rep]:
                yield point2
       </code></pre>
@@ -334,7 +419,7 @@ cp.mount(form);
       </p>
 
       <pre><code class="python">
-   def representatives(self, point, t):
+   def representatives(self, point):
        # Do a small number of independent repetitions to ensure success
        for seed in self.seeds:
            # Each individual stores its value and a random identifier
@@ -357,7 +442,7 @@ cp.mount(form);
                        h1 = random.randrange(self.U**3)
                        v1 = v + bool(x in point)
                        # We allow the value to be "off" by a tiny bit
-                       if abs(v1 - t*l) <= (t*(1-t)*l)**(1/3):
+                       if abs(v1 - self.t*l) <= (self.t*(1-self.t)*l)**(1/3):
                            new_individuals.append((v1, h1))
                individuals = new_individuals
            yield from (h for v,h in individuals)
@@ -371,10 +456,19 @@ cp.mount(form);
    <a name="conclusion"></a>
    <h3>Conclusion</h3>
    <p>
-      If you took anything away from this post, it is hopefully that evolution can be finicky and very sensitive to parameters such as the branching factor.
-      There is also a good deal of luck involved.
+      If you take anything away from this post, I hope it is that evolution can be finicky and very sensitive to parameters such as the branching factor.
+      <!--There is also a good deal of luck involved.-->
       If used responsibly, however, evolutionary algorithms can be an powerful way of solving problems.
       Even undertakings as abstract as recommendation systems and set databases.
+   </p>
+   <p>
+   The problem of search and joins on sets has been studied for 50 years.
+   Various models have been suggested, such as Subset search and Jaccard similarity search.
+   The method described above is the first mathematically optimal algorithm for all of those problems,
+   potentially leading to vastly more efficient systems in all areas of Computer Science.
+   </p>
+   <p>
+   For the complete code of the Python implementation, see <a href="https://github.com/thomasahle/supermajorities">the Github repository</a>.
    </p>
 
    </body>
