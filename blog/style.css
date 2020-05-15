@@ -117,16 +117,22 @@ button {
      font-size: 20px;
      border: none;
      padding: 20px 25px 20px 25px;
-     background: #FF8500;
+     /*background: #FF8500;*/
+     background: #ff7f00;
+     background: #f27f0c;
      color: #fff;
      box-shadow: 1px 1px 4px #DADADA;
      border-radius: 3px;
      margin: 0 0 0 10px;
      display: inline-flex;
 }
-button:hover{
-     background: #EA7B00;
-     color: #fff;
+button:hover {
+     background: #ff7f00;
+}
+button:active{
+   position: relative;
+   top: 1px;
+   background: #EA7B00;
 }
 .radial_tree path {
     fill: none;
