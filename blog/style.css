@@ -4,7 +4,7 @@ body {
      /*font-family: Helvetica, sans-serif;*/
      font-size: medium;
      text-rendering: optimizeLegibility;
-     max-width: 800px;
+     width: 800px;
      color: #333;
 }
 .byline {
@@ -49,13 +49,10 @@ body > p, body > ul {
    line-height: 1.6em;
    font-weight: 400;
    font-style: normal;
-   letter-spacing: 0;
+   /*letter-spacing: 0;*/
    text-rendering: optimizeLegibility;
    background: #fff;
    text-align: justify;
-}
-#cp {
-     /* padding: 20px 12px 10px 20px; */
 }
 span.math {
    font-family: 'Merriweather', serif;
@@ -118,7 +115,7 @@ button {
      border: none;
      padding: 20px 25px 20px 25px;
      /*background: #FF8500;*/
-     background: #ff7f00;
+     /*background: #ff7f00;*/
      background: #f27f0c;
      color: #fff;
      box-shadow: 1px 1px 4px #DADADA;
@@ -152,8 +149,8 @@ button:active{
    opacity: .1;
 }
 .radial_tree .node:not(.alive):not(.inner) circle {
-   fill: #999;
-   r: 2.5px;
+   /*fill: #999;
+   r: 2.5px;*/
    display: none; /* Hide dead leafs */
 }
 .tooltip {
@@ -212,8 +209,18 @@ button:active{
 g:not(.alive) > .obj {
    opacity: .8;
 }
-/*@media (prefers-color-scheme: dark) {
-   body{
-   background-color: #f55;
+@media only screen and (max-width: 800px) {
+   body {
+      width: 800px;
    }
-}*/
+   body > p, body > ul {
+     width: 750px;
+     font-size: 2rem;
+  }
+  h1 {
+     font-size: 5rem;
+  }
+  h3 {
+     font-size: 3rem;
+  }
+}

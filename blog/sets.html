@@ -1,7 +1,7 @@
 <html>
    <head>
       <meta charset="UTF-8" />
-      <meta name="viewport" content="width=700, initial-scale=.5">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel='stylesheet' href='style.css' />
 
       <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -236,20 +236,6 @@
       This means that the total family of key-sets that can be evolved is shared between them.
       However each user has a different fitness function (the overlap with their personal set), and they focus their effort evolving the key-sets relevant to them.
       </p>
-
-      <p><i>Very technical point:</i>
-      The required branching factor for stable growth (neither exploding nor extincting) turns out to be
-      related to the so called <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a>
-      between the density of the set in the universe <span class="math">(p)</span> and the survival threshold <span class="math">(t)</span>.
-      We need the branching factor to be exactly
-      </p>
-      <div style='text-align:center; margin-top: -20px'>
-      <img src='f2.png' width='468' /> <!-- 936 -->
-      </div>
-      <p>
-      However for the real algorithm we need to ensure that some key-set survives for both Alice <b>and</b> Bob.
-      That requires a two dimensional version of Kullback–Leibler, which I won't even try to state here.
-      </p>
       <!--
       That 
 
@@ -300,6 +286,20 @@
       
       <p>
       It turns out, however, that with a fitness threshold of <span class="math">80%</span>, and a density of blue balls of <span class="math">25%</span> as in the example above, a branching rate of <span class="math">2</span> is exactly the right balance to ensure long time survival of the tribe, but never have it grow exponentially.
+      </p>
+
+      <p><i>Technical details:</i>
+      The required branching factor for stable growth (neither exploding nor extincting) turns out to be
+      related to the so called <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a>
+      between the density of the set in the universe <span class="math">(p)</span> and the survival threshold <span class="math">(t)</span>.
+      We need the branching factor to be exactly
+      </p>
+      <div style='text-align:center; margin-top: -20px'>
+      <img src='f.png' width='386' /> <!-- 772 -->
+      </div>
+      <p>
+      However for the real algorithm we need to ensure that some key-set survives for both Alice <b>and</b> Bob.
+      That requires a two dimensional version of Kullback–Leibler, which I won't even try to state here.
       </p>
       
       <p>
@@ -358,33 +358,33 @@ cp.mount(form, 15);
    </p>
 
       <pre><code class="python"><!--
--->    def representatives(self, point):
-       # Do a small number of independent repetitions to ensure success
-       for seed in self.seeds:
-           # Each individual stores its value and a random identifier
-           individuals = [(0, seed)]
-           size = 1
-           # Run through k generations/levels of the process
-           for l in range(1, self.k+1):
-               # The branching factor might not be an integer, so we
-               # round it up, while trying to keep the geometric average
-               # correct
-               level_size = math.ceil(self.D**l / size)
-               size *= level_size
-               new_individuals = []
-               for v, h in individuals:
-                   # Evolve the individual by generating children.
-                   # We seed the random generator so the children chosen
-                   # are consistent between inserts and queries
-                   random.seed(h)
-                   for x in random.sample(range(self.U), level_size):
-                       h1 = random.randrange(self.U**3)
-                       v1 = v + bool(x in point)
-                       # We allow the value to be "off" by a tiny bit
-                       if abs(v1 - self.t*l) <= (self.t*(1-self.t)*l)**(1/3):
-                           new_individuals.append((v1, h1))
-               individuals = new_individuals
-           yield from (h for v,h in individuals)<!--
+-->def representatives(self, point):
+    # Do a small number of independent repetitions to ensure success
+    for seed in self.seeds:
+        # Each individual stores its value and a random identifier
+        individuals = [(0, seed)]
+        size = 1
+        # Run through k generations/levels of the process
+        for l in range(1, self.k+1):
+            # The branching factor might not be an integer, so we
+            # round it up, while trying to keep the geometric average
+            # correct
+            level_size = math.ceil(self.D**l / size)
+            size *= level_size
+            new_individuals = []
+            for v, h in individuals:
+                # Evolve the individual by generating children.
+                # We seed the random generator so the children chosen
+                # are consistent between inserts and queries
+                random.seed(h)
+                for x in random.sample(range(self.U), level_size):
+                    h1 = random.randrange(self.U**3)
+                    v1 = v + bool(x in point)
+                    # We allow the value to be "off" by a tiny bit
+                    if abs(v1 - self.t*l) <= (self.t*(1-self.t)*l)**(1/3):
+                        new_individuals.append((v1, h1))
+            individuals = new_individuals
+        yield from (h for v,h in individuals)<!--
                  --></code></pre>
 
       <p>
@@ -407,14 +407,14 @@ cp.mount(form, 15);
       </p>
 
       <pre><code class="python"><!--
--->   def insert(self, point):
-      for rep in self.representatives(point):
-          self.lists[rep].append(point)
+-->def insert(self, point):
+    for rep in self.representatives(point):
+        self.lists[rep].append(point)
 
-   def query(self, point):
-       for rep in self.representatives(point):
-           for point2 in self.lists[rep]:
-               yield point2<!--
+def query(self, point):
+    for rep in self.representatives(point):
+        for point2 in self.lists[rep]:
+            yield point2<!--
       --></code></pre>
 
    <p>
@@ -423,14 +423,14 @@ cp.mount(form, 15);
    </p>
 
       <pre><code class="python"><!--
--->   def __init__(self, U, t):
-      self.U = U
-      self.t = t
-      self.k = find_height(...)
-      self.D = find_branch_factor(...)
-      surv = estimate_survival(self.D, self.k, ...)
-      self.seeds = [random.randrange(U**3) for _ in range(int(1/surv+1))]
-      self.lists = collections.defaultdict(list)<!--
+-->def __init__(self, U, t):
+    self.U = U
+    self.t = t
+    self.k = find_height(...)
+    self.D = find_branch_factor(...)
+    surv = estimate_survival(self.D, self.k, ...)
+    self.seeds = [random.randrange(U**3) for _ in range(int(1/surv+1))]
+    self.lists = collections.defaultdict(list)<!--
       --></code></pre>
       <p>
             The <code>estimate_survival</code> function runs a simple simulation, used for estimating how many individuals need to be in the first generation, to guarantee we don't get early extinction.
@@ -458,14 +458,48 @@ cp.mount(form, 15);
       The main work is done by the <code>representatives</code> method, which computes (evolves) the key-sets relevant to a given point:
       </p>
       -->
-      <a name="rec"></a>
-      <h3>A Real Recommendation System</h3>
       <p>
-      I promised you 
+      Finally, let's make a small toy recommendation system:
+      </p>
+      <pre><code class="python"><!--
+-->from supermajority import Supermajority
+
+total_movies = 100_000
+watchsets = {'Alice': {0, 4, ...}, 'Bob': {1, 3, ...}, ...]
+
+U, n = len(all_movies), len(watchsets)
+# Users may not have watched the same numnber of movies. We shoud really make
+# multiple Supermajority()'s to account for this, but we'll just estimate using
+# the average.
+wu = wq = sum(len(watched) for name, watched in watchsets) / len(watchsets) / U
+# We'll focus on overlaps of roughy half the set size.
+w1 = wq / 2
+# q_weight controls how to balance query time to data structure space.
+sm = Supermajority(U, wq, wu, w1, n, q_weight=1)
+
+print('Building data structure')
+sm.build(watchsets.vaulues())
+
+print('Querying data structure')
+query = watchsets['Bob']
+cnt = collections.Counter()
+for watched in sm.query(query):
+    # We could weight the counts by how good an overlap there is between
+    # Bob and `watched`, but here we just add everything equally
+    for movie in watched:
+        cnt[movie] += 1
+
+# Print top 10 suggestions
+print('Suggestions:', cnt.most_common(10))<!--
+      --></code></pre>
+      <p>
+      You can try it out the <a href="https://www.kaggle.com/netflix-inc/netflix-prize-data">Netflix price data</a>.
+      To get competitive recommendations, you probably have to account for the skewed distributions of movies watched,
+      as well as weighing for the rating and time at which it was given.
       </p>
 
       <a name="sets"></a>
-      <h3>Background</h3>
+      <h3>Perspective</h3>
       <!--
       <p>
       , originally developed for the AltaVista search engine in 1997.
@@ -497,6 +531,10 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       However it turns out that one can do better by looking at the sets directly.
       </p>
 
+      <p>It is also worth noting, that while the present algorithm works on sets, it can easily be generalized to weighted sets or multisets.
+      This is done just like <a href="https://en.wikipedia.org/wiki/MinHash#Incorporating_Weights">Incorporating Weights in MinHash</a>.
+      Similar techniques alows handling Neural or <a href="https://en.wikipedia.org/wiki/Bag-of-words_model_in_computer_vision">"Visual" Bags of Words</a> like <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a>.
+      </p>
 
       <p>
       <img src="Bag_of_words.jpeg" alt="A visual bag of words representation" title="Meritxell.canela / Public domain" style='display:block'/>
