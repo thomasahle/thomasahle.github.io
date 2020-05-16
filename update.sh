@@ -11,7 +11,7 @@ python3 -m pip install jinja2
 echo "\n\nMoving to master"
 
 mkdir website
-cat "thomasahle.com" > website/CNAME
+echo "thomasahle.com" > website/CNAME
 cp compiled/*.html website
 cp compiled/*.pdf website
 cp -r static website
