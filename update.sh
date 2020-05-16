@@ -12,8 +12,8 @@ python3 -m pip install jinja2
 git checkout master
 git checkout gh-pages -- compiled
 git checkout gh-pages -- static
-mv compiled/* .
-rmdir compiled
+#mv compiled/* .
+#rmdir compiled
 git add .
 git commit -m "update"
 git push
