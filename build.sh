@@ -14,6 +14,6 @@ pdflatex cv.tex
 pdflatex cv_ac.tex
 cd ..
 
-pdfjam compiled/cv_ac.pdf postdoc/statement.pdf --outfile postdoc/ta_cv_statement.pdf
+pdfjam compiled/cv_ac.pdf postdoc/statement.pdf --outfile compiled/ta_cv_statement.pdf
 #pdfjoin -output postdoc/combined.pdf compiled/cv_ac.pdf postdoc/statement.pdf 
 #convert compiled/cv_ac.pdf postdoc/statement.pdf postdoc/combined.pdf
