@@ -2,7 +2,6 @@
 mkdir compiled
 
 python3 render_html.py data templates/index.html > compiled/index.html
-cp compiled/index.html .
 
 python3 render_html.py pcpp_data templates/pcpp.html > compiled/pcpp.html
 
