@@ -10,7 +10,8 @@ python3 -m pip install jinja2
 ./build.sh
 
 git checkout master
-git checkout gh-pages -- compiled
+# compiled will be in working space, not repo
+#git checkout gh-pages -- compiled
 git checkout gh-pages -- static
 mv compiled/* .
 rmdir compiled
