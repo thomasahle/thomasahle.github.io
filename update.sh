@@ -11,13 +11,13 @@ python3 -m pip install jinja2
 
 git checkout master
 # compiled will be in working space, not repo
-mv compiled/*.html .
-mv compiled/*.pdf .
-rm -rf compiled
 git checkout gh-pages -- static
 git checkout gh-pages -- papers
 git checkout gh-pages -- abstracts
 git checkout gh-pages -- blog
+mv compiled/*.html .
+mv compiled/*.pdf .
+rm -rf compiled
 git add .
 git commit -m "update"
 git push
