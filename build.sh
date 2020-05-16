@@ -3,7 +3,8 @@ mkdir compiled
 python3 render_html.py data templates/index.html > compiled/index.html
 
 mkdir teaching
-python3 render_html.py pcpp_data templates/pcpp.html > compiled/teaching/pcpp.html
+mkdir teaching/pcpp2019
+python3 render_html.py pcpp_data templates/pcpp.html > compiled/teaching/pcpp2019/index.html
 
 python3 render_tex.py templates/cv.tex > compiled/cv.tex
 python3 render_tex.py templates/cv_ac.tex > compiled/cv_ac.tex

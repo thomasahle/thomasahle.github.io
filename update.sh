@@ -18,6 +18,7 @@ git checkout gh-pages -- papers
 git checkout gh-pages -- blog
 mv compiled/*.html .
 mv compiled/*.pdf .
+mv compiled/teaching .
 rm -rf compiled
 git add .
 git commit -m "update"
