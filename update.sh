@@ -7,7 +7,7 @@ git push
 python3 -m pip install --upgrade pip
 python3 -m pip install jinja2
 
-#./build.sh
+./build.sh
 
 git checkout master
 # compiled will be in working space, not repo
