@@ -18,6 +18,7 @@ git checkout gh-pages -- papers
 git checkout gh-pages -- blog
 mv compiled/*.html .
 mv compiled/*.pdf .
+rm -rf teaching # Some of this is quite ugly. There must be a better way...
 mv compiled/teaching .
 rm -rf compiled
 git add .
