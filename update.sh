@@ -8,19 +8,22 @@ python3 -m pip install --upgrade pip
 python3 -m pip install jinja2
 
 ./build.sh
+echo "\n\nMoving to master"
 
-rm -rf __pycache__
+mkdir website
+cp compiled/*.html website
+cp compiled/*.pdf website
+cp -r static website
+cp -r papers website
+cp -r blog website
+rm -rf compiled
 
 git checkout master
-# compiled will be in working space, not repo
-git checkout gh-pages -- static
-git checkout gh-pages -- papers
-git checkout gh-pages -- blog
-mv compiled/*.html .
-mv compiled/*.pdf .
-rm -rf teaching # Some of this is quite ugly. There must be a better way...
-mv compiled/teaching .
-rm -rf compiled
+mv website .website
+rm -rf *
+mv .website/* .
+rmdir .website
+
 git add .
 git commit -m "update"
 git push
