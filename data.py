@@ -120,7 +120,7 @@ class Vars:
             'pods',
             '',
             files=[
-                File('pdf', 'papers/mips/paper.pdf'),
+                File('pdf', 'papers/mips.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1510.02824'),
                 File(
                     'slides',
