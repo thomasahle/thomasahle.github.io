@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="https://www.itu.dk/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+  {% include 'static/tagmanager_head.html' %}
+  <script src="static/script.js"></script>
+  <title>{{me.name}}</title>
+</head>
+<body>
+   {% include 'static/analyticstracking.html' %}
+   {% include 'static/tagmanager_body.html' %}
+   <h1>{{me.name}}</h1>
+   <div id='main'>
+      <p>
+         Hi, I'm Thomas. I am a Postdoctoral researcher in Theoretical Computer Science at the IT University of Copenhagen and at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC).
+         I did my PhD with <a href='{{authors['pagh'].href}}'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
+        previously I have been at University of Texas at Austin, and University of Oxford.
+        <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
+      </p><p>
+        My research has primarily involved the theoretical foundations of massive data, similarity search, high dimensional geometry, sketching and derandomization.
+        <!--See also my <a href='statement.pdf'>research program</a>.-->
+      </p>
+
+      <h2>News</h2>
+      <dl>
+         <dt>17/jun/19</dt>
+         <dd>Just defended my PhD! (<a href='thesis.pdf'>thesis</a>, <a href='https://drive.google.com/open?id=1uGgt99QaP1_SdLWilqksnbqK1en3eSDoCjJMazVattY'>slides</a>) Thanks to everyone who came and to <a href='http://people.eecs.berkeley.edu/~minilek/'>Jelani Nelson</a>, <a href='https://www.itu.dk/people/rikj/'>Riko Jacob</a> and <a href='http://www.imm.dtu.dk/~inge/'>Inge Li Gørtz</a> for being on the comity!
+         </dd>
+         <dt>1/feb/19</dt>
+         <dd>The date for handing in my PhD. is now set at April 1st.
+               I am interested in hearing about Post Doc positions anywhere in the world.
+         </dd>
+         <dt>1/oct/18</dt>
+         <dd>I have decided to leave SupWiz and return to Academia.
+            Looking forward to working with everyone!
+         </dd>
+         <dt>1/sep/17</dt>
+         <dd>I am taking a 1 year sabbatical to start up a new Natural Language Processing company, <a href='https://supwiz.com'>SupWiz</a>, with former research colleagues.
+         </dd>
+      </dl>
+
+      {% for type, articles in [('Publications', papers), ('Manuscripts', manuscripts)] %}
+         <h2>{{type}}</h2>
+         <ul class="publications">
+         {%- for paper in articles -%}
+            <li>
+               <div class='shown' id='paper-{{paper.tag}}'>
+                  {%- for a in paper.authors -%}
+                     {%- if authors[a] != me -%}
+                        <a href='{{authors[a].href}}'>{{authors[a].abrv}}</a>
+                     {%- else -%}
+                        {{me.abrv}}
+                     {%- endif -%}
+                     {%- if not loop.last -%}, {% endif -%}
+                  {%- endfor %} —
+                  {{paper.year}}
+                  {%- if paper.comment -%}
+                     , <span class="comment">{{paper.comment}}</span>
+                  {%- endif -%}
+                  <br />
+                  <strong>{{paper.title}}</strong>.
+                  {{conferences[paper.conference].name}},
+                  ({%- for f in paper.files -%}
+                     <a href='{{f.href}}'
+                        onclick="dataLayer.push({'event': 'download_{{paper.tag}}_{{f.format}}'});"
+                        >{{f.format}}</a>
+                     {%- if not loop.last -%} , {% endif -%}
+                  {%- endfor -%})
+               </div>
+               <div class='abstract'>{{paper.abstract}}</div>
+            </li>
+         {%- endfor -%}
+         </ul>
+      {% endfor %}
+
+      <h2>Teaching</h2>
+      <ul class="publications">
+      {%- for t in teachings -%}
+         <li>
+            <div class='shown' id='teaching-{{t.abrv}}-{{t.year}}'>
+                  {{t.year}}
+                  <strong>{{t.name}}</strong>. ({{t.abrv}})
+                  <br />
+                  <a href='{{t.href}}'>Files and schedule</a>.
+            </div>
+            <div class='abstract'>{{t.description}}</div>
+         </li>
+      {%- endfor -%}
+      </ul>
+
+
+      <h2>Media</h2>
+      <ul>
+         {%- for m in media -%}
+         <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}.
+            "{{m.title}}."
+            {% for f in m.files -%}
+               <a href='{{f.href}}'
+                  onclick="dataLayer.push({'event': 'downloadmedia_{{f.format}}'});"
+                  >({{f.format}})</a>
+            {%- endfor -%}
+         </li>
+         {%- endfor -%}
+      </ul>
+
+      <h2>Code</h2>
+      <ul>
+         <li><a href='http://pychess.org/'>PyChess</a> - a chess engine and Internet chess client</li>
+         <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> - a minimalist chess engine -
+            <a href='https://lichess.org/@/sunfish_rs'>play now!</a>
+            </li>
+         <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> - a generator and a fast solver for numberlink puzzles</li>
+         <li><a href='https://github.com/thomasahle/codenames'>codenames</a> - an AI that plays Codenames using Glove vectors.
+         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> - an experiment into using the FastText library to play chess.
+         <li><a href='https://github.com/thomasahle/mtime'>mtime</a> - helps managing the ITU time management</li>
+      </ul>
+
+      <h2>Other</h2>
+      <ul>
+         <li>Memrise <a href='https://www.memrise.com/course/44645/500-most-common-danish-words/'>course for learning Danish</a> through the most common 500 words.</li>
+      </ul>
+
+   </div>
+   <div id='side'>
+      <img src='{{me.photo}}' alt='A photo of me' id='me'/>
+      <h3>Coauthors</h3>
+      <ul>
+      {%- for person in coauthors: -%}
+         <li><a href='{{person.href}}'>{{person.name}}</a></li>
+      {%- endfor -%}
+      </ul>
+
+      <h3>Contact</h3>
+      <ul>
+         <li><a href='https://ahlenotes.wordpress.com/' title='My blog'>Blog</a></li>
+         <li>Email: thdy@itu.dk</li>
+         <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
+         <li><a href='cv.pdf'>CV</a></li>
+         <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
+         <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ'>Google Scholar</a></li>
+         <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
+         <li><a href='https://github.com/thomasahle'>GitHub</a></li>
+      </ul>
+   </div>
+</body>
+</html>
+

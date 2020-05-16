@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=3cm, right=4cm, top=3cm, bottom=4cm]{geometry}
+\usepackage{pdfsync}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+
+% Table spacing
+%  1 is the default, change whatever you need
+\def\arraystretch{1}
+\linespread{1.2}
+\setlength{\tabcolsep}{.8em}
+
+\title{Curriculum vitae}
+\author{\VAR{me.name}}
+\date{\VAR{now.strftime('%B %Y')}}
+\begin{document}
+\maketitle
+
+
+\paragraph{Education}
+\begin{itemize}
+   \item[]
+      June 2019
+      Doctor of Philosophy,
+      IT University of Copenhagen.
+   \item[]
+      2019
+      Master of Arts in Computer Science,
+      University of Oxford.
+   \item[]
+      2017
+      Master of Science,
+      IT University of Copenhagen, University of Copenhagen.
+   \item[]
+      2013
+      Bachelor of Arts in Computer Science,
+      University of Oxford.
+\end{itemize}
+
+\paragraph{Publications}
+\begin{itemize}
+%% for paper in papers
+   \item[]
+   ``\VAR{paper.title}''.
+   By
+   \BLOCK{for a in paper.authors}
+      \VAR{me.name if authors[a]==me else authors[a].abrv}
+      \BLOCK{- if not loop.last}, \BLOCK{endif -}
+    \BLOCK{endfor -}
+    \BLOCK{- if paper.conference != 'subm'}
+       at
+       \VAR{conferences[paper.conference].name} (\VAR{paper.conference.upper()}),
+    \BLOCK{else}
+       -- Submitted,
+    \BLOCK{endif -}
+   \VAR{paper.year}.
+%% endfor
+\end{itemize}
+
+\paragraph{Awards and Scholarships}
+\begin{itemize}
+%% for award in awards
+   \item[]
+   \emph{\VAR{award.name},
+      \BLOCK{if award.place}
+         \VAR{award.place},
+      \BLOCK{endif}
+      \VAR{award.giver},
+      \VAR{award.date}}.
+   \\
+   \VAR{award.description}
+%% endfor
+\end{itemize}
+
+\paragraph{Industry and Employment}
+\begin{itemize}
+%% for job in jobs
+   \item[]
+   \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
+   \\
+   \VAR{job.description}
+%% endfor
+\end{itemize}
+
+\paragraph{Open Source Projects}
+\begin{itemize}
+%% for job in oss
+   \item[]
+   \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
+   \\
+   \VAR{job.description}
+%% endfor
+\end{itemize}
+
+
+\paragraph{Media}
+\begin{itemize}
+%% for m in media
+   \item[]
+      \emph{\BLOCK{if m.author}\VAR{m.author}.
+         \BLOCK{endif}"\VAR{m.title}", \VAR{m.name}, \VAR{m.date}.}
+      \VAR{m.description}
+%% endfor
+\end{itemize}
+
+\paragraph{Contact}
+\begin{itemize}
+   \item[]
+      Email: \href{mailto:\VAR{authors['thdy'].email}}{\VAR{authors['thdy'].email}}.
+   \item[]
+      Website: \href{http://www.thomasahle.com}{\underline{thomasahle.com}}
+   \item[]
+      \href{https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=}{\underline{DBLP List of papers}}
+   \item[]
+      \href{https://scholar.google.dk/citations?user=aRiVoYgAAAAJ}{\underline{Google Scholar List of Papers}}
+   \item[]
+      Linkedin: \href{https://www.linkedin.com/in/thomasahle/}{\underline{linkedin.com/in/thomasahle}}
+   \item[]
+      Github: \href{https://github.com/thomasahle}{\underline{github.com/thomasahle}}
+\end{itemize}
+
+\end{document}
