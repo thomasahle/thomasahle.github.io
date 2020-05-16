@@ -15,7 +15,6 @@ git checkout master
 # compiled will be in working space, not repo
 git checkout gh-pages -- static
 git checkout gh-pages -- papers
-git checkout gh-pages -- abstracts
 git checkout gh-pages -- blog
 mv compiled/*.html .
 mv compiled/*.pdf .
