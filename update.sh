@@ -9,6 +9,8 @@ python3 -m pip install jinja2
 
 ./build.sh
 
+rm -rf __pycache__
+
 git checkout master
 # compiled will be in working space, not repo
 git checkout gh-pages -- static
