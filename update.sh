@@ -18,10 +18,12 @@ cp compiled/*.pdf website
 cp -r static website
 cp -r papers website
 cp -r blog website
-#rm -rf compiled
 
 # Use subtree push to send it to the master branch on GitHub.
-git subtree push --prefix website origin master
+git subtree push --force --prefix website origin master
+
+rm -rf compiled
+rm -rf website
 
 #git checkout master
 #mv website .website
