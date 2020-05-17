@@ -1,14 +1,15 @@
 #!/bin/sh
 
 git add .
-git commit
+git commit || exit 1
 git push
 
 python3 -m pip install --upgrade pip
 python3 -m pip install jinja2
 
-./build.sh
-echo "\n\nMoving to master"
+./build.sh || exit 1
+
+echo "\n\nDeploying..."
 
 mkdir website
 echo "thomasahle.com" > website/CNAME
@@ -17,22 +18,20 @@ cp compiled/*.pdf website
 cp -r static website
 cp -r papers website
 cp -r blog website
-rm -rf compiled
+#rm -rf compiled
 
-git checkout master
-mv website .website
-rm -rf *
-mv .website/* .
-rmdir .website
+# Use subtree push to send it to the master branch on GitHub.
+git subtree push --prefix website origin master
 
-git add .
-git commit -m "update"
-git push
-git checkout gh-pages
+#git checkout master
+#mv website .website
+#rm -rf *
+#mv .website/* .
+#rmdir .website
 
-#scp compiled/index.html ssh.itu.dk:~/public_html/
-#scp compiled/pcpp.html ssh.itu.dk:~/public_html/teaching/pcpp2019/index.html
-#scp compiled/*.pdf ssh.itu.dk:~/public_html/
-#scp -r static/ ssh.itu.dk:~/public_html/
+#git add .
+#git commit -m "update"
+#git push
+#git checkout gh-pages
 
 

@@ -1,6 +1,8 @@
 #!/bin/sh
 mkdir compiled
 python3 render_html.py data templates/index.html > compiled/index.html
+mkdir compiled/blog
+python3 render_html.py data templates/blog/index.html > compiled/blog/index.html
 
 mkdir compiled/teaching
 mkdir compiled/teaching/pcpp2019
