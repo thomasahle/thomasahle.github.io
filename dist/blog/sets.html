@@ -75,7 +75,7 @@
 
       <p>
       Suppose you are Netflix, and you are storing the list of movies that each user has watched.
-      For a simple recommendation system, given a user, you want to know which other users film lists their watched set of movies overlap with.
+      For a simple recommendation system, given a user, you want to know which other users' film lists their watched set of movies overlap with.
       You have too many users to just compare with everyone.
       You need an index &ndash; a set database.
       </p>
@@ -88,10 +88,45 @@
       and some fun <a href="#evolution">gadgets I built to simulate it</a>.
       </p>
 
-      <p>You should know that <a href='#sets'>sets can represent much more than movies</a>, and that this problem has been studied in Computer Science since the 70s, but for now lets focus on the concrete.</p>
+      <p>You should know that <a href='#sets'>sets can represent much more than movies</a>, and that this problem has been studied in Computer Science since the 70s, but for now, let's focus on the concrete.</p>
 
       <a name="simple"></a>
       <h3>A Simple Set Database</h3>
+      <!--<table style='width:50%; margin:auto'>
+         <tr>
+            <th>Name</th>
+            <th>Movies</th>
+         </tr>
+         <tr>
+            <td>Alice</td>
+            <td>{<span class="set">
+               Extraction,
+               The Rise of Skywalker,
+               Dangerous Lies,
+               The Half of It,
+               365 Days,
+               Once Upon a Time,
+               The Gentlemen,
+               Parasite,
+               Bad Education</span>
+            }</td>
+         </tr>
+         <tr>
+            <td>Bob</td>
+            <td>{<span class="set">
+               Extraction,
+               The Rise of Skywalker,
+               Dangerous Lies,
+               The Half of It,
+               365 Days,
+               Once Upon a Time,
+               The Gentlemen,
+               Parasite,
+               Bad Education</span>
+            }</td>
+         </tr>
+      </table>
+         -->
       <p>
       Assume Alice has watched the movies
       {<span class="set">
@@ -113,22 +148,22 @@
       We might make a list of users for every movie that exists,
       and write down Alice in the lists corresponding to
       <span class="set">
-         Extraction</span>,
+         Extraction</span> → [Alice],
       <span class="set">
-         The Rise of Skywalker</span>, ... etc.
-
-      If Bob shares just one movie with Alice, he will discover this by looking through the sets in lists corresponding to the movies he has watched himself.
-      Meanwhile, if Bob and Eve have no movies in common, Bob won't waste any time on Eve, since they won't share a list.
+         The Rise of Skywalker</span> → [Alice], ... etc.
+      This is called an <a href="https://en.wikipedia.org/wiki/Inverted_index">Inverted index</a>.
+      If another user, Bob, shares just one movie with Alice, he will discover this by looking through the sets in lists corresponding to the movies he has watched himself.
+      Meanwhile, if a third user, Eve, has no movies in common with Alice, Eve won't waste any time on Alice, since she isn't on any of Eve's lists.
       </p>
 
       <p>
-      Unfortunately everybody has seen <span class="set">Titanic</span> (at least to estimated 
-       to <a href="https://fivethirtyeight.com/features/how-many-people-havent-seen-titanic/">211 million American adults</a> by FiveThirtyEighthave.)
-      Hence the simplest list approach doesn't save Bob much time.
+      Unfortunately, everybody has seen <span class="set">Titanic</span> (at least an estimated
+      <a href="https://fivethirtyeight.com/features/how-many-people-havent-seen-titanic/">211 million American adults</a>.)
+      Hence the simple list approach doesn't save Bob much time.
 
-      The solution is to make lists of pairs, triples or in general n-tuples of movies, rather than single movies.
+      The solution is to have the index keyed by pairs, triples or in general n-tuples of movies, rather than single movies.
 
-      We also pick those tuples randomly, so even if there are 5 movies everyone has seen, it's unlikely to be a problem.
+      We also pick those tuples randomly, so even if there are 5 specific movies everyone has seen, that 5-tuple probably won't be chosen and it won't be a problem.
 
 <!--
       For example, Bob and Alice might both store their sets in a list indexed by {<span class="set">Parasite, The Half of It, The Gentlemen</span>}.
@@ -139,7 +174,7 @@
       <p>
       We are now pretty close to the real algorithm.
       The last change we will make is to allow people to appear in lists, even if they have only watched, say, 80% of the movies in the list.
-      In fact we will require close to exactly 80%, since there is also information in what movies people <i>haven't watched</i>.
+      In fact, we will require close to exactly 80%, since there is also information in what movies people <i>haven't watched</i>.
       </p>
       <p>
       An example of the data structure is shown below:
@@ -201,9 +236,9 @@
       The idea of Evolutionary Algorithms is to mimic natural selection.
       Given some problem, for which good solutions are hard to come by,
       we start with a small, random population and let it evolve.
-      At each generation we select only the fittest for reproduction.
+      At each generation, we select only the fittest for reproduction.
 
-      In our case it is the key-sets we want to evolve,
+      In our case, it is the key-sets we want to evolve,
       and the problem is to find key-sets that have a large overlap with our set of watched movies.
       Hence we define the fitness to be the size of this overlap.
 
@@ -248,12 +283,12 @@
       </div>-->
 
       <p>
-      In the following figure we show what it looks like when <b>both Alice and Bob</b> are running the evolution at the same time, on different sets (resp. blue and orange).
-      We only show the key-sets that both Alice and Bob keep, though they naturally don't know each other's sets, so on their parts they have to keep as much as in the previous plot.
+      In the following figure, we show what it looks like when <b>both Alice and Bob</b> are running the evolution at the same time, on different sets (resp. blue and orange).
+      We only show the key-sets that both Alice and Bob keep, though they naturally don't know each other's sets, so on their parts, they have to keep as much as in the previous plot.
       </p>
       <p>
-      It is naturally harder to guarantee survival of the tribe, if we have two requirements that must hold at the same time.
-      In the following figure we have thus increased the branching factor to 3,
+      It is naturally harder to guarantee the survival of the tribe if we have two requirements that must hold at the same time.
+      In the figure, we have thus increased the branching factor to 3,
       (and the fitness threshold to 84%.)
       </p>
 
@@ -270,7 +305,7 @@
       <div  style='clear:both'></div>
       <p>
       The figure shows clearly why pairs of sets with a large overlap are likely to result in shared key-sets:
-      As you may try, it is nearly impossible to evolve large key-sets without using lots of multi colored balls.
+      As you may try, it is nearly impossible to evolve large key-sets without using lots of multi-coloured balls.
       </p>
 
    <a name="life"></a>
@@ -281,7 +316,7 @@
       <p>
       In the first simulation, the fit individuals of each generation would double themselves.
       If we weren't constantly abandoning a large portion of them, the exponential growth would quickly make them grow to extreme numbers.
-      In terms of Coronavirus jargon, this means the reproduction number (or <a href="https://www.bbc.com/news/health-52473523">R value</a>) would be greater than 1.
+      In terms of Coronavirus jargon, this means the reproduction number (or <a href="https://www.bbc.com/news/health-52473523">R-value</a>) would be greater than 1.
       </p>
       
       <p>
@@ -290,7 +325,7 @@
 
       <p><i>Technical details:</i>
       The required branching factor for stable growth (neither exploding nor extincting) turns out to be
-      related to the so called <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a>
+      related to the so-called <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a>
       between the density of the set in the universe <span class="math">(p)</span> and the survival threshold <span class="math">(t)</span>.
       We need the branching factor to be exactly
       </p>
@@ -298,8 +333,8 @@
       <img src='f.png' width='386' /> <!-- 772 -->
       </div>
       <p>
-      However for the real algorithm we need to ensure that some key-set survives for both Alice <b>and</b> Bob.
-      That requires a two dimensional version of Kullback–Leibler, which I won't even try to state here.
+      However, for the real algorithm, we need to ensure that some key-set survives for both Alice <b>and</b> Bob.
+      That requires a two-dimensional version of Kullback–Leibler, which I won't even try to state here.
       </p>
       
       <p>
@@ -315,13 +350,13 @@ const form = d3.select('body').append('div').attr('id', 'cp');
 
       <p>
          This simulation doesn't show us how many blue and grey balls are in each individual.
-         Instead we will plot histograms of the fitness of each generation to get an idea of how stable our growth is:
+         Instead, we will plot histograms of the fitness of each generation to get an idea of how stable our growth is:
       </p>
 
    <script>
 
 d3.select('body').append('h2')
-         .text('Generation Fitness: Number of blue balls amoung key-sets in each generation')
+         .text('Generation Fitness: Number of blue balls among key-sets in each generation')
          .append('i')
          .lower()
          .attr('class', 'tooltip material-icons')
@@ -349,7 +384,7 @@ cp.mount(form, 15);
    <p>
    While <a href="https://arxiv.org/abs/1904.04045">the arXiv paper</a>
    proves that the above method of searching sets is optimal in terms of <a href="https://en.wikipedia.org/wiki/Big_O_notation">big-O</a> time and space,
-   in practice we probably need a number of hardware and dataset related optimizations to get competitive performance.
+   in practice we probably need a number of hardware- and dataset related optimizations to get competitive performance.
    </p>
 
    <p>
@@ -399,7 +434,7 @@ cp.mount(form, 15);
 
       <p>The code keeps track of the <i>value</i> (number of sampled items that came from the given set) and a <i>hash</i> of the given key-sets.
       This hash is enough to identify the individual, so, we don't have to store the elements actually sampled.
-      The hash is also used to seed the random generator, which ensures that a given individual always have the same offspring - what was earlier described as "coordinated randomness".
+      The hash is also used to seed the random generator, which ensures that a given individual always has the same offspring - what was earlier described as "coordinated randomness".
       </p>
 
       <p>
@@ -514,7 +549,7 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       Sets can be used to represent many types of data, other than lists of movies.
       <!--Sets are just collections of distinct objects.-->
       In DNA sequencing, the DNA strings are chopped into sets of small snippets (called <a href="https://en.wikipedia.org/wiki/K-mer">k-mess</a>) such that two sets with a large overlap "contains roughly the same genes".
-      When I worked in Machine Learning for customer support, we would sometimes represent the customers queries as a <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words</a>, and two sets with a large overlap would be considered to be about the same issue.
+      When I worked in Machine Learning for customer support, we would sometimes represent the customers' queries as a <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words</a>, and two sets with a large overlap would be considered to be about the same issue.
 
       <!--In Natural language processing as well as Computer vision, so called <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag-of-words models</a> are useful ways of generating semantic representations of text and images, in the form of sets.-->
       <!--Today an alternative is to map this data into dense vectors, using perhaps a Neural Network, but in the paper we show that this "densification" will inevitably result in worse performance or recall.-->
@@ -524,16 +559,16 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
       The difficulty of set similarity is related to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">Curse of dimensionality</a>.
       <!--Naturally, many efficient data structures for sets have been developed.-->
       <!--A common operation is "Subset search", where (e.g.) given a list of movies, we want to know which users have watched all of them.-->
-      Turing Award winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this problem all the way back in 1976.
-      In the late 90s the methods of
+      Turing Award-winning Ronald Rivest wrote <a href="https://people.csail.mit.edu/rivest/pubs/Riv76b.pdf">his PhD Thesis</a> on a version of this problem all the way back in 1976.
+      In the late 90s, the methods of
       <a href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">Locality Sensitive Hashing</a> and the <a href="https://en.wikipedia.org/wiki/MinHash">MinHash</a> were developed, which are used today in everything from search engines to Machine Learning.
       There are also Machine Learning techniques such as <a href="https://en.wikipedia.org/wiki/Word_embedding">Word embeddings</a> that "densifies" sets to vectors.
-      However it turns out that one can do better by looking at the sets directly.
+      However, it turns out that one can do better by looking at the sets directly.
       </p>
 
       <p>It is also worth noting, that while the present algorithm works on sets, it can easily be generalized to weighted sets or multisets.
       This is done just like <a href="https://en.wikipedia.org/wiki/MinHash#Incorporating_Weights">Incorporating Weights in MinHash</a>.
-      Similar techniques alows handling Neural or <a href="https://en.wikipedia.org/wiki/Bag-of-words_model_in_computer_vision">"Visual" Bags of Words</a> like <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a>.
+      Similar techniques allow handling Neural or <a href="https://en.wikipedia.org/wiki/Bag-of-words_model_in_computer_vision">"Visual" Bags of Words</a> like <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a>.
       </p>
 
       <p>
@@ -548,7 +583,7 @@ Often this is measured by the tweets having a large <a href="https://en.wikipedi
    <p>
       If you take anything away from this post, I hope it is that evolution can be finicky and very sensitive to parameters such as the branching factor.
       <!--There is also a good deal of luck involved.-->
-      If used responsibly, however, evolutionary algorithms can be an powerful way of solving problems.
+      If used responsibly, however, evolutionary algorithms can be a powerful way of solving problems.
       Even undertakings as abstract as recommendation systems and set databases.
    </p>
    <p>
