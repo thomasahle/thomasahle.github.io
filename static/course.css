@@ -1,0 +1,160 @@
+* {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+}
+h1 {
+   font-size: 2em;
+   margin-bottom: .2em;
+}
+.byline {
+   font-size: 1.2em;
+   text-align: center;
+}
+h2 {
+   font-size: 1.5em;
+   margin: 1em 0 .5em 0;
+}
+h3 {
+   font-size: 1.3em;
+   padding-bottom: .5em;
+}
+p {
+   margin-bottom: .5em;
+}
+b {
+   font-weight: bold;
+}
+body {
+   margin: 2em auto;
+   max-width: 41em;
+   padding: 0 1rem;
+   font-family: Arsenal, sans-serif;
+}
+#plan-panel {
+   border: 1px solid silver;
+}
+.week {
+   display: grid;
+   grid-template-areas:
+      'number head ex'
+      'number content ex';
+   grid-template-columns: 100px auto 130px;
+   grid-template-rows: 0fr 1fr;
+   grid-gap: 0;
+   align-items: stretch;
+   border-bottom: 1px solid silver;
+   padding: .5em 0 .5em 0;
+}
+.ex {
+   grid-area: ex;
+   align-self: center;
+}
+.ex a {
+   border: 1px solid blue;
+   padding: 1em;
+   display: block;
+   margin: .5em;
+   text-decoration: none;
+}
+@media only screen and (max-width: 500px) {
+  .week {
+      grid-template-areas:
+         'number head'
+         'number content'
+         'ex ex';
+      grid-template-columns: 100px auto;
+  }
+  .ex {
+     display: flex;
+     flex-direction: row;
+     margin: 0 .25em;
+  }
+  .ex a {
+     flex-grow: 1;
+     margin: 0 .25em;
+  }
+}
+.number {
+   grid-area: number;
+   margin-top: .5em;
+}
+.lecture-number {
+   text-align: center;
+   font-size: 30pt;
+   display: block;
+}
+.lecture-week, .lecture-date, .lecture-day {
+   text-align: center;
+   display: block;
+}
+.lecture-day {
+   color: #666;
+}
+h3 {
+   grid-area: head;
+   margin: 0;
+   margin-top: .5em;
+}
+.content {
+   grid-area: content;
+   align-self: start;
+}
+.main-content {
+   grid-column: 3;
+   grid-row: 2;
+}
+h4 {
+   font-weight: bold;
+   margin: .4em 0 .2em 0;
+}
+ul {
+   padding-left: 2em;
+}
+li {
+   margin-bottom: .2em;
+}
+.radio-tabs {
+   display: grid;
+   grid-template-rows: auto 1fr;
+   grid-template-columns: auto auto 1fr;
+   grid-gap: 0;
+   grid-column-gap: 1em;
+}
+.radio-tabs input {
+   visibility: hidden;
+}
+.radio-tabs label {
+   grid-row: 1;
+   font-size: 1.5em;
+   margin: 1em 0 .5em 0;
+   cursor: pointer;
+}
+.radio-tabs label:active {
+   background: #f8f8f8;
+}
+.radio-tabs label:hover {
+   border-bottom: 2px solid silver;
+}
+#plan-tab {
+   grid-column: 1;
+}
+#materials-tab {
+   grid-column: 2;
+}
+#plan-radio:checked ~ #plan-tab,
+#materials-radio:checked ~ #materials-tab {
+   border-bottom: 2px solid red;
+}
+.panel {
+   display: none;
+   grid-row: 2;
+   grid-column: 1 / 4;
+}
+#plan-radio:checked ~ #plan-panel,
+#materials-radio:checked ~ #materials-panel {
+   display: block;
+}
