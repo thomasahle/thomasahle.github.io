@@ -4,6 +4,8 @@ python3 render_html.py data templates/index.html > compiled/index.html
 mkdir compiled/blog
 python3 render_html.py data templates/blog/index.html > compiled/blog/index.html
 
+echo "thomasahle.com" > compiled/CNAME
+
 mkdir compiled/teaching
 mkdir compiled/teaching/pcpp2019
 python3 render_html.py pcpp_data templates/pcpp.html > compiled/teaching/pcpp2019/index.html

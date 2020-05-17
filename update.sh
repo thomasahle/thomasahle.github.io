@@ -20,7 +20,8 @@ cp -r papers website
 cp -r blog website
 
 # Use subtree push to send it to the master branch on GitHub.
-git subtree push --prefix website origin master
+# git subtree push --prefix website origin master
+git push origin `git subtree split --prefix website gh-pages`:master --force
 
 rm -rf compiled
 rm -rf website
