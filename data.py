@@ -65,7 +65,8 @@ class Vars:
             files=[
                 File('pdf', 'papers/supermajority.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1904.04045'),
-                File('slides', 'https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE')
+                File('slides', 'https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE'),
+                File('blog post', 'https://thomasahle.com/blog/sets.html')
             ]),
         Paper(
             'tensorsketch-joint',
