@@ -72,6 +72,9 @@ img {
 p {
    margin: 0;
    text-indent: 1em;
+   text-align: justify;
+   hyphens: auto;
+   text-rendering: optimizeLegibility;
 }
 a {
    text-decoration-skip:ink;
