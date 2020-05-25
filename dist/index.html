@@ -92,17 +92,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                <div class='abstract'>A Locality-Sensitive Hash (LSH) function is called (r,cr,p₁,p₂)-sensitive, if two data-points with a distance less than r collide with probability at least p₁ while data points with a distance greater than cr collide with probability at most p₂.
 These functions form the basis of the successful Indyk-Motwani algorithm (STOC 1998) for nearest neighbour problems.
 In particular one may build a c-approximate nearest neighbour data structure with query time O(n<sup>ρ</sup>/p₁) where ρ = (log 1/p₁)/(log 1/p₂) ∈ (0,1).
-That is, <emph>sub-linear time</emph>, as long as p₁ is not too small.
-This is significant since most high dimensional nearest neighbour problems suffer from the curse of dimensionality, and can't be solved <emph>exact</emph>, faster than a brute force <emph>linear-time</emph> scan of the database.
+That is, <em>sub-linear time</em>, as long as p₁ is not too small.
+This is significant since most high dimensional nearest neighbour problems suffer from the curse of dimensionality, and can't be solved <em>exact</em>, faster than a brute force <em>linear-time</em> scan of the database.
 
 Unfortunately, the best LSH functions tend to have very low collision probabilities, p₁ and p₂.
 Including the best functions for Cosine and Jaccard Similarity.
-This means that the n<sup>ρ</sup>/p₁ query time of <emph>LSH is often not sub-linear after all</emph>, even for approximate nearest neighbours!
+This means that the n<sup>ρ</sup>/p₁ query time of <em>LSH is often not sub-linear after all</em>, even for approximate nearest neighbours!
 
 In this paper, we improve the general Indyk-Motwani algorithm to reduce the query time of LSH to O(n<sup>ρ</sup>/p₁<sup>1-ρ</sup>) (and the space usage correspondingly.)
 Since  n<sup>ρ</sup>/p₁<sup>1-ρ</sup> < n ⇔ p₁ > 1/n,
 our algorithm always obtains sublinear query time, for any collision probabilities at least  1/n.
-For  p₁  and  p₂  small enough, our improvement over all previous methods can be <emph>up to a factor  n </emph> in both query time and space.
+For  p₁  and  p₂  small enough, our improvement over all previous methods can be <em>up to a factor  n </em> in both query time and space.
 
 The improvement comes from a simple change to the Indyk-Motwani algorithm, which can easily be implemented in existing software packages.
 </div>
