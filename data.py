@@ -55,6 +55,18 @@ class Vars:
 
     papers = [
         Paper(
+            'p1',
+            'On the Problem of p₁⁻¹ in Locality-Sensitive Hashing',
+            ['thdy'],
+            open('abstracts/p1').read(),
+            2020,
+            'subm',
+            '',
+            files=[
+                File('pdf', 'papers/p1.pdf'),
+                File('arxiv', 'https://arxiv.org/abs/2005.12065')
+            ]),
+        Paper(
             'supermajority',
             'Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search',
             ['thdy'],

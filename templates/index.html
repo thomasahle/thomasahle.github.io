@@ -7,15 +7,20 @@
    <h1>{{me.name}}</h1>
    <div id='main'>
       <p>
-         Hi, I'm Thomas. I am a Postdoctoral researcher in Theoretical Computer Science at the IT University of Copenhagen and at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC).
+         Hello, I'm Thomas.
+         I am an Algorithms Research Scientist at Facebook.
+         Previously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
+         and a Postdoctoral researcher in Theoretical Computer Science at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
          I did my PhD with <a href='{{authors['pagh'].href}}'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
         previously I have been at University of Texas at Austin, and University of Oxford.
         <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
       </p><p>
-        My research has primarily involved the theoretical foundations of massive data, similarity search, high dimensional geometry, sketching and derandomization.
+        My research has primarily involved the theoretical foundations of machine learning and massive data.
+        This includes similarity search, high dimensional geometry, sketching and derandomization.
         <!--See also my <a href='statement.pdf'>research program</a>.-->
       </p>
 
+      <!--
       <h2>News</h2>
       <dl>
          <dt>17/jun/19</dt>
@@ -33,6 +38,7 @@
          <dd>I am taking a 1 year sabbatical to start up a new Natural Language Processing company, <a href='https://supwiz.com'>SupWiz</a>, with former research colleagues.
          </dd>
       </dl>
+      -->
 
       {% for type, articles in [('Publications', papers), ('Manuscripts', manuscripts)] %}
          <h2>{{type}}</h2>

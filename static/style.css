@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arsenal', Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
+  font-family: Arsenal, Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
   font-size: 14px;
   padding: 1rem .33rem;
   line-height: 1.42rem;
@@ -9,6 +9,9 @@ body {
   display: flex;
   flex-flow: row wrap;
   background: #fcfcfc;
+
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
 }
 h1 {
    flex: 1 100%;
@@ -72,6 +75,7 @@ img {
 p {
    margin: 0;
    text-indent: 1em;
+   text-align: justify;
 }
 a {
    text-decoration-skip:ink;
