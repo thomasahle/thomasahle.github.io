@@ -172,6 +172,11 @@ li {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID', {
+    'storage': 'none',
+    'client_storage': 'none',
+    'cookie_expires': 0
+  });
 
   gtag('config', 'UA-166937336-1');
 </script>
