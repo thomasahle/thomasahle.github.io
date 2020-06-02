@@ -63,6 +63,7 @@ dd {
    position: relative;
    font-family: 'Latin Modern', serif;
    text-align: justify;
+   line-height: 1.1;
 }
 .abstract:not(.open) {
    max-height:3ch;
@@ -73,6 +74,9 @@ dd {
 }
 .abstract:not(.open)::before {
    content: "Abstract: ";
+}
+.abstract:not(.open) p {
+   display: inline;
 }
 .abstract:not(.open)::after {
    content: " ";
@@ -95,6 +99,11 @@ p {
    text-indent: 1em;
    text-align: justify;
 }
+p:first-child {
+   text-indent: 0;
+}
+sup {
+vertical-align: top; font-size: 0.7em; }
 a {
    text-decoration-skip:ink;
    -webkit-text-decoration-skip:ink;
