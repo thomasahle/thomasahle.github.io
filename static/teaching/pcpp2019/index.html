@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset="utf-8">
+      <link rel="icon" type="image/x-icon" href="https://www.itu.dk/favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet" type="text/css">
+      <style type="text/css">* {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+}
+h1 {
+   font-size: 2em;
+   margin-bottom: .2em;
+}
+.byline {
+   font-size: 1.2em;
+   text-align: center;
+}
+h2 {
+   font-size: 1.5em;
+   margin: 1em 0 .5em 0;
+}
+h3 {
+   font-size: 1.3em;
+   padding-bottom: .5em;
+}
+p {
+   margin-bottom: .5em;
+}
+b {
+   font-weight: bold;
+}
+body {
+   margin: 2em auto;
+   max-width: 41em;
+   padding: 0 1rem;
+   font-family: Arsenal, sans-serif;
+}
+#plan-panel {
+   border: 1px solid silver;
+}
+.week {
+   display: grid;
+   grid-template-areas:
+      'number head ex'
+      'number content ex';
+   grid-template-columns: 100px auto 130px;
+   grid-template-rows: 0fr 1fr;
+   grid-gap: 0;
+   align-items: stretch;
+   border-bottom: 1px solid silver;
+   padding: .5em 0 .5em 0;
+}
+.ex {
+   grid-area: ex;
+   align-self: center;
+}
+.ex a {
+   border: 1px solid blue;
+   padding: 1em;
+   display: block;
+   margin: .5em;
+   text-decoration: none;
+}
+@media only screen and (max-width: 500px) {
+  .week {
+      grid-template-areas:
+         'number head'
+         'number content'
+         'ex ex';
+      grid-template-columns: 100px auto;
+  }
+  .ex {
+     display: flex;
+     flex-direction: row;
+     margin: 0 .25em;
+  }
+  .ex a {
+     flex-grow: 1;
+     margin: 0 .25em;
+  }
+}
+.number {
+   grid-area: number;
+   margin-top: .5em;
+}
+.lecture-number {
+   text-align: center;
+   font-size: 30pt;
+   display: block;
+}
+.lecture-week, .lecture-date, .lecture-day {
+   text-align: center;
+   display: block;
+}
+.lecture-day {
+   color: #666;
+}
+h3 {
+   grid-area: head;
+   margin: 0;
+   margin-top: .5em;
+}
+.content {
+   grid-area: content;
+   align-self: start;
+}
+.main-content {
+   grid-column: 3;
+   grid-row: 2;
+}
+h4 {
+   font-weight: bold;
+   margin: .4em 0 .2em 0;
+}
+ul {
+   padding-left: 2em;
+}
+li {
+   margin-bottom: .2em;
+}
+.radio-tabs {
+   display: grid;
+   grid-template-rows: auto 1fr;
+   grid-template-columns: auto auto 1fr;
+   grid-gap: 0;
+   grid-column-gap: 1em;
+}
+.radio-tabs input {
+   visibility: hidden;
+}
+.radio-tabs label {
+   grid-row: 1;
+   font-size: 1.5em;
+   margin: 1em 0 .5em 0;
+   cursor: pointer;
+}
+.radio-tabs label:active {
+   background: #f8f8f8;
+}
+.radio-tabs label:hover {
+   border-bottom: 2px solid silver;
+}
+#plan-tab {
+   grid-column: 1;
+}
+#materials-tab {
+   grid-column: 2;
+}
+#plan-radio:checked ~ #plan-tab,
+#materials-radio:checked ~ #materials-tab {
+   border-bottom: 2px solid red;
+}
+.panel {
+   display: none;
+   grid-row: 2;
+   grid-column: 1 / 4;
+}
+#plan-radio:checked ~ #plan-panel,
+#materials-radio:checked ~ #materials-panel {
+   display: block;
+}</style>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-166937336-1', {
+    //'storage': 'none',
+    'client_storage': 'none',
+    //'cookie_expires': 0,
+    //'anonymize_ip': true
+  });
+</script>
+      <title>Practical Concurrent and Parallel Programming 2019</title>
+   </head>
+
+   <body>
+
+      <h1>Practical Concurrent and Parallel Programming 2019</h1>
+
+      <p class="byline">(PCPP) (KSPRCPP1KU) E2019</p>
+
+      <p>
+      In this MSc course, you learn how to write correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.
+      The course covers basic mechanisms such as threads, locks and shared memory as well as more advanced mechanisms such as parallel streams for bulk data, transactional memory, message passing, and lock-free data structures with compare-and-swap.
+      It covers concepts such as atomicity, safety, liveness and deadlock.
+      It covers how to measure and understand the performance and scalability of parallel programs.
+      It covers methods to find bugs in concurrent programs.
+      </p>
+
+      <p>For exercises and more information, see the <a href="https://learnit.itu.dk/course/view.php?id=3018482">course LearnIT site</a> (restricted access).
+      For formal rules, see the <a href="https://learnit.itu.dk/local/coursebase/view.php?ciid=257">official course description</a>.</p>
+
+      <p>The course is taught by
+      <a href="http://www.itu.dk/people/thdy/">Thomas Dybdahl Ahle</a>
+      and designed together with
+      <a href="http://www.itu.dk/people/sestoft/">Peter Sestoft</a>,
+      <a href="http://www.itu.dk/people/rikj/">Riko Jacob</a>
+      and <a href="http://www.itu.dk/people/brabrand/">Claus Brabrand</a>
+      at the <a href="http://www.itu.dk/">IT University of Copenhagen</a>.
+      Teaching assistants are
+      Jorgel Këci, Jon Voigt Tøttrup and Amund Ranheim Lome who help with exercises and approve (or not) the mandatory hand-ins.</p>
+
+      <div class="radio-tabs">
+         <input type="radio" id="plan-radio" name="tab-state" checked />
+         <input type="radio" id="materials-radio" name="tab-state" />
+
+         <label for="plan-radio" id="plan-tab" class="tab">Lecture Plan</label>
+         <div id="plan-panel" class="panel">
+            
+            
+            <div class="week">
+               <h3>Surprises in Parallelism and Java</h3>
+
+               <div class="number">
+                  <span class="lecture-number">1</span>
+                  <span class="lecture-week">Week 35</span>
+                  <span class="lecture-date">Aug 29th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_1/lecture.pdf">Slides</a>
+                  <a href="Week_1/code.tar.gz">Code</a>
+                  <a href="Week_1/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Concurrent and parallel programming, why, what is so hard. Threads and locks in Java, shared mutable memory, mutual exclusion, visibility, volatile fields, atomic operations, avoiding sharing (thread confinement, stack confinement), immutability, final, safe publication.</p>
+
+                  <p><b>Materials:</b> Goetz chapters 1, 2, 3; Sutter paper; McKenney chapter 2; Bloch item 66</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=104971">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Threads and Locks</h3>
+
+               <div class="number">
+                  <span class="lecture-number">2</span>
+                  <span class="lecture-week">Week 36</span>
+                  <span class="lecture-date">Sep 5th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_2/lecture.pdf">Slides</a>
+                  <a href="Week_2/code.tar.gz">Code</a>
+                  <a href="Week_2/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Designing thread-safe classes. Monitor pattern. Concurrent collections. Documenting thread-safety.</p>
+
+                  <p><b>Materials:</b> Goetz chapters 4, 5; Bloch item 15; <a href="http://jcip.net/jcip-annotations.jar">jcip-annotations.jar</a></p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=105858">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Performance measurements</h3>
+
+               <div class="number">
+                  <span class="lecture-number">3</span>
+                  <span class="lecture-week">Week 37</span>
+                  <span class="lecture-date">Sep 12th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_3/lecture.pdf">Slides</a>
+                  <a href="Week_3/code.tar.gz">Code</a>
+                  <a href="Week_3/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p></p>
+
+                  <p><b>Materials:</b> Sestoft: <a href="http://www.itu.dk/people/sestoft/papers/benchmarking.pdf">Microbenchmarks</a> and <a href="http://www.itu.dk/people/sestoft/javaprecisely/benchmarks-java.zip">supporting Java code</a>;  Optional: McKenney chapter 3, <a href="https://shipilev.net/talks/j1-Oct2011-21682-benchmarking.pdf">(The Art of) (Java) Benchmarking</a></p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=105939">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Streams</h3>
+
+               <div class="number">
+                  <span class="lecture-number">4</span>
+                  <span class="lecture-week">Week 38</span>
+                  <span class="lecture-date">Sep 19th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_4/lecture.pdf">Slides</a>
+                  <a href="Week_4/code.tar.gz">Code</a>
+                  <a href="Week_4/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Java 8 parallel streams for bulk data and parallel array prefix operations. Functional interfaces, lambda expressions, method reference expressions.</p>
+
+                  <p><b>Materials:</b> Sestoft: Java Precisely <b>3rd edition</b> sections 11.13, 11.14, 23, 24, 25; get <a href="https://learnit.itu.dk/mod/resource/view.php?id=106234">draft on LearnIT</a> and <a href="https://www.itu.dk/people/sestoft/javaprecisely/javaprecisely3-examples.tgz">associated example code</a>. Also <a href="words.zip">File with English words</a>.</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106669">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Threads and Locks 2</h3>
+
+               <div class="number">
+                  <span class="lecture-number">5</span>
+                  <span class="lecture-week">Week 39</span>
+                  <span class="lecture-date">Sep 26th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_5/lecture.pdf">Slides</a>
+                  <a href="Week_5/code.tar.gz">Code</a>
+                  <a href="Week_5/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Tasks and the Java executor framework. Concurrent pipelines, wait() and notifyAll().</p>
+
+                  <p><b>Materials:</b> Goetz chapters 5.3, 6, 8; Bloch items 68, 69</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106670">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Lecture Cancelled</h3>
+
+               <div class="number">
+                  <span class="lecture-number">6</span>
+                  <span class="lecture-week">Week 40</span>
+               </div>
+               <div class="content">
+                  <p>No exercises or lecture this week.</p>
+               </div>
+            </div>
+            
+            <div class="week">
+               <h3>Threads and Locks 3</h3>
+
+               <div class="number">
+                  <span class="lecture-number">7</span>
+                  <span class="lecture-week">Week 41</span>
+                  <span class="lecture-date">Oct 10th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_7/lecture.pdf">Slides</a>
+                  <a href="Week_7/code.tar.gz">Code</a>
+                  <a href="Week_7/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Concurrent hash maps: performance and scalability case study.</p>
+
+                  <p><b>Materials:</b> Goetz chapter 11, 13.5</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106673">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Fall break</h3>
+
+               <div class="number">
+                  <span class="lecture-number">8</span>
+                  <span class="lecture-week">Week 42</span>
+               </div>
+               <div class="content">
+                  <p>No exercises or lecture this week.</p>
+               </div>
+            </div>
+            
+            <div class="week">
+               <h3>Threads and Locks 4</h3>
+
+               <div class="number">
+                  <span class="lecture-number">9</span>
+                  <span class="lecture-week">Week 43</span>
+                  <span class="lecture-date">Oct 24th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_9/lecture.pdf">Slides</a>
+                  <a href="Week_9/code.tar.gz">Code</a>
+                  <a href="Week_9/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Testing concurrent programs.</p>
+
+                  <p><b>Materials:</b> Goetz chapter 12; <a href="https://learnit.itu.dk/pluginfile.php/251401/mod_resource/content/1/herlihy-shavit-rfe-ch03.pdf">Herlihy and Shavit chapter 3</a></p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106675">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Transactional Memory</h3>
+
+               <div class="number">
+                  <span class="lecture-number">10</span>
+                  <span class="lecture-week">Week 44</span>
+                  <span class="lecture-date">Oct 31st</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_10/lecture.pdf">Slides</a>
+                  <a href="Week_10/code.tar.gz">Code</a>
+                  <a href="Week_10/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Transactional memory with Multiverse: <a href="http://itu.dk/people/fbie/multiverse-javadoc/index.html?org/multiverse/api/package-summary.html">Multiverse API Javadoc</a> and file <a href="multiverse-core-0.7.0.jar">multiverse-core-0.7.0.jar</a>.</p>
+
+                  <p><b>Materials:</b> <a href="https://learnit.itu.dk/mod/resource/view.php?id=108890">Harris et al 2008 paper</a>; <a href="https://learnit.itu.dk/mod/resource/view.php?id=108891">Herlihy and Shavit</a> sections 18.1-18.2; <a href="https://queue.acm.org/detail.cfm?id=1454466">Cascaval et al 2008 paper</a>; <a href="https://learnit.itu.dk/mod/resource/view.php?id=108892">Eidenbenz, Wattenhofer 2011 paper</a>;</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106676">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Compare and Swap 1</h3>
+
+               <div class="number">
+                  <span class="lecture-number">11</span>
+                  <span class="lecture-week">Week 45</span>
+                  <span class="lecture-date">Nov 7th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_11/lecture.pdf">Slides</a>
+                  <a href="Week_11/code.tar.gz">Code</a>
+                  <a href="Week_11/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p><b>Notice: Lecture will be posted as video thursday afternoon.</b> There won't be anyone in the auditorium in the morning; Description: Optimistic concurrency, lock-free data structures, Treiber stack, compare-and-swap. Consensus number.</p>
+
+                  <p><b>Materials:</b> Goetz chapter 15; <a href="https://learnit.itu.dk/pluginfile.php/252293/mod_resource/content/1/HerlihyShavit5_1-5_2.pdf">Herlihy and Shavit sections 5.1-5.2</a></p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106677">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Compare and Swap 2</h3>
+
+               <div class="number">
+                  <span class="lecture-number">12</span>
+                  <span class="lecture-week">Week 46</span>
+                  <span class="lecture-date">Nov 14th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_12/lecture.pdf">Slides</a>
+                  <a href="Week_12/code.tar.gz">Code</a>
+                  <a href="Week_12/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>The Michael and Scott queue, progress concepts, Union Find, work-stealing queues.</p>
+
+                  <p><b>Materials:</b> <a href="http://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf">Michael and Scott paper</a> and <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.170.1097&rep=rep1&type=pdf">Chase and Lev paper</a> sections 1, 2 and 5</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106678">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Introduction to Message Passing Concurrency</h3>
+
+               <div class="number">
+                  <span class="lecture-number">13</span>
+                  <span class="lecture-week">Week 47</span>
+                  <span class="lecture-date">Nov 21st</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_13/lecture.pdf">Slides</a>
+                  <a href="Week_13/code.tar.gz">Code</a>
+                  <a href="Week_13/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Introduction to message passing concurrency (no mutable shared memory), Introduction to Erlang, Introduction to Java+Akka.</p>
+
+                  <p><b>Materials:</b> Erlang chapter 1, 2, 5. <a href="https://learnit.itu.dk/pluginfile.php/246472/mod_forum/attachment/52744/scala.jar">scala.jar</a>.</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106679">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>More about Message Passing Concurrency</h3>
+
+               <div class="number">
+                  <span class="lecture-number">14</span>
+                  <span class="lecture-week">Week 48</span>
+                  <span class="lecture-date">Nov 28th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_14/lecture.pdf">Slides</a>
+                  <a href="Week_14/code.tar.gz">Code</a>
+                  <a href="Week_14/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p>Message passing (no mutable shared memory), Erlang, Java+Akka.</p>
+
+                  <p><b>Materials:</b> Just the slides</p>
+
+                  <p>Handin at <a href="https://learnit.itu.dk/mod/assign/view.php?id=106680">LearnIT</a>.</p>
+               </div>
+            </div>
+            
+            
+            <div class="week">
+               <h3>Exam preparation</h3>
+
+               <div class="number">
+                  <span class="lecture-number">15</span>
+                  <span class="lecture-week">Week 49</span>
+                  <span class="lecture-date">Dec 5th</span>
+                  <span class="lecture-day">Thursday</span>
+               </div>
+
+               <div class="ex">
+                  <a href="Week_15/lecture.pdf">Slides</a>
+                  <a href="Week_15/code.tar.gz">Code</a>
+                  <a href="Week_15/exercise.pdf">Exercises</a>
+               </div>
+
+               <div class="content">
+                  <p></p>
+
+                  <p><b>Materials:</b> See Materials -> Archive</p>
+
+                  <p>Handin at <a href="#">LearnIT</a>.</p>
+               </div>
+            </div>
+            </div>
+
+         <label for="materials-radio" id="materials-tab" class="tab">Materials</label>
+         <div id="materials-panel" class="panel">
+            
+<h3>Mandatory course materials</h3>
+
+<h4>Books</h4>
+
+<ul>
+   <li>Goetz et al: Java Concurrency in Practice, Addison-Wesley 2006. The Academic Bookstore will sell it at ITU at start of term. Also <a href="http://www.amazon.co.uk/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601">at Amazon.co.uk</a>. Example code at <a href="http://jcip.net/">http://jcip.net/</a>.</li>
+
+   <li>Herlihy and Shavit: The Art of Multiprocessor Programming. Revised first edition, Morgan Kaufmann 2012. Chapters 3 (safety and liveness concepts) and 18.1, 18.2 (compositionality, transactional memory). <a href="http://www.amazon.co.uk/The-Multiprocessor-Programming-Revised-Reprint/dp/0123973376">At Amazon.co.uk</a></li>
+
+   <li>Sestoft: Java Precisely 3rd edition (MIT Press 2016, draft), sections 11.13, 11.14, 23, 24, 25. PDF available from LearnIt.</li>
+</ul>
+
+<h4>Articles</h4>
+
+<ul>
+   <li>Sestoft: Microbenchmarks in Java and C#. Free at <a href="http://www.itu.dk/people/sestoft/papers/benchmarking.pdf">http://www.itu.dk/people/sestoft/papers/benchmarking.pdf</a> with the corresponding <a href="http://www.itu.dk/people/sestoft/javaprecisely/benchmarks-java.zip">Java example code</a>.</li>
+
+   <li>Harris, Marlow, Peyton-Jones, Herlihy: Composable memory transactions. Communications of the ACM 51, 8 (August 2008) 91-100; PDF available from LearnIT.</li>
+
+   <li>Cascaval et al: Software Transactional Memory: Why Is It Only a Research Toy? ACM Queue 2008. Free at <a href="http://queue.acm.org/detail.cfm?id=1454466">http://queue.acm.org/detail.cfm?id=1454466</a></li>
+
+   <li>Michael and Scott: Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms. PODC 1996. Free at <a href="http://www.research.ibm.com/people/m/michael/podc-1996.pdf">http://www.research.ibm.com/people/m/michael/podc-1996.pdf</a></li>
+
+   <li>Chase and Lev: Dynamic circular work- stealing deque, SPAA'05, 2005, sections 1, 2 and 5; see also LearnIT.</li>
+
+   <li>Armstrong, Virding, Williams: Concurrent Programming in Erlang. Part 1 free at <a href="http://www.erlang.org/download/erlang-book-part1.pdf">http://www.erlang.org/download/erlang-book-part1.pdf</a>.</li>
+</ul>
+
+<h4>Other</h4>
+
+<ul>
+   <li>The Multiverse Software Transactional Memory library for Java: <a href="http://itu.dk/people/fbie/multiverse-javadoc/index.html?org/multiverse/api/package-summary.html">Multiverse API Javadoc</a> (local copy) and the <a href="multiverse-core-0.7.0.jar">multiverse-core-0.7.0.jar</a> (library implementation).</li>
+</ul>
+
+<h3>Optional course materials</h3>
+
+<ul>
+   <li>Bloch: Effective Java. Third edition, Addison-Wesley 2018. Item 17 on immutability and items 78-84 on concurrency. <a href="http://www.amazon.co.uk/Effective-Java-Edition-Joshua-Bloch/dp/0321356683">At Amazon.co.uk</a>. Contains much other wisdom for Java (and .NET) developers; <b>you should own this book and use it</b>.</li>
+
+   <li>Sestoft: <a href="http://www.itu.dk/people/sestoft/javaprecisely/">Java Precisely</a>. Second edition, MIT Press 2005. Especially chapters 9 and 10 on classes, inner classes and anonymous classes, and chapter 16 on threads. <a href="http://www.amazon.co.uk/Java-Precisely-Peter-Sestoft/dp/0262693259">At Amazon.co.uk</a></li>
+
+   <li>Sutter: The free lunch is over. Free at <a href="http://www.gotw.ca/publications/concurrency-ddj.htm">http://www.gotw.ca/publications/concurrency-ddj.htm</a></li>
+
+   <li>If you want a deep understanding of how modern multicore cache and memory hardware design affects concurrency performance, these seem to be good overviews, although far too detailed for this course: <a href="http://irl.cs.ucla.edu/~yingdi/web/paperreading/whymb.2010.06.07c.pdf">McKenney: Memory barriers, a hardware view for software hackers</a> (IBM, 2010) and <a href="http://www.akkadia.org/drepper/cpumemory.pdf">Drepper: What every programmer should know about memory</a> (Redhat, 2007).</li>
+
+   <li>Budd, Lipton, Sayward, DeMillo: The design of a prototype mutation system for software testing, 1978. Free at <a href="http://www.computer.org/csdl/proceedings/afips/1978/5086/00/50860623.pdf">http://www.computer.org/csdl/proceedings/afips/1978/5086/00/50860623.pdf</a>.</li>
+
+   <li>On transactional memory: <a href="http://research.microsoft.com/pubs/74063/beautiful.pdf">Peyton Jones: Beautiful concurrency, 2007</a>; and <a href="http://dl.acm.org/citation.cfm?id=1364800">Larus and Kozyrakis: Transactional memory, 2008</a> (free access within ITU); and Dan Grossman's very enlightening <a href="http://homes.cs.washington.edu/~djg/papers/analogy_oopsla07.pdf">analogy between transactional memory and garbage collection</a>; and hardware support via the <a href="https://software.intel.com/en-us/blogs/2012/02/07/transactional-synchronization-in-haswell">Intel Transaction Synchronization Extensions</a> (2012) and also pages 8-1 through 8-24 of the <a href="https://software.intel.com/sites/default/files/m/9/2/3/41604">Instruction Set Extensions Programming Reference</a>; Robert Ennals: Software transactional memory should not be obstruction-free, 2006, <a href="ennals-stm-not-obstructionfree.pdf">PDF</a>; and a response to Cascaval's critique of STM by Dragojevic et al: <a href="http://delivery.acm.org/10.1145/1930000/1924440/p70-dragojevic.pdf">Why STM can be more than a research toy</a> CACM, April 2011. (PDF accessible for free from within ITU's network).</li>
+
+   <li>On memory models: see Java Language Specification below; and Ostrovsky: The C# Memory Model in Theory and Practice, in MSDN Magazine, <a href="http://msdn.microsoft.com/en-us/magazine/jj863136.aspx">part 1 (December 2012)</a> and <a href="http://msdn.microsoft.com/en-us/magazine/jj883956.aspx">part 2 (January 2013)</a>; and <a href="http://www.ecma-international.org/publications/standards/Ecma-334.htm">The C# Language Specification</a> (standard Ecma-334), especially section 10.10 and 17.4.3, and Joseph Albahari's Threading in C# <a href="http://www.albahari.com/threading/part4.aspx">Part 4: Advanced Threading</a>.</li>
+
+   <li><a href="http://doc.akka.io/docs/akka/snapshot/java/untyped-actors.html">Akka+Java Actor Snapshot</a></li>
+
+   <li><a href="http://doc.akka.io/docs/akka/2.3.7/java.html">The Akka+Java documentation</a></li>
+
+   <li><a href="https://www.youtube.com/watch?v=GBvtE61Wrto">Video Talk on Akka</a> by Viktor Klang (on YouTube)</li>
+
+   <li>
+      <a href="https://www.youtube.com/watch?v=t4KxWDqGfcs">Video Talk on Akka</a> by Jonas Boner (on YouTube)
+
+      <ul>
+         <li><a href="http://gotocon.com/dl/goto-aar-2012/slides/JonasBonr_UpUpAndOutScalingSoftwareWithAkka.pdf">Slides for the Video Talk on Akka</a> (from GOTO conference, Aarhus, Denmark).</li>
+      </ul>
+   </li>
+</ul>
+
+<h3>Even more optional materials</h3>
+
+<ul>
+   <li>Nancy Leveson's 1995 report on the <a href="http://sunnyday.mit.edu/papers/therac.pdf">Therac-25 accidents</a>, caused by incompetent concurrent programming.</li>
+
+   <li>Per Brinch Hansen on <a href="http://brinch-hansen.net/papers/1999b.pdf">Java's insecure parallelism</a>, 1999.</li>
+
+   <li>Hoare's <a href="http://dl.acm.org/citation.cfm?doid=355620.361161">paper on monitors</a>, CACM 17, 10 (October 1974) 549-557.</li>
+
+   <li>The <a href="https://www.securecoding.cert.org/confluence/display/java/Java+Coding+Guidelines">CERT Secure Coding Standard for Java</a> especially sections 09 on Locking, 10-12 on Threads, and 08 on Visibility and Atomicity.</li>
+
+   <li>McKenney (ed.): Is Parallel Programming Hard, And, If So, What Can You Do About It? IBM 10 March 2014. Free at <a href="https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html">https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html</a>. Chapters 2 and 3.</li>
+
+   <li>A good book about .NET parallel programming is Campbell, Johnson, Miller, Toub: Parallel Programming with Microsoft .NET, Design Patterns for Decomposition and Coordination on Multicore Architectures. Microsoft Press 2010. There is an <a href="http://msdn.microsoft.com/en-us/library/ff963553.aspx">online version</a> and also a <a href="http://www.amazon.com/Parallel-Programming-Microsoft%C2%AE-NET-Decomposition/dp/0735651590">printed version at Amazon.com</a>.</li>
+
+   <li>M. Herlihy: Wait-free synchronization. ACM Toplas 11, 1 (January 1991) 124-149. Free <a href="http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf">PDF at Herlihy's homepage</a>.</li>
+
+   <li>N. Shavit: Data structures in the multicore age. Communications of the ACM 54, 3 (March 2011) 76-84. Free inside ITU from the <a href="http://dl.acm.org/citation.cfm?id=1897873">ACM Digital Library</a>.</li>
+</ul>
+
+<h3>Resources</h3>
+
+<ul>
+   <li>Java concurrency tutorial. Free at <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/">http://docs.oracle.com/javase/tutorial/essential/concurrency/</a>.</li>
+
+   <li>Java streams tutorial, parallelism section. Free at <a href="http://docs.oracle.com/javase/tutorial/collections/streams/parallelism.html">http://docs.oracle.com/javase/tutorial/collections/streams/parallelism.html</a>.</li>
+
+   <li>Java Swing GUI Toolkit tutorial, concurrency lesson at <a href="http://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html">http://docs.oracle.com/javase/tutorial/uiswing/concurrency/index.html</a>.</li>
+
+   <li>Java 8 <a href="http://docs.oracle.com/javase/8/docs/api/">class library documentation online</a>.</li>
+
+   <li>Java 8 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">development kit download</a></li>
+
+   <li>Java 8 language specification <a href="http://docs.oracle.com/javase/specs/jls/se8/jls8.pdf">in PDF</a> and <a href="http://docs.oracle.com/javase/specs/jls/se8/html/index.html">online as HTML</a>; especially <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.1">17.1 synchronization</a> and <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.3.1.4">8.3.1.4 volatile fields</a> and <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.5">17.5 final field semantics</a> and the somewhat complicated <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.4">17.4 memory model</a>.</li>
+
+   <li>Brian Goetz about the design of the Java 1.5 memory model: <a href="http://www.ibm.com/developerworks/java/library/j-jtp02244/index.html">part 1</a> and <a href="https://www.ibm.com/developerworks/library/j-jtp03304/">part 2</a>, IBM 2004.</li>
+
+   <li>Java Concurrency thread-safety annotations <a href="http://jcip.net/jcip-annotations.jar">jar file</a> for @GuardedBy and similar. Download the jar file, put it someplace such as <code>~/lib/jcip-annotations.jar</code>, add <code>import javax.annotation.concurrent.GuardedBy;</code> to your Java source files, and mention the jar file on the classpath when compiling Java files, as in <code>javac -cp ~/lib/jcip-annotaitons.jar *.java</code></li>
+
+   <li>Akka homepage. <a href="http://akka.io/">http://akka.io/</a> (Documentation, FAQ, Download, ...).</li>
+
+   <li><a href="http://doc.akka.io/japi/akka/2.3.7/">Akka+Java API</a></li>
+</ul>
+
+<h3>Archive</h3>
+
+<ul>
+   <li>January 2015 <a href="pcpp-20150107-v2.pdf">exam questions</a> and <a href="Quicksorts-v2.java">supporting code</a>.</li>
+
+   <li>January 2016 <a href="pcpp-20160111.pdf">exam questions</a> and <a href="pcpp-20160111-code.zip">supporting code</a>.</li>
+
+   <li>January 2017 <a href="pcpp-20170110.pdf">exam questions</a> and <a href="pcpp-20170110-code.zip">supporting code</a>.</li>
+
+   <li>January 2018 <a href="pcpp-20181218.pdf">exam questions</a> and <a href="pcpp-20181218.zip">supporting code</a>.</li>
+
+   <li>The <a href="http://www.itu.dk/people/sestoft/itu/PCPP/E2015/">public course home page for 2015</a></li>
+
+   <li>The <a href="http://www.itu.dk/people/sestoft/itu/PCPP/E2016/">public course home page for 2016</a></li>
+
+   <li>The <a href="
+   http://www.itu.dk/people/rikj/PCPP2017/
+">public course home page for 2017</a></li>
+   <li>The <a href="
+   http://www.itu.dk/people/rikj/PCPP2018/
+">public course home page for 2018</a></li>
+</ul>
+         </div>
+      </div>
+
+
+
+   </body>
+</html>

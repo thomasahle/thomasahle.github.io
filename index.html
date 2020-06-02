@@ -76,22 +76,23 @@
                         onclick="dataLayer.push({'event': 'download_p1_arxiv'});"
                         >arxiv</a>)
                </div>
-               <div class='abstract'>A Locality-Sensitive Hash (LSH) function is called (r,cr,p₁,p₂)-sensitive, if two data-points with a distance less than r collide with probability at least p₁ while data points with a distance greater than cr collide with probability at most p₂.
+               <div class='abstract'><p>A Locality-Sensitive Hash (LSH) function is called (r,cr,p₁,p₂)-sensitive, if two data-points with a distance less than r collide with probability at least p₁ while data points with a distance greater than cr collide with probability at most p₂.
 These functions form the basis of the successful Indyk-Motwani algorithm (STOC 1998) for nearest neighbour problems.
 In particular one may build a c-approximate nearest neighbour data structure with query time O(n<sup>ρ</sup>/p₁) where ρ = (log 1/p₁)/(log 1/p₂) ∈ (0,1).
 That is, <em>sub-linear time</em>, as long as p₁ is not too small.
 This is significant since most high dimensional nearest neighbour problems suffer from the curse of dimensionality, and can't be solved <em>exact</em>, faster than a brute force <em>linear-time</em> scan of the database.
-
+</p><p>
 Unfortunately, the best LSH functions tend to have very low collision probabilities, p₁ and p₂.
 Including the best functions for Cosine and Jaccard Similarity.
 This means that the n<sup>ρ</sup>/p₁ query time of <em>LSH is often not sub-linear after all</em>, even for approximate nearest neighbours!
-
+</p><p>
 In this paper, we improve the general Indyk-Motwani algorithm to reduce the query time of LSH to O(n<sup>ρ</sup>/p₁<sup>1-ρ</sup>) (and the space usage correspondingly.)
 Since  n<sup>ρ</sup>/p₁<sup>1-ρ</sup> < n ⇔ p₁ > 1/n,
 our algorithm always obtains sublinear query time, for any collision probabilities at least  1/n.
 For  p₁  and  p₂  small enough, our improvement over all previous methods can be <em>up to a factor  n </em> in both query time and space.
-
+</p><p>
 The improvement comes from a simple change to the Indyk-Motwani algorithm, which can easily be implemented in existing software packages.
+</p>
 </div>
             </li><li class="toggle-item" id='paper-supermajority'>
                <div class='shown'>TA —
@@ -108,21 +109,28 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
                         onclick="dataLayer.push({'event': 'download_supermajority_blog post'});"
                         >blog post</a>)
                </div>
-               <div class='abstract'>We formulate and optimally solve a new generalized Set Similarity Search problem,
+               <div class='abstract'><p>
+We formulate and optimally solve a new generalized Set Similarity Search problem,
 which assumes the size of the database and query sets are known in advance.
 By creating polylog copies of our data-structure, we optimally solve any symmetric Approximate Set Similarity Search problem, including approximate versions of Subset Search, Maximum Inner Product Search (MIPS), Jaccard Similarity Search and Partial Match.
+</p>
 
+<p>
 Our algorithm can be seen as a natural generalization of previous work on Set as well as Euclidean Similarity Search, but conceptually it differs by optimally exploiting the information present in the sets as well as their complements, and doing so asymmetrically between queries and stored sets.
 Doing so we improve upon the best previous work:
 MinHash [J. Discrete Algorithms 1998], SimHash [STOC 2002], Spherical LSF
 [SODA 2016, 2017] and Chosen Path [STOC 2017] by as much as a factor n<sup>.14</sup> in both time and space; or in the near-constant time regime, in space, by an arbitrarily large polynomial factor.
+</p>
 
+<p>
 Turning the geometric concept, based on Boolean supermajority functions, into a practical algorithm requires ideas from branching random walks on Z<sup>2</sup>, for which we give the first non-asymptotic near tight analysis.
+</p>
 
+<p>
 Our lower bounds follow from new hypercontractive arguments, which can be seen as characterizing the exact family of similarity search problems for which supermajorities are optimal.
 The optimality holds for among all hashing based data structures in the random setting, and by reductions, for 1 cell and 2 cell probe data structures.
 As a side effect, we obtain new hypercontractive bounds on the directed noise operator.
-
+</p>
 </div>
             </li><li class="toggle-item" id='paper-tensorsketch-joint'>
                <div class='shown'>TA, <a href='https://theory.epfl.ch/kapralov/'>M Kapralov</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a>, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a>, <a href='http://www.cs.cmu.edu/~avelingk/'>A Velingker</a>, <a href='http://www.cs.cmu.edu/~dwoodruf/'>D Woodruff</a>, <a href='https://people.epfl.ch/amir.zandieh'>A Zandieh</a> —
@@ -135,8 +143,11 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                         onclick="dataLayer.push({'event': 'download_tensorsketch-joint_arxiv'});"
                         >arxiv</a>)
                </div>
-               <div class='abstract'>Kernel methods are fundamental tools in machine learning that allow detection of non-linear dependencies between data without explicitly constructing feature vectors in high dimensional spaces. A major disadvantage of kernel methods is their poor scalability: primitives such as kernel PCA or kernel ridge regression generally take prohibitively large quadratic space and (at least) quadratic time, as kernel matrices are usually dense. Some methods for speeding up kernel linear algebra are known, but they all invariably take time exponential in either the dimension of the input point set (e.g., fast multipole methods suffer from the curse of dimensionality) or in the degree of the kernel function.
+               <div class='abstract'><p>
+Kernel methods are fundamental tools in machine learning that allow detection of non-linear dependencies between data without explicitly constructing feature vectors in high dimensional spaces. A major disadvantage of kernel methods is their poor scalability: primitives such as kernel PCA or kernel ridge regression generally take prohibitively large quadratic space and (at least) quadratic time, as kernel matrices are usually dense. Some methods for speeding up kernel linear algebra are known, but they all invariably take time exponential in either the dimension of the input point set (e.g., fast multipole methods suffer from the curse of dimensionality) or in the degree of the kernel function.
+</p><p>
 Oblivious sketching has emerged as a powerful approach to speeding up numerical linear algebra over the past decade, but our understanding of oblivious sketching solutions for kernel matrices has remained quite limited, suffering from the aforementioned exponential dependence on input parameters. Our main contribution is a general method for applying sketching solutions developed in numerical linear algebra over the past decade to a tensoring of data points without forming the tensoring explicitly. This leads to the first oblivious sketch for the polynomial kernel with a target dimension that is only polynomially dependent on the degree of the kernel function, as well as the first oblivious sketch for the Gaussian kernel on bounded datasets that does not suffer from an exponential dependence on the dimensionality of input data points.
+</p>
 </div>
             </li><li class="toggle-item" id='paper-lasvegas'>
                <div class='shown'>TA —
@@ -151,13 +162,17 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
                         onclick="dataLayer.push({'event': 'download_lasvegas_slides'});"
                         >slides</a>)
                </div>
-               <div class='abstract'>We show that approximate similarity (near neighbour) search can be solved in high dimensions with performance matching state of the art (data independent) Locality Sensitive Hashing, but with a guarantee of no false negatives.
+               <div class='abstract'><p>
+We show that approximate similarity (near neighbour) search can be solved in high dimensions with performance matching state of the art (data independent) Locality Sensitive Hashing, but with a guarantee of no false negatives.
 Specifically we give two data structures for common problems.
 For c-approximate near neighbour in Hamming space, for which we get query time dn<sup>1/c+o(1)</sup> and space dn<sup>1+1/c+o(1)</sup> matching that of [Indyk and Motwani, 1998] and answering a long standing open question from [Indyk, 2000a] and [Pagh, 2016] in the affirmative.
 For (s<sub>1</sub>,s<sub>2</sub>)-approximate Jaccard similarity we get query time d<sup>2</sup>n<sup>ρ+o(1)</sup> and space d<sup>2</sup>n<sup>1+ρ+o(1)</sup>, ρ = <sup>log(1+s<sub>1</sub>)/(2s<sub>1</sub>)</sup>&frasl;<sub>log(1+s<sub>2</sub>)/(2s<sub>2</sub>)</sub>, when sets have equal size, matching the performance of [Pagh and Christiani, 2017].
+</p>
 
+<p>
 We use space partitions as in classic LSH, but construct these using a combination of brute force, tensoring and splitter functions à la [Naor et al., 1995].
 We also show two dimensionality reduction lemmas with 1-sided error.
+</p>
 </div>
             </li><li class="toggle-item" id='paper-output-sensitive'>
                <div class='shown'>TA, <a href='http://itu.dk/people/maau/'>M Aumüller</a>, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a> —
@@ -172,8 +187,12 @@ We also show two dimensionality reduction lemmas with 1-sided error.
                         onclick="dataLayer.push({'event': 'download_output-sensitive_slides'});"
                         >slides</a>)
                </div>
-               <div class='abstract'>We present a data structure for <i>spherical range reporting</i> on a point set S, i.e., reporting all points in S that lie within radius r of a given query point q. Our solution builds upon the Locality-Sensitive Hashing (LSH) framework of Indyk and Motwani, which represents the asymptotically best solutions to near neighbor problems in high dimensions. While traditional LSH data structures have several parameters whose optimal values depend on the distance distribution from q to the points of S, our data structure is parameter-free, except for the space usage, which is configurable by the user. Nevertheless, its expected query time basically matches that of an LSH data structure whose parameters have been <i>optimally chosen for the data and query</i> in question under the given space constraints. In particular, our data structure provides a smooth trade-off between hard queries (typically addressed by standard LSH) and easy queries such as those where the number of points to report is a constant fraction of S, or where almost all points in S are far away from the query point. In contrast, known data structures fix LSH parameters based on certain parameters of the input alone.
-<br/>The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the number of points to report and ρ∈(0,1) depends on the data distribution and the strength of the LSH family used. We further present a parameter-free way of using multi-probing, for LSH families that support it, and show that for many such families this approach allows us to get expected query time close to O(n^ρ+t), which is the best we can hope to achieve using LSH. The previously best running time in high dimensions was Ω(tn^ρ). For many data distributions where the intrinsic dimensionality of the point set close to q is low, we can give improved upper bounds on the expected query time.
+               <div class='abstract'><p>
+We present a data structure for <i>spherical range reporting</i> on a point set S, i.e., reporting all points in S that lie within radius r of a given query point q. Our solution builds upon the Locality-Sensitive Hashing (LSH) framework of Indyk and Motwani, which represents the asymptotically best solutions to near neighbor problems in high dimensions. While traditional LSH data structures have several parameters whose optimal values depend on the distance distribution from q to the points of S, our data structure is parameter-free, except for the space usage, which is configurable by the user. Nevertheless, its expected query time basically matches that of an LSH data structure whose parameters have been <i>optimally chosen for the data and query</i> in question under the given space constraints. In particular, our data structure provides a smooth trade-off between hard queries (typically addressed by standard LSH) and easy queries such as those where the number of points to report is a constant fraction of S, or where almost all points in S are far away from the query point. In contrast, known data structures fix LSH parameters based on certain parameters of the input alone.
+</p>
+<p>
+The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the number of points to report and ρ∈(0,1) depends on the data distribution and the strength of the LSH family used. We further present a parameter-free way of using multi-probing, for LSH families that support it, and show that for many such families this approach allows us to get expected query time close to O(n^ρ+t), which is the best we can hope to achieve using LSH. The previously best running time in high dimensions was Ω(tn^ρ). For many data distributions where the intrinsic dimensionality of the point set close to q is low, we can give improved upper bounds on the expected query time.
+</p>
 </div>
             </li><li class="toggle-item" id='paper-mips'>
                <div class='shown'>TA, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a>, <a href='http://www.ilyaraz.org/'>I Razenshteyn</a>, <a href='http://www.dei.unipd.it/~silvestri/'>F Silvestri</a> —
@@ -188,11 +207,15 @@ We also show two dimensionality reduction lemmas with 1-sided error.
                         onclick="dataLayer.push({'event': 'download_mips_slides'});"
                         >slides</a>)
                </div>
-               <div class='abstract'>A number of tasks in classification, information retrieval, recommendation systems, and record linkage reduce to the core problem of inner product similarity join (IPS join): identifying pairs of vectors in a collection that have a sufficiently large inner product. IPS join is well understood when vectors are normalized and some approximation of inner products is allowed. However, the general case where vectors may have any length appears much more challenging. Recently, new upper bounds based on asymmetric locality-sensitive hashing (ALSH) and asymmetric embeddings have emerged, but little has been known on the lower bound side. In this paper we initiate a systematic study of inner product similarity join, showing new lower and upper bounds. Our main results are: 
-<br/>* Approximation hardness of IPS join in subquadratic time, assuming the strong exponential time hypothesis. 
+               <div class='abstract'><p>
+A number of tasks in classification, information retrieval, recommendation systems, and record linkage reduce to the core problem of inner product similarity join (IPS join): identifying pairs of vectors in a collection that have a sufficiently large inner product. IPS join is well understood when vectors are normalized and some approximation of inner products is allowed. However, the general case where vectors may have any length appears much more challenging. Recently, new upper bounds based on asymmetric locality-sensitive hashing (ALSH) and asymmetric embeddings have emerged, but little has been known on the lower bound side. In this paper we initiate a systematic study of inner product similarity join, showing new lower and upper bounds. Our main results are: 
+<br/>
+* Approximation hardness of IPS join in subquadratic time, assuming the strong exponential time hypothesis. 
 <br/>* New upper and lower bounds for (A)LSH-based algorithms. In particular, we show that asymmetry can be avoided by relaxing the LSH definition to only consider the collision probability of distinct elements. 
 <br/>* A new indexing method for IPS based on linear sketches, implying that our hardness results are not far from being tight. 
-<br/>Our technical contributions include new asymmetric embeddings that may be of independent interest. At the conceptual level we strive to provide greater clarity, for example by distinguishing among signed and unsigned variants of IPS join and shedding new light on the effect of asymmetry.
+</p>
+<p>Our technical contributions include new asymmetric embeddings that may be of independent interest. At the conceptual level we strive to provide greater clarity, for example by distinguishing among signed and unsigned variants of IPS join and shedding new light on the effect of asymmetry.
+</P
 </div>
             </li></ul>
       
