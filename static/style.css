@@ -3,7 +3,7 @@ body {
   font-size: 14px;
   padding: 1rem .33rem;
   line-height: 1.42rem;
-  max-width: 42rem;
+  max-width: 90ch;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -40,18 +40,18 @@ dd {
    font-style: italic;
    margin-left: 2em;
 }
-.publications li {
+.toggle-item {
    border: 1px solid rgba(0,0,0,.1);
-   box-shadow: 0px 1px 2px 0px rgba(0,0,0,.05);
+   box-shadow: 0px 3px 2px -2px rgba(0,0,0,.05);
    border-radius: 2px;
    margin-bottom: 10px;
    background: #fdfdfd;
 }
-.publications li:hover {
+.toggle-item:hover {
    box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);
    background: white;
 }
-.publications li:active {
+.toggle-item:active {
    background: #fafafa;
 }
 .shown {
@@ -60,7 +60,25 @@ dd {
 .abstract {
    border-top: 1px solid rgba(0,0,0,.1);
    padding: 5px 10px;
-   display: none;
+   position: relative;
+   font-family: 'Latin Modern', serif;
+   text-align: justify;
+}
+.abstract:not(.open) {
+   max-height:3ch;
+   line-height: 1;
+   overflow:hidden;
+   font-size: small;
+   font-style: italic;
+}
+.abstract:not(.open)::before {
+   content: "Abstract: ";
+}
+.abstract:not(.open)::after {
+   content: " ";
+   position: absolute;
+   left: 0; right: 0; top: 0; bottom: 0;
+   background: linear-gradient(180deg, rgba(255,255,255,0) 20%, rgba(255,255,255,1) 100%);
 }
 #side li {
   display: block;

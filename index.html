@@ -90,8 +90,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       
          <h2>Publications</h2>
-         <ul class="publications"><li>
-               <div class='shown' id='paper-p1'>TA —
+         <ul class="publications"><li class="toggle-item" id='paper-p1'>
+               <div class='shown'>TA —
                   2020<br />
                   <strong>On the Problem of p₁⁻¹ in Locality-Sensitive Hashing</strong>.
                   Submitted,
@@ -118,8 +118,8 @@ For  p₁  and  p₂  small enough, our improvement over all previous methods ca
 
 The improvement comes from a simple change to the Indyk-Motwani algorithm, which can easily be implemented in existing software packages.
 </div>
-            </li><li>
-               <div class='shown' id='paper-supermajority'>TA —
+            </li><li class="toggle-item" id='paper-supermajority'>
+               <div class='shown'>TA —
                   2019<br />
                   <strong>Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search</strong>.
                   Submitted,
@@ -140,17 +140,17 @@ By creating polylog copies of our data-structure, we optimally solve any symmetr
 Our algorithm can be seen as a natural generalization of previous work on Set as well as Euclidean Similarity Search, but conceptually it differs by optimally exploiting the information present in the sets as well as their complements, and doing so asymmetrically between queries and stored sets.
 Doing so we improve upon the best previous work:
 MinHash [J. Discrete Algorithms 1998], SimHash [STOC 2002], Spherical LSF
-[SODA 2016, 2017] and Chosen Path [STOC 2017] by as much as a factor n^{.14} in both time and space; or in the near-constant time regime, in space, by an arbitrarily large polynomial factor.
+[SODA 2016, 2017] and Chosen Path [STOC 2017] by as much as a factor n<sup>.14</sup> in both time and space; or in the near-constant time regime, in space, by an arbitrarily large polynomial factor.
 
-Turning the geometric concept, based on Boolean supermajority functions, into a practical algorithm requires ideas from branching random walks on Z^2, for which we give the first non-asymptotic near tight analysis.
+Turning the geometric concept, based on Boolean supermajority functions, into a practical algorithm requires ideas from branching random walks on Z<sup>2</sup>, for which we give the first non-asymptotic near tight analysis.
 
 Our lower bounds follow from new hypercontractive arguments, which can be seen as characterizing the exact family of similarity search problems for which supermajorities are optimal.
 The optimality holds for among all hashing based data structures in the random setting, and by reductions, for 1 cell and 2 cell probe data structures.
 As a side effect, we obtain new hypercontractive bounds on the directed noise operator.
 
 </div>
-            </li><li>
-               <div class='shown' id='paper-tensorsketch-joint'>TA, <a href='https://theory.epfl.ch/kapralov/'>M Kapralov</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a>, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a>, <a href='http://www.cs.cmu.edu/~avelingk/'>A Velingker</a>, <a href='http://www.cs.cmu.edu/~dwoodruf/'>D Woodruff</a>, <a href='https://people.epfl.ch/amir.zandieh'>A Zandieh</a> —
+            </li><li class="toggle-item" id='paper-tensorsketch-joint'>
+               <div class='shown'>TA, <a href='https://theory.epfl.ch/kapralov/'>M Kapralov</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a>, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a>, <a href='http://www.cs.cmu.edu/~avelingk/'>A Velingker</a>, <a href='http://www.cs.cmu.edu/~dwoodruf/'>D Woodruff</a>, <a href='https://people.epfl.ch/amir.zandieh'>A Zandieh</a> —
                   2019<br />
                   <strong>Oblivious Sketching of High-Degree Polynomial Kernels</strong>.
                   ACM-SIAM Symposium on Discrete Algorithms,
@@ -163,8 +163,8 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                <div class='abstract'>Kernel methods are fundamental tools in machine learning that allow detection of non-linear dependencies between data without explicitly constructing feature vectors in high dimensional spaces. A major disadvantage of kernel methods is their poor scalability: primitives such as kernel PCA or kernel ridge regression generally take prohibitively large quadratic space and (at least) quadratic time, as kernel matrices are usually dense. Some methods for speeding up kernel linear algebra are known, but they all invariably take time exponential in either the dimension of the input point set (e.g., fast multipole methods suffer from the curse of dimensionality) or in the degree of the kernel function.
 Oblivious sketching has emerged as a powerful approach to speeding up numerical linear algebra over the past decade, but our understanding of oblivious sketching solutions for kernel matrices has remained quite limited, suffering from the aforementioned exponential dependence on input parameters. Our main contribution is a general method for applying sketching solutions developed in numerical linear algebra over the past decade to a tensoring of data points without forming the tensoring explicitly. This leads to the first oblivious sketch for the polynomial kernel with a target dimension that is only polynomially dependent on the degree of the kernel function, as well as the first oblivious sketch for the Gaussian kernel on bounded datasets that does not suffer from an exponential dependence on the dimensionality of input data points.
 </div>
-            </li><li>
-               <div class='shown' id='paper-lasvegas'>TA —
+            </li><li class="toggle-item" id='paper-lasvegas'>
+               <div class='shown'>TA —
                   2017, <span class="comment">Updated Jun 2018</span><br />
                   <strong>Optimal Las Vegas Locality Sensitive Data Structures</strong>.
                   IEEE Symposium on Foundations of Computer Science,
@@ -178,14 +178,14 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
                </div>
                <div class='abstract'>We show that approximate similarity (near neighbour) search can be solved in high dimensions with performance matching state of the art (data independent) Locality Sensitive Hashing, but with a guarantee of no false negatives.
 Specifically we give two data structures for common problems.
-For c-approximate near neighbour in Hamming space, for which we get query time dn^{1/c+o(1)} and space dn^{1+1/c+o(1)} matching that of [Indyk and Motwani, 1998] and answering a long standing open question from [Indyk, 2000a] and [Pagh, 2016] in the affirmative.
-For $(s1,s2)$-approximate Jaccard similarity we get query time d^2n^{ρ+o(1)} and space d^2n^{1+ρ+o(1)}, ρ= [log (1+s1)/(2s1)]/[log (1+s2)/(2s2)], when sets have equal size, matching the performance of [Pagh and Christiani, 2017].
+For c-approximate near neighbour in Hamming space, for which we get query time dn<sup>1/c+o(1)</sup> and space dn<sup>1+1/c+o(1)</sup> matching that of [Indyk and Motwani, 1998] and answering a long standing open question from [Indyk, 2000a] and [Pagh, 2016] in the affirmative.
+For (s<sub>1</sub>,s<sub>2</sub>)-approximate Jaccard similarity we get query time d<sup>2</sup>n<sup>ρ+o(1)</sup> and space d<sup>2</sup>n<sup>1+ρ+o(1)</sup>, ρ = <sup>log(1+s<sub>1</sub>)/(2s<sub>1</sub>)</sup>&frasl;<sub>log(1+s<sub>2</sub>)/(2s<sub>2</sub>)</sub>, when sets have equal size, matching the performance of [Pagh and Christiani, 2017].
 
 We use space partitions as in classic LSH, but construct these using a combination of brute force, tensoring and splitter functions à la [Naor et al., 1995].
 We also show two dimensionality reduction lemmas with 1-sided error.
 </div>
-            </li><li>
-               <div class='shown' id='paper-output-sensitive'>TA, <a href='http://itu.dk/people/maau/'>M Aumüller</a>, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a> —
+            </li><li class="toggle-item" id='paper-output-sensitive'>
+               <div class='shown'>TA, <a href='http://itu.dk/people/maau/'>M Aumüller</a>, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a> —
                   2017<br />
                   <strong>Parameter-free Locality Sensitive Hashing for Spherical Range Reporting</strong>.
                   ACM-SIAM Symposium on Discrete Algorithms,
@@ -200,8 +200,8 @@ We also show two dimensionality reduction lemmas with 1-sided error.
                <div class='abstract'>We present a data structure for <i>spherical range reporting</i> on a point set S, i.e., reporting all points in S that lie within radius r of a given query point q. Our solution builds upon the Locality-Sensitive Hashing (LSH) framework of Indyk and Motwani, which represents the asymptotically best solutions to near neighbor problems in high dimensions. While traditional LSH data structures have several parameters whose optimal values depend on the distance distribution from q to the points of S, our data structure is parameter-free, except for the space usage, which is configurable by the user. Nevertheless, its expected query time basically matches that of an LSH data structure whose parameters have been <i>optimally chosen for the data and query</i> in question under the given space constraints. In particular, our data structure provides a smooth trade-off between hard queries (typically addressed by standard LSH) and easy queries such as those where the number of points to report is a constant fraction of S, or where almost all points in S are far away from the query point. In contrast, known data structures fix LSH parameters based on certain parameters of the input alone.
 <br/>The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the number of points to report and ρ∈(0,1) depends on the data distribution and the strength of the LSH family used. We further present a parameter-free way of using multi-probing, for LSH families that support it, and show that for many such families this approach allows us to get expected query time close to O(n^ρ+t), which is the best we can hope to achieve using LSH. The previously best running time in high dimensions was Ω(tn^ρ). For many data distributions where the intrinsic dimensionality of the point set close to q is low, we can give improved upper bounds on the expected query time.
 </div>
-            </li><li>
-               <div class='shown' id='paper-mips'>TA, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a>, <a href='http://www.ilyaraz.org/'>I Razenshteyn</a>, <a href='http://www.dei.unipd.it/~silvestri/'>F Silvestri</a> —
+            </li><li class="toggle-item" id='paper-mips'>
+               <div class='shown'>TA, <a href='https://www.itu.dk/people/pagh/'>R Pagh</a>, <a href='http://www.ilyaraz.org/'>I Razenshteyn</a>, <a href='http://www.dei.unipd.it/~silvestri/'>F Silvestri</a> —
                   2016<br />
                   <strong>On the Complexity of Inner Product Similarity Join</strong>.
                   ACM Symposium on Principles of Database Systems,
@@ -222,8 +222,8 @@ We also show two dimensionality reduction lemmas with 1-sided error.
             </li></ul>
       
          <h2>Manuscripts</h2>
-         <ul class="publications"><li>
-               <div class='shown' id='paper-tensorsketch2'>TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a> —
+         <ul class="publications"><li class="toggle-item" id='paper-tensorsketch2'>
+               <div class='shown'>TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>J Knudsen</a> —
                   2019<br />
                   <strong>Almost Optimal Tensor Sketch</strong>.
                   Not Published,
@@ -247,8 +247,8 @@ Technically, we construct our matrix  M  such that  M(x ⊗ y) = Tx ∘ T'y  whe
 To analyze the behavior of  Mx  on non-simple  x , we show a higher order version of Khintchine's inequality, related to the higher order Gaussian chaos analysis by Latała.
 Finally we show that such sketches can be combined recursively, in a way that doesn't increase the dependency on  c  by much.
 </div>
-            </li><li>
-               <div class='shown' id='paper-verification'>TA —
+            </li><li class="toggle-item" id='paper-verification'>
+               <div class='shown'>TA —
                   2017<br />
                   <strong>It is NP-hard to verify an LSF on the sphere</strong>.
                   Not Published,
@@ -257,8 +257,8 @@ Finally we show that such sketches can be combined recursively, in a way that do
                         >pdf</a>)
                </div>
                <div class='abstract'>We show a reduction from verifying that an LSF family `covers` the sphere, in the sense of Las Vegas LSF, to 3-sat.</div>
-            </li><li>
-               <div class='shown' id='paper-minhash'>TA —
+            </li><li class="toggle-item" id='paper-minhash'>
+               <div class='shown'>TA —
                   2017, <span class="comment">Master thesis</span><br />
                   <strong>Minhash without false negatives</strong>.
                   Not Published,
@@ -285,8 +285,8 @@ We further show that careful constructions of such designs can be efficiently de
 We also investigate upper and lower bounds on combinatorial analogues of the minhash algorithm.
 This is related to the existence of small, approximate minwise hashing families under  l_∞  distance.
 </div>
-            </li><li>
-               <div class='shown' id='paper-tails'>TA —
+            </li><li class="toggle-item" id='paper-tails'>
+               <div class='shown'>TA —
                   2017<br />
                   <strong>Asymptotic Tail Bounds and Applications</strong>.
                   Not Published,
@@ -305,8 +305,8 @@ I will use the formulas to answer whether algorithms exists for the following pr
       
 
       <h2>Teaching</h2>
-      <ul class="publications"><li>
-            <div class='shown' id='teaching-pcpp-2019'>
+      <ul class="publications"><li class="toggle-item" id='teaching-pcpp-2019'>
+            <div class='shown'>
                   2019
                   <strong>Practical Concurrent and Parallel Programming</strong>. (pcpp)
                   <br />
