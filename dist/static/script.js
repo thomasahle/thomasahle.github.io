@@ -1,19 +1,16 @@
 window.onload = function () {
-   for (var div of document.querySelectorAll('.shown')) {
+   for (let div of document.querySelectorAll('.toggle-item')) {
       div.onclick = function() {
           dataLayer.push({'event': 'toggle_'+div.id});
-          this.__toggle = !this.__toggle;
-          var target = this.parentNode.querySelector('.abstract');
-          if (this.__toggle) {
-              target.style.display = 'block';
-          } else {
-               target.style.display = 'none';
-          }
+          this
+            .querySelector('.abstract')
+            .classList.toggle('open');
       }
    }
-   var img = document.getElementById('me');
+   let img = document.getElementById('me');
    img.onmouseover = function() {
      img.setAttribute('src', 'static/water.jpg');
+     dataLayer.push({'event': 'hover_me'});
    }
    img.onmouseout = function() {
      img.setAttribute('src', 'static/potrait.jpg');
