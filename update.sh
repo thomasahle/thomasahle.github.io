@@ -16,6 +16,7 @@ cp -r blog dist
 cp compiled/*.html dist
 cp compiled/*.pdf dist
 cp compiled/blog/*.html dist/blog
+cp -r compiled/teaching dist/teaching
 
 rm -rf compiled
 
