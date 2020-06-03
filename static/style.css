@@ -1,8 +1,8 @@
 body {
   font-family: Arsenal, Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 1.1rem;
   padding: 1rem .33rem;
-  line-height: 1.32rem;
+  line-height: 1.4;
   max-width: 90ch;
   margin-left: auto;
   margin-right: auto;
@@ -15,6 +15,10 @@ body {
 }
 h1 {
    flex: 1 100%;
+}
+h2, h3 {
+   margin-bottom: 0;
+   line-height: 1;
 }
 #main {
    flex: 2.618 16rem;
@@ -63,14 +67,14 @@ dd {
    position: relative;
    font-family: 'Latin Modern Roman', 'Latin Modern', Garamond, serif;
    text-align: justify;
-   line-height: 1.1;
+   line-height: 1.15;
 }
 .abstract:not(.open) {
    max-height:10ch;
    line-height: 1;
    overflow:hidden;
-   font-size: small;
    font-style: italic;
+   font-size: 1rem;
 }
 .abstract:not(.open)::before {
    /*content: "Abstract: ";*/
