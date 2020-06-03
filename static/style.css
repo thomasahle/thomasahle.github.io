@@ -2,7 +2,7 @@ body {
   font-family: Arsenal, Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
   font-size: 14px;
   padding: 1rem .33rem;
-  line-height: 1.42rem;
+  line-height: 1.32rem;
   max-width: 90ch;
   margin-left: auto;
   margin-right: auto;
@@ -61,28 +61,29 @@ dd {
    border-top: 1px solid rgba(0,0,0,.1);
    padding: 5px 10px;
    position: relative;
-   font-family: 'Latin Modern', serif;
+   font-family: 'Latin Modern Roman', 'Latin Modern', Garamond, serif;
    text-align: justify;
    line-height: 1.1;
 }
 .abstract:not(.open) {
-   max-height:3ch;
+   max-height:10ch;
    line-height: 1;
    overflow:hidden;
    font-size: small;
    font-style: italic;
 }
 .abstract:not(.open)::before {
-   content: "Abstract: ";
+   /*content: "Abstract: ";*/
 }
 .abstract:not(.open) p {
    display: inline;
+   color: #333;
 }
 .abstract:not(.open)::after {
    content: " ";
    position: absolute;
    left: 0; right: 0; top: 0; bottom: 0;
-   background: linear-gradient(180deg, rgba(255,255,255,0) 20%, rgba(255,255,255,1) 100%);
+   background: linear-gradient(180deg, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%);
 }
 #side li {
   display: block;
