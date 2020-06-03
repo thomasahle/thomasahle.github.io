@@ -77,13 +77,15 @@ dd {
 }
 .abstract:not(.open) p {
    display: inline;
+}
+.abstract:not(.open) {
    color: #333;
 }
 .abstract:not(.open)::after {
    content: " ";
    position: absolute;
    left: 0; right: 0; top: 0; bottom: 0;
-   background: linear-gradient(180deg, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%);
+   background: linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 100%);
 }
 #side li {
   display: block;
