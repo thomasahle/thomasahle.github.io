@@ -1,6 +1,6 @@
 body {
   font-family: Arsenal, Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 1rem .33rem;
   line-height: 1.4;
   max-width: 90ch;
@@ -70,26 +70,38 @@ dd {
    line-height: 1.15;
 }
 .abstract:not(.open) {
-   max-height:10ch;
+   max-height:15ch;
    line-height: 1;
    overflow:hidden;
    font-style: italic;
-   font-size: 1rem;
+   font-size: .85rem;
 }
-.abstract:not(.open)::before {
-   /*content: "Abstract: ";*/
-}
-.abstract:not(.open) p {
-   display: inline;
+.abstract:not(.open):before {
+   position: absolute;
+   content: "View Abstract ⌵";
+   font-style: normal;
+   cursor: pointer;
+   bottom: 0; right: 0;
+   z-index: 1;
+   background: white;
+   padding: 8px 10px 10px 10px;
+   font-family: Arsenal, Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
 }
 .abstract:not(.open) {
-   color: #333;
+   color: #222;
 }
-.abstract:not(.open)::after {
+.abstract:not(.open):after {
    content: " ";
    position: absolute;
    left: 0; right: 0; top: 0; bottom: 0;
-   background: linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 100%);
+   background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
+}
+.abstract:not(.open)::after:after {
+   content: "View Abstract";
+   color: black;
+   position: absolute;
+   left: 0; right: 0; top: 0; bottom: 0;
+   background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
 }
 #side li {
   display: block;
@@ -99,7 +111,7 @@ dd {
 }
 img {
    width: 100%;
-   max-width: 10rem;
+   max-width: 13rem;
 }
 p {
    margin: 0;
@@ -121,4 +133,10 @@ a {
 }
 .comment {
    font-style: italic;
+}
+@media only screen and (max-width: 500px) {
+  .toggle-item {
+     margin-left: -1rem;
+     margin-right: -1rem;
+  }
 }
