@@ -74,6 +74,9 @@ dd {
 .shown .files {
    float: right;
 }
+.files, .year, .authors {
+   font-size: 90%;
+}
 /*
 .shown .files:before {
    content:'[';
@@ -85,7 +88,6 @@ dd {
    orphans: 3;
    hyphens: none;
    widows: 3;
-   font-size: 105%;
 }
 .abstract {
    border-top: 1px solid rgba(0,0,0,.1);
