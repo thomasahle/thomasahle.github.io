@@ -67,17 +67,22 @@
          <h2>Publications</h2>
          <ul class="publications"><li class="toggle-item" id='paper-p1'>
                <div class='shown'>
-                  2020
-                  —
-                  TA<br />
-                  <strong>On the Problem of p₁⁻¹ in Locality-Sensitive Hashing</strong>.
-                  <br />
-                     Submitted,
+                  <span class='year'>
+                  
+                  2020</span>
+                  <span class='files'>
                   (<a href='papers/p1.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_p1_pdf'});"
                         >pdf</a>, <a href='https://arxiv.org/abs/2005.12065'
                         onclick="gtag('event', 'download', {'event_label': 'download_p1_arxiv'});"
                         >arxiv</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>On the Problem of p₁⁻¹ in Locality-Sensitive Hashing</strong>
+                  <br />
+
+                  TA
                </div>
                <div class='abstract'><p>A Locality-Sensitive Hash (LSH) function is called (r,cr,p₁,p₂)-sensitive, if two data-points with a distance less than r collide with probability at least p₁ while data points with a distance greater than cr collide with probability at most p₂.
 These functions form the basis of the successful Indyk-Motwani algorithm (STOC 1998) for nearest neighbour problems.
@@ -99,14 +104,10 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
 </div>
             </li><li class="toggle-item" id='paper-supermajority'>
                <div class='shown'>
-                  2019
-                  —
-                  TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
-                           >J Knudsen</a><br />
-                  <strong>Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search</strong>.
-                  <br />
-                     Submitted,
+                  <span class='year'>
+                  
+                  2019</span>
+                  <span class='files'>
                   (<a href='papers/supermajority.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_supermajority_pdf'});"
                         >pdf</a>, <a href='http://arxiv.org/abs/1904.04045'
@@ -116,6 +117,15 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
                         >slides</a>, <a href='https://thomasahle.com/blog/sets.html'
                         onclick="gtag('event', 'download', {'event_label': 'download_supermajority_blog post'});"
                         >blog post</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>Subsets and Supermajorities: <br/>Optimal Hashing-based Set Similarity Search</strong>
+                  <br />
+
+                  TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
+                           >J Knudsen</a>
                </div>
                <div class='abstract'><p>
 We formulate and optimally solve a new generalized Set Similarity Search problem,
@@ -141,10 +151,23 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
 </p>
 </div>
             </li><li class="toggle-item" id='paper-tensorsketch-joint'>
-               <div class='shown'>SODA
+               <div class='shown'>
+                  <span class='year'>
+                  SODA
                   
-                  2019
-                  —
+                  2019</span>
+                  <span class='files'>
+                  (<a href='papers/tensorsketch-joint.pdf'
+                        onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch-joint_pdf'});"
+                        >pdf</a>, <a href='https://arxiv.org/abs/1909.01410v3'
+                        onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch-joint_arxiv'});"
+                        >arxiv</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>Oblivious Sketching of High-Degree Polynomial Kernels</strong>
+                  <br />
+
                   TA, <a href='https://theory.epfl.ch/kapralov/'
                            onclick="gtag('event', 'coauthor', {'event_label': 'M Kapralov'});"
                            >Kapralov</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
@@ -157,15 +180,7 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                            onclick="gtag('event', 'coauthor', {'event_label': 'D Woodruff'});"
                            >Woodruff</a>, <a href='https://people.epfl.ch/amir.zandieh'
                            onclick="gtag('event', 'coauthor', {'event_label': 'A Zandieh'});"
-                           >Zandieh</a><br />
-                  <strong>Oblivious Sketching of High-Degree Polynomial Kernels</strong>.
-                  <br />
-                     ACM-SIAM Symposium on Discrete Algorithms,
-                  (<a href='papers/tensorsketch-joint.pdf'
-                        onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch-joint_pdf'});"
-                        >pdf</a>, <a href='https://arxiv.org/abs/1909.01410v3'
-                        onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch-joint_arxiv'});"
-                        >arxiv</a>)
+                           >Zandieh</a>
                </div>
                <div class='abstract'><p>
 Kernel methods are fundamental tools in machine learning that allow detection of non-linear dependencies between data without explicitly constructing feature vectors in high dimensional spaces. A major disadvantage of kernel methods is their poor scalability: primitives such as kernel PCA or kernel ridge regression generally take prohibitively large quadratic space and (at least) quadratic time, as kernel matrices are usually dense. Some methods for speeding up kernel linear algebra are known, but they all invariably take time exponential in either the dimension of the input point set (e.g., fast multipole methods suffer from the curse of dimensionality) or in the degree of the kernel function.
@@ -174,14 +189,14 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
 </p>
 </div>
             </li><li class="toggle-item" id='paper-lasvegas'>
-               <div class='shown'>FOCS
+               <div class='shown'>
+                  <span class='year'>
+                  FOCS
                   
                   2017
-                  —
-                  TA, <span class="comment">Updated Jun 2018</span><br />
-                  <strong>Optimal Las Vegas Locality Sensitive Data Structures</strong>.
-                  <br />
-                     IEEE Symposium on Foundations of Computer Science,
+                     —
+                     <span class="comment">Updated Jun 2018</span></span>
+                  <span class='files'>
                   (<a href='papers/lasvegas.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_lasvegas_pdf'});"
                         >pdf</a>, <a href='http://arxiv.org/abs/1704.02054'
@@ -189,6 +204,13 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
                         >arxiv</a>, <a href='https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit'
                         onclick="gtag('event', 'download', {'event_label': 'download_lasvegas_slides'});"
                         >slides</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>Optimal Las Vegas Locality Sensitive Data Structures</strong>
+                  <br />
+
+                  TA
                </div>
                <div class='abstract'><p>
 We show that approximate similarity (near neighbour) search can be solved in high dimensions with performance matching state of the art (data independent) Locality Sensitive Hashing, but with a guarantee of no false negatives.
@@ -203,18 +225,12 @@ We also show two dimensionality reduction lemmas with 1-sided error.
 </p>
 </div>
             </li><li class="toggle-item" id='paper-output-sensitive'>
-               <div class='shown'>SODA
+               <div class='shown'>
+                  <span class='year'>
+                  SODA
                   
-                  2017
-                  —
-                  TA, <a href='http://itu.dk/people/maau/'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'M Aumüller'});"
-                           >M Aumüller</a>, <a href='https://www.itu.dk/people/pagh/'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
-                           >R Pagh</a><br />
-                  <strong>Parameter-free Locality Sensitive Hashing for Spherical Range Reporting</strong>.
-                  <br />
-                     ACM-SIAM Symposium on Discrete Algorithms,
+                  2017</span>
+                  <span class='files'>
                   (<a href='papers/output-sensitive-lsh-for-knn.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_output-sensitive_pdf'});"
                         >pdf</a>, <a href='http://arxiv.org/abs/1605.02673'
@@ -222,6 +238,17 @@ We also show two dimensionality reduction lemmas with 1-sided error.
                         >arxiv</a>, <a href='https://docs.google.com/presentation/d/1UOFCN1Eujr4sCQdYqdwn_8D8pNCJHEyzw9Yd_BW6bh4'
                         onclick="gtag('event', 'download', {'event_label': 'download_output-sensitive_slides'});"
                         >slides</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>Parameter-free Locality Sensitive Hashing for Spherical Range Reporting</strong>
+                  <br />
+
+                  TA, <a href='http://itu.dk/people/maau/'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'M Aumüller'});"
+                           >M Aumüller</a>, <a href='https://www.itu.dk/people/pagh/'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
+                           >R Pagh</a>
                </div>
                <div class='abstract'><p>
 We present a data structure for <i>spherical range reporting</i> on a point set S, i.e., reporting all points in S that lie within radius r of a given query point q. Our solution builds upon the Locality-Sensitive Hashing (LSH) framework of Indyk and Motwani, which represents the asymptotically best solutions to near neighbor problems in high dimensions. While traditional LSH data structures have several parameters whose optimal values depend on the distance distribution from q to the points of S, our data structure is parameter-free, except for the space usage, which is configurable by the user. Nevertheless, its expected query time basically matches that of an LSH data structure whose parameters have been <i>optimally chosen for the data and query</i> in question under the given space constraints. In particular, our data structure provides a smooth trade-off between hard queries (typically addressed by standard LSH) and easy queries such as those where the number of points to report is a constant fraction of S, or where almost all points in S are far away from the query point. In contrast, known data structures fix LSH parameters based on certain parameters of the input alone.
@@ -231,20 +258,12 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
 </p>
 </div>
             </li><li class="toggle-item" id='paper-mips'>
-               <div class='shown'>PODS
+               <div class='shown'>
+                  <span class='year'>
+                  PODS
                   
-                  2016
-                  —
-                  TA, <a href='https://www.itu.dk/people/pagh/'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
-                           >R Pagh</a>, <a href='http://www.ilyaraz.org/'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'I Razenshteyn'});"
-                           >I Razenshteyn</a>, <a href='http://www.dei.unipd.it/~silvestri/'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'F Silvestri'});"
-                           >F Silvestri</a><br />
-                  <strong>On the Complexity of Inner Product Similarity Join</strong>.
-                  <br />
-                     ACM Symposium on Principles of Database Systems,
+                  2016</span>
+                  <span class='files'>
                   (<a href='papers/mips.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_mips_pdf'});"
                         >pdf</a>, <a href='http://arxiv.org/abs/1510.02824'
@@ -252,6 +271,19 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
                         >arxiv</a>, <a href='https://docs.google.com/presentation/d/1y_BZ5Ctyn67Vam8rWzrskMkrkc-yIelCQsFLz1g4_bM'
                         onclick="gtag('event', 'download', {'event_label': 'download_mips_slides'});"
                         >slides</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>On the Complexity of Inner Product Similarity Join</strong>
+                  <br />
+
+                  TA, <a href='https://www.itu.dk/people/pagh/'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
+                           >R Pagh</a>, <a href='http://www.ilyaraz.org/'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'I Razenshteyn'});"
+                           >I Razenshteyn</a>, <a href='http://www.dei.unipd.it/~silvestri/'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'F Silvestri'});"
+                           >F Silvestri</a>
                </div>
                <div class='abstract'><p>
 A number of tasks in classification, information retrieval, recommendation systems, and record linkage reduce to the core problem of inner product similarity join (IPS join): identifying pairs of vectors in a collection that have a sufficiently large inner product. IPS join is well understood when vectors are normalized and some approximation of inner products is allowed. However, the general case where vectors may have any length appears much more challenging. Recently, new upper bounds based on asymmetric locality-sensitive hashing (ALSH) and asymmetric embeddings have emerged, but little has been known on the lower bound side. In this paper we initiate a systematic study of inner product similarity join, showing new lower and upper bounds. Our main results are: 
@@ -268,18 +300,24 @@ A number of tasks in classification, information retrieval, recommendation syste
          <h2>Manuscripts</h2>
          <ul class="publications"><li class="toggle-item" id='paper-tensorsketch2'>
                <div class='shown'>
-                  2019
-                  —
-                  TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
-                           >J Knudsen</a><br />
-                  <strong>Almost Optimal Tensor Sketch</strong>.
+                  <span class='year'>
                   
+                  2019</span>
+                  <span class='files'>
                   (<a href='https://arxiv.org/abs/1909.01821'
                         onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch2_arxiv'});"
                         >arxiv</a>, <a href='papers/tensorsketch2.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch2_pdf'});"
                         >pdf</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>Almost Optimal Tensor Sketch</strong>
+                  <br />
+
+                  TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
+                           >J Knudsen</a>
                </div>
                <div class='abstract'>We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form  x = x<sup>(1)</sup> ⊗ ... ⊗ x<sup>(c)</sup> ∈ ℝ<sup>dᶜ</sup>  in time nearly c⋅d.
 That is, exponentially faster than writing out the Kronecker product and then mapping down.
@@ -297,28 +335,42 @@ Finally we show that such sketches can be combined recursively, in a way that do
 </div>
             </li><li class="toggle-item" id='paper-verification'>
                <div class='shown'>
-                  2017
-                  —
-                  TA<br />
-                  <strong>It is NP-hard to verify an LSF on the sphere</strong>.
+                  <span class='year'>
                   
+                  2017</span>
+                  <span class='files'>
                   (<a href='papers/verification.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_verification_pdf'});"
                         >pdf</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>It is NP-hard to verify an LSF on the sphere</strong>
+                  <br />
+
+                  TA
                </div>
                <div class='abstract'>We show a reduction from verifying that an LSF family `covers` the sphere, in the sense of Las Vegas LSF, to 3-sat.</div>
             </li><li class="toggle-item" id='paper-minhash'>
                <div class='shown'>
-                  2017
-                  —
-                  TA, <span class="comment">Master thesis</span><br />
-                  <strong>Minhash without false negatives</strong>.
+                  <span class='year'>
                   
+                  2017
+                     —
+                     <span class="comment">Master thesis</span></span>
+                  <span class='files'>
                   (<a href='papers/minhash.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_minhash_pdf'});"
                         >pdf</a>, <a href='https://docs.google.com/presentation/d/1oT-L5EON7ZCVScuYRoMzVHxf7x2Y6cig8deQXMmpP0I/edit?usp=sharing'
                         onclick="gtag('event', 'download', {'event_label': 'download_minhash_slides'});"
                         >slides</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>Minhash without false negatives</strong>
+                  <br />
+
+                  TA
                </div>
                <div class='abstract'>We consider efficient combinatorial constructions, that allow us to partly derandomize data-structures using the locality sensitive framework of Indyk and Motwani (FOCS '98).
 In particular our constructions allow us to make Zero-Error Probabilistic Polynomial Time (ZPP) analogues of two state of the art algorithms for `Approximate Set Similarity':
@@ -339,14 +391,20 @@ This is related to the existence of small, approximate minwise hashing families 
 </div>
             </li><li class="toggle-item" id='paper-tails'>
                <div class='shown'>
-                  2017
-                  —
-                  TA<br />
-                  <strong>Asymptotic Tail Bounds and Applications</strong>.
+                  <span class='year'>
                   
+                  2017</span>
+                  <span class='files'>
                   (<a href='papers/tails.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_tails_pdf'});"
                         >pdf</a>)
+                  </span>
+
+                  <br style='clear:both' />
+                  <strong class='title'>Asymptotic Tail Bounds and Applications</strong>
+                  <br />
+
+                  TA
                </div>
                <div class='abstract'>In the field of Computer Science, the Chernoff bound is an extremely useful found bounding the error probabilities of various algorithms. Chernoff gives an exponentially decaying upper bound on the probability that a sum of independent random variables is many standard deviations away from its expectation.
 However sometimes we need more than an upper bound, and we need bounds that are tight within a constant factor or better. (There is a fairly standard tail lower bound, but it deviates
@@ -362,9 +420,10 @@ I will use the formulas to answer whether algorithms exists for the following pr
       <ul class="publications"><li class="toggle-item" id='teaching-pcpp-2019'>
             <div class='shown'>
                   2019
-                  <strong>Practical Concurrent and Parallel Programming</strong>. (pcpp)
                   <br />
-                  <a href='teaching/pcpp2019'>Files and schedule</a>.
+                  <strong>Practical Concurrent and Parallel Programming</strong>
+                  <br />
+                  <a href='teaching/pcpp2019'>Files and schedule</a>
             </div>
             <div class='abstract'>In this MSc course you learn how to write correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware. The course covers basic mechanisms such as threads, locks and shared memory as well as more advanced mechanisms such as parallel streams for bulk data, transactional memory, message passing, and lock-free data structures with compare-and-swap. It covers concepts such as atomicity, safety, liveness and deadlock. It covers how to measure and understand performance and scalability of parallel programs. It covers methods to find bugs in concurrent programs.</div>
          </li></ul>
