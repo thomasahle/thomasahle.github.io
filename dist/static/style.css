@@ -74,10 +74,18 @@ dd {
 .shown .files {
    float: right;
 }
+/*
+.shown .files:before {
+   content:'[';
+}
+.shown .files:after {
+   content:']';
+}*/
 .shown .title {
    orphans: 3;
    hyphens: none;
    widows: 3;
+   font-size: 105%;
 }
 .abstract {
    border-top: 1px solid rgba(0,0,0,.1);
