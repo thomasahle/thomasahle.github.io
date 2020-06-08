@@ -1,11 +1,13 @@
 :root {
    --border-radius: 4px;
-   --fonts: Arsenal, Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
+   --fonts: Lato, Helvetica Neue, Helvetica, 'Open Sans Condensed', sans-serif;
+   /*--fonts: 'Open Sans Condensed', sans-serif;*/
 }
 body {
-  font-family: Arsenal, Helvetica Neue, Helvetica, 'Open Sans Condensed', Arial, sans-serif;
+  font-family: sans-serif;
   font-family: var(--fonts);
   font-size: 1rem;
+  font-weight: 350;
   padding: 1rem .33rem;
   line-height: 1.4;
   max-width: 90ch;
@@ -24,6 +26,9 @@ h1 {
 h2, h3 {
    margin-bottom: 0;
    line-height: 1;
+}
+h1, h2, h3 {
+   font-weight: 500;
 }
 #main {
    flex: 2.618 16rem;
@@ -55,14 +60,16 @@ dd {
    border-radius: 2px;
    border-radius: var(--border-radius);
    margin-bottom: 10px;
-   background: #fdfdfd;
+   /*background: #fdfdfd;*/
+   background: white;
+   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.1);
 }
 .toggle-item:hover {
-   box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);
-   background: white;
+   /*box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);*/
 }
 .toggle-item:active {
    background: #fafafa;
+   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.2);
 }
 .shown {
    padding: 8px 6%;
@@ -85,15 +92,17 @@ dd {
    content:']';
 }*/
 .shown .title {
-   orphans: 3;
    hyphens: none;
-   widows: 3;
+   margin-top: 2rem;
+   display: block;
+   font-weight: 400;
+   clear: both;
 }
 .abstract {
-   border-top: 1px solid rgba(0,0,0,.1);
-   padding: 10px 6% 10px 6%;
+   /*border-top: 1px solid rgba(0,0,0,.1);*/
+   padding: 0px 6% 10px 6%;
    position: relative;
-   font-family: 'Latin Modern Roman', 'Latin Modern', Garamond, serif;
+   font-family: 'Latin Modern Roman', 'Latin Modern', Cardo, Garamond, serif;
    text-align: justify;
    line-height: 1.15;
 }
@@ -106,16 +115,15 @@ dd {
    }
 }
 .abstract:not(.open) {
-   padding-top: 6px;
+   /*padding-top: 6px;*/
    max-height: 14ch;
-   line-height: 1;
+   line-height: 1.1;
    overflow:hidden;
    font-style: italic;
    font-size: .85rem;
 }
-.abstract:not(.open):before {
+.abstract:before {
    position: absolute;
-   content: "View Abstract ⌵";
    font-style: normal;
    cursor: pointer;
    color: black;
@@ -125,6 +133,17 @@ dd {
    padding: 8px 10px 10px 10px;
    font-family: var(--fonts);
    border-radius: var(--border-radius);
+   font-size: .85rem;
+}
+.abstract:not(.open):before {
+   content: "View Abstract ⌵";
+}
+.abstract.open {
+   padding-bottom: 20px;
+}
+.abstract.open:before {
+   margin-top:10px;
+   content: "Hide Abstract ⌃";
 }
 .abstract:not(.open) {
    color: #222;
