@@ -2,8 +2,6 @@
   <title>{{me.name}}</title>
 </head>
 <body>
-   {% include 'static/analyticstracking.html' %}
-   {% include 'static/tagmanager_body.html' %}
    <h1>{{me.name}}</h1>
    <div id='main'>
       <p>
@@ -44,29 +42,55 @@
          <h2>{{type}}</h2>
          <ul class="publications">
          {%- for paper in articles -%}
-            <li>
-               <div class='shown' id='paper-{{paper.tag}}'>
-                  {%- for a in paper.authors -%}
+            <li class="toggle-item" id='paper-{{paper.tag}}'>
+               <a name="{{paper.tag}}"></a>
+               <div class='shown'>
+                  <span class='year'>
+                  {#
+                  {% if paper.conference != '' -%}
+                     {{conferences[paper.conference].name}},
+                  {%- endif %}
+                  #}
+                  {%- if paper.conference not in ('subm', 'arxiv', '') -%}
+                     {{paper.conference.upper()}}
+                  {% endif %}
+                  {{paper.year}}
+                  {%- if paper.comment %}
+                     —
+                     <span class="comment">{{paper.comment}}</span>
+                  {%- endif -%}
+                  </span>
+                  <span class='files'>
+                  {%- for f in paper.files -%}
+                     [<a href='{{f.href}}'
+                        onclick="gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});"
+                        >{{f.format}}</a>]
+                     {%- if not loop.last %}  {% endif -%}
+                  {%- endfor -%}
+                  </span>
+
+                  {#<br style='clear:both' />#}
+                  <span class='title'>{{paper.title}}</span>
+                  {#<br />#}
+
+                  <span class='authors'>
+                  {% for a in paper.authors -%}
                      {%- if authors[a] != me -%}
-                        <a href='{{authors[a].href}}'>{{authors[a].abrv}}</a>
+                        <a href='{{authors[a].href}}'
+                           onclick="gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});"
+                           >
+                           {%- if paper.authors |length < 5 -%}
+                              {{authors[a].abrv}}
+                           {%- else -%}
+                              {{authors[a].abrv.split()[-1]}}
+                           {%- endif -%}
+                        </a>
                      {%- else -%}
                         {{me.abrv}}
                      {%- endif -%}
                      {%- if not loop.last -%}, {% endif -%}
-                  {%- endfor %} —
-                  {{paper.year}}
-                  {%- if paper.comment -%}
-                     , <span class="comment">{{paper.comment}}</span>
-                  {%- endif -%}
-                  <br />
-                  <strong>{{paper.title}}</strong>.
-                  {{conferences[paper.conference].name}},
-                  ({%- for f in paper.files -%}
-                     <a href='{{f.href}}'
-                        onclick="dataLayer.push({'event': 'download_{{paper.tag}}_{{f.format}}'});"
-                        >{{f.format}}</a>
-                     {%- if not loop.last -%} , {% endif -%}
-                  {%- endfor -%})
+                  {%- endfor %}
+                  </span>
                </div>
                <div class='abstract'>{{paper.abstract}}</div>
             </li>
@@ -77,12 +101,13 @@
       <h2>Teaching</h2>
       <ul class="publications">
       {%- for t in teachings -%}
-         <li>
-            <div class='shown' id='teaching-{{t.abrv}}-{{t.year}}'>
+         <li class="toggle-item" id='teaching-{{t.abrv}}-{{t.year}}'>
+            <div class='shown'>
                   {{t.year}}
-                  <strong>{{t.name}}</strong>. ({{t.abrv}})
                   <br />
-                  <a href='{{t.href}}'>Files and schedule</a>.
+                  <strong>{{t.name}}</strong>
+                  <br />
+                  <a href='{{t.href}}'>Files and schedule</a>
             </div>
             <div class='abstract'>{{t.description}}</div>
          </li>

@@ -68,12 +68,12 @@ class Vars:
             ]),
         Paper(
             'supermajority',
-            'Subsets and Supermajorities: Optimal Hashing-based Set Similarity Search',
-            ['thdy'],
+            'Subsets and Supermajorities: <br/>Optimal Hashing-based Set Similarity Search',
+            ['thdy', 'jbtk'],
             open('abstracts/supermajority').read(),
             2019,
             'subm',
-            '',
+            'Updated Apr 2020',
             files=[
                 File('pdf', 'papers/supermajority.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1904.04045'),
@@ -85,9 +85,9 @@ class Vars:
             'Oblivious Sketching of High-Degree Polynomial Kernels',
             ['thdy', 'mika', 'jbtk','pagh','amve','dawo','amza'],
             open('abstracts/tensorsketch-joint').read(),
-            2019,
+            2020,
             'soda',
-            '',
+            'Merged from "Almost Optimal Tensor Sketch"',
             files=[
                 File('pdf', 'papers/tensorsketch-joint.pdf'),
                 File('arxiv', 'https://arxiv.org/abs/1909.01410v3')

@@ -1,8 +1,8 @@
-We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form x = x^(1) ⊗ ... ⊗ x^(c) ∈ ℝ^(dᶜ)$ in time nearly c⋅d.
+We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form  x = x<sup>(1)</sup> ⊗ ... ⊗ x<sup>(c)</sup> ∈ ℝ<sup>dᶜ</sup>  in time nearly c⋅d.
 That is, exponentially faster than writing out the Kronecker product and then mapping down.
 
-These matrices, M, which preserves the norm of any x ∈ ℝ^(d^c), such that | ||Mx||₂ - ||x||₂ | < ε with probability  1-δ , can be taken to have just  Õ(c² ε⁻² (log1/δ)³)  rows.
-This is within c² (\log1/δ)²  of optimal for any JL matrix [Larsen & Nelson], and improves upon earlier 'Tensor Sketch' constructions by Pagh and Pham, which used  Õ(3ᶜ ε⁻² δ⁻¹)  rows, by an exponential amount in both  c  and  δ⁻² .
+These matrices, M, which preserves the norm of any x ∈ ℝ<sup>dᶜ</sup>, such that  |‖Mx‖₂ - ‖x‖₂| < ε  with probability  1-δ , can be taken to have just  Õ(c² ε⁻² (log1/δ)³)  rows.
+This is within  c² (log 1/δ)²  of optimal for any JL matrix [Larsen & Nelson], and improves upon earlier 'Tensor Sketch' constructions by Pagh and Pham, which used  Õ(3ᶜ ε⁻² δ⁻¹)  rows, by an exponential amount in both  c  and  δ⁻² .
 
 It was shown by Avron, Nguyen and Woodruff that Tensor Sketch is a subspace embedding.
 This has a large number of applications, such as guaranteeing the correctness of kernel-linear regression performed directly on the reduced vectors.

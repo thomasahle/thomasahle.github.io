@@ -1,7 +1,11 @@
+<p>
 We show that approximate similarity (near neighbour) search can be solved in high dimensions with performance matching state of the art (data independent) Locality Sensitive Hashing, but with a guarantee of no false negatives.
 Specifically we give two data structures for common problems.
-For c-approximate near neighbour in Hamming space, for which we get query time dn^{1/c+o(1)} and space dn^{1+1/c+o(1)} matching that of [Indyk and Motwani, 1998] and answering a long standing open question from [Indyk, 2000a] and [Pagh, 2016] in the affirmative.
-For $(s1,s2)$-approximate Jaccard similarity we get query time d^2n^{ρ+o(1)} and space d^2n^{1+ρ+o(1)}, ρ= [log (1+s1)/(2s1)]/[log (1+s2)/(2s2)], when sets have equal size, matching the performance of [Pagh and Christiani, 2017].
+For c-approximate near neighbour in Hamming space, for which we get query time dn<sup>1/c+o(1)</sup> and space dn<sup>1+1/c+o(1)</sup> matching that of [Indyk and Motwani, 1998] and answering a long standing open question from [Indyk, 2000a] and [Pagh, 2016] in the affirmative.
+For (s<sub>1</sub>,s<sub>2</sub>)-approximate Jaccard similarity we get query time d<sup>2</sup>n<sup>ρ+o(1)</sup> and space d<sup>2</sup>n<sup>1+ρ+o(1)</sup>, ρ = <sup>log(1+s<sub>1</sub>)/(2s<sub>1</sub>)</sup>&frasl;<sub>log(1+s<sub>2</sub>)/(2s<sub>2</sub>)</sub>, when sets have equal size, matching the performance of [Pagh and Christiani, 2017].
+</p>
 
+<p>
 We use space partitions as in classic LSH, but construct these using a combination of brute force, tensoring and splitter functions à la [Naor et al., 1995].
 We also show two dimensionality reduction lemmas with 1-sided error.
+</p>
