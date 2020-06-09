@@ -18,6 +18,8 @@ body {
   background: #fcfcfc;
 
   hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
   text-rendering: optimizeLegibility;
 }
 h1 {
@@ -105,14 +107,6 @@ dd {
    font-family: 'Latin Modern Roman', 'Latin Modern', Cardo, Garamond, serif;
    text-align: justify;
    line-height: 1.15;
-}
-@media only screen and (max-width: 500px) {
-  /*.abstract {
-     padding: 10px 10px 10px 10px;
-  }
-   .shown {
-      padding: 8px 10px;
-   }*/
 }
 .abstract:not(.open) {
    /*padding-top: 6px;*/
