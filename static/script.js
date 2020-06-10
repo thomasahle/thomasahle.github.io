@@ -9,10 +9,10 @@ window.onload = function () {
    let img = document.getElementById('me');
    img.onmouseover = function() {
      img.setAttribute('src', '/static/water.jpg');
-     gtag('event', 'hover_me', {'value': true});
+     gtag('event', 'hover_me', {'event_label': 'on'});
    }
    img.onmouseout = function() {
      img.setAttribute('src', '/static/potrait.jpg');
-     gtag('event', 'hover_me', {'value': false});
+     gtag('event', 'hover_me', {'event_label': 'off'});
    }
 }
