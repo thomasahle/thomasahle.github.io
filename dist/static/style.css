@@ -1,13 +1,12 @@
 :root {
    --border-radius: 4px;
-   --fonts: Lato, Helvetica Neue, Helvetica, 'Open Sans Condensed', sans-serif;
-   /*--fonts: 'Open Sans Condensed', sans-serif;*/
+   --fonts: Lato, Helvetica Neue, sans-serif;
 }
 body {
   font-family: sans-serif;
   font-family: var(--fonts);
   font-size: 1rem;
-  font-weight: 350;
+  font-weight: 300;
   padding: 1rem .33rem;
   line-height: 1.4;
   width: 100%;
