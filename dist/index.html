@@ -2,15 +2,208 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin>
+
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-32x32.png" sizes="32x32"/>
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/android-chrome-192x192.png" sizes="192x192" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500|Cardo:400,400i" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css">
+
+  
+  <style type="text/css">:root {
+   --border-radius: 4px;
+   --fonts: Lato, Helvetica Neue, Helvetica, 'Open Sans Condensed', sans-serif;
+   /*--fonts: 'Open Sans Condensed', sans-serif;*/
+}
+body {
+  font-family: sans-serif;
+  font-family: var(--fonts);
+  font-size: 1rem;
+  font-weight: 350;
+  padding: 1rem .33rem;
+  line-height: 1.4;
+  max-width: 90ch;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: row wrap;
+  background: #fcfcfc;
+
+  hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  text-rendering: optimizeLegibility;
+}
+h1 {
+   flex: 1 100%;
+}
+h2, h3 {
+   margin-bottom: 0;
+   line-height: 1;
+}
+h1, h2, h3 {
+   font-weight: 500;
+}
+#main {
+   flex: 2.618 16rem;
+}
+#main p:first-child {
+   margin-top: 0;
+}
+#side {
+   flex: 1 7rem;
+}
+h1 {
+  margin-left: .66rem;
+  margin-right: .67rem;
+}
+#main, #side {
+  margin: 0 .66rem 2rem .67rem;
+}
+ul {
+   list-style-type: none;
+   padding: 0;
+}
+dd {
+   font-style: italic;
+   margin-left: 2em;
+}
+.toggle-item {
+   border: 1px solid rgba(0,0,0,.1);
+   /*box-shadow: 0px 3px 2px -2px rgba(0,0,0,.05);*/
+   border-radius: 2px;
+   border-radius: var(--border-radius);
+   margin-bottom: 10px;
+   /*background: #fdfdfd;*/
+   background: white;
+   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.1);
+}
+.toggle-item:hover {
+   /*box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);*/
+}
+.toggle-item:active {
+   background: #fafafa;
+   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.2);
+}
+.shown {
+   padding: 8px 6%;
+   text-align: center;
+}
+.shown .year {
+   float: left;
+}
+.shown .files {
+   float: right;
+}
+.files, .year, .authors {
+   font-size: 90%;
+}
+/*
+.shown .files:before {
+   content:'[';
+}
+.shown .files:after {
+   content:']';
+}*/
+.shown .title {
+   hyphens: none;
+   margin-top: 2rem;
+   display: block;
+   font-weight: 400;
+   clear: both;
+}
+.abstract {
+   /*border-top: 1px solid rgba(0,0,0,.1);*/
+   padding: 0px 6% 10px 6%;
+   position: relative;
+   font-family: 'Latin Modern Roman', 'Latin Modern', Cardo, Garamond, serif;
+   text-align: justify;
+   line-height: 1.15;
+}
+.abstract:not(.open) {
+   /*padding-top: 6px;*/
+   max-height: 14ch;
+   line-height: 1.1;
+   overflow:hidden;
+   font-style: italic;
+   font-size: .85rem;
+}
+.abstract:before {
+   position: absolute;
+   font-style: normal;
+   cursor: pointer;
+   color: black;
+   bottom: 0; right: 0;
+   z-index: 1;
+   background: white;
+   padding: 8px 10px 8px 10px;
+   font-family: var(--fonts);
+   border-radius: var(--border-radius);
+   font-size: .85rem;
+}
+.abstract:not(.open):before {
+   content: "View Abstract ⌵";
+}
+.abstract.open {
+   padding-bottom: 20px;
+}
+.abstract.open:before {
+   margin-top:10px;
+   content: "Hide Abstract ⌃";
+}
+.abstract:not(.open) {
+   color: #222;
+}
+.abstract:not(.open):after {
+   content: " ";
+   position: absolute;
+   left: 0; right: 0; top: 0; bottom: 0;
+   background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
+   border-radius: var(--border-radius);
+}
+#side li {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+img {
+   width: 100%;
+   max-width: 13rem;
+}
+p {
+   margin: 0;
+   text-indent: 1em;
+   text-align: justify;
+}
+p:first-child {
+   text-indent: 0;
+}
+sup {
+vertical-align: top; font-size: 0.7em; }
+a {
+   text-decoration-skip:ink;
+   -webkit-text-decoration-skip:ink;
+   -moz-text-decoration-skip:ink;
+   text-decoration-color: #aad;
+   -webkit-text-decoration-color: #aad;
+   -moz-text-decoration-color: #aad;
+}
+.comment {
+   font-style: italic;
+}
+@media only screen and (max-width: 500px) {
+  .toggle-item {
+     margin-left: -1rem;
+     margin-right: -1rem;
+  }
+}</style>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
 <script>
@@ -24,7 +217,26 @@
     //'anonymize_ip': true
   });
 </script>
-  <script src="/static/script.js"></script>
+   
+  
+  <script type="application/javascript">window.onload = function () {
+   for (let div of document.querySelectorAll('.toggle-item')) {
+      div.onclick = function() {
+          gtag('event', 'toggle', {'event_label': div.id});
+         // Other options: event_category, event_label, value (numeric)
+          this.querySelector('.abstract').classList.toggle('open');
+      }
+   }
+   let img = document.getElementById('me');
+   img.onmouseover = function() {
+     img.setAttribute('src', '/static/water.jpg');
+     gtag('event', 'hover_me', {'value': true});
+   }
+   img.onmouseout = function() {
+     img.setAttribute('src', '/static/potrait.jpg');
+     gtag('event', 'hover_me', {'value': false});
+   }
+}</script>
 
   <title>Thomas Dybdahl Ahle</title>
 </head>

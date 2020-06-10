@@ -8,11 +8,11 @@ window.onload = function () {
    }
    let img = document.getElementById('me');
    img.onmouseover = function() {
-     img.setAttribute('src', 'static/water.jpg');
+     img.setAttribute('src', '/static/water.jpg');
      gtag('event', 'hover_me', {'value': true});
    }
    img.onmouseout = function() {
-     img.setAttribute('src', 'static/potrait.jpg');
+     img.setAttribute('src', '/static/potrait.jpg');
      gtag('event', 'hover_me', {'value': false});
    }
 }
