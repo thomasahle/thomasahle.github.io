@@ -156,8 +156,10 @@ dd {
   text-overflow: ellipsis;
 }
 img {
-   width: 100%;
-   max-width: 13rem;
+   width: 26.18vw;
+   height: 26.18vw;
+   max-width: 12rem;
+   max-height: 12rem;
 }
 p {
    margin: 0;
@@ -168,7 +170,9 @@ p:first-child {
    text-indent: 0;
 }
 sup {
-vertical-align: top; font-size: 0.7em; }
+   vertical-align: top;
+   font-size: 0.7em;
+}
 a {
    text-decoration-skip:ink;
    -webkit-text-decoration-skip:ink;
@@ -184,5 +188,9 @@ a {
   .toggle-item {
      margin-left: -1rem;
      margin-right: -1rem;
+  }
+  #me {
+     width: 13rem;
+     height: 13rem;
   }
 }
