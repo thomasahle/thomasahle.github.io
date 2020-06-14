@@ -128,8 +128,7 @@ dd {
    text-align: justify;
    line-height: 1.15;
 }
-.abstract:not(.open) {
-   /*padding-top: 6px;*/
+.toggle-item:not(.open) .abstract {
    max-height: 14ch;
    line-height: 1.1;
    overflow:hidden;
@@ -149,20 +148,20 @@ dd {
    border-radius: var(--border-radius);
    font-size: .85rem;
 }
-.abstract:not(.open):before {
+.toggle-item:not(.open) .abstract:before {
    content: "View Abstract ⌵";
 }
-.abstract.open {
+.abstract:taget{
    padding-bottom: 20px;
 }
-.abstract.open:before {
+.toggle-item.open .abstract:before {
    margin-top:10px;
    content: "Hide Abstract ⌃";
 }
-.abstract:not(.open) {
+.toggle-item:not(.open) .abstract {
    color: #222;
 }
-.abstract:not(.open):after {
+.toggle-item:not(.open) .abstract:after {
    content: " ";
    position: absolute;
    left: 0; right: 0; top: 0; bottom: 0;
@@ -230,13 +229,21 @@ a {
 </script>
    
   
-  <script type="application/javascript">window.onload = function () {
+  <script type="application/javascript">console.log(window.location.hash);
+window.onload = function () {
    for (let div of document.querySelectorAll('.toggle-item')) {
       div.onclick = function() {
+          // Other options: event_category, event_label, value (numeric)
           gtag('event', 'toggle', {'event_label': div.id});
-         // Other options: event_category, event_label, value (numeric)
-          this.querySelector('.abstract').classList.toggle('open');
+
+          this.classList.toggle('open');
+
+          window.history.replaceState(null, null, '#'+div.id);
+          // This jumps too much
+          //window.location.hash = '#'+div.id;
       }
+      if ('#'+div.id == window.location.hash)
+         div.classList.add('open');
    }
    let img = document.getElementById('me');
    img.onmouseover = function() {

@@ -128,8 +128,7 @@ dd {
    text-align: justify;
    line-height: 1.15;
 }
-.abstract:not(.open) {
-   /*padding-top: 6px;*/
+.toggle-item:not(.open) .abstract {
    max-height: 14ch;
    line-height: 1.1;
    overflow:hidden;
@@ -149,20 +148,20 @@ dd {
    border-radius: var(--border-radius);
    font-size: .85rem;
 }
-.abstract:not(.open):before {
+.toggle-item:not(.open) .abstract:before {
    content: "View Abstract ⌵";
 }
-.abstract.open {
+.abstract:taget{
    padding-bottom: 20px;
 }
-.abstract.open:before {
+.toggle-item.open .abstract:before {
    margin-top:10px;
    content: "Hide Abstract ⌃";
 }
-.abstract:not(.open) {
+.toggle-item:not(.open) .abstract {
    color: #222;
 }
-.abstract:not(.open):after {
+.toggle-item:not(.open) .abstract:after {
    content: " ";
    position: absolute;
    left: 0; right: 0; top: 0; bottom: 0;
@@ -230,13 +229,21 @@ a {
 </script>
    
   
-  <script type="application/javascript">window.onload = function () {
+  <script type="application/javascript">console.log(window.location.hash);
+window.onload = function () {
    for (let div of document.querySelectorAll('.toggle-item')) {
       div.onclick = function() {
+          // Other options: event_category, event_label, value (numeric)
           gtag('event', 'toggle', {'event_label': div.id});
-         // Other options: event_category, event_label, value (numeric)
-          this.querySelector('.abstract').classList.toggle('open');
+
+          this.classList.toggle('open');
+
+          window.history.replaceState(null, null, '#'+div.id);
+          // This jumps too much
+          //window.location.hash = '#'+div.id;
       }
+      if ('#'+div.id == window.location.hash)
+         div.classList.add('open');
    }
    let img = document.getElementById('me');
    img.onmouseover = function() {
@@ -309,7 +316,6 @@ a {
       
          <h2>Publications</h2>
          <ul class="publications"><li class="toggle-item" id='paper-p1'>
-               <a name="p1"></a>
                <div class='shown'>
                   <span class='year'>
                   
@@ -347,7 +353,6 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
 </p>
 </div>
             </li><li class="toggle-item" id='paper-supermajority'>
-               <a name="supermajority"></a>
                <div class='shown'>
                   <span class='year'>
                   
@@ -398,7 +403,6 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
 </p>
 </div>
             </li><li class="toggle-item" id='paper-tensorsketch-joint'>
-               <a name="tensorsketch-joint"></a>
                <div class='shown'>
                   <span class='year'>
                   SODA
@@ -439,7 +443,6 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
 </p>
 </div>
             </li><li class="toggle-item" id='paper-lasvegas'>
-               <a name="lasvegas"></a>
                <div class='shown'>
                   <span class='year'>
                   FOCS
@@ -476,7 +479,6 @@ We also show two dimensionality reduction lemmas with 1-sided error.
 </p>
 </div>
             </li><li class="toggle-item" id='paper-output-sensitive'>
-               <a name="output-sensitive"></a>
                <div class='shown'>
                   <span class='year'>
                   SODA
@@ -510,7 +512,6 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
 </p>
 </div>
             </li><li class="toggle-item" id='paper-mips'>
-               <a name="mips"></a>
                <div class='shown'>
                   <span class='year'>
                   PODS
@@ -552,7 +553,6 @@ A number of tasks in classification, information retrieval, recommendation syste
       
          <h2>Manuscripts</h2>
          <ul class="publications"><li class="toggle-item" id='paper-tensorsketch2'>
-               <a name="tensorsketch2"></a>
                <div class='shown'>
                   <span class='year'>
                   
@@ -588,7 +588,6 @@ To analyze the behavior of  Mx  on non-simple  x , we show a higher order versio
 Finally we show that such sketches can be combined recursively, in a way that doesn't increase the dependency on  c  by much.
 </div>
             </li><li class="toggle-item" id='paper-verification'>
-               <a name="verification"></a>
                <div class='shown'>
                   <span class='year'>
                   
@@ -607,7 +606,6 @@ Finally we show that such sketches can be combined recursively, in a way that do
                </div>
                <div class='abstract'>We show a reduction from verifying that an LSF family `covers` the sphere, in the sense of Las Vegas LSF, to 3-sat.</div>
             </li><li class="toggle-item" id='paper-minhash'>
-               <a name="minhash"></a>
                <div class='shown'>
                   <span class='year'>
                   
@@ -646,7 +644,6 @@ We also investigate upper and lower bounds on combinatorial analogues of the min
 This is related to the existence of small, approximate minwise hashing families under  l_∞  distance.
 </div>
             </li><li class="toggle-item" id='paper-tails'>
-               <a name="tails"></a>
                <div class='shown'>
                   <span class='year'>
                   
