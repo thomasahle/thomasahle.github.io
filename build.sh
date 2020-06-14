@@ -7,6 +7,7 @@ python3 render_html.py data templates/blog/index.html > compiled/blog/index.html
 echo "thomasahle.com" > compiled/CNAME
 
 cp -r teaching compiled
+cp -r static compiled
 python3 render_html.py pcpp_data templates/pcpp.html > compiled/teaching/pcpp2019/index.html
 
 python3 render_tex.py templates/cv.tex > compiled/cv.tex

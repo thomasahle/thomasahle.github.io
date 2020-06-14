@@ -1,16 +1,15 @@
 :root {
    --border-radius: 4px;
-   --fonts: Lato, Helvetica Neue, Helvetica, 'Open Sans Condensed', sans-serif;
-   /*--fonts: 'Open Sans Condensed', sans-serif;*/
+   --fonts: Lato, Helvetica Neue, sans-serif;
 }
 body {
   font-family: sans-serif;
   font-family: var(--fonts);
   font-size: 1rem;
-  font-weight: 350;
+  font-weight: 300;
   padding: 1rem .33rem;
   line-height: 1.4;
-  max-width: 90ch;
+  max-width: 50em;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -79,9 +78,11 @@ dd {
 }
 .shown .year {
    float: left;
+   text-align: left;
 }
 .shown .files {
    float: right;
+   text-align: right;
 }
 .files, .year, .authors {
    font-size: 90%;
@@ -108,8 +109,7 @@ dd {
    text-align: justify;
    line-height: 1.15;
 }
-.abstract:not(.open) {
-   /*padding-top: 6px;*/
+.toggle-item:not(.open) .abstract {
    max-height: 14ch;
    line-height: 1.1;
    overflow:hidden;
@@ -129,20 +129,20 @@ dd {
    border-radius: var(--border-radius);
    font-size: .85rem;
 }
-.abstract:not(.open):before {
+.toggle-item:not(.open) .abstract:before {
    content: "View Abstract ⌵";
 }
-.abstract.open {
+.abstract:taget{
    padding-bottom: 20px;
 }
-.abstract.open:before {
+.toggle-item.open .abstract:before {
    margin-top:10px;
    content: "Hide Abstract ⌃";
 }
-.abstract:not(.open) {
+.toggle-item:not(.open) .abstract {
    color: #222;
 }
-.abstract:not(.open):after {
+.toggle-item:not(.open) .abstract:after {
    content: " ";
    position: absolute;
    left: 0; right: 0; top: 0; bottom: 0;
@@ -156,8 +156,10 @@ dd {
   text-overflow: ellipsis;
 }
 img {
-   width: 100%;
-   max-width: 13rem;
+   width: 26.18vw;
+   height: 26.18vw;
+   max-width: 12rem;
+   max-height: 12rem;
 }
 p {
    margin: 0;
@@ -168,7 +170,9 @@ p:first-child {
    text-indent: 0;
 }
 sup {
-vertical-align: top; font-size: 0.7em; }
+   vertical-align: top;
+   font-size: 0.7em;
+}
 a {
    text-decoration-skip:ink;
    -webkit-text-decoration-skip:ink;
@@ -184,5 +188,9 @@ a {
   .toggle-item {
      margin-left: -1rem;
      margin-right: -1rem;
+  }
+  #me {
+     width: 13rem;
+     height: 13rem;
   }
 }

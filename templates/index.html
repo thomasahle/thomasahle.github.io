@@ -43,7 +43,6 @@
          <ul class="publications">
          {%- for paper in articles -%}
             <li class="toggle-item" id='paper-{{paper.tag}}'>
-               <a name="{{paper.tag}}"></a>
                <div class='shown'>
                   <span class='year'>
                   {#
@@ -148,7 +147,7 @@
 
    </div>
    <div id='side'>
-      <img src='{{me.photo}}' alt='A photo of me' id='me'/>
+      <img src='{{me.photo}}' alt='A photo of me' id='me' />
       <h3>Coauthors</h3>
       <ul>
       {%- for person in coauthors: -%}

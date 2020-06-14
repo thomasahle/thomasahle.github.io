@@ -56,7 +56,7 @@ class Vars:
     papers = [
         Paper(
             'p1',
-            'On the Problem of p₁⁻¹ in Locality-Sensitive Hashing',
+            'On the Problem of p₁⁻¹ in Locality‑Sensitive&nbsp;Hashing',
             ['thdy'],
             open('abstracts/p1').read(),
             2020,
@@ -68,7 +68,7 @@ class Vars:
             ]),
         Paper(
             'supermajority',
-            'Subsets and Supermajorities: <br/>Optimal Hashing-based Set Similarity Search',
+            'Subsets and Supermajorities: Optimal&nbsp;Hashing‑based&nbsp;Set&nbsp;Similarity&nbsp;Search',
             ['thdy', 'jbtk'],
             open('abstracts/supermajority').read(),
             2019,
@@ -82,19 +82,19 @@ class Vars:
             ]),
         Paper(
             'tensorsketch-joint',
-            'Oblivious Sketching of High-Degree Polynomial Kernels',
+            'Oblivious Sketching of High‑Degree&nbsp;Polynomial&nbsp;Kernels',
             ['thdy', 'mika', 'jbtk','pagh','amve','dawo','amza'],
             open('abstracts/tensorsketch-joint').read(),
             2020,
             'soda',
-            'Merged from "Almost Optimal Tensor Sketch"',
+            'Merged from "Almost Optimal Tensor&nbsp;Sketch"',
             files=[
                 File('pdf', 'papers/tensorsketch-joint.pdf'),
                 File('arxiv', 'https://arxiv.org/abs/1909.01410v3')
             ]),
         Paper(
             'lasvegas',
-            'Optimal Las Vegas Locality Sensitive Data Structures',
+            'Optimal Las Vegas Locality&nbsp;Sensitive&nbsp;Data&nbsp;Structures',
             ['thdy'],
             open('abstracts/lasvegas').read(),
             2017,
@@ -110,7 +110,7 @@ class Vars:
             ]),
         Paper(
             'output-sensitive',
-            'Parameter-free Locality Sensitive Hashing for Spherical Range Reporting',
+            'Parameter-free Locality‑Sensitive Hashing for Spherical&nbsp;Range&nbsp;Reporting',
             ['thdy', 'maau', 'pagh'],
             open('abstracts/output-sensitive-lsh-for-knn').read(),
             2017,
@@ -126,7 +126,7 @@ class Vars:
             ]),
         Paper(
             'mips',
-            'On the Complexity of Inner Product Similarity Join',
+            'On the Complexity of Inner&nbsp;Product&nbsp;Similarity&nbsp;Join',
             ['thdy', 'pagh', 'ilya', 'fran'],
             open('abstracts/mips').read(),
             2016,
@@ -192,6 +192,8 @@ class Vars:
                 File('pdf', 'papers/tails.pdf'),
             ]),
     ]
+    for paper in papers:
+        paper.files.sort()
 
     teachings = [
             Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'In this MSc course you learn how to write correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware. The course covers basic mechanisms such as threads, locks and shared memory as well as more advanced mechanisms such as parallel streams for bulk data, transactional memory, message passing, and lock-free data structures with compare-and-swap. It covers concepts such as atomicity, safety, liveness and deadlock. It covers how to measure and understand performance and scalability of parallel programs. It covers methods to find bugs in concurrent programs.', 'teaching/pcpp2019')
