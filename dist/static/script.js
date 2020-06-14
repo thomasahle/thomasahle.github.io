@@ -1,10 +1,18 @@
+console.log(window.location.hash);
 window.onload = function () {
    for (let div of document.querySelectorAll('.toggle-item')) {
       div.onclick = function() {
+          // Other options: event_category, event_label, value (numeric)
           gtag('event', 'toggle', {'event_label': div.id});
-         // Other options: event_category, event_label, value (numeric)
-          this.querySelector('.abstract').classList.toggle('open');
+
+          this.classList.toggle('open');
+
+          window.history.replaceState(null, null, '#'+div.id);
+          // This jumps too much
+          //window.location.hash = '#'+div.id;
       }
+      if ('#'+div.id == window.location.hash)
+         div.classList.add('open');
    }
    let img = document.getElementById('me');
    img.onmouseover = function() {
