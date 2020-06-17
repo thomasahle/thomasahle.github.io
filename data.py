@@ -90,7 +90,8 @@ class Vars:
             'Merged from "Almost Optimal Tensor&nbsp;Sketch"',
             files=[
                 File('pdf', 'papers/tensorsketch-joint.pdf'),
-                File('arxiv', 'https://arxiv.org/abs/1909.01410v3')
+                File('arxiv', 'https://arxiv.org/abs/1909.01410v3'),
+                File('slides', 'papers/TensorSketch_Amir.pdf')
             ]),
         Paper(
             'lasvegas',
