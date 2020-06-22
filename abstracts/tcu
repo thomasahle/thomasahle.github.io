@@ -1,0 +1,3 @@
+<p>Tensor Core Units (TCUs) are hardware accelerators developed for deep neural networks, which efficiently support the multiplication of two dense √m × √m matrices, where m is agiven hardware parameter.
+In this paper, we show that TCUs can speed up similarity searchproblems  as  well.   We  propose  algorithms  for  the  Johnson-Lindenstrauss  dimensionality reduction and for similarity join that, by leveraging TCUs, achieve a √m speedup up with respect to traditional approaches.
+</p>

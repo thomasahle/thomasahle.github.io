@@ -5,7 +5,7 @@ Person = namedtuple('Person', ['name', 'abrv', 'href', 'photo', 'email'])
 Person.__new__.__defaults__ = ('Anonymous', '', '')
 Paper = namedtuple(
     'Paper',
-    ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files'])
+    ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files', 'featured'])
 Conference = namedtuple('Conference', ['name'])
 Teaching = namedtuple('Teaching', ['name', 'abrv', 'year', 'description', 'href'])
 File = namedtuple('File', ['format', 'href'])
@@ -55,6 +55,19 @@ class Vars:
 
     papers = [
         Paper(
+            'tcu',
+            'Similarity Search with Tensor Core Units',
+            ['thdy', 'fran'],
+            open('abstracts/tcu').read(),
+            2020,
+            'subm',
+            '',
+            files=[
+                File('pdf', 'papers/tcu.pdf'),
+                ],
+            featured=False
+            ),
+        Paper(
             'p1',
             'On the Problem of p₁⁻¹ in Locality‑Sensitive&nbsp;Hashing',
             ['thdy'],
@@ -65,7 +78,9 @@ class Vars:
             files=[
                 File('pdf', 'papers/p1.pdf'),
                 File('arxiv', 'https://arxiv.org/abs/2005.12065')
-            ]),
+                ],
+            featured=False
+            ),
         Paper(
             'supermajority',
             'Subsets and Supermajorities: Optimal&nbsp;Hashing‑based&nbsp;Set&nbsp;Similarity&nbsp;Search',
@@ -79,7 +94,9 @@ class Vars:
                 File('arxiv', 'http://arxiv.org/abs/1904.04045'),
                 File('slides', 'https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE'),
                 File('blog post', 'https://thomasahle.com/blog/sets.html')
-            ]),
+                ],
+            featured=True,
+            ),
         Paper(
             'tensorsketch-joint',
             'Oblivious Sketching of High‑Degree&nbsp;Polynomial&nbsp;Kernels',
@@ -92,7 +109,9 @@ class Vars:
                 File('pdf', 'papers/tensorsketch-joint.pdf'),
                 File('arxiv', 'https://arxiv.org/abs/1909.01410v3'),
                 File('slides', 'papers/TensorSketch_Amir.pdf')
-            ]),
+                ],
+            featured=True,
+            ),
         Paper(
             'lasvegas',
             'Optimal Las Vegas Locality&nbsp;Sensitive&nbsp;Data&nbsp;Structures',
@@ -108,7 +127,9 @@ class Vars:
                     'slides',
                     'https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit'
                 )
-            ]),
+                ],
+            featured=True,
+            ),
         Paper(
             'output-sensitive',
             'Parameter-free Locality‑Sensitive Hashing for Spherical&nbsp;Range&nbsp;Reporting',
@@ -124,7 +145,9 @@ class Vars:
                     'slides',
                     'https://docs.google.com/presentation/d/1UOFCN1Eujr4sCQdYqdwn_8D8pNCJHEyzw9Yd_BW6bh4'
                 )
-            ]),
+                ],
+            featured=True,
+            ),
         Paper(
             'mips',
             'On the Complexity of Inner&nbsp;Product&nbsp;Similarity&nbsp;Join',
@@ -140,7 +163,9 @@ class Vars:
                     'slides',
                     'https://docs.google.com/presentation/d/1y_BZ5Ctyn67Vam8rWzrskMkrkc-yIelCQsFLz1g4_bM'
                 )
-            ])
+                ],
+            featured=True,
+            ),
     ]
 
     manuscripts = [
@@ -154,7 +179,9 @@ class Vars:
             files=[
                 File('arxiv', 'https://arxiv.org/abs/1909.01821'),
                 File('pdf', 'papers/tensorsketch2.pdf'),
-            ]),
+                ],
+            featured=True,
+            ),
         Paper(
             'verification',
             'It is NP-hard to verify an LSF on the sphere',
@@ -165,7 +192,9 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/verification.pdf')
-            ]),
+                ],
+            featured=False,
+            ),
         Paper(
             'minhash',
             'Minhash without false negatives',
@@ -180,7 +209,9 @@ class Vars:
                     'slides',
                     'https://docs.google.com/presentation/d/1oT-L5EON7ZCVScuYRoMzVHxf7x2Y6cig8deQXMmpP0I/edit?usp=sharing'
                 )
-            ]),
+                ],
+            featured=False,
+            ),
         Paper(
             'tails',
             'Asymptotic Tail Bounds and Applications',
@@ -191,13 +222,15 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/tails.pdf'),
-            ]),
+                ],
+            featured=False,
+            ),
     ]
     for paper in papers:
         paper.files.sort()
 
     teachings = [
-            Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'In this MSc course you learn how to write correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware. The course covers basic mechanisms such as threads, locks and shared memory as well as more advanced mechanisms such as parallel streams for bulk data, transactional memory, message passing, and lock-free data structures with compare-and-swap. It covers concepts such as atomicity, safety, liveness and deadlock. It covers how to measure and understand performance and scalability of parallel programs. It covers methods to find bugs in concurrent programs.', 'teaching/pcpp2019')
+            Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.', 'teaching/pcpp2019')
             ]
 
     media = [

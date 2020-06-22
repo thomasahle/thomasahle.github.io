@@ -38,11 +38,17 @@
       </dl>
       -->
 
+      <div id='show-all'>
+         <label for="show-all-checkbox" class='toggle-text'>Show All</label>
+         <input type="checkbox" id="show-all-checkbox"i checked />
+         <label for="show-all-checkbox" class='toggle'></label>
+      </div>
       {% for type, articles in [('Publications', papers), ('Manuscripts', manuscripts)] %}
          <h2>{{type}}</h2>
          <ul class="publications">
          {%- for paper in articles -%}
-            <li class="toggle-item" id='paper-{{paper.tag}}'>
+            <li class="toggle-item {{'featured' if paper.featured else ''}}"
+                  id='paper-{{paper.tag}}'>
                <div class='shown'>
                   <span class='year'>
                   {#
@@ -98,17 +104,11 @@
       {% endfor %}
 
       <h2>Teaching</h2>
-      <ul class="publications">
+      <ul>
       {%- for t in teachings -%}
-         <li class="toggle-item" id='teaching-{{t.abrv}}-{{t.year}}'>
-            <div class='shown'>
-                  {{t.year}}
-                  <br />
-                  <strong>{{t.name}}</strong>
-                  <br />
-                  <a href='{{t.href}}'>Files and schedule</a>
-            </div>
-            <div class='abstract'>{{t.description}}</div>
+         <li>
+            <a href='{{t.href}}'>{{t.name}}</a> - {{t.year}}.
+            <p>{{t.description}}</p>
          </li>
       {%- endfor -%}
       </ul>
