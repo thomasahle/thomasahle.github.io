@@ -23,6 +23,7 @@ window.onload = function () {
    }
    let checkbox = document.getElementById('show-all-checkbox');
    checkbox.addEventListener('change', event => {
+      gtag('event', 'toggle-show-all', {'event_label': event.target.checked ? 'on' : 'off' });
       toggle();
    });
    // If hash, we should show all, in case the hashed paper is hidden
