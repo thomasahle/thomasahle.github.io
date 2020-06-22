@@ -1,6 +1,7 @@
 :root {
    --border-radius: 4px;
    --fonts: Lato, Helvetica Neue, sans-serif;
+   --toggle-size: 25px;
 }
 body {
   font-family: sans-serif;
@@ -23,10 +24,17 @@ body {
 }
 h1 {
    flex: 1 100%;
+   font-size: 2em;
 }
 h2, h3 {
    margin-bottom: 0;
    line-height: 1;
+}
+h2 {
+   font-size: 1.5em;
+}
+h3 {
+   font-size: 1.167em;
 }
 h1, h2, h3 {
    font-weight: 500;
@@ -115,6 +123,7 @@ dd {
    overflow:hidden;
    font-style: italic;
    font-size: .85rem;
+   cursor: pointer;
 }
 .abstract:before {
    position: absolute;
@@ -194,3 +203,73 @@ a {
      height: 13rem;
   }
 }
+/********** Toggle **********/
+input[type=checkbox]{
+   display: none;
+}
+
+#show-all {
+   float: right;
+   margin-top: .95em;
+}
+
+label {
+   cursor: pointer;
+   font-size: 1.5em;
+}
+
+.toggle {
+   display: inline-block;
+   background: grey;
+   text-indent: calc(var(--toggle-size) * 2 + 1em);
+   width: calc(var(--toggle-size) * 2);
+   height: calc(var(--toggle-size) * 1);
+   border-radius: calc(var(--toggle-size) * 1);
+   position: relative;
+   vertical-align: text-bottom;
+}
+
+.toggle-text {
+   padding-right: .3em;
+}
+
+.toggle:after {
+   content: '';
+   position: absolute;
+   top: calc(var(--toggle-size) * .05);
+   left: calc(var(--toggle-size) * .05);
+   width: calc(var(--toggle-size) * .9);
+   height: calc(var(--toggle-size) * .9);
+   background: #fff;
+   border-radius: calc(var(--toggle-size) * .9);
+   transition: 0.3s;
+}
+
+input:checked + .toggle {
+   background: #bada55;
+}
+
+input:checked + .toggle:after {
+   left: calc(100% - var(--toggle-size) * .05);
+   transform: translateX(-100%);
+}
+
+input:active + .toggle:after {
+   width: calc(var(--toggle-size) * 1.2);
+}
+
+.publications.toggled .toggle-item:not(.featured) {
+   display: none;
+}
+/*
+ * Use animation?
+.publications:not(.toggled) .toggle-item:not(.featured) {
+    opacity: 0;
+    max-height: 0;
+}
+.publications .toggle-item {
+    opacity: 1;
+    max-height: 1000px;
+    transition: max-height 600ms 0ms, opacity 300ms 300ms;
+}
+*/

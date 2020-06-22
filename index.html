@@ -20,6 +20,7 @@
   <style type="text/css">:root {
    --border-radius: 4px;
    --fonts: Lato, Helvetica Neue, sans-serif;
+   --toggle-size: 25px;
 }
 body {
   font-family: sans-serif;
@@ -42,10 +43,17 @@ body {
 }
 h1 {
    flex: 1 100%;
+   font-size: 2em;
 }
 h2, h3 {
    margin-bottom: 0;
    line-height: 1;
+}
+h2 {
+   font-size: 1.5em;
+}
+h3 {
+   font-size: 1.167em;
 }
 h1, h2, h3 {
    font-weight: 500;
@@ -134,6 +142,7 @@ dd {
    overflow:hidden;
    font-style: italic;
    font-size: .85rem;
+   cursor: pointer;
 }
 .abstract:before {
    position: absolute;
@@ -212,7 +221,77 @@ a {
      width: 13rem;
      height: 13rem;
   }
-}</style>
+}
+/********** Toggle **********/
+input[type=checkbox]{
+   display: none;
+}
+
+#show-all {
+   float: right;
+   margin-top: .95em;
+}
+
+label {
+   cursor: pointer;
+   font-size: 1.5em;
+}
+
+.toggle {
+   display: inline-block;
+   background: grey;
+   text-indent: calc(var(--toggle-size) * 2 + 1em);
+   width: calc(var(--toggle-size) * 2);
+   height: calc(var(--toggle-size) * 1);
+   border-radius: calc(var(--toggle-size) * 1);
+   position: relative;
+   vertical-align: text-bottom;
+}
+
+.toggle-text {
+   padding-right: .3em;
+}
+
+.toggle:after {
+   content: '';
+   position: absolute;
+   top: calc(var(--toggle-size) * .05);
+   left: calc(var(--toggle-size) * .05);
+   width: calc(var(--toggle-size) * .9);
+   height: calc(var(--toggle-size) * .9);
+   background: #fff;
+   border-radius: calc(var(--toggle-size) * .9);
+   transition: 0.3s;
+}
+
+input:checked + .toggle {
+   background: #bada55;
+}
+
+input:checked + .toggle:after {
+   left: calc(100% - var(--toggle-size) * .05);
+   transform: translateX(-100%);
+}
+
+input:active + .toggle:after {
+   width: calc(var(--toggle-size) * 1.2);
+}
+
+.publications.toggled .toggle-item:not(.featured) {
+   display: none;
+}
+/*
+ * Use animation?
+.publications:not(.toggled) .toggle-item:not(.featured) {
+    opacity: 0;
+    max-height: 0;
+}
+.publications .toggle-item {
+    opacity: 1;
+    max-height: 1000px;
+    transition: max-height 600ms 0ms, opacity 300ms 300ms;
+}
+*/</style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
@@ -231,20 +310,38 @@ a {
   
   <script type="application/javascript">console.log(window.location.hash);
 window.onload = function () {
+   /* Show hide abstracts */
    for (let div of document.querySelectorAll('.toggle-item')) {
       div.onclick = function() {
           // Other options: event_category, event_label, value (numeric)
           gtag('event', 'toggle', {'event_label': div.id});
-
           this.classList.toggle('open');
-
           window.history.replaceState(null, null, '#'+div.id);
-          // This jumps too much
-          //window.location.hash = '#'+div.id;
       }
-      if ('#'+div.id == window.location.hash)
+      if ('#'+div.id == window.location.hash) {
          div.classList.add('open');
+
+      }
+      // TODO: If hash paper is not featured, we should enable show-all
    }
+
+   /* Show hide featured */
+   let toggle = () => {
+      for (let div of document.querySelectorAll('.publications')) {
+         div.classList.toggle('toggled');
+      }
+   }
+   let checkbox = document.getElementById('show-all-checkbox');
+   checkbox.addEventListener('change', event => {
+      toggle();
+   });
+   // If hash, we should show all, in case the hashed paper is hidden
+   if (window.location.hash)
+      checkbox.checked = true;
+   if (!checkbox.checked)
+      toggle();
+
+   /* Mouse over me */
    let img = document.getElementById('me');
    img.onmouseover = function() {
      img.setAttribute('src', '/static/water.jpg');
@@ -313,9 +410,39 @@ window.onload = function () {
       </dl>
       -->
 
+      <div id='show-all'>
+         <label for="show-all-checkbox" class='toggle-text'>Show All</label>
+         <input type="checkbox" id="show-all-checkbox"i checked />
+         <label for="show-all-checkbox" class='toggle'></label>
+      </div>
       
          <h2>Publications</h2>
-         <ul class="publications"><li class="toggle-item" id='paper-p1'>
+         <ul class="publications"><li class="toggle-item "
+                  id='paper-tcu'>
+               <div class='shown'>
+                  <span class='year'>
+                  
+                  2020</span>
+                  <span class='files'>[<a href='papers/tcu.pdf'
+                        onclick="gtag('event', 'download', {'event_label': 'download_tcu_pdf'});"
+                        >pdf</a>]</span>
+
+                  
+                  <span class='title'>Similarity Search with Tensor Core Units</span>
+                  
+
+                  <span class='authors'>
+                  TA, <a href='http://www.dei.unipd.it/~silvestri/'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'F Silvestri'});"
+                           >F Silvestri</a>
+                  </span>
+               </div>
+               <div class='abstract'><p>Tensor Core Units (TCUs) are hardware accelerators developed for deep neural networks, which efficiently support the multiplication of two dense √m × √m matrices, where m is agiven hardware parameter.
+In this paper, we show that TCUs can speed up similarity searchproblems  as  well.   We  propose  algorithms  for  the  Johnson-Lindenstrauss  dimensionality reduction and for similarity join that, by leveraging TCUs, achieve a √m speedup up with respect to traditional approaches.
+</p>
+</div>
+            </li><li class="toggle-item "
+                  id='paper-p1'>
                <div class='shown'>
                   <span class='year'>
                   
@@ -352,7 +479,8 @@ For  p₁  and  p₂  small enough, our improvement over all previous methods ca
 The improvement comes from a simple change to the Indyk-Motwani algorithm, which can easily be implemented in existing software packages.
 </p>
 </div>
-            </li><li class="toggle-item" id='paper-supermajority'>
+            </li><li class="toggle-item featured"
+                  id='paper-supermajority'>
                <div class='shown'>
                   <span class='year'>
                   
@@ -402,7 +530,8 @@ The optimality holds for among all hashing based data structures in the random s
 As a side effect, we obtain new hypercontractive bounds on the directed noise operator.
 </p>
 </div>
-            </li><li class="toggle-item" id='paper-tensorsketch-joint'>
+            </li><li class="toggle-item featured"
+                  id='paper-tensorsketch-joint'>
                <div class='shown'>
                   <span class='year'>
                   SODA
@@ -444,7 +573,8 @@ Kernel methods are fundamental tools in machine learning that allow detection of
 Oblivious sketching has emerged as a powerful approach to speeding up numerical linear algebra over the past decade, but our understanding of oblivious sketching solutions for kernel matrices has remained quite limited, suffering from the aforementioned exponential dependence on input parameters. Our main contribution is a general method for applying sketching solutions developed in numerical linear algebra over the past decade to a tensoring of data points without forming the tensoring explicitly. This leads to the first oblivious sketch for the polynomial kernel with a target dimension that is only polynomially dependent on the degree of the kernel function, as well as the first oblivious sketch for the Gaussian kernel on bounded datasets that does not suffer from an exponential dependence on the dimensionality of input data points.
 </p>
 </div>
-            </li><li class="toggle-item" id='paper-lasvegas'>
+            </li><li class="toggle-item featured"
+                  id='paper-lasvegas'>
                <div class='shown'>
                   <span class='year'>
                   FOCS
@@ -480,7 +610,8 @@ We use space partitions as in classic LSH, but construct these using a combinati
 We also show two dimensionality reduction lemmas with 1-sided error.
 </p>
 </div>
-            </li><li class="toggle-item" id='paper-output-sensitive'>
+            </li><li class="toggle-item featured"
+                  id='paper-output-sensitive'>
                <div class='shown'>
                   <span class='year'>
                   SODA
@@ -513,7 +644,8 @@ We present a data structure for <i>spherical range reporting</i> on a point set 
 The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the number of points to report and ρ∈(0,1) depends on the data distribution and the strength of the LSH family used. We further present a parameter-free way of using multi-probing, for LSH families that support it, and show that for many such families this approach allows us to get expected query time close to O(n^ρ+t), which is the best we can hope to achieve using LSH. The previously best running time in high dimensions was Ω(tn^ρ). For many data distributions where the intrinsic dimensionality of the point set close to q is low, we can give improved upper bounds on the expected query time.
 </p>
 </div>
-            </li><li class="toggle-item" id='paper-mips'>
+            </li><li class="toggle-item featured"
+                  id='paper-mips'>
                <div class='shown'>
                   <span class='year'>
                   PODS
@@ -554,7 +686,8 @@ A number of tasks in classification, information retrieval, recommendation syste
             </li></ul>
       
          <h2>Manuscripts</h2>
-         <ul class="publications"><li class="toggle-item" id='paper-tensorsketch2'>
+         <ul class="publications"><li class="toggle-item featured"
+                  id='paper-tensorsketch2'>
                <div class='shown'>
                   <span class='year'>
                   
@@ -589,7 +722,8 @@ Technically, we construct our matrix  M  such that  M(x ⊗ y) = Tx ∘ T'y  whe
 To analyze the behavior of  Mx  on non-simple  x , we show a higher order version of Khintchine's inequality, related to the higher order Gaussian chaos analysis by Latała.
 Finally we show that such sketches can be combined recursively, in a way that doesn't increase the dependency on  c  by much.
 </div>
-            </li><li class="toggle-item" id='paper-verification'>
+            </li><li class="toggle-item "
+                  id='paper-verification'>
                <div class='shown'>
                   <span class='year'>
                   
@@ -607,7 +741,8 @@ Finally we show that such sketches can be combined recursively, in a way that do
                   </span>
                </div>
                <div class='abstract'>We show a reduction from verifying that an LSF family `covers` the sphere, in the sense of Las Vegas LSF, to 3-sat.</div>
-            </li><li class="toggle-item" id='paper-minhash'>
+            </li><li class="toggle-item "
+                  id='paper-minhash'>
                <div class='shown'>
                   <span class='year'>
                   
@@ -645,7 +780,8 @@ We further show that careful constructions of such designs can be efficiently de
 We also investigate upper and lower bounds on combinatorial analogues of the minhash algorithm.
 This is related to the existence of small, approximate minwise hashing families under  l_∞  distance.
 </div>
-            </li><li class="toggle-item" id='paper-tails'>
+            </li><li class="toggle-item "
+                  id='paper-tails'>
                <div class='shown'>
                   <span class='year'>
                   
@@ -673,15 +809,9 @@ I will use the formulas to answer whether algorithms exists for the following pr
       
 
       <h2>Teaching</h2>
-      <ul class="publications"><li class="toggle-item" id='teaching-pcpp-2019'>
-            <div class='shown'>
-                  2019
-                  <br />
-                  <strong>Practical Concurrent and Parallel Programming</strong>
-                  <br />
-                  <a href='teaching/pcpp2019'>Files and schedule</a>
-            </div>
-            <div class='abstract'>In this MSc course you learn how to write correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware. The course covers basic mechanisms such as threads, locks and shared memory as well as more advanced mechanisms such as parallel streams for bulk data, transactional memory, message passing, and lock-free data structures with compare-and-swap. It covers concepts such as atomicity, safety, liveness and deadlock. It covers how to measure and understand performance and scalability of parallel programs. It covers methods to find bugs in concurrent programs.</div>
+      <ul><li>
+            <a href='teaching/pcpp2019'>Practical Concurrent and Parallel Programming</a> - 2019.
+            <p>MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.</p>
          </li></ul>
 
 
