@@ -352,6 +352,20 @@ window.onload = function () {
      img.setAttribute('src', '/static/potrait.jpg');
      gtag('event', 'hover_me', {'event_label': 'off'});
    }
+
+   /* External links */
+   for (let a of document.querySelectorAll('a[href^="http"]')) {
+      // :not([href*="//' + location.host + '"])')
+      a.addEventListener('click', event => {
+         gtag('event', 'click', {
+            'event_category': 'outbound',
+            'event_label': a.href,
+            'transport_type': 'beacon'
+            /*'hitCallback': function() { document.location = a.href; }*/
+         });
+         //return false;
+      });
+   }
 }</script>
 
   <script type="application/ld+json">
@@ -859,7 +873,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
          <li><a href='/blog' title='My blog'>Blog</a></li>
          <li>Email: thdy@itu.dk</li>
          <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
-         <li><a href='cv.pdf'>CV</a></li>
+         <li><a href='cv.pdf' >CV</a></li>
          <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
          <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ'>Google Scholar</a></li>
          <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
