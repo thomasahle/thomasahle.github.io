@@ -264,14 +264,12 @@ label {
 .toggle:after {
    content: '';
    position: absolute;
-   /*top: calc(var(--toggle-size) * .03);*/
    top: 1px;
-   left: calc(var(--toggle-size) * .05);
-   top: 1px;
-   width: calc(var(--toggle-size) * .9);
-   height: calc(var(--toggle-size) * .9);
+   left: 1px;
+   width: calc(var(--toggle-size) - 2px);
+   height: calc(var(--toggle-size) - 2px);
    background: #fff;
-   border-radius: calc(var(--toggle-size) * .9);
+   border-radius: calc(var(--toggle-size) - 2px);
    transition: 0.3s;
 }
 
