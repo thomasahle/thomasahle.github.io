@@ -13,11 +13,30 @@
 \setlength{\tabcolsep}{.8em}
 
 \title{Curriculum vitae}
-\author{\VAR{me.name}}
+\author{Thomas Dybdahl Ahle, PhD}
 \date{\VAR{now.strftime('%B %Y')}}
 \begin{document}
 \maketitle
 
+\paragraph{Publications}
+\begin{itemize}
+%% for paper in papers
+   \item[]
+      ``\VAR{paper.title.replace('&nbsp;',' ')}''.
+   By
+   \BLOCK{for a in paper.authors}
+      \VAR{me.name if authors[a]==me else authors[a].abrv}
+      \BLOCK{- if not loop.last}, \BLOCK{endif -}
+    \BLOCK{endfor -}
+    \BLOCK{- if paper.conference != 'subm'}
+       at
+       \VAR{conferences[paper.conference].name} (\VAR{paper.conference.upper()}),
+    \BLOCK{else}
+       -- Submitted,
+    \BLOCK{endif -}
+   \VAR{paper.year}.
+%% endfor
+\end{itemize}
 
 \paragraph{Education}
 \begin{itemize}
@@ -37,26 +56,6 @@
       2013
       Bachelor of Arts in Computer Science,
       University of Oxford.
-\end{itemize}
-
-\paragraph{Publications}
-\begin{itemize}
-%% for paper in papers
-   \item[]
-   ``\VAR{paper.title}''.
-   By
-   \BLOCK{for a in paper.authors}
-      \VAR{me.name if authors[a]==me else authors[a].abrv}
-      \BLOCK{- if not loop.last}, \BLOCK{endif -}
-    \BLOCK{endfor -}
-    \BLOCK{- if paper.conference != 'subm'}
-       at
-       \VAR{conferences[paper.conference].name} (\VAR{paper.conference.upper()}),
-    \BLOCK{else}
-       -- Submitted,
-    \BLOCK{endif -}
-   \VAR{paper.year}.
-%% endfor
 \end{itemize}
 
 \paragraph{Awards and Scholarships}

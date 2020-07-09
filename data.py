@@ -63,6 +63,7 @@ class Vars:
             'subm',
             '',
             files=[
+                File('arxiv', 'https://arxiv.org/abs/2006.12608'),
                 File('pdf', 'papers/tcu.pdf'),
                 ],
             featured=False
