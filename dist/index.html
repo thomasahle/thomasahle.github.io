@@ -308,8 +308,55 @@ input:active + .toggle:after {
 </script>
    
   
-  <script type="application/javascript">console.log(window.location.hash);
-window.onload = function () {
+  <script type="application/javascript">function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+// External links
+addLoadEvent(function() {
+   for (let a of document.querySelectorAll('a[href^="http"]')) {
+      // :not([href*="//' + location.host + '"])')
+      a.addEventListener('click', event => {
+         gtag('event', 'click', {
+            'event_category': 'outbound',
+            'event_label': a.href,
+            'transport_type': 'beacon'
+            /*'hitCallback': function() { document.location = a.href; }*/
+         });
+         //return false;
+      });
+   }
+});</script>
+
+  <script type="application/ld+json">
+   {"@context" : "http://schema.org",
+    "@type" : "CollectionPage",
+     "author": {
+          "@type": "Person",
+          "name": "Thomas Dybdahl Ahle",
+           "image": [ "https://thomasahle.com/static/potrait.jpg" ],
+           "spouse": {
+                "@type": "Person",
+                "name": "Morgan Mingle"
+           }
+     },
+     "image": [ "https://thomasahle.com/static/potrait.jpg" ],
+     "primaryImageOfPage": "https://thomasahle.com/static/potrait.jpg",
+     "thumbnailUrl": "https://thomasahle.com/static/potrait.jpg" 
+     }
+   </script>
+
+  <script type="application/javascript">
+addLoadEvent(function () {
    /* Show hide abstracts */
    for (let div of document.querySelectorAll('.toggle-item')) {
       div.onclick = function() {
@@ -352,40 +399,8 @@ window.onload = function () {
      img.setAttribute('src', '/static/potrait.jpg');
      gtag('event', 'hover_me', {'event_label': 'off'});
    }
-
-   /* External links */
-   for (let a of document.querySelectorAll('a[href^="http"]')) {
-      // :not([href*="//' + location.host + '"])')
-      a.addEventListener('click', event => {
-         gtag('event', 'click', {
-            'event_category': 'outbound',
-            'event_label': a.href,
-            'transport_type': 'beacon'
-            /*'hitCallback': function() { document.location = a.href; }*/
-         });
-         //return false;
-      });
-   }
-}</script>
-
-  <script type="application/ld+json">
-   {"@context" : "http://schema.org",
-    "@type" : "CollectionPage",
-     "author": {
-          "@type": "Person",
-          "name": "Thomas Dybdahl Ahle",
-           "image": [ "https://thomasahle.com/static/potrait.jpg" ],
-           "spouse": {
-                "@type": "Person",
-                "name": "Morgan Mingle"
-           }
-     },
-     "image": [ "https://thomasahle.com/static/potrait.jpg" ],
-     "primaryImageOfPage": "https://thomasahle.com/static/potrait.jpg",
-     "thumbnailUrl": "https://thomasahle.com/static/potrait.jpg" 
-     }
-   </script>
-
+});
+  </script>
   <title>Thomas Dybdahl Ahle</title>
 </head>
 <body>
