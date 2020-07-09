@@ -28,7 +28,7 @@ body {
   font-size: 1rem;
   font-weight: 300;
   padding: 1rem .33rem;
-  line-height: 1.4;
+  line-height: 1.55;
   max-width: 50em;
   margin-left: auto;
   margin-right: auto;
@@ -68,8 +68,12 @@ h1, h2, h3 {
    flex: 1 7rem;
 }
 h1 {
-  margin-left: .66rem;
-  margin-right: .67rem;
+   margin: 1rem .67rem 1rem .66rem;
+  /*margin-left: .66rem;
+  margin-right: .67rem;*/
+}
+h2 {
+   margin-top: 1.5rem;
 }
 #main, #side {
   margin: 0 .66rem 2rem .67rem;
@@ -114,13 +118,6 @@ dd {
 .files, .year, .authors {
    font-size: 90%;
 }
-/*
-.shown .files:before {
-   content:'[';
-}
-.shown .files:after {
-   content:']';
-}*/
 .shown .title {
    hyphens: none;
    margin-top: 2rem;
@@ -130,11 +127,18 @@ dd {
 }
 .abstract {
    /*border-top: 1px solid rgba(0,0,0,.1);*/
-   padding: 0px 6% 10px 6%;
+   padding: 0px 6% 1em 6%;
    position: relative;
    font-family: 'Latin Modern Roman', 'Latin Modern', Cardo, Garamond, serif;
    text-align: justify;
    line-height: 1.15;
+}
+.abstract p {
+   text-indent: 1em;
+   margin: 0;
+}
+.abstract p:first-child {
+   text-indent: 0;
 }
 .toggle-item:not(.open) .abstract {
    max-height: 14ch;
@@ -160,9 +164,9 @@ dd {
 .toggle-item:not(.open) .abstract:before {
    content: "View Abstract ⌵";
 }
-.abstract:taget{
+/*.abstract:target{
    padding-bottom: 20px;
-}
+}*/
 .toggle-item.open .abstract:before {
    margin-top:10px;
    content: "Hide Abstract ⌃";
@@ -190,12 +194,8 @@ img {
    max-height: 12rem;
 }
 p {
-   margin: 0;
-   text-indent: 1em;
-   text-align: justify;
-}
-p:first-child {
-   text-indent: 0;
+   /*margin: 0;
+   text-align: justify;*/
 }
 sup {
    vertical-align: top;
@@ -229,7 +229,7 @@ input[type=checkbox]{
 
 #show-all {
    float: right;
-   margin-top: .95em;
+   margin-top: .15em;
 }
 
 label {
