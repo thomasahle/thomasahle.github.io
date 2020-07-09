@@ -202,12 +202,21 @@ sup {
    font-size: 0.7em;
 }
 a {
+   text-decoration: none;
+   color: #0645ad;
+}
+a:visited {
+   color: #0b0080;
+}
+a:hover {
+   text-decoration: underline;
    text-decoration-skip:ink;
    -webkit-text-decoration-skip:ink;
    -moz-text-decoration-skip:ink;
-   text-decoration-color: #aad;
-   -webkit-text-decoration-color: #aad;
-   -moz-text-decoration-color: #aad;
+   /*text-decoration-color: #008;*/
+   /*text-decoration-color: #aad;*/
+   /*-webkit-text-decoration-color: #aad;
+   -moz-text-decoration-color: #aad;*/
 }
 .comment {
    font-style: italic;
@@ -255,7 +264,7 @@ label {
 .toggle:after {
    content: '';
    position: absolute;
-   top: calc(var(--toggle-size) * .05);
+   top: calc(var(--toggle-size) * .03);
    left: calc(var(--toggle-size) * .05);
    width: calc(var(--toggle-size) * .9);
    height: calc(var(--toggle-size) * .9);
@@ -265,7 +274,7 @@ label {
 }
 
 input:checked + .toggle {
-   background: #bada55;
+   background: #5a75ff;
 }
 
 input:checked + .toggle:after {
