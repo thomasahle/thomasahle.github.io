@@ -108,7 +108,7 @@ dd {
    text-align: center;
 }
 .shown .year {
-   float: left;
+   display: block;
    text-align: left;
 }
 .shown .files {
@@ -120,7 +120,7 @@ dd {
 }
 .shown .title {
    hyphens: none;
-   margin-top: 2rem;
+   margin-top: .5rem;
    display: block;
    font-weight: 400;
    clear: both;
@@ -193,13 +193,21 @@ img {
    max-width: 12rem;
    max-height: 12rem;
 }
-p {
-   /*margin: 0;
-   text-align: justify;*/
+sub,
+sup {
+   /**
+    * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+    */
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 sup {
-   vertical-align: top;
-   font-size: 0.7em;
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
 }
 a {
    text-decoration: none;
@@ -426,28 +434,7 @@ addLoadEvent(function () {
       </p><p>
         My research has primarily involved the theoretical foundations of machine learning and massive data.
         This includes similarity search, high dimensional geometry, kernel methods, sketching and derandomization.
-        <!--See also my <a href='statement.pdf'>research program</a>.-->
       </p>
-
-      <!--
-      <h2>News</h2>
-      <dl>
-         <dt>17/jun/19</dt>
-         <dd>Just defended my PhD! (<a href='static/thesis.pdf'>thesis</a>, <a href='https://drive.google.com/open?id=1uGgt99QaP1_SdLWilqksnbqK1en3eSDoCjJMazVattY'>slides</a>) Thanks to everyone who came and to <a href='http://people.eecs.berkeley.edu/~minilek/'>Jelani Nelson</a>, <a href='https://www.itu.dk/people/rikj/'>Riko Jacob</a> and <a href='http://www.imm.dtu.dk/~inge/'>Inge Li Gørtz</a> for being on the comity!
-         </dd>
-         <dt>1/feb/19</dt>
-         <dd>The date for handing in my PhD. is now set at April 1st.
-               I am interested in hearing about Post Doc positions anywhere in the world.
-         </dd>
-         <dt>1/oct/18</dt>
-         <dd>I have decided to leave SupWiz and return to Academia.
-            Looking forward to working with everyone!
-         </dd>
-         <dt>1/sep/17</dt>
-         <dd>I am taking a 1 year sabbatical to start up a new Natural Language Processing company, <a href='https://supwiz.com'>SupWiz</a>, with former research colleagues.
-         </dd>
-      </dl>
-      -->
 
       <div id='show-all'>
          <label for="show-all-checkbox" class='toggle-text'>Show All</label>
@@ -459,12 +446,13 @@ addLoadEvent(function () {
          <ul class="publications"><li class="toggle-item "
                   id='paper-tcu'>
                <div class='shown'>
-                  <span class='year'>
-                  
-                  2020</span>
                   <span class='files'>[<a href='papers/mersenne.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_tcu_pdf'});"
                         >pdf</a>]</span>
+
+                  <span class='year'>In Review
+                  
+                  2020</span>
 
                   
                   <span class='title'>The Power of Hashing with Mersenne Primes</span>
@@ -488,15 +476,14 @@ We also provide a new fast branch-free code for division and modulus with Mersen
             </li><li class="toggle-item "
                   id='paper-tcu'>
                <div class='shown'>
-                  <span class='year'>
-                  SISAP
-                  
-                  2020</span>
                   <span class='files'>[<a href='https://arxiv.org/abs/2006.12608'
                         onclick="gtag('event', 'download', {'event_label': 'download_tcu_arxiv'});"
                         >arxiv</a>]  [<a href='papers/tcu.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_tcu_pdf'});"
                         >pdf</a>]</span>
+
+                  <span class='year'>SISAP
+                  2020</span>
 
                   
                   <span class='title'>Similarity Search with Tensor Core Units</span>
@@ -515,15 +502,14 @@ In this paper, we show that TCUs can speed up similarity searchproblems  as  wel
             </li><li class="toggle-item "
                   id='paper-p1'>
                <div class='shown'>
-                  <span class='year'>
-                  SISAP
-                  
-                  2020</span>
                   <span class='files'>[<a href='https://arxiv.org/abs/2005.12065'
                         onclick="gtag('event', 'download', {'event_label': 'download_p1_arxiv'});"
                         >arxiv</a>]  [<a href='papers/p1.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_p1_pdf'});"
                         >pdf</a>]</span>
+
+                  <span class='year'>SISAP
+                  2020</span>
 
                   
                   <span class='title'>On the Problem of p₁⁻¹ in Locality‑Sensitive&nbsp;Hashing</span>
@@ -554,10 +540,6 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
             </li><li class="toggle-item featured"
                   id='paper-supermajority'>
                <div class='shown'>
-                  <span class='year'>
-                  FOCS
-                  
-                  2020</span>
                   <span class='files'>[<a href='http://arxiv.org/abs/1904.04045'
                         onclick="gtag('event', 'download', {'event_label': 'download_supermajority_arxiv'});"
                         >arxiv</a>]  [<a href='https://thomasahle.com/blog/sets.html'
@@ -567,6 +549,9 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
                         >pdf</a>]  [<a href='https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE'
                         onclick="gtag('event', 'download', {'event_label': 'download_supermajority_slides'});"
                         >slides</a>]</span>
+
+                  <span class='year'>FOCS
+                  2020</span>
 
                   
                   <span class='title'>Subsets and Supermajorities: Optimal&nbsp;Hashing‑based Set&nbsp;Similarity&nbsp;Search</span>
@@ -604,12 +589,6 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
             </li><li class="toggle-item featured"
                   id='paper-tensorsketch-joint'>
                <div class='shown'>
-                  <span class='year'>
-                  SODA
-                  
-                  2020
-                     —
-                     <span class="comment">Merged from "Almost Optimal Tensor&nbsp;Sketch"</span></span>
                   <span class='files'>[<a href='https://arxiv.org/abs/1909.01410'
                         onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch-joint_arxiv'});"
                         >arxiv</a>]  [<a href='papers/tensorsketch-joint.pdf'
@@ -617,6 +596,11 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                         >pdf</a>]  [<a href='papers/TensorSketch_Amir.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch-joint_slides'});"
                         >slides</a>]</span>
+
+                  <span class='year'>SODA
+                  2020
+                     —
+                     <span class="comment">Merged from "Almost Optimal Tensor&nbsp;Sketch"</span></span>
 
                   
                   <span class='title'>Oblivious Sketching of High‑Degree&nbsp;Polynomial&nbsp;Kernels</span>
@@ -647,12 +631,6 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
             </li><li class="toggle-item featured"
                   id='paper-lasvegas'>
                <div class='shown'>
-                  <span class='year'>
-                  FOCS
-                  
-                  2017
-                     —
-                     <span class="comment">Updated Jun 2018</span></span>
                   <span class='files'>[<a href='http://arxiv.org/abs/1704.02054'
                         onclick="gtag('event', 'download', {'event_label': 'download_lasvegas_arxiv'});"
                         >arxiv</a>]  [<a href='papers/lasvegas.pdf'
@@ -660,6 +638,11 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
                         >pdf</a>]  [<a href='https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit'
                         onclick="gtag('event', 'download', {'event_label': 'download_lasvegas_slides'});"
                         >slides</a>]</span>
+
+                  <span class='year'>FOCS
+                  2017
+                     —
+                     <span class="comment">Updated Jun 2018</span></span>
 
                   
                   <span class='title'>Optimal Las Vegas Locality&nbsp;Sensitive&nbsp;Data&nbsp;Structures</span>
@@ -681,13 +664,9 @@ We use space partitions as in classic LSH, but construct these using a combinati
 We also show two dimensionality reduction lemmas with 1-sided error.
 </p>
 </div>
-            </li><li class="toggle-item featured"
+            </li><li class="toggle-item "
                   id='paper-output-sensitive'>
                <div class='shown'>
-                  <span class='year'>
-                  SODA
-                  
-                  2017</span>
                   <span class='files'>[<a href='http://arxiv.org/abs/1605.02673'
                         onclick="gtag('event', 'download', {'event_label': 'download_output-sensitive_arxiv'});"
                         >arxiv</a>]  [<a href='papers/output-sensitive-lsh-for-knn.pdf'
@@ -695,6 +674,9 @@ We also show two dimensionality reduction lemmas with 1-sided error.
                         >pdf</a>]  [<a href='https://docs.google.com/presentation/d/1UOFCN1Eujr4sCQdYqdwn_8D8pNCJHEyzw9Yd_BW6bh4'
                         onclick="gtag('event', 'download', {'event_label': 'download_output-sensitive_slides'});"
                         >slides</a>]</span>
+
+                  <span class='year'>SODA
+                  2017</span>
 
                   
                   <span class='title'>Parameter-free Locality‑Sensitive Hashing for Spherical&nbsp;Range&nbsp;Reporting</span>
@@ -718,10 +700,6 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
             </li><li class="toggle-item featured"
                   id='paper-mips'>
                <div class='shown'>
-                  <span class='year'>
-                  PODS
-                  
-                  2016</span>
                   <span class='files'>[<a href='http://arxiv.org/abs/1510.02824'
                         onclick="gtag('event', 'download', {'event_label': 'download_mips_arxiv'});"
                         >arxiv</a>]  [<a href='papers/mips.pdf'
@@ -729,6 +707,9 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
                         >pdf</a>]  [<a href='https://docs.google.com/presentation/d/1y_BZ5Ctyn67Vam8rWzrskMkrkc-yIelCQsFLz1g4_bM'
                         onclick="gtag('event', 'download', {'event_label': 'download_mips_slides'});"
                         >slides</a>]</span>
+
+                  <span class='year'>PODS
+                  2016</span>
 
                   
                   <span class='title'>On the Complexity of Inner&nbsp;Product&nbsp;Similarity&nbsp;Join</span>
@@ -757,17 +738,19 @@ A number of tasks in classification, information retrieval, recommendation syste
             </li></ul>
       
          <h2>Manuscripts</h2>
-         <ul class="publications"><li class="toggle-item featured"
+         <ul class="publications"><li class="toggle-item "
                   id='paper-tensorsketch2'>
                <div class='shown'>
-                  <span class='year'>
-                  
-                  2019</span>
                   <span class='files'>[<a href='https://arxiv.org/abs/1909.01821'
                         onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch2_arxiv'});"
                         >arxiv</a>]  [<a href='papers/tensorsketch2.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_tensorsketch2_pdf'});"
                         >pdf</a>]</span>
+
+                  <span class='year'>
+                  2019
+                     —
+                     <span class="comment">Merged into "Oblivious Sketching of High‑Degree Polynomial Kernels"</span></span>
 
                   
                   <span class='title'>Almost Optimal Tensor Sketch</span>
@@ -796,12 +779,12 @@ Finally we show that such sketches can be combined recursively, in a way that do
             </li><li class="toggle-item "
                   id='paper-verification'>
                <div class='shown'>
-                  <span class='year'>
-                  
-                  2017</span>
                   <span class='files'>[<a href='papers/verification.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_verification_pdf'});"
                         >pdf</a>]</span>
+
+                  <span class='year'>
+                  2017</span>
 
                   
                   <span class='title'>It is NP-hard to verify an LSF on the sphere</span>
@@ -815,16 +798,16 @@ Finally we show that such sketches can be combined recursively, in a way that do
             </li><li class="toggle-item "
                   id='paper-minhash'>
                <div class='shown'>
-                  <span class='year'>
-                  
-                  2017
-                     —
-                     <span class="comment">Master thesis</span></span>
                   <span class='files'>[<a href='papers/minhash.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_minhash_pdf'});"
                         >pdf</a>]  [<a href='https://docs.google.com/presentation/d/1oT-L5EON7ZCVScuYRoMzVHxf7x2Y6cig8deQXMmpP0I/edit?usp=sharing'
                         onclick="gtag('event', 'download', {'event_label': 'download_minhash_slides'});"
                         >slides</a>]</span>
+
+                  <span class='year'>
+                  2017
+                     —
+                     <span class="comment">Master thesis</span></span>
 
                   
                   <span class='title'>Minhash without false negatives</span>
@@ -854,12 +837,12 @@ This is related to the existence of small, approximate minwise hashing families 
             </li><li class="toggle-item "
                   id='paper-tails'>
                <div class='shown'>
-                  <span class='year'>
-                  
-                  2017</span>
                   <span class='files'>[<a href='papers/tails.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_tails_pdf'});"
                         >pdf</a>]</span>
+
+                  <span class='year'>
+                  2017</span>
 
                   
                   <span class='title'>Asymptotic Tail Bounds and Applications</span>
@@ -935,6 +918,13 @@ I will use the formulas to answer whether algorithms exists for the following pr
          <li><a href='https://github.com/thomasahle'>GitHub</a></li>
          <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
       </ul>
+
+      <a class="twitter-timeline"
+         href="https://twitter.com/thomasahle"
+         data-tweet-limit="10"
+         data-chrome="nofooter, noscrollbar"
+         data-dnt="true"
+         >Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
    </div>
 </body>
 </html>
