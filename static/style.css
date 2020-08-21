@@ -89,7 +89,7 @@ dd {
    text-align: center;
 }
 .shown .year {
-   float: left;
+   display: block;
    text-align: left;
 }
 .shown .files {
@@ -101,7 +101,7 @@ dd {
 }
 .shown .title {
    hyphens: none;
-   margin-top: 2rem;
+   margin-top: .5rem;
    display: block;
    font-weight: 400;
    clear: both;
@@ -174,21 +174,38 @@ img {
    max-width: 12rem;
    max-height: 12rem;
 }
-p {
-   /*margin: 0;
-   text-align: justify;*/
+sub,
+sup {
+   /**
+    * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+    */
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 sup {
-   vertical-align: top;
-   font-size: 0.7em;
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
 }
 a {
+   text-decoration: none;
+   color: #0645ad;
+}
+a:visited {
+   color: #0b0080;
+}
+a:hover {
+   text-decoration: underline;
    text-decoration-skip:ink;
    -webkit-text-decoration-skip:ink;
    -moz-text-decoration-skip:ink;
-   text-decoration-color: #aad;
-   -webkit-text-decoration-color: #aad;
-   -moz-text-decoration-color: #aad;
+   /*text-decoration-color: #008;*/
+   /*text-decoration-color: #aad;*/
+   /*-webkit-text-decoration-color: #aad;
+   -moz-text-decoration-color: #aad;*/
 }
 .comment {
    font-style: italic;
@@ -236,17 +253,17 @@ label {
 .toggle:after {
    content: '';
    position: absolute;
-   top: calc(var(--toggle-size) * .05);
-   left: calc(var(--toggle-size) * .05);
-   width: calc(var(--toggle-size) * .9);
-   height: calc(var(--toggle-size) * .9);
+   top: 1px;
+   left: 1px;
+   width: calc(var(--toggle-size) - 2px);
+   height: calc(var(--toggle-size) - 2px);
    background: #fff;
-   border-radius: calc(var(--toggle-size) * .9);
+   border-radius: calc(var(--toggle-size) - 2px);
    transition: 0.3s;
 }
 
 input:checked + .toggle {
-   background: #bada55;
+   background: #5a8bff;
 }
 
 input:checked + .toggle:after {

@@ -1,0 +1,6 @@
+<p>The classic way of computing a k-universal hash function is to use a random degree-(k−1) polynomial over a prime field ℤ<sub>p</sub>. For a fast computation of the polynomial, the prime p is often chosen as a Mersenne prime p = 2<sup>b</sup>−1.
+</p><p>
+In this paper, we show that there are other nice advantages to using Mersenne primes. Our view is that the output of the hash function is a b-bit integer that is uniformly distributed in [2<sup>b</sup>], except that p (the all 1s value) is missing. Uniform bit strings have many nice properties, such as splitting into substrings which gives us two or more hash functions for the cost of one, while preserving strong theoretical qualities. We call this trick “Two for one” hashing, and we demonstrate it on 4-universal hashing in the classic Count Sketch algorithm for second moment estimation.
+</p><p>
+We also provide a new fast branch-free code for division and modulus with Mersenne primes. Contrasting our analytic work, this code generalizes to Pseudo-Mersenne primes p = 2<sup>b</sup>−c for small c, improving upon a classical algorithm of Crandall.
+</p>

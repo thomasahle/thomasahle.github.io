@@ -53,36 +53,15 @@ addLoadEvent(function () {
       <p>
          Hello, I'm Thomas.
          I am an Algorithms Research Scientist at Facebook.
-         Previously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
-         and a Postdoctoral researcher in Theoretical Computer Science at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
+         Pre&shy;vi&shy;ously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
+         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
          I did my PhD with <a href='{{authors['pagh'].href}}'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
         previously I have been at University of Texas at Austin, and University of Oxford.
         <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
       </p><p>
         My research has primarily involved the theoretical foundations of machine learning and massive data.
-        This includes similarity search, high dimensional geometry, sketching and derandomization.
-        <!--See also my <a href='statement.pdf'>research program</a>.-->
+        This includes similarity search, high dimensional geometry, kernel methods, sketching and derandomization.
       </p>
-
-      <!--
-      <h2>News</h2>
-      <dl>
-         <dt>17/jun/19</dt>
-         <dd>Just defended my PhD! (<a href='static/thesis.pdf'>thesis</a>, <a href='https://drive.google.com/open?id=1uGgt99QaP1_SdLWilqksnbqK1en3eSDoCjJMazVattY'>slides</a>) Thanks to everyone who came and to <a href='http://people.eecs.berkeley.edu/~minilek/'>Jelani Nelson</a>, <a href='https://www.itu.dk/people/rikj/'>Riko Jacob</a> and <a href='http://www.imm.dtu.dk/~inge/'>Inge Li Gørtz</a> for being on the comity!
-         </dd>
-         <dt>1/feb/19</dt>
-         <dd>The date for handing in my PhD. is now set at April 1st.
-               I am interested in hearing about Post Doc positions anywhere in the world.
-         </dd>
-         <dt>1/oct/18</dt>
-         <dd>I have decided to leave SupWiz and return to Academia.
-            Looking forward to working with everyone!
-         </dd>
-         <dt>1/sep/17</dt>
-         <dd>I am taking a 1 year sabbatical to start up a new Natural Language Processing company, <a href='https://supwiz.com'>SupWiz</a>, with former research colleagues.
-         </dd>
-      </dl>
-      -->
 
       <div id='show-all'>
          <label for="show-all-checkbox" class='toggle-text'>Show All</label>
@@ -96,21 +75,6 @@ addLoadEvent(function () {
             <li class="toggle-item {{'featured' if paper.featured else ''}}"
                   id='paper-{{paper.tag}}'>
                <div class='shown'>
-                  <span class='year'>
-                  {#
-                  {% if paper.conference != '' -%}
-                     {{conferences[paper.conference].name}},
-                  {%- endif %}
-                  #}
-                  {%- if paper.conference not in ('subm', 'arxiv', '') -%}
-                     {{paper.conference.upper()}}
-                  {% endif %}
-                  {{paper.year}}
-                  {%- if paper.comment %}
-                     —
-                     <span class="comment">{{paper.comment}}</span>
-                  {%- endif -%}
-                  </span>
                   <span class='files'>
                   {%- for f in paper.files -%}
                      [<a href='{{f.href}}'
@@ -118,6 +82,19 @@ addLoadEvent(function () {
                         >{{f.format}}</a>]
                      {%- if not loop.last %}  {% endif -%}
                   {%- endfor -%}
+                  </span>
+
+                  <span class='year'>
+                  {%- if paper.conference not in ('subm', 'arxiv', '') -%}
+                     {{paper.conference.upper()}}
+                  {%- elif paper.conference == 'subm' -%}
+                     {{conferences[paper.conference].name}}
+                  {% endif %}
+                  {{paper.year}}
+                  {%- if paper.comment %}
+                     —
+                     <span class="comment">{{paper.comment}}</span>
+                  {%- endif -%}
                   </span>
 
                   {#<br style='clear:both' />#}
@@ -204,6 +181,7 @@ addLoadEvent(function () {
       <h3>Contact</h3>
       <ul>
          <li><a href='/blog' title='My blog'>Blog</a></li>
+         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
          <li>Email: thdy@itu.dk</li>
          <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
          <li><a href='cv.pdf' >CV</a></li>
@@ -213,6 +191,13 @@ addLoadEvent(function () {
          <li><a href='https://github.com/thomasahle'>GitHub</a></li>
          <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
       </ul>
+
+      <a class="twitter-timeline"
+         href="https://twitter.com/thomasahle"
+         data-tweet-limit="5"
+         data-chrome="nofooter, noscrollbar"
+         data-dnt="true"
+         >Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
    </div>
 </body>
 </html>

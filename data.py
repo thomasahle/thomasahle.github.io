@@ -38,6 +38,8 @@ class Vars:
         Person('David P. Woodruff', 'D Woodruff', 'http://www.cs.cmu.edu/~dwoodruf/')
         , 'amza':
         Person('Amir Zandieh', 'A Zandieh', 'https://people.epfl.ch/amir.zandieh')
+        , 'mtho':
+        Person('Mikkel Thorup', 'M Thorup', 'http://hjemmesider.diku.dk/~mthorup/')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -46,21 +48,35 @@ class Vars:
     conferences = {
         '': Conference('Not Published'),
         'arxiv': Conference('ArXiv'),
-        'subm': Conference('Submitted'),
+        'subm': Conference('In Review'),
         'soda': Conference('ACM-SIAM Symposium on Discrete Algorithms'),
         'pods': Conference('ACM Symposium on Principles of Database Systems'),
+        'sisap': Conference('International Conference on Similarity Search and Applications'),
         'focs': Conference('IEEE Symposium on Foundations of Computer Science'),
         'icalp': Conference('EATCS International Colloquium on Automata, Languages and Programming')
     }
 
     papers = [
         Paper(
+            'mersenne',
+            'The Power of Hashing with Mersenne&nbsp;Primes',
+            ['thdy', 'jbtk', 'mtho'],
+            open('abstracts/mersenne').read(),
+            2020,
+            'subm',
+            '',
+            files=[
+                File('pdf', 'papers/mersenne.pdf'),
+                ],
+            featured=False
+            ),
+        Paper(
             'tcu',
             'Similarity Search with Tensor Core Units',
             ['thdy', 'fran'],
             open('abstracts/tcu').read(),
             2020,
-            'subm',
+            'sisap',
             '',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2006.12608'),
@@ -74,7 +90,7 @@ class Vars:
             ['thdy'],
             open('abstracts/p1').read(),
             2020,
-            'subm',
+            'sisap',
             '',
             files=[
                 File('pdf', 'papers/p1.pdf'),
@@ -84,12 +100,12 @@ class Vars:
             ),
         Paper(
             'supermajority',
-            'Subsets and Supermajorities: Optimal&nbsp;Hashing‑based&nbsp;Set&nbsp;Similarity&nbsp;Search',
+            'Subsets and Supermajorities: Optimal&nbsp;Hashing‑based Set&nbsp;Similarity&nbsp;Search',
             ['thdy', 'jbtk'],
             open('abstracts/supermajority').read(),
-            2019,
-            'subm',
-            'Updated Apr 2020',
+            2020,
+            'focs',
+            '',
             files=[
                 File('pdf', 'papers/supermajority.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1904.04045'),
@@ -108,7 +124,7 @@ class Vars:
             'Merged from "Almost Optimal Tensor&nbsp;Sketch"',
             files=[
                 File('pdf', 'papers/tensorsketch-joint.pdf'),
-                File('arxiv', 'https://arxiv.org/abs/1909.01410v3'),
+                File('arxiv', 'https://arxiv.org/abs/1909.01410'),
                 File('slides', 'papers/TensorSketch_Amir.pdf')
                 ],
             featured=True,
@@ -147,7 +163,7 @@ class Vars:
                     'https://docs.google.com/presentation/d/1UOFCN1Eujr4sCQdYqdwn_8D8pNCJHEyzw9Yd_BW6bh4'
                 )
                 ],
-            featured=True,
+            featured=False,
             ),
         Paper(
             'mips',
@@ -176,12 +192,12 @@ class Vars:
             open('abstracts/tensorsketch2').read(),
             2019,
             '',
-            '',
+            'Merged into "Oblivious Sketching of High‑Degree Polynomial Kernels"',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/1909.01821'),
                 File('pdf', 'papers/tensorsketch2.pdf'),
                 ],
-            featured=True,
+            featured=False,
             ),
         Paper(
             'verification',
