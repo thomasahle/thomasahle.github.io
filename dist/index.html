@@ -7,12 +7,6 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin>
-  <!--
-  <link rel="preconnect" href="https://syndication.twitter.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.syndication.twitter.com" crossorigin>
-  <link rel="preconnect" href="https://pbs.twimg.com" crossorigin>
-  <link rel="preconnect" href="https://ton.twimg.com" crossorigin>
-  -->
 
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-32x32.png" sizes="32x32"/>
@@ -923,16 +917,23 @@ I will use the formulas to answer whether algorithms exists for the following pr
       <script>
          /* Only incude Twitter feed when we have room enough for it. */
          document.write(`<div></div>`);
-         if (window.matchMedia("(min-width: 600px)").matches)
-            document.write(`
-         <a class="twitter-timeline"
-            href="https://twitter.com/thomasahle"
-            data-tweet-limit="5"
-            data-chrome="nofooter, noscrollbar"
-            data-dnt="true"
-            >Tweets</a>
-         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"><\/script>
-               `);
+         if (window.matchMedia("(min-width: 600px)").matches) {
+            // Nobody likes document.write these days.
+            let el = document.createElement( 'div' );
+            el.innerHTML = `
+               <a class="twitter-timeline"
+                  href="https://twitter.com/thomasahle"
+                  data-tweet-limit="5"
+                  data-chrome="nofooter, noscrollbar"
+                  data-dnt="true"
+                  >Tweets</a>`;
+            let script = document.createElement("script");
+            script.async = "true";
+            script.src = "https://platform.twitter.com/widgets.js";
+            script.charset = "utf-8";
+            el.appendChild(script);
+            document.getElementById('side').appendChild(el);
+         }
       </script>
    </div>
 </body>
