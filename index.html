@@ -235,9 +235,8 @@ a:hover {
      margin-right: -1rem;
   }
   #me {
-     /*width: 13rem;
-     height: 13rem;*/
-     display:none;
+     width: 13rem;
+     height: 13rem;
   }
 }
 /********** Toggle **********/
@@ -339,9 +338,7 @@ addLoadEvent(function() {
             /*'hitCallback': function() { document.location = a.href; }*/
          });
          //return false;
-      });
-   }
-});</script>
+      });</script>
 
   <script type="application/ld+json">
    {"@context" : "http://schema.org",
@@ -395,17 +392,6 @@ addLoadEvent(function () {
       checkbox.checked = true;
    if (!checkbox.checked)
       toggle();
-
-   /* Mouse over me */
-   let img = document.getElementById('me');
-   img.onmouseover = function() {
-     img.setAttribute('src', '/static/water.jpg');
-     gtag('event', 'hover_me', {'event_label': 'on'});
-   }
-   img.onmouseout = function() {
-     img.setAttribute('src', '/static/potrait.jpg');
-     gtag('event', 'hover_me', {'event_label': 'off'});
-   }
 });
   </script>
   <title>Thomas Dybdahl Ahle</title>
@@ -915,7 +901,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
 
       <script>
          /* Only incude Twitter feed when we have room enough for it. */
-         if (window.matchMedia("(min-width: 600px)").matches) {
+         if (window.matchMedia("(min-width: 500px)").matches) {
             // Nobody likes document.write these days.
 
             let img = document.createElement( 'img' );
@@ -923,6 +909,16 @@ I will use the formulas to answer whether algorithms exists for the following pr
             img.alt = 'A photo of me';
             img.id = 'me';
             document.getElementById('side').prepend(img);
+            /* Mouse over me */
+            //let img = document.getElementById('me');
+            img.onmouseover = function() {
+              img.setAttribute('src', '/static/water.jpg');
+              gtag('event', 'hover_me', {'event_label': 'on'});
+            }
+            img.onmouseout = function() {
+              img.setAttribute('src', '/static/potrait.jpg');
+              gtag('event', 'hover_me', {'event_label': 'off'});
+            }
 
             let el = document.createElement( 'div' );
             el.innerHTML = `

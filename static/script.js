@@ -24,5 +24,3 @@ addLoadEvent(function() {
          });
          //return false;
       });
-   }
-});
