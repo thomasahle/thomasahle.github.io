@@ -7,6 +7,12 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin>
+  <!--
+  <link rel="preconnect" href="https://syndication.twitter.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.syndication.twitter.com" crossorigin>
+  <link rel="preconnect" href="https://pbs.twimg.com" crossorigin>
+  <link rel="preconnect" href="https://ton.twimg.com" crossorigin>
+  -->
 
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-32x32.png" sizes="32x32"/>
@@ -235,8 +241,9 @@ a:hover {
      margin-right: -1rem;
   }
   #me {
-     width: 13rem;
-     height: 13rem;
+     /*width: 13rem;
+     height: 13rem;*/
+     display:none;
   }
 }
 /********** Toggle **********/
@@ -296,19 +303,7 @@ input:active + .toggle:after {
 
 .publications.toggled .toggle-item:not(.featured) {
    display: none;
-}
-/*
- * Use animation?
-.publications:not(.toggled) .toggle-item:not(.featured) {
-    opacity: 0;
-    max-height: 0;
-}
-.publications .toggle-item {
-    opacity: 1;
-    max-height: 1000px;
-    transition: max-height 600ms 0ms, opacity 300ms 300ms;
-}
-*/</style>
+}</style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
@@ -366,6 +361,7 @@ addLoadEvent(function() {
                 "name": "Morgan Mingle"
            }
      },
+     "description": " My research primarily involves the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization.",
      "image": [ "https://thomasahle.com/static/potrait.jpg" ],
      "primaryImageOfPage": "https://thomasahle.com/static/potrait.jpg",
      "thumbnailUrl": "https://thomasahle.com/static/potrait.jpg" 
