@@ -896,7 +896,6 @@ I will use the formulas to answer whether algorithms exists for the following pr
 
    </div>
    <div id='side'>
-      <img src='static/potrait.jpg' alt='A photo of me' id='me' />
       <h3>Coauthors</h3>
       <ul><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li></ul>
 
@@ -918,6 +917,13 @@ I will use the formulas to answer whether algorithms exists for the following pr
          /* Only incude Twitter feed when we have room enough for it. */
          if (window.matchMedia("(min-width: 600px)").matches) {
             // Nobody likes document.write these days.
+
+            let img = document.createElement( 'img' );
+            img.src = 'static/potrait.jpg';
+            img.alt = 'A photo of me';
+            img.id = 'me';
+            document.getElementById('side').prepend(img);
+
             let el = document.createElement( 'div' );
             el.innerHTML = `
                <a class="twitter-timeline"
