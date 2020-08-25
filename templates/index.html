@@ -32,17 +32,6 @@ addLoadEvent(function () {
       checkbox.checked = true;
    if (!checkbox.checked)
       toggle();
-
-   /* Mouse over me */
-   let img = document.getElementById('me');
-   img.onmouseover = function() {
-     img.setAttribute('src', '/static/water.jpg');
-     gtag('event', 'hover_me', {'event_label': 'on'});
-   }
-   img.onmouseout = function() {
-     img.setAttribute('src', '/static/potrait.jpg');
-     gtag('event', 'hover_me', {'event_label': 'off'});
-   }
 });
   </script>
   <title>{{me.name}}</title>
@@ -59,8 +48,7 @@ addLoadEvent(function () {
         previously I have been at University of Texas at Austin, and University of Oxford.
         <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
       </p><p>
-        My research has primarily involved the theoretical foundations of machine learning and massive data.
-        This includes similarity search, high dimensional geometry, kernel methods, sketching and derandomization.
+        My research primarily involves the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization.
       </p>
 
       <div id='show-all'>
@@ -140,7 +128,7 @@ addLoadEvent(function () {
       <h2>Media</h2>
       <ul>
          {%- for m in media -%}
-         <li><a href='{{m.href}}'>{{m.name}}</a> - {{m.date}}.
+         <li><a href='{{m.href}}'>{{m.name}}</a> &mdash; {{m.date}}.
             "{{m.title}}."
             {% for f in m.files -%}
                <a href='{{f.href}}'
@@ -153,14 +141,18 @@ addLoadEvent(function () {
 
       <h2>Code</h2>
       <ul>
-         <li><a href='http://pychess.org/'>PyChess</a> - a chess engine and Internet chess client</li>
-         <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> - a minimalist chess engine -
-            <a href='https://lichess.org/@/sunfish_rs'>play now!</a>
+         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
+            &mdash; <a href='https://pychess.org/'>online version</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
+            <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
             </li>
-         <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> - a generator and a fast solver for numberlink puzzles</li>
-         <li><a href='https://github.com/thomasahle/codenames'>codenames</a> - an AI that plays Codenames using Glove vectors.
-         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> - an experiment into using the FastText library to play chess.
-         <li><a href='https://github.com/thomasahle/mtime'>mtime</a> - helps managing the ITU time management</li>
+         <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles</li>
+            &mdash;
+            <a href='https://numberlinks.puzzlebaron.com/'>play at Puzzle Baron</a>
+         <li><a href='https://github.com/thomasahle/codenames'>codenames</a> &mdash; an AI that plays Codenames using Glove vectors.
+         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> &mdash; an experiment into using the FastText library to play chess.
+         <li><a href='https://github.com/thomasahle/mtime'>mtime</a> &mdash; helps managing the ITU time management</li>
       </ul>
 
       <h2>Other</h2>
@@ -170,7 +162,6 @@ addLoadEvent(function () {
 
    </div>
    <div id='side'>
-      <img src='{{me.photo}}' alt='A photo of me' id='me' />
       <h3>Coauthors</h3>
       <ul>
       {%- for person in coauthors: -%}
@@ -192,12 +183,43 @@ addLoadEvent(function () {
          <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
       </ul>
 
-      <a class="twitter-timeline"
-         href="https://twitter.com/thomasahle"
-         data-tweet-limit="5"
-         data-chrome="nofooter, noscrollbar"
-         data-dnt="true"
-         >Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <script>
+         /* Only incude Twitter feed when we have room enough for it. */
+         if (window.matchMedia("(min-width: 500px)").matches) {
+            // Nobody likes document.write these days.
+
+            let img = document.createElement( 'img' );
+            img.src = '{{me.photo}}';
+            img.alt = 'A photo of me';
+            img.id = 'me';
+            document.getElementById('side').prepend(img);
+            /* Mouse over me */
+            //let img = document.getElementById('me');
+            img.onmouseover = function() {
+              img.setAttribute('src', '/static/water.jpg');
+              gtag('event', 'hover_me', {'event_label': 'on'});
+            }
+            img.onmouseout = function() {
+              img.setAttribute('src', '/static/potrait.jpg');
+              gtag('event', 'hover_me', {'event_label': 'off'});
+            }
+
+            let el = document.createElement( 'div' );
+            el.innerHTML = `
+               <a class="twitter-timeline"
+                  href="https://twitter.com/thomasahle"
+                  data-tweet-limit="5"
+                  data-chrome="nofooter, noscrollbar"
+                  data-dnt="true"
+                  >Tweets</a>`;
+            let script = document.createElement("script");
+            script.async = "true";
+            script.src = "https://platform.twitter.com/widgets.js";
+            script.charset = "utf-8";
+            el.appendChild(script);
+            document.getElementById('side').appendChild(el);
+         }
+      </script>
    </div>
 </body>
 </html>

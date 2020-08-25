@@ -278,15 +278,3 @@ input:active + .toggle:after {
 .publications.toggled .toggle-item:not(.featured) {
    display: none;
 }
-/*
- * Use animation?
-.publications:not(.toggled) .toggle-item:not(.featured) {
-    opacity: 0;
-    max-height: 0;
-}
-.publications .toggle-item {
-    opacity: 1;
-    max-height: 1000px;
-    transition: max-height 600ms 0ms, opacity 300ms 300ms;
-}
-*/
