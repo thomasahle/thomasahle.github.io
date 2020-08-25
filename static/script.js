@@ -24,3 +24,5 @@ addLoadEvent(function() {
          });
          //return false;
       });
+   }
+});
