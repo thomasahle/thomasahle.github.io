@@ -187,11 +187,18 @@ dd {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-img {
-   width: 26.18vw;
-   height: 26.18vw;
-   max-width: 12rem;
-   max-height: 12rem;
+#me_holder {
+   position: relative;
+   /* Maintain aspect ratio */
+   /* The idea is to let the browser know our height before the image is loaded */
+   padding-top: 100%;
+   margin-bottom: 1.8em;
+}
+#me {
+   width: 100%;
+   /* Make the image essentially height 0, so it stays on the padding of the holder */
+   position: absolute;
+   top: 0;
 }
 sub,
 sup {
@@ -233,10 +240,6 @@ a:hover {
   .toggle-item {
      margin-left: -1rem;
      margin-right: -1rem;
-  }
-  #me {
-     width: 13rem;
-     height: 13rem;
   }
 }
 /********** Toggle **********/
