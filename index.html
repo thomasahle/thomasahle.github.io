@@ -187,11 +187,18 @@ dd {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-img {
-   width: 26.18vw;
-   height: 26.18vw;
-   max-width: 12rem;
-   max-height: 12rem;
+#me_holder {
+   position: relative;
+   /* Maintain aspect ratio */
+   /* The idea is to let the browser know our height before the image is loaded */
+   padding-top: 100%;
+   margin-bottom: 1.8em;
+}
+#me {
+   width: 100%;
+   /* Make the image essentially height 0, so it stays on the padding of the holder */
+   position: absolute;
+   top: 0;
 }
 sub,
 sup {
@@ -233,10 +240,6 @@ a:hover {
   .toggle-item {
      margin-left: -1rem;
      margin-right: -1rem;
-  }
-  #me {
-     width: 13rem;
-     height: 13rem;
   }
 }
 /********** Toggle **********/
@@ -884,33 +887,20 @@ I will use the formulas to answer whether algorithms exists for the following pr
 
    </div>
    <div id='side'>
-      <h3>Coauthors</h3>
-      <ul><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li></ul>
-
-      <h3>Contact</h3>
-      <ul>
-         <li><a href='/blog' title='My blog'>Blog</a></li>
-         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
-         <li>Email: thdy@itu.dk</li>
-         <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
-         <li><a href='cv.pdf' >CV</a></li>
-         <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
-         <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ'>Google Scholar</a></li>
-         <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
-         <li><a href='https://github.com/thomasahle'>GitHub</a></li>
-         <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
-      </ul>
 
       <script>
-         /* Only incude Twitter feed when we have room enough for it. */
+         /* Only incude Face and Twitter feed when we have room enough for it. */
          if (window.matchMedia("(min-width: 500px)").matches) {
             // Nobody likes document.write these days.
 
+            let holder = document.createElement( 'div' );
+            holder.id = 'me_holder';
             let img = document.createElement( 'img' );
             img.src = 'static/potrait.jpg';
             img.alt = 'A photo of me';
             img.id = 'me';
-            document.getElementById('side').prepend(img);
+            holder.append(img);
+            document.getElementById('side').prepend(holder);
             /* Mouse over me */
             //let img = document.getElementById('me');
             img.onmouseover = function() {
@@ -926,7 +916,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
             el.innerHTML = `
                <a class="twitter-timeline"
                   href="https://twitter.com/thomasahle"
-                  data-tweet-limit="5"
+                  data-tweet-limit="3"
                   data-chrome="nofooter, noscrollbar"
                   data-dnt="true"
                   >Tweets</a>`;
@@ -938,6 +928,24 @@ I will use the formulas to answer whether algorithms exists for the following pr
             document.getElementById('side').appendChild(el);
          }
       </script>
+
+      <h3>Contact</h3>
+      <ul>
+         <li><a href='/blog' title='My blog'>Blog</a></li>
+         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
+         <li>Email: thdy@itu.dk</li>
+         <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
+         <li><a href='cv.pdf' >CV</a></li>
+         <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
+         <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ'>Google Scholar</a></li>
+         <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
+         <li><a href='https://github.com/thomasahle'>GitHub</a></li>
+         <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
+      </ul>
+
+      <h3>Coauthors</h3>
+      <ul><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li></ul>
+
    </div>
 </body>
 </html>
