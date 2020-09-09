@@ -162,37 +162,20 @@ addLoadEvent(function () {
 
    </div>
    <div id='side'>
-      <h3>Coauthors</h3>
-      <ul>
-      {%- for person in coauthors: -%}
-         <li><a href='{{person.href}}'>{{person.name}}</a></li>
-      {%- endfor -%}
-      </ul>
-
-      <h3>Contact</h3>
-      <ul>
-         <li><a href='/blog' title='My blog'>Blog</a></li>
-         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
-         <li>Email: thdy@itu.dk</li>
-         <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
-         <li><a href='cv.pdf' >CV</a></li>
-         <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
-         <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ'>Google Scholar</a></li>
-         <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
-         <li><a href='https://github.com/thomasahle'>GitHub</a></li>
-         <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
-      </ul>
 
       <script>
-         /* Only incude Twitter feed when we have room enough for it. */
+         /* Only incude Face and Twitter feed when we have room enough for it. */
          if (window.matchMedia("(min-width: 500px)").matches) {
             // Nobody likes document.write these days.
 
+            let holder = document.createElement( 'div' );
+            holder.id = 'me_holder';
             let img = document.createElement( 'img' );
             img.src = '{{me.photo}}';
             img.alt = 'A photo of me';
             img.id = 'me';
-            document.getElementById('side').prepend(img);
+            holder.append(img);
+            document.getElementById('side').prepend(holder);
             /* Mouse over me */
             //let img = document.getElementById('me');
             img.onmouseover = function() {
@@ -208,7 +191,7 @@ addLoadEvent(function () {
             el.innerHTML = `
                <a class="twitter-timeline"
                   href="https://twitter.com/thomasahle"
-                  data-tweet-limit="5"
+                  data-tweet-limit="3"
                   data-chrome="nofooter, noscrollbar"
                   data-dnt="true"
                   >Tweets</a>`;
@@ -220,6 +203,28 @@ addLoadEvent(function () {
             document.getElementById('side').appendChild(el);
          }
       </script>
+
+      <h3>Contact</h3>
+      <ul>
+         <li><a href='/blog' title='My blog'>Blog</a></li>
+         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
+         <li>Email: thdy@itu.dk</li>
+         <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
+         <li><a href='cv.pdf' >CV</a></li>
+         <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
+         <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ'>Google Scholar</a></li>
+         <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
+         <li><a href='https://github.com/thomasahle'>GitHub</a></li>
+         <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
+      </ul>
+
+      <h3>Coauthors</h3>
+      <ul>
+      {%- for person in coauthors: -%}
+         <li><a href='{{person.href}}'>{{person.name}}</a></li>
+      {%- endfor -%}
+      </ul>
+
    </div>
 </body>
 </html>

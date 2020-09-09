@@ -30,9 +30,9 @@
     \BLOCK{endfor -}
     \BLOCK{- if paper.conference != 'subm'}
        at
-       \VAR{conferences[paper.conference].name} (\VAR{paper.conference.upper()}),
+       \VAR{conferences[paper.conference].name} (\VAR{paper.conference.upper()})
     \BLOCK{else}
-       -- Submitted,
+       -- Submitted
     \BLOCK{endif -}
    \VAR{paper.year}.
 %% endfor
