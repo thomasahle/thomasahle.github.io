@@ -299,6 +299,9 @@ input:active + .toggle:after {
 
 .publications.toggled .toggle-item:not(.featured) {
    display: none;
+}
+h2.toggled:not(.has-featured) {
+   display:none;
 }</style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -424,7 +427,8 @@ addLoadEvent(function () {
          <label for="show-all-checkbox" class='toggle'></label>
       </div>
       
-         <h2>Publications</h2>
+         <h2 class="publications has-featured"
+                    >Publications</h2>
          <ul class="publications"><li class="toggle-item "
                   id='paper-mersenne'>
                <div class='shown'>
@@ -725,7 +729,8 @@ A number of tasks in classification, information retrieval, recommendation syste
 </div>
             </li></ul>
       
-         <h2>Manuscripts</h2>
+         <h2 class="publications "
+                    >Manuscripts</h2>
          <ul class="publications"><li class="toggle-item "
                   id='paper-tensorsketch2'>
                <div class='shown'>

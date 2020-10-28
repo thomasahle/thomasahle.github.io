@@ -281,3 +281,6 @@ input:active + .toggle:after {
 .publications.toggled .toggle-item:not(.featured) {
    display: none;
 }
+h2.toggled:not(.has-featured) {
+   display:none;
+}
