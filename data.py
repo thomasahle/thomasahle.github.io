@@ -16,7 +16,10 @@ Job = namedtuple('Job', ['title', 'company', 'date', 'description', 'academic'])
 
 class Vars:
     now = datetime.datetime.now()
+    # Whether to show all papers by default
+    show_all = False
 
+# Whether to show all papers by default
     authors = {
         'thdy':
         Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/potrait.jpg', 'thdy@itu.dk')
@@ -95,7 +98,8 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/p1.pdf'),
-                File('arxiv', 'https://arxiv.org/abs/2005.12065')
+                File('arxiv', 'https://arxiv.org/abs/2005.12065'),
+                File('video', 'https://youtu.be/o0jqXjUF_d4')
                 ],
             featured=False
             ),
@@ -111,7 +115,9 @@ class Vars:
                 File('pdf', 'papers/supermajority.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1904.04045'),
                 File('slides', 'https://docs.google.com/presentation/d/1qB4M7oEHmeRs8b0x1u0O3NS7PozydhVgqI059Bi_2QE'),
-                File('blog post', 'https://thomasahle.com/blog/sets.html')
+                #File('short', 'papers/supshort.pdf'),
+                File('blog post', 'https://thomasahle.com/blog/sets.html'),
+                File('video', 'https://www.youtube.com/watch?v=Bp3afo2YYCQ')
                 ],
             featured=True,
             ),
@@ -244,8 +250,10 @@ class Vars:
             featured=False,
             ),
     ]
-    for paper in papers:
-        paper.files.sort()
+    for pubs in [papers, manuscripts]:
+        for paper in pubs:
+            paper.files.sort()
+    has_featured = lambda articles: any(p.featured for p in articles)
 
     teachings = [
             Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.', 'teaching/pcpp2019')
