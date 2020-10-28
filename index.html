@@ -388,15 +388,17 @@ addLoadEvent(function () {
       }
    }
    let checkbox = document.getElementById('show-all-checkbox');
-   checkbox.addEventListener('change', event => {
-      gtag('event', 'toggle-show-all', {'event_label': event.target.checked ? 'on' : 'off' });
-      toggle();
-   });
+   checkbox.checked = false;
    // If hash, we should show all, in case the hashed paper is hidden
    if (window.location.hash)
       checkbox.checked = true;
    if (!checkbox.checked)
       toggle();
+   // Only add the event listener after the initial toggling
+   checkbox.addEventListener('change', event => {
+      gtag('event', 'toggle-show-all', {'event_label': event.target.checked ? 'on' : 'off' });
+      toggle();
+   });
 });
   </script>
   <title>Thomas Dybdahl Ahle</title>
