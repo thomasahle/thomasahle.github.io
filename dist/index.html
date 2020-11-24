@@ -429,7 +429,37 @@ addLoadEvent(function () {
       
          <h2 class="publications has-featured"
                     >Publications</h2>
-         <ul class="publications"><li class="toggle-item "
+         <ul class="publications"><li class="toggle-item featured"
+                  id='paper-tiling'>
+               <div class='shown'>
+                  <span class='files'>[<a href='https://arxiv.org/abs/2011.10983'
+                        onclick="gtag('event', 'download', {'event_label': 'download_tiling_arxiv'});"
+                        >arxiv</a>]  [<a href='papers/tiling.pdf'
+                        onclick="gtag('event', 'download', {'event_label': 'download_tiling_pdf'});"
+                        >pdf</a>]</span>
+
+                  <span class='year'>In Review
+                  
+                  2020</span>
+
+                  
+                  <span class='title'>Tiling with Squares and Packing Dominos in Polynomial Time</span>
+                  
+
+                  <span class='authors'>
+                  <a href='https://sites.google.com/site/mikkelabrahamsen/home'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'M Abrahamsen'});"
+                           >M Abrahamsen</a>, TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'P Rasmussen'});"
+                           >P Rasmussen</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'A Aamand'});"
+                           >A Aamand</a>
+                  </span>
+               </div>
+               <div class='abstract'><p>We consider planar tiling and packing problems with polyomino pieces and a polyomino container P. A polyomino is a polygonal region with axis parallel edges and corners of integral coordinates, which may have holes. We give two polynomial time algorithms, one for deciding if P can be tiled with 2×2 squares (that is, deciding if P is the union of a set of non-overlapping copies of the 2×2 square) and one for packing P with a maximum number of non-overlapping and axis-parallel 2×1 dominos, allowing rotations of 90<sup>∘</sup>. As packing is more general than tiling, the latter algorithm can also be used to decide if P can be tiled by 2×1 dominos.
+</p><p>These are classical problems with important applications in VLSI design, and the related problem of finding a maximum packing of 2×2 squares is known to be NP-Hard [J.~Algorithms 1990]. For our three problems there are known pseudo-polynomial time algorithms, that is, algorithms with running times polynomial in the <i>area</i> of P. However, the standard, compact way to represent a polygon is by listing the coordinates of the corners in binary. We use this representation, and thus present the first polynomial time algorithms for the problems. Concretely, we give a simple O(nlogn) algorithm for tiling with squares, and a more involved O(n<sup>4</sup>) algorithm for packing and tiling with dominos.</p>
+</div>
+            </li><li class="toggle-item "
                   id='paper-mersenne'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2008.08654'
@@ -599,9 +629,9 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                   
 
                   <span class='authors'>
-                  TA, <a href='https://theory.epfl.ch/kapralov/'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'M Kapralov'});"
-                           >Kapralov</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
+                  TA, <a href='https://sites.google.com/site/mikkelabrahamsen/home'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'M Abrahamsen'});"
+                           >Abrahamsen</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
                            onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
                            >Knudsen</a>, <a href='https://www.itu.dk/people/pagh/'
                            onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
@@ -957,7 +987,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
       </ul>
 
       <h3>Coauthors</h3>
-      <ul><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li></ul>
+      <ul><li><a href='https://sites.google.com/site/mikkelabrahamsen/home'>Mikkel Abrahamsen</a></li><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'>Peter M. R. Rasmussen</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'>Anders Åmand</a></li></ul>
 
    </div>
 </body>
