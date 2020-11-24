@@ -43,6 +43,12 @@ class Vars:
         Person('Amir Zandieh', 'A Zandieh', 'https://people.epfl.ch/amir.zandieh')
         , 'mtho':
         Person('Mikkel Thorup', 'M Thorup', 'http://hjemmesider.diku.dk/~mthorup/')
+        , 'aama':
+        Person('Anders Åmand', 'A Aamand', 'https://di.ku.dk/english/staff/?pure=en/persons/433494')
+        , 'mika':
+        Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://sites.google.com/site/mikkelabrahamsen/home')
+        , 'pe2m':
+        Person('Peter M. R. Rasmussen', 'P Rasmussen', 'https://di.ku.dk/english/staff/?pure=en/persons/462256')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -60,6 +66,20 @@ class Vars:
     }
 
     papers = [
+        Paper(
+            'tiling',
+            'Tiling with Squares and Packing Dominos in Polynomial Time',
+            ['mika', 'thdy', 'pe2m', 'aama'],
+            open('abstracts/tiling').read(),
+            2020,
+            'subm',
+            '',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2011.10983'),
+                File('pdf', 'papers/tiling.pdf'),
+                ],
+            featured=True
+            ),
         Paper(
             'mersenne',
             'The Power of Hashing with Mersenne&nbsp;Primes',
