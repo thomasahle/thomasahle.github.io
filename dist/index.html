@@ -415,7 +415,7 @@ addLoadEvent(function () {
          (Currently on pandemic leave.)
          Pre&shy;vi&shy;ously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
          and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
-         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='https://www.itu.dk/people/pagh/' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
+         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='http://rasmuspagh.net/' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
         previously I have been at University of Texas at Austin, and University of Oxford.
         <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
       </p><p>
@@ -431,6 +431,31 @@ addLoadEvent(function () {
          <h2 class="publications has-featured"
                     >Publications</h2>
          <ul class="publications"><li class="toggle-item featured"
+                  id='paper-minner'>
+               <div class='shown'>
+                  <span class='files'>[<a href='papers/minner.pdf'
+                        onclick="gtag('event', 'download', {'event_label': 'download_minner_pdf'});"
+                        >pdf</a>]</span>
+
+                  <span class='year'>In Review
+                  
+                  2021</span>
+
+                  
+                  <span class='title'>Minner: Improved Similarity Estimation and Recall on&nbsp;MinHashed&nbsp;Databases</span>
+                  
+
+                  <span class='authors'>
+                  TA
+                  </span>
+               </div>
+               <div class='abstract'><p>Quantization is the state of the art approach to efficiently storing and searching large high-dimensional datasets. Broder’97 introduced the idea of Minwise Hashing (MinHash) for quantizing or sketching large sets or binary strings into a small number of values and provided a way to reconstruct the overlap or Jaccard Similarity between two sets sketched this way.
+</p><p>In this paper, we propose a new estimator for MinHash in the case where the database is quantized, but the query is not. By computing the similarity between a set and a MinHash sketch directly, rather than first also sketching the query, we increase precision and improve recall.
+</p><p>We take a principled approach based on maximum likelihood with strong theoretical guarantees. Experimenal results show an improved recall@10 corresponding to 10-30% extra MinHash values. Finally, we suggest a third very simple estimator, which is as fast as the classical MinHash estimator while often more precise than the MLE.
+</p><p>Our methods concern only the query side of search and can be used with any existing MinHashed database without changes to the data.t
+</p>
+</div>
+            </li><li class="toggle-item "
                   id='paper-tiling'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2011.10983'
@@ -643,7 +668,7 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                            >Kapralov</a>, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
                            title='Jakob Bæk Tejs Knudsen'
                            onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
-                           >Knudsen</a>, <a href='https://www.itu.dk/people/pagh/'
+                           >Knudsen</a>, <a href='http://rasmuspagh.net/'
                            title='Rasmus Pagh'
                            onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
                            >Pagh</a>, <a href='http://www.cs.cmu.edu/~avelingk/'
@@ -722,7 +747,7 @@ We also show two dimensionality reduction lemmas with 1-sided error.
                   TA, <a href='http://itu.dk/people/maau/'
                            title='Martin Aumüller'
                            onclick="gtag('event', 'coauthor', {'event_label': 'M Aumüller'});"
-                           >M Aumüller</a>, <a href='https://www.itu.dk/people/pagh/'
+                           >M Aumüller</a>, <a href='http://rasmuspagh.net/'
                            title='Rasmus Pagh'
                            onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
                            >R Pagh</a>
@@ -754,7 +779,7 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
                   
 
                   <span class='authors'>
-                  TA, <a href='https://www.itu.dk/people/pagh/'
+                  TA, <a href='http://rasmuspagh.net/'
                            title='Rasmus Pagh'
                            onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
                            >R Pagh</a>, <a href='http://www.ilyaraz.org/'
@@ -1007,7 +1032,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
       </ul>
 
       <h3>Coauthors</h3>
-      <ul><li><a href='https://sites.google.com/site/mikkelabrahamsen/home'>Mikkel Abrahamsen</a></li><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='https://www.itu.dk/people/pagh/'>Rasmus Pagh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'>Peter M. R. Rasmussen</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'>Anders Åmand</a></li></ul>
+      <ul><li><a href='https://sites.google.com/site/mikkelabrahamsen/home'>Mikkel Abrahamsen</a></li><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='http://rasmuspagh.net/'>Rasmus Pagh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'>Peter M. R. Rasmussen</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'>Anders Åmand</a></li></ul>
 
    </div>
 </body>
