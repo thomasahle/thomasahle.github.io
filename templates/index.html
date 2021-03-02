@@ -44,9 +44,10 @@ addLoadEvent(function () {
       <p>
          Hello, I'm Thomas.
          I am an Algorithms Research Scientist at Facebook.
+         (Currently on pandemic leave.)
          Pre&shy;vi&shy;ously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
          and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
-         I did my PhD with <a href='{{authors['pagh'].href}}'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
+         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='{{authors['pagh'].href}}' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
         previously I have been at University of Texas at Austin, and University of Oxford.
         <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
       </p><p>
@@ -96,6 +97,7 @@ addLoadEvent(function () {
                   {% for a in paper.authors -%}
                      {%- if authors[a] != me -%}
                         <a href='{{authors[a].href}}'
+                           title='{{authors[a].name}}'
                            onclick="gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});"
                            >
                            {%- if paper.authors |length < 5 -%}
@@ -116,6 +118,23 @@ addLoadEvent(function () {
          {%- endfor -%}
          </ul>
       {% endfor %}
+
+      <h2>Code</h2>
+      <ul>
+         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
+            &mdash; <a href='https://pychess.org/'>online version</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
+            <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
+            </li>
+         <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles</li>
+            &mdash;
+            <a href='https://numberlinks.puzzlebaron.com/'>play at Puzzle Baron</a>
+         <li><a href='https://github.com/thomasahle/codenames'>codenames</a> &mdash; an AI that plays Codenames using Glove vectors.
+         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> &mdash; an experiment into using the FastText library to play chess.
+         <li><a href='https://github.com/thomasahle/mtime'>mtime</a> &mdash; helps managing the ITU time management</li>
+         <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
+      </ul>
 
       <h2>Teaching</h2>
       <ul>
@@ -140,23 +159,6 @@ addLoadEvent(function () {
             {%- endfor -%}
          </li>
          {%- endfor -%}
-      </ul>
-
-      <h2>Code</h2>
-      <ul>
-         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
-            &mdash; <a href='https://pychess.org/'>online version</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
-            <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
-            </li>
-         <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles</li>
-            &mdash;
-            <a href='https://numberlinks.puzzlebaron.com/'>play at Puzzle Baron</a>
-         <li><a href='https://github.com/thomasahle/codenames'>codenames</a> &mdash; an AI that plays Codenames using Glove vectors.
-         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> &mdash; an experiment into using the FastText library to play chess.
-         <li><a href='https://github.com/thomasahle/mtime'>mtime</a> &mdash; helps managing the ITU time management</li>
-         <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
       </ul>
 
       <h2>Other</h2>

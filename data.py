@@ -24,7 +24,7 @@ class Vars:
         'thdy':
         Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/potrait.jpg', 'thdy@itu.dk')
         , 'pagh':
-        Person('Rasmus Pagh', 'R Pagh', 'https://www.itu.dk/people/pagh/')
+        Person('Rasmus Pagh', 'R Pagh', 'http://rasmuspagh.net/')
         , 'ilya':
         Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
         , 'fran':
@@ -45,8 +45,8 @@ class Vars:
         Person('Mikkel Thorup', 'M Thorup', 'http://hjemmesider.diku.dk/~mthorup/')
         , 'aama':
         Person('Anders Åmand', 'A Aamand', 'https://di.ku.dk/english/staff/?pure=en/persons/433494')
-        , 'mika':
-        Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://sites.google.com/site/mikkelabrahamsen/home')
+        , 'mabr':
+        Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://di.ku.dk/english/staff/?pure=en/persons/289414')
         , 'pe2m':
         Person('Peter M. R. Rasmussen', 'P Rasmussen', 'https://di.ku.dk/english/staff/?pure=en/persons/462256')
     }
@@ -67,9 +67,23 @@ class Vars:
 
     papers = [
         Paper(
+            'minner',
+            'Minner: Improved Similarity Estimation and Recall on&nbsp;MinHashed&nbsp;Databases',
+            ['thdy'],
+            open('abstracts/minner').read(),
+            2021,
+            'subm',
+            '',
+            files=[
+                File('pdf', 'papers/minner.pdf'),
+                File('slides', 'https://docs.google.com/presentation/d/e/2PACX-1vTdvK58YN2UcDYbEPM-BOEUwtChKekUvu08Ezz07810dn54bJliaxSZbaapqtHmojHdD_aK-sa44mWp/pub?start=false&loop=false&delayms=5000')
+                ],
+            featured=True
+            ),
+        Paper(
             'tiling',
             'Tiling with Squares and Packing Dominos in Polynomial Time',
-            ['mika', 'thdy', 'pe2m', 'aama'],
+            ['aama', 'mabr', 'thdy', 'pe2m'],
             open('abstracts/tiling').read(),
             2020,
             'subm',
@@ -78,7 +92,7 @@ class Vars:
                 File('arxiv', 'https://arxiv.org/abs/2011.10983'),
                 File('pdf', 'papers/tiling.pdf'),
                 ],
-            featured=True
+            featured=False
             ),
         Paper(
             'mersenne',
@@ -105,6 +119,7 @@ class Vars:
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2006.12608'),
                 File('pdf', 'papers/tcu.pdf'),
+                File('video', 'https://youtu.be/Ts8ZB-LsGQ4')
                 ],
             featured=False
             ),
@@ -202,6 +217,7 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/mips.pdf'),
+                File('poster', 'papers/PodsPoster.pdf'),
                 File('arxiv', 'http://arxiv.org/abs/1510.02824'),
                 File(
                     'slides',
