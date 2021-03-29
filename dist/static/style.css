@@ -219,9 +219,12 @@ a:hover {
 }
 .new {
    font-weight: bold;
-   background: #df2525;
+   /*background: #df2525;*/
+   /*background-color: #5a8bff;*/
+   background-color: #4d90fe;
    color: white;
    padding: 1px 5px;
+   border-radius: 3px;
 }
 @media only screen and (max-width: 500px) {
   .toggle-item {
@@ -272,7 +275,8 @@ label {
 }
 
 input:checked + .toggle {
-   background: #5a8bff;
+   /*background: #5a8bff;*/
+   background-color: #4d90fe;
 }
 
 input:checked + .toggle:after {
