@@ -217,6 +217,12 @@ a:hover {
 .comment {
    font-style: italic;
 }
+.new {
+   font-weight: bold;
+   background: #df2525;
+   color: white;
+   padding: 1px 5px;
+}
 @media only screen and (max-width: 500px) {
   .toggle-item {
      margin-left: -1rem;
