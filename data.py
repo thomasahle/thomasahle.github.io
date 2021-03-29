@@ -230,6 +230,20 @@ class Vars:
 
     manuscripts = [
         Paper(
+            'bi-moments',
+            'Sharp and Simple Bounds for the raw Moments&nbsp;of&nbsp;the&nbsp;Binomial&nbsp;and&nbsp;Poisson Distributions',
+            ['thdy'],
+            open('abstracts/bi-moments').read(),
+            2021,
+            '',
+            '',
+            files=[
+                #File('arxiv', 'https://arxiv.org/abs/1909.01821'),
+                File('pdf', 'papers/bi-moments.pdf'),
+                ],
+            featured=True,
+            ),
+        Paper(
             'tensorsketch2',
             'Almost Optimal Tensor Sketch', ['thdy', 'jbtk'],
             open('abstracts/tensorsketch2').read(),
