@@ -1,0 +1,42 @@
+#353   Locality-Preserving Hashing for Shifts and Cryptography
+
+Summary of the main contributions of the paper:
+
+The paper studies hashing for shifts in k=1 and more dimensions.
+The basic idea is simple: Minhash over a radius r l1-ball. However, a naive algorithm would take time r^k for an error probability of 1/r. The goal of the paper is to reduce the time/number of queries to the data to r^(k/2).
+
+The algorithm, based on random walks, is _very interesting_ and should have many algorithmic applications.
+Unfortunately, the main ideas were already presented by the authors in a previous Crypto 2018 paper.
+
+This paper "merely" gives a sub-optimal generalization to k=2 dimensions, and describes some applications, none of which are too surprising.
+
+The paper also discusses a noisy version and a worst-case version of the problem.
+
+The strongest part of the paper is the lower bound, which shows that r^(k/2) queries to the data are indeed necessary for error 1/r.
+I wish they would spend more time on discussing the intuition of this part in the introduction.
+The proof itself only holds for k=2, and the authors claim it can be generalized to k > 2.
+I'm not sure if it is supposed to also generalize to k=1 or if that's supposed to be covered in the previous article. I looked it up, but that article seems to show the result conditional on some the hardness of discrete log, whereas the stated theorem in this paper is unconditional.
+
+
+What is best about the paper:
+
+
+The paper takes a very interesting algorithm from the Crypto community and bring it to the attention of the Algorithm community.
+They also generalize it to the two-dimensional setting, which is probably also interesting, though not as clearly as the one-dimensional setting.
+
+
+What are the paper's weaknesses:
+
+
+The upper bound for the 2-dimensional setting is not tight towards the lower bound.
+The authors give a simple algorithm that they conjecture to be tight, but are unfortunately unable to analyze it.
+
+Many of the applications listed, while novel, seem to follow without many new ideas from the 2018 paper.
+(At least the applications I skimmed.)
+
+
+Recommendation Summary:
+
+Weak accept. The paper makes progress on a fine line of work that will be of interest to the STOC community.
+If the authors were able to prove their conjecture or tighten the lower bound, the paper would be a full accept.
+

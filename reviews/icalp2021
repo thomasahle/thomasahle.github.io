@@ -1,0 +1,49 @@
+
+Summary of the main contributions of the paper:
+
+The paper studies hashing for shifts in `k=1` and more dimensions.
+The basic idea is simple:
+Hash all the `r` shifts and return the shift with the smallest hash.
+However, a naive algorithm would take time `r^k` for an error probability of `1/r`.
+The goal of the paper is to reduce the time/number of queries to the data to `r^{k/2}`.
+
+A Crypto 2018 paper by the same authors gives a very beautiful algorithm achieving this bound (upper and lower) in k=1 dimensions.
+(That paper focuses on synchronizing between two parties on a ring in cryptography, but the connection is very direct.)
+In this paper, the authors manage to get an O(r^{8/7}) upper bound for `k=2` and a general r^{k/2} lower bound.
+
+
+The authors also give some applications, the importance of which I can't judge,
+as well as a noisy version and a worst-case version of the problem.
+
+The lower bound is perhaps the strongest part of the paper.
+Unfortunately, it only gets 9 lines of mention at the end of the introduction.
+The proof itself only holds for k=2, and the authors claim it can be generalized to k > 2.
+It would be a big improvement if the authors would actually prove it in general.
+
+I'm not sure if it is supposed to also generalize to k=1 or if that's supposed to be covered in the previous article. I looked it up, but that article seems to show the result conditional on the hardness of discrete log, whereas the stated theorem in this paper is unconditional.
+
+I mentioned this concern in a previous review of the paper, but it doesn't appear to have been improved in this version.
+
+
+What is best about the paper:
+
+
+The paper takes a very interesting algorithm from the Crypto community and bring it to the attention of the Algorithm community.
+They also generalize it to the two-dimensional setting, which is theoretically an interesting problem, and for which they suggest some applications.
+
+
+What are the paper's weaknesses:
+
+
+The upper bound for the 2-dimensional setting is not tight towards the lower bound.
+The authors give a simple algorithm that they conjecture to be tight, but are unfortunately unable to analyze.
+
+Many of the applications listed, while novel, seem to follow without many new ideas from the 2018 paper.
+(At least the applications I skimmed.)
+
+
+Recommendation Summary:
+
+Accept. The paper makes progress on a very interesting line of work that will be of interest to the ICALP community.
+
+I hope the authors can expand their lower bound proof beyond k=2, like they claim, in the final version.
