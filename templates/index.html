@@ -64,7 +64,7 @@ addLoadEvent(function () {
                     >{{type}}</h2>
          <ul class="publications">
          {%- for paper in articles -%}
-            <li class="toggle-item {{'featured' if paper.featured else ''}}"
+            <li class="toggle-item {{'featured' if paper.featured or paper.new else ''}}"
                   id='paper-{{paper.tag}}'>
                <div class='shown'>
                   <span class='files'>
@@ -83,6 +83,10 @@ addLoadEvent(function () {
                      {{conferences[paper.conference].name}}
                   {% endif %}
                   {{paper.year}}
+                  {%- if paper.new %}
+                     —
+                     <span class="new">NEW!</span>
+                  {%- endif -%}
                   {%- if paper.comment %}
                      —
                      <span class="comment">{{paper.comment}}</span>

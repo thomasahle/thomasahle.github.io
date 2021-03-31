@@ -5,7 +5,7 @@ Person = namedtuple('Person', ['name', 'abrv', 'href', 'photo', 'email'])
 Person.__new__.__defaults__ = ('Anonymous', '', '')
 Paper = namedtuple(
     'Paper',
-    ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files', 'featured'])
+    ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files', 'featured', 'new'])
 Conference = namedtuple('Conference', ['name'])
 Teaching = namedtuple('Teaching', ['name', 'abrv', 'year', 'description', 'href'])
 File = namedtuple('File', ['format', 'href'])
@@ -78,7 +78,8 @@ class Vars:
                 File('pdf', 'papers/minner.pdf'),
                 File('slides', 'https://docs.google.com/presentation/d/e/2PACX-1vTdvK58YN2UcDYbEPM-BOEUwtChKekUvu08Ezz07810dn54bJliaxSZbaapqtHmojHdD_aK-sa44mWp/pub?start=false&loop=false&delayms=5000')
                 ],
-            featured=True
+            featured=False,
+            new=True
             ),
         Paper(
             'tiling',
@@ -92,7 +93,8 @@ class Vars:
                 File('arxiv', 'https://arxiv.org/abs/2011.10983'),
                 File('pdf', 'papers/tiling.pdf'),
                 ],
-            featured=False
+            featured=False,
+            new=False
             ),
         Paper(
             'mersenne',
@@ -106,7 +108,8 @@ class Vars:
                 File('arxiv', 'https://arxiv.org/abs/2008.08654'),
                 File('pdf', 'papers/mersenne.pdf'),
                 ],
-            featured=False
+            featured=False,
+            new=False
             ),
         Paper(
             'tcu',
@@ -121,7 +124,8 @@ class Vars:
                 File('pdf', 'papers/tcu.pdf'),
                 File('video', 'https://youtu.be/Ts8ZB-LsGQ4')
                 ],
-            featured=False
+            featured=False,
+            new=False
             ),
         Paper(
             'p1',
@@ -136,7 +140,8 @@ class Vars:
                 File('arxiv', 'https://arxiv.org/abs/2005.12065'),
                 File('video', 'https://youtu.be/o0jqXjUF_d4')
                 ],
-            featured=False
+            featured=False,
+            new=False
             ),
         Paper(
             'supermajority',
@@ -155,6 +160,7 @@ class Vars:
                 File('video', 'https://www.youtube.com/watch?v=Bp3afo2YYCQ')
                 ],
             featured=True,
+            new=False
             ),
         Paper(
             'tensorsketch-joint',
@@ -170,6 +176,7 @@ class Vars:
                 File('slides', 'papers/TensorSketch_Amir.pdf')
                 ],
             featured=True,
+            new=False
             ),
         Paper(
             'lasvegas',
@@ -188,6 +195,7 @@ class Vars:
                 )
                 ],
             featured=True,
+            new=False
             ),
         Paper(
             'output-sensitive',
@@ -206,6 +214,7 @@ class Vars:
                 )
                 ],
             featured=False,
+            new=False
             ),
         Paper(
             'mips',
@@ -225,6 +234,7 @@ class Vars:
                 )
                 ],
             featured=True,
+            new=False
             ),
     ]
 
@@ -241,7 +251,8 @@ class Vars:
                 #File('arxiv', 'https://arxiv.org/abs/1909.01821'),
                 File('pdf', 'papers/bi-moments.pdf'),
                 ],
-            featured=True,
+            featured=False,
+            new=True,
             ),
         Paper(
             'tensorsketch2',
@@ -255,6 +266,7 @@ class Vars:
                 File('pdf', 'papers/tensorsketch2.pdf'),
                 ],
             featured=False,
+            new=False,
             ),
         Paper(
             'verification',
@@ -268,6 +280,7 @@ class Vars:
                 File('pdf', 'papers/verification.pdf')
                 ],
             featured=False,
+            new=False,
             ),
         Paper(
             'minhash',
@@ -285,6 +298,7 @@ class Vars:
                 )
                 ],
             featured=False,
+            new=False,
             ),
         Paper(
             'tails',
@@ -292,18 +306,19 @@ class Vars:
             ['thdy'],
             open('abstracts/tails').read(),
             2017,
-            '', # Not published
-            '',
+            conference='', # Not published
+            comment='',
             files=[
                 File('pdf', 'papers/tails.pdf'),
                 ],
             featured=False,
+            new=False,
             ),
     ]
     for pubs in [papers, manuscripts]:
         for paper in pubs:
             paper.files.sort()
-    has_featured = lambda articles: any(p.featured for p in articles)
+    has_featured = lambda articles: any(p.featured or p.new for p in articles)
 
     teachings = [
             Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.', 'teaching/pcpp2019')
