@@ -21,6 +21,10 @@ addLoadEvent(function () {
       for (let div of document.querySelectorAll('.publications')) {
          div.classList.toggle('toggled');
       }
+      // hide/show show-more links
+      for (let div of document.querySelectorAll('.show-more')) {
+         div.classList.toggle('shown');
+      }
    }
    let checkbox = document.getElementById('show-all-checkbox');
    checkbox.checked = {{'true' if show_all else 'false'}};
@@ -34,6 +38,16 @@ addLoadEvent(function () {
       gtag('event', 'toggle-show-all', {'event_label': event.target.checked ? 'on' : 'off' });
       toggle();
    });
+
+   /* Show more links */
+   for (let div of document.querySelectorAll('.show-more')) {
+      div.onclick = function() {
+         checkbox.checked = !checkbox.checked;
+         // I think updating check doesn't automatically call the cange listener.
+         toggle();
+         gtag('event', 'show-more');
+      }
+   }
 });
   </script>
   <title>{{me.name}}</title>
@@ -121,6 +135,9 @@ addLoadEvent(function () {
             </li>
          {%- endfor -%}
          </ul>
+         <div class='show-more'>
+            Show more
+         </div>
       {% endfor %}
 
       <h2>Code</h2>
@@ -219,7 +236,7 @@ addLoadEvent(function () {
       <ul>
          <li><a href='/blog' title='My blog'>Blog</a></li>
          <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
-         <li>Email: thdy@itu.dk</li>
+         <li>Email: {{authors['thdy'].email}}</li>
          <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
          <li><a href='cv.pdf' >CV</a></li>
          <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>

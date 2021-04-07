@@ -22,7 +22,7 @@ class Vars:
 # Whether to show all papers by default
     authors = {
         'thdy':
-        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/potrait.jpg', 'thdy@itu.dk')
+        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/potrait.jpg', 'thomas@ahle.dk')
         , 'pagh':
         Person('Rasmus Pagh', 'R Pagh', 'http://rasmuspagh.net/')
         , 'ilya':
@@ -248,7 +248,7 @@ class Vars:
             '',
             '',
             files=[
-                #File('arxiv', 'https://arxiv.org/abs/1909.01821'),
+                File('arxiv', 'https://arxiv.org/abs/2103.17027'),
                 File('pdf', 'papers/bi-moments.pdf'),
                 ],
             featured=False,

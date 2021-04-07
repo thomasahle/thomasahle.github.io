@@ -162,6 +162,20 @@ dd {
    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
    border-radius: var(--border-radius);
 }
+
+.show-more {
+   text-align: center;
+   margin: -1rem;
+   text-decoration: underline;
+   color: #555;
+   font-size: .85rem;
+   cursor: pointer;
+   display: none;
+}
+.show-more.shown {
+   display: block;
+}
+
 #side li {
   display: block;
   overflow: hidden;
