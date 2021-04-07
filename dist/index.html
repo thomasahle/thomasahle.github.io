@@ -181,6 +181,20 @@ dd {
    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
    border-radius: var(--border-radius);
 }
+
+.show-more {
+   text-align: center;
+   margin: -1rem;
+   text-decoration: underline;
+   color: #555;
+   font-size: .85rem;
+   cursor: pointer;
+   display: none;
+}
+.show-more.shown {
+   display: block;
+}
+
 #side li {
   display: block;
   overflow: hidden;
@@ -399,6 +413,10 @@ addLoadEvent(function () {
       for (let div of document.querySelectorAll('.publications')) {
          div.classList.toggle('toggled');
       }
+      // hide/show show-more links
+      for (let div of document.querySelectorAll('.show-more')) {
+         div.classList.toggle('shown');
+      }
    }
    let checkbox = document.getElementById('show-all-checkbox');
    checkbox.checked = false;
@@ -412,6 +430,16 @@ addLoadEvent(function () {
       gtag('event', 'toggle-show-all', {'event_label': event.target.checked ? 'on' : 'off' });
       toggle();
    });
+
+   /* Show more links */
+   for (let div of document.querySelectorAll('.show-more')) {
+      div.onclick = function() {
+         checkbox.checked = !checkbox.checked;
+         // I think updating check doesn't automatically call the cange listener.
+         toggle();
+         gtag('event', 'show-more');
+      }
+   }
 });
   </script>
   <title>Thomas Dybdahl Ahle</title>
@@ -820,6 +848,9 @@ A number of tasks in classification, information retrieval, recommendation syste
 </P
 </div>
             </li></ul>
+         <div class='show-more'>
+            Show more
+         </div>
       
          <h2 class="publications has-featured"
                     >Manuscripts</h2>
@@ -972,6 +1003,9 @@ The reason also to consider more simple methods is to help an intuition for deri
 I will use the formulas to answer whether algorithms exists for the following problems: Locality Sensitive Filters in hamming space with limited use of random bits (as opposed to current methods, requiring gaussian samples), LSF with improved performance for low dimensional spaces. (dimension < 2 log n) Linear space bit sampling LSH, which I have previously partially analyzed, but only in a different context, in which a full analysis was not necessary.
 </div>
             </li></ul>
+         <div class='show-more'>
+            Show more
+         </div>
       
 
       <h2>Code</h2>
