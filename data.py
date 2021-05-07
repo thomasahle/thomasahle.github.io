@@ -101,9 +101,9 @@ class Vars:
             'The Power of Hashing with Mersenne&nbsp;Primes',
             ['thdy', 'jbtk', 'mtho'],
             open('abstracts/mersenne').read(),
-            2020,
+            2021,
             'subm',
-            '',
+            'Updated May 2021',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2008.08654'),
                 File('pdf', 'papers/mersenne.pdf'),

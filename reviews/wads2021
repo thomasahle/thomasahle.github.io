@@ -1,0 +1,40 @@
+HalftimeHash: modern hashing without 64-bitmultipliers or finite fields
+
+In this article the author proposes a new universal hash function, Halftime hash. Such functions are used as a first step in hashing very long strings, and thus squeezing out any extra performance is an important question in practice and research alike.
+
+There are two types of such hash functions used in practice: Those with theoretical guarantees (UMhash, Clhash) and those without (xxh3, farmhash, etc.). Halftime hash belongs to the first category. Having theoretical guarantees is of great importance for preventing DOS attacks and in general of having a reliable system.
+
+Unfortunately hash functions with theoretical guarantees have tended to be slower than the heuristic ones for a fixed target collision probability. This is not too surprising, since it is harder to prove such a probability than simply claim it.
+Halftime hash is an impressive achievement in that it mostly bridges this gap.
+
+The main idea is to use an idea called EHC (Encode, Hash, Combine) for which the author cites Mridul Nandi, who again cites Ishai, Kushilevitz, Ostrovsky and Sahai from STOC 2008.
+
+By using error correcting codes in a clever way, it is possible to increase the hamming distance between strings to hash, which when handled carefully allows a big boost in the hash functions entropy.
+
+The main invention is to use codes that are not quite perfect (as they were in Nandi and Ishai et al.), but can be evaluated very fast.
+The author manages to bound the error to the collision probability encoured by this weakening to just a few bits.
+
+The paper also shows a nice applicaiton of hiearchial hashing ala Carter and Wegman, which is used to combine blockwise hashing for very large strings.
+Halftime hash does this in a depth first rather than breadth first way, to ensure low memory usage in the streaming setting.
+(The author talks about iterative deepening dfs, but that doesn't appear to be used or needed.)
+
+One question is whether this hiearchial approach is really better than just combining the blocks using polynomial hashing. It would be nice to have some discussion about this.
+Perhaps the reason is that polynomial hashing either requires modulo computations with big primes, or caryless operators, and the author wanted to avoid this.
+
+
+Overall assessment:
+
+The paper describes the theoretical underpinnings of what has recently emerged as the arguably fastest publicly available hash function. C.f. the SMHasher online test suite.
+The author combines good knowledge of theoretical ideas with precise analysis.
+The paper does a big service to the community by showing how to modify deep theoretical work into very practical algorithms.
+
+Strong accept.
+
+
+Some notes:
+
+For [19] the author should probably cite the International Workshop on Fast Software Encryption version of Nandi's article, rather than the arxiv.
+
+The paper could be written better.
+While the tree hashing is very well described, the EHC part is required me to read multiple previous papers to fully understand.
+Simple questions like: Why do we need an Erasure code over a normal Error correcting code?
