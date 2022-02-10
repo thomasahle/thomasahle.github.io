@@ -455,7 +455,7 @@ addLoadEvent(function () {
    <div id='main'>
       <p>
          Hello, I'm Thomas.
-         I am an Research Scientist at Meta working on fair, robust and explainable AI.
+         I am an Research Scientist at Meta' Probability group, working on efficient, fair and robust Machine Learning.
          Pre&shy;vi&shy;ously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
          and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
          I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='http://rasmuspagh.net/' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
@@ -511,11 +511,13 @@ addLoadEvent(function () {
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2103.17027'
                         onclick="gtag('event', 'download', {'event_label': 'download_bi-moments_arxiv'});"
-                        >arxiv</a>]  [<a href='papers/bi-moments.pdf'
+                        >arxiv</a>]  [<a href='https://www.sciencedirect.com/science/article/abs/pii/S0167715221002662'
+                        onclick="gtag('event', 'download', {'event_label': 'download_bi-moments_journal'});"
+                        >journal</a>]  [<a href='papers/bi-moments.pdf'
                         onclick="gtag('event', 'download', {'event_label': 'download_bi-moments_pdf'});"
                         >pdf</a>]</span>
 
-                  <span class='year'>SAPL
+                  <span class='year'>STAT. PROB. LETT.
                   2022
                      —
                      <span class="new">NEW!</span></span>
@@ -531,42 +533,6 @@ addLoadEvent(function () {
                <div class='abstract'><p>We prove the inequality
 E(X/μ)ᵏ    ≤    [(k/μ)/log(k/μ+1)]ᵏ    ≤    exp[k²/(2μ)] for sub−poissonian random variables, such as Binomially or Poisson distributed random variables with mean μ.</p>
 <p>This improves over previous uniform bounds for the raw moments of those distributions by a factor exponential in k.</p>
-</div>
-            </li><li class="toggle-item "
-                  id='paper-mersenne'>
-               <div class='shown'>
-                  <span class='files'>[<a href='https://arxiv.org/abs/2008.08654'
-                        onclick="gtag('event', 'download', {'event_label': 'download_mersenne_arxiv'});"
-                        >arxiv</a>]  [<a href='papers/mersenne.pdf'
-                        onclick="gtag('event', 'download', {'event_label': 'download_mersenne_pdf'});"
-                        >pdf</a>]</span>
-
-                  <span class='year'>In Review
-                  
-                  2021
-                     —
-                     <span class="comment">Updated May 2021</span></span>
-
-                  
-                  <span class='title'>The Power of Hashing with Mersenne&nbsp;Primes</span>
-                  
-
-                  <span class='authors'>
-                  TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
-                           title='Jakob Bæk Tejs Knudsen'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
-                           >J Knudsen</a>, <a href='http://hjemmesider.diku.dk/~mthorup/'
-                           title='Mikkel Thorup'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'M Thorup'});"
-                           >M Thorup</a>
-                  </span>
-               </div>
-               <div class='abstract'><p>The classic way of computing a k-universal hash function is to use a random degree-(k−1) polynomial over a prime field ℤ<sub>p</sub>. For a fast computation of the polynomial, the prime p is often chosen as a Mersenne prime p = 2<sup>b</sup>−1.
-</p><p>
-In this paper, we show that there are other nice advantages to using Mersenne primes. Our view is that the output of the hash function is a b-bit integer that is uniformly distributed in [2<sup>b</sup>], except that p (the all 1s value) is missing. Uniform bit strings have many nice properties, such as splitting into substrings which gives us two or more hash functions for the cost of one, while preserving strong theoretical qualities. We call this trick “Two for one” hashing, and we demonstrate it on 4-universal hashing in the classic Count Sketch algorithm for second moment estimation.
-</p><p>
-We also provide a new fast branch-free code for division and modulus with Mersenne primes. Contrasting our analytic work, this code generalizes to Pseudo-Mersenne primes p = 2<sup>b</sup>−c for small c, improving upon a classical algorithm of Crandall.
-</p>
 </div>
             </li><li class="toggle-item "
                   id='paper-tcu'>
@@ -886,6 +852,42 @@ A number of tasks in classification, information retrieval, recommendation syste
 </p>
 </div>
             </li><li class="toggle-item "
+                  id='paper-mersenne'>
+               <div class='shown'>
+                  <span class='files'>[<a href='https://arxiv.org/abs/2008.08654'
+                        onclick="gtag('event', 'download', {'event_label': 'download_mersenne_arxiv'});"
+                        >arxiv</a>]  [<a href='papers/mersenne.pdf'
+                        onclick="gtag('event', 'download', {'event_label': 'download_mersenne_pdf'});"
+                        >pdf</a>]</span>
+
+                  <span class='year'>In Review
+                  
+                  2021
+                     —
+                     <span class="comment">Updated May 2021</span></span>
+
+                  
+                  <span class='title'>The Power of Hashing with Mersenne&nbsp;Primes</span>
+                  
+
+                  <span class='authors'>
+                  TA, <a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'
+                           title='Jakob Bæk Tejs Knudsen'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
+                           >J Knudsen</a>, <a href='http://hjemmesider.diku.dk/~mthorup/'
+                           title='Mikkel Thorup'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'M Thorup'});"
+                           >M Thorup</a>
+                  </span>
+               </div>
+               <div class='abstract'><p>The classic way of computing a k-universal hash function is to use a random degree-(k−1) polynomial over a prime field ℤ<sub>p</sub>. For a fast computation of the polynomial, the prime p is often chosen as a Mersenne prime p = 2<sup>b</sup>−1.
+</p><p>
+In this paper, we show that there are other nice advantages to using Mersenne primes. Our view is that the output of the hash function is a b-bit integer that is uniformly distributed in [2<sup>b</sup>], except that p (the all 1s value) is missing. Uniform bit strings have many nice properties, such as splitting into substrings which gives us two or more hash functions for the cost of one, while preserving strong theoretical qualities. We call this trick “Two for one” hashing, and we demonstrate it on 4-universal hashing in the classic Count Sketch algorithm for second moment estimation.
+</p><p>
+We also provide a new fast branch-free code for division and modulus with Mersenne primes. Contrasting our analytic work, this code generalizes to Pseudo-Mersenne primes p = 2<sup>b</sup>−c for small c, improving upon a classical algorithm of Crandall.
+</p>
+</div>
+            </li><li class="toggle-item "
                   id='paper-tensorsketch2'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/1909.01821'
@@ -1013,21 +1015,24 @@ I will use the formulas to answer whether algorithms exists for the following pr
          </div>
       
 
-      <h2>Projects with Code</h2>
+      <h2>Games</h2>
       <ul>
-         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
-            &mdash; <a href='https://pychess.org/'>online version</a>
-         </li>
          <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
             <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
          </li>
+         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
+            &mdash; <a href='https://pychess.org/'>online version</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/liars-dice'>Liar's Dice</a> &mdash; a bluffing dice game based on Neural Counterfactual Regret. Play at <a href="https://dudo.ai">dudo.ai</a> and read <a href="https://towardsdatascience.com/3bbed6addde0">the blog post</a>.</li>
          <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles
             &mdash;
             <a href='https://numberlinks.puzzlebaron.com/'>play at Puzzle Baron</a>
          </li>
          <li><a href='https://github.com/thomasahle/codenames'>codenames</a> &mdash; an AI that plays Codenames using Glove vectors.</li>
          <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> &mdash; an experiment into using the FastText library to play chess.</li>
+         <!--
          <li><a href='https://github.com/thomasahle/mtime'>mtime</a> &mdash; helps managing the ITU time management</li>
+         -->
          <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
       </ul>
 
@@ -1037,6 +1042,19 @@ I will use the formulas to answer whether algorithms exists for the following pr
             <p>MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.</p>
          </li></ul>
 
+      <h2>Programming Problems</h2>
+      <p>
+      These are various algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>.
+      </p>
+      <p>
+           <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
+           <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
+           <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
+           <a href="https://spoj.com/problems/NANO/">NANO</a>,
+           <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
+           <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
+           <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>
+      </p>
 
       <h2>Media</h2>
       <ul><li><a href='https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/'>Prosa</a> &mdash; May 2021.
@@ -1052,20 +1070,6 @@ I will use the formulas to answer whether algorithms exists for the following pr
             </li><li><a href='https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer'>Computerworld</a> &mdash; October 2013.
             "Denmark's Three Greatest Programmers."
             </li></ul>
-
-      <h2>Programming Problems</h2>
-      <p>
-      These are various algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>.
-      </p>
-      <p>
-           <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
-           <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
-           <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
-           <a href="https://spoj.com/problems/NANO/">NANO</a>,
-           <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
-           <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
-           <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>
-      </p>
 
       <h2>Other</h2>
       <ul>
