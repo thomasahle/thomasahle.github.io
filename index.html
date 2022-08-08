@@ -455,13 +455,16 @@ addLoadEvent(function () {
    <div id='main'>
       <p>
          Hello, I'm Thomas.
-         I am an Research Scientist at Meta' Probability group, working on efficient, fair and robust Machine Learning.
+         I am a Full Stack Research Scientist at Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group, designing and implementing algorithms for scalable AI and Machine Learning.
          Pre&shy;vi&shy;ously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
          and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
          I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='http://rasmuspagh.net/' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
-         previously I have been at University of Texas at Austin working with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a>, and University of Oxford adviced by <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a>.
+         previously I have been at University of Texas at Austin working with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> on the fundamental limits of data-limited computation.
+         <!--
+         , and University of Oxford adviced by <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a>.
+         -->
       </p><p>
-        My research primarily involves the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization.
+        My research primarily involves the theoretical foundations of machine learning and massive data, including similarity search, hashing, high dimensional geometry, kernel methods, sketching and derandomization.
       </p>
 
       <div id='show-all'>
@@ -473,6 +476,45 @@ addLoadEvent(function () {
          <h2 class="publications has-featured"
                     >Publications</h2>
          <ul class="publications"><li class="toggle-item featured"
+                  id='paper-favour'>
+               <div class='shown'>
+                  <span class='files'>[<a href='papers/favour.pdf'
+                        onclick="gtag('event', 'download', {'event_label': 'download_favour_pdf'});"
+                        >pdf</a>]</span>
+
+                  <span class='year'>In Review
+                  
+                  2022
+                     —
+                     <span class="new">NEW!</span></span>
+
+                  
+                  <span class='title'>Fast Variance Operator for Uncertainty Rating</span>
+                  
+
+                  <span class='authors'>
+                  TA, <a href='https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en'
+                           title='Sahar Karimi'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'S Karimi'});"
+                           >S Karimi</a>, <a href='https://dl.acm.org/profile/81452604699'
+                           title='Peter Tang'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'P Tang'});"
+                           >P Tang</a>
+                  </span>
+               </div>
+               <div class='abstract'><p>We introduce a principled approximate variance propagation framework for Bayesian Neural Networks.
+More accurate than Monte Carlo sampling, and much faster than previous variance propagation frameworks,
+it smoothly interpolates between quality and inference time.
+This is made possible by a new fast algorithm for updating a diagonal-plus-low-rank matrix approximation under various
+operations.</p>
+<p> We tested our algorithm against sampling based MC Dropout
+and Variational Inference on a number of downstream uncertainty themed
+tasks, such as calibration and out-of-distribution testing. We find that
+Favour is as fast as performing 2-3 inference samples, while matching the
+performance of 10-100 samples.
+</p>
+</div>
+            </li><li class="toggle-item "
                   id='paper-tiling'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2011.10983'
@@ -482,9 +524,7 @@ addLoadEvent(function () {
                         >pdf</a>]</span>
 
                   <span class='year'>SOCG
-                  2022
-                     —
-                     <span class="new">NEW!</span></span>
+                  2022</span>
 
                   
                   <span class='title'>Tiling with Squares and Packing Dominos in Polynomial Time</span>
@@ -518,9 +558,7 @@ addLoadEvent(function () {
                         >pdf</a>]</span>
 
                   <span class='year'>STAT. PROB. LETT.
-                  2022
-                     —
-                     <span class="new">NEW!</span></span>
+                  2022</span>
 
                   
                   <span class='title'>Sharp and Simple Bounds for the raw Moments&nbsp;of&nbsp;the&nbsp;Binomial&nbsp;and&nbsp;Poisson Distributions</span>
@@ -1138,7 +1176,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
       </ul>
 
       <h3>Coauthors</h3>
-      <ul><li><a href='https://sites.google.com/view/mikkel-abrahamsen'>Mikkel Abrahamsen</a></li><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='http://rasmuspagh.net/'>Rasmus Pagh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'>Peter M. R. Rasmussen</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'>Anders Åmand</a></li></ul>
+      <ul><li><a href='https://sites.google.com/view/mikkel-abrahamsen'>Mikkel Abrahamsen</a></li><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en'>Sahar Karimi</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='http://rasmuspagh.net/'>Rasmus Pagh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'>Peter M. R. Rasmussen</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='https://dl.acm.org/profile/81452604699'>Peter Tang</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'>Anders Åmand</a></li></ul>
 
    </div>
 </body>
