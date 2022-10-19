@@ -57,15 +57,14 @@ addLoadEvent(function () {
    <div id='main'>
       <p>
          Hello, I'm Thomas.
-         I am an Algorithms Research Scientist at Facebook.
-         (Currently on pandemic leave.)
+         I am a Full Stack Research Scientist at Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group, designing and implementing algorithms for scalable AI and Machine Learning.
          Pre&shy;vi&shy;ously I was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
-         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen.
-         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='{{authors['pagh'].href}}' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project, and
-        previously I have been at University of Texas at Austin, and University of Oxford.
-        <!--where my advisors were <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> and <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a>.-->
+         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
+         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='{{authors['pagh'].href}}' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project.
+         Previous I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics;
+         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas, Austin, on the fundamental limits of data-limited computation.
       </p><p>
-        My research primarily involves the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization.
+        My research primarily involves scaling large transformer and recommendation systems, the theoretical foundations of machine learning and massive data, including similarity search, hashing, high dimensional geometry, kernel methods, sketching and derandomization.
       </p>
 
       <div id='show-all'>
@@ -140,21 +139,24 @@ addLoadEvent(function () {
          </div>
       {% endfor %}
 
-      <h2>Code</h2>
+      <h2>Games</h2>
       <ul>
-         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
-            &mdash; <a href='https://pychess.org/'>online version</a>
-         </li>
          <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
             <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
          </li>
+         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
+            &mdash; <a href='https://pychess.org/'>online version</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/liars-dice'>Liar's Dice</a> &mdash; a bluffing dice game based on Neural Counterfactual Regret. Play at <a href="https://dudo.ai">dudo.ai</a> and read <a href="https://towardsdatascience.com/3bbed6addde0">the blog post</a>.</li>
          <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles
             &mdash;
             <a href='https://numberlinks.puzzlebaron.com/'>play at Puzzle Baron</a>
          </li>
          <li><a href='https://github.com/thomasahle/codenames'>codenames</a> &mdash; an AI that plays Codenames using Glove vectors.</li>
          <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> &mdash; an experiment into using the FastText library to play chess.</li>
+         <!--
          <li><a href='https://github.com/thomasahle/mtime'>mtime</a> &mdash; helps managing the ITU time management</li>
+         -->
          <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
       </ul>
 
@@ -168,6 +170,19 @@ addLoadEvent(function () {
       {%- endfor -%}
       </ul>
 
+      <h2>Programming Problems</h2>
+      <p>
+      These are various algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>.
+      </p>
+      <p>
+           <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
+           <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
+           <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
+           <a href="https://spoj.com/problems/NANO/">NANO</a>,
+           <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
+           <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
+           <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>
+      </p>
 
       <h2>Media</h2>
       <ul>
@@ -244,6 +259,8 @@ addLoadEvent(function () {
          <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&sortby=pubdate'>Google Scholar</a></li>
          <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
          <li><a href='https://github.com/thomasahle'>GitHub</a></li>
+         <li><a href='https://en.wikipedia.org/wiki/User:Thomasda'>Wikipedia</a></li>
+         <li><a href='https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle'>OEIS</a></li>
          <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
       </ul>
 

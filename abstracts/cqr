@@ -1,0 +1,13 @@
+<p>To work with categorical features, machine learning systems employ embedding tables.
+These tables can become exceedingly large in modern recommendation systems, necessitating the development of new methods for fitting them in memory, even during training.
+</p><p>
+Some of the most successful methods for table compression are Product- and Residual Vector Quantization.
+These methods replace table rows with references to k-means clustered "codewords."
+Unfortunately, this means they must first know the table before compressing it, so they can only save memory during inference, not training.
+Recent work has used hashing-based approaches to minimize memory usage during training, but the compression obtained is inferior to that obtained by "post-training" quantization.
+</p><p>
+We show that the best of both worlds may be obtained by combining techniques based on hashing and clustering.
+By first training a hashing-based "sketch", then clustering it, and then training the clustered quantization, our method achieves compression ratios close to those of post-training quantization with the training time memory reductions of hashing-based methods.
+</p><p>
+We show experimentally that our method provides better compression and/or accuracy that previous methods, and we prove that our method always converges to the optimal embedding table for least-squares training.
+</p>

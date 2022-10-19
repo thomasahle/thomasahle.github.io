@@ -7,6 +7,7 @@ Paper = namedtuple(
     'Paper',
     ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files', 'featured', 'new'])
 Conference = namedtuple('Conference', ['name'])
+Journal = namedtuple('Journal', ['name'])
 Teaching = namedtuple('Teaching', ['name', 'abrv', 'year', 'description', 'href'])
 File = namedtuple('File', ['format', 'href'])
 Newspaper = namedtuple('Newspaper', ['author', 'name', 'date', 'title', 'href', 'description', 'files'])
@@ -46,9 +47,15 @@ class Vars:
         , 'aama':
         Person('Anders Åmand', 'A Aamand', 'https://di.ku.dk/english/staff/?pure=en/persons/433494')
         , 'mabr':
-        Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://di.ku.dk/english/staff/?pure=en/persons/289414')
+        Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://sites.google.com/view/mikkel-abrahamsen')
         , 'pe2m':
         Person('Peter M. R. Rasmussen', 'P Rasmussen', 'https://di.ku.dk/english/staff/?pure=en/persons/462256')
+        , 'sahark':
+        Person('Sahar Karimi', 'S Karimi', 'https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en')
+        , 'ptpt':
+        Person('Peter Tang', 'P Tang', 'https://dl.acm.org/profile/81452604699')
+        , 'henry':
+        Person('Henry Ling-Hei Tsang', 'H Tsang', 'https://math.osu.edu/people/tsang.79')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -62,21 +69,36 @@ class Vars:
         'pods': Conference('ACM Symposium on Principles of Database Systems'),
         'sisap': Conference('International Conference on Similarity Search and Applications'),
         'focs': Conference('IEEE Symposium on Foundations of Computer Science'),
-        'icalp': Conference('EATCS International Colloquium on Automata, Languages and Programming')
+        'icalp': Conference('EATCS International Colloquium on Automata, Languages and Programming'),
+        'socg': Conference('Symposium on Computational Geometry'),
+        'Stat. Prob. Lett.': Journal('Statistics & Probability Letters'),
     }
 
     papers = [
         Paper(
-            'minner',
-            'Minner: Improved Similarity Estimation and Recall on&nbsp;MinHashed&nbsp;Databases',
-            ['thdy'],
-            open('abstracts/minner').read(),
-            2021,
+            'cqr',
+            'Clustering Embedding Tables, Without First Learning Them',
+            ['henry', 'thdy'],
+            open('abstracts/cqr').read(),
+            2022,
             'subm',
             '',
             files=[
-                File('pdf', 'papers/minner.pdf'),
-                File('slides', 'https://docs.google.com/presentation/d/e/2PACX-1vTdvK58YN2UcDYbEPM-BOEUwtChKekUvu08Ezz07810dn54bJliaxSZbaapqtHmojHdD_aK-sa44mWp/pub?start=false&loop=false&delayms=5000')
+                File('pdf', 'papers/cqr.pdf'),
+                ],
+            featured=False,
+            new=True
+            ),
+        Paper(
+            'favour',
+            'Fast Variance Operator for Uncertainty Rating',
+            ['thdy', 'sahark', 'ptpt'],
+            open('abstracts/favour').read(),
+            2022,
+            'subm',
+            '',
+            files=[
+                File('pdf', 'papers/favour.pdf'),
                 ],
             featured=False,
             new=True
@@ -86,8 +108,8 @@ class Vars:
             'Tiling with Squares and Packing Dominos in Polynomial Time',
             ['aama', 'mabr', 'thdy', 'pe2m'],
             open('abstracts/tiling').read(),
-            2020,
-            'subm',
+            2022,
+            'socg',
             '',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2011.10983'),
@@ -97,19 +119,20 @@ class Vars:
             new=False
             ),
         Paper(
-            'mersenne',
-            'The Power of Hashing with Mersenne&nbsp;Primes',
-            ['thdy', 'jbtk', 'mtho'],
-            open('abstracts/mersenne').read(),
-            2021,
-            'subm',
-            'Updated May 2021',
+            'bi-moments',
+            'Sharp and Simple Bounds for the raw Moments&nbsp;of&nbsp;the&nbsp;Binomial&nbsp;and&nbsp;Poisson Distributions',
+            ['thdy'],
+            open('abstracts/bi-moments').read(),
+            2022,
+            'Stat. Prob. Lett.',
+            '',
             files=[
-                File('arxiv', 'https://arxiv.org/abs/2008.08654'),
-                File('pdf', 'papers/mersenne.pdf'),
+                File('journal', 'https://www.sciencedirect.com/science/article/abs/pii/S0167715221002662'),
+                File('arxiv', 'https://arxiv.org/abs/2103.17027'),
+                File('pdf', 'papers/bi-moments.pdf'),
                 ],
             featured=False,
-            new=False
+            new=False,
             ),
         Paper(
             'tcu',
@@ -240,19 +263,34 @@ class Vars:
 
     manuscripts = [
         Paper(
-            'bi-moments',
-            'Sharp and Simple Bounds for the raw Moments&nbsp;of&nbsp;the&nbsp;Binomial&nbsp;and&nbsp;Poisson Distributions',
+            'minner',
+            'Minner: Improved Similarity Estimation and Recall on&nbsp;MinHashed&nbsp;Databases',
             ['thdy'],
-            open('abstracts/bi-moments').read(),
+            open('abstracts/minner').read(),
             2021,
-            '',
+            'subm',
             '',
             files=[
-                File('arxiv', 'https://arxiv.org/abs/2103.17027'),
-                File('pdf', 'papers/bi-moments.pdf'),
+                File('pdf', 'papers/minner.pdf'),
+                File('slides', 'https://docs.google.com/presentation/d/e/2PACX-1vTdvK58YN2UcDYbEPM-BOEUwtChKekUvu08Ezz07810dn54bJliaxSZbaapqtHmojHdD_aK-sa44mWp/pub?start=false&loop=false&delayms=5000')
                 ],
-            featured=False,
-            new=True,
+            featured=True,
+            new=False
+            ),
+        Paper(
+            'mersenne',
+            'The Power of Hashing with Mersenne&nbsp;Primes',
+            ['thdy', 'jbtk', 'mtho'],
+            open('abstracts/mersenne').read(),
+            2021,
+            'subm',
+            'Updated May 2021',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2008.08654'),
+                File('pdf', 'papers/mersenne.pdf'),
+                ],
+            featured=True,
+            new=False
             ),
         Paper(
             'tensorsketch2',
@@ -326,6 +364,14 @@ class Vars:
 
     media = [
         Newspaper(
+            'Jon Lund',
+            'Prosa', 'May 2021',
+            'En ulv i fåreklæder',
+            'https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/',
+            'An interview on the use of SimHash in Google\s FLoC system.'
+            , files=[]
+        ),
+        Newspaper(
             '',
             'Stibo', 'August 2016',
             'The Stibo-Foundation supports IT-talents',
@@ -379,12 +425,11 @@ class Vars:
     ]
 
     jobs = [
+        Job('Research Scientist', 'Meta', '2020 - 2022',
+            '''I co-lead the Machine Learning Efficiency group, an internal applied research group focusing on scaling AI across the company. During the first year, we came up with a new hashing-based algorithm that reduced the size of the internal recommendation ad systems by 50\%.
+            In another project, we designed a new algorithm for inference in Bayesian Neural Networks that allowed the Integrity team to deploy well-calibrated models directly on customer devices.''', False),
         Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018',
-            '''I co-founded an NLP start-up with academics from University of Copenhagen.
-               At SupWiz I lead a team of four in developing our chatbot software and putting it into production at 3 of the largest Danish IT companies. (Now many more.)
-               In 2019 the chatbot won the most prestigious prize given by Innovation Fund Denmark.
-               I was also responsible for our hiring efforts, interviewing dozens and employing 4 engineers over a 5 month period.
-               ''', True),
+            '''I co-founded an NLP start-up with academics from the University of Copenhagen. At SupWiz, I lead a team of four developing our chatbot software and putting it into production at 3 of the largest Danish IT companies. (Now many more.) Technically we used a combination of classical symbolic AI and modern (at the time) sentence embeddings. In 2019 the chatbot won the most prestigious prize given by Innovation Fund Denmark. I was also responsible for our hiring efforts, interviewing dozens and employing four engineers over five months. ''', False),
         Job('Teaching', 'IT University of Copenhagen', '2015 - 2019',
             '''In 2019 I co-designed and taught the Parallel and Concurrent Programming course to 140 master students.
                Earlier years I assisted in various algorithms design classes.
@@ -392,20 +437,25 @@ class Vars:
         Job('Teaching', 'University of Copenhagen', '2014',
             '''I assisted in teaching algorithms to more than 200 bachelor students.''',
             True),
-        Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
-            '''I lead a project developing internal debugging tools for sifting through gigabytes of data/second on Sophion's ion channel screening machines.''',
+        Job('Software Engineer', 'Sophion, Palantir & XION', '2010 - 2014',
+            ''' Through various software engineering jobs, I have gained broad exposure to the different areas of software development. At Sophion Bioscience, I developed internal debugging tools for sifting through gigabytes of data/second on ion channel screening machines. At Palantir, I ported the Metropolis ontological time-series system (now Foundry) to the web, designing data visualization and efficient processing pipelines. At XION, I Developed the most popular Danish TV listings app for Android at the time, based on data scraped (consensually) from hundreds of TV-station websites. ''',
             False),
-        Job('Software Engineer Intern', 'Palantir', '2012',
-            '''Ported the Metropolis ontological time-series system (now Foundry) to the web.
-               Acted as coordinating hub for 10 people deciding API and network infrastructure.''',
-               False),
-        Job('Software Engineer', 'XION', '2010-2012',
-            '''I Developed the most popular Danish TV-listings app for Android at the time.
-               This included writing scrapers to gather TV information from 100s of TV-stations (consensually) and serving it on a public facing API.''',
-               False),
+        # Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
+        #     '''I lead a project developing internal debugging tools for sifting through gigabytes of data/second on Sophion's ion channel screening machines.''',
+        #     False),
+        # Job('Software Engineer Intern', 'Palantir', '2012',
+        #     '''Ported the Metropolis ontological time-series system (now Foundry) to the web.
+        #        Acted as coordinating hub for 10 people deciding API and network infrastructure.''',
+        #        False),
+        # Job('Software Engineer', 'XION', '2010-2012',
+        #     '''I Developed the most popular Danish TV-listings app for Android at the time.
+        #        This included writing scrapers to gather TV information from 100s of TV-stations (consensually) and serving it on a public facing API.''',
+        #        False),
     ]
 
     oss = [
-            Job('Project Owner', 'PyChess', '2006 - current', 'Developed the most used chess client and engine for the Linux desktop. Currently the 7th most used interface on the Free Internet Chess Server. Translated to more than 35 languages. I lead a team of 4-8 developers and designers. In 2009 we won Les Trophées du Libre in Paris. The project is under the Gnu Public License and has been used by people all over the world for research projects and other experiments.',
+            Job('Project Owner', 'PyChess', '2006 - current', 'I developed this chess engine and client for Linux desktop, which became the most pupular way to play chess on the Free Internet Chess Server.  Through the years I have lead a team of 4-8 developers and designers, as well as numerous other contributers.  Such as the volunteers who translated it to more than 35 languages.  In 2009 we won Les Trophées du Libre in Paris.',
+                True),
+            Job('Project Owner', 'Sunfish', '2012 - current', 'A 111 line python chess engine, which is nevertheless 2000+ rating on the online Lichess server.  Because of the simplicity and focus on teaching good AI techniques, it has become a popular project on Github with 2400+ stars and nearly 500 forks.  Sunfish was referenced in multiple early applications of neural networks to chess.  ',
                 True),
             ]

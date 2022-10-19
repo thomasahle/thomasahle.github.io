@@ -12,11 +12,61 @@
 \linespread{1.2}
 \setlength{\tabcolsep}{.8em}
 
-\title{Curriculum vitae}
-\author{Thomas Dybdahl Ahle, PhD}
+% \title{Curriculum vitae}
+% \author{Thomas Dybdahl Ahle, PhD \\
+%       \href{http://www.thomasahle.com}{\underline{thomasahle.com}}
+% }
+\title{Thomas Dybdahl Ahle
+   \\
+   \large{
+      Curriculum Vitae 
+   }
+}
+\author{
+      \href{http://www.thomasahle.com}{\underline{thomasahle.com}}
+}
 \date{\VAR{now.strftime('%B %Y')}}
 \begin{document}
 \maketitle
+
+
+\paragraph{Industry and Employment}
+\begin{itemize}
+%% for job in jobs
+   %% if not job.academic
+   \item[]
+   \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
+   \\
+   \VAR{job.description}
+   %% endif
+%% endfor
+\end{itemize}
+
+\paragraph{Education}
+\begin{itemize}
+   \item[]
+      IT University of Copenhagen.
+      \begin{itemize}
+         \item Ph.D. in Computer Science, June 2019.
+         \item Advisors: Rasmus Pagh, Erik Price.
+         \item Thesis: \emph{Algorithms for Sets and other High Dimensional Data}.
+      \end{itemize}
+   \item[]
+      IT University of Copenhagen \& University of Copenhagen.
+      \begin{itemize}
+         \item Master of Science in Computer Science, 2017.
+         \item Advisors: Rasmus Pagh, Mikkel Thorup.
+         \item Thesis: \emph{Minhash without false negatives}.
+      \end{itemize}
+   \item[]
+      University of Oxford.
+      \begin{itemize}
+         \item Bachelor of Arts in Computer Science, 2013.
+         \item Master of Arts in Computer Science, 2019.
+         \item Advisors: Oege de Moor, Samson Abramsky.
+         \item Thesis: \emph{The Donkey and the Monad}.
+      \end{itemize}
+\end{itemize}
 
 \paragraph{Publications}
 \begin{itemize}
@@ -38,24 +88,14 @@
 %% endfor
 \end{itemize}
 
-\paragraph{Education}
+\paragraph{Open Source Projects}
 \begin{itemize}
+%% for job in oss
    \item[]
-      June 2019
-      Doctor of Philosophy,
-      IT University of Copenhagen.
-   \item[]
-      2019
-      Master of Arts in Computer Science,
-      University of Oxford.
-   \item[]
-      2017
-      Master of Science,
-      IT University of Copenhagen, University of Copenhagen.
-   \item[]
-      2013
-      Bachelor of Arts in Computer Science,
-      University of Oxford.
+   \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
+   \\
+   \VAR{job.description}
+%% endfor
 \end{itemize}
 
 \paragraph{Awards and Scholarships}
@@ -73,27 +113,6 @@
 %% endfor
 \end{itemize}
 
-\paragraph{Industry and Employment}
-\begin{itemize}
-%% for job in jobs
-   \item[]
-   \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
-   \\
-   \VAR{job.description}
-%% endfor
-\end{itemize}
-
-\paragraph{Open Source Projects}
-\begin{itemize}
-%% for job in oss
-   \item[]
-   \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
-   \\
-   \VAR{job.description}
-%% endfor
-\end{itemize}
-
-
 \paragraph{Media}
 \begin{itemize}
 %% for m in media
@@ -109,8 +128,6 @@
    \item[]
       Email: \href{mailto:\VAR{authors['thdy'].email}}{\VAR{authors['thdy'].email}}.
    \item[]
-      Website: \href{http://www.thomasahle.com}{\underline{thomasahle.com}}
-   \item[]
       \href{https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=}{\underline{DBLP List of papers}}
    \item[]
       \href{https://scholar.google.dk/citations?user=aRiVoYgAAAAJ}{\underline{Google Scholar List of Papers}}
@@ -118,6 +135,8 @@
       Linkedin: \href{https://www.linkedin.com/in/thomasahle/}{\underline{linkedin.com/in/thomasahle}}
    \item[]
       Github: \href{https://github.com/thomasahle}{\underline{github.com/thomasahle}}
+   \item[]
+      Twitter \href{https://twitter.com/thomasahle}{\underline{twitter.com/thomasahle}}
 \end{itemize}
 
 \end{document}

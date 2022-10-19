@@ -1,0 +1,11 @@
+<p>We introduce a principled approximate variance propagation framework for Bayesian Neural Networks.
+More accurate than Monte Carlo sampling, and much faster than previous variance propagation frameworks,
+it smoothly interpolates between quality and inference time.
+This is made possible by a new fast algorithm for updating a diagonal-plus-low-rank matrix approximation under various
+operations.</p>
+<p> We tested our algorithm against sampling based MC Dropout
+and Variational Inference on a number of downstream uncertainty themed
+tasks, such as calibration and out-of-distribution testing. We find that
+Favour is as fast as performing 2-3 inference samples, while matching the
+performance of 10-100 samples.
+</p>
