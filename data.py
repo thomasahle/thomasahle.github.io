@@ -84,6 +84,7 @@ class Vars:
             'subm',
             '',
             files=[
+                File('arxiv', 'https://arxiv.org/abs/2210.05974'),
                 File('pdf', 'papers/cqr.pdf'),
                 ],
             featured=False,
@@ -99,6 +100,7 @@ class Vars:
             '',
             files=[
                 File('pdf', 'papers/favour.pdf'),
+                File('video', 'https://youtu.be/Ct63ikA2q-c'),
                 ],
             featured=False,
             new=True
@@ -114,6 +116,7 @@ class Vars:
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2011.10983'),
                 File('pdf', 'papers/tiling.pdf'),
+                File('slides', 'papers/tiling_mikkel.pdf'),
                 ],
             featured=False,
             new=False
@@ -196,7 +199,8 @@ class Vars:
             files=[
                 File('pdf', 'papers/tensorsketch-joint.pdf'),
                 File('arxiv', 'https://arxiv.org/abs/1909.01410'),
-                File('slides', 'papers/TensorSketch_Amir.pdf')
+                File('slides', 'papers/TensorSketch_Amir.pdf'),
+                File('slides 2', 'https://docs.google.com/presentation/d/1cPMMaZ2kuVI1PEJrBjKxLq6k8GYP7JUh_Q23gBw1LGA/edit?usp=sharing'),
                 ],
             featured=True,
             new=False
@@ -368,7 +372,7 @@ class Vars:
             'Prosa', 'May 2021',
             'En ulv i fåreklæder',
             'https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/',
-            'An interview on the use of SimHash in Google\s FLoC system.'
+            'I was interviewed by the IT workers union on Google\'s FLoC system and the use of SimHash.'
             , files=[]
         ),
         Newspaper(
@@ -426,10 +430,20 @@ class Vars:
 
     jobs = [
         Job('Research Scientist', 'Meta', '2020 - 2022',
-            '''I co-lead the Machine Learning Efficiency group, an internal applied research group focusing on scaling AI across the company. During the first year, we came up with a new hashing-based algorithm that reduced the size of the internal recommendation ad systems by 50\%.
-            In another project, we designed a new algorithm for inference in Bayesian Neural Networks that allowed the Integrity team to deploy well-calibrated models directly on customer devices.''', False),
+            '''
+I lead and co-founded the Machine Learning Efficiency group, a five-person internal applied research group focused on scaling AI across the organization.
+During the first year, we developed a new hashing-based algorithm that reduced the size of the internal recommendation systems by 50\%.
+In another project, we devised a new inference algorithm for Bayesian Neural Networks, allowing the Integrity team to deploy well-calibrated models directly on customer devices.
+Finally, we worked on scaling transformer models, lowering the memory requirement and inference time of Facebook Assistant through the use of embedding table compression, smart attention, and a variety of other tricks.
+            ''', False),
         Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018',
-            '''I co-founded an NLP start-up with academics from the University of Copenhagen. At SupWiz, I lead a team of four developing our chatbot software and putting it into production at 3 of the largest Danish IT companies. (Now many more.) Technically we used a combination of classical symbolic AI and modern (at the time) sentence embeddings. In 2019 the chatbot won the most prestigious prize given by Innovation Fund Denmark. I was also responsible for our hiring efforts, interviewing dozens and employing four engineers over five months. ''', False),
+            '''
+            I co-founded an NLP start-up with University of Copenhagen academics.
+At SupWiz, I lead a four-person team in developing our chatbot software and putting it into production at three of Denmark's largest IT firms.
+(There are now many more.) We used a combination of traditional symbolic AI and modern (at the time) sentence embeddings.
+The chatbot was awarded the most prestigious prize by the Innovation Fund Denmark in 2019.
+I was also in charge of our hiring efforts, interviewing dozens of candidates and hiring four engineers over the course of five months.
+            ''', False),
         Job('Teaching', 'IT University of Copenhagen', '2015 - 2019',
             '''In 2019 I co-designed and taught the Parallel and Concurrent Programming course to 140 master students.
                Earlier years I assisted in various algorithms design classes.
@@ -438,7 +452,9 @@ class Vars:
             '''I assisted in teaching algorithms to more than 200 bachelor students.''',
             True),
         Job('Software Engineer', 'Sophion, Palantir & XION', '2010 - 2014',
-            ''' Through various software engineering jobs, I have gained broad exposure to the different areas of software development. At Sophion Bioscience, I developed internal debugging tools for sifting through gigabytes of data/second on ion channel screening machines. At Palantir, I ported the Metropolis ontological time-series system (now Foundry) to the web, designing data visualization and efficient processing pipelines. At XION, I Developed the most popular Danish TV listings app for Android at the time, based on data scraped (consensually) from hundreds of TV-station websites. ''',
+            '''
+            Through various software engineering jobs, I have gained broad exposure to the different areas of software development. At Sophion Bioscience, I developed internal debugging tools for sifting through gigabytes of data/second on ion channel screening machines. At Palantir, I ported the Metropolis ontological time-series system (now Foundry) to the web, designing data visualization and efficient processing pipelines. At XION, I Developed the most popular Danish TV listings app for Android at the time, based on data scraped (consensually) from hundreds of TV-station websites.
+            ''',
             False),
         # Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
         #     '''I lead a project developing internal debugging tools for sifting through gigabytes of data/second on Sophion's ion channel screening machines.''',

@@ -35,9 +35,9 @@
 %% for job in jobs
    %% if not job.academic
    \item[]
-   \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
+   \emph{\VAR{job.title} at \VAR{job.company|tex}, \VAR{job.date}}.
    \\
-   \VAR{job.description}
+   \VAR{job.description|trim}
    %% endif
 %% endfor
 \end{itemize}
@@ -72,7 +72,8 @@
 \begin{itemize}
 %% for paper in papers
    \item[]
-      ``\VAR{paper.title.replace('&nbsp;',' ')}''.
+      ``\VAR{paper.title.replace('&nbsp;',' ')
+   |tex}''.
    By
    \BLOCK{for a in paper.authors}
       \VAR{me.name if authors[a]==me else authors[a].abrv}
@@ -80,7 +81,7 @@
     \BLOCK{endfor -}
     \BLOCK{- if paper.conference != 'subm'}
        at
-       \VAR{conferences[paper.conference].name} (\VAR{paper.conference.upper()})
+       \VAR{conferences[paper.conference].name|tex} (\VAR{paper.conference.upper()})
     \BLOCK{else}
        -- Submitted
     \BLOCK{endif -}

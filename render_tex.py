@@ -1,4 +1,4 @@
-import sys
+import sys, re
 from jinja2 import Environment, FileSystemLoader
 
 from data import Vars
@@ -16,6 +16,25 @@ env = Environment(
     autoescape = False,
     loader = FileSystemLoader('.')
 )
+
+LATEX_SUBS = (
+    (re.compile(r'\\'), r'\\textbackslash'),
+    (re.compile(r'([{}_#%&$])'), r'\\\1'),
+    (re.compile(r'~'), r'\~{}'),
+    (re.compile(r'\^'), r'\^{}'),
+    (re.compile(r'"'), r"''"),
+    (re.compile(r'\.\.\.+'), r'\\ldots'),
+    (re.compile(r'/'), r'\/'),
+    (re.compile(r'p₁⁻¹'), r'$p_1^{-1}$'),
+)
+
+def escape_tex(value):
+    newval = value
+    for pattern, replacement in LATEX_SUBS:
+        newval = pattern.sub(replacement, newval)
+    return newval
+
+env.filters['tex'] = escape_tex
 
 template = env.get_template(sys.argv[1])
 print(template.render(Vars.__dict__))
