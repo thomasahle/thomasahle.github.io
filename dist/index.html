@@ -486,10 +486,12 @@ addLoadEvent(function () {
                   
                   2022
                      —
-                     <span class="new">NEW!</span></span>
+                     <span class="new">NEW!</span>
+                     —
+                     <span class="comment">Updated Jan 2023</span></span>
 
                   
-                  <span class='title'>Clustering Embedding Tables, Without First Learning Them</span>
+                  <span class='title'>Clustering&nbsp;the&nbsp; Sketch&nbsp;: A Novel Approach to Embedding&nbsp;Table&nbsp;Compression</span>
                   
 
                   <span class='authors'>
@@ -499,18 +501,23 @@ addLoadEvent(function () {
                            >H Tsang</a>, TA
                   </span>
                </div>
-               <div class='abstract'><p>To work with categorical features, machine learning systems employ embedding tables.
+               <div class='abstract'><p>
+Embedding tables are used by machine learning systems to work with categorical features.
 These tables can become exceedingly large in modern recommendation systems, necessitating the development of new methods for fitting them in memory, even during training.
-</p><p>
-Some of the most successful methods for table compression are Product- and Residual Vector Quantization.
-These methods replace table rows with references to k-means clustered "codewords."
-Unfortunately, this means they must first know the table before compressing it, so they can only save memory during inference, not training.
-Recent work has used hashing-based approaches to minimize memory usage during training, but the compression obtained is inferior to that obtained by "post-training" quantization.
-</p><p>
-We show that the best of both worlds may be obtained by combining techniques based on hashing and clustering.
-By first training a hashing-based "sketch", then clustering it, and then training the clustered quantization, our method achieves compression ratios close to those of post-training quantization with the training time memory reductions of hashing-based methods.
-</p><p>
-We show experimentally that our method provides better compression and/or accuracy that previous methods, and we prove that our method always converges to the optimal embedding table for least-squares training.
+</p>
+<p>
+The best previous methods for table compression are so called "post training" quantization schemes such as "product" and "residual" quantization.
+These methods replace table rows with references to k-means clustered "codewords".
+Unfortunately, clustering requires prior knowledge of the table to be compressed, which limits the memory savings to inference time and not training time.
+Hence, recent work, like the QR method, has used random references (linear sketching), which can be computed with hash functions before training.
+Unfortunately, the compression achieved is inferior to that achieved by post-training quantization.
+</p>
+<p>
+The new algorithm, CQR, shows how to get the best of two worlds by combining clustering and sketching:
+First IDs are randomly assigned to a codebook and codewords are trained (end to end) for an epoch. Next, we expand the codebook and apply clustering to reduce the size again. Finally, we add new random references and continue training.
+</p>
+<p>
+We show experimentally close to those of post-training quantization with the training time memory reductions of sketch-based methods, and we prove that our method always converges to the optimal embedding table for least-squares training.
 </p>
 </div>
             </li><li class="toggle-item featured"
