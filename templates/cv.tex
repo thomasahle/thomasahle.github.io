@@ -19,18 +19,49 @@
 \title{Thomas Dybdahl Ahle
    \\
    \large{
-      Curriculum Vitae 
+      % Curriculum Vitae 
+      San Francisco, CA 94117
    }
 }
 \author{
-      \href{http://www.thomasahle.com}{\underline{thomasahle.com}}
+      \href{https://www.thomasahle.com}{\underline{thomasahle.com}}
 }
 \date{\VAR{now.strftime('%B %Y')}}
 \begin{document}
 \maketitle
 
+I'm a computer scientist with expertise in algorithms, machine learning and software engineering.
+I did my PhD in Locality Sensitive Hashing in Copenhagen (2019),
+while also co-founding an award-winning NLP startup, 2018-19, as Chief of ML.
+As a Research Scientist at Meta, I focus on scaling language models and ranking.
 
-\paragraph{Industry and Employment}
+\paragraph{Education}
+\begin{itemize}
+   \item[]
+      IT University of Copenhagen
+      \begin{itemize}
+         \item Ph.D. in Computer Science, June 2019.
+         \item Advisors: Rasmus Pagh, Erik Price.
+         \item Thesis: \emph{Algorithms for Sets and other High Dimensional Data}.
+      \end{itemize}
+   \item[]
+      IT University of Copenhagen \& University of Copenhagen
+      \begin{itemize}
+         \item Master of Science in Computer Science, 2017.
+         \item Advisors: Rasmus Pagh, Mikkel Thorup.
+         \item Thesis: \emph{Minhash without false negatives}.
+      \end{itemize}
+   \item[]
+      University of Oxford (top 1st)
+      \begin{itemize}
+         \item Bachelor of Arts in Computer Science, 2013.
+         \item Master of Arts in Computer Science, 2019.
+         \item Advisors: Oege de Moor, Samson Abramsky.
+         \item Thesis: \emph{The Donkey and the Monad}.
+      \end{itemize}
+\end{itemize}
+
+\paragraph{Industry}
 \begin{itemize}
 %% for job in jobs
    %% if not job.academic
@@ -42,33 +73,22 @@
 %% endfor
 \end{itemize}
 
-\paragraph{Education}
+\paragraph{Awards and Scholarships}
 \begin{itemize}
+%% for award in awards
    \item[]
-      IT University of Copenhagen.
-      \begin{itemize}
-         \item Ph.D. in Computer Science, June 2019.
-         \item Advisors: Rasmus Pagh, Erik Price.
-         \item Thesis: \emph{Algorithms for Sets and other High Dimensional Data}.
-      \end{itemize}
-   \item[]
-      IT University of Copenhagen \& University of Copenhagen.
-      \begin{itemize}
-         \item Master of Science in Computer Science, 2017.
-         \item Advisors: Rasmus Pagh, Mikkel Thorup.
-         \item Thesis: \emph{Minhash without false negatives}.
-      \end{itemize}
-   \item[]
-      University of Oxford.
-      \begin{itemize}
-         \item Bachelor of Arts in Computer Science, 2013.
-         \item Master of Arts in Computer Science, 2019.
-         \item Advisors: Oege de Moor, Samson Abramsky.
-         \item Thesis: \emph{The Donkey and the Monad}.
-      \end{itemize}
+   \emph{\VAR{award.name},
+      \BLOCK{if award.place}
+         \VAR{award.place},
+      \BLOCK{endif}
+      \VAR{award.giver},
+      \VAR{award.date}}.
+   \\
+   \VAR{award.description}
+%% endfor
 \end{itemize}
 
-\paragraph{Publications}
+\paragraph{Selected Publications}
 \begin{itemize}
 %% for paper in papers
    \item[]
@@ -89,6 +109,16 @@
 %% endfor
 \end{itemize}
 
+\paragraph{Media}
+\begin{itemize}
+%% for m in media
+   \item[]
+      \emph{\BLOCK{if m.author}\VAR{m.author}.
+         \BLOCK{endif}"\VAR{m.title}", \VAR{m.name}, \VAR{m.date}.}
+      \VAR{m.description}
+%% endfor
+\end{itemize}
+
 \paragraph{Open Source Projects}
 \begin{itemize}
 %% for job in oss
@@ -99,30 +129,7 @@
 %% endfor
 \end{itemize}
 
-\paragraph{Awards and Scholarships}
-\begin{itemize}
-%% for award in awards
-   \item[]
-   \emph{\VAR{award.name},
-      \BLOCK{if award.place}
-         \VAR{award.place},
-      \BLOCK{endif}
-      \VAR{award.giver},
-      \VAR{award.date}}.
-   \\
-   \VAR{award.description}
-%% endfor
-\end{itemize}
 
-\paragraph{Media}
-\begin{itemize}
-%% for m in media
-   \item[]
-      \emph{\BLOCK{if m.author}\VAR{m.author}.
-         \BLOCK{endif}"\VAR{m.title}", \VAR{m.name}, \VAR{m.date}.}
-      \VAR{m.description}
-%% endfor
-\end{itemize}
 
 \paragraph{Contact}
 \begin{itemize}

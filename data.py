@@ -77,12 +77,12 @@ class Vars:
     papers = [
         Paper(
             'cqr',
-            'Clustering Embedding Tables, Without First Learning Them',
+            'Clustering&nbsp;the&nbsp; Sketch&nbsp;: A Novel Approach to Embedding&nbsp;Table&nbsp;Compression',
             ['henry', 'thdy'],
             open('abstracts/cqr').read(),
             2022,
             'subm',
-            '',
+            'Updated Jan 2023',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2210.05974'),
                 File('pdf', 'papers/cqr.pdf'),
@@ -410,13 +410,13 @@ class Vars:
 
     awards = [
         Award('Research Travel Award', '', 'Stibo-Foundation', 2016,
-              'Given to just two Danish students a year, to collaborate in research abroad.'),
+              'Highly competitive scholarship, given to just two Danish students a year to collaborate in research abroad.'),
         Award('Northwestern Europe Regional Programming Contest', '1st',
               'Association for Computing Machinery', 2014,
-              'With my team Lambdabamserne, becoming the first ever Danish team to qualify for the ACM wold finals.'),
+              'As a member of Lambdabamserne, my team and I made history by becoming the first ever Danish team to qualify for the ACM world finals after winning 1st place out of all universities in North Western Europe.'),
         Award('Danish National Programming Champion', '1st',
               'Netcompany', '2013, 2014',
-              'Algorithm competition known as "DM i Programmering" '),
+              'Crowned Danish National Programming Champion twice, taking the top spot in the Algorithm competition known as "DM i Programmering"'),
         Award('Oxford Computer Science Competition', '1st',
               'University of Oxford', 2013,
               'For my Numberlink solving software, giving the first fixed parameter polynomial algorithm for the problem.'),
@@ -429,7 +429,7 @@ class Vars:
     ]
 
     jobs = [
-        Job('Research Scientist', 'Meta', '2020 - 2022',
+        Job('Research Scientist', 'Meta', '2020 - Present',
             '''
 I lead and co-founded the Machine Learning Efficiency group, a five-person internal applied research group focused on scaling AI across the organization.
 During the first year, we developed a new hashing-based algorithm that reduced the size of the internal recommendation systems by 50\%.
@@ -451,7 +451,7 @@ I was also in charge of our hiring efforts, interviewing dozens of candidates an
         Job('Teaching', 'University of Copenhagen', '2014',
             '''I assisted in teaching algorithms to more than 200 bachelor students.''',
             True),
-        Job('Software Engineer', 'Sophion, Palantir & XION', '2010 - 2014',
+        Job('Software Engineer', 'Other: Sophion, Palantir & XION', '2010 - 2014',
             '''
             Through various software engineering jobs, I have gained broad exposure to the different areas of software development. At Sophion Bioscience, I developed internal debugging tools for sifting through gigabytes of data/second on ion channel screening machines. At Palantir, I ported the Metropolis ontological time-series system (now Foundry) to the web, designing data visualization and efficient processing pipelines. At XION, I Developed the most popular Danish TV listings app for Android at the time, based on data scraped (consensually) from hundreds of TV-station websites.
             ''',
