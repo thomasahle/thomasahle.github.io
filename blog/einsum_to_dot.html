@@ -16,12 +16,12 @@
    </head>
    <body>
       <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-337734-4', 'auto');
-        ga('send', 'pageview');
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-337734-4', 'auto');
+         ga('send', 'pageview');
       </script>
       <div class="container mt-5">
          <h1 class="mb-4">Einsum to Tensor Network</h1>
@@ -29,8 +29,8 @@
          <div class="input-group mb-3">
             <input type="text" id="einsumCommand" class="form-control" placeholder="Enter the einsum command" aria-label="Einsum Command">
             <div class="col-auto">
-               <select class="form-select" id="layoutEngine" onchange="renderGraph()">
-                  <option value="dot" selected>dot</option>
+               <select class="form-select" id="layoutEngine">
+                  <option value="dot">dot</option>
                   <option value="neato">neato</option>
                   <option value="fdp">fdp</option>
                   <option value="sfdp">sfdp</option>
@@ -57,15 +57,15 @@
          </div>
       </div>
 
-    <div class="container mt-5">
-        <p>
-            <strong>What are Tensor Networks?</strong><br>
-            Tensor Networks are graphical representations of multidimensional arrays (tensors) and their contracted products.
-            They are used in various areas of physics and machine learning to efficiently represent and manipulate high-dimensional data structures.
-            To learn more about Tensor Networks, you can refer to the note
-            <a href="https://arxiv.org/pdf/1603.03039.pdf" target="_blank" id="noteLink">"Hand-waving and Interpretive Dance: An Introductory Course on Tensor Networks"</a>.
-        </p>
-    </div>
+      <div class="container mt-5">
+         <p>
+         <strong>What are Tensor Networks?</strong><br>
+         Tensor Networks are graphical representations of multidimensional arrays (tensors) and their contracted products.
+         They are used in various areas of physics and machine learning to efficiently represent and manipulate high-dimensional data structures.
+         To learn more about Tensor Networks, you can refer to the note
+         <a href="https://arxiv.org/pdf/1603.03039.pdf" target="_blank" id="noteLink">"Hand-waving and Interpretive Dance: An Introductory Course on Tensor Networks"</a>.
+         </p>
+      </div>
 
       <script>
          function einsumToDot(einsumCommand) {
@@ -78,8 +78,6 @@
 
             // Build the DOT language content
             let dotContent = "graph G {\n";
-            // dotContent += "    layout=\"neato\";\n"
-            //dotContent += "    layout=\"sfdp\";\n"
             dotContent += "    rankdir=LR;\n"
 
             // Add nodes for input tensors
@@ -108,7 +106,7 @@
                } else {
                   // Hyperedge for index shared among more than two tensors
                   const edgeName = `edge_${index}`;
-                  const width = (tensors.length === 1) ? 0 : 0.1;
+                  const width = (tensors.length === 1 && output.includes(index)) ? 0 : 0.1;
                   dotContent += `    ${edgeName} [shape=point, width=${width}, label=""];\n`;
                   for (const tensor of tensors) {
                      dotContent += `    ${tensor} -- ${edgeName} [xlabel="${index}"];\n`;
@@ -126,42 +124,56 @@
 
             return dotContent;
          }
-         function updateURL(einsumCommand) {
+
+         function updateURL() {
+            const einsumCommand = document.getElementById('einsumCommand').value;
+            const layoutEngine = document.getElementById('layoutEngine').value;
             const urlParams = new URLSearchParams(window.location.search);
             urlParams.set('q', einsumCommand);
+            urlParams.set('layout', layoutEngine);
             const newURL = `${window.location.pathname}?${urlParams.toString()}`;
             window.history.replaceState({}, '', newURL);
-         }
+        }
 
          function parseURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const einsumCommand = urlParams.get('q');
+            const layoutEngine = urlParams.get('layout');
             if (einsumCommand) {
-               document.getElementById('einsumCommand').value = einsumCommand;
-               renderGraph();
+                d3.select('#einsumCommand').property('value', einsumCommand);
+                renderGraph();
             }
-         }
+            if (layoutEngine) {
+                d3.select('#layoutEngine').property('value', layoutEngine);
+            }
+        }
 
          function renderGraph() {
             const einsumCommand = document.getElementById('einsumCommand').value;
             const layoutEngine = document.getElementById('layoutEngine').value;
             const dotString = einsumToDot(einsumCommand);
-
-            updateURL(einsumCommand);
             d3.select("#graph").graphviz().engine(layoutEngine).renderDot(dotString);
          }
 
          function setExample(einsumCommand) {
             document.getElementById('einsumCommand').value = einsumCommand;
             renderGraph();
+            updateURL();
          }
 
-         window.addEventListener('DOMContentLoaded', parseURL);
-         document.getElementById('einsumCommand').addEventListener('keyup', function(event) {
+         parseURL();
+         renderGraph();
+         d3.select('#einsumCommand').on('keyup', function() {
             if (event.key === 'Enter') {
                renderGraph();
+               updateURL();
             }
          });
+         d3.select('#layoutEngine').on('change', function() {
+            renderGraph();
+            updateURL();
+         });
+
       </script>
    </body>
 </html>
