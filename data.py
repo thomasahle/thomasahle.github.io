@@ -402,7 +402,7 @@ class Vars:
         Newspaper(
             'Elkær, Mads',
             'Computerworld', 'October 2013',
-            'Denmark\'s Three Greatest Programmers',
+            'Denmark\'s Three Greatest Programmers.',
             'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
             '', files=[]
             )
@@ -410,7 +410,7 @@ class Vars:
 
     awards = [
         Award('Research Travel Award', '', 'Stibo-Foundation', 2016,
-              'Highly competitive scholarship, given to just two Danish students a year to collaborate in research abroad.'),
+              'Highly competitive scholarship, awarded to only two Danish students per year for research collaboration abroad.'),
         Award('Northwestern Europe Regional Programming Contest', '1st',
               'Association for Computing Machinery', 2014,
               'As a member of Lambdabamserne, my team and I made history by becoming the first ever Danish team to qualify for the ACM world finals after winning 1st place out of all universities in North Western Europe.'),
@@ -431,46 +431,52 @@ class Vars:
     jobs = [
         Job('Research Scientist', 'Meta', '2020 - Present',
             '''
-I lead and co-founded the Machine Learning Efficiency group, a five-person internal applied research group focused on scaling AI across the organization.
-During the first year, we developed a new hashing-based algorithm that reduced the size of the internal recommendation systems by 50\%.
-In another project, we devised a new inference algorithm for Bayesian Neural Networks, allowing the Integrity team to deploy well-calibrated models directly on customer devices.
-Finally, we worked on scaling transformer models, lowering the memory requirement and inference time of Facebook Assistant through the use of embedding table compression, smart attention, and a variety of other tricks.
-            ''', False),
+I lead and co-founded the Machine Learning Efficiency group, focused on scaling AI across the organization.
+We developed several new algorithms, including: (1) a dynamic clustering algorithm for embedding tables, which reduced the size of internal recommendation systems by 50%; (2) a fast inference algorithm for Bayesian Neural Networks based on sketching; and (3) lower memory and latency transformer architectures for Facebook Assistant, enabling mobile deployment of language models.
+In 2023 I moved to CoreML, working on Ranking and Retrieval for Video Recommendation.
+            ''', academic=False),
+        Job('Researcher', 'Basic Algorithms Research Copenhagen (BARC)', '2019 - 2020',
+            '''
+Researcher at the Basic Algorithms Research Copenhagen (BARC), a leading center for fundamental algorithmic research, headed by Mikkel Thorup. I developed a number of new algorithms, publishing papers at the top algorithmic conferences, SODA and FOCS. Some selected results: (1) An optimal LSH data structure for set similarity search. (2) A very fast sketching based algorithm for high-degree polynomial machine learning kernels. (3) Methods for doing similarity search with tensor cores.
+            ''', academic=False),
         Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018',
             '''
-            I co-founded an NLP start-up with University of Copenhagen academics.
-At SupWiz, I lead a four-person team in developing our chatbot software and putting it into production at three of Denmark's largest IT firms.
-(There are now many more.) We used a combination of traditional symbolic AI and modern (at the time) sentence embeddings.
-The chatbot was awarded the most prestigious prize by the Innovation Fund Denmark in 2019.
-I was also in charge of our hiring efforts, interviewing dozens of candidates and hiring four engineers over the course of five months.
-            ''', False),
+I lead a team developing our chatbot software and putting it into production at three of Denmark’s largest IT firms. (There are now many more.) We used a combination of traditional symbolic AI and modern (at the time) sentence embeddings. The chatbot was awarded the most prestigious prize by the Innovation Fund Denmark in 2019. I was also in charge of our hiring efforts, interviewing dozens of candidates and hiring four engineers over the course of five months.
+            ''', academic=False),
         Job('Teaching', 'IT University of Copenhagen', '2015 - 2019',
             '''In 2019 I co-designed and taught the Parallel and Concurrent Programming course to 140 master students.
                Earlier years I assisted in various algorithms design classes.
-            ''', True),
+            ''', academic=True),
         Job('Teaching', 'University of Copenhagen', '2014',
             '''I assisted in teaching algorithms to more than 200 bachelor students.''',
-            True),
-        Job('Software Engineer', 'Other: Sophion, Palantir & XION', '2010 - 2014',
+            academic=True),
+        Job('Software Engineer', 'Other: Sophion, Palantir, XION & Daintel', '2006 - 2014',
             '''
-            Through various software engineering jobs, I have gained broad exposure to the different areas of software development. At Sophion Bioscience, I developed internal debugging tools for sifting through gigabytes of data/second on ion channel screening machines. At Palantir, I ported the Metropolis ontological time-series system (now Foundry) to the web, designing data visualization and efficient processing pipelines. At XION, I Developed the most popular Danish TV listings app for Android at the time, based on data scraped (consensually) from hundreds of TV-station websites.
+At Sophion Bioscience, I created debugging tools for ion channel screening machines, processing gigabytes of data per second.
+At Palantir Technologies, I was responsible for the initial web port of Metropolis (now Foundry), an ontological time-series system.
+At XION, I developed a TV-listing Android app serving 50,000 users, with a PHP backend aggregating information from over 100 sources, including websites, PDFs, and emails.
+Lastly, at Daintel (now Cambio Healthcare Systems), I worked on ICU and medical drug handling software development in SQL and PHP.
             ''',
-            False),
-        # Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
-        #     '''I lead a project developing internal debugging tools for sifting through gigabytes of data/second on Sophion's ion channel screening machines.''',
-        #     False),
-        # Job('Software Engineer Intern', 'Palantir', '2012',
-        #     '''Ported the Metropolis ontological time-series system (now Foundry) to the web.
-        #        Acted as coordinating hub for 10 people deciding API and network infrastructure.''',
-        #        False),
-        # Job('Software Engineer', 'XION', '2010-2012',
-        #     '''I Developed the most popular Danish TV-listings app for Android at the time.
-        #        This included writing scrapers to gather TV information from 100s of TV-stations (consensually) and serving it on a public facing API.''',
-        #        False),
+            academic=False),
+#        Job('Software Engineer', 'Sophion Bioscience', '2013 - 2014',
+#            '''
+#Sophion Bioscience is a leading biotech company that specializes in developing advanced solutions for ion channel research. During my time at Sophion Bioscience, I worked on developing internal debugging tools that were used to sift through gigabytes of data per second on ion channel screening machines.Sophion Bioscience is a leading biotech company that specializes in developing advanced solutions for ion channel research. During my time at Sophion Bioscience, I worked on developing internal debugging tools that were used to sift through gigabytes of data per second on ion channel screening machines.
+#            ''',
+#            False),
+#        Job('Software Engineer Intern', 'Palantir', '2012',
+#            '''
+#At Palantir Technologies, my primary responsibility was to port the Metropolis ontological time-series system (now known as Foundry) to the web, which involved a series of complex tasks that required innovative solutions and careful planning. Over the course of this project, I focused on designing data visualization tools, efficient processing pipelines, and improving the overall user experience.
+#            ''',
+#               False),
+#        Job('Android/PHP Developer', 'XION', '2010-2012',
+#            '''
+#I developed robust scrapers for 100 TV station websites, extracting valuable information such as emails, PDFs, and Word documents. Utilizing this data, I designed and developed a user-centric TV-listing app for Android, catering to over 50,000 users. The app's design was based on in-depth UI research and user statistics, ensuring an intuitive and engaging user experience.
+#            ''',
+#               False),
     ]
 
     oss = [
-            Job('Project Owner', 'PyChess', '2006 - current', 'I developed this chess engine and client for Linux desktop, which became the most pupular way to play chess on the Free Internet Chess Server.  Through the years I have lead a team of 4-8 developers and designers, as well as numerous other contributers.  Such as the volunteers who translated it to more than 35 languages.  In 2009 we won Les Trophées du Libre in Paris.',
+            Job('Project Owner', 'PyChess', '2006 - current', 'I developed this chess engine and client for Linux desktop, which became the most popular way to play chess on the Free Internet Chess Server.  Through the years I have led a team of 4-8 developers and designers, as well as numerous other contributers.  Such as the volunteers who translated it to more than 35 languages.  In 2009 we won Les Trophées du Libre in Paris.',
                 True),
             Job('Project Owner', 'Sunfish', '2012 - current', 'A 111 line python chess engine, which is nevertheless 2000+ rating on the online Lichess server.  Because of the simplicity and focus on teaching good AI techniques, it has become a popular project on Github with 2400+ stars and nearly 500 forks.  Sunfish was referenced in multiple early applications of neural networks to chess.  ',
                 True),
