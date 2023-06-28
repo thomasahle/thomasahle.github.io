@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Tensor Graph Visualizer</title>
+      <link rel="shortcut icon" type="image/png" href="favicon2.png">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <style>
+#einsumCommand {
+   font-family: monospace;
+}
+      </style>
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-graphviz/5.0.2/d3-graphviz.min.js"></script>
+   </head>
+   <body>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-337734-4', 'auto');
+        ga('send', 'pageview');
+      </script>
+      <div class="container mt-5">
+         <h1 class="mb-4">Einsum to Tensor Network</h1>
+
+         <div class="input-group mb-3">
+            <input type="text" id="einsumCommand" class="form-control" placeholder="Enter the einsum command" aria-label="Einsum Command">
+            <div class="col-auto">
+               <select class="form-select" id="layoutEngine" onchange="renderGraph()">
+                  <option value="dot" selected>dot</option>
+                  <option value="neato">neato</option>
+                  <option value="fdp">fdp</option>
+                  <option value="sfdp">sfdp</option>
+                  <option value="twopi">twopi</option>
+                  <option value="circo">circo</option>
+               </select>
+            </div>
+            <button class="btn btn-primary" type="button" onclick="renderGraph()">Generate Graph</button>
+         </div>
+
+
+         <h5 class="mb-3">Examples:</h5>
+         <ul class="list-group mb-3">
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,j->i')">Matrix-Vector Multiplication: <tt>ij,j->i</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,jk->ik')">Matrix-Matrix Multiplication: <tt>ij,jk->ik</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('bij,bjk->bik')">Batch Matrix-Matrix Multiplication: <tt>bij,bjk->bik</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('bi,bj->bij')">Batch Outer Product: <tt>bi,bj->bij</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ii->')">Trace of A: <tt>ii-></tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,ij->')">Trace of AB: <tt>ij,ij-></tt></li>
+         </ul>
+
+         <div class="container-fluid vh-100">
+            <div id="graph" class="row h-100"></div>
+         </div>
+      </div>
+
+      <script>
+         function einsumToDot(einsumCommand) {
+            const [inputs, output] = einsumCommand.split('->');
+
+            // Parse the input tensors and indices
+            const inputTensors = inputs.split(',');
+            const tensorIndices = inputTensors.map(indices => Array.from(indices));
+            const tensorNames = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ").slice(0, inputTensors.length);
+
+            // Build the DOT language content
+            let dotContent = "graph G {\n";
+            // dotContent += "    layout=\"neato\";\n"
+            //dotContent += "    layout=\"sfdp\";\n"
+            dotContent += "    rankdir=LR;\n"
+
+            // Add nodes for input tensors
+            for (let i = 0; i < tensorNames.length; i++) {
+               const tensorName = tensorNames[i];
+               dotContent += `    ${tensorName} [shape=square, label="${tensorName}"];\n`;
+            }
+
+            // Connect the nodes
+            const connectedIndices = {};
+            for (let i = 0; i < tensorIndices.length; i++) {
+               for (let j = 0; j < tensorIndices[i].length; j++) {
+                  const index = tensorIndices[i][j];
+                  if (!connectedIndices.hasOwnProperty(index)) {
+                     connectedIndices[index] = [];
+                  }
+                  connectedIndices[index].push(tensorNames[i]);
+               }
+            }
+
+            // Generate the edges with labels
+            for (const [index, tensors] of Object.entries(connectedIndices)) {
+               if (tensors.length === 2 && !output.includes(index)) {
+                  // Simple edge between two tensors
+                  dotContent += `    ${tensors[0]} -- ${tensors[1]} [xlabel="${index}"];\n`;
+               } else {
+                  // Hyperedge for index shared among more than two tensors
+                  const edgeName = `edge_${index}`;
+                  const width = (tensors.length === 1) ? 0 : 0.1;
+                  dotContent += `    ${edgeName} [shape=point, width=${width}, label=""];\n`;
+                  for (const tensor of tensors) {
+                     dotContent += `    ${tensor} -- ${edgeName} [xlabel="${index}"];\n`;
+                  }
+                  // Add a free edge if the index is part of the output
+                  if (tensors.length > 1 && output.includes(index)) {
+                     dotContent += `    ${edgeName}_free [shape=point, width=0, label=""];\n`;
+                     dotContent += `    ${edgeName} -- ${edgeName}_free [xlabel="${index}"];\n`;
+                  }
+               }
+            }
+
+            // Close the DOT content
+            dotContent += "}\n";
+
+            return dotContent;
+         }
+
+         function renderGraph() {
+            const einsumCommand = document.getElementById('einsumCommand').value;
+            const layoutEngine = document.getElementById('layoutEngine').value;
+            const dotString = einsumToDot(einsumCommand);
+
+            d3.select("#graph").graphviz().engine(layoutEngine).renderDot(dotString);
+         }
+
+         function setExample(einsumCommand) {
+            document.getElementById('einsumCommand').value = einsumCommand;
+            renderGraph();
+         }
+      </script>
+   </body>
+</html>
