@@ -52,10 +52,20 @@
             <li class="list-group-item list-group-item-action" onclick="setExample('ij,ij->')">Trace of AB: <tt>ij,ij-></tt></li>
          </ul>
 
-         <div class="container-fluid vh-100">
-            <div id="graph" class="row h-100"></div>
+         <div class="container-fluid" style="min-height: 300px;">
+            <div id="graph" style="height:100%" class="row h-100"></div>
          </div>
       </div>
+
+    <div class="container mt-5">
+        <p>
+            <strong>What are Tensor Networks?</strong><br>
+            Tensor Networks are graphical representations of multidimensional arrays (tensors) and their contracted products.
+            They are used in various areas of physics and machine learning to efficiently represent and manipulate high-dimensional data structures.
+            To learn more about Tensor Networks, you can refer to the note
+            <a href="https://arxiv.org/pdf/1603.03039.pdf" target="_blank" id="noteLink">"Hand-waving and Interpretive Dance: An Introductory Course on Tensor Networks"</a>.
+        </p>
+    </div>
 
       <script>
          function einsumToDot(einsumCommand) {
