@@ -25,20 +25,20 @@ git add dist
 git commit -m "Deploying" --quiet || exit 1
 
 # Use subtree push to send it to the master branch on GitHub.
-# git subtree push --prefix website origin master
-#git push origin `git subtree split --prefix website gh-pages`:master --force
+
+# This command splits the subdirectory dist from the current repository into
+# a new branch called split. The --prefix flag specifies the directory to be
+# split, in this case, dist. The -b flag creates a new branch with the given name.
 git subtree split --prefix dist -b split
-git push origin split:master --force
 
-#git checkout master
-#mv website .website
-#rm -rf *
-#mv .website/* .
-#rmdir .website
+# This command pushes the newly created split branch to a remote repository
+# called origin. The split:master part specifies that the local branch split
+# should be pushed to the remote branch master. The --force flag is used to
+# force the update of the master branch in the remote repository, overwriting
+# any existing commits
+git remote add ghpages git@github.com:thomasahle/thomasahle.github.io.git
+git push ghpages split:master --force
 
-#git add .
-#git commit -m "update"
-#git push
-#git checkout gh-pages
+
 
 
