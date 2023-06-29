@@ -44,12 +44,12 @@
 
          <h5 class="mb-3">Examples:</h5>
          <ul class="list-group mb-3">
-            <li class="list-group-item list-group-item-action" onclick="setExample('ij,j->i')">Matrix-Vector Multiplication: <tt>ij,j->i</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('ij,jk->ik')">Matrix-Matrix Multiplication: <tt>ij,jk->ik</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('bij,bjk->bik')">Batch Matrix-Matrix Multiplication: <tt>bij,bjk->bik</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('bi,bj->bij')">Batch Outer Product: <tt>bi,bj->bij</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('ii->')">Trace of A: <tt>ii-></tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('ij,ij->')">Trace of AB: <tt>ij,ij-></tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,j->i')">Matrix-Vector Multiplication: <tt>ij,j-&gt;i</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,jk->ik')">Matrix-Matrix Multiplication: <tt>ij,jk-&gt;ik</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('bij,bjk->bik')">Batch Matrix-Matrix Multiplication: <tt>bij,bjk-&gt;bik</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('bi,bj->bij')">Batch Outer Product: <tt>bi,bj-&gt;bij</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ii->')">Trace of A: <tt>ii-&gt;</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,ij->')">Trace of AB: <tt>ij,ij-&gt;</tt></li>
          </ul>
 
          <div class="container-fluid" style="min-height: 300px;">
@@ -68,17 +68,44 @@
       </div>
 
       <script>
+
+         function parseEinsumInput(input) {
+            // Extract all tensors and keep track of where they came from (parentheses or not)
+            let tensorCount = 0;
+            const doneGroups = [];
+            const currentGroups = [];
+
+            for (let i = 0; i < input.length; i++) {
+               if (input[i] === '(') {
+                  currentGroups.push([]);
+               } else if (input[i] === ')') {
+                  currentGroups.forEach(group => group.push(tensorCount));
+                  doneGroups.push(currentGroups.pop());
+               } else if (input[i] === ',') {
+                  currentGroups.forEach(group => group.push(tensorCount));
+                  tensorCount++;
+               }
+            }
+
+            return doneGroups;
+         }
+
          function einsumToDot(einsumCommand) {
             const [inputs, output] = einsumCommand.split('->');
 
-            // Parse the input tensors and indices
-            const inputTensors = inputs.split(',');
-            const tensorIndices = inputTensors.map(indices => Array.from(indices));
-            const tensorNames = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ").slice(0, inputTensors.length);
+            // Parse the input tensors and indices recursively
+
+            const tensorIndices = inputs.replace(/[()]/g, '').split(',');
+            const groups = parseEinsumInput(inputs);
+            console.log(tensorIndices);
+            console.log(groups);
+
+            const flatTensorIndices = tensorIndices.flat(Infinity);
+            const tensorNames = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ").slice(0, flatTensorIndices.length);
 
             // Build the DOT language content
             let dotContent = "graph G {\n";
-            dotContent += "    rankdir=LR;\n"
+            dotContent += "    rankdir=LR;\n";
 
             // Add nodes for input tensors
             for (let i = 0; i < tensorNames.length; i++) {
@@ -86,17 +113,27 @@
                dotContent += `    ${tensorName} [shape=square, label="${tensorName}"];\n`;
             }
 
+            // Add subgraphs for groups
+            groups.forEach((group, idx) => {
+               const subgraphId = `${prefix}${idx}`;
+               dotContent += `    subgraph cluster_${subgraphId} {\n`;
+               dotContent += `        color=grey;\n`;
+               group.forEach(tensorIdx => {
+                  dotContent += `        ${tensorNames[tensorIdx]};\n`;
+               });
+               dotContent += `    }\n`;
+            });
+
             // Connect the nodes
             const connectedIndices = {};
-            for (let i = 0; i < tensorIndices.length; i++) {
-               for (let j = 0; j < tensorIndices[i].length; j++) {
-                  const index = tensorIndices[i][j];
+            flatTensorIndices.forEach((indices, i) => {
+               Array.from(indices).forEach(index => {
                   if (!connectedIndices.hasOwnProperty(index)) {
                      connectedIndices[index] = [];
                   }
                   connectedIndices[index].push(tensorNames[i]);
-               }
-            }
+               });
+            });
 
             // Generate the edges with labels
             for (const [index, tensors] of Object.entries(connectedIndices)) {
@@ -121,10 +158,10 @@
 
             // Close the DOT content
             dotContent += "}\n";
+            console.log(dotContent);
 
             return dotContent;
          }
-
          function updateURL() {
             const einsumCommand = document.getElementById('einsumCommand').value;
             const layoutEngine = document.getElementById('layoutEngine').value;
@@ -133,20 +170,20 @@
             urlParams.set('layout', layoutEngine);
             const newURL = `${window.location.pathname}?${urlParams.toString()}`;
             window.history.replaceState({}, '', newURL);
-        }
+         }
 
          function parseURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const einsumCommand = urlParams.get('q');
             const layoutEngine = urlParams.get('layout');
             if (einsumCommand) {
-                d3.select('#einsumCommand').property('value', einsumCommand);
-                renderGraph();
+               d3.select('#einsumCommand').property('value', einsumCommand);
+               renderGraph();
             }
             if (layoutEngine) {
-                d3.select('#layoutEngine').property('value', layoutEngine);
+               d3.select('#layoutEngine').property('value', layoutEngine);
             }
-        }
+         }
 
          function renderGraph() {
             const einsumCommand = document.getElementById('einsumCommand').value;
