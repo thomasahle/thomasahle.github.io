@@ -44,12 +44,12 @@
 
          <h5 class="mb-3">Examples:</h5>
          <ul class="list-group mb-3">
-            <li class="list-group-item list-group-item-action" onclick="setExample('ij,j->i')">Matrix-Vector Multiplication: <tt>ij,j->i</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('ij,jk->ik')">Matrix-Matrix Multiplication: <tt>ij,jk->ik</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('bij,bjk->bik')">Batch Matrix-Matrix Multiplication: <tt>bij,bjk->bik</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('bi,bj->bij')">Batch Outer Product: <tt>bi,bj->bij</tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('ii->')">Trace of A: <tt>ii-></tt></li>
-            <li class="list-group-item list-group-item-action" onclick="setExample('ij,ij->')">Trace of AB: <tt>ij,ij-></tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,j->i')">Matrix-Vector Multiplication: <tt>ij,j-&gt;i</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,jk->ik')">Matrix-Matrix Multiplication: <tt>ij,jk-&gt;ik</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('bij,bjk->bik')">Batch Matrix-Matrix Multiplication: <tt>bij,bjk-&gt;bik</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('bi,bj->bij')">Batch Outer Product: <tt>bi,bj-&gt;bij</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ii->')">Trace of A: <tt>ii-&gt;</tt></li>
+            <li class="list-group-item list-group-item-action" onclick="setExample('ij,ij->')">Trace of AB: <tt>ij,ij-&gt;</tt></li>
          </ul>
 
          <div class="container-fluid" style="min-height: 300px;">
@@ -106,6 +106,8 @@
             // Build the DOT language content
             let dotContent = "graph G {\n";
             dotContent += "    rankdir=LR;\n";
+            dotContent += "    compound=true;\n";
+
 
             // Add nodes for input tensors
             for (let i = 0; i < tensorNames.length; i++) {
@@ -115,7 +117,7 @@
 
             // Add subgraphs for groups
             groups.forEach((group, idx) => {
-               const subgraphId = `${prefix}${idx}`;
+               const subgraphId = `${idx}`;
                dotContent += `    subgraph cluster_${subgraphId} {\n`;
                dotContent += `        color=grey;\n`;
                group.forEach(tensorIdx => {
