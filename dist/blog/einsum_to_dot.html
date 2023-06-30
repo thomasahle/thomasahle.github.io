@@ -106,6 +106,8 @@
             // Build the DOT language content
             let dotContent = "graph G {\n";
             dotContent += "    rankdir=LR;\n";
+            dotContent += "    compound=true;\n";
+
 
             // Add nodes for input tensors
             for (let i = 0; i < tensorNames.length; i++) {
@@ -115,7 +117,7 @@
 
             // Add subgraphs for groups
             groups.forEach((group, idx) => {
-               const subgraphId = `${prefix}${idx}`;
+               const subgraphId = `${idx}`;
                dotContent += `    subgraph cluster_${subgraphId} {\n`;
                dotContent += `        color=grey;\n`;
                group.forEach(tensorIdx => {
