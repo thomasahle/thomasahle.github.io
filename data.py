@@ -55,7 +55,7 @@ class Vars:
         , 'ptpt':
         Person('Peter Tang', 'P Tang', 'https://dl.acm.org/profile/81452604699')
         , 'henry':
-        Person('Henry Ling-Hei Tsang', 'H Tsang', 'https://math.osu.edu/people/tsang.79')
+        Person('Henry Ling-Hei Tsang', 'H Tsang', 'https://scholars.croucher.org.hk/scholars/ling-hei-tsang')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -71,23 +71,26 @@ class Vars:
         'focs': Conference('IEEE Symposium on Foundations of Computer Science'),
         'icalp': Conference('EATCS International Colloquium on Automata, Languages and Programming'),
         'socg': Conference('Symposium on Computational Geometry'),
+        'neurips': Conference('Advances in Neural Information Processing Systems (NeurIPS)'),
         'Stat. Prob. Lett.': Journal('Statistics & Probability Letters'),
     }
 
     papers = [
         Paper(
             'cqr',
-            'Clustering&nbsp;the&nbsp; Sketch&nbsp;: A Novel Approach to Embedding&nbsp;Table&nbsp;Compression',
+            'Clustering&nbsp;the&nbsp;Sketch: Dynamic&nbsp;Compression for Embedding&nbsp;Tables',
             ['henry', 'thdy'],
             open('abstracts/cqr').read(),
-            2022,
-            'subm',
-            'Updated Jan 2023',
+            2024,
+            'neurips',
+            'Updated Oct 2024',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2210.05974'),
                 File('pdf', 'papers/cqr.pdf'),
+                File('website', 'https://thomasahle.github.io/cce'),
+                File('github', 'https://github.com/thomasahle/cce'),
                 ],
-            featured=False,
+            featured=True,
             new=True
             ),
         Paper(
@@ -103,7 +106,7 @@ class Vars:
                 File('video', 'https://youtu.be/Ct63ikA2q-c'),
                 ],
             featured=False,
-            new=True
+            new=False,
             ),
         Paper(
             'tiling',
