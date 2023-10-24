@@ -99,7 +99,7 @@ class Vars:
             ['thdy', 'sahark', 'ptpt'],
             open('abstracts/favour').read(),
             2022,
-            'subm',
+            'arxiv',
             '',
             files=[
                 File('pdf', 'papers/favour.pdf'),
