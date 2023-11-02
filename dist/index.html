@@ -475,6 +475,50 @@ addLoadEvent(function () {
          <h2 class="publications has-featured"
                     >Publications</h2>
          <ul class="publications"><li class="toggle-item featured"
+                  id='paper-tla'>
+               <div class='shown'>
+                  <span class='files'>[<a href='https://arxiv.org/abs/2308.05660'
+                        onclick="gtag('event', 'download', {'event_label': 'download_tla_arxiv'});"
+                        >arxiv</a>]</span>
+
+                  <span class='year'>NEURIPS
+                  2023
+                     —
+                     <span class="new">NEW!</span></span>
+
+                  
+                  <span class='title'>Thermodynamic Linear Algebra</span>
+                  
+
+                  <span class='authors'>
+                  <a href='https://quthermo.umbc.edu/group-members/graduate-students/maxwell-aifer/'
+                           title='Maxwell Aifer'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'M Aifer'});"
+                           >Aifer</a>, <a href='https://scholar.google.com/citations?user=iM2qRCkAAAAJ&hl=en'
+                           title='Kaelan Donatella'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'K Donatella'});"
+                           >Donatella</a>, <a href='https://scholar.google.co.uk/citations?user=I2W8xCoAAAAJ&hl=en'
+                           title='Max Hunter Gordon'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'M H Gordon'});"
+                           >Gordon</a>, TA, <a href='https://dpsimpson.github.io/'
+                           title='Daniel Simpson'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'D Simpson'});"
+                           >Simpson</a>, <a href='https://threeplusone.com/'
+                           title='Gavin E. Crooks'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'G E Crooks'});"
+                           >Crooks</a>, <a href='https://patcoles.com/'
+                           title='Patrick J. Coles'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'P J Coles'});"
+                           >Coles</a>
+                  </span>
+               </div>
+               <div class='abstract'><p>
+Linear algebraic primitives are at the core of many modern algorithms in engineering, science, and machine learning. Hence, accelerating these primitives with novel computing hardware would have tremendous economic impact. Quantum computing has been proposed for this purpose, although the resource requirements are far beyond current technological capabilities, so this approach remains long-term in timescale. Here we consider an alternative physics-based computing paradigm based on classical thermodynamics, to provide a near-term approach to accelerating linear algebra.
+</p><p>
+At first sight, thermodynamics and linear algebra seem to be unrelated fields. In this work, we connect solving linear algebra problems to sampling from the thermodynamic equilibrium distribution of a system of coupled harmonic oscillators. We present simple thermodynamic algorithms for (1) solving linear systems of equations, (2) computing matrix inverses, (3) computing matrix determinants, and (4) solving Lyapunov equations. Under reasonable assumptions, we rigorously establish asymptotic speedups for our algorithms, relative to digital methods, that scale linearly in matrix dimension. Our algorithms exploit thermodynamic principles like ergodicity, entropy, and equilibration, highlighting the deep connection between these two seemingly distinct fields, and opening up algebraic applications for thermodynamic computing hardware.
+</p>
+</div>
+            </li><li class="toggle-item featured"
                   id='paper-cqr'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2210.05974'
@@ -1172,7 +1216,10 @@ I will use the formulas to answer whether algorithms exists for the following pr
 
       <script>
          /* Only incude Face and Twitter feed when we have room enough for it. */
-         if (window.matchMedia("(min-width: 500px)").matches) {
+         //if (window.matchMedia("(min-width: 500px)").matches) {
+         
+         /* Actually let's not include it at all, since it sucks after Musk. */
+         if (false) {
             // Nobody likes document.write these days.
 
             let holder = document.createElement( 'div' );
@@ -1211,13 +1258,15 @@ I will use the formulas to answer whether algorithms exists for the following pr
          }
       </script>
 
+      <ul>
+         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
+         <li><a href='/blog' title='My blog'>Blog</a></li>
+      </ul>
+
       <h3>Contact</h3>
       <ul>
-         <li><a href='/blog' title='My blog'>Blog</a></li>
-         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
          <li>Email: thomas@ahle.dk</li>
          <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
-         <li><a href='cv.pdf' >CV</a></li>
          <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
          <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&sortby=pubdate'>Google Scholar</a></li>
          <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
@@ -1225,10 +1274,11 @@ I will use the formulas to answer whether algorithms exists for the following pr
          <li><a href='https://en.wikipedia.org/wiki/User:Thomasda'>Wikipedia</a></li>
          <li><a href='https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle'>OEIS</a></li>
          <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
+         <li><a href='cv.pdf'>CV</a></li>
       </ul>
 
       <h3>Coauthors</h3>
-      <ul><li><a href='https://sites.google.com/view/mikkel-abrahamsen'>Mikkel Abrahamsen</a></li><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en'>Sahar Karimi</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='http://rasmuspagh.net/'>Rasmus Pagh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'>Peter M. R. Rasmussen</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='https://dl.acm.org/profile/81452604699'>Peter Tang</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='https://scholars.croucher.org.hk/scholars/ling-hei-tsang'>Henry Ling-Hei Tsang</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'>Anders Åmand</a></li></ul>
+      <ul><li><a href='https://sites.google.com/view/mikkel-abrahamsen'>Mikkel Abrahamsen</a></li><li><a href='https://quthermo.umbc.edu/group-members/graduate-students/maxwell-aifer/'>Maxwell Aifer</a></li><li><a href='http://itu.dk/people/maau/'>Martin Aumüller</a></li><li><a href='https://patcoles.com/'>Patrick J. Coles</a></li><li><a href='https://threeplusone.com/'>Gavin E. Crooks</a></li><li><a href='https://scholar.google.com/citations?user=iM2qRCkAAAAJ&hl=en'>Kaelan Donatella</a></li><li><a href='https://scholar.google.co.uk/citations?user=I2W8xCoAAAAJ&hl=en'>Max Hunter Gordon</a></li><li><a href='https://theory.epfl.ch/kapralov/'>Michael Kapralov</a></li><li><a href='https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en'>Sahar Karimi</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/493157'>Jakob Bæk Tejs Knudsen</a></li><li><a href='http://rasmuspagh.net/'>Rasmus Pagh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/462256'>Peter M. R. Rasmussen</a></li><li><a href='http://www.ilyaraz.org/'>Ilya Razenshteyn</a></li><li><a href='http://www.dei.unipd.it/~silvestri/'>Francesco Silvestri</a></li><li><a href='https://dpsimpson.github.io/'>Daniel Simpson</a></li><li><a href='https://dl.acm.org/profile/81452604699'>Peter Tang</a></li><li><a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a></li><li><a href='https://scholars.croucher.org.hk/scholars/ling-hei-tsang'>Henry Ling-Hei Tsang</a></li><li><a href='http://www.cs.cmu.edu/~avelingk/'>Ameya Velingker</a></li><li><a href='http://www.cs.cmu.edu/~dwoodruf/'>David P. Woodruff</a></li><li><a href='https://people.epfl.ch/amir.zandieh'>Amir Zandieh</a></li><li><a href='https://di.ku.dk/english/staff/?pure=en/persons/433494'>Anders Åmand</a></li></ul>
 
    </div>
 </body>
