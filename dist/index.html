@@ -1216,12 +1216,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
 
       <script>
          /* Only incude Face and Twitter feed when we have room enough for it. */
-         //if (window.matchMedia("(min-width: 500px)").matches) {
-         
-         /* Actually let's not include it at all, since it sucks after Musk. */
-         if (false) {
-            // Nobody likes document.write these days.
-
+         if (window.matchMedia("(min-width: 500px)").matches) {
             let holder = document.createElement( 'div' );
             holder.id = 'me_holder';
             let img = document.createElement( 'img' );
@@ -1241,26 +1236,29 @@ I will use the formulas to answer whether algorithms exists for the following pr
               gtag('event', 'hover_me', {'event_label': 'off'});
             }
 
-            let el = document.createElement( 'div' );
-            el.innerHTML = `
-               <a class="twitter-timeline"
-                  href="https://twitter.com/thomasahle"
-                  data-tweet-limit="3"
-                  data-chrome="nofooter, noscrollbar"
-                  data-dnt="true"
-                  >Tweets</a>`;
-            let script = document.createElement("script");
-            script.async = "true";
-            script.src = "https://platform.twitter.com/widgets.js";
-            script.charset = "utf-8";
-            el.appendChild(script);
-            document.getElementById('side').appendChild(el);
+            // Elon destroyed the embedded tweet format :(
+            if (false) {
+               let el = document.createElement( 'div' );
+               el.innerHTML = `
+                  <a class="twitter-timeline"
+                     href="https://twitter.com/thomasahle"
+                     data-tweet-limit="3"
+                     data-chrome="nofooter, noscrollbar"
+                     data-dnt="true"
+                     >Tweets</a>`;
+               let script = document.createElement("script");
+               script.async = "true";
+               script.src = "https://platform.twitter.com/widgets.js";
+               script.charset = "utf-8";
+               el.appendChild(script);
+               document.getElementById('side').appendChild(el);
+            }
          }
       </script>
 
       <ul>
-         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
          <li><a href='/blog' title='My blog'>Blog</a></li>
+         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
       </ul>
 
       <h3>Contact</h3>
