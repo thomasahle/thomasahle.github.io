@@ -22,6 +22,7 @@
    --fonts: Lato, Helvetica Neue, sans-serif;
    --toggle-size: 25px;
    --item-size: 14rem;
+   --item-height: 14rem;
    --item-padding: 1.5rem;
    --left-shift: 15.5rem; /* item-size + item-padding */
 }
@@ -145,7 +146,7 @@ dd {
    text-align: center;
 }
 .feature_image > img {
-   height: var(--item-size);
+   height: var(--item-height);
    max-width: 100%;
    width: auto;
    object-fit: cover;
@@ -190,7 +191,7 @@ dd {
 }
 .toggle-item:not(.open) .abstract {
    line-height: 1.1;
-   overflow:hidden;
+   overflow: hidden;
    font-style: italic;
    font-size: .85rem;
    cursor: pointer;
@@ -211,9 +212,6 @@ dd {
 .toggle-item:not(.open) .abstract:before {
    content: "View Abstract ⌵";
 }
-/*.abstract:target{
-   padding-bottom: 20px;
-}*/
 .toggle-item.open .abstract:before {
    margin-top:10px;
    content: "Hide Abstract ⌃";
@@ -286,21 +284,15 @@ a:visited {
 }
 a:hover {
    text-decoration: underline;
-   text-decoration-skip:ink;
+   text-decoration-skip: ink;
    -webkit-text-decoration-skip:ink;
    -moz-text-decoration-skip:ink;
-   /*text-decoration-color: #008;*/
-   /*text-decoration-color: #aad;*/
-   /*-webkit-text-decoration-color: #aad;
-   -moz-text-decoration-color: #aad;*/
 }
 .comment {
    font-style: italic;
 }
 .new {
    font-weight: bold;
-   /*background: #df2525;*/
-   /*background-color: #5a8bff;*/
    background-color: #4d90fe;
    color: white;
    padding: 1px 5px;
@@ -309,10 +301,18 @@ a:hover {
 @media only screen and (max-width: 500px) {
    :root {
       --left-shift: 1rem;
+      --item-size: 7rem;
+      --item-height: 7rem;
    }
-  .toggle-item {
-     margin-left: -1rem;
-     margin-right: -1rem;
+  .toggle-item, .toggle-item.has_image {
+     margin-left: .5rem;
+     margin-right: .5rem;
+  }
+  .toggle-item:not(.open) {
+     height: auto;
+  }
+  .toggle-item:not(.open) .abstract {
+     display:none;
   }
 }
 /********** Toggle **********/
