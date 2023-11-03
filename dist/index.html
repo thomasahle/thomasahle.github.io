@@ -21,6 +21,9 @@
    --border-radius: 4px;
    --fonts: Lato, Helvetica Neue, sans-serif;
    --toggle-size: 25px;
+   --item-size: 14rem;
+   --item-padding: 1.5rem;
+   --left-shift: 15.5rem; /* item-size + item-padding */
 }
 body {
   font-family: sans-serif;
@@ -29,7 +32,7 @@ body {
   font-weight: 300;
   padding: 1rem .33rem;
   line-height: 1.55;
-  max-width: 50em;
+  max-width: 62rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -58,8 +61,16 @@ h3 {
 h1, h2, h3 {
    font-weight: 500;
 }
+p {
+   margin-left: var(--left-shift);
+}
+.main_list {
+   margin-left: var(--left-shift);
+}
 #main {
-   flex: 2.618 16rem;
+   /* First number is how much faster the main element should grow the the side. */
+   /* Second number is the initial main size before any remaining space is distributed */
+   flex: 4.618 30rem;
 }
 #main p:first-child {
    margin-top: 0;
@@ -69,14 +80,17 @@ h1, h2, h3 {
 }
 h1 {
    margin: 1rem .67rem 1rem .66rem;
-  /*margin-left: .66rem;
-  margin-right: .67rem;*/
+   margin-left: var(--left-shift);
 }
 h2 {
    margin-top: 1.5rem;
+   margin-left: var(--left-shift);
 }
 #main, #side {
   margin: 0 .66rem 2rem .67rem;
+}
+#main {
+   margin-left: 0;
 }
 ul {
    list-style-type: none;
@@ -95,7 +109,29 @@ dd {
    /*background: #fdfdfd;*/
    background: white;
    box-shadow: 0px 4px 4px -3px rgba(0,0,0,.1);
+   /* If no image */
+   margin-left: var(--left-shift);
+   /* grid */
+   display: grid;
+   grid-template-rows: auto 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
 }
+.toggle-item.has_image {
+   grid-template-columns: var(--item-size) 1fr;
+   /* Remove the normal left-shift */
+   margin-left: 1.5rem;
+}
+.shown {
+ grid-area: 1 / 2 / 2 / 3;
+}
+.feature_image {
+ grid-area: 1 / 1 / 3 / 2;
+}
+.abstract {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
 .toggle-item:hover {
    /*box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);*/
 }
@@ -106,6 +142,13 @@ dd {
 .shown {
    padding: 8px 6%;
    text-align: center;
+}
+.feature_image > img {
+   height: var(--item-size);
+   max-width: 100%;
+   width: auto;
+   object-fit: cover;
+   object-position: center center;
 }
 .shown .year {
    display: block;
@@ -126,8 +169,7 @@ dd {
    clear: both;
 }
 .abstract {
-   /*border-top: 1px solid rgba(0,0,0,.1);*/
-   padding: 0px 6% 1em 6%;
+   padding: 0px var(--item-padding) 1rem var(--item-padding);
    position: relative;
    font-family: 'Latin Modern Roman', 'Latin Modern', Cardo, Garamond, serif;
    text-align: justify;
@@ -140,8 +182,10 @@ dd {
 .abstract p:first-child {
    text-indent: 0;
 }
+.toggle-item:not(.open) {
+   height: var(--item-size);
+}
 .toggle-item:not(.open) .abstract {
-   max-height: 14ch;
    line-height: 1.1;
    overflow:hidden;
    font-style: italic;
@@ -260,6 +304,9 @@ a:hover {
    border-radius: 3px;
 }
 @media only screen and (max-width: 500px) {
+   :root {
+      --left-shift: 1rem;
+   }
   .toggle-item {
      margin-left: -1rem;
      margin-right: -1rem;
@@ -456,14 +503,8 @@ addLoadEvent(function () {
       <p>
          Hello, I'm Thomas.
          I lead the Foundational AI efforts at <a href="https://normalcomputing.ai/">Normal Computing</a>.
-         Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
-         was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
-         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
-         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='http://rasmuspagh.net/' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project.
-         Previous I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics;
-         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas, Austin, on the fundamental limits of data-limited computation.
       </p><p>
-        My research primarily involves scaling large transformer and recommendation systems, the theoretical foundations of machine learning and massive data, including similarity search, hashing, high dimensional geometry, kernel methods, sketching and derandomization.
+        My research focuses on mechanistic interpretability and capabilities of large language models, the theoretical foundations of machine learning and massive data, including similarity search, hashing, high dimensional geometry, sketching and derandomization.
       </p>
 
       <div id='show-all'>
@@ -474,7 +515,10 @@ addLoadEvent(function () {
       
          <h2 class="publications has-featured"
                     >Publications</h2>
-         <ul class="publications"><li class="toggle-item featured"
+         <ul class="publications"><li class="toggle-item
+                featured
+                has_image
+                "
                   id='paper-tla'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2308.05660'
@@ -512,13 +556,16 @@ addLoadEvent(function () {
                            >Coles</a>
                   </span>
                </div>
-               <div class='abstract'><p>
+               <div class='feature_image'><img src='feature_imgs/tla.png' /></div><div class='abstract'><p>
 Linear algebraic primitives are at the core of many modern algorithms in engineering, science, and machine learning. Hence, accelerating these primitives with novel computing hardware would have tremendous economic impact. Quantum computing has been proposed for this purpose, although the resource requirements are far beyond current technological capabilities, so this approach remains long-term in timescale. Here we consider an alternative physics-based computing paradigm based on classical thermodynamics, to provide a near-term approach to accelerating linear algebra.
 </p><p>
 At first sight, thermodynamics and linear algebra seem to be unrelated fields. In this work, we connect solving linear algebra problems to sampling from the thermodynamic equilibrium distribution of a system of coupled harmonic oscillators. We present simple thermodynamic algorithms for (1) solving linear systems of equations, (2) computing matrix inverses, (3) computing matrix determinants, and (4) solving Lyapunov equations. Under reasonable assumptions, we rigorously establish asymptotic speedups for our algorithms, relative to digital methods, that scale linearly in matrix dimension. Our algorithms exploit thermodynamic principles like ergodicity, entropy, and equilibration, highlighting the deep connection between these two seemingly distinct fields, and opening up algebraic applications for thermodynamic computing hardware.
 </p>
 </div>
-            </li><li class="toggle-item featured"
+            </li><li class="toggle-item
+                featured
+                has_image
+                "
                   id='paper-cqr'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2210.05974'
@@ -549,7 +596,7 @@ At first sight, thermodynamics and linear algebra seem to be unrelated fields. I
                            >H Tsang</a>, TA
                   </span>
                </div>
-               <div class='abstract'><p>
+               <div class='feature_image'><img src='feature_imgs/cqr.png' /></div><div class='abstract'><p>
 Embedding tables are used by machine learning systems to work with categorical features.
 These tables can become exceedingly large in modern recommendation systems, necessitating the development of new methods for fitting them in memory, even during training.
 </p>
@@ -568,7 +615,10 @@ First IDs are randomly assigned to a codebook and codewords are trained (end to 
 We show experimentally close to those of post-training quantization with the training time memory reductions of sketch-based methods, and we prove that our method always converges to the optimal embedding table for least-squares training.
 </p>
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-favour'>
                <div class='shown'>
                   <span class='files'>[<a href='papers/favour.pdf'
@@ -593,8 +643,7 @@ We show experimentally close to those of post-training quantization with the tra
                            onclick="gtag('event', 'coauthor', {'event_label': 'P Tang'});"
                            >P Tang</a>
                   </span>
-               </div>
-               <div class='abstract'><p>We introduce a principled approximate variance propagation framework for Bayesian Neural Networks.
+               </div><div class='abstract'><p>We introduce a principled approximate variance propagation framework for Bayesian Neural Networks.
 More accurate than Monte Carlo sampling, and much faster than previous variance propagation frameworks,
 it smoothly interpolates between quality and inference time.
 This is made possible by a new fast algorithm for updating a diagonal-plus-low-rank matrix approximation under various
@@ -606,7 +655,10 @@ Favour is as fast as performing 2-3 inference samples, while matching the
 performance of 10-100 samples.
 </p>
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                has_image
+                "
                   id='paper-tiling'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2011.10983'
@@ -637,10 +689,13 @@ performance of 10-100 samples.
                            >P Rasmussen</a>
                   </span>
                </div>
-               <div class='abstract'><p>We consider planar tiling and packing problems with polyomino pieces and a polyomino container P. A polyomino is a polygonal region with axis parallel edges and corners of integral coordinates, which may have holes. We give two polynomial time algorithms, one for deciding if P can be tiled with 2×2 squares (that is, deciding if P is the union of a set of non-overlapping copies of the 2×2 square) and one for packing P with a maximum number of non-overlapping and axis-parallel 2×1 dominos, allowing rotations of 90<sup>∘</sup>. As packing is more general than tiling, the latter algorithm can also be used to decide if P can be tiled by 2×1 dominos.
+               <div class='feature_image'><img src='feature_imgs/domino.png' /></div><div class='abstract'><p>We consider planar tiling and packing problems with polyomino pieces and a polyomino container P. A polyomino is a polygonal region with axis parallel edges and corners of integral coordinates, which may have holes. We give two polynomial time algorithms, one for deciding if P can be tiled with 2×2 squares (that is, deciding if P is the union of a set of non-overlapping copies of the 2×2 square) and one for packing P with a maximum number of non-overlapping and axis-parallel 2×1 dominos, allowing rotations of 90<sup>∘</sup>. As packing is more general than tiling, the latter algorithm can also be used to decide if P can be tiled by 2×1 dominos.
 </p><p>These are classical problems with important applications in VLSI design, and the related problem of finding a maximum packing of 2×2 squares is known to be NP-Hard [J.~Algorithms 1990]. For our three problems there are known pseudo-polynomial time algorithms, that is, algorithms with running times polynomial in the <i>area</i> of P. However, the standard, compact way to represent a polygon is by listing the coordinates of the corners in binary. We use this representation, and thus present the first polynomial time algorithms for the problems. Concretely, we give a simple O(nlogn) algorithm for tiling with squares, and a more involved O(n<sup>4</sup>) algorithm for packing and tiling with dominos.</p>
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                has_image
+                "
                   id='paper-bi-moments'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2103.17027'
@@ -662,11 +717,14 @@ performance of 10-100 samples.
                   TA
                   </span>
                </div>
-               <div class='abstract'><p>We prove the inequality
+               <div class='feature_image'><img src='feature_imgs/urn.png' /></div><div class='abstract'><p>We prove the inequality
 E(X/μ)ᵏ    ≤    [(k/μ)/log(k/μ+1)]ᵏ    ≤    exp[k²/(2μ)] for sub−poissonian random variables, such as Binomially or Poisson distributed random variables with mean μ.</p>
 <p>This improves over previous uniform bounds for the raw moments of those distributions by a factor exponential in k.</p>
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-tcu'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2006.12608'
@@ -690,12 +748,14 @@ E(X/μ)ᵏ    ≤    [(k/μ)/log(k/μ+1)]ᵏ    ≤    exp[k²/(2μ)] for sub−
                            onclick="gtag('event', 'coauthor', {'event_label': 'F Silvestri'});"
                            >F Silvestri</a>
                   </span>
-               </div>
-               <div class='abstract'><p>Tensor Core Units (TCUs) are hardware accelerators developed for deep neural networks, which efficiently support the multiplication of two dense √m × √m matrices, where m is agiven hardware parameter.
+               </div><div class='abstract'><p>Tensor Core Units (TCUs) are hardware accelerators developed for deep neural networks, which efficiently support the multiplication of two dense √m × √m matrices, where m is agiven hardware parameter.
 In this paper, we show that TCUs can speed up similarity searchproblems  as  well.   We  propose  algorithms  for  the  Johnson-Lindenstrauss  dimensionality reduction and for similarity join that, by leveraging TCUs, achieve a √m speedup up with respect to traditional approaches.
 </p>
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-p1'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2005.12065'
@@ -716,8 +776,7 @@ In this paper, we show that TCUs can speed up similarity searchproblems  as  wel
                   <span class='authors'>
                   TA
                   </span>
-               </div>
-               <div class='abstract'><p>A Locality-Sensitive Hash (LSH) function is called (r,cr,p<sub>1</sub>,p<sub>1</sub>)-sensitive, if two data-points with a distance less than r collide with probability at least p<sub>1</sub> while data points with a distance greater than cr collide with probability at most p<sub>2</sub>.
+               </div><div class='abstract'><p>A Locality-Sensitive Hash (LSH) function is called (r,cr,p<sub>1</sub>,p<sub>1</sub>)-sensitive, if two data-points with a distance less than r collide with probability at least p<sub>1</sub> while data points with a distance greater than cr collide with probability at most p<sub>2</sub>.
 These functions form the basis of the successful Indyk-Motwani algorithm (STOC 1998) for nearest neighbour problems.
 In particular one may build a c-approximate nearest neighbour data structure with query time O(n<sup>ρ</sup>/p₁) where ρ = (log 1/p<sub>1</sub>)/(log 1/p<sub>2</sub>) ∈ (0,1).
 That is, <em>sub-linear time</em>, as long as p<sub>1</sub> is not too small.
@@ -735,7 +794,10 @@ For  p<sub>1</sub>  and  p<sub>2</sub>  small enough, our improvement over all p
 The improvement comes from a simple change to the Indyk-Motwani algorithm, which can easily be implemented in existing software packages.
 </p>
 </div>
-            </li><li class="toggle-item featured"
+            </li><li class="toggle-item
+                featured
+                
+                "
                   id='paper-supermajority'>
                <div class='shown'>
                   <span class='files'>[<a href='http://arxiv.org/abs/1904.04045'
@@ -763,8 +825,7 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
                            onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
                            >J Knudsen</a>
                   </span>
-               </div>
-               <div class='abstract'><p>
+               </div><div class='abstract'><p>
 We formulate and optimally solve a new generalized Set Similarity Search problem,
 which assumes the size of the database and query sets are known in advance.
 By creating polylog copies of our data-structure, we optimally solve any symmetric Approximate Set Similarity Search problem, including approximate versions of Subset Search, Maximum Inner Product Search (MIPS), Jaccard Similarity Search and Partial Match.
@@ -787,7 +848,10 @@ The optimality holds for among all hashing based data structures in the random s
 As a side effect, we obtain new hypercontractive bounds on the directed noise operator.
 </p>
 </div>
-            </li><li class="toggle-item featured"
+            </li><li class="toggle-item
+                featured
+                has_image
+                "
                   id='paper-tensorsketch-joint'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/1909.01410'
@@ -831,13 +895,16 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                            >Zandieh</a>
                   </span>
                </div>
-               <div class='abstract'><p>
+               <div class='feature_image'><img src='feature_imgs/obliv.png' /></div><div class='abstract'><p>
 Kernel methods are fundamental tools in machine learning that allow detection of non-linear dependencies between data without explicitly constructing feature vectors in high dimensional spaces. A major disadvantage of kernel methods is their poor scalability: primitives such as kernel PCA or kernel ridge regression generally take prohibitively large quadratic space and (at least) quadratic time, as kernel matrices are usually dense. Some methods for speeding up kernel linear algebra are known, but they all invariably take time exponential in either the dimension of the input point set (e.g., fast multipole methods suffer from the curse of dimensionality) or in the degree of the kernel function.
 </p><p>
 Oblivious sketching has emerged as a powerful approach to speeding up numerical linear algebra over the past decade, but our understanding of oblivious sketching solutions for kernel matrices has remained quite limited, suffering from the aforementioned exponential dependence on input parameters. Our main contribution is a general method for applying sketching solutions developed in numerical linear algebra over the past decade to a tensoring of data points without forming the tensoring explicitly. This leads to the first oblivious sketch for the polynomial kernel with a target dimension that is only polynomially dependent on the degree of the kernel function, as well as the first oblivious sketch for the Gaussian kernel on bounded datasets that does not suffer from an exponential dependence on the dimensionality of input data points.
 </p>
 </div>
-            </li><li class="toggle-item featured"
+            </li><li class="toggle-item
+                featured
+                
+                "
                   id='paper-lasvegas'>
                <div class='shown'>
                   <span class='files'>[<a href='http://arxiv.org/abs/1704.02054'
@@ -860,8 +927,7 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
                   <span class='authors'>
                   TA
                   </span>
-               </div>
-               <div class='abstract'><p>
+               </div><div class='abstract'><p>
 We show that approximate similarity (near neighbour) search can be solved in high dimensions with performance matching state of the art (data independent) Locality Sensitive Hashing, but with a guarantee of no false negatives.
 Specifically we give two data structures for common problems.
 For c-approximate near neighbour in Hamming space, for which we get query time dn<sup>1/c+o(1)</sup> and space dn<sup>1+1/c+o(1)</sup> matching that of [Indyk and Motwani, 1998] and answering a long standing open question from [Indyk, 2000a] and [Pagh, 2016] in the affirmative.
@@ -873,7 +939,10 @@ We use space partitions as in classic LSH, but construct these using a combinati
 We also show two dimensionality reduction lemmas with 1-sided error.
 </p>
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-output-sensitive'>
                <div class='shown'>
                   <span class='files'>[<a href='http://arxiv.org/abs/1605.02673'
@@ -900,15 +969,17 @@ We also show two dimensionality reduction lemmas with 1-sided error.
                            onclick="gtag('event', 'coauthor', {'event_label': 'R Pagh'});"
                            >R Pagh</a>
                   </span>
-               </div>
-               <div class='abstract'><p>
+               </div><div class='abstract'><p>
 We present a data structure for <i>spherical range reporting</i> on a point set S, i.e., reporting all points in S that lie within radius r of a given query point q. Our solution builds upon the Locality-Sensitive Hashing (LSH) framework of Indyk and Motwani, which represents the asymptotically best solutions to near neighbor problems in high dimensions. While traditional LSH data structures have several parameters whose optimal values depend on the distance distribution from q to the points of S, our data structure is parameter-free, except for the space usage, which is configurable by the user. Nevertheless, its expected query time basically matches that of an LSH data structure whose parameters have been <i>optimally chosen for the data and query</i> in question under the given space constraints. In particular, our data structure provides a smooth trade-off between hard queries (typically addressed by standard LSH) and easy queries such as those where the number of points to report is a constant fraction of S, or where almost all points in S are far away from the query point. In contrast, known data structures fix LSH parameters based on certain parameters of the input alone.
 </p>
 <p>
 The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the number of points to report and ρ∈(0,1) depends on the data distribution and the strength of the LSH family used. We further present a parameter-free way of using multi-probing, for LSH families that support it, and show that for many such families this approach allows us to get expected query time close to O(n^ρ+t), which is the best we can hope to achieve using LSH. The previously best running time in high dimensions was Ω(tn^ρ). For many data distributions where the intrinsic dimensionality of the point set close to q is low, we can give improved upper bounds on the expected query time.
 </p>
 </div>
-            </li><li class="toggle-item featured"
+            </li><li class="toggle-item
+                featured
+                has_image
+                "
                   id='paper-mips'>
                <div class='shown'>
                   <span class='files'>[<a href='http://arxiv.org/abs/1510.02824'
@@ -941,7 +1012,7 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
                            >F Silvestri</a>
                   </span>
                </div>
-               <div class='abstract'><p>
+               <div class='feature_image'><img src='feature_imgs/mips.png' /></div><div class='abstract'><p>
 A number of tasks in classification, information retrieval, recommendation systems, and record linkage reduce to the core problem of inner product similarity join (IPS join): identifying pairs of vectors in a collection that have a sufficiently large inner product. IPS join is well understood when vectors are normalized and some approximation of inner products is allowed. However, the general case where vectors may have any length appears much more challenging. Recently, new upper bounds based on asymmetric locality-sensitive hashing (ALSH) and asymmetric embeddings have emerged, but little has been known on the lower bound side. In this paper we initiate a systematic study of inner product similarity join, showing new lower and upper bounds. Our main results are: 
 <br/>
 * Approximation hardness of IPS join in subquadratic time, assuming the strong exponential time hypothesis. 
@@ -958,7 +1029,10 @@ A number of tasks in classification, information retrieval, recommendation syste
       
          <h2 class="publications has-featured"
                     >Manuscripts</h2>
-         <ul class="publications"><li class="toggle-item featured"
+         <ul class="publications"><li class="toggle-item
+                featured
+                
+                "
                   id='paper-minner'>
                <div class='shown'>
                   <span class='files'>[<a href='papers/minner.pdf'
@@ -978,14 +1052,16 @@ A number of tasks in classification, information retrieval, recommendation syste
                   <span class='authors'>
                   TA
                   </span>
-               </div>
-               <div class='abstract'><p>Quantization is the state of the art approach to efficiently storing and searching large high-dimensional datasets. Broder’97 introduced the idea of Minwise Hashing (MinHash) for quantizing or sketching large sets or binary strings into a small number of values and provided a way to reconstruct the overlap or Jaccard Similarity between two sets sketched this way.
+               </div><div class='abstract'><p>Quantization is the state of the art approach to efficiently storing and searching large high-dimensional datasets. Broder’97 introduced the idea of Minwise Hashing (MinHash) for quantizing or sketching large sets or binary strings into a small number of values and provided a way to reconstruct the overlap or Jaccard Similarity between two sets sketched this way.
 </p><p>In this paper, we propose a new estimator for MinHash in the case where the database is quantized, but the query is not. By computing the similarity between a set and a MinHash sketch directly, rather than first also sketching the query, we increase precision and improve recall.
 </p><p>We take a principled approach based on maximum likelihood with strong theoretical guarantees. Experimenal results show an improved recall@10 corresponding to 10-30% extra MinHash values. Finally, we suggest a third very simple estimator, which is as fast as the classical MinHash estimator while often more precise than the MLE.
 </p><p>Our methods concern only the query side of search and can be used with any existing MinHashed database without changes to the data.t
 </p>
 </div>
-            </li><li class="toggle-item featured"
+            </li><li class="toggle-item
+                featured
+                
+                "
                   id='paper-mersenne'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/2008.08654'
@@ -1013,15 +1089,17 @@ A number of tasks in classification, information retrieval, recommendation syste
                            onclick="gtag('event', 'coauthor', {'event_label': 'M Thorup'});"
                            >M Thorup</a>
                   </span>
-               </div>
-               <div class='abstract'><p>The classic way of computing a k-universal hash function is to use a random degree-(k−1) polynomial over a prime field ℤ<sub>p</sub>. For a fast computation of the polynomial, the prime p is often chosen as a Mersenne prime p = 2<sup>b</sup>−1.
+               </div><div class='abstract'><p>The classic way of computing a k-universal hash function is to use a random degree-(k−1) polynomial over a prime field ℤ<sub>p</sub>. For a fast computation of the polynomial, the prime p is often chosen as a Mersenne prime p = 2<sup>b</sup>−1.
 </p><p>
 In this paper, we show that there are other nice advantages to using Mersenne primes. Our view is that the output of the hash function is a b-bit integer that is uniformly distributed in [2<sup>b</sup>], except that p (the all 1s value) is missing. Uniform bit strings have many nice properties, such as splitting into substrings which gives us two or more hash functions for the cost of one, while preserving strong theoretical qualities. We call this trick “Two for one” hashing, and we demonstrate it on 4-universal hashing in the classic Count Sketch algorithm for second moment estimation.
 </p><p>
 We also provide a new fast branch-free code for division and modulus with Mersenne primes. Contrasting our analytic work, this code generalizes to Pseudo-Mersenne primes p = 2<sup>b</sup>−c for small c, improving upon a classical algorithm of Crandall.
 </p>
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-tensorsketch2'>
                <div class='shown'>
                   <span class='files'>[<a href='https://arxiv.org/abs/1909.01821'
@@ -1045,8 +1123,7 @@ We also provide a new fast branch-free code for division and modulus with Mersen
                            onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
                            >J Knudsen</a>
                   </span>
-               </div>
-               <div class='abstract'>We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form  x = x<sup>(1)</sup> ⊗ ... ⊗ x<sup>(c)</sup> ∈ ℝ<sup>dᶜ</sup>  in time nearly c⋅d.
+               </div><div class='abstract'>We construct a structured Johnson Lindenstrauss transformation that can be applied to simple tensors on the form  x = x<sup>(1)</sup> ⊗ ... ⊗ x<sup>(c)</sup> ∈ ℝ<sup>dᶜ</sup>  in time nearly c⋅d.
 That is, exponentially faster than writing out the Kronecker product and then mapping down.
 
 These matrices, M, which preserves the norm of any x ∈ ℝ<sup>dᶜ</sup>, such that  |‖Mx‖₂ - ‖x‖₂| < ε  with probability  1-δ , can be taken to have just  Õ(c² ε⁻² (log1/δ)³)  rows.
@@ -1060,7 +1137,10 @@ Technically, we construct our matrix  M  such that  M(x ⊗ y) = Tx ∘ T'y  whe
 To analyze the behavior of  Mx  on non-simple  x , we show a higher order version of Khintchine's inequality, related to the higher order Gaussian chaos analysis by Latała.
 Finally we show that such sketches can be combined recursively, in a way that doesn't increase the dependency on  c  by much.
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-verification'>
                <div class='shown'>
                   <span class='files'>[<a href='papers/verification.pdf'
@@ -1077,9 +1157,11 @@ Finally we show that such sketches can be combined recursively, in a way that do
                   <span class='authors'>
                   TA
                   </span>
-               </div>
-               <div class='abstract'>We show a reduction from verifying that an LSF family `covers` the sphere, in the sense of Las Vegas LSF, to 3-sat.</div>
-            </li><li class="toggle-item "
+               </div><div class='abstract'>We show a reduction from verifying that an LSF family `covers` the sphere, in the sense of Las Vegas LSF, to 3-sat.</div>
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-minhash'>
                <div class='shown'>
                   <span class='files'>[<a href='papers/minhash.pdf'
@@ -1100,8 +1182,7 @@ Finally we show that such sketches can be combined recursively, in a way that do
                   <span class='authors'>
                   TA
                   </span>
-               </div>
-               <div class='abstract'>We consider efficient combinatorial constructions, that allow us to partly derandomize data-structures using the locality sensitive framework of Indyk and Motwani (FOCS '98).
+               </div><div class='abstract'>We consider efficient combinatorial constructions, that allow us to partly derandomize data-structures using the locality sensitive framework of Indyk and Motwani (FOCS '98).
 In particular our constructions allow us to make Zero-Error Probabilistic Polynomial Time (ZPP) analogues of two state of the art algorithms for `Approximate Set Similarity':
 
 This data-structure problem deals with storing a collection  X  of sets such that given a query set  q  for which there exists  x ∈ P  with  |q ∩ x|/|q ∪ x| >= s_1 , the data structures return  x'∈ P  with  |q ∩ x'|/|q ∪ x'|\ge s_2 .
@@ -1118,7 +1199,10 @@ We further show that careful constructions of such designs can be efficiently de
 We also investigate upper and lower bounds on combinatorial analogues of the minhash algorithm.
 This is related to the existence of small, approximate minwise hashing families under  l_∞  distance.
 </div>
-            </li><li class="toggle-item "
+            </li><li class="toggle-item
+                
+                
+                "
                   id='paper-tails'>
                <div class='shown'>
                   <span class='files'>[<a href='papers/tails.pdf'
@@ -1135,8 +1219,7 @@ This is related to the existence of small, approximate minwise hashing families 
                   <span class='authors'>
                   TA
                   </span>
-               </div>
-               <div class='abstract'>In the field of Computer Science, the Chernoff bound is an extremely useful found bounding the error probabilities of various algorithms. Chernoff gives an exponentially decaying upper bound on the probability that a sum of independent random variables is many standard deviations away from its expectation.
+               </div><div class='abstract'>In the field of Computer Science, the Chernoff bound is an extremely useful found bounding the error probabilities of various algorithms. Chernoff gives an exponentially decaying upper bound on the probability that a sum of independent random variables is many standard deviations away from its expectation.
 However sometimes we need more than an upper bound, and we need bounds that are tight within a constant factor or better. (There is a fairly standard tail lower bound, but it deviates
  from Chernoff by a factor of $\sqrt n$.)
 In this project I will explore and derive multiple upper and lower bounds for Chernoff using methods ranging from geometric series and generating functions to saddlepoint approximations and laplace approximation. All these results will be known, but they don’t seem have a good exposition in Computer Science.
@@ -1149,8 +1232,20 @@ I will use the formulas to answer whether algorithms exists for the following pr
          </div>
       
 
+
+      <h2>Resume</h2>
+      <p>
+         Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
+         was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
+         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
+         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='http://rasmuspagh.net/' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project.
+         Previous I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics;
+         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas, Austin, on the fundamental limits of data-limited computation.
+      </p>
+
+
       <h2>Games</h2>
-      <ul>
+      <ul class="main_list">
          <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
             <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
          </li>
@@ -1170,12 +1265,6 @@ I will use the formulas to answer whether algorithms exists for the following pr
          <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
       </ul>
 
-      <h2>Teaching</h2>
-      <ul><li>
-            <a href='teaching/pcpp2019'>Practical Concurrent and Parallel Programming</a> - 2019.
-            <p>MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.</p>
-         </li></ul>
-
       <h2>Programming Problems</h2>
       <p>
       These are various algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>.
@@ -1190,8 +1279,14 @@ I will use the formulas to answer whether algorithms exists for the following pr
            <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>
       </p>
 
+      <h2>Teaching</h2>
+      <ul class="main_list"><li>
+            <a href='teaching/pcpp2019'>Practical Concurrent and Parallel Programming</a> - 2019.
+            MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.
+         </li></ul>
+
       <h2>Media</h2>
-      <ul><li><a href='https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/'>Prosa</a> &mdash; May 2021.
+      <ul class="main_list"><li><a href='https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/'>Prosa</a> &mdash; May 2021.
             "En ulv i fåreklæder."
             </li><li><a href='http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/'>Stibo</a> &mdash; August 2016.
             "The Stibo-Foundation supports IT-talents."
@@ -1206,7 +1301,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
             </li></ul>
 
       <h2>Other</h2>
-      <ul>
+      <ul class="main_list">
          <li>Memrise <a href='https://www.memrise.com/course/44645/500-most-common-danish-words/'>course for learning Danish</a> through the most common 500 words.</li>
          <li><a href='http://spjdrpedia.dk/wiki/'>Spejdrpedia</a> &mdash; an online scout handbook</a></li>
       </ul>
