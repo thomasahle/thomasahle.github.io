@@ -1319,7 +1319,7 @@ I will use the formulas to answer whether algorithms exists for the following pr
             let holder = document.createElement( 'div' );
             holder.id = 'me_holder';
             let img = document.createElement( 'img' );
-            img.src = 'static/potrait.jpg';
+            img.src = 'static/ThomasFace.png';
             img.alt = 'A photo of me';
             img.id = 'me';
             holder.append(img);
@@ -1327,11 +1327,11 @@ I will use the formulas to answer whether algorithms exists for the following pr
             /* Mouse over me */
             //let img = document.getElementById('me');
             img.onmouseover = function() {
-              img.setAttribute('src', '/static/water.jpg');
+              img.setAttribute('src', 'static/normal_potrait.jpg');
               gtag('event', 'hover_me', {'event_label': 'on'});
             }
             img.onmouseout = function() {
-              img.setAttribute('src', '/static/potrait.jpg');
+              img.setAttribute('src', 'static/ThomasFace.png');
               gtag('event', 'hover_me', {'event_label': 'off'});
             }
 
