@@ -1,18 +1,77 @@
-from collections import namedtuple
+from collections import namedtuple, Counter
 import datetime
+from dataclasses import dataclass, field
+from typing import List, Optional, Sequence
 
-Person = namedtuple('Person', ['name', 'abrv', 'href', 'photo', 'email'])
-Person.__new__.__defaults__ = ('Anonymous', '', '')
-Paper = namedtuple(
-    'Paper',
-    ['tag', 'title', 'authors', 'abstract', 'year', 'conference', 'comment', 'files', 'featured', 'new'])
-Conference = namedtuple('Conference', ['name'])
-Journal = namedtuple('Journal', ['name'])
-Teaching = namedtuple('Teaching', ['name', 'abrv', 'year', 'description', 'href'])
-File = namedtuple('File', ['format', 'href'])
-Newspaper = namedtuple('Newspaper', ['author', 'name', 'date', 'title', 'href', 'description', 'files'])
-Award = namedtuple('Award', ['name', 'place', 'giver', 'date', 'description'])
-Job = namedtuple('Job', ['title', 'company', 'date', 'description', 'academic'])
+@dataclass
+class Person:
+    name: str = 'Anonymous'
+    abrv: str = ''
+    href: str = ''
+    photo: Optional[str] = None
+    email: Optional[str] = None
+
+@dataclass
+class Paper:
+    tag: str
+    title: str
+    authors: List[Person]
+    abstract: str
+    year: int
+    conference: Optional[str] = None
+    comment: Optional[str] = None
+    files: Sequence[str] = ()
+    featured: bool = False
+    new: bool = False
+    img: Optional[str] = None
+
+@dataclass
+class Conference:
+    name: str
+
+@dataclass
+class Journal:
+    name: str
+
+@dataclass
+class Teaching:
+    name: str
+    abrv: str
+    year: int
+    description: str
+    href: str
+
+@dataclass
+class File:
+    format: str
+    href: str
+
+@dataclass
+class Newspaper:
+    author: Person
+    name: str
+    date: str
+    title: str
+    href: str
+    description: str
+    files: Sequence[File] = ()
+
+@dataclass
+class Award:
+    name: str
+    place: Optional[str] = None
+    giver: Optional[str] = None
+    date: Optional[str] = None
+    description: Optional[str] = None
+
+@dataclass
+class Job:
+    title: str
+    company: str
+    date: str
+    description: str
+    academic: bool = False
+
 
 
 class Vars:
@@ -24,38 +83,28 @@ class Vars:
     authors = {
         'thdy':
         Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/potrait.jpg', 'thomas@ahle.dk')
-        , 'pagh':
-        Person('Rasmus Pagh', 'R Pagh', 'http://rasmuspagh.net/')
-        , 'ilya':
-        Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
-        , 'fran':
-        Person('Francesco Silvestri', 'F Silvestri', 'http://www.dei.unipd.it/~silvestri/')
-        , 'maau':
-        Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/')
-        , 'jbtk':
-        Person('Jakob Bæk Tejs Knudsen', 'J Knudsen', 'https://di.ku.dk/english/staff/?pure=en/persons/493157')
-        , 'mika':
-        Person('Michael Kapralov', 'M Kapralov', 'https://theory.epfl.ch/kapralov/')
-        , 'amve':
-        Person('Ameya Velingker', 'A Velingker', 'http://www.cs.cmu.edu/~avelingk/')
-        , 'dawo':
-        Person('David P. Woodruff', 'D Woodruff', 'http://www.cs.cmu.edu/~dwoodruf/')
-        , 'amza':
-        Person('Amir Zandieh', 'A Zandieh', 'https://people.epfl.ch/amir.zandieh')
-        , 'mtho':
-        Person('Mikkel Thorup', 'M Thorup', 'http://hjemmesider.diku.dk/~mthorup/')
-        , 'aama':
-        Person('Anders Åmand', 'A Aamand', 'https://di.ku.dk/english/staff/?pure=en/persons/433494')
-        , 'mabr':
-        Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://sites.google.com/view/mikkel-abrahamsen')
-        , 'pe2m':
-        Person('Peter M. R. Rasmussen', 'P Rasmussen', 'https://di.ku.dk/english/staff/?pure=en/persons/462256')
-        , 'sahark':
-        Person('Sahar Karimi', 'S Karimi', 'https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en')
-        , 'ptpt':
-        Person('Peter Tang', 'P Tang', 'https://dl.acm.org/profile/81452604699')
-        , 'henry':
-        Person('Henry Ling-Hei Tsang', 'H Tsang', 'https://scholars.croucher.org.hk/scholars/ling-hei-tsang')
+        , 'pagh': Person('Rasmus Pagh', 'R Pagh', 'http://rasmuspagh.net/')
+        , 'ilya': Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
+        , 'fran': Person('Francesco Silvestri', 'F Silvestri', 'http://www.dei.unipd.it/~silvestri/')
+        , 'maau': Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/')
+        , 'jbtk': Person('Jakob Bæk Tejs Knudsen', 'J Knudsen', 'https://di.ku.dk/english/staff/?pure=en/persons/493157')
+        , 'mika': Person('Michael Kapralov', 'M Kapralov', 'https://theory.epfl.ch/kapralov/')
+        , 'amve': Person('Ameya Velingker', 'A Velingker', 'http://www.cs.cmu.edu/~avelingk/')
+        , 'dawo': Person('David P. Woodruff', 'D Woodruff', 'http://www.cs.cmu.edu/~dwoodruf/')
+        , 'amza': Person('Amir Zandieh', 'A Zandieh', 'https://people.epfl.ch/amir.zandieh')
+        , 'mtho': Person('Mikkel Thorup', 'M Thorup', 'http://hjemmesider.diku.dk/~mthorup/')
+        , 'aama': Person('Anders Åmand', 'A Aamand', 'https://di.ku.dk/english/staff/?pure=en/persons/433494')
+        , 'mabr': Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://sites.google.com/view/mikkel-abrahamsen')
+        , 'pe2m': Person('Peter M. R. Rasmussen', 'P Rasmussen', 'https://di.ku.dk/english/staff/?pure=en/persons/462256')
+        , 'sahark': Person('Sahar Karimi', 'S Karimi', 'https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en')
+        , 'ptpt': Person('Peter Tang', 'P Tang', 'https://dl.acm.org/profile/81452604699')
+        , 'henry': Person('Henry Ling-Hei Tsang', 'H Tsang', 'https://scholars.croucher.org.hk/scholars/ling-hei-tsang')
+        , 'maxa': Person('Maxwell Aifer', 'M Aifer', 'https://quthermo.umbc.edu/group-members/graduate-students/maxwell-aifer/')
+        , 'kaed': Person('Kaelan Donatella', 'K Donatella', 'https://scholar.google.com/citations?user=iM2qRCkAAAAJ&hl=en')
+        , 'maxg': Person('Max Hunter Gordon', 'M H Gordon', 'https://scholar.google.co.uk/citations?user=I2W8xCoAAAAJ&hl=en')
+        , 'dans': Person('Daniel Simpson', 'D Simpson', 'https://dpsimpson.github.io/')
+        , 'gavc': Person('Gavin E. Crooks', 'G E Crooks', 'https://threeplusone.com/')
+        , 'patc': Person('Patrick J. Coles', 'P J Coles', 'https://patcoles.com/')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -77,13 +126,28 @@ class Vars:
 
     papers = [
         Paper(
+            'tla',
+            'Thermodynamic Linear Algebra',
+            ['maxa', 'kaed', 'maxg', 'thdy', 'dans', 'gavc', 'patc'],
+            open('abstracts/tla').read(),
+            2023,
+            'neurips',
+            '',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2308.05660'),
+                ],
+            featured=False,
+            new=True,
+            img='tla.png',
+            ),
+        Paper(
             'cqr',
             'Clustering&nbsp;the&nbsp;Sketch: Dynamic&nbsp;Compression for Embedding&nbsp;Tables',
             ['henry', 'thdy'],
             open('abstracts/cqr').read(),
-            2024,
+            2023,
             'neurips',
-            'Updated Oct 2024',
+            'Updated Oct 2023',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2210.05974'),
                 File('pdf', 'papers/cqr.pdf'),
@@ -91,7 +155,9 @@ class Vars:
                 File('github', 'https://github.com/thomasahle/cce'),
                 ],
             featured=True,
-            new=True
+            new=True,
+            #img='dalle.png',
+            img='cqr.png',
             ),
         Paper(
             'favour',
@@ -122,7 +188,8 @@ class Vars:
                 File('slides', 'papers/tiling_mikkel.pdf'),
                 ],
             featured=False,
-            new=False
+            new=False,
+            img='domino.png',
             ),
         Paper(
             'bi-moments',
@@ -139,6 +206,7 @@ class Vars:
                 ],
             featured=False,
             new=False,
+            img='urn.png',
             ),
         Paper(
             'tcu',
@@ -170,7 +238,7 @@ class Vars:
                 File('video', 'https://youtu.be/o0jqXjUF_d4')
                 ],
             featured=False,
-            new=False
+            new=False,
             ),
         Paper(
             'supermajority',
@@ -206,7 +274,8 @@ class Vars:
                 File('slides 2', 'https://docs.google.com/presentation/d/1cPMMaZ2kuVI1PEJrBjKxLq6k8GYP7JUh_Q23gBw1LGA/edit?usp=sharing'),
                 ],
             featured=True,
-            new=False
+            new=False,
+            img='obliv.png',
             ),
         Paper(
             'lasvegas',
@@ -264,7 +333,8 @@ class Vars:
                 )
                 ],
             featured=True,
-            new=False
+            new=False,
+            img='mips.png',
             ),
     ]
 
@@ -362,8 +432,12 @@ class Vars:
     ]
     for pubs in [papers, manuscripts]:
         for paper in pubs:
-            paper.files.sort()
+            paper.files = sorted(paper.files, key=lambda file: file.format)
     has_featured = lambda articles: any(p.featured or p.new for p in articles)
+
+    # auth_cnt = Counter({a:0 for a in coauthors})
+    # auth_cnt += Counter([x[key] for p in papers for key in p.authors])
+    # sorted_coauthors = [a for a, _cnt in auth_cnt.most_common()]
 
     teachings = [
             Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.', 'teaching/pcpp2019')

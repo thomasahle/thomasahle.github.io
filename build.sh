@@ -4,8 +4,10 @@ python3 render_html.py data templates/index.html > compiled/index.html
 mkdir compiled/blog
 python3 render_html.py data templates/blog/index.html > compiled/blog/index.html
 
+# For https
 echo "thomasahle.com" > compiled/CNAME
 
+cp -r feature_imgs compiled
 cp -r teaching compiled
 cp -r static compiled
 python3 render_html.py pcpp_data templates/pcpp.html > compiled/teaching/pcpp2019/index.html

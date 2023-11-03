@@ -58,14 +58,8 @@ addLoadEvent(function () {
       <p>
          Hello, I'm Thomas.
          I lead the Foundational AI efforts at <a href="https://normalcomputing.ai/">Normal Computing</a>.
-         Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
-         was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
-         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
-         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='{{authors['pagh'].href}}' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project.
-         Previous I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics;
-         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas, Austin, on the fundamental limits of data-limited computation.
       </p><p>
-        My research primarily involves scaling large transformer and recommendation systems, the theoretical foundations of machine learning and massive data, including similarity search, hashing, high dimensional geometry, kernel methods, sketching and derandomization.
+        My research focuses on mechanistic interpretability and capabilities of large language models, the theoretical foundations of machine learning and massive data, including similarity search, hashing, high dimensional geometry, sketching and derandomization.
       </p>
 
       <div id='show-all'>
@@ -78,7 +72,10 @@ addLoadEvent(function () {
                     >{{type}}</h2>
          <ul class="publications">
          {%- for paper in articles -%}
-            <li class="toggle-item {{'featured' if paper.featured or paper.new else ''}}"
+            <li class="toggle-item
+                {{'featured' if paper.featured or paper.new else ''}}
+                {{'has_image' if paper.img else ''}}
+                "
                   id='paper-{{paper.tag}}'>
                <div class='shown'>
                   <span class='files'>
@@ -131,6 +128,9 @@ addLoadEvent(function () {
                   {%- endfor %}
                   </span>
                </div>
+               {%- if paper.img %}
+               <div class='feature_image'><img src='feature_imgs/{{paper.img}}' /></div>
+               {%- endif -%}
                <div class='abstract'>{{paper.abstract}}</div>
             </li>
          {%- endfor -%}
@@ -140,8 +140,20 @@ addLoadEvent(function () {
          </div>
       {% endfor %}
 
+
+      <h2>Resume</h2>
+      <p>
+         Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
+         was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
+         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
+         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='{{authors['pagh'].href}}' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project.
+         Previous I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics;
+         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas, Austin, on the fundamental limits of data-limited computation.
+      </p>
+
+
       <h2>Games</h2>
-      <ul>
+      <ul class="main_list">
          <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
             <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
          </li>
@@ -161,16 +173,6 @@ addLoadEvent(function () {
          <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
       </ul>
 
-      <h2>Teaching</h2>
-      <ul>
-      {%- for t in teachings -%}
-         <li>
-            <a href='{{t.href}}'>{{t.name}}</a> - {{t.year}}.
-            <p>{{t.description}}</p>
-         </li>
-      {%- endfor -%}
-      </ul>
-
       <h2>Programming Problems</h2>
       <p>
       These are various algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>.
@@ -185,8 +187,18 @@ addLoadEvent(function () {
            <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>
       </p>
 
+      <h2>Teaching</h2>
+      <ul class="main_list">
+      {%- for t in teachings -%}
+         <li>
+            <a href='{{t.href}}'>{{t.name}}</a> - {{t.year}}.
+            {{t.description}}
+         </li>
+      {%- endfor -%}
+      </ul>
+
       <h2>Media</h2>
-      <ul>
+      <ul class="main_list">
          {%- for m in media -%}
          <li><a href='{{m.href}}'>{{m.name}}</a> &mdash; {{m.date}}.
             "{{m.title}}."
@@ -200,7 +212,7 @@ addLoadEvent(function () {
       </ul>
 
       <h2>Other</h2>
-      <ul>
+      <ul class="main_list">
          <li>Memrise <a href='https://www.memrise.com/course/44645/500-most-common-danish-words/'>course for learning Danish</a> through the most common 500 words.</li>
          <li><a href='http://spjdrpedia.dk/wiki/'>Spejdrpedia</a> &mdash; an online scout handbook</a></li>
       </ul>
@@ -211,8 +223,6 @@ addLoadEvent(function () {
       <script>
          /* Only incude Face and Twitter feed when we have room enough for it. */
          if (window.matchMedia("(min-width: 500px)").matches) {
-            // Nobody likes document.write these days.
-
             let holder = document.createElement( 'div' );
             holder.id = 'me_holder';
             let img = document.createElement( 'img' );
@@ -232,30 +242,35 @@ addLoadEvent(function () {
               gtag('event', 'hover_me', {'event_label': 'off'});
             }
 
-            let el = document.createElement( 'div' );
-            el.innerHTML = `
-               <a class="twitter-timeline"
-                  href="https://twitter.com/thomasahle"
-                  data-tweet-limit="3"
-                  data-chrome="nofooter, noscrollbar"
-                  data-dnt="true"
-                  >Tweets</a>`;
-            let script = document.createElement("script");
-            script.async = "true";
-            script.src = "https://platform.twitter.com/widgets.js";
-            script.charset = "utf-8";
-            el.appendChild(script);
-            document.getElementById('side').appendChild(el);
+            // Elon destroyed the embedded tweet format :(
+            if (false) {
+               let el = document.createElement( 'div' );
+               el.innerHTML = `
+                  <a class="twitter-timeline"
+                     href="https://twitter.com/thomasahle"
+                     data-tweet-limit="3"
+                     data-chrome="nofooter, noscrollbar"
+                     data-dnt="true"
+                     >Tweets</a>`;
+               let script = document.createElement("script");
+               script.async = "true";
+               script.src = "https://platform.twitter.com/widgets.js";
+               script.charset = "utf-8";
+               el.appendChild(script);
+               document.getElementById('side').appendChild(el);
+            }
          }
       </script>
 
-      <h3>Contact</h3>
       <ul>
          <li><a href='/blog' title='My blog'>Blog</a></li>
          <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
+      </ul>
+
+      <h3>Contact</h3>
+      <ul>
          <li>Email: {{authors['thdy'].email}}</li>
          <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
-         <li><a href='cv.pdf' >CV</a></li>
          <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
          <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&sortby=pubdate'>Google Scholar</a></li>
          <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
@@ -263,6 +278,7 @@ addLoadEvent(function () {
          <li><a href='https://en.wikipedia.org/wiki/User:Thomasda'>Wikipedia</a></li>
          <li><a href='https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle'>OEIS</a></li>
          <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
+         <li><a href='cv.pdf'>CV</a></li>
       </ul>
 
       <h3>Coauthors</h3>
@@ -270,6 +286,7 @@ addLoadEvent(function () {
       {%- for person in coauthors: -%}
          <li><a href='{{person.href}}'>{{person.name}}</a></li>
       {%- endfor -%}
+
       </ul>
 
    </div>
