@@ -14,9 +14,72 @@
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/android-chrome-192x192.png" sizes="192x192" />
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500|Cardo:400,400i&amp;display=fallback" rel="stylesheet">
-  <!--&display=swap-->
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-166937336-1', {
+    //'storage': 'none',
+    'client_storage': 'none',
+    //'cookie_expires': 0,
+    //'anonymize_ip': true
+  });
+</script>
+   
   
+  <script type="application/javascript">function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+// External links
+addLoadEvent(function() {
+   for (let a of document.querySelectorAll('a[href^="http"]')) {
+      // :not([href*="//' + location.host + '"])')
+      a.addEventListener('click', event => {
+         gtag('event', 'click', {
+            'event_category': 'outbound',
+            'event_label': a.href,
+            'transport_type': 'beacon'
+            /*'hitCallback': function() { document.location = a.href; }*/
+         });
+         //return false;
+      });
+   }
+});</script>
+
+  <script type="application/ld+json">
+   {"@context" : "http://schema.org",
+    "@type" : "CollectionPage",
+     "author": {
+          "@type": "Person",
+          "name": "Thomas Dybdahl Ahle",
+           "image": [ "https://thomasahle.com/static/potrait.jpg" ],
+           "spouse": {
+                "@type": "Person",
+                "name": "Morgan Mingle"
+           }
+     },
+     "description": "My research concern the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization.",
+     "image": [ "https://thomasahle.com/static/potrait.jpg" ],
+     "primaryImageOfPage": "https://thomasahle.com/static/potrait.jpg",
+     "thumbnailUrl": "https://thomasahle.com/static/potrait.jpg"
+     }
+   </script>
+   <meta name="description"
+         content="Thomas Dybdahl Ahle is a researcher in the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization." />
+
   <style type="text/css">:root {
    --border-radius: 4px;
    --fonts: Lato, Helvetica Neue, sans-serif;
@@ -394,71 +457,6 @@ h2.toggled:not(.has-featured) {
 h2.publications.toggled:before {
    content: 'Selected ';
 }</style>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-166937336-1', {
-    //'storage': 'none',
-    'client_storage': 'none',
-    //'cookie_expires': 0,
-    //'anonymize_ip': true
-  });
-</script>
-   
-  
-  <script type="application/javascript">function addLoadEvent(func) {
-  var oldonload = window.onload;
-  if (typeof window.onload != 'function') {
-    window.onload = func;
-  } else {
-    window.onload = function() {
-      if (oldonload) {
-        oldonload();
-      }
-      func();
-    }
-  }
-}
-// External links
-addLoadEvent(function() {
-   for (let a of document.querySelectorAll('a[href^="http"]')) {
-      // :not([href*="//' + location.host + '"])')
-      a.addEventListener('click', event => {
-         gtag('event', 'click', {
-            'event_category': 'outbound',
-            'event_label': a.href,
-            'transport_type': 'beacon'
-            /*'hitCallback': function() { document.location = a.href; }*/
-         });
-         //return false;
-      });
-   }
-});</script>
-
-  <script type="application/ld+json">
-   {"@context" : "http://schema.org",
-    "@type" : "CollectionPage",
-     "author": {
-          "@type": "Person",
-          "name": "Thomas Dybdahl Ahle",
-           "image": [ "https://thomasahle.com/static/potrait.jpg" ],
-           "spouse": {
-                "@type": "Person",
-                "name": "Morgan Mingle"
-           }
-     },
-     "description": "My research concern the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization.",
-     "image": [ "https://thomasahle.com/static/potrait.jpg" ],
-     "primaryImageOfPage": "https://thomasahle.com/static/potrait.jpg",
-     "thumbnailUrl": "https://thomasahle.com/static/potrait.jpg"
-     }
-   </script>
-   <meta name="description"
-         content="Thomas Dybdahl Ahle is a researcher in the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization." />
 
   <script type="application/javascript">
 addLoadEvent(function () {
