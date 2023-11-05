@@ -14,386 +14,6 @@
   <link rel="icon" type="image/x-icon" href="/static/favicon_io/android-chrome-192x192.png" sizes="192x192" />
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500|Cardo:400,400i&amp;display=fallback" rel="stylesheet">
-  <!--&display=swap-->
-
-  
-  <style type="text/css">:root {
-   --border-radius: 4px;
-   --fonts: Lato, Helvetica Neue, sans-serif;
-   --toggle-size: 25px;
-   --item-size: 14rem;
-   --item-height: 14rem;
-   --item-padding: 1.5rem;
-   --left-shift: 15.5rem; /* item-size + item-padding */
-}
-body {
-  font-family: sans-serif;
-  font-family: var(--fonts);
-  font-size: 1rem;
-  font-weight: 300;
-  padding: 1rem .33rem;
-  line-height: 1.55;
-  max-width: 60rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-flow: row wrap;
-  background: #fcfcfc;
-
-  hyphens: auto;
-  -ms-hyphens: auto;
-  -webkit-hyphens: auto;
-  text-rendering: optimizeLegibility;
-}
-h1 {
-   flex: 1 100%;
-   font-size: 2em;
-}
-h2, h3 {
-   margin-bottom: 0;
-   line-height: 1;
-}
-h2 {
-   font-size: 1.5em;
-}
-h3 {
-   font-size: 1.167em;
-}
-h1, h2, h3 {
-   font-weight: 500;
-}
-p {
-   margin-left: var(--left-shift);
-}
-.main_list {
-   margin-left: var(--left-shift);
-}
-#main {
-   /* First number is how much faster the main element should grow the the side. */
-   /* Second number is the initial main size before any remaining space is distributed */
-   flex: 4.618 30rem;
-}
-#main p:first-child {
-   margin-top: 0;
-}
-#side {
-   flex: 1 7rem;
-}
-h1 {
-   margin: 1rem .67rem 1rem .66rem;
-   margin-left: var(--left-shift);
-}
-h2 {
-   margin-top: 1.5rem;
-   margin-left: var(--left-shift);
-}
-#main, #side {
-  margin: 0 .66rem 2rem .67rem;
-}
-#main {
-   margin-left: 0;
-}
-ul {
-   list-style-type: none;
-   padding: 0;
-}
-dd {
-   font-style: italic;
-   margin-left: 2em;
-}
-.toggle-item {
-   border: 1px solid rgba(0,0,0,.1);
-   /*box-shadow: 0px 3px 2px -2px rgba(0,0,0,.05);*/
-   border-radius: 2px;
-   border-radius: var(--border-radius);
-   margin-bottom: 1rem;
-   /*background: #fdfdfd;*/
-   background: white;
-   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.1);
-   /* If no image */
-   margin-left: var(--item-size);
-   /* grid */
-   display: grid;
-   grid-template-rows: auto 1fr;
-   grid-column-gap: 0px;
-   grid-row-gap: 0px;
-}
-.toggle-item.has_image {
-   grid-template-columns: var(--item-size) 1fr;
-   /* Remove the normal left-shift */
-   margin-left: 0rem;
-}
-.shown {
-   grid-area: 1 / 2 / 2 / 3;
-}
-.feature_image {
-   grid-area: 1 / 1 / 3 / 2;
-   border-right: 1px solid #eee;
-}
-.abstract {
-    grid-area: 2 / 2 / 3 / 3;
-}
-
-.toggle-item:hover {
-   /*box-shadow: 0px 1px 2px 0px rgba(0,0,0,.1);*/
-}
-.toggle-item:active {
-   background: #fafafa;
-   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.2);
-}
-.shown {
-   padding: 8px 6%;
-   text-align: center;
-}
-.feature_image > img {
-   height: var(--item-height);
-   max-width: 100%;
-   width: auto;
-   object-fit: cover;
-   object-position: center center;
-   border-top-left-radius: 3px;
-   border-bottom-left-radius: 3px;
-}
-.shown .year {
-   display: block;
-   text-align: left;
-}
-.shown .files {
-   float: right;
-   text-align: right;
-}
-.files, .year, .authors {
-   font-size: 90%;
-}
-.shown .title {
-   hyphens: none;
-   margin-top: .5rem;
-   display: block;
-   font-weight: 400;
-   clear: both;
-}
-.abstract {
-   padding: 0px var(--item-padding) 1rem var(--item-padding);
-   position: relative;
-   font-family: 'Latin Modern Roman', 'Latin Modern', Cardo, Garamond, serif;
-   text-align: justify;
-   line-height: 1.15;
-}
-.abstract p {
-   text-indent: 1em;
-   margin: 0;
-}
-.abstract p:first-child {
-   text-indent: 0;
-}
-.toggle-item:not(.open) {
-   height: var(--item-size);
-}
-.toggle-item:not(.open) .abstract {
-   line-height: 1.1;
-   overflow: hidden;
-   font-style: italic;
-   font-size: .85rem;
-   cursor: pointer;
-}
-.abstract:before {
-   position: absolute;
-   font-style: normal;
-   cursor: pointer;
-   color: black;
-   bottom: 0; right: 0;
-   z-index: 1;
-   background: white;
-   padding: 8px 10px 8px 10px;
-   font-family: var(--fonts);
-   border-radius: var(--border-radius);
-   font-size: .85rem;
-}
-.toggle-item:not(.open) .abstract:before {
-   content: "View Abstract ⌵";
-}
-.toggle-item.open .abstract:before {
-   margin-top: 10px;
-   content: "Hide Abstract ⌃";
-}
-.toggle-item:not(.open) .abstract {
-   color: #222;
-}
-.toggle-item:not(.open) .abstract:after {
-   content: " ";
-   position: absolute;
-   left: 0; right: 0; top: 0; bottom: 0;
-   background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
-   border-radius: var(--border-radius);
-}
-
-.show-more {
-   text-align: center;
-   margin: -1rem;
-   text-decoration: underline;
-   color: #555;
-   font-size: .85rem;
-   cursor: pointer;
-   display: none;
-}
-.show-more.shown {
-   display: block;
-}
-
-#side li {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-#me_holder {
-   position: relative;
-   /* Maintain aspect ratio */
-   /* The idea is to let the browser know our height before the image is loaded */
-   padding-top: 100%;
-   margin-bottom: 1.8em;
-}
-#me {
-   width: 100%;
-   /* Make the image essentially height 0, so it stays on the padding of the holder */
-   position: absolute;
-   top: 0;
-}
-sub,
-sup {
-   /**
-    * Prevent `sub` and `sup` affecting `line-height` in all browsers.
-    */
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-a {
-   text-decoration: none;
-   color: #0645ad;
-}
-a:visited {
-   color: #0b0080;
-}
-a:hover {
-   text-decoration: underline;
-   text-decoration-skip: ink;
-   -webkit-text-decoration-skip:ink;
-   -moz-text-decoration-skip:ink;
-}
-.comment {
-   font-style: italic;
-}
-.new {
-   font-weight: bold;
-   background-color: #4d90fe;
-   color: white;
-   padding: 1px 5px;
-   border-radius: 3px;
-}
-@media only screen and (max-width: 500px) {
-   :root {
-      --left-shift: 1rem;
-      --item-size: 7rem;
-      --item-height: 7rem;
-      --item-padding: 1rem;
-   }
-  .toggle-item, .toggle-item.has_image {
-     margin-left: .5rem;
-     margin-right: .5rem;
-  }
-  .toggle-item:not(.open) {
-     height: auto;
-  }
-  .toggle-item:not(.open) .abstract {
-     display:none;
-  }
-  .shown {
-     grid-area: 1 / 2 / 2 / 3;
-  }
-  .toggle-item:not(.has_image) > .shown {
-     grid-area: 1 / 1 / 2 / 3;
-  }
-  .feature_image {
-     grid-area: 1 / 1 / 2 / 2;
-  }
-  .abstract {
-      grid-area: 2 / 1 / 3 / 3;
-  }
-}
-/********** Toggle **********/
-input[type=checkbox]{
-   display: none;
-}
-
-#show-all {
-   float: right;
-   margin-top: .15em;
-}
-
-label {
-   cursor: pointer;
-   font-size: 1.5em;
-}
-
-.toggle {
-   display: inline-block;
-   background: grey;
-   text-indent: calc(var(--toggle-size) * 2 + 1em);
-   width: calc(var(--toggle-size) * 2);
-   height: calc(var(--toggle-size) * 1);
-   border-radius: calc(var(--toggle-size) * 1);
-   position: relative;
-   vertical-align: text-bottom;
-}
-
-.toggle-text {
-   padding-right: .3em;
-}
-
-.toggle:after {
-   content: '';
-   position: absolute;
-   top: 1px;
-   left: 1px;
-   width: calc(var(--toggle-size) - 2px);
-   height: calc(var(--toggle-size) - 2px);
-   background: #fff;
-   border-radius: calc(var(--toggle-size) - 2px);
-   transition: 0.3s;
-}
-
-input:checked + .toggle {
-   /*background: #5a8bff;*/
-   background-color: #4d90fe;
-}
-
-input:checked + .toggle:after {
-   left: calc(100% - var(--toggle-size) * .05);
-   transform: translateX(-100%);
-}
-
-input:active + .toggle:after {
-   width: calc(var(--toggle-size) * 1.2);
-}
-
-.publications.toggled .toggle-item:not(.featured) {
-   display: none;
-}
-h2.toggled:not(.has-featured) {
-   display:none;
-}
-
-h2.publications.toggled:before {
-   content: 'Selected ';
-}</style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
@@ -461,21 +81,183 @@ addLoadEvent(function() {
          content="Thomas Dybdahl Ahle is a researcher in the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization." />
 
   <style type="text/css">
-   ul {
-      font-size: 1.3rem;
-      line-height: 3rem;
-   }
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   font-family: "Calendas Plus", "Crimson Text", "Hoefler Text", "Georgia", serif;
+   font-size: 20px;
+   line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fcfcfc;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header h1 a {
+  text-decoration: none;
+  color: #000;
+}
+
+.blog-post {
+  display: flex;
+  align-items: flex-start; /* Aligns items to the start of the flex container */
+  background: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px black solid;
+}
+
+.blog-post img {
+  width: 20em;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
+  height: auto;
+  border-right: 1px black solid;
+}
+
+.blog-post .content {
+  flex: 1; /* This allows the text content to fill the remaining space */
+  padding: 2em;
+}
+
+.blog-post .meta {
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    color: #9a9a9a;
+}
+
+.blog-post .summary {
+   display: block;
+   color: #515151;
+   text-decoration: none;
+}
+
+h2 {
+   font-size: 2rem;
+   line-height: 1.25;
+   font-weight: 600;
+   margin-bottom: .5rem;
+}
+
+h2 a {
+   color: #303030;
+   text-decoration: none;
+}
+
+h2 a:hover {
+   text-decoration: underline;
+}
+
+/* If you want the image and text to stack on smaller screens */
+@media (max-width: 768px) {
+  .blog-post {
+    flex-direction: column;
+  }
+
+  .blog-post img {
+    width: 100%; /* Makes the image full width on smaller screens */
+    flex: none; /* Resets any flex settings for the image */
+  }
+}
+
+
+.actions {
+  margin-top: 10px;
+}
+
+.actions .likes,
+.actions .comments {
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+.likes:before {
+  content: "❤️ ";
+}
+
+.comments:before {
+  content: "💬 ";
+}
+
+/* Additional Styling for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
+
   </style>
   <title>Blog</title>
 </head>
+
 <body>
-   <ul>
-      <li><a href="https://github.com/thomasahle/ziplm">2023 - ZipLm with Beam Search, BPE and Progressive Compression</a></li>
-      <li><a href="/blog/einsum_to_dot.html">2023 - Convert Einsum to Tensor Network</a></li>
-      <li><a href="https://towardsdatascience.com/3bbed6addde0">2022 - Liar’s Dice by Self-Play</a></li>
-      <li><a href="/blog/sets.html">2020 - An Evolutionary Data Structure for Sets</a></li>
-      <li><a href="https://ahlenotes.wordpress.com/2015/12/08/hypergeometric_tail/">2015 - Another Tail of the Hypergeometric Distribution</a></li>
-   </ul>
+    <div class="header">
+        <div class="container">
+           <h1><a href="#">Blog</a></h1>
+        </div>
+    </div>
+    <div class="container">
+       
+       <div class="blog-post">
+          <img src="../feature_imgs/ziplm.png" alt="ZipLm with Beam Search, BPE and Progressive Compression">
+          <div class="content"> <!-- New wrapper for the text content -->
+             <h2><a href="https://github.com/thomasahle/ziplm">ZipLm with Beam Search, BPE and Progressive Compression</a></h2>
+             <div class="meta">2023-08-28 - 1 min</div>
+             <a href="https://github.com/thomasahle/ziplm" class="summary">
+            ZipLM uses Gzip to create a language model, however it is quite bad. This post shows how to use beam search to improve the output of ZipLM. When sampling sentences from "The Great Gatsby," the raw model produces near-gibberish. However, implementing beam search yields increasingly coherent sentences as the beam width increases, although performance is still poor compared to older models.
+            </a>
+          </div>
+       </div>
+       
+       <div class="blog-post">
+          <img src="../feature_imgs/tensor.png" alt="Convert Einsum to Tensor Network">
+          <div class="content"> <!-- New wrapper for the text content -->
+             <h2><a href="einsum_to_dot.html">Convert Einsum to Tensor Network</a></h2>
+             <div class="meta">2023-01-01 - 1 min</div>
+             <a href="einsum_to_dot.html" class="summary">A technical guide on converting Einstein summation to tensor network operations.</a>
+          </div>
+       </div>
+       
+       <div class="blog-post">
+          <img src="../feature_imgs/dudo.png" alt="Liar’s Dice by Self-Play">
+          <div class="content"> <!-- New wrapper for the text content -->
+             <h2><a href="https://towardsdatascience.com/3bbed6addde0">Liar’s Dice by Self-Play</a></h2>
+             <div class="meta">2022-01-01 - 1 min</div>
+             <a href="https://towardsdatascience.com/3bbed6addde0" class="summary">Discussing the application of self-play algorithms in the game of Liar’s Dice.</a>
+          </div>
+       </div>
+       
+       <div class="blog-post">
+          <img src="../feature_imgs/sets.png" alt="An Evolutionary Data Structure for Sets">
+          <div class="content"> <!-- New wrapper for the text content -->
+             <h2><a href="sets.html">An Evolutionary Data Structure for Sets</a></h2>
+             <div class="meta">2020-01-01 - 1 min</div>
+             <a href="sets.html" class="summary">Exploration of a novel data structure for handling sets more efficiently.</a>
+          </div>
+       </div>
+       
+       <div class="blog-post">
+          <img src="../feature_imgs/hyper.png" alt="Another Tail of the Hypergeometric Distribution">
+          <div class="content"> <!-- New wrapper for the text content -->
+             <h2><a href="https://ahlenotes.wordpress.com/2015/12/08/hypergeometric_tail/">Another Tail of the Hypergeometric Distribution</a></h2>
+             <div class="meta">2015-12-08 - 1 min</div>
+             <a href="https://ahlenotes.wordpress.com/2015/12/08/hypergeometric_tail/" class="summary">This blog post sheds light on the less-discussed sampling without replacement scenario, its implications in algorithm analysis, and how it compares with its more famous counterpart, the binomial distribution.</a>
+          </div>
+       </div>
+       
+    </div>
+
 </body>
 </html>
-
