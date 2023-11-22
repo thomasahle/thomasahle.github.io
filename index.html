@@ -632,46 +632,6 @@ We show experimentally close to those of post-training quantization with the tra
 </div>
             </li><li class="toggle-item
                 
-                
-                "
-                  id='paper-favour'>
-               <div class='shown'>
-                  <span class='files'>[<a href='papers/favour.pdf'
-                        onclick="gtag('event', 'download', {'event_label': 'download_favour_pdf'});"
-                        >pdf</a>]  [<a href='https://youtu.be/Ct63ikA2q-c'
-                        onclick="gtag('event', 'download', {'event_label': 'download_favour_video'});"
-                        >video</a>]</span>
-
-                  <span class='year'>
-                  2022</span>
-
-                  
-                  <span class='title'>Fast Variance Operator for Uncertainty Rating</span>
-                  
-
-                  <span class='authors'>
-                  TA, <a href='https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en'
-                           title='Sahar Karimi'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'S Karimi'});"
-                           >S Karimi</a>, <a href='https://dl.acm.org/profile/81452604699'
-                           title='Peter Tang'
-                           onclick="gtag('event', 'coauthor', {'event_label': 'P Tang'});"
-                           >P Tang</a>
-                  </span>
-               </div><div class='abstract'><p>We introduce a principled approximate variance propagation framework for Bayesian Neural Networks.
-More accurate than Monte Carlo sampling, and much faster than previous variance propagation frameworks,
-it smoothly interpolates between quality and inference time.
-This is made possible by a new fast algorithm for updating a diagonal-plus-low-rank matrix approximation under various
-operations.</p>
-<p> We tested our algorithm against sampling based MC Dropout
-and Variational Inference on a number of downstream uncertainty themed
-tasks, such as calibration and out-of-distribution testing. We find that
-Favour is as fast as performing 2-3 inference samples, while matching the
-performance of 10-100 samples.
-</p>
-</div>
-            </li><li class="toggle-item
-                
                 has_image
                 "
                   id='paper-tiling'>
@@ -811,7 +771,7 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
 </div>
             </li><li class="toggle-item
                 featured
-                
+                has_image
                 "
                   id='paper-supermajority'>
                <div class='shown'>
@@ -840,7 +800,8 @@ The improvement comes from a simple change to the Indyk-Motwani algorithm, which
                            onclick="gtag('event', 'coauthor', {'event_label': 'J Knudsen'});"
                            >J Knudsen</a>
                   </span>
-               </div><div class='abstract'><p>
+               </div>
+               <div class='feature_image'><img src='feature_imgs/sets.png' /></div><div class='abstract'><p>
 We formulate and optimally solve a new generalized Set Similarity Search problem,
 which assumes the size of the database and query sets are known in advance.
 By creating polylog copies of our data-structure, we optimally solve any symmetric Approximate Set Similarity Search problem, including approximate versions of Subset Search, Maximum Inner Product Search (MIPS), Jaccard Similarity Search and Partial Match.
@@ -910,7 +871,7 @@ As a side effect, we obtain new hypercontractive bounds on the directed noise op
                            >Zandieh</a>
                   </span>
                </div>
-               <div class='feature_image'><img src='feature_imgs/obliv.png' /></div><div class='abstract'><p>
+               <div class='feature_image'><img src='feature_imgs/cube.png' /></div><div class='abstract'><p>
 Kernel methods are fundamental tools in machine learning that allow detection of non-linear dependencies between data without explicitly constructing feature vectors in high dimensional spaces. A major disadvantage of kernel methods is their poor scalability: primitives such as kernel PCA or kernel ridge regression generally take prohibitively large quadratic space and (at least) quadratic time, as kernel matrices are usually dense. Some methods for speeding up kernel linear algebra are known, but they all invariably take time exponential in either the dimension of the input point set (e.g., fast multipole methods suffer from the curse of dimensionality) or in the degree of the kernel function.
 </p><p>
 Oblivious sketching has emerged as a powerful approach to speeding up numerical linear algebra over the past decade, but our understanding of oblivious sketching solutions for kernel matrices has remained quite limited, suffering from the aforementioned exponential dependence on input parameters. Our main contribution is a general method for applying sketching solutions developed in numerical linear algebra over the past decade to a tensoring of data points without forming the tensoring explicitly. This leads to the first oblivious sketch for the polynomial kernel with a target dimension that is only polynomially dependent on the degree of the kernel function, as well as the first oblivious sketch for the Gaussian kernel on bounded datasets that does not suffer from an exponential dependence on the dimensionality of input data points.
@@ -918,7 +879,7 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
 </div>
             </li><li class="toggle-item
                 featured
-                
+                has_image
                 "
                   id='paper-lasvegas'>
                <div class='shown'>
@@ -942,7 +903,8 @@ Oblivious sketching has emerged as a powerful approach to speeding up numerical 
                   <span class='authors'>
                   TA
                   </span>
-               </div><div class='abstract'><p>
+               </div>
+               <div class='feature_image'><img src='feature_imgs/necklace.png' /></div><div class='abstract'><p>
 We show that approximate similarity (near neighbour) search can be solved in high dimensions with performance matching state of the art (data independent) Locality Sensitive Hashing, but with a guarantee of no false negatives.
 Specifically we give two data structures for common problems.
 For c-approximate near neighbour in Hamming space, for which we get query time dn<sup>1/c+o(1)</sup> and space dn<sup>1+1/c+o(1)</sup> matching that of [Indyk and Motwani, 1998] and answering a long standing open question from [Indyk, 2000a] and [Pagh, 2016] in the affirmative.
@@ -992,7 +954,7 @@ The algorithm has expected query time bounded by O(t(n/t)^ρ), where t is the nu
 </p>
 </div>
             </li><li class="toggle-item
-                featured
+                
                 has_image
                 "
                   id='paper-mips'>
@@ -1081,8 +1043,48 @@ Thermodynamic computing exploits fluctuations and dissipation in physical system
 </p>
 </div>
             </li><li class="toggle-item
-                featured
                 
+                
+                "
+                  id='paper-favour'>
+               <div class='shown'>
+                  <span class='files'>[<a href='papers/favour.pdf'
+                        onclick="gtag('event', 'download', {'event_label': 'download_favour_pdf'});"
+                        >pdf</a>]  [<a href='https://youtu.be/Ct63ikA2q-c'
+                        onclick="gtag('event', 'download', {'event_label': 'download_favour_video'});"
+                        >video</a>]</span>
+
+                  <span class='year'>
+                  2022</span>
+
+                  
+                  <span class='title'>Fast Variance Operator for Uncertainty Rating</span>
+                  
+
+                  <span class='authors'>
+                  TA, <a href='https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en'
+                           title='Sahar Karimi'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'S Karimi'});"
+                           >S Karimi</a>, <a href='https://dl.acm.org/profile/81452604699'
+                           title='Peter Tang'
+                           onclick="gtag('event', 'coauthor', {'event_label': 'P Tang'});"
+                           >P Tang</a>
+                  </span>
+               </div><div class='abstract'><p>We introduce a principled approximate variance propagation framework for Bayesian Neural Networks.
+More accurate than Monte Carlo sampling, and much faster than previous variance propagation frameworks,
+it smoothly interpolates between quality and inference time.
+This is made possible by a new fast algorithm for updating a diagonal-plus-low-rank matrix approximation under various
+operations.</p>
+<p> We tested our algorithm against sampling based MC Dropout
+and Variational Inference on a number of downstream uncertainty themed
+tasks, such as calibration and out-of-distribution testing. We find that
+Favour is as fast as performing 2-3 inference samples, while matching the
+performance of 10-100 samples.
+</p>
+</div>
+            </li><li class="toggle-item
+                featured
+                has_image
                 "
                   id='paper-minner'>
                <div class='shown'>
@@ -1102,7 +1104,8 @@ Thermodynamic computing exploits fluctuations and dissipation in physical system
                   <span class='authors'>
                   TA
                   </span>
-               </div><div class='abstract'><p>Quantization is the state of the art approach to efficiently storing and searching large high-dimensional datasets. Broder’97 introduced the idea of Minwise Hashing (MinHash) for quantizing or sketching large sets or binary strings into a small number of values and provided a way to reconstruct the overlap or Jaccard Similarity between two sets sketched this way.
+               </div>
+               <div class='feature_image'><img src='feature_imgs/minner.png' /></div><div class='abstract'><p>Quantization is the state of the art approach to efficiently storing and searching large high-dimensional datasets. Broder’97 introduced the idea of Minwise Hashing (MinHash) for quantizing or sketching large sets or binary strings into a small number of values and provided a way to reconstruct the overlap or Jaccard Similarity between two sets sketched this way.
 </p><p>In this paper, we propose a new estimator for MinHash in the case where the database is quantized, but the query is not. By computing the similarity between a set and a MinHash sketch directly, rather than first also sketching the query, we increase precision and improve recall.
 </p><p>We take a principled approach based on maximum likelihood with strong theoretical guarantees. Experimenal results show an improved recall@10 corresponding to 10-30% extra MinHash values. Finally, we suggest a third very simple estimator, which is as fast as the classical MinHash estimator while often more precise than the MLE.
 </p><p>Our methods concern only the query side of search and can be used with any existing MinHashed database without changes to the data.t
