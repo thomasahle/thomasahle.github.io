@@ -46,6 +46,12 @@ h1, h2, h3 {
 p {
    margin-left: var(--left-shift);
 }
+.nav-button {
+    border: 1px solid silver;
+    border-radius: .4rem;
+    padding: .4rem .7rem;
+    margin-right: .7rem;
+ }
 .main_list {
    margin-left: var(--left-shift);
 }
