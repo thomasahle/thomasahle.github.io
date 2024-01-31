@@ -1,0 +1,160 @@
+<!DOCTYPE html> 
+<html lang="en" xml:lang="en" > 
+<head> <title></title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="termo_linalg.css" /> 
+<meta name="src" content="termo_linalg.tex" /> 
+<script>window.MathJax = { tex: { tags: "ams", }, }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>  
+ <script> window.MathJax = { tex: { tags: "ams", macros: { eps: "\\varepsilon", R: "\\mathbb{R}", Z: "\\mathbb{Z}", N: "\\mathcal{N}", E: "\\mathrm{E}", tr: "\\mathrm{trace}" } } }; </script> 
+</head><body 
+>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Analysis of Ornstein-Uhlenbeck Process for Linear Systems</h3>
+   <div class="newtheorem">
+<!--l. 30--><p class="noindent" ><span class="head">
+<a 
+ id="x1-1001r1"></a>
+<span 
+class="cmbx-10x-x-109">Theorem 1.</span>  </span> <span 
+class="cmti-10x-x-109">For some PSD matrix</span> \(A\in \mathbb {R}^{d\times d}\) <span 
+class="cmti-10x-x-109">and vector</span> \(b\in \mathbb {R}^{d}\)<span 
+class="cmti-10x-x-109">, construct the OU process </span>\[ dx_t = (b-A x_t)dt + dW_t, \] <span 
+class="cmti-10x-x-109">which has</span>
+<span 
+class="cmti-10x-x-109">stable distribution</span> \(x_t \sim \N (A^{-1}b, A^{-1})\)<span 
+class="cmti-10x-x-109">. Let</span> \(\hat {x}\) <span 
+class="cmti-10x-x-109">be the sample mean of</span> \(m\) <span 
+class="cmti-10x-x-109">samples with sampling interval</span> \(s&gt;0\)<span 
+class="cmti-10x-x-109">. For any</span>
+\(\eps &gt;0\) <span 
+class="cmti-10x-x-109">and</span> \(\delta \in (0,1)\)<span 
+class="cmti-10x-x-109">, if </span>\[ m \ge c\, (d/s + \min (\tr (A), s\|A\|_F^2) )\varepsilon ^{-2}\log (1/\delta ), \] <span 
+class="cmti-10x-x-109">you get</span> \( \|A \hat {x} - b\|_2 &lt; \varepsilon , \) <span 
+class="cmti-10x-x-109">with probability at least</span> \(1-\delta \)<span 
+class="cmti-10x-x-109">. The total time used is </span>\[ m s = O((d +\min (s\,\tr (A), s^2 \|A\|_F^2) ) \varepsilon ^{-2} \log 1/\delta ). \]
+</p>
+   </div>
+<!--l. 58--><p class="indent" >    In general sampling more often, \(s\to 0\), can be seen to lead to less total time usage, with the
+continuous case (using an integrator) being best. But taking \(s \le d/\tr (A)\) or \(s \le \sqrt {d}/\|A\|_F\) also suﬃces to get total time: \[ ms = O(d \eps ^{-2} \log 1/\delta ). \]
+If instead we want to sample rarely, letting \(s\to \infty \), we get that the necessary number of samples
+needed is \(m = O(\tr (A) \eps ^{-2} \log 1/\delta )\), matching the fully independent case in Lemma <a 
+href="#x1-2001r1">1<!--tex4ht:ref: lemma:independent --></a> below.
+</p><!--l. 75--><p class="noindent" >Note that the OU process assumes \(x_t\) is in the stable distribution from the beginning. When that
+is not the case, such as \(x_0 \sim N(0,I)\), there is a burn in time, usually of order \(O(s)\).
+</p><!--l. 79--><p class="indent" >   Theorem <a 
+href="#x1-1001r1">1<!--tex4ht:ref: thm:main --></a> improves over the original analysis in <span class="cite">[<a 
+href="#Xaifer2023thermodynamic">1</a>]</span>, which had total time \(\sim d \kappa ^2 \eps ^{-2} \delta ^{-1}\), in two ways.
+The main beneﬁt of this analysis is that it removes the dependency on the condition
+number, \(\kappa \). This seems to ﬁt with experimental results. The second improvement is
+reducing the dependency on the error probability from \(\delta ^{-1}\) to \(\log 1/\delta \), which may be useful in some
+cases.
+</p><!--l. 88--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-20001.1"></a>Independent Analysis</h4>
+<!--l. 90--><p class="noindent" >Before we show the main theorem, we consider a more simple case of bounding the error of a
+single normal distributed vector. Note that the stable distribution of the Langevin is \(x \sim \N (A^{-1}b, A^{-1})\), and if we
+take the mean of \(m\) such samples, we get \(\hat {x} ~ N(A^{-1}b, A^{-1}/m)\).
+</p>
+   <div class="newtheorem">
+<!--l. 97--><p class="noindent" ><span class="head">
+<a 
+ id="x1-2001r1"></a>
+<span 
+class="cmbx-10x-x-109">Lemma 1.</span>  </span> <span 
+class="cmti-10x-x-109">Given some PSD matrix</span> \(A\) <span 
+class="cmti-10x-x-109">and vector</span> \(b\in \R ^d\)<span 
+class="cmti-10x-x-109">, let</span> \(x \sim \N (A^{-1}b, A^{-1}/m)\)<span 
+class="cmti-10x-x-109">. For any</span> \(\eps &gt;0, \delta &gt;0\)<span 
+class="cmti-10x-x-109">, and </span>\[ m &gt; c\, \tr (A) \eps ^{-2} \log (1/\delta ), \] <span 
+class="cmti-10x-x-109">where</span> \(c &gt; 0\) <span 
+class="cmti-10x-x-109">is a universal</span>
+<span 
+class="cmti-10x-x-109">constant, you have</span> \( \Pr [\|A x - b\|_2 &gt; \eps ] &lt; \delta . \)
+</p>
+   </div>
+
+<!--l. 109--><p class="indent" >
+</p><!--l. 111--><p class="indent" >   An alternative formulation is that we can take \(m=O(\tr (A)\log (1/\delta ))\) to get \(\|Ax-b\|_2 &lt; \eps \sqrt {\tr (A)}\) with probability \(\ge 1-\delta \). This inequality may
+not at ﬁrst look homogeneous, since it has \(A\) on the left side and \(\sqrt {A}\) on the right. However,
+because the variance of \(x\) is proportional with \(A^{-1}\), it actually is scale invariant as we would
+expect.
+</p>
+   <div class="proof">
+<!--l. 118--><p class="indent" >   <span class="head">
+<span 
+class="cmti-10x-x-109">Proof.</span> </span>Note that \(A x \sim N(b, A/m)\) and \(A x - b \sim N(0, A/m)\). From this we easily get that the expected squared error \[ \E \|A x -b\|_2^2 = \tr (A)/m. \]
+</p><!--l. 126--><p class="indent" >   Let \(\sigma \sim N(0, I_d)\). Then by the above observations, \(A \hat {x} - b \sim (A/m)^{1/2} \sigma \) and \(\|A \hat {x} - b\|_2^2 \sim \sigma ^T (A/m) \sigma \). Note \(A\) has a square root, since it is PSD.
+By the Hanson Wright inequality (see e.g. <span class="cite">[<a 
+href="#Xrudelson2013hanson">2</a>]</span>) we get \[ \Pr \left [\left |\sigma ^T (A/m) \sigma - E[\sigma ^T (A/m) \sigma ]\right | &gt; t\right ] &lt; 2 \exp \left (-c \min \left ( \frac {t^2}{\|A/m\|_F^2}, \frac {t}{\|A/m\|} \right ) \right ) \] for some universal constant \(c &gt; 0\). If we
+take \[ t = c^{-1} m^{-1}\max \left ( \|A\|_F \sqrt {\log 1/\delta }, \|A\| \log 1/\delta , \right ) \] we see that \( \Pr \left [\left |\sigma ^T (A/m) \sigma - \text {trace}(A)/m\right | &gt; t\right ] &lt; 2\delta . \) This shows that with probability \(\ge 1-2\delta \), \[ \|A\hat {x}-b\|_2^2 = \sigma ^T (A/m) \sigma &lt; m^{-1} c \left ( \text {trace}(A) + \|A\|_F \sqrt {\log 1/\delta } + \|A\| \log 1/\delta \right ) . \] We can note that \(\frac {\|A\|_F}{\text {trace}(A)}&lt;1\) and \(\frac {\|A\|}{\text {trace}(A)}&lt;1\). So if we
+take \[ m \ge c \varepsilon ^{-2} \tr (A) \log 1/\delta \] we get \(\|A\hat {x}-b\|_2^2 &lt; 3\eps ^2\). Finally, adjusting the constant \(c\), so can reduce the error to just \(\eps \) and increase
+the error probability to \(1-\delta \) as we wanted to prove.                                                     □
+</p>
+   </div>
+<!--l. 180--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
+ id="x1-30001.2"></a>Correlation time</h4>
+<!--l. 182--><p class="noindent" >We now prove the main theorem, taking into account correlation between samples. We need a
+slight generalization of the lemma, which is that \(x\) can have distribution \(\N (A^{-1}b, BA^{-1}/m)\), in which case for any \(\eps &gt;0, \delta &gt;0\),
+and \begin {align}  m &gt; c\, \tr (BA) \eps ^{-2} \log (1/\delta ), \label {eq:lemma-generalized}  \end {align}
+</p><!--l. 191--><p class="indent" >   suﬃces to get \( \Pr [\|A x - b\|_2 &gt; \eps ] &lt; \delta . \) It’s easy to check that the above proof goes through with no signiﬁcant
+modiﬁcation.
+</p>
+   <div class="proof">
+<!--l. 197--><p class="indent" >   <span class="head">
+<span 
+class="cmti-10x-x-109">Proof of Theorem</span><span 
+class="cmti-10x-x-109"> </span><a 
+href="#x1-1001r1"><span 
+class="cmti-10x-x-109">1</span><!--tex4ht:ref: thm:main --></a><span 
+class="cmti-10x-x-109">.</span> </span>  Since  we  assume  the  OU  process  is  initialized  from  the  stable
+distribution, we get \(\text {Cov}(X_t, X_t) = A^{-1}\) for all \(t\ge 0\). Using standard results on OU processes we further have that
+\(\text {Cov}(X_t, X_{t+s}) = e^{-A s}A^{-1}\), where \(e^{-A s}\) is a matrix exponential. We can note that as \(s\to \infty \) the correlation between two samples
+drop to 0.
+</p><!--l. 205--><p class="indent" >   Now, let \(\hat x = \frac {1}{m}\sum _{i=1}^m x_{t+i s}\) be the average of \(m\) samples with time separation \(s\). The \(\hat x\) is a normal distributed
+vector with mean \(A^{-1}b\) and covariance matrix \begin {align}  \text {Cov}\left ( \frac {1}{m}\sum _{i=1}^m X_{t+i s} \right ) &amp;= E\left [ \left (\frac {1}{m}\sum _{i=1}^m X_{t+i s}\right ) \left (\frac {1}{m}\sum _{j=1}^m X_{t+j s}\right )^T \right ] - (A^{-1}b)(A^{-1}b)^T \nonumber \\&amp;= \frac {1}{m^2} \sum _{i=1}^m \sum _{j=1}^m \left ( E\left [ X_{t+is} X_{t+js}^T \right ] - (A^{-1}b)(A^{-1}b)^T \right ) \nonumber \\&amp;= \frac {1}{m^2} \sum _{i=1}^m \sum _{j=1}^m \text {Cov}( X_{t+is}, X_{t+js} ) \nonumber \\&amp;= \frac {1}{m^2} \sum _{i=1}^m \sum _{j=1}^m e^{-s |i-j| A} A^{-1} \nonumber \\&amp;= \frac {1}{m^2} \sum _{k=0}^{m} \sum _{|i-j|=k} e^{-s |i-j| A} A^{-1} \label {eq:diag} \\&amp;= \frac {1}{m} A^{-1} + \sum _{k=1}^{m} \frac {2m-2k}{m^2} e^{-s k A} A^{-1} \nonumber \\&amp;= BA^{-1}/m \nonumber  \end {align}
+</p><!--l. 259--><p class="indent" >   where in \(\mathrm {(\ref {eq:diag})}\) we summed along the diagonals of the \([1,m]\times [1,m]\) square, and \[ B = I + \sum _{k=1}^{m} \frac {2m-2k}{m} e^{-s k A} . \]
+</p><!--l. 271--><p class="indent" >   Since the function \(a\mapsto e^{-s a}a^{-1}\) is analytical, we can easily analyze the individual singular values of \(BA^{-1}\). Let \(\beta _i\)
+be the \(i\)th singular value, then \begin {align}  \beta _i &amp;= a_i^{-1} + \sum _{k=1}^{m} \frac {2m-2k}{m} e^{-s k a_i} a_i^{-1} \nonumber \\&amp;\le a_i^{-1} + 2 \sum _{i=1}^\infty e^{-s i a_i} a_i^{-1} \nonumber \\&amp;\le a_i^{-1} + 2 \frac {1}{e^{s a_i} - 1} a_i^{-1} \nonumber \\&amp;\le a_i^{-1} + \frac {2}{s} a_i^{-2} . \label {eq:bi-bound}  \end {align}
+
+</p><!--l. 304--><p class="indent" >   Here we bounded the quantity by expanding the sum to inﬁnity, and applied the simple
+inequality \(1+s a_i \le \exp (s a_i)\).
+</p><!--l. 307--><p class="indent" >   Now, we want to use \(\mathrm {(\ref {eq:lemma-generalized})}\). Since the covariance matrix already has the form \(BA^{-1}/m\), all we have to do is
+to bound \[ \tr (BA) = \sum _{i=1}^d \beta _i a_i^2 \le \sum _{i=1}^d (a_i + 2/s) = \tr (A) + 2d/s . \]
+</p><!--l. 320--><p class="indent" >   In combination with the (generalized) Lemma <a 
+href="#x1-2001r1">1<!--tex4ht:ref: lemma:independent --></a>, this completes the proof of Theorem <a 
+href="#x1-1001r1">1<!--tex4ht:ref: thm:main --></a>.   □
+</p>
+   </div>
+<!--l. 323--><p class="indent" >   It is also possible to use the bound \(\frac {1}{e^{s a}-1} \le (as)^{-1} - 1/2 + sa/6\), in which case we would have ended up with \(\beta _i \le \frac {2}{s}a_i^{-2} + s/12\), and \[\tr (BA) \le s\|A\|_F^2/6 + 2d/s.\] This
+may be better if \(s\) is small, but in the end it is not going to matter much.
+</p><!--l. 1--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-4000"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+   </p><div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+ [1]<span class="bibsp">   </span></span><a 
+ id="Xaifer2023thermodynamic"></a>Maxwell  Aifer,  Kaelan  Donatella,  Max Hunter  Gordon,  Thomas  Ahle,  Daniel
+   Simpson, Gavin E Crooks, and Patrick J Coles. Thermodynamic linear algebra. <span 
+class="cmti-10x-x-109">arXiv</span>
+   <span 
+class="cmti-10x-x-109">preprint arXiv:2308.05660</span>, 2023.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ [2]<span class="bibsp">   </span></span><a 
+ id="Xrudelson2013hanson"></a>Mark Rudelson and Roman Vershynin. Hanson-wright inequality and sub-gaussian
+   concentration. 2013.
+</p>
+   </div>
+    
+</body> 
+</html>
+
+
