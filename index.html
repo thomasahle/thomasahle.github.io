@@ -467,6 +467,26 @@ h2.toggled:not(.has-featured) {
 
 h2.publications.toggled:before {
    content: 'Selected ';
+}
+
+#embedbsky-com-timeline-embed-holder {
+    width: 200px;
+    height: 500px;
+    position: relative;
+}
+#embedbsky-com-timeline-embed {
+    position: absolute;
+    width: 350px;
+    height: 750px;
+    transform: scale(.667);
+    transform-origin: top left;
+}
+
+#embedbsky-com-timeline-embed > .header {
+   display: none !important;
+}
+#embedbsky-com-timeline-embed .avatar {
+   display: none !important;
 }</style>
 
   <script type="application/javascript">
@@ -1460,6 +1480,29 @@ Finally I discuss ways to enlarge the supported fragment of English, how we can 
                script.charset = "utf-8";
                el.appendChild(script);
                document.getElementById('side').appendChild(el);
+            }
+            // Let's use bluesky instead
+            if (true) {
+               // Styles
+               let link = document.createElement('link');
+               link.rel = `stylesheet`;
+               link.href = `https://embedbsky.com/embedbsky.com-master-min.css`;
+               document.head.appendChild(link);
+               // Feed
+               let feedDiv = document.createElement('div');
+               feedDiv.id = `embedbsky-com-timeline-embed`;
+               (async function() {
+                   const t=(new Date).toISOString();
+                   const response = await fetch(`https://embedbsky.com/feeds/f1d35c2c78e7beb5fa1ac253132c9af5250129083cf1be639ce947920b35487e.html?v={t}`);
+                   feedDiv.innerHTML = response.ok ? (await response.text()) : `No feed data could be located`;
+               })();
+               let holderDiv = document.createElement('div');
+               holderDiv.id = `embedbsky-com-timeline-embed-holder`;
+               let holderDiv2 = document.createElement('div');
+               holderDiv2.id = `embedbsky-com-timeline-embed-holder2`;
+               holderDiv.appendChild(holderDiv2);
+               holderDiv2.appendChild(feedDiv);
+               document.getElementById('side').appendChild(holderDiv);
             }
          }
       </script>

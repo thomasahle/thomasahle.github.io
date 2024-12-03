@@ -381,3 +381,23 @@ h2.toggled:not(.has-featured) {
 h2.publications.toggled:before {
    content: 'Selected ';
 }
+
+#embedbsky-com-timeline-embed-holder {
+    width: 200px;
+    height: 500px;
+    position: relative;
+}
+#embedbsky-com-timeline-embed {
+    position: absolute;
+    width: 350px;
+    height: 750px;
+    transform: scale(.667);
+    transform-origin: top left;
+}
+
+#embedbsky-com-timeline-embed > .header {
+   display: none !important;
+}
+#embedbsky-com-timeline-embed .avatar {
+   display: none !important;
+}
