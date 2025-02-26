@@ -43,6 +43,8 @@ jobs:
       - name: Build site
         run: |
           chmod +x ./build.sh
+          # Skip tex4ht processing in CI to avoid LaTeX issues
+          export TEX4HT_SKIP=1
           ./build.sh
           
           # Prepare for deployment (same as in update.sh but without git operations)
