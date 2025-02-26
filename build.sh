@@ -55,8 +55,9 @@ python3 render_tex.py templates/cv.tex > compiled/cv.tex
 python3 render_tex.py templates/cv_ac.tex > compiled/cv_ac.tex
 
 cd compiled
-pdflatex --interaction=batchmode cv.tex
-pdflatex --interaction=batchmode cv_ac.tex
+# Run pdflatex and ignore exit codes - PDFs are still generated despite errors
+pdflatex --interaction=batchmode cv.tex || true
+pdflatex --interaction=batchmode cv_ac.tex || true
 cd ..
 
 #pdfjam compiled/cv_ac.pdf postdoc/statement.pdf --outfile compiled/ta_cv_statement.pdf

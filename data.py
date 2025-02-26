@@ -574,7 +574,7 @@ I was also in charge of our hiring efforts, interviewing dozens of candidates an
         Job('Teaching', 'University of Copenhagen', '2014',
             '''I assisted in teaching algorithms to more than 200 bachelor students.''',
             True),
-        Job('Software Engineer', 'Other: Sophion, Palantir & XION', '2010 - 2014',
+        Job('Software Engineer', 'Other: Sophion, Palantir \& XION', '2010 - 2014',
             '''
             Through various software engineering jobs, I have gained broad exposure to the different areas of software development. At Sophion Bioscience, I developed internal debugging tools for sifting through gigabytes of data/second on ion channel screening machines. At Palantir, I ported the Metropolis ontological time-series system (now Foundry) to the web, designing data visualization and efficient processing pipelines. At XION, I Developed the most popular Danish TV listings app for Android at the time, based on data scraped (consensually) from hundreds of TV-station websites.
             ''',
