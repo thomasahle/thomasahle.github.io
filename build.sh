@@ -10,37 +10,53 @@ mkdir -p tex4ht/build
 python3 render_html.py data templates/index.html > compiled/index.html
 python3 render_html.py blog_data templates/blog/index.html > compiled/blog/index.html
 
-# Latex blog things - skip in CI environment if TEX4HT_SKIP is set
-if [ -z "$TEX4HT_SKIP" ]; then
-  cd tex4ht
-  # Ensure build directory exists
-  mkdir -p build
-  
-  # Copy the source files to build dir first
-  cp termo_linalg.tex build/
-  cp termo.bib build/
-  cp myconfig.cfg build/
-  
-  # Change to build dir and run the processing
-  cd build
-  latex --interaction=batchmode termo_linalg.tex
-  bibtex termo_linalg
-  latex --interaction=batchmode termo_linalg.tex
-  latex --interaction=batchmode termo_linalg.tex
-  htlatex termo_linalg.tex "myconfig" " -cunihtf -utf8"
+# Latex blog things
+mkdir -p compiled/blog
+
+# First create build directory and copy files
+mkdir -p tex4ht/build
+cp tex4ht/termo_linalg.tex tex4ht/build/
+cp tex4ht/termo.bib tex4ht/build/
+cp tex4ht/myconfig.cfg tex4ht/build/
+
+# Change to build dir and run the processing
+cd tex4ht/build
+latex --interaction=nonstopmode termo_linalg.tex
+if [ $? -ne 0 ]; then
+  echo "LaTeX processing failed"
   cd ../..
-else
-  echo "Skipping tex4ht processing as TEX4HT_SKIP is set"
-  # Create placeholder files for the CI build
-  mkdir -p compiled/blog
-  echo "<html><body><h1>Placeholder for termo_linalg content</h1></body></html>" > compiled/blog/termo_linalg.html
-  echo "body { font-family: sans-serif; }" > compiled/blog/termo_linalg.css
+  exit 1
 fi
 
-# Only copy from tex4ht/build if we didn't skip processing
-if [ -z "$TEX4HT_SKIP" ]; then
-  cp tex4ht/build/termo_linalg.html compiled/blog/
-  cp tex4ht/build/termo_linalg.css compiled/blog/
+bibtex termo_linalg
+if [ $? -ne 0 ]; then
+  echo "BibTeX processing failed"
+  cd ../..
+  exit 1
+fi
+
+latex --interaction=nonstopmode termo_linalg.tex
+latex --interaction=nonstopmode termo_linalg.tex
+htlatex termo_linalg.tex "myconfig" " -cunihtf -utf8"
+if [ $? -ne 0 ]; then
+  echo "HTML conversion failed"
+  cd ../..
+  exit 1
+fi
+
+# Check if the output files exist
+if [ ! -f termo_linalg.html ] || [ ! -f termo_linalg.css ]; then
+  echo "HTML output files not generated"
+  cd ../..
+  exit 1
+fi
+
+# Copy the output files to compiled/blog
+cp termo_linalg.html ../../compiled/blog/
+cp termo_linalg.css ../../compiled/blog/
+cd ../..
+
+# Files have already been copied to compiled/blog
 fi
 
 # For https
