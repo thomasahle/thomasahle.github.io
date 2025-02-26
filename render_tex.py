@@ -17,12 +17,20 @@ env = Environment(
     loader = FileSystemLoader('.')
 )
 
+# Pre-process function to handle HTML entities before LaTeX escaping
+def preprocess_html_entities(value):
+    if not isinstance(value, str):
+        return value
+    # Replace common HTML entities first
+    value = value.replace('&nbsp;', ' ')
+    value = value.replace('&amp;', 'and')  # Convert &amp; to "and" for safety
+    value = value.replace('&lt;', '<')
+    value = value.replace('&gt;', '>')
+    return value
+
 LATEX_SUBS = (
     (re.compile(r'\\'), r'\\textbackslash'),
-    (re.compile(r'([{}_#%$])'), r'\\\1'),  # Removed & from this group to handle below
-    (re.compile(r'&nbsp;'), r' '),  # Replace HTML non-breaking spaces with regular spaces - MUST come before &amp; handling
-    (re.compile(r'&amp;'), r'\\&'),  # Handle HTML entity for ampersand - MUST come before generic & handling
-    (re.compile(r'&'), r'\\&'),      # Handle regular ampersands
+    (re.compile(r'([{}_#%$&])'), r'\\\1'),  # Added & back since we preprocess it 
     (re.compile(r'~'), r'\~{}'),
     (re.compile(r'\^'), r'\^{}'),
     (re.compile(r'"'), r"''"),
@@ -33,10 +41,14 @@ LATEX_SUBS = (
 )
 
 def escape_tex(value):
-    newval = value
+    if not isinstance(value, str):
+        return value
+    # First preprocess HTML entities
+    value = preprocess_html_entities(value)
+    # Then do LaTeX escaping
     for pattern, replacement in LATEX_SUBS:
-        newval = pattern.sub(replacement, newval)
-    return newval
+        value = pattern.sub(replacement, value)
+    return value
 
 env.filters['tex'] = escape_tex
 

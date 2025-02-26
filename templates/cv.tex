@@ -92,8 +92,7 @@ As a Research Scientist at Meta, I focus on scaling language models and ranking.
 \begin{itemize}
 %% for paper in papers
    \item[]
-      ``\VAR{paper.title.replace('&nbsp;',' ')
-   |tex}''.
+      ``\VAR{paper.title|tex}''.
    By
    \BLOCK{for a in paper.authors}
       \VAR{me.name if authors[a]==me else authors[a].abrv}
