@@ -58,6 +58,15 @@ cd compiled
 # Run pdflatex and ignore exit codes - PDFs are still generated despite errors
 pdflatex --interaction=batchmode cv.tex || true
 pdflatex --interaction=batchmode cv_ac.tex || true
+
+# Verify PDFs were created successfully
+if [ ! -f cv.pdf ] || [ ! -f cv_ac.pdf ]; then
+  echo "ERROR: PDF generation failed - one or more PDF files are missing!"
+  # Exit with error code if PDFs are missing
+  [ -z "$IGNORE_PDF_CHECK" ] && exit 1
+else
+  echo "PDF generation completed successfully."
+fi
 cd ..
 
 #pdfjam compiled/cv_ac.pdf postdoc/statement.pdf --outfile compiled/ta_cv_statement.pdf
