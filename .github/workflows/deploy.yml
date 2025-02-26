@@ -38,7 +38,7 @@ jobs:
       - name: Install LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive texlive-latex-extra texlive-humanities tex4ht
+          sudo apt-get install -y texlive texlive-latex-extra texlive-humanities tex4ht cm-super
       
       - name: Build site
         run: |
@@ -48,16 +48,26 @@ jobs:
           echo "Contents of tex4ht directory:"
           ls -la tex4ht/
           
-          # Run build script
-          ./build.sh || true
+          # Run build script with proper error capturing
+          ./build.sh
           
           # Verify build artifacts were created properly
           if [ ! -d "compiled" ] || [ ! -f "compiled/index.html" ]; then
             echo "ERROR: Critical build artifacts missing, failing deployment"
             exit 1
-          else
-            echo "Verified that critical build artifacts exist"
           fi
+          
+          # Verify PDF files were created properly
+          if [ ! -f "compiled/cv.pdf" ] || [ ! -f "compiled/cv_ac.pdf" ]; then
+            echo "ERROR: PDF files are missing!"
+            echo "Contents of compiled directory:"
+            ls -la compiled/
+            echo "Checking LaTeX logs for errors:"
+            cat compiled/cv.log || echo "cv.log not found"
+            exit 1
+          fi
+          
+          echo "Verified that all build artifacts exist"
           
           # Prepare for deployment (same as in update.sh but without git operations)
           rm -rf dist

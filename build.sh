@@ -57,7 +57,6 @@ cp termo_linalg.css ../../compiled/blog/
 cd ../..
 
 # Files have already been copied to compiled/blog
-fi
 
 # For https
 echo "thomasahle.com" > compiled/CNAME
@@ -71,15 +70,28 @@ python3 render_tex.py templates/cv.tex > compiled/cv.tex
 python3 render_tex.py templates/cv_ac.tex > compiled/cv_ac.tex
 
 cd compiled
-# Run pdflatex and ignore exit codes - PDFs are still generated despite errors
-pdflatex --interaction=batchmode cv.tex || true
-pdflatex --interaction=batchmode cv_ac.tex || true
+# Run pdflatex with better error handling
+echo "Running pdflatex on cv.tex..."
+pdflatex cv.tex > cv.log 2>&1 || {
+  echo "===== ERROR: PDF generation for cv.tex failed ====="
+  echo "Last 20 lines of cv.log:"
+  tail -n 20 cv.log
+  echo "===== End of cv.log excerpt ====="
+}
+
+echo "Running pdflatex on cv_ac.tex..."
+pdflatex cv_ac.tex > cv_ac.log 2>&1 || {
+  echo "===== ERROR: PDF generation for cv_ac.tex failed ====="
+  echo "Last 20 lines of cv_ac.log:"
+  tail -n 20 cv_ac.log
+  echo "===== End of cv_ac.log excerpt ====="
+}
 
 # Verify PDFs were created successfully
 if [ ! -f cv.pdf ] || [ ! -f cv_ac.pdf ]; then
   echo "ERROR: PDF generation failed - one or more PDF files are missing!"
-  # Exit with error code if PDFs are missing
-  [ -z "$IGNORE_PDF_CHECK" ] && exit 1
+  ls -la
+  exit 1
 else
   echo "PDF generation completed successfully."
 fi
