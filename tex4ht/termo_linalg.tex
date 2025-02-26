@@ -1,0 +1,334 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[UKenglish]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\tr}{\mathrm{trace}}
+
+\begin{document}
+
+\section{Analysis of Ornstein-Uhlenbeck Process for Linear Systems}
+
+\begin{theorem}\label{thm:main}
+    For some PSD matrix $A\in\mathbb{R}^{d\times d}$ and vector $b\in\mathbb{R}^{d}$,
+    construct the OU process
+    \[
+    dx_t = (b-A x_t)dt + dW_t,
+    \]
+    which has stable distribution $x_t \sim \N(A^{-1}b, A^{-1})$.
+    Let $\hat{x}$ be the sample mean of $m$ samples with sampling interval $s>0$.
+    For any $\eps>0$ and $\delta\in(0,1)$, if
+    \[
+    m \ge c\, (d/s
+    + \min(\tr(A), s\|A\|_F^2)
+    %+ \tr(A)
+    )\varepsilon^{-2}\log(1/\delta),
+    \]
+    you get
+    $
+    \|A \hat{x} - b\|_2 < \varepsilon,
+    $
+    with probability at least $1-\delta$.
+    The total time used is
+    \[
+        m s = O((d
+        %+s^2\|A\|_F^2
+        +\min(s\,\tr(A), s^2 \|A\|_F^2)
+        %+s\,\tr(A)
+        ) \varepsilon^{-2} \log1/\delta).
+    \]
+\end{theorem}
+In general sampling more often,
+$s\to 0$,
+can be seen to lead to less total time usage, with the continuous case (using an integrator) being best.
+But taking
+% $s \le \sqrt{d}/\|A\|_F$
+$s \le d/\tr(A)$
+or
+$s \le \sqrt{d}/\|A\|_F$
+also suffices to get total time:
+\[
+    ms = O(d \eps^{-2} \log1/\delta).
+\]
+If instead we want to sample rarely, letting $s\to\infty$, we get that the necessary number of samples needed is
+$m = O(\tr(A) \eps^{-2} \log1/\delta)$,
+matching the fully independent case in Lemma~\ref{lemma:independent} below.
+
+Note that the OU process assumes $x_t$ is in the stable distribution from the beginning.
+When that is not the case, such as $x_0 \sim N(0,I)$, there is a burn in time, usually of order $O(s)$.
+%I leave the exact details of this to Max Aifer :D
+
+Theorem~\ref{thm:main} improves over the original analysis in~\cite{aifer2023thermodynamic}, which had total time
+$\sim d \kappa^2 \eps^{-2} \delta^{-1}$,
+in two ways.
+%
+The main benefit of this analysis is that it removes the dependency on the condition number, $\kappa$.
+This seems to fit with experimental results.
+%
+The second improvement is reducing the dependency on the error probability from $\delta^{-1}$ to $\log1/\delta$, which may be useful in some cases.
+
+\subsection{Independent Analysis}
+
+Before we show the main theorem, we consider a more simple case of bounding the error of a single normal distributed vector.
+%
+Note that the stable distribution of the 
+Langevin is $x \sim \N(A^{-1}b, A^{-1})$,
+and if we take the mean of $m$ such samples, we get 
+$\hat{x} ~ N(A^{-1}b, A^{-1}/m)$.
+
+\begin{lemma}\label{lemma:independent}
+Given some PSD matrix $A$ and vector $b\in\R^d$,
+let $x \sim \N(A^{-1}b, A^{-1}/m)$.
+For any $\eps>0, \delta>0$, and
+\[
+m > c\, \tr(A) \eps^{-2} \log(1/\delta),
+\]
+where $c > 0$ is a universal constant,
+you have
+$
+\Pr[\|A x - b\|_2 > \eps] < \delta.
+$
+\end{lemma}
+
+An alternative formulation is that we can take $m=O(\tr(A)\log(1/\delta))$ to get
+$\|Ax-b\|_2
+< \eps \sqrt{\tr(A)}$ with probability $\ge 1-\delta$.
+This inequality may not at first look homogeneous, since it has $A$ on the left side and $\sqrt{A}$ on the right.
+However, because the variance of $x$ is proportional with $A^{-1}$, it actually is scale invariant as we would expect.
+
+\begin{proof}
+Note that 
+$A x \sim N(b, A/m)$
+    and $A x - b \sim N(0, A/m)$.
+From this we easily get that the expected squared error
+\[
+\E\|A x -b\|_2^2 = \tr(A)/m.
+\]
+
+Let $\sigma\sim N(0, I_d)$.
+Then by the above observations,
+$A \hat{x} - b \sim (A/m)^{1/2} \sigma$
+and 
+$\|A \hat{x} - b\|_2^2 \sim \sigma^T (A/m) \sigma$.
+Note $A$ has a square root, since it is PSD.
+%
+By the Hanson Wright inequality (see e.g. \cite{rudelson2013hanson}) we get
+\[
+\Pr\left[\left|\sigma^T (A/m) \sigma - E[\sigma^T (A/m) \sigma]\right| > t\right]
+ < 2 \exp\left(-c \min\left(
+ \frac{t^2}{\|A/m\|_F^2},
+ \frac{t}{\|A/m\|}
+ \right)
+ \right)
+\]
+for some universal constant $c > 0$.
+If we take
+\[
+t = c^{-1} m^{-1}\max\left(
+\|A\|_F \sqrt{\log1/\delta},
+\|A\| \log1/\delta,
+\right)
+\]
+we see that
+$
+\Pr\left[\left|\sigma^T (A/m) \sigma - \text{trace}(A)/m\right| > t\right]
+< 2\delta.
+$
+This shows that with probability $\ge 1-2\delta$,
+\[
+\|A\hat{x}-b\|_2^2
+= \sigma^T (A/m) \sigma
+< m^{-1} c \left(
+\text{trace}(A)
++  \|A\|_F \sqrt{\log1/\delta}
++ \|A\| \log1/\delta\right)
+.
+\]
+We can note that 
+$\frac{\|A\|_F}{\text{trace}(A)}<1$
+and $\frac{\|A\|}{\text{trace}(A)}<1$.
+So if we take
+\[
+m \ge c \varepsilon^{-2}
+\tr(A)
+\log1/\delta
+\]
+we get
+$\|A\hat{x}-b\|_2^2 < 3\eps^2$.
+Finally, adjusting the constant $c$, so can reduce the error to just $\eps$ and increase the error probability to $1-\delta$ as we wanted to prove.
+\end{proof}
+
+
+\subsection{Correlation time}
+
+We now prove the main theorem, taking into account correlation between samples.
+% 
+We need a slight generalization of the lemma, which is that $x$ can have distribution $\N(A^{-1}b, BA^{-1}/m)$,
+in which case
+for any $\eps>0, \delta>0$, and
+\begin{align}
+    m > c\, \tr(BA) \eps^{-2} \log(1/\delta),
+    \label{eq:lemma-generalized}
+\end{align}
+suffices to get
+$
+\Pr[\|A x - b\|_2 > \eps] < \delta.
+$
+It's easy to check that the above proof goes through with no significant modification.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Since we assume the OU process is initialized from the stable distribution, we get
+$\text{Cov}(X_t, X_t) = A^{-1}$ for all $t\ge 0$.
+Using standard results on OU processes we further have that
+$\text{Cov}(X_t, X_{t+s}) = e^{-A s}A^{-1}$,
+where $e^{-A s}$ is a matrix exponential.
+We can note that as $s\to\infty$ the correlation between two samples drop to 0.
+
+Now, let $\hat x = \frac{1}{m}\sum_{i=1}^m x_{t+i s}$ be the average of $m$ samples with time separation $s$.
+The $\hat x$ is a normal distributed vector with mean $A^{-1}b$ and covariance matrix
+\begin{align}
+    \text{Cov}\left(
+    \frac{1}{m}\sum_{i=1}^m X_{t+i s}
+    \right)
+    &=
+    E\left[
+        \left(\frac{1}{m}\sum_{i=1}^m X_{t+i s}\right)
+        \left(\frac{1}{m}\sum_{j=1}^m X_{t+j s}\right)^T
+    \right]
+    - (A^{-1}b)(A^{-1}b)^T
+    \nonumber\\&=
+    \frac{1}{m^2}
+    \sum_{i=1}^m
+    \sum_{j=1}^m
+    \left(
+        E\left[
+            X_{t+is}
+            X_{t+js}^T
+        \right]
+        - (A^{-1}b)(A^{-1}b)^T
+    \right)
+    \nonumber\\&=
+    \frac{1}{m^2}
+    \sum_{i=1}^m
+    \sum_{j=1}^m
+        \text{Cov}(
+            X_{t+is},
+            X_{t+js}
+        )
+    \nonumber\\&=
+    \frac{1}{m^2}
+    \sum_{i=1}^m
+    \sum_{j=1}^m
+    e^{-s |i-j| A}
+    A^{-1}
+    \nonumber\\&=
+    \frac{1}{m^2}
+    \sum_{k=0}^{m}
+    \sum_{|i-j|=k}
+    e^{-s |i-j| A}
+    A^{-1}
+    \label{eq:diag}
+    \\&=
+    \frac{1}{m} A^{-1} + 
+    \sum_{k=1}^{m}
+    \frac{2m-2k}{m^2}
+    e^{-s k A}
+    A^{-1}
+    \nonumber\\&=
+    BA^{-1}/m
+    \nonumber
+\end{align}
+where in \eqref{eq:diag} 
+we summed along the diagonals of the $[1,m]\times[1,m]$ square,
+and
+\[
+    B =
+    I +
+    \sum_{k=1}^{m}
+    \frac{2m-2k}{m}
+    e^{-s k A}
+    .
+\]
+
+Since the function $a\mapsto e^{-s a}a^{-1}$ is analytical, we 
+can easily analyze the individual singular values of $BA^{-1}$.
+Let $\beta_i$ be the $i$th singular value, then
+\begin{align}
+    \beta_i
+    &= 
+    a_i^{-1}
+    +
+    \sum_{k=1}^{m}
+    \frac{2m-2k}{m}
+    e^{-s k a_i}
+    a_i^{-1}
+    \nonumber\\&\le
+    a_i^{-1}
+    +
+    2
+    \sum_{i=1}^\infty
+    e^{-s i a_i}
+    a_i^{-1}
+    \nonumber\\&\le
+    a_i^{-1}
+    +
+    2
+    \frac{1}{e^{s a_i} - 1}
+    a_i^{-1}
+    \nonumber\\&\le
+    a_i^{-1}
+    +
+    \frac{2}{s}
+    a_i^{-2}
+    .
+    \label{eq:bi-bound}
+\end{align}
+Here we bounded the quantity by expanding the sum to infinity, and applied the simple inequality $1+s a_i \le \exp(s a_i)$.
+%
+
+Now, we want to use \eqref{eq:lemma-generalized}.
+Since the covariance matrix already has the form $BA^{-1}/m$, all we have to do is to bound 
+\[
+    \tr(BA)
+    =
+    \sum_{i=1}^d \beta_i a_i^2
+    \le
+    \sum_{i=1}^d (a_i + 2/s)
+    =
+    \tr(A) + 2d/s
+    .
+\]
+
+In combination with the (generalized) Lemma~\ref{lemma:independent}, this completes the proof of Theorem~\ref{thm:main}.
+\end{proof}
+
+It is also possible to use the bound 
+$\frac{1}{e^{s a}-1} \le (as)^{-1} - 1/2 + sa/6$,
+in which case we would have ended up with $\beta_i \le \frac{2}{s}a_i^{-2} + s/12$, 
+and 
+\[\tr(BA) \le s\|A\|_F^2/6 + 2d/s.\]
+This may be better if $s$ is small, but in the end it is not going to matter much.
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{termo.bib}
+\end{document}

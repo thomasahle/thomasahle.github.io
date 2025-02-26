@@ -2,7 +2,19 @@
 mkdir compiled
 python3 render_html.py data templates/index.html > compiled/index.html
 mkdir compiled/blog
-python3 render_html.py data templates/blog/index.html > compiled/blog/index.html
+python3 render_html.py blog_data templates/blog/index.html > compiled/blog/index.html
+
+# Latex blog things
+cd tex4ht
+latex --interaction=batchmode --output-directory=build termo_linalg.tex
+cd build
+cp ../termo_linalg.tex .
+cp ../termo.bib .
+cp ../myconfig.cfg .
+bibtex termo_linalg
+htlatex termo_linalg.tex "myconfig" " -cunihtf -utf8"
+cd ../..
+cp tex4ht/build/termo_linalg.{html,css} compiled/blog
 
 # For https
 echo "thomasahle.com" > compiled/CNAME

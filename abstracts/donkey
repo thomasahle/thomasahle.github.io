@@ -1,0 +1,16 @@
+<p>
+In this paper I build a fully automatic system for translation of natural language into formal logic.
+I combine a variety of tools and theories to target standard issues such as anaphora resolution, sentence polarity etc.
+In particular I base my framework on dynamic logics in form of Dynamic Predicate Logic and a set of enhancements by Albert Visser (1999).
+</p><p>
+`Donkey Monoids', as I will call these monoidal DPL variants, are part of a movement in linguistics towards logics that can more naturally approximate human language in aspects such as polarity and scope.
+Indeed their name derives from the famous `Donkey Sentence' by Geach (1962) which exhibit these issues so well.
+</p><p>
+Visser didn't test his ideas computationally and neither did most people involved with DPL.
+In fact most of the classical literature on logification of natural language exhibits this `problem': Not testing computationally makes it easy to miss obvious details.
+With the present paper I supply such an experiment.
+</p><p>
+I build a rewriting system with a well defined set rules, discussing possible semantics.
+I apply the framework to a large collection of sentences, showing the conversion process step by step.
+Finally I discuss ways to enlarge the supported fragment of English, how we can combat and interpret the inherent ambiguity we meet, and how the flexibility of Donkey Monoids relate to the classical Montague lambda structures.
+</p>

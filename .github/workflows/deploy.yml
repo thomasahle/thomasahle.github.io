@@ -1,0 +1,57 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install jinja2
+      
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive texlive-latex-extra texlive-humanities
+      
+      - name: Build site
+        run: |
+          chmod +x ./build.sh
+          ./build.sh
+          
+          # Prepare for deployment (same as in update.sh but without git operations)
+          rm -rf dist
+          mkdir dist
+          echo "thomasahle.com" > dist/CNAME
+          cp -r static dist
+          cp -r feature_imgs dist
+          cp -r papers dist
+          cp -r blog dist
+          cp compiled/*.html dist
+          cp compiled/*.pdf dist
+          cp compiled/blog/*.html dist/blog
+          cp compiled/blog/*.css dist/blog
+          cp -r compiled/teaching dist/teaching
+          
+          rm -rf compiled
+      
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
