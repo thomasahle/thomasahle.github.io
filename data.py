@@ -554,7 +554,7 @@ While at Normal Computing I published five papers on algorithms for Thermodynami
         Job('Research Scientist', 'Meta', '2020 - 2023',
             '''
 I lead and co-founded the Machine Learning Efficiency group, a five-person internal applied research group focused on scaling AI across the organization.
-During the first year, we developed a new hashing-based algorithm that reduced the size of the internal recommendation systems by 50\%.
+During the first year, we developed a new hashing-based algorithm that reduced the size of the internal recommendation systems by 50%.
 In another project, we devised a new inference algorithm for Bayesian Neural Networks, allowing the Integrity team to deploy well-calibrated models directly on customer devices.
 Both projects also resulted in publications at top-tier conferences.
 Finally, we worked on scaling transformer models, lowering the memory requirement and inference time of Facebook Assistant through the use of embedding table compression, smart attention, and a variety of other tricks.

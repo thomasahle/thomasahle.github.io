@@ -38,7 +38,7 @@ jobs:
       - name: Install LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive texlive-latex-extra texlive-humanities
+          sudo apt-get install -y texlive texlive-latex-extra texlive-humanities tex4ht
       
       - name: Build site
         run: |

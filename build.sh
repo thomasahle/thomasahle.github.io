@@ -1,11 +1,19 @@
 #!/bin/sh
-mkdir compiled
+set -e  # Exit on error
+
+# Create output directories
+mkdir -p compiled/blog
+mkdir -p compiled/teaching/pcpp2019
+mkdir -p tex4ht/build
+
+# Render HTML pages
 python3 render_html.py data templates/index.html > compiled/index.html
-mkdir compiled/blog
 python3 render_html.py blog_data templates/blog/index.html > compiled/blog/index.html
 
 # Latex blog things
 cd tex4ht
+# Ensure build directory exists
+mkdir -p build
 latex --interaction=batchmode --output-directory=build termo_linalg.tex
 cd build
 cp ../termo_linalg.tex .
@@ -14,7 +22,8 @@ cp ../myconfig.cfg .
 bibtex termo_linalg
 htlatex termo_linalg.tex "myconfig" " -cunihtf -utf8"
 cd ../..
-cp tex4ht/build/termo_linalg.{html,css} compiled/blog
+cp tex4ht/build/termo_linalg.html compiled/blog/
+cp tex4ht/build/termo_linalg.css compiled/blog/
 
 # For https
 echo "thomasahle.com" > compiled/CNAME
