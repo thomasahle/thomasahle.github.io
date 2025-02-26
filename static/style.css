@@ -3,6 +3,7 @@
    --fonts: Lato, Helvetica Neue, sans-serif;
    --toggle-size: 25px;
    --item-size: 14rem;
+   --item-height: 14rem;
    --item-padding: 1.5rem;
    --left-shift: 15.5rem; /* item-size + item-padding */
 }
@@ -13,7 +14,7 @@ body {
   font-weight: 300;
   padding: 1rem .33rem;
   line-height: 1.55;
-  max-width: 62rem;
+  max-width: 60rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -45,6 +46,12 @@ h1, h2, h3 {
 p {
    margin-left: var(--left-shift);
 }
+.nav-button {
+    border: 1px solid silver;
+    border-radius: .4rem;
+    padding: .4rem .7rem;
+    margin-right: .7rem;
+ }
 .main_list {
    margin-left: var(--left-shift);
 }
@@ -86,12 +93,12 @@ dd {
    /*box-shadow: 0px 3px 2px -2px rgba(0,0,0,.05);*/
    border-radius: 2px;
    border-radius: var(--border-radius);
-   margin-bottom: 10px;
+   margin-bottom: 1rem;
    /*background: #fdfdfd;*/
    background: white;
    box-shadow: 0px 4px 4px -3px rgba(0,0,0,.1);
    /* If no image */
-   margin-left: var(--left-shift);
+   margin-left: var(--item-size);
    /* grid */
    display: grid;
    grid-template-rows: auto 1fr;
@@ -101,13 +108,14 @@ dd {
 .toggle-item.has_image {
    grid-template-columns: var(--item-size) 1fr;
    /* Remove the normal left-shift */
-   margin-left: 1.5rem;
+   margin-left: 0rem;
 }
 .shown {
- grid-area: 1 / 2 / 2 / 3;
+   grid-area: 1 / 2 / 2 / 3;
 }
 .feature_image {
- grid-area: 1 / 1 / 3 / 2;
+   grid-area: 1 / 1 / 3 / 2;
+   border-right: 1px solid #eee;
 }
 .abstract {
     grid-area: 2 / 2 / 3 / 3;
@@ -125,11 +133,13 @@ dd {
    text-align: center;
 }
 .feature_image > img {
-   height: var(--item-size);
+   height: var(--item-height);
    max-width: 100%;
    width: auto;
    object-fit: cover;
    object-position: center center;
+   border-top-left-radius: 3px;
+   border-bottom-left-radius: 3px;
 }
 .shown .year {
    display: block;
@@ -168,7 +178,7 @@ dd {
 }
 .toggle-item:not(.open) .abstract {
    line-height: 1.1;
-   overflow:hidden;
+   overflow: hidden;
    font-style: italic;
    font-size: .85rem;
    cursor: pointer;
@@ -189,11 +199,8 @@ dd {
 .toggle-item:not(.open) .abstract:before {
    content: "View Abstract ⌵";
 }
-/*.abstract:target{
-   padding-bottom: 20px;
-}*/
 .toggle-item.open .abstract:before {
-   margin-top:10px;
+   margin-top: 10px;
    content: "Hide Abstract ⌃";
 }
 .toggle-item:not(.open) .abstract {
@@ -264,21 +271,15 @@ a:visited {
 }
 a:hover {
    text-decoration: underline;
-   text-decoration-skip:ink;
+   text-decoration-skip: ink;
    -webkit-text-decoration-skip:ink;
    -moz-text-decoration-skip:ink;
-   /*text-decoration-color: #008;*/
-   /*text-decoration-color: #aad;*/
-   /*-webkit-text-decoration-color: #aad;
-   -moz-text-decoration-color: #aad;*/
 }
 .comment {
    font-style: italic;
 }
 .new {
    font-weight: bold;
-   /*background: #df2525;*/
-   /*background-color: #5a8bff;*/
    background-color: #4d90fe;
    color: white;
    padding: 1px 5px;
@@ -287,10 +288,31 @@ a:hover {
 @media only screen and (max-width: 500px) {
    :root {
       --left-shift: 1rem;
+      --item-size: 7rem;
+      --item-height: 7rem;
+      --item-padding: 1rem;
    }
-  .toggle-item {
-     margin-left: -1rem;
-     margin-right: -1rem;
+  .toggle-item, .toggle-item.has_image {
+     margin-left: .5rem;
+     margin-right: .5rem;
+  }
+  .toggle-item:not(.open) {
+     height: auto;
+  }
+  .toggle-item:not(.open) .abstract {
+     display:none;
+  }
+  .shown {
+     grid-area: 1 / 2 / 2 / 3;
+  }
+  .toggle-item:not(.has_image) > .shown {
+     grid-area: 1 / 1 / 2 / 3;
+  }
+  .feature_image {
+     grid-area: 1 / 1 / 2 / 2;
+  }
+  .abstract {
+      grid-area: 2 / 1 / 3 / 3;
   }
 }
 /********** Toggle **********/
@@ -358,4 +380,24 @@ h2.toggled:not(.has-featured) {
 
 h2.publications.toggled:before {
    content: 'Selected ';
+}
+
+#embedbsky-com-timeline-embed-holder {
+    width: 200px;
+    height: 500px;
+    position: relative;
+}
+#embedbsky-com-timeline-embed {
+    position: absolute;
+    width: 350px;
+    height: 750px;
+    transform: scale(.667);
+    transform-origin: top left;
+}
+
+#embedbsky-com-timeline-embed > .header {
+   display: none !important;
+}
+#embedbsky-com-timeline-embed .avatar {
+   display: none !important;
 }

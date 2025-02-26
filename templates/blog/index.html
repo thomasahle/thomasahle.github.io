@@ -1,19 +1,144 @@
 {% include 'templates/header.html' %}
   <style type="text/css">
-   ul {
-      font-size: 1.3rem;
-      line-height: 3rem;
-   }
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   font-family: "Calendas Plus", "Crimson Text", "Hoefler Text", "Georgia", serif;
+   font-size: 20px;
+   line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fcfcfc;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header h1 a {
+  text-decoration: none;
+  color: #000;
+}
+
+.blog-post {
+  display: flex;
+  align-items: flex-start; /* Aligns items to the start of the flex container */
+  background: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px black solid;
+}
+
+.blog-post img {
+  width: 20em;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
+  height: auto;
+  border-right: 1px black solid;
+}
+
+.blog-post .content {
+  flex: 1; /* This allows the text content to fill the remaining space */
+  padding: 2em;
+}
+
+.blog-post .meta {
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    color: #9a9a9a;
+}
+
+.blog-post .summary {
+   display: block;
+   color: #515151;
+   text-decoration: none;
+}
+
+h2 {
+   font-size: 2rem;
+   line-height: 1.25;
+   font-weight: 600;
+   margin-bottom: .5rem;
+}
+
+h2 a {
+   color: #303030;
+   text-decoration: none;
+}
+
+h2 a:hover {
+   text-decoration: underline;
+}
+
+/* If you want the image and text to stack on smaller screens */
+@media (max-width: 768px) {
+  .blog-post {
+    flex-direction: column;
+  }
+
+  .blog-post img {
+    width: 100%; /* Makes the image full width on smaller screens */
+    flex: none; /* Resets any flex settings for the image */
+  }
+}
+
+
+.actions {
+  margin-top: 10px;
+}
+
+.actions .likes,
+.actions .comments {
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+.likes:before {
+  content: "❤️ ";
+}
+
+.comments:before {
+  content: "💬 ";
+}
+
+/* Additional Styling for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
+
   </style>
   <title>Blog</title>
 </head>
+
 <body>
-   <ul>
-      <li><a href="/blog/einsum_to_dot.html">2023 - Convert Einsum to Tensor Network</a></li>
-      <li><a href="https://towardsdatascience.com/3bbed6addde0">2022 - Liar’s Dice by Self-Play</a></li>
-      <li><a href="/blog/sets.html">2020 - An Evolutionary Data Structure for Sets</a></li>
-      <li><a href="https://ahlenotes.wordpress.com/2015/12/08/hypergeometric_tail/">2015 - Another Tail of the Hypergeometric Distribution</a></li>
-   </ul>
+    <div class="header">
+        <div class="container">
+           <h1><a href="#">{{ header_title }}</a></h1>
+        </div>
+    </div>
+    <div class="container">
+       {% for post in posts %}
+       <div class="blog-post">
+          <img src="{{ post.img }}" alt="{{ post.title }}">
+          <div class="content"> <!-- New wrapper for the text content -->
+             <h2><a href="{{post.url}}">{{ post.title }}</a></h2>
+             <div class="meta">{{ post.date }} - {{ post.read_time }} min</div>
+             <a href="{{post.url}}" class="summary">{{ post.lead }}</a>
+          </div>
+       </div>
+       {% endfor %}
+    </div>
+
 </body>
 </html>
-

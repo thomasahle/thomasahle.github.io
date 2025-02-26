@@ -82,7 +82,7 @@ class Vars:
 # Whether to show all papers by default
     authors = {
         'thdy':
-        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/potrait.jpg', 'thomas@ahle.dk')
+        Person('Thomas Dybdahl Ahle', 'TA', '/', 'static/ThomasFace.png', 'thomas@ahle.dk')
         , 'pagh': Person('Rasmus Pagh', 'R Pagh', 'http://rasmuspagh.net/')
         , 'ilya': Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
         , 'fran': Person('Francesco Silvestri', 'F Silvestri', 'http://www.dei.unipd.it/~silvestri/')
@@ -105,6 +105,7 @@ class Vars:
         , 'dans': Person('Daniel Simpson', 'D Simpson', 'https://dpsimpson.github.io/')
         , 'gavc': Person('Gavin E. Crooks', 'G E Crooks', 'https://threeplusone.com/')
         , 'patc': Person('Patrick J. Coles', 'P J Coles', 'https://patcoles.com/')
+        , 'sduf': Person('Sam Duffield', 'S Duffield', 'https://twitter.com/Sam_Duffield')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -131,7 +132,7 @@ class Vars:
             ['maxa', 'kaed', 'maxg', 'thdy', 'dans', 'gavc', 'patc'],
             open('abstracts/tla').read(),
             2023,
-            'neurips',
+            'subm',
             '',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2308.05660'),
@@ -147,32 +148,19 @@ class Vars:
             open('abstracts/cqr').read(),
             2023,
             'neurips',
-            'Updated Oct 2023',
+            #'Updated Oct 2023',
+            '',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2210.05974'),
                 File('pdf', 'papers/cqr.pdf'),
                 File('website', 'https://thomasahle.github.io/cce'),
                 File('github', 'https://github.com/thomasahle/cce'),
+                File('poster', 'papers/cce_poster.pdf'),
                 ],
             featured=True,
             new=True,
             #img='dalle.png',
             img='cqr.png',
-            ),
-        Paper(
-            'favour',
-            'Fast Variance Operator for Uncertainty Rating',
-            ['thdy', 'sahark', 'ptpt'],
-            open('abstracts/favour').read(),
-            2022,
-            'arxiv',
-            '',
-            files=[
-                File('pdf', 'papers/favour.pdf'),
-                File('video', 'https://youtu.be/Ct63ikA2q-c'),
-                ],
-            featured=False,
-            new=False,
             ),
         Paper(
             'tiling',
@@ -193,7 +181,7 @@ class Vars:
             ),
         Paper(
             'bi-moments',
-            'Sharp and Simple Bounds for the raw Moments&nbsp;of&nbsp;the&nbsp;Binomial&nbsp;and&nbsp;Poisson Distributions',
+            'Sharp and Simple Bounds for the raw Moments of the Binomial and Poisson Distributions',
             ['thdy'],
             open('abstracts/bi-moments').read(),
             2022,
@@ -257,7 +245,8 @@ class Vars:
                 File('video', 'https://www.youtube.com/watch?v=Bp3afo2YYCQ')
                 ],
             featured=True,
-            new=False
+            new=False,
+            img='sets.png',
             ),
         Paper(
             'tensorsketch-joint',
@@ -275,7 +264,8 @@ class Vars:
                 ],
             featured=True,
             new=False,
-            img='obliv.png',
+            #img='obliv.png',
+            img='cube.png',
             ),
         Paper(
             'lasvegas',
@@ -294,7 +284,8 @@ class Vars:
                 )
                 ],
             featured=True,
-            new=False
+            new=False,
+            img='necklace.png',
             ),
         Paper(
             'output-sensitive',
@@ -332,7 +323,7 @@ class Vars:
                     'https://docs.google.com/presentation/d/1y_BZ5Ctyn67Vam8rWzrskMkrkc-yIelCQsFLz1g4_bM'
                 )
                 ],
-            featured=True,
+            featured=False,
             new=False,
             img='mips.png',
             ),
@@ -340,19 +331,50 @@ class Vars:
 
     manuscripts = [
         Paper(
+            'expm',
+            'Thermodynamic Matrix Exponentials and Thermodynamic Parallelism',
+            ['maxa', 'sduf', 'thdy', 'patc'],
+            open('abstracts/expm').read(),
+            2023,
+            '',
+            '',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2311.12759'),
+                ],
+            featured=False,
+            new=True,
+            img='expm.png',
+            ),
+        Paper(
+            'favour',
+            'Fast Variance Operator for Uncertainty Rating',
+            ['thdy', 'sahark', 'ptpt'],
+            open('abstracts/favour').read(),
+            2022,
+            'arxiv',
+            '',
+            files=[
+                File('pdf', 'papers/favour.pdf'),
+                File('video', 'https://youtu.be/Ct63ikA2q-c'),
+                ],
+            featured=False,
+            new=False,
+            ),
+        Paper(
             'minner',
             'Minner: Improved Similarity Estimation and Recall on&nbsp;MinHashed&nbsp;Databases',
             ['thdy'],
             open('abstracts/minner').read(),
             2021,
-            'subm',
+            '',
             '',
             files=[
                 File('pdf', 'papers/minner.pdf'),
                 File('slides', 'https://docs.google.com/presentation/d/e/2PACX-1vTdvK58YN2UcDYbEPM-BOEUwtChKekUvu08Ezz07810dn54bJliaxSZbaapqtHmojHdD_aK-sa44mWp/pub?start=false&loop=false&delayms=5000')
                 ],
             featured=True,
-            new=False
+            new=False,
+            img='minner.png',
             ),
         Paper(
             'mersenne',
@@ -360,14 +382,15 @@ class Vars:
             ['thdy', 'jbtk', 'mtho'],
             open('abstracts/mersenne').read(),
             2021,
-            'subm',
+            '',
             'Updated May 2021',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2008.08654'),
                 File('pdf', 'papers/mersenne.pdf'),
                 ],
             featured=True,
-            new=False
+            new=False,
+            img='mersenne.png',
             ),
         Paper(
             'tensorsketch2',
@@ -425,6 +448,21 @@ class Vars:
             comment='',
             files=[
                 File('pdf', 'papers/tails.pdf'),
+                ],
+            featured=False,
+            new=False,
+            ),
+        Paper(
+            'donkey',
+            'Donkeys to Monoids: A Computational&nbsp;Framework for Dynamic&nbsp;Semantics',
+            ['thdy'],
+            open('abstracts/donkey').read(),
+            2013,
+            conference='', # Not published
+            comment='Bachelor thesis',
+            files=[
+                File('pdf', 'papers/donkey.pdf'),
+                File('github', 'https://github.com/thomasahle/donkey'),
                 ],
             featured=False,
             new=False,
@@ -506,11 +544,19 @@ class Vars:
     ]
 
     jobs = [
-        Job('Research Scientist', 'Meta', '2020 - Present',
+        Job('Head of Machine Learning', 'Normal Computing', '2023 - Present',
+            '''
+I developed the machine learning strategy for Normal Computing, which had previously been focused on blue sky research in thermodynamic computing.
+I built the team from scratch, hiring 10 engineers and researchers from top companies and universities.
+We developed an AI system for the US's largest chip manufacturer, which allowed creating formal models for new chips, which previously took months, in just a few hours.
+While at Normal Computing I published five papers on algorithms for Thermodynamic computing as well as one about a new approach to large context language models.
+            ''', False),
+        Job('Research Scientist', 'Meta', '2020 - 2023',
             '''
 I lead and co-founded the Machine Learning Efficiency group, a five-person internal applied research group focused on scaling AI across the organization.
 During the first year, we developed a new hashing-based algorithm that reduced the size of the internal recommendation systems by 50\%.
 In another project, we devised a new inference algorithm for Bayesian Neural Networks, allowing the Integrity team to deploy well-calibrated models directly on customer devices.
+Both projects also resulted in publications at top-tier conferences.
 Finally, we worked on scaling transformer models, lowering the memory requirement and inference time of Facebook Assistant through the use of embedding table compression, smart attention, and a variety of other tricks.
             ''', False),
         Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018',

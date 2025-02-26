@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="thumbnail" content="/static/potrait.jpg" />
+   <head>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-40XB6Q54CE"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         gtag('config', 'G-40XB6Q54CE');
+      </script>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="thumbnail" content="/static/potrait.jpg" />
 
-  <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-32x32.png" sizes="32x32"/>
-  <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon.ico" sizes="48x48" />
-  <link rel="icon" type="image/x-icon" href="/static/favicon_io/android-chrome-192x192.png" sizes="192x192" />
+      <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-16x16.png" sizes="16x16" />
+      <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon-32x32.png" sizes="32x32"/>
+      <link rel="icon" type="image/x-icon" href="/static/favicon_io/favicon.ico" sizes="48x48" />
+      <link rel="icon" type="image/x-icon" href="/static/favicon_io/android-chrome-192x192.png" sizes="192x192" />
 
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500|Cardo:400,400i&amp;display=fallback" rel="stylesheet">
-  <!--&display=swap-->
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500|Cardo:400,400i&amp;display=fallback" rel="stylesheet">
 
-  {#<link rel="stylesheet" href="/static/style.css">#}
-  <style type="text/css">{% include 'static/style.css' %}</style>
+      {% include 'static/tagmanager_head.html' %}
 
-  {% include 'static/tagmanager_head.html' %}
-   
-  {# <script src="/static/script.js"></script> #}
-  <script type="application/javascript">{% include 'static/script.js' %}</script>
+      {# <script src="/static/script.js"></script> #}
+      <script type="application/javascript">{% include 'static/script.js' %}</script>
 
-  <script type="application/ld+json">
-   {"@context" : "http://schema.org",
+      <script type="application/ld+json">
+         {"@context" : "http://schema.org",
     "@type" : "CollectionPage",
      "author": {
           "@type": "Person",
@@ -41,7 +42,7 @@
      "primaryImageOfPage": "https://thomasahle.com/static/potrait.jpg",
      "thumbnailUrl": "https://thomasahle.com/static/potrait.jpg"
      }
-   </script>
-   <meta name="description"
-         content="Thomas Dybdahl Ahle is a researcher in the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization." />
+      </script>
+      <meta name="description"
+            content="Thomas Dybdahl Ahle is a researcher in the theoretical foundations of machine learning and massive data, including similarity search, high dimensional geometry, kernel methods, sketching and derandomization." />
 
