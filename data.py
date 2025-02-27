@@ -123,6 +123,7 @@ class Vars:
         'socg': Conference('Symposium on Computational Geometry'),
         'neurips': Conference('Advances in Neural Information Processing Systems (NeurIPS)'),
         'Stat. Prob. Lett.': Journal('Statistics & Probability Letters'),
+        'natcom': Journal('Nature Communications'),
     }
 
     papers = [
@@ -131,8 +132,8 @@ class Vars:
             'Thermodynamic Linear Algebra',
             ['maxa', 'kaed', 'maxg', 'thdy', 'dans', 'gavc', 'patc'],
             open('abstracts/tla').read(),
-            2023,
-            'subm',
+            2024,
+            'natcom',
             '',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2308.05660'),
@@ -158,7 +159,7 @@ class Vars:
                 File('poster', 'papers/cce_poster.pdf'),
                 ],
             featured=True,
-            new=True,
+            new=False,
             #img='dalle.png',
             img='cqr.png',
             ),
