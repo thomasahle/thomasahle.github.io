@@ -124,16 +124,32 @@ class Vars:
         'neurips': Conference('Advances in Neural Information Processing Systems (NeurIPS)'),
         'Stat. Prob. Lett.': Journal('Statistics & Probability Letters'),
         'natcom': Journal('Nature Communications'),
+        'unconv': Journal('Unconventional Computing'),
     }
 
     papers = [
+        Paper(
+            'pcb',
+            'Thermodynamic Computing System for AI Applications',
+            ['thdy', 'maxa', 'kaed', 'patc'],  # Add other authors if needed
+            open('abstracts/pcb').read(),
+            2025,
+            'natcom',
+            '',
+            files=[
+                File('journal', 'https://www.nature.com/articles/s41467-025-XXXXX-X'),
+            ],
+            featured=True,
+            new=True,
+            img='pcb.png',  # Add image file if available
+            ),
         Paper(
             'tla',
             'Thermodynamic Linear Algebra',
             ['maxa', 'kaed', 'maxg', 'thdy', 'dans', 'gavc', 'patc'],
             open('abstracts/tla').read(),
             2024,
-            'natcom',
+            'unconv',
             '',
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2308.05660'),

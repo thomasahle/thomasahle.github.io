@@ -1,0 +1,10 @@
+Recent breakthroughs in artificial intelligence (AI) algorithms have highlighted the need for novel
+computing hardware in order to truly unlock the potential for AI. Physics-based hardware, such
+as thermodynamic computing, has the potential to provide a fast, low-power means to accelerate
+AI primitives, especially generative AI and probabilistic AI. In this work, we present a small-scale
+thermodynamic computer, which we call the stochastic processing unit. This device is composed of
+RLC circuits, as unit cells, on a printed circuit board, with 8 unit cells that are all-to-all coupled
+via switched capacitances. It can be used for either sampling or linear algebra primitives, and we
+demonstrate Gaussian sampling and matrix inversion on our hardware. The latter represents the
+first thermodynamic linear algebra experiment. We envision that this hardware, when scaled up in
+size, will have significant impact on accelerating various probabilistic AI applications.
