@@ -500,6 +500,14 @@ class Vars:
 
     media = [
         Newspaper(
+            'Brian Bailey',
+            'Semiconductor Engineering', 'July 2025',
+            'Multi-Modal AI In EDA Development Flows',
+            'https://semiengineering.com/multi-modal-ai-in-eda-development-flows/',
+            'Interview on how our company, Normal Computing, is using AI to improve chip design and development.'
+            , files=[]
+        ),
+        Newspaper(
             'Jon Lund',
             'Prosa', 'May 2021',
             'En ulv i fåreklæder',
