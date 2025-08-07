@@ -156,7 +156,7 @@ class Vars:
                 File('arxiv', 'https://arxiv.org/abs/2308.05660'),
                 ],
             featured=False,
-            new=True,
+            new=False,
             img='tla.png',
             ),
         Paper(
