@@ -137,7 +137,8 @@ class Vars:
             'natcom',
             '',
             files=[
-                File('journal', 'https://www.nature.com/articles/s41467-025-XXXXX-X'),
+                File('journal', 'https://www.nature.com/articles/s41467-025-59011-x'),
+                File('arxiv', 'https://arxiv.org/pdf/2312.04836'),
             ],
             featured=True,
             new=True,
