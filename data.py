@@ -537,7 +537,7 @@ class Vars:
             'Computerworld', 'June 2015',
             'The National Team at the Programming World Cup',
             'http://www.computerworld.dk/art/234196',
-            'Coverage of my teams participation in the ICPC World Finals.'
+            'Coverage of my team\'s participation in the ICPC World Finals.'
             , files=[]
             ),
         Newspaper(
@@ -572,14 +572,14 @@ class Vars:
     jobs = [
         Job('Head of Machine Learning', 'Normal Computing', '2023 - Present',
             '''
-I developed the machine learning strategy for Normal Computing, which had previously been focused on blue sky research in thermodynamic computing.
+I developed the machine learning strategy for Normal Computing, which had previously been focused on blue-sky research in thermodynamic computing.
 I built the team from scratch, hiring 10 engineers and researchers from top companies and universities.
 We developed an AI system for the US's largest chip manufacturer, which allowed creating formal models for new chips, which previously took months, in just a few hours.
-While at Normal Computing I published five papers on algorithms for Thermodynamic computing as well as one about a new approach to large context language models.
+While at Normal Computing I published five papers on algorithms for thermodynamic computing, as well as one about a new approach to long‑context language models.
             ''', False),
         Job('Research Scientist', 'Meta', '2020 - 2023',
             '''
-I lead and co-founded the Machine Learning Efficiency group, a five-person internal applied research group focused on scaling AI across the organization.
+I led and co-founded the Machine Learning Efficiency group, a five-person internal applied research group focused on scaling AI across the organisation.
 During the first year, we developed a new hashing-based algorithm that reduced the size of the internal recommendation systems by 50%.
 In another project, we devised a new inference algorithm for Bayesian Neural Networks, allowing the Integrity team to deploy well-calibrated models directly on customer devices.
 Both projects also resulted in publications at top-tier conferences.
@@ -588,7 +588,7 @@ Finally, we worked on scaling transformer models, lowering the memory requiremen
         Job('Chief Machine Learning Officer', 'SupWiz', '2017 - 2018',
             '''
             I co-founded an NLP start-up with University of Copenhagen academics.
-At SupWiz, I lead a four-person team in developing our chatbot software and putting it into production at three of Denmark's largest IT firms.
+At SupWiz, I led a four-person team in developing our chatbot software and putting it into production at three of Denmark's largest IT firms.
 (There are now many more.) We used a combination of traditional symbolic AI and modern (at the time) sentence embeddings.
 The chatbot was awarded the most prestigious prize by the Innovation Fund Denmark in 2019.
 I was also in charge of our hiring efforts, interviewing dozens of candidates and hiring four engineers over the course of five months.
@@ -619,8 +619,8 @@ I was also in charge of our hiring efforts, interviewing dozens of candidates an
     ]
 
     oss = [
-            Job('Project Owner', 'PyChess', '2006 - current', 'I developed this chess engine and client for Linux desktop, which became the most pupular way to play chess on the Free Internet Chess Server.  Through the years I have lead a team of 4-8 developers and designers, as well as numerous other contributers.  Such as the volunteers who translated it to more than 35 languages.  In 2009 we won Les Trophées du Libre in Paris.',
+            Job('Project Owner', 'PyChess', '2006 - current', 'I developed this chess engine and client for Linux desktop, which became the most popular way to play chess on the Free Internet Chess Server. Through the years I have led a team of 4–8 developers and designers, as well as numerous other contributors — including the volunteers who translated it into more than 35 languages. In 2009 we won Les Trophées du Libre in Paris.',
                 True),
-            Job('Project Owner', 'Sunfish', '2012 - current', 'A 111 line python chess engine, which is nevertheless 2000+ rating on the online Lichess server.  Because of the simplicity and focus on teaching good AI techniques, it has become a popular project on Github with 2400+ stars and nearly 500 forks.  Sunfish was referenced in multiple early applications of neural networks to chess.  ',
+            Job('Project Owner', 'Sunfish', '2012 - current', 'A 111‑line Python chess engine, which nevertheless has a 2000+ rating on the online Lichess server. Because of the simplicity and focus on teaching good AI techniques, it has become a popular project on GitHub with 2400+ stars and nearly 500 forks. Sunfish was referenced in multiple early applications of neural networks to chess.',
                 True),
             ]

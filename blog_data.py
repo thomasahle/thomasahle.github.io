@@ -31,7 +31,7 @@ class Vars:
         Post(
             tag='ziplm',
             url="https://github.com/thomasahle/ziplm",
-            title='ZipLm with Beam Search, BPE and Progressive Compression',
+            title='ZipLM with Beam Search, BPE and Progressive Compression',
             lead='''
             ZipLM uses Gzip to create a language model, however it is quite bad. This post shows how to use beam search to improve the output of ZipLM. When sampling sentences from "The Great Gatsby," the raw model produces near-gibberish. However, implementing beam search yields increasingly coherent sentences as the beam width increases, although performance is still poor compared to older models.
             ''',
@@ -52,7 +52,7 @@ class Vars:
             tag='liars_dice',
             url="https://towardsdatascience.com/3bbed6addde0",
             title="Liar’s Dice by Self-Play",
-            lead='I’ve been meaning to learn about AIs for games like Poker or Liar’s Dice for a while. Recently while reading Deepmind’s article Player of Games, I thought I might be able to make something really simple that works well enough to be fun. “It shouldn’t take more than an afternoon,” I thought. Of course, I ended up spending much more time on it, but it did turn out to be fun and very simple.',
+            lead='I’ve been meaning to learn about AIs for games like Poker or Liar’s Dice for a while. Recently while reading DeepMind’s article Player of Games, I thought I might be able to make something really simple that works well enough to be fun. “It shouldn’t take more than an afternoon,” I thought. Of course, I ended up spending much more time on it, but it did turn out to be fun and very simple.',
             date=date(2022, 1, 1),  # Replace with the correct date
             img='../feature_imgs/dudo.png',
             read_time=1,
@@ -61,7 +61,7 @@ class Vars:
             tag='sets',
             url="sets.html",
             title="An Evolutionary Data Structure for Sets",
-            lead='I recently published a preprint, together with Jakob Knudsen, describing a new, optimal data structure for set similarity search. An interesting way to look at this is as an Evolutionary Algorithm (aka. Genetic Algorithm). We think it\'s probably the first time the provably best way to solve a problem has been evolutionary. This post won\'t go deep into the mathematics, but will contain code samples and some fun gadgets I built to simulate it.',
+            lead='I recently published a preprint, together with Jakob Knudsen, describing a new, optimal data structure for set similarity search. An interesting way to look at this is as an Evolutionary Algorithm (aka genetic algorithm). We think it\'s probably the first time the provably best way to solve a problem has been evolutionary. This post won\'t go deep into the mathematics, but will contain code samples and some fun gadgets I built to simulate it.',
             date=date(2020, 1, 1),  # Replace with the correct date
             img='../feature_imgs/sets.png',  # Replace with the actual image filename if available
             read_time=1,
@@ -76,4 +76,3 @@ class Vars:
             read_time=1,
         ),
     ]
-

@@ -45,7 +45,7 @@ addLoadEvent(function () {
    for (let div of document.querySelectorAll('.show-more')) {
       div.onclick = function() {
          checkbox.checked = !checkbox.checked;
-         // I think updating check doesn't automatically call the cange listener.
+         // I think updating check doesn't automatically call the change listener.
          toggle();
          gtag('event', 'show-more');
       }
@@ -71,7 +71,7 @@ addLoadEvent(function () {
 
       <div id='show-all'>
          <label for="show-all-checkbox" class='toggle-text'>Show All</label>
-         <input type="checkbox" id="show-all-checkbox"i checked />
+         <input type="checkbox" id="show-all-checkbox" checked />
          <label for="show-all-checkbox" class='toggle'></label>
       </div>
       {% for type, articles in [('Publications', papers), ('Manuscripts', manuscripts)] %}
@@ -155,8 +155,8 @@ addLoadEvent(function () {
          was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
          and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
          I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='{{authors['pagh'].href}}' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project.
-         Previous I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics;
-         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas, Austin, on the fundamental limits of data-limited computation.
+         Previously I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics,
+         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas at Austin, on the fundamental limits of data-limited computation.
       </p>
 
       <h2>Media</h2>
@@ -224,14 +224,14 @@ addLoadEvent(function () {
       <h2>Other</h2>
       <ul class="main_list">
          <li>Memrise <a href='https://www.memrise.com/course/44645/500-most-common-danish-words/'>course for learning Danish</a> through the most common 500 words.</li>
-         <li><a href='http://spjdrpedia.dk/wiki/'>Spejdrpedia</a> &mdash; an online scout handbook</a></li>
+         <li><a href='http://spjdrpedia.dk/wiki/'>Spejdrpedia</a> &mdash; an online scout handbook</li>
       </ul>
 
    </div>
    <div id='side'>
 
       <script>
-         /* Only incude Face and Twitter feed when we have room enough for it. */
+         /* Only include Face and Twitter feed when we have room enough for it. */
          if (window.matchMedia("(min-width: 500px)").matches) {
             let holder = document.createElement( 'div' );
             holder.id = 'me_holder';
@@ -281,7 +281,7 @@ addLoadEvent(function () {
                feedDiv.id = `embedbsky-com-timeline-embed`;
                (async function() {
                    const t=(new Date).toISOString();
-                   const response = await fetch(`https://embedbsky.com/feeds/f1d35c2c78e7beb5fa1ac253132c9af5250129083cf1be639ce947920b35487e.html?v={t}`);
+                   const response = await fetch(`https://embedbsky.com/feeds/f1d35c2c78e7beb5fa1ac253132c9af5250129083cf1be639ce947920b35487e.html?v=${t}`);
                    feedDiv.innerHTML = response.ok ? (await response.text()) : `No feed data could be located`;
                })();
                let holderDiv = document.createElement('div');
@@ -309,7 +309,7 @@ addLoadEvent(function () {
          <li><a href='https://en.wikipedia.org/wiki/User:Thomasda'>Wikipedia</a></li>
          <li><a href='https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle'>OEIS</a></li>
          <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
-         <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCiD</a></li>
+         <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCID</a></li>
          <li><a href='https://www.mathgenealogy.org/id.php?id=254777'>Mathematics Genealogy</a></li>
          <li><a href='https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&target=189017'>Erdős Number</a></li>
          <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
@@ -327,4 +327,3 @@ addLoadEvent(function () {
    </div>
 </body>
 </html>
-
