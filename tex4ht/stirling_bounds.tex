@@ -25,9 +25,9 @@
 
 \begin{document}
 
-\section{Simple Stirling Upper/Lower Bounds}
+\section*{Simple Stirling Upper/Lower Bounds}
 
-Stirling's approximation is often proved with heavy machinery, but there's a short, elementary route starting from the integral $n! = \int_0^\infty x^n e^{-x} \, dx$. With a single change of variables that turns $\log(1+x) - x$ into $-z^{2}/2$, the problem becomes Gaussian integration: the main mass contributes $\sqrt{2\pi n}$, and the remainder is controlled by simple logarithmic inequalities. In a few lines this yields the sharp bounds $\left(\frac{n}{e}\right)^n\sqrt{2\pi n} \le n! \le \left(\frac{n}{e}\right)^n\bigl(\sqrt{2\pi n}+1\bigr)$. The same viewpoint also exposes the higher-order corrections by integrating low-degree polynomials against the Gaussian, recovering the familiar $1/(12n)$, $1/(288n^2)$, $\ldots$ terms. Originally posted here: \href{https://mathoverflow.net/a/484270/5429}{mathoverflow.net/a/484270/5429}.
+Stirling's approximation is often proved with heavy machinery, but there's a short, elementary route starting from the integral $n! = \int_0^\infty x^n e^{-x} \, dx$. With a single change of variables that turns $\log(1+x) - x$ into $-z^{2}/2$, the problem becomes Gaussian integration: the main mass contributes $\sqrt{2\pi n}$, and the remainder is controlled by simple logarithmic inequalities. In a few lines this yields the sharp bounds $\left(\frac{n}{e}\right)^n\sqrt{2\pi n} \le n! \le \left(\frac{n}{e}\right)^n\bigl(\sqrt{2\pi n}+1\bigr)$. The same viewpoint also exposes the higher-order corrections by integrating low-degree polynomials against the Gaussian, recovering the familiar $1/(12n)$, $1/(288n^2)$, $\ldots$ terms.
 
 We will give a simple proof for the bound
 \[
@@ -141,10 +141,12 @@ z\Bigl(1+\frac{1}{x}\Bigr) \le 1 + \frac{2z}{3} + \frac{z^2}{c},
 for some $c\approx 8$, strengthening the upper bound even more.
 However, the logarithmic inequalities become quite tedious.
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 \bibitem{wiki-logs}
 Wikipedia contributors, ``List of logarithmic identities — Inequalities,''
 \emph{Wikipedia}, \url{https://en.wikipedia.org/wiki/List_of_logarithmic_identities#Inequalities}.
+\bibitem{mo-stirling}
+T. D. Ahle, ``Simple Stirling Upper/Lower Bounds,'' MathOverflow answer, \url{https://mathoverflow.net/a/484270/5429}.
 \end{thebibliography}
 
 \end{document}
