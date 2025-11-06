@@ -58,6 +58,36 @@ cd ../..
 
 # Files have already been copied to compiled/blog
 
+# Build Stirling bounds post via LaTeX -> HTML
+mkdir -p tex4ht/build_stirling
+cp tex4ht/stirling_bounds.tex tex4ht/build_stirling/
+cp tex4ht/myconfig.cfg tex4ht/build_stirling/
+
+cd tex4ht/build_stirling
+latex --interaction=nonstopmode stirling_bounds.tex
+if [ $? -ne 0 ]; then
+  echo "LaTeX processing failed for stirling_bounds.tex"
+  cd ../..
+  exit 1
+fi
+
+htlatex stirling_bounds.tex "myconfig" " -cunihtf -utf8"
+if [ $? -ne 0 ]; then
+  echo "HTML conversion failed for stirling_bounds.tex"
+  cd ../..
+  exit 1
+fi
+
+if [ ! -f stirling_bounds.html ] || [ ! -f stirling_bounds.css ]; then
+  echo "HTML output files not generated for stirling_bounds"
+  cd ../..
+  exit 1
+fi
+
+cp stirling_bounds.html ../../compiled/blog/
+cp stirling_bounds.css ../../compiled/blog/
+cd ../..
+
 # For https
 echo "thomasahle.com" > compiled/CNAME
 

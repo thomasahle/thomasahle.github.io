@@ -18,6 +18,15 @@ class Vars:
 
     posts = [
         Post(
+            tag='stirling',
+            url="stirling_bounds.html",
+            title='Simple Stirling Upper/Lower Bounds',
+            lead='A short, elementary route from n! = ∫ x^n e^{-x} to sharp Stirling bounds via a Gaussian change of variables—and a natural path to the full expansion.',
+            date=date(2025, 3, 4),
+            img='../feature_imgs/urn.png',
+            read_time=2,
+        ),
+        Post(
             tag='termo',
             url="termo_linalg.html",
             title='Analysis of Ornstein-Uhlenbeck Process for Linear Systems',
