@@ -141,6 +141,19 @@ z\Bigl(1+\frac{1}{x}\Bigr) \le 1 + \frac{2z}{3} + \frac{z^2}{c},
 for some $c\approx 8$, strengthening the upper bound even more.
 However, the logarithmic inequalities become quite tedious.
 
+\medskip
+
+Finally, note that the change of variables gives $x'(z) = \dfrac{dx}{dz} = z\bigl(1+1/x\bigr)$. From $\log\bigl(z(1+1/x)\bigr) \le 2z/3$ it follows that $z\bigl(1+1/x\bigr) \le e^{2z/3}$ for all $z$. Plugging this into the integral representation
+\[
+ n! = \left(\tfrac{n}{e}\right)^n \; n \int_{-\infty}^{\infty} e^{-n z^2/2}\, \bigl(z+z/x\bigr)\, dz
+\]
+we obtain
+\[
+ n! \le \left(\tfrac{n}{e}\right)^n \; n \int_{-\infty}^{\infty} e^{-n z^2/2 + 2z/3}\, dz
+ = \left(\tfrac{n}{e}\right)^n \sqrt{2\pi n}\, e^{2/(9n)},
+\]
+where the last equality uses completion of the square. This yields the sharpened upper bound $n! \le (n/e)^n\, \sqrt{2\pi n}\, e^{2/(9n)}$.
+
 \begin{thebibliography}{2}
 \bibitem{wiki-logs}
 Wikipedia contributors, ``List of logarithmic identities — Inequalities,''
