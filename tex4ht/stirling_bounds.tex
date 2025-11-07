@@ -27,7 +27,7 @@
 
 \section*{Simple Stirling Upper/Lower Bounds}
 
-Stirling's approximation is often proved with heavy machinery, but there's a short, elementary route starting from the integral $n! = \int_0^\infty x^n e^{-x} \, dx$. With a single change of variables that turns $\log(1+x) - x$ into $-z^{2}/2$, the problem becomes Gaussian integration: the main mass contributes $\sqrt{2\pi n}$, and the remainder is controlled by simple logarithmic inequalities. In a few lines this yields the sharp bounds $\left(\frac{n}{e}\right)^n\sqrt{2\pi n} \le n! \le \left(\frac{n}{e}\right)^n\bigl(\sqrt{2\pi n}+1\bigr)$. The same viewpoint also exposes the higher-order corrections by integrating low-degree polynomials against the Gaussian, recovering the familiar $1/(12n)$, $1/(288n^2)$, $\ldots$ terms.
+Stirling's approximation is often proved with heavy machinery, but there's a short, elementary route starting from the integral $n! = \int_0^\infty x^n e^{-x} \, dx$. With a single change of variables that turns $\log(1+x) - x$ into $-z^{2}/2$, the problem becomes Gaussian integration: the main mass contributes $\sqrt{2\pi n}$, and the remainder is controlled by simple logarithmic inequalities. In a few lines this yields the sharp bounds $\left(\frac{n}{e}\right)^n\sqrt{2\pi n} \le n! \le \left(\frac{n}{e}\right)^n\bigl(\sqrt{2\pi n}+1\bigr)$. The same viewpoint also exposes the higher-order corrections by integrating low-degree polynomials against the Gaussian, recovering the familiar $1/(12n)$, $1/(288n^2)$, $\ldots$ terms; compare Robbins' classical refinement of Stirling's formula~\cite{robbins1955}.
 
 We will give a simple proof for the bound
 \[
