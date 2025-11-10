@@ -46,6 +46,13 @@
       Solving for \(t \approx 2.8301\) yields the modified distribution \([0.1462, 0.6531, 0.4139, 0.9443, 0.8426]\) whose entries still lie in \([0,1]\) but add up to the desired \(3\).
     </p>
 
+    <p>
+      Because \(\sigma\) is monotone, \(\sum_i \sigma(x_i + t)\) is also monotone in \(t\).
+      That means a small binary search suffices on every forward pass.
+      Pick bounds where the sigmoids saturate (I use \(\pm 10\) past the min/max logit), iteratively bisect until the sum hits \(k\), and cache the resulting \(t\) so the backward pass can reuse it without extra work.
+      The search converges in a fixed \(O(\log \epsilon^{-1})\) number of steps, so batches of logits remain cheap.
+    </p>
+
     <h2>Implicit differentiation gives the gradients</h2>
     <p>
       The forward pass is only half the story. Define \(f_i(x) = \sigma(x_i + t(x))\) where \(t(x)\) is the shift that enforces the summed constraint.
@@ -66,14 +73,6 @@
       Writing \(v = \sigma'(x + t)\) and \(\Vert v \Vert_1 = \sum_i v_i\) we arrive at the compact expression
       \(J = \operatorname{diag}(v) - vv^\top / \Vert v \Vert_1\).
       Backpropagation never needs the dense Jacobian, only the vector–Jacobian product, which reduces to \(u \circ v - \langle u, v \rangle v / \Vert v \Vert_1\) and is both numerically stable and easy to implement.
-    </p>
-
-    <h2>Finding the shift \(t\)</h2>
-    <p>
-      Because \(\sigma\) is monotone, \(\sum_i \sigma(x_i + t)\) is also monotone in \(t\).
-      That means a small binary search suffices on every forward pass.
-      Pick bounds where the sigmoids saturate (I use \(\pm 10\) past the min/max logit), iteratively bisect until the sum hits \(k\), and cache the resulting \(t\) so the backward pass can reuse it without extra work.
-      The search converges in a fixed \(O(\log \epsilon^{-1})\) number of steps, so batches of logits remain cheap.
     </p>
 
     <h2>A PyTorch-friendly implementation</h2>
