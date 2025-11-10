@@ -141,6 +141,23 @@ for step in range(200):
       <img src="topk_moe_loss.png" alt="Line plot of training loss over 200 steps for the toy MoE" style="max-width:100%; border:1px solid #ddd; padding:4px" />
     </p>
 
+    <h3>Hard selection via a straight-through trick</h3>
+    <p>
+      Sometimes you really do want a binary gate at inference time. The usual recipe—mirroring <a href="https://github.com/pytorch/pytorch/blob/v2.9.0/torch/nn/functional.py#L2139">PyTorch’s <code>gumbel_softmax</code> straight-through estimator</a>—is to keep the differentiable probabilities for gradient computation while swapping in a discrete mask on the forward path.
+      With the differentiable top-<span class="math">k</span> this looks like:
+    </p>
+    <pre><code class="python">scores = self.scorer(x)
+probs_soft = TopK.apply(scores, self.k)
+_, idx = torch.topk(probs_soft, self.k, dim=-1)
+mask = torch.zeros_like(probs_soft).scatter_(-1, idx, 1.0)
+probs_hard = mask - probs_soft.detach() + probs_soft
+expert_outs = torch.stack([...], dim=1)
+output = (probs_hard.unsqueeze(-1) * expert_outs).sum(dim=1)</code></pre>
+    <p>
+      During backprop the gradient flows through <code>probs_soft</code> exactly as before (because the hard mask’s contribution is detached), yet the forward signal sees a true top-<span class="math">k</span> selection.
+      As always with straight-through estimators you trade unbiasedness for useful training dynamics, but this pattern works well when you only need hard routing at evaluation time.
+    </p>
+
     <h3>Forward vs. backward in <code>torch.autograd.Function</code></h3>
     <p>
       The custom <code>TopK</code> layer subclasses <code>torch.autograd.Function</code>, so the contract is explicit: <code>forward</code> receives regular tensors and can write whatever auxilliary values it needs to <code>ctx</code>, while <code>backward</code> only gets the upstream gradient and those saved tensors.
