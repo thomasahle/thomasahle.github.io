@@ -26,9 +26,13 @@
     <p class="byline"><i>Turning a StackExchange sketch into a smooth, backprop-friendly way to select the top k logits.</i></p>
 
     <p>
-      When someone on Math StackExchange asked for a differentiable top-
-      <span class="math">k</span> operator last year, my answer boiled down to a short PyTorch snippet and a quick derivation.
-      This post expands that sketch into a self-contained recipe: a way to turn logits into soft selection probabilities, compute the proper Jacobian, and drop the whole thing into an autograd-compatible module without exotic tricks.
+      Lots of models want to keep only the strongest <span class="math">k</span> signals—think sparse attention heads, mixture-of-experts gating, beam-pruned decoders, or retrieval layers that must pick exactly <span class="math">k</span> documents per query.
+      A hard top-<span class="math">k</span> delivers crisp sparsity but kills the gradient, so training usually degenerates into straight-through tricks or REINFORCE noise.
+      A soft alternative that still preserves the "sum to <span class="math">k</span>" constraint gives you dense gradients <em>and</em> predictable sparsity.
+    </p>
+    <p>
+      The construction below is my favorite minimal solution: shift the logits until a sigmoidized distribution sums to <span class="math">k</span>, reuse the same shift during backprop, and observe that the implicit differentiation gives an exact Jacobian you can code in a dozen lines.
+      It grew out of a Math StackExchange answer, but here I slow down the derivation so you can drop it into any PyTorch project.
     </p>
 
     <h2>From logits to soft counts</h2>
