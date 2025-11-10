@@ -38,6 +38,15 @@ class Vars:
             read_time=1,
         ),
         Post(
+            tag='topk',
+            url="differentiable_topk.html",
+            title='A Differentiable Top-k Layer for PyTorch',
+            lead='Binary-search a scalar shift, reuse it in backprop via implicit differentiation, and you get a simple, exact top-k relaxation that plays nicely with PyTorch autograd.',
+            date=date(2023, 11, 12),
+            img='../feature_imgs/mips.png',
+            read_time=4,
+        ),
+        Post(
             tag='ziplm',
             url="https://github.com/thomasahle/ziplm",
             title='ZipLM with Beam Search, BPE and Progressive Compression',

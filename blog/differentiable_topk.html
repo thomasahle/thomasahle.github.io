@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166937336-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166937336-1');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Differentiable Top-k Layer for PyTorch</title>
+    <link rel='stylesheet' href='style.css' />
+    <link rel="stylesheet" href="github.min.css">
+    <script src="highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" type="image/png" href="favicon2.png">
+  </head>
+  <body>
+    <div class='time'><a href="/">Thomas Dybdahl Ahle</a> / <a href='/blog'>Blog</a> / 12 Nov 2023</div>
+    <h1>A Differentiable Top-k Layer for PyTorch</h1>
+    <p class="byline"><i>Turning a StackExchange sketch into a smooth, backprop-friendly way to select the top k logits.</i></p>
+
+    <p>
+      When someone on Math StackExchange asked for a differentiable top-
+      <span class="math">k</span> operator last year, my answer boiled down to a short PyTorch snippet and a quick derivation.
+      This post expands that sketch into a self-contained recipe: a way to turn logits into soft selection probabilities, compute the proper Jacobian, and drop the whole thing into an autograd-compatible module without exotic tricks.
+    </p>
+
+    <h2>From logits to soft counts</h2>
+    <p>
+      Start with logits \(x\) and pick any smooth, monotone "squashing" function \(\sigma\)—the logistic \(1/(1+e^{-x})\) works well, but nothing stops you from using \(\exp(\min(x,0))\) or other sigmoids if you want sharper encouragement.
+      Express your probabilities by \(z = \sigma(x)\) and search for a scalar shift \(t\) such that
+    </p>
+    <p style="text-align:center">\[\sum_i \sigma(x_i + t) = k.\]</p>
+    <p>
+      In the StackExchange example, the raw logits \([-4.5951, -2.1972, -3.1781, 0, -1.1527]\) become \([0.01, 0.10, 0.04, 0.50, 0.24]\) after a sigmoid, so they clearly do not sum to \(k=3\).
+      Solving for \(t \approx 2.8301\) yields the modified distribution \([0.1462, 0.6531, 0.4139, 0.9443, 0.8426]\) whose entries still lie in \([0,1]\) but add up to the desired \(3\).
+    </p>
+
+    <h2>Implicit differentiation gives the gradients</h2>
+    <p>
+      The forward pass is only half the story. Define \(f_i(x) = \sigma(x_i + t(x))\) where \(t(x)\) is the shift that enforces the summed constraint.
+      Differentiating implicitly through \(k = \sum_i \sigma(x_i + t)\) shows that
+    </p>
+    <p style="text-align:center">\[\frac{\partial t}{\partial x_j} = - \frac{\sigma'(x_j + t)}{\sum_i \sigma'(x_i + t)}.\]</p>
+    <p>
+      Plugging that back into \(\partial f_i / \partial x_j\) gives a compact Jacobian:
+      \(J = \operatorname{diag}(v) - vv^\top / \Vert v \Vert_1\) with \(v = \sigma'(x + t)\).
+      Backpropagation never needs the dense Jacobian, only the vector–Jacobian product.
+      That reduces to \(u \circ v - \langle u, v \rangle v / \Vert v \Vert_1\), which is both numerically stable and easy to implement.
+    </p>
+
+    <h2>Finding the shift \(t\)</h2>
+    <p>
+      Because \(\sigma\) is monotone, \(\sum_i \sigma(x_i + t)\) is also monotone in \(t\).
+      That means a small binary search suffices on every forward pass.
+      Pick bounds where the sigmoids saturate (I use \(\pm 10\) past the min/max logit), iteratively bisect until the sum hits \(k\), and cache the resulting \(t\) so the backward pass can reuse it without extra work.
+      The search converges in a fixed \(O(\log \epsilon^{-1})\) number of steps, so batches of logits remain cheap.
+    </p>
+
+    <h2>A PyTorch-friendly implementation</h2>
+    <p>
+      Below is the complete implementation I shared in the answer, lightly cleaned up for readability.
+      It relies on <code>functorch</code> to evaluate \(\sigma'\) across a batch, but you can drop in your own derivative if you prefer a different \(\sigma\).
+    </p>
+
+    <h3>Forward vs. backward in <code>torch.autograd.Function</code></h3>
+    <p>
+      The custom <code>TopK</code> layer subclasses <code>torch.autograd.Function</code>, so the contract is explicit: <code>forward</code> receives regular tensors and can write whatever auxilliary values it needs to <code>ctx</code>, while <code>backward</code> only gets the upstream gradient and those saved tensors.
+      Here the forward pass performs the binary search and returns the soft top-k probabilities, but it also caches both the original logits and the solved shifts \(t\).
+      The backward pass never recomputes \(t\); it simply rebuilds \(v = \sigma'(x + t)\), forms the vector–Jacobian product, and multiplies by the incoming gradient.
+      Because nothing else is saved, reverse-mode memory use stays linear in batch size.
+    </p>
+    <p>
+      A subtle point is that the second return value of <code>forward</code> (the integer <code>k</code>) is treated as non-differentiable, so <code>backward</code> returns <code>None</code> for that slot.
+      PyTorch will propagate zeros for you, but being explicit keeps the API tidy.
+      If you later wrap this function inside an <code>nn.Module</code>, the module’s <code>forward</code> can call <code>TopK.apply</code> directly and autograd will stitch the graph together just like any built-in op.
+    </p>
+
+    <pre><code class="python">import torch
+from functorch import vmap, grad
+from torch.autograd import Function
+
+sigmoid = torch.sigmoid
+sigmoid_grad = vmap(vmap(grad(sigmoid)))
+
+class TopK(Function):
+    @staticmethod
+    def forward(ctx, xs, k):
+        ts, ps = _find_ts(xs, k)
+        ctx.save_for_backward(xs, ts)
+        return ps
+
+    @staticmethod
+    def backward(ctx, grad_output):
+        xs, ts = ctx.saved_tensors
+        v = sigmoid_grad(xs + ts)
+        s = v.sum(dim=1, keepdims=True)
+        uv = grad_output * v
+        correction = -uv.sum(dim=1, keepdims=True) * v / s
+        return uv + correction, None
+
+@torch.no_grad()
+def _find_ts(xs, k):
+    b, n = xs.shape
+    assert 0 &lt; k &lt; n
+    lo = -xs.max(dim=1, keepdims=True).values - 10
+    hi = -xs.min(dim=1, keepdims=True).values + 10
+    for _ in range(64):
+        mid = (hi + lo) / 2
+        mask = sigmoid(xs + mid).sum(dim=1) &lt; k
+        lo[mask] = mid[mask]
+        hi[~mask] = mid[~mask]
+    ts = (lo + hi) / 2
+    return ts, sigmoid(xs + ts)
+
+TopK.apply(torch.randn(2, 3), 2)</code></pre>
+
+    <p>
+      The gist linked <a href="https://gist.github.com/thomasahle/4c1e85e5842d01b007a8d10f5fed3a18">here</a> contains a <code>gradcheck</code> harness for additional peace of mind.
+      Drop the layer in front of any discrete sampler, tune \(\sigma\) to control how hard you push values toward \{0,1\}, and you suddenly have a differentiable top-
+      <span class="math">k</span> that plays nicely with backprop.
+    </p>
+
+    <p>
+      There are, of course, fancier continuous relaxations (Gumbel-topk, Sinkhorn layers, sparsemax variants), but I still like the simplicity here: one scalar constraint, one binary search, and gradients you can write down on a napkin.
+      Sometimes that is all you need.
+    </p>
+  </body>
+</html>
