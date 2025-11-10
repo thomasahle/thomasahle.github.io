@@ -53,6 +53,24 @@
       The search converges in a fixed \(O(\log \epsilon^{-1})\) number of steps, so batches of logits remain cheap.
     </p>
 
+    <h3>Picking the sigmoid</h3>
+    <p>
+      Different squashing functions bias the mass toward harder or softer selections.
+      Using the same logits as above and solving for \(t\) in each case produces noticeably different allocations:
+    </p>
+    <table style="margin: 1rem auto; width: 90%; font-size: 0.95em">
+      <tr><th style="text-align:left">\(\sigma(x)\)</th><th style="text-align:left">Soft counts after shifting</th><th style="text-align:left">Notes</th></tr>
+      <tr><td>Logistic \(1/(1+e^{-x})\)</td><td>[0.15, 0.65, 0.41, 0.94, 0.84]</td><td>Balanced; smoothly differentiable everywhere.</td></tr>
+      <tr><td>Scaled logistic \(1/\sqrt{1+e^{-x}}\)</td><td>[0.09, 0.67, 0.34, 0.98, 0.91]</td><td>Pushes large logits closer to 1, encouraging sparsity.</td></tr>
+      <tr><td>\(\exp(\min(x,0))\)</td><td>[0.07, 0.67, 0.27, 1.00, 1.00]</td><td>Matches softmax at \(k=1\); piecewise smooth.</td></tr>
+    </table>
+    <p>
+      Rather than showing the code, the figure below runs that experiment directly and plots the resulting soft counts side by side.
+    </p>
+    <p style="text-align:center">
+      <img src="topk_sigmoid_comparison.png" alt="Bar charts comparing shifted probabilities for three sigmoid choices" style="max-width:100%; border:1px solid #ddd; padding:4px" />
+    </p>
+
     <h2>Implicit differentiation gives the gradients</h2>
     <p>
       The forward pass is only half the story. Define \(f_i(x) = \sigma(x_i + t(x))\) where \(t(x)\) is the shift that enforces the summed constraint.
@@ -79,6 +97,42 @@
     <p>
       Below is the complete implementation I shared in the answer, lightly cleaned up for readability.
       It relies on <code>functorch</code> to evaluate \(\sigma'\) across a batch, but you can drop in your own derivative if you prefer a different \(\sigma\).
+    </p>
+
+    <h3>Slotting into a toy training loop</h3>
+    <p>
+      To show the operator in context, here is a tiny mixture-of-experts gate.
+      Each expert is a linear layer; the gate scores the input, applies the differentiable top-\(k\), and forms a weighted sum.
+      The example trains on random targets just to demonstrate that gradients flow end to end without special tricks.
+    </p>
+    <pre><code class="python">class SoftMoE(torch.nn.Module):
+    def __init__(self, in_dim, experts, k):
+        super().__init__()
+        self.scorer = torch.nn.Linear(in_dim, experts)
+        self.experts = torch.nn.ModuleList(
+            [torch.nn.Linear(in_dim, in_dim) for _ in range(experts)]
+        )
+        self.k = k
+
+    def forward(self, x):
+        scores = self.scorer(x)
+        probs = TopK.apply(scores, self.k)
+        expert_outs = torch.stack([layer(x) for layer in self.experts], dim=1)
+        return (probs.unsqueeze(-1) * expert_outs).sum(dim=1)
+
+model = SoftMoE(in_dim=32, experts=8, k=3)
+opt = torch.optim.Adam(model.parameters(), lr=1e-3)
+for step in range(200):
+    x = torch.randn(16, 32)
+    target = torch.randn(16, 32)
+    opt.zero_grad()
+    loss = torch.nn.functional.mse_loss(model(x), target)
+    loss.backward()
+    opt.step()
+    if step % 50 == 0:
+        print(step, loss.item())</code></pre>
+    <p>
+      Watching the printed losses drop (and optionally inspecting the gate probabilities) reassures you that the gradients remain well-behaved even though the layer enforces an exact sum-to-\(k\) constraint.
     </p>
 
     <h3>Forward vs. backward in <code>torch.autograd.Function</code></h3>
