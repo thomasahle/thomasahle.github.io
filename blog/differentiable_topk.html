@@ -57,10 +57,11 @@
     </p>
     <p style="text-align:center">\[\frac{\partial t}{\partial x_j} = - \frac{\sigma'(x_j + t)}{\sum_i \sigma'(x_i + t)}.\]</p>
     <p>
-      Plugging that back into \(\partial f_i / \partial x_j\) gives a compact Jacobian:
-      \(J = \operatorname{diag}(v) - vv^\top / \Vert v \Vert_1\) with \(v = \sigma'(x + t)\).
-      Backpropagation never needs the dense Jacobian, only the vector–Jacobian product.
-      That reduces to \(u \circ v - \langle u, v \rangle v / \Vert v \Vert_1\), which is both numerically stable and easy to implement.
+      Plugging that back into \(\partial f_i / \partial x_j = \sigma'(x_i + t)(\delta_{ij} + \partial t / \partial x_j)\) splits the Jacobian into two recognizable parts.
+      The diagonal contribution is just \(\sigma'(x_i + t)\) itself, while the shared \(\partial t / \partial x_j\) term turns into a rank-one matrix with entries \(-\sigma'(x_i + t)\sigma'(x_j + t)/\sum_{\ell} \sigma'(x_\ell + t)\).
+      Writing \(v = \sigma'(x + t)\) and \(\Vert v \Vert_1 = \sum_i v_i\) we arrive at the compact expression
+      \(J = \operatorname{diag}(v) - vv^\top / \Vert v \Vert_1\).
+      Backpropagation never needs the dense Jacobian, only the vector–Jacobian product, which reduces to \(u \circ v - \langle u, v \rangle v / \Vert v \Vert_1\) and is both numerically stable and easy to implement.
     </p>
 
     <h2>Finding the shift \(t\)</h2>
