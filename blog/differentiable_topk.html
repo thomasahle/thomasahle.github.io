@@ -45,7 +45,15 @@
     <h2>Implicit differentiation gives the gradients</h2>
     <p>
       The forward pass is only half the story. Define \(f_i(x) = \sigma(x_i + t(x))\) where \(t(x)\) is the shift that enforces the summed constraint.
-      Differentiating implicitly through \(k = \sum_i \sigma(x_i + t)\) shows that
+      Start from the normalization equation \(k = \sum_i \sigma(x_i + t(x))\) and differentiate both sides with respect to \(x_j\).
+      The left-hand side stays zero, while the right-hand side picks up both a direct term (from \(x_j\)) and an indirect term (because \(t\) itself depends on \(x_j\)):
+    </p>
+    <p style="text-align:center">\[0 = \sum_i \sigma'(x_i + t)\left(\delta_{ij} + \frac{\partial t}{\partial x_j}\right).
+    \]</p>
+    <p>
+      Pull the sum over \(\partial t/\partial x_j\) outside and solve the linear equation to get one more intermediate step,
+      \(0 = \sigma'(x_j + t) + \frac{\partial t}{\partial x_j}\sum_i \sigma'(x_i + t)\),
+      which rearranges to
     </p>
     <p style="text-align:center">\[\frac{\partial t}{\partial x_j} = - \frac{\sigma'(x_j + t)}{\sum_i \sigma'(x_i + t)}.\]</p>
     <p>
