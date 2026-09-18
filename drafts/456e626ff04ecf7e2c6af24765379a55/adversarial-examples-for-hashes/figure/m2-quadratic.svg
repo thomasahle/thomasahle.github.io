@@ -279,7 +279,7 @@
      <use xlink:href="#ma47640ded7" x="245.39118" y="616.789991" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
     </g>
    <circle cx="245.39118020576765" cy="616.7899908468187" r="12" fill="transparent" class="point-hit" /><circle cx="245.39118020576765" cy="616.7899908468187" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-siphash-1-3" data-point-id="siphash-1-3" data-speed="1.13" data-bits="64" tabindex="0" role="button" aria-label="SipHash-1-3: 64 bits · PRF claim (no theorem, no pair found) bits; 1.13 B/cycle. Inspect result.">
+   <g id="point-siphash-1-3" data-point-id="siphash-1-3" data-speed="1.13" data-bits="64" tabindex="0" role="button" aria-label="SipHash-1-3: 64 bits · cryptographic assumption; best known attack far below 2^-64 (see records/siphash/) bits; 1.13 B/cycle. Inspect result.">
     <defs>
      <path id="m716f67a578" d="M 0 3.354102  C 0.889518 3.354102 1.742724 3.000693 2.371708 2.371708  C 3.000693 1.742724 3.354102 0.889518 3.354102 0  C 3.354102 -0.889518 3.000693 -1.742724 2.371708 -2.371708  C 1.742724 -3.000693 0.889518 -3.354102 0 -3.354102  C -0.889518 -3.354102 -1.742724 -3.000693 -2.371708 -2.371708  C -3.000693 -1.742724 -3.354102 -0.889518 -3.354102 0  C -3.354102 0.889518 -3.000693 1.742724 -2.371708 2.371708  C -1.742724 3.000693 -0.889518 3.354102 0 3.354102  z " style="stroke: #737d8d; stroke-width: 1.6" />
     </defs>
@@ -287,7 +287,7 @@
      <use xlink:href="#m716f67a578" x="247.18105" y="530.75" style="fill: #ffffff; stroke: #737d8d; stroke-width: 1.6" />
     </g>
    <circle cx="247.1810498385332" cy="530.75" r="12" fill="transparent" class="point-hit" /><circle cx="247.1810498385332" cy="530.75" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-siphash-2-4" data-point-id="siphash-2-4" data-speed="0.59" data-bits="64" tabindex="0" role="button" aria-label="SipHash-2-4: 64 bits · PRF claim (no theorem, no pair found) bits; 0.59 B/cycle. Inspect result.">
+   <g id="point-siphash-2-4" data-point-id="siphash-2-4" data-speed="0.59" data-bits="64" tabindex="0" role="button" aria-label="SipHash-2-4: 64 bits · cryptographic assumption; best known attack far below 2^-64 (see records/siphash/) bits; 0.59 B/cycle. Inspect result.">
     <g clip-path="url(#pdceb6eaed0)">
      <use xlink:href="#m716f67a578" x="116.327823" y="530.75" style="fill: #ffffff; stroke: #737d8d; stroke-width: 1.6" />
     </g>

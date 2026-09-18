@@ -12132,7 +12132,7 @@
    "score": {
     "calculated": 64,
     "display": "64",
-    "display_text": "64 bits · PRF claim (no theorem, no pair found)",
+    "display_text": "64 bits · cryptographic assumption; best known attack far below 2^-64 (see records/siphash/)",
     "direction": "claim"
    },
    "key_bits": 128,
@@ -12143,11 +12143,11 @@
    "status": "comparison",
    "claim_category": "PRF",
    "official_claim": {
-    "text": "a fast short-input PRF",
-    "url": "https://www.aumasson.jp/siphash/siphash.pdf"
+    "text": "I would be very surprised if SipHash-1-3 introduced weaknesses for hash tables (J.-P. Aumasson, 2015, on Rust's switch to SipHash-1-3); the designers' PRF claim in the SipHash paper is stated for c ≥ 2, d ≥ 4 only",
+    "url": "https://github.com/rust-lang/rust/issues/29754"
    },
    "mechanism": "ARX permutation keyed by a 128-bit key (PRF)",
-   "qualification": "Plotted as an unresolved claim at its 64-bit output width. SipHash is a PRF design (Aumasson–Bernstein) with no proof of the fixed-pair collision bound in this post and no known attack; if the PRF claim holds, a fixed pair collides with probability about 2^-64 over the 128-bit key. The SMHasher3 wrapper expands a 64-bit seed into the key, so the timed function is a 2^64-member subfamily.",
+   "qualification": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
    "speed_registration": "SipHash-1-3",
    "code_url": "https://github.com/veorq/SipHash",
    "collision": {
@@ -12600,7 +12600,7 @@
    "score": {
     "calculated": 64,
     "display": "64",
-    "display_text": "64 bits · PRF claim (no theorem, no pair found)",
+    "display_text": "64 bits · cryptographic assumption; best known attack far below 2^-64 (see records/siphash/)",
     "direction": "claim"
    },
    "key_bits": 128,
@@ -12611,11 +12611,11 @@
    "status": "comparison",
    "claim_category": "PRF",
    "official_claim": {
-    "text": "a fast short-input PRF",
+    "text": "a fast short-input PRF (designers' security claim, stated for c ≥ 2, d ≥ 4)",
     "url": "https://www.aumasson.jp/siphash/siphash.pdf"
    },
    "mechanism": "ARX permutation keyed by a 128-bit key (PRF)",
-   "qualification": "Plotted as an unresolved claim at its 64-bit output width. SipHash is a PRF design (Aumasson–Bernstein) with no proof of the fixed-pair collision bound in this post and no known attack; if the PRF claim holds, a fixed pair collides with probability about 2^-64 over the 128-bit key. The SMHasher3 wrapper expands a 64-bit seed into the key, so the timed function is a 2^64-member subfamily.",
+   "qualification": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
    "speed_registration": "SipHash-2-4",
    "code_url": "https://github.com/veorq/SipHash",
    "collision": {

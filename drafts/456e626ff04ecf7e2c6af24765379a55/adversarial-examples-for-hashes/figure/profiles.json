@@ -950,13 +950,16 @@
     }
    ],
    "results": {
-    "siphash-1-3": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-1-3 is the default hasher in Rust's standard HashMap. Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
-    "siphash-2-4": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-2-4 is the designers' conservative reference parameter set. Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key."
+    "siphash-1-3": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-1-3 is the default hasher in Rust's standard HashMap. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). Note that SipHash-1-3, the Rust default, is outside the designers' stated claim (c ≥ 2, d ≥ 4); its basis is Aumasson's 2015 remark on the Rust issue. Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
+    "siphash-2-4": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-2-4 is the designers' conservative reference parameter set. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key."
    },
    "sources": [
     "index.html#appendix-siphash",
     "data.json",
-    "records/speeds.json"
+    "records/speeds.json",
+    "records/siphash/MEMO.md",
+    "records/siphash/LITERATURE.md",
+    "https://github.com/rust-lang/rust/issues/29754"
    ],
    "reader_notes": {
     "siphash-1-3": {
