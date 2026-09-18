@@ -834,7 +834,7 @@
     }
    ],
    "results": {
-    "chain128": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: — not checked (Lean lane queued)."
+    "chain128": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: ✓ checked. Strided 512-byte design, W=32, S=1: ideal-key bound (n+2)/2^128 and the model A at-most-length bound are proved for byte strings below 2^128 bytes, including empty and partial words; 378 audited declarations, standard axioms only; C/SIMD correctness outside scope."
    },
    "sources": [
     "records/chainhash/128/SPEC.md",
@@ -845,9 +845,9 @@
    ],
    "lean": {
     "chain128": {
-     "label": "— not checked (Lean lane queued)",
-     "source": "records/chainhash/128/LEAN_CHAINHASH_STATUS.md",
-     "scope": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. The queued lane has now started: field certificate and end-to-end builds/audits remain incomplete (records/chainhash128/STATUS.md)."
+     "label": "✓ checked",
+     "source": "records/chainhash128/STATUS.md",
+     "scope": "Strided 512-byte design, W=32, S=1: ideal-key bound (n+2)/2^128 and the model A at-most-length bound are proved for byte strings below 2^128 bytes, including empty and partial words; 378 audited declarations, standard axioms only; C/SIMD correctness outside scope."
     }
    }
   }

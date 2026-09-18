@@ -1,14 +1,25 @@
 /* The publication figure is self-contained; these rules cover its controls. */
 .feature-chart { border-top: 0; padding-top: 0; margin-top: 28px; }
-.figure-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 12px 0 18px; border-top: 2px solid var(--text); font-size: 14px; }
+.figure-stage { position: relative; container-type: inline-size; border-top: 2px solid var(--text); }
+.figure-toolbar { position: absolute; z-index: 3; top: 1.8cqw; right: 3.636cqw; display: flex; align-items: flex-end; flex-direction: column; gap: 2px; font-size: 13px; }
 .figure-hosts { position: relative; display: flex; gap: 4px; padding: 4px; background: var(--code-surface); border-radius: 6px; isolation: isolate; }
-.figure-hosts button { position: relative; z-index: 1; min-height: 40px; padding: 8px 16px; font: inherit; font-weight: 650; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; transition: color 180ms ease; -webkit-tap-highlight-color: transparent; }
+.figure-hosts button { position: relative; z-index: 1; min-height: 34px; padding: 6px 11px; font: inherit; font-weight: 650; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; transition: color 180ms ease; -webkit-tap-highlight-color: transparent; }
 .figure-hosts button[aria-pressed="true"] { color: var(--link); background: white; border-color: var(--hairline); font-weight: 650; box-shadow: 0 1px 2px #00000008; }
 .figure-hosts button:hover { color: var(--text); }
 .figure-host-indicator { display: none; position: absolute; top: 4px; bottom: 4px; left: 0; border: 1px solid var(--hairline); border-radius: 4px; background: white; box-shadow: 0 1px 3px #26333012; pointer-events: none; }
 .has-indicator .figure-host-indicator { display: block; transition: transform 360ms cubic-bezier(.22,1,.36,1), width 360ms cubic-bezier(.22,1,.36,1); }
 .has-indicator button[aria-pressed="true"] { background: transparent; border-color: transparent; box-shadow: none; }
-.figure-downloads { display: flex; gap: 14px; align-items: center; color: var(--muted); }
+.figure-scale { display: flex; align-items: center; gap: 7px; min-height: 30px; color: var(--muted); cursor: pointer; }
+.figure-scale select { min-height: 30px; max-width: 180px; padding: 3px 7px; border: 1px solid var(--hairline); border-radius: 4px; background: white; color: var(--text); font: inherit; cursor: pointer; }
+.figure-toolbar :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+.publication-plot #host-name, .publication-plot #host-note { visibility: hidden; }
+@container (width < 860px) {
+ .figure-toolbar { top: 11.842cqw; left: 5.263cqw; right: 5.263cqw; flex-direction: row-reverse; align-items: center; justify-content: space-between; }
+ .publication-plot #figure-subtitle { visibility: hidden; }
+}
+@container (width < 540px) {
+ .figure-toolbar { top: 20.513cqw; left: 5.641cqw; right: 5.641cqw; flex-direction: column; align-items: flex-end; gap: 1px; font-size: 12px; }
+}
 #bits-vs-speed { width: 100%; height: auto; background: white; }
 #bits-vs-speed > svg, #bits-vs-speed > img { display: block; width: 100%; height: auto; overflow: visible; }
 #bits-vs-speed [data-point-id] .point-ring { transition: opacity 160ms ease; }
@@ -59,9 +70,6 @@
  .inspector-columns { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 }
 @media(max-width:600px) {
- .figure-toolbar { align-items: stretch; flex-direction: column; padding-bottom: 8px; gap: 12px; }
- .figure-hosts button { flex: 1; padding-inline: 10px; }
- .figure-downloads { justify-content: flex-end; }
  .figure-inspector { padding: 16px; }
  .inspector-metrics { gap: 16px; flex-wrap: wrap; }
  .inspector-metrics dd { font-size: 21px; }
@@ -70,6 +78,7 @@
 @media print {
  .figure-toolbar, .figure-explore, .figure-inspector, .figure-peek { display: none !important; }
  .feature-chart { break-inside: avoid; }
+ .publication-plot #host-name, .publication-plot #host-note, .publication-plot #figure-subtitle { visibility: visible; }
  #bits-vs-speed { height: auto; }
 }
 @media(prefers-reduced-motion:reduce) {

@@ -1,4 +1,4 @@
-/* The interactive view uses the same generated SVGs offered for download. */
+/* The interactive view uses the generated publication SVGs. */
 (() => {
   'use strict';
   const root = document.querySelector('.feature-chart');
@@ -10,6 +10,8 @@
   const detail = root.querySelector('.figure-inspector');
   const status = root.querySelector('.figure-status');
   const peek = root.querySelector('.figure-peek');
+  const stage = root.querySelector('.figure-stage');
+  const scaleSelect = root.querySelector('#score-scale');
   const cache = new Map();
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const hostButtons = [...root.querySelectorAll('[data-host]')];
@@ -18,6 +20,10 @@
   hostIndicator.setAttribute('aria-hidden', 'true');
   root.querySelector('.figure-hosts').prepend(hostIndicator);
   let data, host = 'm2', desiredHost = 'm2', selectedId = '', currentLayout = '', requestId = 0, lastTrigger, motion;
+  let scale = 'linear', desiredScale = 'linear';
+  scaleSelect.value = 'linear';
+  const scaleNames = {linear: 'Linear', sqrt: 'Square root', quadratic: 'Quadratic', log: 'Logarithmic'};
+  const figureFile = (host, scale, layout) => host + (scale === 'linear' ? '' : '-' + scale) + (layout === 'desktop' ? '' : '-' + layout) + '.svg';
   const resource = file => new URL(file + revision, assetRoot);
   const get = file => {
     if (!cache.has(file)) cache.set(file, fetch(resource(file)).then(response => {
@@ -240,24 +246,25 @@
       label.addEventListener('pointerleave',clearPeek);
     });
   }
-  async function draw(force = false, nextHost = desiredHost) {
+  async function draw(force = false, nextHost = desiredHost, nextScale = desiredScale) {
     if (!data) return;
     const layout = chart.clientWidth < 540 ? 'mobile' : chart.clientWidth < 860 ? 'compact' : 'desktop';
-    const key = nextHost + '-' + layout;
+    const key = nextHost + '-' + nextScale + '-' + layout;
     if (!force && key === currentLayout) return;
     const request = ++requestId;
     chart.setAttribute('aria-busy', 'true');
     try {
-      const source = await get(nextHost + (layout === 'desktop' ? '' : '-' + layout) + '.svg');
+      const source = await get(figureFile(nextHost, nextScale, layout));
       if (request !== requestId) return;
       const doc = new DOMParser().parseFromString(source,'image/svg+xml');
       if (doc.querySelector('parsererror')) throw new Error('The figure could not be read.');
       const previousSvg = chart.querySelector('svg');
-      const animate = previousSvg && host !== nextHost && currentLayout.endsWith('-' + layout);
+      const animate = previousSvg && (host !== nextHost || scale !== nextScale) && currentLayout.endsWith('-' + layout);
       const before = animate ? snapshot(previousSvg) : new Map();
       const focusedId = document.activeElement?.dataset.pointId;
       const previousTriggerId = lastTrigger?.dataset.pointId;
       host = nextHost;
+      scale = nextScale;
       const svg = document.importNode(doc.documentElement,true);
       svg.removeAttribute('width'); svg.removeAttribute('height');
       svg.classList.add('publication-plot'); bind(svg);
@@ -266,10 +273,12 @@
       chart.replaceChildren(svg);
       transition(svg, before, animate);
       chart.dataset.axis = data.hosts[host].key; chart.dataset.points = rows().length;
+      chart.dataset.scale = scale;
+      stage.dataset.layout = layout;
+      root.querySelector('.figure-toolbar').hidden = false;
+      scaleSelect.value = scale;
       currentLayout = key;
       updateHostControl();
-      root.querySelector('[data-download="svg"]').href = resource(host+'.svg');
-      root.querySelector('[data-download="png"]').href = resource(host+'.png');
       options();
       const previous = rowFor(selectedId);
       if (previous) inspect(previous);
@@ -277,14 +286,18 @@
       const pointFor = id => [...svg.querySelectorAll('[data-point-id]')].find(node => node.dataset.pointId === id);
       if (previousTriggerId) lastTrigger = pointFor(previousTriggerId) || select;
       if (focusedId) (pointFor(focusedId) || select).focus({preventScroll: true});
-      status.textContent = `${data.hosts[host].name}: ${rows().length} results. ${data.hosts[host].provisional ? 'Provisional measurements.' : ''}`;
+      status.textContent = `${data.hosts[host].name}: ${rows().length} results. ${scaleNames[scale]} score scale.${scale === 'log' ? ' Linear from zero to one bit.' : ''} ${data.hosts[host].provisional ? 'Provisional measurements.' : ''}`;
       select.disabled = false;
       chart.setAttribute('aria-busy', 'false');
       // Warm the other host so the first toggle responds as quickly as later ones.
-      get((host === 'm2' ? 'xeon' : 'm2') + (layout === 'desktop' ? '' : '-' + layout) + '.svg').catch(() => {});
+      get(figureFile(host === 'm2' ? 'xeon' : 'm2', scale, layout)).catch(() => {});
+      for (const alternative of Object.keys(scaleNames)) {
+        if (alternative !== scale) get(figureFile(host, alternative, layout)).catch(() => {});
+      }
     } catch (error) {
       if (request !== requestId) return;
-      desiredHost = host; chart.setAttribute('aria-busy', 'false');
+      desiredHost = host; desiredScale = scale; scaleSelect.value = scale;
+      chart.setAttribute('aria-busy', 'false');
       status.textContent = error.message + ' The static figure and data table remain available.';
     }
   }
@@ -293,6 +306,10 @@
     desiredHost = button.dataset.host;
     clearPeek(); draw(true);
   }));
+  scaleSelect.addEventListener('change', () => {
+    desiredScale = scaleSelect.value;
+    clearPeek(); draw(true);
+  });
   select.addEventListener('change',() => select.value ? inspect(rowFor(select.value),select) : dismiss());
   detail.querySelector('.inspector-close').addEventListener('click',dismiss);
   root.addEventListener('keydown',event => {if (event.key === 'Escape') dismiss();});

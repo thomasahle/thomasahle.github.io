@@ -1,6 +1,6 @@
 {
-  "source_sha256": "010e8c1562956c52d926812176138d8c9b39bdc03df002d4a6a290cb817fbaa5",
-  "profiles_sha256": "605a1f3109093a68a1e0abf45bfad946d18889ce762ff4b11e01ad3ae80e47d2",
+  "source_sha256": "104076a3f4b7b0ff1da89f440f378d6b77547401d2e3211c28843b2f3846fe95",
+  "profiles_sha256": "a8387a7efd58ad370685aae235675239945c90d3e1233ef8e6259784a99f645b",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -1306,7 +1306,7 @@
           "family": "polynomial (CLNH + injective recurrence)",
           "key_model": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
           "profile": "chain128",
-          "summary": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: — not checked (Lean lane queued).",
+          "summary": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: ✓ checked. Strided 512-byte design, W=32, S=1: ideal-key bound (n+2)/2^128 and the model A at-most-length bound are proved for byte strings below 2^128 bytes, including empty and partial words; 378 audited declarations, standard axioms only; C/SIMD correctness outside scope.",
           "output_bits": 128,
           "code_url": "records/chainhash/128/chainhash128.h"
         }
@@ -2073,7 +2073,7 @@
           "family": "polynomial (CLNH + injective recurrence)",
           "key_model": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
           "profile": "chain128",
-          "summary": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: — not checked (Lean lane queued).",
+          "summary": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: ✓ checked. Strided 512-byte design, W=32, S=1: ideal-key bound (n+2)/2^128 and the model A at-most-length bound are proved for byte strings below 2^128 bytes, including empty and partial words; 378 audited declarations, standard axioms only; C/SIMD correctness outside scope.",
           "output_bits": 128,
           "code_url": "records/chainhash/128/chainhash128.h"
         }
