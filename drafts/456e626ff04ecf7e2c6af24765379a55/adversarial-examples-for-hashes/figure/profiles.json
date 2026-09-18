@@ -445,10 +445,10 @@
         }
       ],
       "results": {
-        "halftimehash-64": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
-        "halftimehash-128": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
-        "halftimehash-256": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
-        "halftimehash-512": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash."
+        "halftimehash-64": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API.",
+        "halftimehash-128": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API.",
+        "halftimehash-256": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API.",
+        "halftimehash-512": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API."
       },
       "sources": [
         "https://github.com/jbapple/HalftimeHash",
@@ -477,8 +477,8 @@
         }
       ],
       "results": {
-        "umash": "The hollow point retains the published claim. This post’s audit identifies a gap in the projection argument and does not certify that bound as written; it demonstrates no collision attack on UMASH.",
-        "umash128": "The hollow point retains the published claim. This post’s audit identifies a gap in the projection argument and does not certify that bound as written; it demonstrates no collision attack on UMASH."
+        "umash": "The hollow point retains the published claim, whose projection argument has a gap. The current audit proves a weaker 25.6-bit fallback (also inherited by the fingerprint), and no collision violating the claimed production bound is known.",
+        "umash128": "The hollow point retains the published claim, whose projection argument has a gap. The current audit proves a weaker 25.6-bit fallback (also inherited by the fingerprint), and no collision violating the claimed production bound is known."
       },
       "sources": [
         "https://github.com/backtrace-labs/umash",
@@ -514,7 +514,7 @@
         "chain256"
       ],
       "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash is the author’s construction in the fast-polynomials project. This point is the 256-byte-block configuration, with 41 independent field words in its audited key model.",
+      "background": "ChainHash is the author’s construction in the fast-polynomials project. This point uses 256-byte blocks and the model A key distribution, which takes 80 independent random key bytes.",
       "links": [
         {
           "label": "Original project & code",
@@ -526,11 +526,59 @@
         }
       ],
       "results": {
-        "chain256": "The audited ideal-key family has a lower score guarantee of 62.41 bits. The benchmark’s SplitMix64 seed expansion is outside that theorem. This is the author’s own construction and audit record, not independent expert review."
+        "chain256": "The current model A theorem gives a 61-bit lower score guarantee. Its structured polynomial keys differ from the 41-independent-word reference theorem checked in Lean. The timed SplitMix64 initializer and compiler/SIMD correctness have separate status."
       },
       "sources": [
         "https://github.com/thomasahle/fast-polynomials",
         "#proof-audit-notes"
+      ]
+    },
+    {
+      "ids": [
+        "poly1305"
+      ],
+      "authors": "Daniel J. Bernstein",
+      "background": "Poly1305 is the polynomial-hashing component of Bernstein’s Poly1305-AES authenticator. It works modulo 2¹³⁰ − 5 with a restricted (“clamped”) polynomial key and produces a 128-bit tag.",
+      "results": {
+        "poly1305": "The 103-bit score comes from the published collision bound, which was not re-audited here. The benchmark includes the OpenSSL 3 wrapper and seed setup; the theorem requires its stated uniform key distribution."
+      },
+      "links": [
+        {
+          "label": "Original paper",
+          "url": "https://cr.yp.to/mac/poly1305-20050329.pdf"
+        },
+        {
+          "label": "OpenSSL implementation",
+          "url": "https://github.com/openssl/openssl/tree/master/crypto/poly1305"
+        }
+      ],
+      "sources": [
+        "https://cr.yp.to/mac/poly1305-20050329.pdf",
+        "https://github.com/openssl/openssl/tree/master/crypto/poly1305"
+      ]
+    },
+    {
+      "ids": [
+        "ghash"
+      ],
+      "authors": "David A. McGrew and John Viega · GCM construction",
+      "background": "GHASH is the universal-hashing component of Galois/Counter Mode (GCM). It evaluates a polynomial over the binary field GF(2¹²⁸); GCM combines that hash with counter-mode encryption.",
+      "results": {
+        "ghash": "The 127-bit score comes from the published bound under a uniform field key, not a new audit. Throughput is an OpenSSL GMAC proxy including wrapper and setup costs, not a bare GHASH benchmark."
+      },
+      "links": [
+        {
+          "label": "Original paper",
+          "url": "https://eprint.iacr.org/2004/193"
+        },
+        {
+          "label": "OpenSSL implementation",
+          "url": "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c"
+        }
+      ],
+      "sources": [
+        "https://eprint.iacr.org/2004/193",
+        "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c"
       ]
     }
   ]

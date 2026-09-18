@@ -1,13 +1,13 @@
 # verify: reader-runnable reproductions of the collision pairs
 
-23 runnable directories, one per hash or separately tested output/version.  Each holds a primary C11 program, a README and (for some)
+25 collision-reproduction directories, one per hash or separately tested output/version, plus the separate HalftimeHash audit directory.  Each holds a primary C11 program, a README and (for some)
 the raw logs of the runs quoted there.  A program re-implements or embeds the hash, checks its implementation at
 startup against the listed verification values and available test vectors (it recomputes the SMHasher3 verification
 value with SMHasher3's own procedure or checks a reference vector, and exits
 non-zero on any mismatch), prints the published message pair(s), hashes both messages under
 millions of random seeds from a fixed-seed RNG, and prints the collision count, the rate, and
-explicit colliding seeds with both hash values.  Everything is single-threaded, needs only a C
-compiler and libm, and writes nothing but stdout/stderr.
+explicit colliding seeds with both hash values.  The original programs are single-threaded; the two foldhash additions use POSIX threads (one worker in the smoke commands). Programs need a C
+compiler, libm or pthreads as documented, and writes nothing but stdout/stderr.
 
 | hash | version | pair length | mechanism | measured rate | how to run |
 |---|---|---|---|---|---|
@@ -34,6 +34,9 @@ compiler and libm, and writes nothing but stdout/stderr.
 | `rapidhash-v1` | rapidhash v1.0 | A (32 B) | First-product XOR-fold differential; fixed default secret. | Historical 12 / 2^30 = 2^-26.415037; 2^20 is a smoke run only | `cd rapidhash-v1 && ./rapidhash_v1_verify [log2 N] [rng seed]` |
 | `xxh3-64` | XXH3-64, xxHash 0.8.3 | A (32 B); base-1143 (128 B) | First 16-byte fold collision; fixed default secret. | Historical A: 11 / 2^30 = 2^-26.540568; base-1143: 504 / 2^30 = 2^-21.022720 and 526 / 2^30 = 2^-20.961081; 2^20 is a smoke run only | `cd xxh3-64 && ./xxh3_64_verify [log2 N] [rng seed]` |
 | `xxh3-128` | XXH3-128, xxHash 0.8.3 | F (32 B) | Complementary first-word swap; equality of both output halves. | Historical 5 / 2^30 = 2^-27.678072 (full 128-bit collisions); 2^20 is a smoke run only | `cd xxh3-128 && ./xxh3_128_verify [log2 N] [rng seed]` |
+
+| `foldhash-fast` | 0.2.0 | 8/8 B; L = 1 | complement both xor-keyed operands via overlapping reads | 2757 / 2^38 | [README](foldhash-fast/README.md) |
+| `foldhash-quality` | 0.2.0 | 8/8 B; L = 1 | same pair; deterministic final fold preserves equality | 696 / 2^36 | [README](foldhash-quality/README.md) |
 
 Timings are single-threaded on an Apple M2 Pro for the default 2^24 seeds.  Every program
 takes `[log2 N]` as its first argument except `cityhash-64`, which takes `N` or `2^k`. New pass-2 programs default to 2^20 trials; the historical timing sentence applies only to the original eleven.  Each
@@ -222,3 +225,5 @@ and exact-count claims are identified separately from the small default checks.
 
 Page scores consistently use L = ceil(max(byte lengths)/8), allowing unequal
 lengths. Exact caps round upward; empirical estimates round to nearest.
+
+Numbers pass: [XXH3-64 at 32 bytes](xxh3-64/CHECK_32B.md), program [xxh3_64_32B_check.c](xxh3-64/xxh3_64_32B_check.c); [HalftimeHash independent execution harness](halftime/README.md).

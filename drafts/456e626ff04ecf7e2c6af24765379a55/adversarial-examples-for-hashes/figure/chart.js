@@ -29,7 +29,7 @@
   const rows = () => data.hosts[host].rows;
   const rowFor = id => rows().find(row => row.id === id);
   const pretty = value => new Intl.NumberFormat('en', {maximumFractionDigits: 2}).format(value);
-  const kindLabel = row => row.kind === 'proof' ? 'Audited lower guarantee' : row.kind === 'claim' ? 'Unresolved claim' : 'Witness upper cap';
+  const kindLabel = row => row.kind === 'proof' ? 'Proved lower guarantee' : row.kind === 'claim' ? 'Unresolved claim' : 'Witness upper cap';
   const clearPeek = () => {peek.hidden = true;};
   function showPeek(row, node) {
     if (motion || matchMedia('(pointer: coarse)').matches) return;
@@ -64,12 +64,13 @@
     detail.querySelector('.inspector-speed').textContent = pretty(row.speed) + ' B/cycle';
     detail.querySelector('.inspector-host').textContent = host === 'm2' ? 'Apple M2 Pro' : 'Intel Xeon';
     detail.querySelector('.inspector-output').textContent = row.output_bits + ' bits';
-    detail.querySelector('.inspector-evidence-label').textContent = row.kind === 'witness' ? 'Collision evidence' : row.kind === 'claim' ? 'Claimed bound (unresolved)' : 'Audited bound';
+    detail.querySelector('.inspector-evidence-label').textContent = row.kind === 'witness' ? 'Collision evidence' : row.kind === 'claim' ? 'Claimed bound (unresolved)' : 'Proved bound';
     detail.querySelector('.inspector-evidence').textContent = row.evidence || '';
     detail.querySelector('.inspector-key').textContent = row.key_model || '';
     detail.querySelector('.inspector-scope').textContent = row.scope || row.key_model || '';
     detail.querySelector('.inspector-section').href = '#' + row.anchor;
     detail.querySelector('.inspector-code').href = new URL(row.code_url, new URL('../', assetRoot));
+    detail.querySelector('.inspector-code').textContent = row.code_url.endsWith('.pdf') ? 'Paper & construction' : 'Implementation studied';
     detail.querySelector('.inspector-source').href = new URL(row.source, new URL('../', assetRoot));
     detail.querySelector('.inspector-benchmark-note').textContent = data.hosts[host].provisional
       ? 'M2 timings are provisional; corrected ARM benchmarks are pending. Results concern the named version and API.'
@@ -87,7 +88,7 @@
   }
   function options() {
     select.replaceChildren(new Option('Choose a hash…', ''));
-    for (const [kind, label] of [['proof','Audited guarantees'],['claim','Unresolved claims'],['witness','Collision witnesses']]) {
+    for (const [kind, label] of [['proof','Proved guarantees'],['claim','Unresolved claims'],['witness','Collision witnesses']]) {
       const group = document.createElement('optgroup'); group.label = label;
       for (const row of rows().filter(row => row.kind === kind).sort((a,b) => a.name.localeCompare(b.name))) {
         group.append(new Option(row.name, row.id));

@@ -1,0 +1,1973 @@
+{
+  "foldhash-fast": {
+    "M2Pro": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "M2Pro",
+          "name": "foldhash-fast",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "foldhash-fast",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/foldhash-fast.run1.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:52:35.258068+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:52:35.263570+00:00",
+            "uptime": "15:52  up 1 day,  3:44, 1 user, load averages: 2.84 3.97 4.29",
+            "load1": 2.84,
+            "load5": 3.97,
+            "load15": 4.29
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:53:11.155346+00:00",
+          "elapsed_seconds": 35.891672457999995,
+          "load_after": {
+            "timestamp": "2026-09-18T13:53:11.162920+00:00",
+            "uptime": "15:53  up 1 day,  3:44, 1 user, load averages: 3.40 4.00 4.29",
+            "load1": 3.4,
+            "load5": 4.0,
+            "load15": 4.29
+          },
+          "raw_sha256": "50ab34ea1ef5f5dca35cc2ea79a3634381a3df4ccfb99d9e2ccd53e5b0f6c4e7",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 14.12,
+          "bulk_gib_s": 46.02,
+          "small_cycles": 14.98,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 14.12,
+              "bulk_gib_s": 46.02,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 14.11,
+              "bulk_gib_s": 46.01,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "M2Pro",
+          "name": "foldhash-fast",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "foldhash-fast",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/foldhash-fast.run2.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:55:24.381624+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:55:24.387430+00:00",
+            "uptime": "15:55  up 1 day,  3:46, 1 user, load averages: 7.22 5.21 4.72",
+            "load1": 7.22,
+            "load5": 5.21,
+            "load15": 4.72
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:56:00.741250+00:00",
+          "elapsed_seconds": 36.353679124999985,
+          "load_after": {
+            "timestamp": "2026-09-18T13:56:00.750324+00:00",
+            "uptime": "15:56  up 1 day,  3:47, 1 user, load averages: 7.72 5.51 4.85",
+            "load1": 7.72,
+            "load5": 5.51,
+            "load15": 4.85
+          },
+          "raw_sha256": "e16f1dafbd4bf42c99b2dde3e61de2c4e2e7a47e31c4b86e3e3f0bede5d35b78",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 14.24,
+          "bulk_gib_s": 46.42,
+          "small_cycles": 14.94,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 14.24,
+              "bulk_gib_s": 46.42,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 14.24,
+              "bulk_gib_s": 46.41,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "foldhash-fast                  64                      foldhash 0.2.0 fast (Rust byte-slice write path)            ",
+      "backend_token": null,
+      "verification": {
+        "status": "FAIL",
+        "observed": {
+          "mode": "LE",
+          "value": "0xA167BA5E",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "foldhash-fast",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "foldhash-fast",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/foldhash-fast.sanity.txt",
+            "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+            "started": "2026-09-18T13:52:33.161618+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T13:52:33.167938+00:00",
+              "uptime": "15:52  up 1 day,  3:43, 1 user, load averages: 2.83 3.99 4.29",
+              "load1": 2.83,
+              "load5": 3.99,
+              "load15": 4.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T13:52:33.674752+00:00",
+            "elapsed_seconds": 0.506780792,
+            "load_after": {
+              "timestamp": "2026-09-18T13:52:33.680005+00:00",
+              "uptime": "15:52  up 1 day,  3:43, 1 user, load averages: 2.83 3.99 4.29",
+              "load1": 2.83,
+              "load5": 3.99,
+              "load15": 4.29
+            },
+            "raw_sha256": "99d7785455f6fa72cdab121baf95c379e4ecfd4e21adcdd9bccbbb037e48ef27",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0xA167BA5E",
+              "result": "PASS"
+            },
+            "pass_checks": 6,
+            "failure_lines": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "computed_values": {
+          "LE": {
+            "value": "0xA167BA5E",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0x71AF646C",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0xA167BA5E",
+          "BE": "0x71AF646C"
+        },
+        "reference_values": {
+          "Rust_v0.2.0": {
+            "LE": {
+              "value": "0xA167BA5E",
+              "result": "PASS (independent Rust oracle)"
+            }
+          },
+          "Xeon8375C": {
+            "LE": {
+              "value": "0xA167BA5E",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0x71AF646C",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 14.24,
+      "bulk_gib_s": 46.42,
+      "small_cycles": 14.94,
+      "bulk_selected_run": 2,
+      "small_selected_run": 2,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+      "bulk_run_spread_percent": 0.8498583569405138,
+      "small_run_spread_percent": 0.2677376171352108
+    },
+    "Xeon8375C": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "Xeon8375C",
+          "name": "foldhash-fast",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "foldhash-fast",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/foldhash-fast.run1.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:50:07.185266+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:50:07.187536+00:00",
+            "uptime": "14:50:07 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+            "load1": 21.41,
+            "load5": 41.63,
+            "load15": 47.29
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:51:15.247079+00:00",
+          "elapsed_seconds": 68.05950221105013,
+          "load_after": {
+            "timestamp": "2026-09-18T14:51:15.249879+00:00",
+            "uptime": "14:51:15 up 6 days, 23:35,  0 users,  load average: 9.84, 33.91, 44.19",
+            "load1": 9.84,
+            "load5": 33.91,
+            "load15": 44.19
+          },
+          "raw_sha256": "a6547b07121ed839f7ce69c4fd4932cf0ad3f08f804ab22e1c54baa73103e9ea",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 9.07,
+          "bulk_gib_s": 29.57,
+          "small_cycles": 20.1,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 9.07,
+              "bulk_gib_s": 29.57,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 9.02,
+              "bulk_gib_s": 29.41,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "Xeon8375C",
+          "name": "foldhash-fast",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "foldhash-fast",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/foldhash-fast.run2.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:54:46.542695+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:54:46.545035+00:00",
+            "uptime": "14:54:46 up 6 days, 23:38,  0 users,  load average: 4.75, 19.08, 36.16",
+            "load1": 4.75,
+            "load5": 19.08,
+            "load15": 36.16
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:55:54.620660+00:00",
+          "elapsed_seconds": 68.07558140298352,
+          "load_after": {
+            "timestamp": "2026-09-18T14:55:54.623080+00:00",
+            "uptime": "14:55:54 up 6 days, 23:40,  0 users,  load average: 4.79, 16.08, 33.87",
+            "load1": 4.79,
+            "load5": 16.08,
+            "load15": 33.87
+          },
+          "raw_sha256": "d464fa937fd25bbea7d00f605ad4cb3b6c10ba05e32ff2e94fc825a5ef8d612d",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 9.07,
+          "bulk_gib_s": 29.56,
+          "small_cycles": 20.09,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 9.07,
+              "bulk_gib_s": 29.56,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 9.02,
+              "bulk_gib_s": 29.4,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "foldhash-fast                  64                      foldhash 0.2.0 fast (Rust byte-slice write path)            ",
+      "backend_token": null,
+      "verification": {
+        "status": "FAIL",
+        "observed": {
+          "mode": "LE",
+          "value": "0xA167BA5E",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "Xeon8375C",
+            "name": "foldhash-fast",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "taskset",
+              "-c",
+              "4",
+              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "foldhash-fast",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/Xeon8375C/foldhash-fast.sanity.txt",
+            "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+            "started": "2026-09-18T14:50:05.108158+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T14:50:05.110620+00:00",
+              "uptime": "14:50:05 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T14:50:05.567632+00:00",
+            "elapsed_seconds": 0.4569606409640983,
+            "load_after": {
+              "timestamp": "2026-09-18T14:50:05.569898+00:00",
+              "uptime": "14:50:05 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "raw_sha256": "27836aa1c7b065f1dd4e4be3863c139b25454de86a4f973212b2739656f37aa5",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0xA167BA5E",
+              "result": "PASS"
+            },
+            "pass_checks": 6,
+            "failure_lines": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "computed_values": {
+          "LE": {
+            "value": "0xA167BA5E",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0x71AF646C",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0xA167BA5E",
+          "BE": "0x71AF646C"
+        },
+        "reference_values": {
+          "Rust_v0.2.0": {
+            "LE": {
+              "value": "0xA167BA5E",
+              "result": "PASS (independent Rust oracle)"
+            }
+          },
+          "M2Pro": {
+            "LE": {
+              "value": "0xA167BA5E",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0x71AF646C",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 9.07,
+      "bulk_gib_s": 29.57,
+      "small_cycles": 20.09,
+      "bulk_selected_run": 1,
+      "small_selected_run": 2,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.04977600796416404
+    }
+  },
+  "foldhash-quality": {
+    "M2Pro": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "M2Pro",
+          "name": "foldhash-quality",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "foldhash-quality",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/foldhash-quality.run1.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:53:11.169400+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:53:11.179417+00:00",
+            "uptime": "15:53  up 1 day,  3:44, 1 user, load averages: 3.40 4.00 4.29",
+            "load1": 3.4,
+            "load5": 4.0,
+            "load15": 4.29
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:53:46.875384+00:00",
+          "elapsed_seconds": 35.695783041999995,
+          "load_after": {
+            "timestamp": "2026-09-18T13:53:46.881397+00:00",
+            "uptime": "15:53  up 1 day,  3:45, 1 user, load averages: 4.79 4.32 4.39",
+            "load1": 4.79,
+            "load5": 4.32,
+            "load15": 4.39
+          },
+          "raw_sha256": "c2c1a5b320bd4272f14277212e073ad2f17da215b9e2c5be703bc29ba0daaffb",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 14.35,
+          "bulk_gib_s": 46.76,
+          "small_cycles": 18.92,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 14.35,
+              "bulk_gib_s": 46.76,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 14.34,
+              "bulk_gib_s": 46.75,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "M2Pro",
+          "name": "foldhash-quality",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "foldhash-quality",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/foldhash-quality.run2.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:56:00.755999+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:56:00.765281+00:00",
+            "uptime": "15:56  up 1 day,  3:47, 1 user, load averages: 7.72 5.51 4.85",
+            "load1": 7.72,
+            "load5": 5.51,
+            "load15": 4.85
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:56:37.099695+00:00",
+          "elapsed_seconds": 36.334241792,
+          "load_after": {
+            "timestamp": "2026-09-18T13:56:37.108174+00:00",
+            "uptime": "15:56  up 1 day,  3:48, 1 user, load averages: 6.77 5.52 4.88",
+            "load1": 6.77,
+            "load5": 5.52,
+            "load15": 4.88
+          },
+          "raw_sha256": "fd3fc3d58ef6809434b7ec080466b4a6c8085c1bec6ac33caa4aa169185cfb17",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 14.42,
+          "bulk_gib_s": 47.01,
+          "small_cycles": 19.14,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 14.42,
+              "bulk_gib_s": 47.01,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 14.42,
+              "bulk_gib_s": 47.0,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "foldhash-quality               64                      foldhash 0.2.0 quality (Rust byte-slice write path)         ",
+      "backend_token": null,
+      "verification": {
+        "status": "FAIL",
+        "observed": {
+          "mode": "LE",
+          "value": "0xE269316E",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "foldhash-quality",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "foldhash-quality",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/foldhash-quality.sanity.txt",
+            "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+            "started": "2026-09-18T13:52:33.685575+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T13:52:33.690916+00:00",
+              "uptime": "15:52  up 1 day,  3:43, 1 user, load averages: 2.83 3.99 4.29",
+              "load1": 2.83,
+              "load5": 3.99,
+              "load15": 4.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T13:52:34.170734+00:00",
+            "elapsed_seconds": 0.479785833,
+            "load_after": {
+              "timestamp": "2026-09-18T13:52:34.176782+00:00",
+              "uptime": "15:52  up 1 day,  3:44, 1 user, load averages: 2.83 3.99 4.29",
+              "load1": 2.83,
+              "load5": 3.99,
+              "load15": 4.29
+            },
+            "raw_sha256": "2dbd3d894f956f8a96a7e736371c824bbadbe8c8f307bea49f90998eca8e1a33",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0xE269316E",
+              "result": "PASS"
+            },
+            "pass_checks": 6,
+            "failure_lines": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "computed_values": {
+          "LE": {
+            "value": "0xE269316E",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0xE43F6B30",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0xE269316E",
+          "BE": "0xE43F6B30"
+        },
+        "reference_values": {
+          "Rust_v0.2.0": {
+            "LE": {
+              "value": "0xE269316E",
+              "result": "PASS (independent Rust oracle)"
+            }
+          },
+          "Xeon8375C": {
+            "LE": {
+              "value": "0xE269316E",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0xE43F6B30",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 14.42,
+      "bulk_gib_s": 47.01,
+      "small_cycles": 18.92,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+      "bulk_run_spread_percent": 0.4878048780487809,
+      "small_run_spread_percent": 1.1627906976744207
+    },
+    "Xeon8375C": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "Xeon8375C",
+          "name": "foldhash-quality",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "foldhash-quality",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/foldhash-quality.run1.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:51:15.299282+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:51:15.301815+00:00",
+            "uptime": "14:51:15 up 6 days, 23:35,  0 users,  load average: 9.84, 33.91, 44.19",
+            "load1": 9.84,
+            "load5": 33.91,
+            "load15": 44.19
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:52:23.913945+00:00",
+          "elapsed_seconds": 68.61207634501625,
+          "load_after": {
+            "timestamp": "2026-09-18T14:52:23.916257+00:00",
+            "uptime": "14:52:23 up 6 days, 23:36,  0 users,  load average: 6.49, 28.21, 41.52",
+            "load1": 6.49,
+            "load5": 28.21,
+            "load15": 41.52
+          },
+          "raw_sha256": "982b44b4c8519fd22e7917af23405e102924650791cb8f509eb23ca6f28758a5",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 9.07,
+          "bulk_gib_s": 29.57,
+          "small_cycles": 25.28,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 9.07,
+              "bulk_gib_s": 29.57,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 9.02,
+              "bulk_gib_s": 29.4,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "Xeon8375C",
+          "name": "foldhash-quality",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "foldhash-quality",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/foldhash-quality.run2.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:55:54.671706+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:55:54.674058+00:00",
+            "uptime": "14:55:54 up 6 days, 23:40,  0 users,  load average: 4.79, 16.08, 33.87",
+            "load1": 4.79,
+            "load5": 16.08,
+            "load15": 33.87
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:57:03.229882+00:00",
+          "elapsed_seconds": 68.55579975305591,
+          "load_after": {
+            "timestamp": "2026-09-18T14:57:03.232528+00:00",
+            "uptime": "14:57:03 up 6 days, 23:41,  0 users,  load average: 4.40, 13.77, 31.87",
+            "load1": 4.4,
+            "load5": 13.77,
+            "load15": 31.87
+          },
+          "raw_sha256": "a3e1fd4156e0231c3d6148fe4f35a268b183d0cc291eb30008e0a987ab9b8299",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 9.07,
+          "bulk_gib_s": 29.56,
+          "small_cycles": 25.28,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 9.07,
+              "bulk_gib_s": 29.56,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 9.02,
+              "bulk_gib_s": 29.4,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "foldhash-quality               64                      foldhash 0.2.0 quality (Rust byte-slice write path)         ",
+      "backend_token": null,
+      "verification": {
+        "status": "FAIL",
+        "observed": {
+          "mode": "LE",
+          "value": "0xE269316E",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "Xeon8375C",
+            "name": "foldhash-quality",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "taskset",
+              "-c",
+              "4",
+              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "foldhash-quality",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/Xeon8375C/foldhash-quality.sanity.txt",
+            "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+            "started": "2026-09-18T14:50:05.618812+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T14:50:05.621061+00:00",
+              "uptime": "14:50:05 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T14:50:06.076786+00:00",
+            "elapsed_seconds": 0.455672140000388,
+            "load_after": {
+              "timestamp": "2026-09-18T14:50:06.078897+00:00",
+              "uptime": "14:50:06 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "raw_sha256": "eedc9b60329d1b765c9cb05e6c0f473baeb14d20a523d422a23aecd691ed511e",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0xE269316E",
+              "result": "PASS"
+            },
+            "pass_checks": 6,
+            "failure_lines": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "computed_values": {
+          "LE": {
+            "value": "0xE269316E",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0xE43F6B30",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0xE269316E",
+          "BE": "0xE43F6B30"
+        },
+        "reference_values": {
+          "Rust_v0.2.0": {
+            "LE": {
+              "value": "0xE269316E",
+              "result": "PASS (independent Rust oracle)"
+            }
+          },
+          "M2Pro": {
+            "LE": {
+              "value": "0xE269316E",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0xE43F6B30",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 9.07,
+      "bulk_gib_s": 29.57,
+      "small_cycles": 25.28,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0
+    }
+  },
+  "komihash": {
+    "M2Pro": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "M2Pro",
+          "name": "komihash",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "komihash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/komihash.run1.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:53:46.888962+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:53:46.894036+00:00",
+            "uptime": "15:53  up 1 day,  3:45, 1 user, load averages: 4.79 4.32 4.39",
+            "load1": 4.79,
+            "load5": 4.32,
+            "load15": 4.39
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:54:49.709831+00:00",
+          "elapsed_seconds": 62.815529583,
+          "load_after": {
+            "timestamp": "2026-09-18T13:54:49.720604+00:00",
+            "uptime": "15:54  up 1 day,  3:46, 1 user, load averages: 7.08 5.01 4.64",
+            "load1": 7.08,
+            "load5": 5.01,
+            "load15": 4.64
+          },
+          "raw_sha256": "4f6beb9b5a060ad14acb421e5897d7ec4f7d71d026a844e1d7d22af31103dbe5",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 8.13,
+          "bulk_gib_s": 26.5,
+          "small_cycles": 24.51,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 8.13,
+              "bulk_gib_s": 26.5,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 7.91,
+              "bulk_gib_s": 25.79,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "M2Pro",
+          "name": "komihash",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "komihash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/komihash.run2.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:56:37.114188+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:56:37.120513+00:00",
+            "uptime": "15:56  up 1 day,  3:48, 1 user, load averages: 6.77 5.52 4.88",
+            "load1": 6.77,
+            "load5": 5.52,
+            "load15": 4.88
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:57:39.794827+00:00",
+          "elapsed_seconds": 62.67404462499999,
+          "load_after": {
+            "timestamp": "2026-09-18T13:57:39.802437+00:00",
+            "uptime": "15:57  up 1 day,  3:49, 1 user, load averages: 5.01 5.24 4.82",
+            "load1": 5.01,
+            "load5": 5.24,
+            "load15": 4.82
+          },
+          "raw_sha256": "ea8ecab6a991ec342199e31599ab372e2d1460624d582c00fa6a6f1cd2ee2079",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 8.31,
+          "bulk_gib_s": 27.08,
+          "small_cycles": 24.16,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 8.31,
+              "bulk_gib_s": 27.08,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 7.94,
+              "bulk_gib_s": 25.89,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "komihash                       64                      komihash v5.27                                              ",
+      "backend_token": null,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "CE",
+          "value": "0x8157FF6D",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "komihash",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "komihash",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/komihash.sanity.txt",
+            "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+            "started": "2026-09-18T13:52:34.181797+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T13:52:34.188887+00:00",
+              "uptime": "15:52  up 1 day,  3:44, 1 user, load averages: 2.83 3.99 4.29",
+              "load1": 2.83,
+              "load5": 3.99,
+              "load15": 4.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T13:52:34.703203+00:00",
+            "elapsed_seconds": 0.514298125,
+            "load_after": {
+              "timestamp": "2026-09-18T13:52:34.710104+00:00",
+              "uptime": "15:52  up 1 day,  3:44, 1 user, load averages: 2.84 3.97 4.29",
+              "load1": 2.84,
+              "load5": 3.97,
+              "load15": 4.29
+            },
+            "raw_sha256": "8bf5cf2669675f39b8c16933966ae14605e32bb11656c25096c61f25d18281ca",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "CE",
+              "value": "0x8157FF6D",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "computed_values": {
+          "CE": {
+            "value": "0x8157FF6D",
+            "result": "PASS"
+          },
+          "NE": {
+            "value": "0x68E116C0",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "CE": "0x8157FF6D",
+          "NE": "0x68E116C0"
+        },
+        "reference_values": {
+          "Xeon8375C": {
+            "CE": {
+              "value": "0x8157FF6D",
+              "result": "PASS"
+            },
+            "NE": {
+              "value": "0x68E116C0",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 8.31,
+      "bulk_gib_s": 27.08,
+      "small_cycles": 24.16,
+      "bulk_selected_run": 2,
+      "small_selected_run": 2,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+      "bulk_run_spread_percent": 2.2140221402213944,
+      "small_run_spread_percent": 1.448675496688745
+    },
+    "Xeon8375C": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "Xeon8375C",
+          "name": "komihash",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "komihash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/komihash.run1.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:52:23.964891+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:52:23.967144+00:00",
+            "uptime": "14:52:23 up 6 days, 23:36,  0 users,  load average: 6.49, 28.21, 41.52",
+            "load1": 6.49,
+            "load5": 28.21,
+            "load15": 41.52
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:53:45.739306+00:00",
+          "elapsed_seconds": 81.77212256600615,
+          "load_after": {
+            "timestamp": "2026-09-18T14:53:45.741835+00:00",
+            "uptime": "14:53:45 up 6 days, 23:37,  0 users,  load average: 4.65, 22.24, 38.25",
+            "load1": 4.65,
+            "load5": 22.24,
+            "load15": 38.25
+          },
+          "raw_sha256": "2b039f99d1ed7e0b88eff1092c0b5fd04d72fb389cff7b3d4e27269583f7f51f",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 7.34,
+          "bulk_gib_s": 23.92,
+          "small_cycles": 26.76,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 7.34,
+              "bulk_gib_s": 23.92,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 7.32,
+              "bulk_gib_s": 23.85,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "Xeon8375C",
+          "name": "komihash",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "komihash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/komihash.run2.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:57:03.281608+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:57:03.283790+00:00",
+            "uptime": "14:57:03 up 6 days, 23:41,  0 users,  load average: 4.40, 13.77, 31.87",
+            "load1": 4.4,
+            "load5": 13.77,
+            "load15": 31.87
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:58:24.992906+00:00",
+          "elapsed_seconds": 81.70908380800392,
+          "load_after": {
+            "timestamp": "2026-09-18T14:58:24.995339+00:00",
+            "uptime": "14:58:24 up 6 days, 23:42,  0 users,  load average: 4.53, 11.51, 29.49",
+            "load1": 4.53,
+            "load5": 11.51,
+            "load15": 29.49
+          },
+          "raw_sha256": "ff63cace988040f46d09966244a70ca2ce455e15cf26f0ee2f1caf1c4eaa0624",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 7.34,
+          "bulk_gib_s": 23.92,
+          "small_cycles": 26.78,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 7.34,
+              "bulk_gib_s": 23.92,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 7.32,
+              "bulk_gib_s": 23.85,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "komihash                       64                      komihash v5.27                                              ",
+      "backend_token": null,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "CE",
+          "value": "0x8157FF6D",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "Xeon8375C",
+            "name": "komihash",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "taskset",
+              "-c",
+              "4",
+              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "komihash",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/Xeon8375C/komihash.sanity.txt",
+            "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+            "started": "2026-09-18T14:50:06.126887+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T14:50:06.129196+00:00",
+              "uptime": "14:50:06 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T14:50:06.607498+00:00",
+            "elapsed_seconds": 0.4782527619972825,
+            "load_after": {
+              "timestamp": "2026-09-18T14:50:06.609752+00:00",
+              "uptime": "14:50:06 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "raw_sha256": "8658718f5168a7b9806929b1adf81db8140711d73efa5b61025af773ccaf823c",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "CE",
+              "value": "0x8157FF6D",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "computed_values": {
+          "CE": {
+            "value": "0x8157FF6D",
+            "result": "PASS"
+          },
+          "NE": {
+            "value": "0x68E116C0",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "CE": "0x8157FF6D",
+          "NE": "0x68E116C0"
+        },
+        "reference_values": {
+          "M2Pro": {
+            "CE": {
+              "value": "0x8157FF6D",
+              "result": "PASS"
+            },
+            "NE": {
+              "value": "0x68E116C0",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 7.34,
+      "bulk_gib_s": 23.92,
+      "small_cycles": 26.76,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.07473841554559435
+    }
+  },
+  "rapidhash": {
+    "M2Pro": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "M2Pro",
+          "name": "rapidhash",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "rapidhash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/rapidhash.run1.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:54:49.730263+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:54:49.741129+00:00",
+            "uptime": "15:54  up 1 day,  3:46, 1 user, load averages: 7.08 5.01 4.64",
+            "load1": 7.08,
+            "load5": 5.01,
+            "load15": 4.64
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:55:24.369941+00:00",
+          "elapsed_seconds": 34.62863308300001,
+          "load_after": {
+            "timestamp": "2026-09-18T13:55:24.375960+00:00",
+            "uptime": "15:55  up 1 day,  3:46, 1 user, load averages: 7.22 5.21 4.72",
+            "load1": 7.22,
+            "load5": 5.21,
+            "load15": 4.72
+          },
+          "raw_sha256": "0b54055cdf303f1d25c87481cf7429eec3532cbdeca5aee82dee2ceddc877bda",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 15.6,
+          "bulk_gib_s": 50.86,
+          "small_cycles": 20.42,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 15.6,
+              "bulk_gib_s": 50.86,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 15.23,
+              "bulk_gib_s": 49.65,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "M2Pro",
+          "name": "rapidhash",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "rapidhash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/M2Pro/rapidhash.run2.txt",
+          "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+          "started": "2026-09-18T13:57:39.809766+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T13:57:39.818186+00:00",
+            "uptime": "15:57  up 1 day,  3:49, 1 user, load averages: 5.01 5.24 4.82",
+            "load1": 5.01,
+            "load5": 5.24,
+            "load15": 4.82
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T13:58:14.613849+00:00",
+          "elapsed_seconds": 34.79550741700001,
+          "load_after": {
+            "timestamp": "2026-09-18T13:58:14.621277+00:00",
+            "uptime": "15:58  up 1 day,  3:49, 1 user, load averages: 5.63 5.39 4.89",
+            "load1": 5.63,
+            "load5": 5.39,
+            "load15": 4.89
+          },
+          "raw_sha256": "5db5441234ebe121e4dcae329f848ec43dd4664e350dc50eb943b348c32c3e4e",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 16.02,
+          "bulk_gib_s": 52.23,
+          "small_cycles": 20.15,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 16.02,
+              "bulk_gib_s": 52.23,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 15.57,
+              "bulk_gib_s": 50.75,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "rapidhash                      64                      rapidhash v3, 64-bit                                        ",
+      "backend_token": null,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "LE",
+          "value": "0x1FDC65EE",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "rapidhash",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "rapidhash",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/rapidhash.sanity.txt",
+            "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+            "started": "2026-09-18T13:52:34.715674+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T13:52:34.721425+00:00",
+              "uptime": "15:52  up 1 day,  3:44, 1 user, load averages: 2.84 3.97 4.29",
+              "load1": 2.84,
+              "load5": 3.97,
+              "load15": 4.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T13:52:35.221034+00:00",
+            "elapsed_seconds": 0.4995896249999998,
+            "load_after": {
+              "timestamp": "2026-09-18T13:52:35.227128+00:00",
+              "uptime": "15:52  up 1 day,  3:44, 1 user, load averages: 2.84 3.97 4.29",
+              "load1": 2.84,
+              "load5": 3.97,
+              "load15": 4.29
+            },
+            "raw_sha256": "4c13703ed6c9704402200f756e905eef6765a1904560b9daa62373340de626b7",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0x1FDC65EE",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "computed_values": {
+          "LE": {
+            "value": "0x1FDC65EE",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0xB2DB16B5",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0x1FDC65EE",
+          "BE": "0xB2DB16B5"
+        },
+        "reference_values": {
+          "Xeon8375C": {
+            "LE": {
+              "value": "0x1FDC65EE",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0xB2DB16B5",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 16.02,
+      "bulk_gib_s": 52.23,
+      "small_cycles": 20.15,
+      "bulk_selected_run": 2,
+      "small_selected_run": 2,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "0647bdf516d15c0f8f54bc6ac65d2df87558d114a37370bcd93b7ae906b28bf9",
+      "bulk_run_spread_percent": 2.6923076923076827,
+      "small_run_spread_percent": 1.3399503722084427
+    },
+    "Xeon8375C": {
+      "status": "complete",
+      "runs": [
+        {
+          "host": "Xeon8375C",
+          "name": "rapidhash",
+          "test": "Speed",
+          "run": 1,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "rapidhash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/rapidhash.run1.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:53:45.790576+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:53:45.792976+00:00",
+            "uptime": "14:53:45 up 6 days, 23:37,  0 users,  load average: 4.65, 22.24, 38.25",
+            "load1": 4.65,
+            "load5": 22.24,
+            "load15": 38.25
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:54:46.491690+00:00",
+          "elapsed_seconds": 60.69865862606093,
+          "load_after": {
+            "timestamp": "2026-09-18T14:54:46.494160+00:00",
+            "uptime": "14:54:46 up 6 days, 23:38,  0 users,  load average: 4.75, 19.08, 36.16",
+            "load1": 4.75,
+            "load5": 19.08,
+            "load15": 36.16
+          },
+          "raw_sha256": "4e04cee6e6937b7246c4d65c0bab6f12087d6cc63f9df8478ed4fc6f46af35a8",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 10.69,
+          "bulk_gib_s": 34.83,
+          "small_cycles": 27.76,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 10.69,
+              "bulk_gib_s": 34.83,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 10.55,
+              "bulk_gib_s": 34.38,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        },
+        {
+          "host": "Xeon8375C",
+          "name": "rapidhash",
+          "test": "Speed",
+          "run": 2,
+          "command": [
+            "taskset",
+            "-c",
+            "4",
+            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "rapidhash",
+            "--test=Speed"
+          ],
+          "raw_file": "out/Xeon8375C/rapidhash.run2.txt",
+          "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+          "started": "2026-09-18T14:58:25.044062+00:00",
+          "load_before": {
+            "timestamp": "2026-09-18T14:58:25.046486+00:00",
+            "uptime": "14:58:25 up 6 days, 23:42,  0 users,  load average: 4.53, 11.51, 29.49",
+            "load1": 4.53,
+            "load5": 11.51,
+            "load15": 29.49
+          },
+          "returncode": 0,
+          "finished": "2026-09-18T14:59:25.708453+00:00",
+          "elapsed_seconds": 60.6619279619772,
+          "load_after": {
+            "timestamp": "2026-09-18T14:59:25.711178+00:00",
+            "uptime": "14:59:25 up 6 days, 23:43,  0 users,  load average: 4.76, 10.29, 27.94",
+            "load1": 4.76,
+            "load5": 10.29,
+            "load15": 27.94
+          },
+          "raw_sha256": "a32ba42fb78b7b5462a475e6055ee7971860ff5a7b6816960c6924a6ac99b365",
+          "sha256_verified": true,
+          "bulk_bytes_per_cycle": 10.69,
+          "bulk_gib_s": 34.84,
+          "small_cycles": 27.6,
+          "bulk_sections": [
+            {
+              "header": "Bulk speed test - 262144-byte keys",
+              "bulk_bytes_per_cycle": 10.69,
+              "bulk_gib_s": 34.84,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            },
+            {
+              "header": "Bulk speed test - [262017, 262144]-byte keys",
+              "bulk_bytes_per_cycle": 10.55,
+              "bulk_gib_s": 34.39,
+              "clock_assumption": "3.5 ghz",
+              "clock_ghz": 3.5
+            }
+          ],
+          "small_header": "Small key speed test - [1, 31]-byte keys",
+          "clock_assumption": "3.5 ghz",
+          "clock_assumptions": [
+            "3.5 ghz"
+          ],
+          "valid": true
+        }
+      ],
+      "registration": "rapidhash                      64                      rapidhash v3, 64-bit                                        ",
+      "backend_token": null,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "LE",
+          "value": "0x1FDC65EE",
+          "result": "PASS"
+        },
+        "sanity_runs": [
+          {
+            "host": "Xeon8375C",
+            "name": "rapidhash",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "taskset",
+              "-c",
+              "4",
+              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "rapidhash",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/Xeon8375C/rapidhash.sanity.txt",
+            "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+            "started": "2026-09-18T14:50:06.658123+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T14:50:06.660652+00:00",
+              "uptime": "14:50:06 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T14:50:07.124824+00:00",
+            "elapsed_seconds": 0.4641092719975859,
+            "load_after": {
+              "timestamp": "2026-09-18T14:50:07.127362+00:00",
+              "uptime": "14:50:07 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+              "load1": 21.41,
+              "load5": 41.63,
+              "load15": 47.29
+            },
+            "raw_sha256": "928ee287bb68b632cbc9a872e612e19fd42aa233edcb0deffdc1c314591fd93e",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0x1FDC65EE",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "computed_values": {
+          "LE": {
+            "value": "0x1FDC65EE",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0xB2DB16B5",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0x1FDC65EE",
+          "BE": "0xB2DB16B5"
+        },
+        "reference_values": {
+          "M2Pro": {
+            "LE": {
+              "value": "0x1FDC65EE",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0xB2DB16B5",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      },
+      "bulk_bytes_per_cycle": 10.69,
+      "bulk_gib_s": 34.84,
+      "small_cycles": 27.6,
+      "bulk_selected_run": 2,
+      "small_selected_run": 2,
+      "clock_assumption": "3.5 ghz",
+      "clock_assumptions": [
+        "3.5 ghz"
+      ],
+      "binary_sha256": "679585c3968a1d2f40117a8b3d1b4da4fa43323a30b26c9588dcf172493a6405",
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.5797101449275477
+    }
+  },
+  "meta": {
+    "generated": "2026-09-18T14:59:46.873334+00:00",
+    "protocol": "Two full Speed passes; fixed 262144-byte bulk Average, maximum bytes/cycle then GiB/sec then run 1; independent minimum 1..31 byte Average cycles/hash.",
+    "clock_caveat": "M2 calibrated monotonic-clock cycle estimates; Xeon TSC ticks. Printed GiB/sec assumes 3.5 GHz on both.",
+    "hosts": {
+      "M2Pro": {
+        "complete": true,
+        "load_gate": {
+          "timestamp": "2026-09-18T13:52:35.233175+00:00",
+          "uptime": "15:52  up 1 day,  3:44, 1 user, load averages: 2.84 3.97 4.29",
+          "load1": 2.84,
+          "load5": 3.97,
+          "load15": 4.29,
+          "elapsed_seconds": 0.005834833000000206,
+          "threshold": 3.0,
+          "deadline_seconds": null,
+          "poll_seconds": 60,
+          "timeout": false,
+          "active_SMHasher3_pids": []
+        },
+        "affinity": null,
+        "speed_run_count": 8
+      },
+      "Xeon8375C": {
+        "complete": true,
+        "load_gate": null,
+        "affinity": {
+          "core": 4,
+          "siblings": [
+            4,
+            52
+          ],
+          "idle_fractions": {
+            "0": 0.9833887043189369,
+            "1": 0.9933554817275747,
+            "2": 0.9370860927152318,
+            "3": 0.0,
+            "4": 1.0,
+            "5": 0.9865771812080537,
+            "6": 0.9867109634551495,
+            "7": 1.0,
+            "8": 0.9966666666666667,
+            "9": 0.973421926910299,
+            "10": 0.9866666666666667,
+            "11": 1.0,
+            "12": 0.9966666666666667,
+            "13": 0.9833333333333333,
+            "14": 1.0,
+            "15": 1.0,
+            "16": 0.9933554817275747,
+            "17": 1.0,
+            "18": 1.0,
+            "19": 1.0,
+            "20": 1.0,
+            "21": 1.0,
+            "22": 0.9966666666666667,
+            "23": 1.0,
+            "24": 0.9966777408637874,
+            "25": 0.0,
+            "26": 1.0,
+            "27": 1.0,
+            "28": 0.9966887417218543,
+            "29": 1.0,
+            "30": 1.0,
+            "31": 1.0,
+            "32": 1.0,
+            "33": 1.0,
+            "34": 0.9832214765100671,
+            "35": 1.0,
+            "36": 1.0,
+            "37": 0.9966777408637874,
+            "38": 0.9966666666666667,
+            "39": 1.0,
+            "40": 0.9966777408637874,
+            "41": 1.0,
+            "42": 1.0,
+            "43": 1.0,
+            "44": 0.95,
+            "45": 1.0,
+            "46": 1.0,
+            "47": 0.9966887417218543,
+            "48": 0.9933333333333333,
+            "49": 0.99,
+            "50": 1.0,
+            "51": 1.0,
+            "52": 1.0,
+            "53": 0.9966777408637874,
+            "54": 0.9966777408637874,
+            "55": 0.9966777408637874,
+            "56": 1.0,
+            "57": 1.0,
+            "58": 0.9966777408637874,
+            "59": 1.0,
+            "60": 0.9966777408637874,
+            "61": 1.0,
+            "62": 1.0,
+            "63": 1.0,
+            "64": 0.9633333333333334,
+            "65": 1.0,
+            "66": 1.0,
+            "67": 1.0,
+            "68": 1.0,
+            "69": 0.9966666666666667,
+            "70": 0.9966666666666667,
+            "71": 0.9966777408637874,
+            "72": 0.9966666666666667,
+            "73": 1.0,
+            "74": 0.9867109634551495,
+            "75": 1.0,
+            "76": 1.0,
+            "77": 0.9966777408637874,
+            "78": 1.0,
+            "79": 1.0,
+            "80": 0.9966777408637874,
+            "81": 1.0,
+            "82": 1.0,
+            "83": 1.0,
+            "84": 1.0,
+            "85": 0.9966777408637874,
+            "86": 0.9966666666666667,
+            "87": 1.0,
+            "88": 1.0,
+            "89": 1.0,
+            "90": 1.0,
+            "91": 1.0,
+            "92": 1.0,
+            "93": 1.0,
+            "94": 0.9933774834437086,
+            "95": 0.9966555183946488
+          },
+          "chosen_idle_fraction": 1.0,
+          "sample_seconds": 3,
+          "load": {
+            "timestamp": "2026-09-18T14:50:05.058122+00:00",
+            "uptime": "14:50:05 up 6 days, 23:34,  0 users,  load average: 21.41, 41.63, 47.29",
+            "load1": 21.41,
+            "load5": 41.63,
+            "load15": 47.29
+          }
+        },
+        "speed_run_count": 8
+      }
+    },
+    "complete": true,
+    "control_ratios": {
+      "M2Pro": {
+        "komihash": {
+          "baseline_file": "../m2-rerun/speeds_m2_v2.json",
+          "baseline_file_sha256": "d362ab079b63282bd6f2215efac2aa160df118537f19979a96a2388e867e5661",
+          "baseline_status": "complete",
+          "bulk_new_over_baseline": 0.9443181818181818,
+          "small_new_over_baseline": 1.096686336813436,
+          "baseline_bulk": 8.8,
+          "baseline_small": 22.03
+        },
+        "rapidhash": {
+          "baseline_file": "../m2-rerun/speeds_m2_v2.json",
+          "baseline_file_sha256": "d362ab079b63282bd6f2215efac2aa160df118537f19979a96a2388e867e5661",
+          "baseline_status": "complete",
+          "bulk_new_over_baseline": 0.995031055900621,
+          "small_new_over_baseline": 1.0029865604778496,
+          "baseline_bulk": 16.1,
+          "baseline_small": 20.09
+        }
+      },
+      "Xeon8375C": {
+        "komihash": {
+          "baseline_file": "../speedbench/speeds.json",
+          "baseline_file_sha256": "98bf08fc79a8f612289d6ab1d29579f61d8c1a0a93fa5bf233cf8625fe8ee864",
+          "baseline_status": "complete",
+          "bulk_new_over_baseline": 0.998639455782313,
+          "small_new_over_baseline": 0.9734448890505639,
+          "baseline_bulk": 7.35,
+          "baseline_small": 27.49
+        },
+        "rapidhash": {
+          "baseline_file": "../speedbench/speeds.json",
+          "baseline_file_sha256": "98bf08fc79a8f612289d6ab1d29579f61d8c1a0a93fa5bf233cf8625fe8ee864",
+          "baseline_status": "complete",
+          "bulk_new_over_baseline": 1.0018744142455482,
+          "small_new_over_baseline": 1.0007251631617116,
+          "baseline_bulk": 10.67,
+          "baseline_small": 27.58
+        }
+      }
+    }
+  }
+}

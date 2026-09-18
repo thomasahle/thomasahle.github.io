@@ -10,12 +10,18 @@ into the two state words S1 and S5 and passed through one multiply round
 before any message byte is touched.
 
 `komihash_pair.c` embeds the reference header `komihash.h` from release 5.34
-verbatim (between the two marker lines near line 270 and at the end of the
-file). To check it against upstream:
+with LF line endings (between the two marker lines near line 270 and at the
+end of the file). To check the extracted bytes:
 
     awk '/^\/\* >>>> komihash.h 5.34 verbatim begins/{f=1;next} /^\/\* <<<< komihash.h 5.34 verbatim ends/{f=0} f' komihash_pair.c | shasum -a 256
-    # ca1a1b40a24ee97d48cca1ac92617d105838483bf71198a6aa3a431ff165e768
-    # = sha256 of https://raw.githubusercontent.com/avaneev/komihash/5.34/komihash.h
+    # 1adfc1bc11979aaebfd6a0f96cdaca7f0c3cb24bbd2a9f408726d15810f44d89
+
+The upstream header at
+https://raw.githubusercontent.com/avaneev/komihash/5.34/komihash.h uses CRLF
+line endings and has SHA-256
+`ca1a1b40a24ee97d48cca1ac92617d105838483bf71198a6aa3a431ff165e768`.
+Converting its CRLF line endings to LF gives the extraction hash above; the
+header contents otherwise agree.
 
 Validation at startup (the program aborts with exit code 1 if either fails):
 

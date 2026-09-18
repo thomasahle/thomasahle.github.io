@@ -409,3 +409,33 @@ blockquote { margin: 0 0 1.2em; padding-left: 20px; border-left: 1px solid var(-
 @media (max-width: 600px) {
   .table-scroll.is-scrollable :is(th, td):first-child { position: static; box-shadow: none; }
 }
+
+/* Numbers pass: retain usable widths for the two short-key columns and Lean scope. */
+@media screen {
+  table#heuristic-table { min-width: 2170px; }
+  table#proof-table { min-width: 2860px; }
+  table#chart-data-table { min-width: 1880px; table-layout: fixed; }
+  table#heuristic-table :is(th, td), table#proof-table :is(th, td), table#chart-data-table :is(th, td) { white-space: normal; overflow-wrap: anywhere; text-align: left; }
+  table#heuristic-table :is(th, td):nth-child(n+6):nth-child(-n+9) { width: 115px; text-align: right; font-variant-numeric: tabular-nums; }
+  table#heuristic-table :is(th, td):nth-child(10) { width: 270px; }
+  table#heuristic-table :is(th, td):nth-child(11) { width: 235px; }
+  table#heuristic-table :is(th, td):nth-child(12) { width: 160px; }
+  table#proof-table :is(th, td):nth-child(2) { width: 180px; }
+  table#proof-table :is(th, td):nth-child(3) { width: 300px; }
+  table#proof-table :is(th, td):nth-child(6) { width: 230px; }
+  table#proof-table :is(th, td):nth-child(7) { width: 220px; }
+  table#proof-table :is(th, td):nth-child(8) { width: 200px; }
+  table#proof-table :is(th, td):nth-child(n+9):nth-child(-n+13) { width: 115px; text-align: right; font-variant-numeric: tabular-nums; }
+  table#proof-table :is(th, td):nth-child(14) { width: 260px; }
+  table#chart-data-table :is(th, td):first-child { width: 185px; }
+  table#chart-data-table :is(th, td):nth-child(2) { width: 185px; }
+  table#chart-data-table :is(th, td):nth-child(3), table#chart-data-table :is(th, td):nth-child(4) { width: 270px; }
+  table#chart-data-table :is(th, td):nth-child(n+5):nth-child(-n+8), table#chart-data-table :is(th, td):nth-child(10) { width: 110px; text-align: right; font-variant-numeric: tabular-nums; }
+  table#chart-data-table :is(th, td):nth-child(9) { width: 230px; }
+}
+
+/* Separate cross-type scope from the scored, fixed-key-type witness. */
+.foldhash-cross-type { border: 1px solid #a0b7b8; border-inline-start: 4px solid #75989a; border-radius: 4px; padding: 1rem 1.2rem; margin-block: 2rem; }
+.foldhash-cross-type h4 { margin-top: 0; }
+.foldhash-cross-type p:last-child { margin-bottom: 0; }
+.foldhash-diagram svg { display: block; width: 100%; height: auto; color: #45585a; }

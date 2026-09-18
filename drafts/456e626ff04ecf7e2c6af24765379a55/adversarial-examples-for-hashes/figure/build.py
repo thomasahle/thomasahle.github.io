@@ -26,8 +26,8 @@ plt.rcParams.update({'font.family': 'sans-serif', 'font.sans-serif': ['Arial', '
                      'svg.fonttype': 'none', 'svg.hashsalt': 'hash-collision-figure',
                      'axes.unicode_minus': False})
 HOSTS = {
- 'm2': dict(key='smh_m2_bulk_Bpc', host='M2Pro', name='APPLE M2 PRO', max_y=88, provisional=True),
- 'xeon': dict(key='smh_xeon_bulk_Bpc', host='Xeon8375C', name='INTEL XEON 8375C', max_y=88, provisional=False),
+ 'm2': dict(key='smh_m2_bulk_Bpc', host='M2Pro', name='APPLE M2 PRO', max_y=134, provisional=False),
+ 'xeon': dict(key='smh_xeon_bulk_Bpc', host='Xeon8375C', name='INTEL XEON 8375C', max_y=134, provisional=False),
 }
 
 def rows_for(host):
@@ -53,50 +53,49 @@ def rows_for(host):
             rows.append(row)
     return rows
 
-# Hand-placed landmark labels. Coordinates refer to data, never to shifted marks.
+# Landmark labels use fixed data coordinates; every other point remains inspectable.
 LABELS = {
  'm2': {
-  'chain256': (25, 71, 'right', 'ChainHash (ours)', '≥ 62.41 bits · ideal keys'),
-  'polymur': (8.0, 52, 'left', 'PolymurHash', '≥ 54.22 bits'),
-  'highway': (.58, 51, 'left', 'HighwayHash', '≤ 59.81 bits'),
-  'a5': (2.45, 44, 'right', 'a5hash-64', '≤ 47.81 bits'),
-  'rapid3': (24, 36, 'right', 'rapidhash v3', '≈ 28.54-bit cap*'),
-  'xxh3-64': (8.5, 19, 'left', 'XXH3-64', '≈ 24.99-bit cap*'),
-  'ahash': (.60, 31, 'left', 'aHash', '≈ 22.45-bit cap*'),
-  'komi': (14, 9.5, 'left', 'komihash', '≈ 3.14-bit cap*'),
-  'spooky': (2.9, 15, 'right', 'SpookyHash', '≈ 6.13-bit cap*'),
+  'ghash': (2.9, 132, 'left', 'GHASH', ''),
+  'poly1305': (2.7, 109, 'left', 'Poly1305', ''),
+  'umash128': (9.2, 91, 'left', 'UMASH-128', ''),
+  'chain256': (35, 77, 'right', 'ChainHash (ours)', ''),
+  'clhash': (18, 96, 'left', 'CLHASH', ''),
+  'polymur': (5.8, 49, 'left', 'PolymurHash', ''),
+  'highway': (1.05, 74, 'right', 'HighwayHash', ''),
+  'rapid3': (20, 38, 'left', 'rapidhash v3', ''),
+  'xxh3-64': (23, 18, 'left', 'XXH3-64', ''),
+  'komi': (8.4, 17, 'left', 'komihash', ''),
  },
  'xeon': {
-  'chain256': (26, 72.5, 'right', 'ChainHash (ours)', '≥ 62.41 bits · ideal keys'),
-  'clhash': (8.3, 73, 'right', 'CLHASH', '≥ 64 bits'),
-  'polymur': (5.3, 50, 'left', 'PolymurHash', '≥ 54.22 bits'),
-  'umash128': (4.8, 88, 'right', 'UMASH-128', '83 bits · claim'),
-  'umash': (13, 48.5, 'left', 'UMASH-64', '55 bits · claim'),
-  'highway': (1.1, 67, 'left', 'HighwayHash', '≤ 59.81 bits'),
-  'a5': (1.9, 45, 'right', 'a5hash-64', '≤ 47.81 bits'),
-  'rapid3': (8.9, 42, 'right', 'rapidhash v3', '≈ 28.54-bit cap*'),
-  'xxh3-64': (27, 21, 'right', 'XXH3-64', '≈ 24.99-bit cap*'),
-  'ahash': (.60, 31, 'left', 'aHash', '≈ 22.45-bit cap*'),
-  'komi': (9, 13, 'left', 'komihash', '≈ 3.14-bit cap*'),
+  'ghash': (8.5, 132, 'left', 'GHASH', ''),
+  'poly1305': (3.6, 110, 'right', 'Poly1305', ''),
+  'umash128': (4.8, 91, 'right', 'UMASH-128', ''),
+  'chain256': (26, 77, 'left', 'ChainHash (ours)', ''),
+  'clhash': (10.5, 100, 'left', 'CLHASH', ''),
+  'polymur': (4.4, 43, 'right', 'PolymurHash', ''),
+  'highway': (2.6, 76, 'right', 'HighwayHash', ''),
+  'rapid3': (8.8, 43, 'left', 'rapidhash v3', ''),
+  'xxh3-64': (24, 25, 'left', 'XXH3-64', ''),
+  'komi': (8.4, 15, 'left', 'komihash', ''),
  }
 }
 MOBILE_LABELS = {
  'm2': {
-  'chain256': (27, 72, 'right', 'ChainHash (ours)', '≥ 62.41 · ideal keys'),
-  'polymur': (9, 48, 'right', 'PolymurHash', '≥ 54.22'),
-  'highway': (.46, 59, 'left', 'HighwayHash', '≤ 59.81'),
-  'rapid3': (27, 38, 'right', 'rapidhash v3', '≈ 28.54*'),
-  'xxh3-64': (9, 19.5, 'right', 'XXH3-64', '≈ 24.99*'),
-  'komi': (24, 8, 'right', 'komihash', '≈ 3.14*'),
+  'ghash': (3.2, 132, 'left', 'GHASH', ''),
+  'poly1305': (2.8, 110, 'left', 'Poly1305', ''),
+  'chain256': (40, 82, 'right', 'ChainHash (ours)', ''),
+  'highway': (.62, 76, 'left', 'HighwayHash', ''),
+  'xxh3-64': (50, 37, 'right', 'XXH3-64', ''),
+  'komi': (8.5, 18, 'left', 'komihash', ''),
  },
  'xeon': {
-  'chain256': (27, 76, 'right', 'ChainHash (ours)', '≥ 62.41 · ideal keys'),
-  'clhash': (2.4, 71, 'left', 'CLHASH', '≥ 64'),
-  'umash128': (.47, 87, 'left', 'UMASH-128', '83 · claim'),
-  'polymur': (2.4, 51, 'right', 'PolymurHash', '≥ 54.22'),
-  'rapid3': (6, 42, 'right', 'rapidhash v3', '≈ 28.54*'),
-  'xxh3-64': (28, 22, 'right', 'XXH3-64', '≈ 24.99*'),
-  'komi': (25, 10, 'right', 'komihash', '≈ 3.14*'),
+  'ghash': (9, 133, 'left', 'GHASH', ''),
+  'poly1305': (3.7, 112, 'right', 'Poly1305', ''),
+  'chain256': (49, 81, 'right', 'ChainHash (ours)', ''),
+  'highway': (.7, 76, 'left', 'HighwayHash', ''),
+  'xxh3-64': (48, 40, 'right', 'XXH3-64', ''),
+  'komi': (8.5, 18, 'left', 'komihash', ''),
  }
 }
 
@@ -120,7 +119,7 @@ def render(key, mobile=False, compact=False):
         text(40, 54, 'Fast hashes need proofs.', 30 if compact else 36, INK, 'bold')
         text(40, 104, 'A passing test suite cannot certify a collision bound for every fixed pair.', 12 if compact else 16, MUTED)
         text(width-40, 33, host['name'] + ' · BULK', 11, MUTED, 'bold', ha='right').set_gid('host-name')
-        text(width-40, 54, 'Provisional timings' if host['provisional'] else 'SMHasher3 · B/cycle', 11, MUTED, ha='right').set_gid('host-note')
+        text(width-40, 54, 'Provisional timings' if host['provisional'] else 'Bulk · B/cycle', 11, MUTED, ha='right').set_gid('host-note')
         top, bottom, left, right = 218, 635, 68 if compact else 83, width-40
         legends = [(40,154,BLUE,'●','Proved lower bound  ↑'), (278 if compact else 395,154,ORANGE,'◆','Witness upper bound  ↓'), (528 if compact else 786,154,CLAIM,'○','Unresolved claim')]
     # Text legend uses explicit Unicode glyphs and bound directions.
@@ -131,11 +130,11 @@ def render(key, mobile=False, compact=False):
             markeredgecolor=c,markeredgewidth=1.3,linestyle='none'))
         text(x+25,y+2,label,12 if compact else 13 if mobile else 14,INK)
     ax = fig.add_axes([left/width, (height-bottom)/height, (right-left)/width, (bottom-top)/height])
-    ax.set_xscale('log'); ax.set_xlim(.40, 32); ax.set_ylim(-2, host['max_y'])
+    ax.set_xscale('log'); ax.set_xlim(.5, 64); ax.set_ylim(-2, host['max_y'])
     ax.set_facecolor(BG)
     for spine in ax.spines.values(): spine.set_visible(False)
     ax.set_axisbelow(True)
-    ax.xaxis.set_major_locator(FixedLocator([.5,1,2,5,10,20]))
+    ax.xaxis.set_major_locator(FixedLocator([.5,1,2,5,10,20,50]))
     ax.xaxis.set_major_formatter(FuncFormatter(lambda n,_: f'{n:g}'))
     ax.xaxis.set_minor_locator(FixedLocator([]))
     ax.yaxis.set_major_locator(FixedLocator(list(range(0,host['max_y']+1,16))))
@@ -149,7 +148,7 @@ def render(key, mobile=False, compact=False):
     annotations = []
     for row in rows:
         x,y=row['speed'],row['bits']
-        if not (.4 <= x <= 32 and -2 <= y <= host['max_y']):
+        if not (.5 <= x <= 64 and -2 <= y <= host['max_y']):
             raise ValueError(f"Update the figure limits before plotting {row['id']}: ({x}, {y})")
         color=BLUE if row['kind']=='proof' else CLAIM if row['kind']=='claim' else ORANGE
         marker='o' if row['kind'] in ('proof','claim') else 'x' if row.get('key_free') else 'D'
@@ -168,7 +167,7 @@ def render(key, mobile=False, compact=False):
         # Derive label values from the record, so data updates cannot leave stale text.
         if row['kind'] == 'proof':
             number = f"≥ {math.floor(row['bits']*100)/100:g}" + ('' if mobile else ' bits')
-            if id == 'chain256': number += ' · ideal keys'
+            if id == 'chain256': number += ' · model A'
         elif row['kind'] == 'claim':
             number = f"{row['bits']:g}" + ('' if mobile else ' bits') + ' · claim'
         elif row['bits_kind'] == 'measured':
@@ -185,14 +184,14 @@ def render(key, mobile=False, compact=False):
         annotation.set_gid('label-'+id)
         annotation.arrow_patch.set_gid('leader-'+id)
         annotations.append((annotation,{id}))
-    if not mobile:
+    if not (mobile or compact):
         half=[r for r in rows if r['id'].startswith('halftimehash-')]
         center=math.exp(sum(math.log(r['speed']) for r in half)/len(half))
-        tx,ty=(3.3,70) if key=='m2' else (27,59)
+        tx,ty=(5.4,77) if key=='m2' else (15.0,82)
         representative = min(half,key=lambda r:abs(math.log(r['speed']/center)))
-        a=ax.annotate('HalftimeHash\n4 styles · unresolved',xy=(representative['speed'],representative['bits']),xytext=(tx,ty),
-            ha='center' if key=='m2' else 'right',va='top',fontsize=12,color=CLAIM,linespacing=1.4,
-            bbox=dict(fc='white',ec='none',pad=3),arrowprops=dict(arrowstyle='-',color=CLAIM,lw=.8,shrinkB=8),zorder=3)
+        a=ax.annotate('HalftimeHash\n4 styles · ≥ 63 bits',xy=(representative['speed'],representative['bits']),xytext=(tx,ty),
+            ha='center',va='top',fontsize=12,color=BLUE,linespacing=1.4,
+            bbox=dict(fc='white',ec='none',pad=3),arrowprops=dict(arrowstyle='-',color=BLUE,lw=.8,shrinkB=8),zorder=3)
         a.set_gid('label-'+representative['id'])
         a.arrow_patch.set_gid('leader-halftimehash')
         annotations.append((a,{r['id'] for r in half}))
@@ -209,12 +208,12 @@ def render(key, mobile=False, compact=False):
     key_free=sum(bool(r.get('key_free')) for r in rows)
     if mobile:
         text(22,718,f'×  {key_free} variants have an every-seed pair.',12,ORANGE,'bold')
-        text(22,746,'Proofs require ideal keys. Timed seed expansion\nis outside the theorems. * Estimated cap.\nUpper caps are not a ranking of hashes.',10.5,MUTED,linespacing=1.6)
+        text(22,746,'Bounds require their stated key models.\nGHASH timing uses an OpenSSL GMAC proxy.\n* Sampled cap; upper caps are not a ranking.',10.5,MUTED,linespacing=1.6)
         text(22,818,'Thomas Dybdahl Ahle · thomasahle.com',10,MUTED)
     else:
         text(40,711,f'×  {key_free} variants have a fixed pair that collides for every seed.',14,ORANGE,'bold')
-        text(40,744,'Proofs require ideal keys; timed seed expansion is outside the theorems. * Estimated upper cap.',12,MUTED)
-        text(40,765,'Upper caps describe discovered witnesses, not a ranking. Full-output bounds; see each family’s domain.',12,MUTED)
+        text(40,744,'Bounds require their stated key models. GHASH timing uses an OpenSSL GMAC proxy.',12,MUTED)
+        text(40,765,'* Sampled upper caps describe discovered witnesses, not a ranking. See each family’s domain.',12,MUTED)
         text(width-40,794,'Thomas Dybdahl Ahle · thomasahle.com',10,MUTED,ha='right')
     suffix='-mobile' if mobile else '-compact' if compact else ''
     destination=OUT/f'{key}{suffix}.svg'
@@ -273,11 +272,11 @@ for key,host in HOSTS.items():
         profile = profile_for[r['id']]
         manifest['hosts'][key]['rows'].append({
           'id':r['id'],'name':r['name'],'label':r['label'],'kind':r['kind'],'key_free':bool(r.get('key_free')),
-          'speed':r['speed'],'bits':r['bits'],'score':r['score']['display_text'],'anchor':r['anchor'],
+          'speed':r['speed'],'bits':r['bits'],'score':(f"{r['bits']:g} (claimed)" if r['kind']=='claim' else f"≥ {math.floor(r['bits']*100)/100:g}" if r['kind']=='proof' else f"≈ {r['bits']:.2f}*" if r['bits_kind']=='measured' else f"≤ {math.ceil(r['bits']*100)/100:g}"),'anchor':r['anchor'],
           'evidence':r.get('collision',{}).get('display') or r.get('bound'),
           'scope':r.get('qualification') or r.get('domain') or r.get('key_model'),
           'source':r['speeds'][host['key']].get('url','records/speeds.json'),
-          'family':r.get('mechanism_family',''),'key_model':r.get('key_model') or r.get('domain_short',''),
+          'family':r.get('mechanism_family',''),'key_model':r.get('key_model') or r.get('domain') or r.get('domain_short',''),
           'profile':profile['ids'][0], 'summary':profile['results'][r['id']],
           'output_bits':r['output_bits'], 'code_url':r['code_url']})
 (OUT/'data.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')

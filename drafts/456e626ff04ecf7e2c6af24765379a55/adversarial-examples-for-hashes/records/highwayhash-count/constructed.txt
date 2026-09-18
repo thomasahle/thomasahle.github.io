@@ -1,0 +1,4 @@
+(A) a-side solvable tuples: 56197 ; tuples whose 256 w0 values do NOT give exactly one collision: 0
+(B) same tuples with w6 perturbed: tuples with any collision: 0
+(C) uniformly random (a,K1l,w3,w2,w1): 65536 tuples, colliding-w0 total 2 (expected ~ 65536*0.857/65536 = 0.9), mismatches with the a-side predicate: 0
+(D) special triple (29,9f,31): 3496 a-side tuples x 2 alignments; violations of {no w0>=d0 collides; #w0<d0 collisions == a-side(c1=1 W1hi)}: 0
