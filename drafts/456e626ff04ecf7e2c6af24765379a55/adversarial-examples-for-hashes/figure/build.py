@@ -1,0 +1,286 @@
+"""Rebuild publication SVGs, PNGs, and inspection data from ../data.json.
+Run: python3 blog/adversarial-examples-for-hashes/figure/build.py
+Requires matplotlib. Does not alter measurements or the article.
+"""
+from pathlib import Path
+import copy
+import hashlib
+import json
+import math
+import xml.etree.ElementTree as ET
+
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FixedLocator, FuncFormatter
+from matplotlib.lines import Line2D
+
+ROOT = Path(__file__).resolve().parent.parent
+SOURCE = ROOT / 'data.json'
+DATA = json.loads(SOURCE.read_text())
+OUT = ROOT / 'figure'
+INK, MUTED, GRID = '#263330', '#626e69', '#e5ebe7'
+BLUE, ORANGE, CLAIM = '#176f83', '#bd5637', '#737d8d'
+BG = '#ffffff'
+plt.rcParams.update({'font.family': 'sans-serif', 'font.sans-serif': ['Arial', 'DejaVu Sans'],
+                     'svg.fonttype': 'none', 'svg.hashsalt': 'hash-collision-figure',
+                     'axes.unicode_minus': False})
+HOSTS = {
+ 'm2': dict(key='smh_m2_bulk_Bpc', host='M2Pro', name='APPLE M2 PRO', max_y=88, provisional=True),
+ 'xeon': dict(key='smh_xeon_bulk_Bpc', host='Xeon8375C', name='INTEL XEON 8375C', max_y=88, provisional=False),
+}
+
+def rows_for(host):
+    rows = []
+    for source in DATA['heuristics'] + DATA['proven']:
+        variants = source.get('style_speeds')
+        expanded = []
+        if variants:
+            for name, speeds in variants.items():
+                row = copy.deepcopy(source)
+                style = name.split('-')[-1]
+                row.update(id=source['id'] + '-' + style, name='HalftimeHash ' + style, label='HalftimeHash ' + style)
+                row['speeds'][host['key']]['value'] = speeds[host['host']]['bulk_bytes_per_cycle']
+                expanded.append(row)
+        else:
+            expanded = [source]
+        for row in expanded:
+            speed = row['speeds'][host['key']]['value']
+            if not row.get('chart_eligible') or speed is None or not math.isfinite(speed) or speed <= 0:
+                continue
+            kind = 'claim' if row['bits_kind'] == 'claimed' else 'proof' if row['family'] == 'proven' else 'witness'
+            row.update(speed=speed, kind=kind)
+            rows.append(row)
+    return rows
+
+# Hand-placed landmark labels. Coordinates refer to data, never to shifted marks.
+LABELS = {
+ 'm2': {
+  'chain256': (25, 71, 'right', 'ChainHash (ours)', '≥ 62.41 bits · ideal keys'),
+  'polymur': (8.0, 52, 'left', 'PolymurHash', '≥ 54.22 bits'),
+  'highway': (.58, 51, 'left', 'HighwayHash', '≤ 59.81 bits'),
+  'a5': (2.45, 44, 'right', 'a5hash-64', '≤ 47.81 bits'),
+  'rapid3': (24, 36, 'right', 'rapidhash v3', '≈ 28.54-bit cap*'),
+  'xxh3-64': (8.5, 19, 'left', 'XXH3-64', '≈ 24.99-bit cap*'),
+  'ahash': (.60, 31, 'left', 'aHash', '≈ 22.45-bit cap*'),
+  'komi': (14, 9.5, 'left', 'komihash', '≈ 3.14-bit cap*'),
+  'spooky': (2.9, 15, 'right', 'SpookyHash', '≈ 6.13-bit cap*'),
+ },
+ 'xeon': {
+  'chain256': (26, 72.5, 'right', 'ChainHash (ours)', '≥ 62.41 bits · ideal keys'),
+  'clhash': (8.3, 73, 'right', 'CLHASH', '≥ 64 bits'),
+  'polymur': (5.3, 50, 'left', 'PolymurHash', '≥ 54.22 bits'),
+  'umash128': (4.8, 88, 'right', 'UMASH-128', '83 bits · claim'),
+  'umash': (13, 48.5, 'left', 'UMASH-64', '55 bits · claim'),
+  'highway': (1.1, 67, 'left', 'HighwayHash', '≤ 59.81 bits'),
+  'a5': (1.9, 45, 'right', 'a5hash-64', '≤ 47.81 bits'),
+  'rapid3': (8.9, 42, 'right', 'rapidhash v3', '≈ 28.54-bit cap*'),
+  'xxh3-64': (27, 21, 'right', 'XXH3-64', '≈ 24.99-bit cap*'),
+  'ahash': (.60, 31, 'left', 'aHash', '≈ 22.45-bit cap*'),
+  'komi': (9, 13, 'left', 'komihash', '≈ 3.14-bit cap*'),
+ }
+}
+MOBILE_LABELS = {
+ 'm2': {
+  'chain256': (27, 72, 'right', 'ChainHash (ours)', '≥ 62.41 · ideal keys'),
+  'polymur': (9, 48, 'right', 'PolymurHash', '≥ 54.22'),
+  'highway': (.46, 59, 'left', 'HighwayHash', '≤ 59.81'),
+  'rapid3': (27, 38, 'right', 'rapidhash v3', '≈ 28.54*'),
+  'xxh3-64': (9, 19.5, 'right', 'XXH3-64', '≈ 24.99*'),
+  'komi': (24, 8, 'right', 'komihash', '≈ 3.14*'),
+ },
+ 'xeon': {
+  'chain256': (27, 76, 'right', 'ChainHash (ours)', '≥ 62.41 · ideal keys'),
+  'clhash': (2.4, 71, 'left', 'CLHASH', '≥ 64'),
+  'umash128': (.47, 87, 'left', 'UMASH-128', '83 · claim'),
+  'polymur': (2.4, 51, 'right', 'PolymurHash', '≥ 54.22'),
+  'rapid3': (6, 42, 'right', 'rapidhash v3', '≈ 28.54*'),
+  'xxh3-64': (28, 22, 'right', 'XXH3-64', '≈ 24.99*'),
+  'komi': (25, 10, 'right', 'komihash', '≈ 3.14*'),
+ }
+}
+
+def render(key, mobile=False, compact=False):
+    host = HOSTS[key]
+    rows = rows_for(host)
+    width, height = (390, 845) if mobile else (760, 820) if compact else (1100, 820)
+    fig = plt.figure(figsize=(width / 72, height / 72), dpi=144, facecolor=BG)
+    def text(x, y, label, size=14, color=INK, weight='normal', **kw):
+        return fig.text(x/width, 1-y/height, label, size=size, color=color, weight=weight,
+                        va='top', **kw)
+    if mobile:
+        text(22, 22, 'FAST HASHES NEED PROOFS.', 11, BLUE, 'bold')
+        text(22, 49, 'Speed and collision bounds', 21, INK, 'bold')
+        text(22, 80, host['name'] + ' · BULK', 11, MUTED, 'bold').set_gid('host-name')
+        text(22, 102, 'Provisional timings' if host['provisional'] else 'B/cycle · logarithmic speed axis', 11, MUTED).set_gid('host-note')
+        top, bottom, left, right = 265, 658, 49, 372
+        legends = [(22,143,BLUE,'●','Proved lower bound'),(22,169,ORANGE,'◆','Witness upper bound'),(22,195,CLAIM,'○','Unresolved claim')]
+    else:
+        text(40, 26, 'ADVERSARIAL EXAMPLES FOR FAST HASH FUNCTIONS', 11, MUTED, 'bold')
+        text(40, 54, 'Fast hashes need proofs.', 30 if compact else 36, INK, 'bold')
+        text(40, 104, 'A passing test suite cannot certify a collision bound for every fixed pair.', 12 if compact else 16, MUTED)
+        text(width-40, 33, host['name'] + ' · BULK', 11, MUTED, 'bold', ha='right').set_gid('host-name')
+        text(width-40, 54, 'Provisional timings' if host['provisional'] else 'SMHasher3 · B/cycle', 11, MUTED, ha='right').set_gid('host-note')
+        top, bottom, left, right = 218, 635, 68 if compact else 83, width-40
+        legends = [(40,154,BLUE,'●','Proved lower bound  ↑'), (278 if compact else 395,154,ORANGE,'◆','Witness upper bound  ↓'), (528 if compact else 786,154,CLAIM,'○','Unresolved claim')]
+    # Text legend uses explicit Unicode glyphs and bound directions.
+    for x,y,c,glyph,label in legends:
+        marker = 'D' if glyph == '◆' else 'o'
+        fig.add_artist(Line2D([x/width+6/width],[1-(y+11)/height],transform=fig.transFigure,
+            marker=marker,markersize=7,markerfacecolor='white' if glyph == '○' else c,
+            markeredgecolor=c,markeredgewidth=1.3,linestyle='none'))
+        text(x+25,y+2,label,12 if compact else 13 if mobile else 14,INK)
+    ax = fig.add_axes([left/width, (height-bottom)/height, (right-left)/width, (bottom-top)/height])
+    ax.set_xscale('log'); ax.set_xlim(.40, 32); ax.set_ylim(-2, host['max_y'])
+    ax.set_facecolor(BG)
+    for spine in ax.spines.values(): spine.set_visible(False)
+    ax.set_axisbelow(True)
+    ax.xaxis.set_major_locator(FixedLocator([.5,1,2,5,10,20]))
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda n,_: f'{n:g}'))
+    ax.xaxis.set_minor_locator(FixedLocator([]))
+    ax.yaxis.set_major_locator(FixedLocator(list(range(0,host['max_y']+1,16))))
+    ax.tick_params(axis='both', length=0, labelsize=11 if mobile else 12, colors=MUTED, pad=9)
+    ax.grid(axis='y',color=GRID,lw=.7)
+    # A narrow tint separates the every-seed cluster without moving its points.
+    ax.axhspan(-2,2.5,color='#fcf2ed',zorder=0)
+    ax.set_xlabel('Bulk speed · B/cycle · log scale  →',fontsize=12 if mobile else 14,labelpad=15,color=INK)
+    text(left, top-28, 'Collision score · bits', 11 if mobile else 13, MUTED)
+    point_positions = {}
+    annotations = []
+    for row in rows:
+        x,y=row['speed'],row['bits']
+        if not (.4 <= x <= 32 and -2 <= y <= host['max_y']):
+            raise ValueError(f"Update the figure limits before plotting {row['id']}: ({x}, {y})")
+        color=BLUE if row['kind']=='proof' else CLAIM if row['kind']=='claim' else ORANGE
+        marker='o' if row['kind'] in ('proof','claim') else 'x' if row.get('key_free') else 'D'
+        artist=ax.scatter([x],[y],s=66 if row['kind']=='proof' else 45,marker=marker,
+                          facecolors='white' if row['kind']=='claim' else color,
+                          **({} if marker == 'x' else {'edgecolors':color}),linewidths=1.6 if row['kind']=='claim' or row.get('key_free') else .7,
+                          zorder=4,alpha=.85 if row.get('key_free') else 1)
+        artist.set_gid('point-'+row['id'])
+        px,py=ax.transData.transform((x,y))
+        point_positions[row['id']]=(px*72/fig.dpi,height-py*72/fig.dpi)
+    labels=MOBILE_LABELS[key] if mobile or compact else LABELS[key]
+    row_by_id={r['id']:r for r in rows}
+    for id,(tx,ty,align,name,number) in labels.items():
+        if id not in row_by_id: continue
+        row=row_by_id[id]
+        # Derive label values from the record, so data updates cannot leave stale text.
+        if row['kind'] == 'proof':
+            number = f"≥ {math.floor(row['bits']*100)/100:g}" + ('' if mobile else ' bits')
+            if id == 'chain256': number += ' · ideal keys'
+        elif row['kind'] == 'claim':
+            number = f"{row['bits']:g}" + ('' if mobile else ' bits') + ' · claim'
+        elif row['bits_kind'] == 'measured':
+            number = f"≈ {row['bits']:.2f}" + ('*' if mobile else '-bit cap*')
+        else:
+            number = f"≤ {math.ceil(row['bits']*100)/100:g}" + ('' if mobile else ' bits')
+        c=BLUE if row['kind']=='proof' else CLAIM if row['kind']=='claim' else ORANGE
+        # Deliberate label positions, with leaders terminating at the true data.
+        annotation=ax.annotate(name+'\n'+number,xy=(row['speed'],row['bits']),xytext=(tx,ty),
+            fontsize=12 if mobile else 14,weight='bold' if id=='chain256' else 'normal',
+            color=c,ha=align,va='top',linespacing=1.5,
+            bbox=dict(boxstyle='square,pad=.2',fc='white',ec='none',alpha=.96),
+            arrowprops=dict(arrowstyle='-',color=c,alpha=.5,lw=.8,shrinkA=5,shrinkB=8),zorder=5)
+        annotation.set_gid('label-'+id)
+        annotation.arrow_patch.set_gid('leader-'+id)
+        annotations.append((annotation,{id}))
+    if not mobile:
+        half=[r for r in rows if r['id'].startswith('halftimehash-')]
+        center=math.exp(sum(math.log(r['speed']) for r in half)/len(half))
+        tx,ty=(3.3,70) if key=='m2' else (27,59)
+        representative = min(half,key=lambda r:abs(math.log(r['speed']/center)))
+        a=ax.annotate('HalftimeHash\n4 styles · unresolved',xy=(representative['speed'],representative['bits']),xytext=(tx,ty),
+            ha='center' if key=='m2' else 'right',va='top',fontsize=12,color=CLAIM,linespacing=1.4,
+            bbox=dict(fc='white',ec='none',pad=3),arrowprops=dict(arrowstyle='-',color=CLAIM,lw=.8,shrinkB=8),zorder=3)
+        a.set_gid('label-'+representative['id'])
+        a.arrow_patch.set_gid('leader-halftimehash')
+        annotations.append((a,{r['id'] for r in half}))
+    fig.canvas.draw()
+    label_boxes = [(annotation.get_bbox_patch().get_window_extent(), ids) for annotation,ids in annotations]
+    for box, ids in label_boxes:
+        for row in rows:
+            if row['id'] not in ids and box.contains(*ax.transData.transform((row['speed'],row['bits']))):
+                raise ValueError(f"{key}{'-mobile' if mobile else ''}: label {ids} obscures {row['id']}")
+    for i,(box,ids) in enumerate(label_boxes):
+        for other,other_ids in label_boxes[i+1:]:
+            if box.overlaps(other):
+                raise ValueError(f"{key}{'-mobile' if mobile else ''}: labels {ids} and {other_ids} overlap")
+    key_free=sum(bool(r.get('key_free')) for r in rows)
+    if mobile:
+        text(22,718,f'×  {key_free} variants have an every-seed pair.',12,ORANGE,'bold')
+        text(22,746,'Proofs require ideal keys. Timed seed expansion\nis outside the theorems. * Estimated cap.\nUpper caps are not a ranking of hashes.',10.5,MUTED,linespacing=1.6)
+        text(22,818,'Thomas Dybdahl Ahle · thomasahle.com',10,MUTED)
+    else:
+        text(40,711,f'×  {key_free} variants have a fixed pair that collides for every seed.',14,ORANGE,'bold')
+        text(40,744,'Proofs require ideal keys; timed seed expansion is outside the theorems. * Estimated upper cap.',12,MUTED)
+        text(40,765,'Upper caps describe discovered witnesses, not a ranking. Full-output bounds; see each family’s domain.',12,MUTED)
+        text(width-40,794,'Thomas Dybdahl Ahle · thomasahle.com',10,MUTED,ha='right')
+    suffix='-mobile' if mobile else '-compact' if compact else ''
+    destination=OUT/f'{key}{suffix}.svg'
+    fig.savefig(destination,format='svg',facecolor=BG,metadata={'Date':None,'Creator':'Thomas Dybdahl Ahle; generated from data.json'})
+    fig.savefig(OUT/f'{key}{suffix}.png',dpi=144,facecolor=BG)
+    plt.close(fig)
+    # Keep semantic, generously sized targets in the exact exported SVG.
+    ns='http://www.w3.org/2000/svg'; ET.register_namespace('',ns); ET.register_namespace('xlink','http://www.w3.org/1999/xlink')
+    tree=ET.parse(destination); svg=tree.getroot()
+    svg.set('role','img'); svg.set('aria-label','Fast hashes need proofs: collision bounds versus bulk speed on '+host['name'])
+    for g in svg.iter('{'+ns+'}g'):
+        id=g.get('id','')
+        if id.startswith('point-'):
+            rid=id[6:]; row=row_by_id[rid]
+            g.set('data-point-id',rid); g.set('data-speed',str(row['speed']));g.set('data-bits',str(row['bits']))
+            g.set('tabindex','0'); g.set('role','button')
+            g.set('aria-label',row['name']+': '+row['score']['display_text']+' bits; '+str(row['speed'])+' B/cycle. Inspect result.')
+            px,py=point_positions[rid]
+            ET.SubElement(g,'{'+ns+'}circle',{'cx':str(px),'cy':str(py),'r':'12','fill':'transparent','class':'point-hit'})
+            ET.SubElement(g,'{'+ns+'}circle',{'cx':str(px),'cy':str(py),'r':'10','fill':'none','stroke':INK,'stroke-width':'1.4','opacity':'0','class':'point-ring'})
+        if id.startswith('label-'):
+            g.set('data-label-for',id[6:])
+            g.set('data-label-key','halftimehash' if id.startswith('label-halftimehash-') else id[6:])
+        if id.startswith('leader-'):
+            g.set('data-leader-for',id[7:])
+    style=ET.SubElement(svg,'{'+ns+'}style')
+    style.text='[data-point-id],[data-label-for]{cursor:pointer}[data-point-id]:focus{outline:none}[data-point-id]:focus .point-ring,[data-point-id].is-active .point-ring{opacity:1}'
+    tree.write(destination,encoding='unicode',xml_declaration=True)
+    return rows
+
+profile_source = OUT / 'profiles.json'
+profiles = json.loads(profile_source.read_text())['profiles']
+profile_for = {}
+for profile in profiles:
+    for row_id in profile['ids']:
+        if row_id in profile_for:
+            raise ValueError(f'Duplicate hash profile: {row_id}')
+        if not profile['results'].get(row_id):
+            raise ValueError(f'Missing result explanation: {row_id}')
+        profile_for[row_id] = profile
+for host in HOSTS.values():
+    for row in rows_for(host):
+        if row['id'] not in profile_for:
+            raise ValueError(f'Missing hash profile: {row["id"]}')
+
+manifest={'source_sha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
+          'profiles_sha256':hashlib.sha256(profile_source.read_bytes()).hexdigest(),
+          'profiles':{p['ids'][0]:{k:p[k] for k in ('authors','background','links','sources')} for p in profiles},
+          'hosts':{}}
+for key,host in HOSTS.items():
+    rows=render(key)
+    render(key,True)
+    render(key,compact=True)
+    manifest['hosts'][key]={'name':host['name'],'provisional':host['provisional'],'key':host['key'],'rows':[]}
+    for r in rows:
+        profile = profile_for[r['id']]
+        manifest['hosts'][key]['rows'].append({
+          'id':r['id'],'name':r['name'],'label':r['label'],'kind':r['kind'],'key_free':bool(r.get('key_free')),
+          'speed':r['speed'],'bits':r['bits'],'score':r['score']['display_text'],'anchor':r['anchor'],
+          'evidence':r.get('collision',{}).get('display') or r.get('bound'),
+          'scope':r.get('qualification') or r.get('domain') or r.get('key_model'),
+          'source':r['speeds'][host['key']].get('url','records/speeds.json'),
+          'family':r.get('mechanism_family',''),'key_model':r.get('key_model') or r.get('domain_short',''),
+          'profile':profile['ids'][0], 'summary':profile['results'][r['id']],
+          'output_bits':r['output_bits'], 'code_url':r['code_url']})
+(OUT/'data.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+(ROOT/'feature.svg').write_bytes((OUT/'m2.svg').read_bytes())
+(ROOT/'feature.png').write_bytes((OUT/'m2.png').read_bytes())
+print('Generated 6 SVGs, 6 PNGs, inspection data, and feature.svg/png from data.json.')

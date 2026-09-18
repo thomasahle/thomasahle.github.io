@@ -1,0 +1,9 @@
+SMHasher3 wyhash final v4.3: 9DAE7DD3 expected 9DAE7DD3 PASS
+harness message digest, seed 3: 786d1f1df3801df4 expected 786d1f1df3801df4 PASS
+
+paper pair A / wyhash final v4.3
+M (32 B) = 9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c
+M' (32 B) = 642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c
+recorded colliding seed 131b854bbd1f5b12: H(M)=a7dd61b404363777 H(M')=a7dd61b404363777
+collisions = 0 / 1048576; rate = 0; log2(rate) = -inf (zero hits; no population-rate estimate)
+no sampled collision; the recorded witness above was checked separately

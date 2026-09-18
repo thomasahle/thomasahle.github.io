@@ -1,0 +1,296 @@
+#!/usr/bin/env python3
+"""Build browser adapters without rewriting any verification-program source."""
+from pathlib import Path
+import copy
+import hashlib
+import html
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parent
+os.chdir(ROOT)
+OUT = ROOT / 'out'
+WASM = OUT / 'wasm'
+WASM.mkdir(parents=True, exist_ok=True)
+
+MODULES = {
+    'city': 'cityhash-64', 'farm': 'farmhash-64', 'gx': 'gxhash-64',
+    'murmur': 'murmurhash3-128', 'muse': 'museair', 'komi': 'komihash',
+    'spooky': 'spookyhash2-64', 'ahash': 'rust-ahash', 't1ha': 't1ha2-64',
+    'a5': 'a5hash', 'a5wide': 'a5hash', 'highway': 'highwayhash',
+    'rapid1': 'rapidhash-v1', 'rapid3': 'rapidhash-v3',
+    'fasthash-64': 'fasthash', 'fasthash-32': 'fasthash',
+}
+
+# These are adapters to functions in the unchanged source, not new hashes.
+VALIDATION = {
+    'cityhash-64': 'return smhasher3_verification() == 0x5FABC5C5u;',
+    'farmhash-64': 'return smhasher3_verification() == 0xEBC4A679u;',
+    'gxhash-64': 'return smhasher3_verification(8) == 0x48F84240u && smhasher3_verification(16) == 0x64A77B47u;',
+    'murmurhash3-128': 'return smhasher3_verification() == 0x6384BA69u;',
+    'museair': 'for(int i=0;i<4;++i) if(smhasher3_verification(&VARIANTS[i]) != VARIANTS[i].verification) return 0; return 1;',
+    'komihash': 'demo_original_validate(); return 1;',
+    'spookyhash2-64': 'return smhasher3_verification(8)==0x972C4BDCu && smhasher3_verification(4)==0xA48BE265u && smhasher3_verification(16)==0x893CFCBEu;',
+    'rust-ahash': 'aes_init(); return smhasher3_verify(ahash_aes)==0x3BF4383Bu && smhasher3_verify(ahash_fb)==0x53C9F167u;',
+    't1ha2-64': 'demo_original_validate(); return 1;',
+    'a5hash': 'if(smhasher3_verification(64)!=0xADDE79B3u || smhasher3_verification(128)!=0x89406B11u) return 0; return demo_validate_a5_class();',
+    'highwayhash': 'return sm3_verification(64)==0xF3246108u && sm3_verification(128)==0x232D434Eu && sm3_verification(256)==0x0D50D328u;',
+}
+DIGEST = {
+    'cityhash-64': 'out[0] = cityhash64_with_seed(m,n,key[0]);',
+    'farmhash-64': 'out[0] = farm_hash64_with_seed(m,n,key[0]);',
+    'gxhash-64': 'blk h = gxhash128(m,n,key[0]); out[0] = demo_read64(h.b); if(demo_pairs[i].bits==128) out[1]=demo_read64(h.b+8);',
+    'murmurhash3-128': 'uint8_t h[16]; murmurhash3_x64_128(m,n,(uint32_t)key[0],h); out[0]=demo_read64(h); out[1]=demo_read64(h+8);',
+    'museair': 'uint8_t h[16]; const variant_t *v=&VARIANTS[demo_pairs[i].variant]; museair(m,n,key[0],v->bfast,v->b128,h); out[0]=demo_read64(h); if(v->b128) out[1]=demo_read64(h+8);',
+    'komihash': 'out[0] = komihash(m,n,key[0]);',
+    'spookyhash2-64': 'uint64_t a=key[0], b=key[0]; spooky2_128(m,n,&a,&b); out[0]=a; if(demo_pairs[i].bits==128) out[1]=b;',
+    'rust-ahash': 'out[0] = ahash_aes(m,n,key);',
+    't1ha2-64': 'out[0] = t1ha2_64(m,n,key[0]);',
+    'a5hash': 'if(demo_pairs[i].bits==128) a5hash128(m,n,key[0],out,out+1); else out[0]=a5hash64(m,n,key[0]);',
+    'highwayhash': 'hh_any(demo_pairs[i].bits,m,n,key,out);',
+}
+
+
+def a5_roots():
+    """Enumerate the 118 normalized factors, with no external table dependency.
+
+    For len 6615, X has valuation 20, Y valuation 17. The low product
+    equation becomes odd p*q = target>>37 (mod 2^27). There are 8192
+    admissible p values; invert each, retaining q's fixed alternating bits.
+    The other 19 seed bits do not affect the low 64-bit product.
+    """
+    even, odd = 0x5555555555555555, 0xAAAAAAAAAAAAAAAA
+    c1, c2 = 0x243F6A8885A308D3 ^ 6615, 0x452821E638D01377 ^ 6615
+    mask = (1 << 27) - 1
+    fixed_p = (even >> 20) & mask
+    fixed_q = (odd >> 17) & mask
+    base = ((c2 >> 20) & fixed_p) | 1
+    roots = []
+    for choice in range(1 << 13):
+        p = base | sum(((choice >> j) & 1) << (2*j + 1) for j in range(13))
+        q = ((0x8e5caae000000000 >> 37) * pow(p, -1, 1 << 27)) & mask
+        if q & fixed_q == (c1 >> 17) & fixed_q:
+            seed = (((p << 20) ^ c2) & odd) | (((q << 17) ^ c1) & even)
+            roots.append(seed)
+    free = sum(1 << k for k in range(64) if (k % 2 and k >= 47) or (not k % 2 and k >= 44))
+    roots = [s & ~free for s in roots]
+    assert len(roots) == len(set(roots)) == 118 and bin(free).count('1') == 19
+    for s in roots:
+        for fill in [0, free]:
+            k = s | fill
+            assert ((c2 ^ (k & odd)) * (c1 ^ (k & even))) & ((1 << 64)-1) == 0x8e5caae000000000
+    return roots, free
+
+
+def adapter_class(module):
+    if module == 'highwayhash':
+        return '', 'key[0] = (key[0] & UINT64_C(0xffffffff)) | (CLASS_HI32 << 32); return 1;'
+    if module == 't1ha2-64':
+        return '', '''lmap_t map = lmap_init(demo_pairs[i].message[0], demo_pairs[i].length[0]);
+    key[0] = lmap_seed(&map, (key[0] & ~PAIRS[0].lmask) | PAIRS[0].lval); return 1;'''
+    if module == 'a5hash':
+        roots, free = a5_roots()
+        table = ',\n'.join(f'    UINT64_C(0x{s:016x})' for s in roots)
+        extra = f'''/* Generated by the exact modular inversion in build_demos.py. */
+static const uint64_t demo_a5_roots[118] = {{\n{table}\n}};
+static const uint64_t demo_a5_free = UINT64_C(0x{free:016x});
+static int demo_validate_a5_class(void) {{
+    for(int i=0;i<118;++i) {{
+        uint64_t s=demo_a5_roots[i];
+        if(s1_init(6615,s)!=UINT64_C(0x8e5caae000000000)) return 0;
+        for(int bit=0;bit<64;++bit) if((demo_a5_free>>bit)&1)
+            if(s1_init(6615,s|(UINT64_C(1)<<bit))!=UINT64_C(0x8e5caae000000000)) return 0;
+    }}
+    return 1;
+}}
+'''
+        # Rejection sampling removes modulo bias when choosing one of 118 roots.
+        sample = '''uint64_t r;
+    do { r=demo_next(state); } while(r < (uint64_t)(-UINT64_C(118)) % 118);
+    key[0] = demo_a5_roots[r % 118] | (key[0] & demo_a5_free);
+    return s1_init(6615,key[0]) == UINT64_C(0x8e5caae000000000);'''
+        return extra, sample
+    return '', 'return 0;'
+
+
+def records():
+    rows = json.loads(Path('build/selected-records.json').read_text())
+    result = []
+    variants = {
+        'gx': [(128, 'gxhash, full 128-bit output', 1)],
+        'muse': [(64, 'MuseAir bfast', 1), (128, 'MuseAir-128', 2), (128, 'MuseAir-128 bfast', 3)],
+        'spooky': [(32, 'SpookyHash2-32 (duplicated 64-bit seed)', 1), (128, 'SpookyHash2-128', 2)],
+        'highway': [(128, 'HighwayHash-128', 1), (256, 'HighwayHash-256', 2)],
+        'mum': [(64, 'MUM v3 exact unroll4', 1)],
+        'mir': [(64, 'mir.inexact', 1)],
+        'rapid3': [(64, 'rapidhash v3 micro', 1), (64, 'rapidhash v3 nano', 2)],
+    }
+    for row in rows:
+        row['module'] = MODULES.get(row['id'], row['id'])
+        row['seedBits'] = 32 if row['id'] in ['murmur','nmhash32','nmhash32x'] else 64
+        row['keyWords'] = len(row['keys'])
+        row['variant'] = 1 if row['id']=='fasthash-32' else 0
+        row['batch'] = 10000 if row['id'] in ['ahash','a5','highway','gx'] else 100000
+        row['validation'] = 'SMHasher3 verification passed'
+        if row['id']=='rapid1':
+            row['validation'] = 'Reference vector passed (v1 has no SMHasher3 registration in this package)'
+        if row['id']=='a5':
+            row.update(classText='s1_init(6615, seed) = 0x8e5caae000000000; 118 × 2¹⁹ seeds, density 118 × 2⁻⁴⁵.', classLog2=row['log2Rate'], conditionalLog2=0)
+        elif row['id']=='t1ha':
+            row.update(classText='L & 0x7f868a5066451822 = 0x16808a1062000020, where L = ((seed XOR l₀) + tail) × P1 mod 2⁶⁴. Density 2⁻²⁶; L is a bijection of the seed.', classLog2=-26, conditionalLog2=-4)
+        elif row['id']=='highway':
+            row.update(classText='hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2⁻³².', classLog2=-32, conditionalLog2=row['log2Rate']+32)
+        result.append(row)
+        for bits, name, v in variants.get(row['id'], []):
+            alt=copy.deepcopy(row)
+            alt.update(id=row['id']+'-variant-'+str(v), bits=bits, name=name, variant=v, expected=None)
+            result.append(alt)
+    # Expose the upstream 32-bit-seed fasthash32 API distinctly from SMHasher3.
+    alt=copy.deepcopy(next(r for r in result if r['id']=='fasthash-32'))
+    alt.update(id='fasthash-32-api', name='fasthash-32 (32-bit API seed)', seedBits=32,
+               variant=2, keys=['00000000'], expected='33f6e94b')
+    result.append(alt)
+    return result
+
+
+def make_wrapper(module, rows):
+    source = next(p for p in Path('verify',module).glob('*.c') if p.name not in ['selected_pairs.c','additional_pairs.c'])
+    text = source.read_text()
+    parts = ['/* Generated adapter. Rebuild with python3 build_demos.py. */']
+    for name in ['main','validate','hash_pair','rng_init']:
+        parts.append(f'#define {name} demo_original_{name}')
+    parts.append(f'#include "../{source.as_posix()}"')
+    for name in ['main','validate','hash_pair','rng_init']:
+        parts.append(f'#undef {name}')
+    parts.append('#include "api-types.h"')
+    data_cache = {}
+    for r in rows:
+        assert [len(bytes.fromhex(m)) for m in r['messages']] == r['lengths']
+        for m in r['messages']:
+            if m not in data_cache:
+                name = f'demo_message_{len(data_cache)}'
+                data_cache[m] = name
+                raw = bytes.fromhex(m)
+                # Actual byte arrays avoid a NUL terminator and preserve source byte order.
+                lines = [','.join(f'0x{x:02x}' for x in raw[i:i+32]) for i in range(0,len(raw),32)]
+                parts.append(f'static const uint8_t {name}[] = {{\n'+',\n'.join(lines)+'\n};')
+    parts.append('static const DemoPair demo_pairs[] = {')
+    for r in rows:
+        keys = ','.join('UINT64_C(0x'+k.removeprefix('0x')+')' for k in r['keys'])
+        expected = json.dumps(r['expected'].removeprefix('0x').lower()) if r['expected'] else 'NULL'
+        r['pair'] = rows.index(r)
+        parts.append('    {{%s,%s},{%d,%d},%d,%d,%d,%d,%d,{%s},%s},' % (
+            *(data_cache[m] for m in r['messages']), *r['lengths'], r['bits'],r['seedBits'],r['keyWords'],r['variant'],int('classText' in r),keys,expected))
+    parts.append('};')
+    extra, sampler=adapter_class(module)
+    parts.append(extra)
+    validation=VALIDATION.get(module)
+    if validation is None:
+        check = 'additional_validation' if 'static int additional_validation(' in text else 'structure_checks'
+        validation=f'''for(size_t j=0;j<sizeof(variants)/sizeof(*variants);++j)
+        if(variants[j].verification && verification(&variants[j])!=variants[j].verification) return 0;
+    return {check}();'''
+    parts.append('static int demo_source_validation(void) {\n    '+validation+'\n}')
+    digest=DIGEST.get(module, 'Result h=variants[demo_pairs[i].variant].hash(m,n,key[0]); out[0]=h.lo; out[1]=h.hi;')
+    parts.append('static void demo_digest(int i,const uint8_t *m,size_t n,const uint64_t key[4],uint64_t out[4]) {\n    '+digest+'\n}')
+    parts.append('static int demo_class_key(int i,uint64_t state[4],uint64_t key[4]) {\n    '+sampler+'\n}')
+    seed_map = 'keys_from_seed(seed,key);' if module=='rust-ahash' else 'sm3_key(seed,key);' if module=='highwayhash' else 'key[0]=seed;'
+    parts.append('static void demo_seed_key(uint64_t seed,uint64_t key[4]) { '+seed_map+' }')
+    parts.append('#include "api.h"')
+    wrapper=Path('wrappers',module+'.c')
+    wrapper.write_text('\n'.join(parts)+'\n')
+    return source, wrapper
+
+
+def build():
+    # The archive's manifest establishes that every original file is unchanged.
+    for item in json.loads(Path('verify/MANIFEST.json').read_text()):
+        p=Path('verify',item['path'])
+        if hashlib.sha256(p.read_bytes()).hexdigest()!=item['sha256']:
+            raise RuntimeError(f'Original package file changed: {p}')
+    emcc=os.environ.get('EMCC') or str(ROOT/'emsdk/upstream/emscripten/emcc')
+    if not Path(emcc).exists():
+        emcc=shutil.which('emcc')
+    if not emcc:
+        raise SystemExit('Install emscripten with brew install emscripten, or supply ./emsdk or EMCC.')
+    rows=records()
+    grouped={}
+    for r in rows: grouped.setdefault(r['module'],[]).append(r)
+    exports=['init','validate','pair_count','pair_bytes','pair_len','hash_pair','hash_key','run_batch','sample_seed','rng_init','scratch','example_key','seed_bits','key_words','has_class']
+    manifest={'modules':{},'entries':{}}
+    for module,rr in grouped.items():
+        source,wrapper=make_wrapper(module,rr)
+        command=[emcc,str(wrapper),'-O2','-std=c11','--no-entry','-sMODULARIZE=1','-sEXPORT_ES6=1',
+                 '-sENVIRONMENT=worker,node','-sFILESYSTEM=0','-sASSERTIONS=0','-sALLOW_MEMORY_GROWTH=0',
+                 '-sINITIAL_MEMORY=16777216','-sSTACK_SIZE=262144',
+                 '-sEXPORTED_FUNCTIONS='+json.dumps(['_'+n for n in exports]),
+                 '-sEXPORTED_RUNTIME_METHODS=["UTF8ToString","HEAPU8"]','-o',str(WASM/(module+'.js'))]
+        run=subprocess.run(command,capture_output=True,text=True)
+        Path('build',module+'.log').write_text(run.stdout+run.stderr)
+        if run.returncode:
+            sys.stderr.write(run.stderr)
+            raise SystemExit(run.returncode)
+        size=(WASM/(module+'.wasm')).stat().st_size
+        if size>=200000: raise RuntimeError(f'{module} exceeds 200 KB: {size}')
+        manifest['modules'][module]={'bytes':size,'source':str(source),'sha256':hashlib.sha256(source.read_bytes()).hexdigest()}
+        for r in rr:
+            entry=manifest['entries'].setdefault(r['anchor'],{'module':module,'pairs':[]})
+            entry['pairs'].append({k:v for k,v in r.items() if k not in ['messages','keys','expected','rateKind']})
+        print(f'{module}: {size:,} bytes, {len(rr)} pairs/variants',flush=True)
+    (WASM/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    # Ship the unchanged source beside the binaries, including its license notices.
+    shutil.copytree('verify',OUT/'verify',dirs_exist_ok=True)
+    write_page(manifest)
+
+
+def write_page(manifest):
+    original=Path('page/index.html').read_text()
+    # Insert at source offsets; do not round-trip the article through a serializer.
+    from html.parser import HTMLParser
+    class Sections(HTMLParser):
+        def __init__(self,text):
+            super().__init__(convert_charrefs=False)
+            self.offsets=[0]
+            for line in text.splitlines(keepends=True):self.offsets.append(self.offsets[-1]+len(line))
+            self.stack=[];self.inserts=[]
+        def handle_starttag(self,tag,attrs):
+            if tag=='section':self.stack.append(dict(attrs).get('aria-labelledby'))
+        def handle_endtag(self,tag):
+            if tag=='section':
+                anchor=self.stack.pop()
+                if anchor in manifest['entries']:
+                    line,col=self.getpos();self.inserts.append((self.offsets[line-1]+col,anchor))
+    parser=Sections(original);parser.feed(original)
+    assert len(parser.inserts)==len(manifest['entries'])==24
+    output=original
+    for offset,anchor in reversed(parser.inserts):
+        module=manifest['entries'][anchor]['module']
+        widget=f'''<!-- BEGIN HASH DEMO {anchor} -->
+<details class="hash-demo l-body" data-demo="{anchor}" hidden>
+<summary><span>Try it in the browser</span><span class="demo-badge">Load on view</span></summary>
+<div class="demo-body"><p class="demo-status" role="status" aria-live="polite" aria-atomic="true">Waiting to validate the verification program.</p><div class="demo-content" hidden></div></div>
+</details>
+<noscript class="demo-noscript l-body"><p>Run <a href="verify/{module}/README.md">verify/{module}</a> locally</p></noscript>
+<!-- END HASH DEMO {anchor} -->
+'''
+        output=output[:offset]+widget+output[offset:]
+    output=output.replace('</head>','<script type="module" src="post-demo.js"></script>\n</head>',1)
+    # Removing only our additions must reproduce the original HTML byte for byte.
+    restored=re.sub(r'<!-- BEGIN HASH DEMO .*?<!-- END HASH DEMO [^>]* -->\n','',output,flags=re.S)
+    restored=restored.replace('<script type="module" src="post-demo.js"></script>\n','',1)
+    assert restored==original
+    (OUT/'index.html').write_text(output)
+    shutil.copyfile('page/post.js',OUT/'post.js')
+    (OUT/'post.css').write_bytes(Path('page/post.css').read_bytes()+Path('demo.css').read_bytes())
+    shutil.copyfile('post-demo.js',OUT/'post-demo.js')
+
+
+if __name__=='__main__':
+    if '--page-only' in sys.argv:
+        write_page(json.loads((WASM/'manifest.json').read_text()))
+    else:
+        build()

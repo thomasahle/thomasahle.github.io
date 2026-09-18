@@ -1,0 +1,1614 @@
+{
+  "source_sha256": "01b91741d5a51a5247eea21f63cfda66a947c982babe4d17181566dffb42a836",
+  "profiles_sha256": "a1d837f3f0ae89b0271c70df8a2824861a476735660a76ce897c92aad893a04b",
+  "profiles": {
+    "city": {
+      "authors": "Geoff Pike and Jyrki Alakuijala · Google",
+      "background": "CityHash is Google’s family of noncryptographic string hashes, drawing on earlier work by Austin Appleby and Bob Jenkins. CityHash64 was designed with short strings and hash-table keys in mind.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/google/cityhash"
+        }
+      ],
+      "sources": [
+        "https://github.com/google/cityhash",
+        "sources/cityhash.cpp"
+      ]
+    },
+    "farm": {
+      "authors": "Geoff Pike · Google",
+      "background": "FarmHash continues Google’s work on fast string hashing after CityHash. The library includes several implementations selected for different processors; the point here is specifically the NA variant’s seeded 64-bit function.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/google/farmhash"
+        }
+      ],
+      "sources": [
+        "https://github.com/google/farmhash",
+        "sources/farmhash.cpp"
+      ]
+    },
+    "murmur": {
+      "authors": "Austin Appleby",
+      "background": "MurmurHash3 belongs to the same project as the original SMHasher test suite. Its name reflects its use of multiplication and rotation. The x64_128 variant maintains two 64-bit state words and returns 128 bits.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/aappleby/smhasher"
+        }
+      ],
+      "sources": [
+        "https://github.com/aappleby/smhasher",
+        "sources/murmurhash3.cpp"
+      ]
+    },
+    "mx3": {
+      "authors": "Jon Maiga",
+      "background": "mx3 grew out of work on bit mixers and supplies a mixer, a pseudorandom generator, and a string hash. Version 3 revised the hash’s seeding and speed while retaining its multiply-and-xorshift design.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/jonmaiga/mx3"
+        }
+      ],
+      "sources": [
+        "https://github.com/jonmaiga/mx3",
+        "sources/mx3.cpp"
+      ]
+    },
+    "fasthash-64": {
+      "authors": "Zilong Tan",
+      "background": "fasthash is a compact C design built around multiplication and xorshift mixing. The project describes its mixing function as learned using genetic programming. It offers both 64-bit and 32-bit outputs.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/ztanml/fast-hash"
+        }
+      ],
+      "sources": [
+        "https://github.com/ztanml/fast-hash",
+        "sources/fasthash.cpp"
+      ]
+    },
+    "muse": {
+      "authors": "K--Aethiax",
+      "background": "MuseAir is a portable design using widening multiplication. The record here is the historical v0.3 implementation retained in SMHasher3; later upstream algorithm versions must be considered separately.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/eternal-io/museair"
+        }
+      ],
+      "sources": [
+        "https://github.com/eternal-io/museair",
+        "sources/museair.cpp"
+      ]
+    },
+    "komi": {
+      "authors": "Aleksey Vaneev",
+      "background": "komihash is a header-only C/C++ hash from the author of a5hash. Its multiplication-based design keeps the high and low halves of products in separate state variables and processes long inputs through parallel lanes.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/avaneev/komihash"
+        }
+      ],
+      "sources": [
+        "https://github.com/avaneev/komihash",
+        "sources/komihash.h"
+      ]
+    },
+    "t1ha": {
+      "authors": "Leonid Yuriev · Positive Technologies",
+      "background": "t1ha (“Fast Positive Hash”) is a family of noncryptographic hashes with separate variants for different platforms and uses. This point is t1ha2’s one-shot 64-bit function, not its streaming or 128-bit API.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/erthink/t1ha"
+        }
+      ],
+      "sources": [
+        "https://github.com/erthink/t1ha",
+        "sources/t1ha.cpp"
+      ]
+    },
+    "a5": {
+      "authors": "Aleksey Vaneev",
+      "background": "a5hash is a header-only C/C++ family aimed at hash tables and hash maps, from the author of komihash. It supplies 64-bit and 128-bit functions. Both plotted results concern v5.21.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/avaneev/a5hash"
+        }
+      ],
+      "sources": [
+        "https://github.com/avaneev/a5hash",
+        "sources/a5hash.cpp"
+      ]
+    },
+    "rapid3": {
+      "authors": "Nicolas De Carli · based on wyhash by Wang Yi",
+      "background": "rapidhash builds on wyhash’s widening-multiplication approach. Its standard, Micro, and Nano variants trade throughput against code size. The plotted benchmark is the standard v3 implementation.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/Nicoshev/rapidhash"
+        }
+      ],
+      "sources": [
+        "https://github.com/Nicoshev/rapidhash",
+        "sources/rapidhash.cpp"
+      ]
+    },
+    "mum": {
+      "authors": "Vladimir Makarov",
+      "background": "MUM stands for “multiply and mix”: it combines the halves of a wide product to mix bits. The project also contains pseudorandom generators. This post studies the pre-fix v3 design with fixed public constants.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/vnmakarov/mum-hash"
+        }
+      ],
+      "sources": [
+        "https://github.com/vnmakarov/mum-hash",
+        "sources/mum_mir.cpp"
+      ]
+    },
+    "mir": {
+      "authors": "Vladimir Makarov",
+      "background": "mir’s hash lives in the MIR compiler project and uses multiplication followed by addition of the high and low halves. It includes native-wide and decomposed-multiplication implementations; this chart uses mir.exact timings.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/vnmakarov/mir/blob/master/mir-hash.h"
+        }
+      ],
+      "sources": [
+        "https://github.com/vnmakarov/mir/blob/master/mir-hash.h",
+        "sources/mum_mir.cpp"
+      ]
+    },
+    "xxh3-64": {
+      "authors": "Yann Collet and the xxHash contributors",
+      "background": "XXH3 extends the xxHash family with 64-bit and 128-bit outputs and optimized paths for different input lengths and CPUs. These results use v0.8.3’s seeded API with the default public secret.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/Cyan4973/xxHash"
+        },
+        {
+          "label": "Algorithm specification",
+          "url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md"
+        }
+      ],
+      "sources": [
+        "https://github.com/Cyan4973/xxHash",
+        "sources/xxhash.cpp"
+      ]
+    },
+    "highway": {
+      "authors": "Jyrki Alakuijala, Bill Cox, and Jan Wassenberg · Google",
+      "background": "Introduced in a 2016 paper, HighwayHash uses SIMD multiplication and permutation with a 256-bit key. It was designed as a fast keyed hash and pseudorandom function, with 64-bit, 128-bit, and 256-bit outputs.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/google/highwayhash"
+        },
+        {
+          "label": "Original paper",
+          "url": "https://arxiv.org/abs/1612.06257"
+        }
+      ],
+      "sources": [
+        "https://github.com/google/highwayhash",
+        "https://arxiv.org/abs/1612.06257"
+      ]
+    },
+    "spooky": {
+      "authors": "Bob Jenkins",
+      "background": "SpookyHash is Jenkins’s noncryptographic 128-bit hash, designed for 64-bit machines, with wrappers for shorter outputs. The V2 revision corrected issues in the original design; this point is its 64-bit wrapper.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://burtleburtle.net/bob/hash/spooky.html"
+        }
+      ],
+      "sources": [
+        "https://burtleburtle.net/bob/hash/spooky.html",
+        "sources/spookyhash.cpp"
+      ]
+    },
+    "pengyhash": {
+      "authors": "Alberto Fajardo",
+      "background": "pengyhash is a compact noncryptographic 64-bit hash built from additions, rotations, and XORs. Version 0.3 uses a 64-bit seed, whereas earlier versions used 32 bits.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/tinypeng/pengyhash"
+        }
+      ],
+      "sources": [
+        "https://github.com/tinypeng/pengyhash",
+        "sources/pengyhash.cpp"
+      ]
+    },
+    "nmhash32": {
+      "authors": "James Z. M. Gao",
+      "background": "NMHASH32 and NMHASH32X are separate functions in the hash-garage project. Both return 32 bits and accept a 32-bit seed, but use different mixing designs. The two points retain their own witnesses and measurements.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/gzm55/hash-garage"
+        }
+      ],
+      "sources": [
+        "https://github.com/gzm55/hash-garage",
+        "sources/nmhash.cpp"
+      ]
+    },
+    "gx": {
+      "authors": "Olivier Giniaux",
+      "background": "gxhash is a Rust hash designed around hardware AES instructions. It uses parallel processing to obtain high throughput and provides several output widths. This point is the studied 64-bit v3.5.0 implementation.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/ogxd/gxhash"
+        }
+      ],
+      "sources": [
+        "https://github.com/ogxd/gxhash",
+        "sources/gxhash.cpp"
+      ]
+    },
+    "ahash": {
+      "authors": "Tom Kaitchuck",
+      "background": "aHash is a Rust hash-table hasher that uses AES instructions when available, with a separate fallback design. This post’s result is specifically for the AES path in version 0.8.12.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/tkaitchuck/aHash"
+        },
+        {
+          "label": "Design & FAQ",
+          "url": "https://github.com/tkaitchuck/aHash/blob/master/FAQ.md"
+        }
+      ],
+      "sources": [
+        "https://github.com/tkaitchuck/aHash",
+        "https://github.com/tkaitchuck/aHash/blob/master/Cargo.toml"
+      ]
+    },
+    "polymur": {
+      "authors": "Orson Peters",
+      "background": "PolymurHash combines polynomial hashing over a prime field with a Murmur-inspired final mixer. It aims to provide a universal hash using ordinary widening multiplication, without requiring carry-less multiplication instructions.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/orlp/polymur-hash"
+        },
+        {
+          "label": "Author’s universality proof",
+          "url": "https://github.com/orlp/polymur-hash/blob/master/extras/universality-proof.md"
+        }
+      ],
+      "sources": [
+        "https://github.com/orlp/polymur-hash",
+        "https://github.com/orlp/polymur-hash/blob/master/polymur-hash.h"
+      ]
+    },
+    "halftimehash-64": {
+      "authors": "Jim Apple",
+      "background": "HalftimeHash’s 2021 paper targets long strings without widening 64-bit multiplication or finite-field arithmetic. The four plotted styles are implementation variants: all return 64-bit hashes, despite the numbers in their names.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/jbapple/HalftimeHash"
+        },
+        {
+          "label": "Original paper",
+          "url": "https://arxiv.org/abs/2104.08865"
+        }
+      ],
+      "sources": [
+        "https://github.com/jbapple/HalftimeHash",
+        "https://arxiv.org/abs/2104.08865"
+      ]
+    },
+    "umash": {
+      "authors": "Paul Khuong · Backtrace",
+      "background": "UMASH was introduced at Backtrace in 2020 to combine fast string hashing with collision bounds. It also computes a second hash alongside the first to produce a 128-bit fingerprint.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/backtrace-labs/umash"
+        },
+        {
+          "label": "Design history",
+          "url": "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/"
+        },
+        {
+          "label": "Author’s proof & reference",
+          "url": "https://github.com/backtrace-labs/umash/blob/master/umash.pdf"
+        }
+      ],
+      "sources": [
+        "https://github.com/backtrace-labs/umash",
+        "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/"
+      ]
+    },
+    "clhash": {
+      "authors": "Daniel Lemire and Owen Kaser",
+      "background": "CLHASH uses carry-less multiplication instructions to accelerate universal hashing. Its construction was published as “Faster 64-bit universal hashing using carry-less multiplications.”",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/lemire/clhash"
+        },
+        {
+          "label": "Original paper",
+          "url": "https://arxiv.org/abs/1503.03465"
+        }
+      ],
+      "sources": [
+        "https://github.com/lemire/clhash",
+        "https://arxiv.org/abs/1503.03465"
+      ]
+    },
+    "chain256": {
+      "authors": "Thomas Dybdahl Ahle · author of this post",
+      "background": "ChainHash is the author’s construction in the fast-polynomials project. This point is the 256-byte-block configuration, with 41 independent field words in its audited key model.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/thomasahle/fast-polynomials"
+        },
+        {
+          "label": "Reference implementation",
+          "url": "https://github.com/thomasahle/fast-polynomials/blob/main/tools/bench/chainhash/chainhash.h"
+        }
+      ],
+      "sources": [
+        "https://github.com/thomasahle/fast-polynomials",
+        "#proof-audit-notes"
+      ]
+    }
+  },
+  "hosts": {
+    "m2": {
+      "name": "APPLE M2 PRO",
+      "provisional": true,
+      "key": "smh_m2_bulk_Bpc",
+      "rows": [
+        {
+          "id": "city",
+          "name": "CityHash64 v1.1.1",
+          "label": "CityHash64",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 5.78,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-cityhash64",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "Uniform 64-bit WithSeed seed; structural result also holds for all pairs of 64-bit seeds.",
+          "profile": "city",
+          "summary": "Two different eight-byte messages reach the same public hash before the seed is applied. The seeded wrapper therefore returns the same result for every seed.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/cityhash.cpp"
+        },
+        {
+          "id": "farm",
+          "name": "FarmHash64 NA v1.1",
+          "label": "FarmHash64 NA",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 5.76,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-farmhash64",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "Uniform 64-bit Hash64WithSeed seed; all-seed result also holds for Hash64WithSeeds.",
+          "profile": "farm",
+          "summary": "Like CityHash’s seeded wrapper, this variant compresses the message before applying the secret. The eight-byte witness pair already agrees at that point, so changing the seed cannot separate it.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/farmhash.cpp"
+        },
+        {
+          "id": "murmur",
+          "name": "MurmurHash3 x64_128",
+          "label": "MurmurHash3 x64_128",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.73,
+          "bits": 1.584962500721156,
+          "score": "≤ 1.59",
+          "anchor": "appendix-murmurhash3",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "Uniform 32-bit API seed; all 2^32 seeds enumerated by the supplied panel.",
+          "profile": "murmur",
+          "summary": "A controlled difference survives the public word mixing and is cancelled by later message words. The selected pair collides in the full 128-bit output for every 32-bit API seed.",
+          "output_bits": 128,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/murmurhash3.cpp"
+        },
+        {
+          "id": "mx3",
+          "name": "mx3 v3",
+          "label": "mx3 v3",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 4.07,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-mx3",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. This is mx3 v3.0.0, tag 48924ee7, with a 64-bit seed. rurban’s mx3 entry tests v1.0.0 (0x4DB51E5B) with a 32-bit seed cast to 64 bits; its GOOD label and older bad-seed result do not describe the attacked v3.",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "64 (`inline uint64_t hash(const uint8_t* buf, size_t len, uint64_t seed)`; v3 seeds via h = mix_stream(seed, len + 1), v1/v2 via h = seed ^ len). The seed enters only through the additive term C^(L+1)*seed of the pre-finalizer state, before a public bijective finalizer mix(). SMHasher3: 64.",
+          "profile": "mx3",
+          "summary": "A one-byte message and an eight-byte message cancel their public length and word terms. Both leave the same seed-dependent state, giving an every-seed collision.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mx3.cpp"
+        },
+        {
+          "id": "fasthash-64",
+          "name": "fasthash-64",
+          "label": "fasthash-64",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.33,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-fasthash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "profile": "fasthash-64",
+          "summary": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+        },
+        {
+          "id": "fasthash-32",
+          "name": "fasthash-32",
+          "label": "fasthash-32",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.34,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-fasthash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "profile": "fasthash-64",
+          "summary": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths.",
+          "output_bits": 32,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+        },
+        {
+          "id": "muse",
+          "name": "MuseAir v0.3",
+          "label": "MuseAir",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 9.41,
+          "bits": 1.584962500721156,
+          "score": "≤ 1.59",
+          "anchor": "appendix-museair",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecated earlier versions.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit seed. Pair collides on both full 128-bit variants and both 64-bit variants.",
+          "profile": "muse",
+          "summary": "A public zero-product operand makes a changed message word disappear before secret mixing. The fixed pair collides for every seed in the studied v0.3 implementation.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp"
+        },
+        {
+          "id": "komi",
+          "name": "komihash v5.27 / v5.34",
+          "label": "komihash",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 8.14,
+          "bits": 3.13512916189466,
+          "score": "≈ 3.14*",
+          "anchor": "appendix-komihash",
+          "evidence": "0.9106 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. This high-probability construction applies to lengths 64..127 bytes only; not an all-length probability.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit UseSeed.",
+          "profile": "komi",
+          "summary": "Two messages differing in just two bits collide for about 91.06% of sampled seeds. Public relations between lanes allow the changes to cancel. This construction applies only to lengths 64–127 bytes.",
+          "output_bits": 64,
+          "code_url": "https://github.com/avaneev/komihash/blob/master/komihash.h"
+        },
+        {
+          "id": "t1ha",
+          "name": "t1ha2_atonce-64 v2.1.4",
+          "label": "t1ha2_atonce-64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 6.09,
+          "bits": 31.0,
+          "score": "≈ 31*",
+          "anchor": "appendix-t1ha2",
+          "evidence": "2^-26 × (262144/2^22) ≈ 2^-30, estimated class contribution",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Cross-length 16/11-byte pair. Exact class density 2^-26 multiplied by measured conditional rate about 2^-4. Equal-length best claim not independently re-run; excluded.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit one-shot API seed.",
+          "profile": "t1ha",
+          "summary": "The 16-byte and 11-byte witness messages exploit carry patterns for a structured class of seeds. The cap combines an exact class size with a measured success rate inside that class.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/t1ha.cpp"
+        },
+        {
+          "id": "a5",
+          "name": "a5hash v5.21, 64-bit",
+          "label": "a5hash 64-bit",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 3.07,
+          "bits": 47.80910046980944,
+          "score": "≤ 47.81",
+          "anchor": "appendix-a5hash-64",
+          "evidence": "≥ 118 × 2^-45 ≈ 2^-38.12",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths. v5.25 not vector-checked.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit UseSeed.",
+          "profile": "a5",
+          "summary": "An exactly counted class of seeds makes a multiplication erase a message word. This proves a lower bound on one pair’s collision probability, and therefore an upper cap on the family’s score.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+        },
+        {
+          "id": "a5wide",
+          "name": "a5hash v5.21, 128-bit",
+          "label": "a5hash 128-bit",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 11.55,
+          "bits": 1.584962500721156,
+          "score": "≤ 1.59",
+          "anchor": "appendix-a5hash-128",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Additional variant, not one of the original ten entries.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit UseSeed; both full output words collide.",
+          "profile": "a5",
+          "summary": "A public zero-product operand erases a changed word for every seed. Both output words collide, despite this tested 128-bit variant passing all 250 published SMHasher3 tests.",
+          "output_bits": 128,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+        },
+        {
+          "id": "rapid3",
+          "name": "rapidhash v3",
+          "label": "rapidhash v3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 15.35,
+          "bits": 28.540568381362704,
+          "score": "≈ 28.5*",
+          "anchor": "appendix-rapidhash-v3",
+          "evidence": "11/2^30 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3; protected variants were not measured by this reproduction. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5].",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "rapid3",
+          "summary": "Complementing both operands of an early multiplication can leave its high/low fold unchanged. The measured pair gives an upper cap, not a ranking against other hashes whose searches used different budgets.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rapidhash.cpp"
+        },
+        {
+          "id": "mum",
+          "name": "MUM v3",
+          "label": "MUM v3",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 7.15,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-mum",
+          "evidence": "1 (every seed); 2^20/2^20 in both unroll variants",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact multiplication, fixed public constants, pre-fix MUM v3. The key-free 8-byte pair collides for both 8-word and 16-word unroll variants. The plotted speed is mum3.exact.unroll3 (8 words), from the two-host benchmark. Its unroll4 timings are not substituted. This does not describe the later collision-prevention default.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "mum",
+          "summary": "Two distinct eight-byte words have the same public multiplication fold before they meet the seeded state. The every-seed result concerns pre-fix MUM v3, not the later collision-prevention default.",
+          "output_bits": 64,
+          "code_url": "https://github.com/vnmakarov/mum-hash/blob/master/mum.h"
+        },
+        {
+          "id": "mir",
+          "name": "mir.exact / mir.inexact",
+          "label": "mir.exact / mir.inexact",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.79,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-mir",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. mir has no algorithm version number; its arithmetic is unchanged since April 2019. SMHasher3 mir.exact (0x00A393C8) and mir.inexact (0x422A66FC) are output-equivalent to upstream mir_hash and mir_hash_strict on little-endian hosts. The strict fold drops one cross-product carry; it does not drop every carry. The 64-bit seed is passed verbatim, including seed+len = 0; SMHasher3’s inexact seed-fixup is a harness option, not the API model here. The chart uses only mir.exact timings from the two-host benchmark.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "64 (`uint64_t seed`, entering only as `uint64_t r = seed + len;`, mir-hash.h line 67); every message word enters only through the public fold mum(v, p_i) XORed into the state (p1 = 0x65862b62bdf5ef4d, p2 = 0x288eea216831e6a7). SMHasher3: 64 (mir.inexact carries seedfixfn excludeBadseeds for len+seed == 0, a harness fixup only).",
+          "profile": "mir",
+          "summary": "Two eight-byte words yield the same zero public fold, leaving identical seeded states. The selected pair works in both the exact and inexact implementations.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mum_mir.cpp"
+        },
+        {
+          "id": "xxh3-64",
+          "name": "XXH3-64 0.8.3",
+          "label": "XXH3-64 0.8.3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 7.15,
+          "bits": 24.991571377929418,
+          "score": "≈ 24.99*",
+          "anchor": "appendix-xxh3-64",
+          "evidence": "1030/2^31 measured (504 + 526 in two fresh 2^30 runs)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. The rate depends on the first two words. Changing bytes 16 onward changes the output, not the colliding-seed set. No practical flooding attack is established by this approximately 2^-21 fixed-pair rate. Approximate 95% sampling half-width: ±0.09 bits. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+          "source": "records/speeds.json",
+          "family": "NH-like stripe accumulators",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "xxh3-64",
+          "summary": "Complementing the first two words can preserve their multiplication fold. The measured cap comes from a selected fixed pair; it is not a demonstrated flooding attack or a result for independently randomized custom secrets.",
+          "output_bits": 64,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "xxh3-128",
+          "name": "XXH3-128 0.8.3",
+          "label": "XXH3-128 0.8.3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 7.16,
+          "bits": 29.67807190511264,
+          "score": "≈ 29.7*",
+          "anchor": "appendix-xxh3-128",
+          "evidence": "5/2^30 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Pair F sets w1=~w0 before complementing both words, preserving their sum. Both low64 and high64 are compared; this is a full 128-bit collision. Exact Poisson 95% interval for this witness-derived score: [28.5, 31.3]. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+          "source": "records/speeds.json",
+          "family": "NH-like stripe accumulators",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "xxh3-64",
+          "summary": "The selected pair preserves both an early product fold and the relevant word sum. Both halves of the 128-bit output are compared: the measured collisions are full-output collisions.",
+          "output_bits": 128,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "highway",
+          "name": "HighwayHash-64, frozen",
+          "label": "HighwayHash-64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 0.65,
+          "bits": 59.8075787461754,
+          "score": "≤ 59.81",
+          "anchor": "appendix-highwayhash",
+          "evidence": "class contribution 56165/2^72 ≈ 2^-56.22",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Conservative 96-byte headline witness. Exact sufficient-event contribution, not exact total collision probability. All 64/128/256 output widths inherit it. Original second-family capped sample confirmed pair but not exact numerator.",
+          "source": "records/speeds.json",
+          "family": "SIMD lane multiply (Google)",
+          "key_model": "Full uniform 256-bit HHKey, four independent 64-bit words.",
+          "profile": "highway",
+          "summary": "A rare, explicitly counted key event lets a 96-byte pair merge the entire internal state before finalization. The cap uses that sufficient event; it is not an exact total collision probability.",
+          "output_bits": 64,
+          "code_url": "https://github.com/google/highwayhash/blob/f8381f3331d9c56a9792f9b4a35f61c41108c39e/c/highwayhash.c"
+        },
+        {
+          "id": "spooky",
+          "name": "SpookyHash V2-64",
+          "label": "SpookyHash V2-64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 4.13,
+          "bits": 6.129270753827899,
+          "score": "≈ 6.13*",
+          "anchor": "appendix-spookyhash",
+          "evidence": "about half the seeds; verifier 536875475/1073741823",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. The same pair collides on SpookyHash2-32 at the same measured rate, and on both 64-bit halves. SMHasher3 duplicates a 64-bit seed; native Hash32 takes a 32-bit seed. Exact half balance is unproved. The claimed 2^32 and independent-seed-word runs were not independently reproduced.",
+          "source": "records/speeds.json",
+          "family": "ARX lanes (add–rotate–xor)",
+          "key_model": "Hash64 duplicates one uniform seed into both native seed words. Similar rate measured with independent 128-bit native seeds.",
+          "profile": "spooky",
+          "summary": "A late-injected difference cancels in the internal state before finalization. The selected pair collides for about half the sampled seeds; exact half balance has not been proved.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/spookyhash.cpp"
+        },
+        {
+          "id": "pengyhash",
+          "name": "pengyhash v0.3",
+          "label": "pengyhash v0.3",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 3.49,
+          "bits": 2.0,
+          "score": "≤ 2",
+          "anchor": "appendix-pengyhash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. The task’s original v0.2 label and rurban’s v0.2 results concern an older 32-bit-seed implementation. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.",
+          "source": "records/speeds.json",
+          "family": "ARX lanes (add–rotate–xor)",
+          "key_model": "64 (`uint64_t pengyhash(const void *p, size_t size, uint64_t seed);` pengyhash.h line 7; 32 in v0.1/v0.2). The seed enters only in the 6-round finalization (`s[1] += f[1] + seed` each round, with the 0..31-byte zero-padded tail f -- corrected from '<=32'); the 32-byte bulk loop is seed-free, so the 256-bit state after it is a public function of the message and its length (s0 = size). SMHasher3: 64.",
+          "profile": "pengyhash",
+          "summary": "The bulk loop never uses the seed. Two messages reach the same public state before seeded finalization, so they collide for every seed. This record uses SMHasher3’s sequenced v0.3 implementation.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/pengyhash.cpp"
+        },
+        {
+          "id": "nmhash32",
+          "name": "nmhash32 v2",
+          "label": "nmhash32 v2",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 1.78,
+          "bits": 4.993026634712533,
+          "score": "≤ 4.994",
+          "anchor": "appendix-nmhash32",
+          "evidence": "1078944392/2^32 (exhaustive)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. NMHASH32 v2 uses a 32-bit seed and returns 32 bits. Verification is 0x12A30553. The last algorithmic change was 2021-06-08; the 2021-06-09 commit changed the version label, and the December 2024 undefined-behaviour fix preserved verification values. The new timings use scalar code on M2 Pro and AVX-512 on Xeon; the reproduction is scalar.",
+          "source": "records/speeds.json",
+          "family": "narrow-multiply lanes",
+          "key_model": "32 (`uint32_t seed`, nmhash.h line 593; author on issue #2: 'output size is fixed to 32bit. seed is also 32bit.'; SMHasher3 FLAG_HASH_SMALL_SEED). The seed enters only as sl = seed+len (9..255 B: four lanes y_j = sl ^ word; 0..8 B: seed+const added to the data and rotl(seed,5) XORed mid-mixer). For a uniform 32-bit seed, fixed-pair probabilities are integer multiples of 2^-32; nonzero probabilities are at least 2^-32, not at most that value.",
+          "profile": "nmhash32",
+          "summary": "A difference passes through a lane under specific seed-bit and carry conditions, then cancels in later words. Exhaustive enumeration counts the successful seeds; this is not the every-seed result of NMHASH32X.",
+          "output_bits": 32,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+        },
+        {
+          "id": "nmhash32x",
+          "name": "nmhash32x v2",
+          "label": "nmhash32x v2",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.79,
+          "bits": 2.0,
+          "score": "≤ 2",
+          "anchor": "appendix-nmhash32x",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. NMHASH32X v2 is a separate function from NMHASH32, with 32×32 short-key multiplication, a 32-bit seed, 32-bit output and verification 0xA8580227. It has its own row and witness. Its statistical failures and host-specific timings must not be merged with NMHASH32’s; these timings use scalar code on M2 Pro and AVX-512 on Xeon.",
+          "source": "records/speeds.json",
+          "family": "narrow-multiply lanes",
+          "key_model": "32 (same `uint32_t seed` API as NMHASH32; SMHasher3 FLAG_HASH_SMALL_SEED). For 9..255 B the y and b streams are affine in (seed, message) and the seed meets the x stream only through y. For a uniform 32-bit seed, fixed-pair probabilities are integer multiples of 2^-32; nonzero probabilities are at least 2^-32, not at most that value.",
+          "profile": "nmhash32",
+          "summary": "A controlled difference becomes a top-bit change through public mixing. Two later message words cancel both state differences for every seed.",
+          "output_bits": 32,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+        },
+        {
+          "id": "gx",
+          "name": "gxhash-64 v3.5.0",
+          "label": "gxhash-64",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 0.67,
+          "bits": 1.0,
+          "score": "≤ 1",
+          "anchor": "appendix-gxhash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. 15 versus 16 bytes. Equal-length 24-byte witness gives 1.585 bits; both verified.",
+          "source": "records/speeds.json",
+          "family": "AES-round mixing",
+          "key_model": "Uniform 64-bit seed; public-compression collision also defeats full 128-bit output.",
+          "profile": "gx",
+          "summary": "The selected 15-byte and 16-byte inputs collide in public compression before the seed can distinguish them. The resulting pair collides for every seed.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/gxhash.cpp"
+        },
+        {
+          "id": "ahash",
+          "name": "aHash 0.8.12, AES path",
+          "label": "aHash AES",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 0.67,
+          "bits": 22.454208096559523,
+          "score": "≈ 22.45*",
+          "anchor": "appendix-ahash",
+          "evidence": "about 2^-19.7 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Score uses verifier pool 2616/2^31 in heur_panel synthesis. Original 1227/2^30 and second family 75/2^26 are compatible sampling estimates. Approximate 95% sampling half-width: ±0.06 bits.",
+          "source": "records/speeds.json",
+          "family": "AES-round mixing",
+          "key_model": "Four independent uniform internal RandomState words in the validated C reproduction of the specified aHash 0.8.12 AES path; native Rust transfer is conditional on the operation and constructor mapping.",
+          "profile": "ahash",
+          "summary": "A chosen difference cancels in both the AES and shuffled-addition accumulators. The measured result uses four independent internal key words in the validated C reproduction; transfer to native Rust depends on the operation and constructor mapping.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rust-ahash.cpp"
+        },
+        {
+          "id": "polymur",
+          "name": "PolymurHash 2.0",
+          "label": "PolymurHash 2.0",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 5.69,
+          "bits": 54.22679349755191,
+          "score": "≥ 54.2267",
+          "anchor": "proofs",
+          "evidence": "D(8L)/K0; K0 = 189729088763903999",
+          "scope": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified.",
+          "source": "records/speeds.json",
+          "family": "polynomial over a prime field",
+          "key_model": "full 64-bit output; uniform restricted-set key",
+          "profile": "polymur",
+          "summary": "The audit recovers a full-output guarantee using a rigorous lower bound on the allowed key set’s size. It requires a uniform key from that restricted set; the shipped seed distribution and stronger ASU claim remain uncertified.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/polymurhash.cpp"
+        },
+        {
+          "id": "halftimehash-64",
+          "name": "HalftimeHash 64",
+          "label": "HalftimeHash 64",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 4.56,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "halftimehash-128",
+          "name": "HalftimeHash 128",
+          "label": "HalftimeHash 128",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 5.04,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "halftimehash-256",
+          "name": "HalftimeHash 256",
+          "label": "HalftimeHash 256",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 4.14,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "halftimehash-512",
+          "name": "HalftimeHash 512",
+          "label": "HalftimeHash 512",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 3.66,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "chain256",
+          "name": "ChainHash (ours), 256 B blocks",
+          "label": "ChainHash (ours) | 256 B blocks",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 21.47,
+          "bits": 62.415037499278846,
+          "score": "≥ 62.41",
+          "anchor": "proofs",
+          "evidence": "(ceil(L/32)+2)/q",
+          "scope": "Byte strings shorter than 2^64 bytes; 41 independent field words and the audited finalizer. Timed SplitMix64 seed expansion is outside this theorem.",
+          "source": "records/speeds.json",
+          "family": "this paper",
+          "key_model": "byte strings <2^64 bytes; ideal keys",
+          "profile": "chain256",
+          "summary": "The audited ideal-key family has a lower score guarantee of 62.41 bits. The benchmark’s SplitMix64 seed expansion is outside that theorem. This is the author’s own construction and audit record, not independent expert review.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/lobais/smhasher3/-/blob/mr/chainhash/hashes/chainhash.cpp"
+        }
+      ]
+    },
+    "xeon": {
+      "name": "INTEL XEON 8375C",
+      "provisional": false,
+      "key": "smh_xeon_bulk_Bpc",
+      "rows": [
+        {
+          "id": "city",
+          "name": "CityHash64 v1.1.1",
+          "label": "CityHash64",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 5.43,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-cityhash64",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "Uniform 64-bit WithSeed seed; structural result also holds for all pairs of 64-bit seeds.",
+          "profile": "city",
+          "summary": "Two different eight-byte messages reach the same public hash before the seed is applied. The seeded wrapper therefore returns the same result for every seed.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/cityhash.cpp"
+        },
+        {
+          "id": "farm",
+          "name": "FarmHash64 NA v1.1",
+          "label": "FarmHash64 NA",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 5.43,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-farmhash64",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "Uniform 64-bit Hash64WithSeed seed; all-seed result also holds for Hash64WithSeeds.",
+          "profile": "farm",
+          "summary": "Like CityHash’s seeded wrapper, this variant compresses the message before applying the secret. The eight-byte witness pair already agrees at that point, so changing the seed cannot separate it.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/farmhash.cpp"
+        },
+        {
+          "id": "murmur",
+          "name": "MurmurHash3 x64_128",
+          "label": "MurmurHash3 x64_128",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 2.73,
+          "bits": 1.584962500721156,
+          "score": "≤ 1.59",
+          "anchor": "appendix-murmurhash3",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "Uniform 32-bit API seed; all 2^32 seeds enumerated by the supplied panel.",
+          "profile": "murmur",
+          "summary": "A controlled difference survives the public word mixing and is cancelled by later message words. The selected pair collides in the full 128-bit output for every 32-bit API seed.",
+          "output_bits": 128,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/murmurhash3.cpp"
+        },
+        {
+          "id": "mx3",
+          "name": "mx3 v3",
+          "label": "mx3 v3",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 4.82,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-mx3",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. This is mx3 v3.0.0, tag 48924ee7, with a 64-bit seed. rurban’s mx3 entry tests v1.0.0 (0x4DB51E5B) with a 32-bit seed cast to 64 bits; its GOOD label and older bad-seed result do not describe the attacked v3.",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "64 (`inline uint64_t hash(const uint8_t* buf, size_t len, uint64_t seed)`; v3 seeds via h = mix_stream(seed, len + 1), v1/v2 via h = seed ^ len). The seed enters only through the additive term C^(L+1)*seed of the pre-finalizer state, before a public bijective finalizer mix(). SMHasher3: 64.",
+          "profile": "mx3",
+          "summary": "A one-byte message and an eight-byte message cancel their public length and word terms. Both leave the same seed-dependent state, giving an every-seed collision.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mx3.cpp"
+        },
+        {
+          "id": "fasthash-64",
+          "name": "fasthash-64",
+          "label": "fasthash-64",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 2.3,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-fasthash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "profile": "fasthash-64",
+          "summary": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+        },
+        {
+          "id": "fasthash-32",
+          "name": "fasthash-32",
+          "label": "fasthash-32",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 2.3,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-fasthash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
+          "source": "records/speeds.json",
+          "family": "Murmur/City/Farm lineage (multiply–xorshift mixing)",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "profile": "fasthash-64",
+          "summary": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths.",
+          "output_bits": 32,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+        },
+        {
+          "id": "muse",
+          "name": "MuseAir v0.3",
+          "label": "MuseAir",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 7.82,
+          "bits": 1.584962500721156,
+          "score": "≤ 1.59",
+          "anchor": "appendix-museair",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecated earlier versions.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit seed. Pair collides on both full 128-bit variants and both 64-bit variants.",
+          "profile": "muse",
+          "summary": "A public zero-product operand makes a changed message word disappear before secret mixing. The fixed pair collides for every seed in the studied v0.3 implementation.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp"
+        },
+        {
+          "id": "komi",
+          "name": "komihash v5.27 / v5.34",
+          "label": "komihash",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 7.35,
+          "bits": 3.13512916189466,
+          "score": "≈ 3.14*",
+          "anchor": "appendix-komihash",
+          "evidence": "0.9106 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. This high-probability construction applies to lengths 64..127 bytes only; not an all-length probability.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit UseSeed.",
+          "profile": "komi",
+          "summary": "Two messages differing in just two bits collide for about 91.06% of sampled seeds. Public relations between lanes allow the changes to cancel. This construction applies only to lengths 64–127 bytes.",
+          "output_bits": 64,
+          "code_url": "https://github.com/avaneev/komihash/blob/master/komihash.h"
+        },
+        {
+          "id": "t1ha",
+          "name": "t1ha2_atonce-64 v2.1.4",
+          "label": "t1ha2_atonce-64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 5.82,
+          "bits": 31.0,
+          "score": "≈ 31*",
+          "anchor": "appendix-t1ha2",
+          "evidence": "2^-26 × (262144/2^22) ≈ 2^-30, estimated class contribution",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Cross-length 16/11-byte pair. Exact class density 2^-26 multiplied by measured conditional rate about 2^-4. Equal-length best claim not independently re-run; excluded.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit one-shot API seed.",
+          "profile": "t1ha",
+          "summary": "The 16-byte and 11-byte witness messages exploit carry patterns for a structured class of seeds. The cap combines an exact class size with a measured success rate inside that class.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/t1ha.cpp"
+        },
+        {
+          "id": "a5",
+          "name": "a5hash v5.21, 64-bit",
+          "label": "a5hash 64-bit",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 3.17,
+          "bits": 47.80910046980944,
+          "score": "≤ 47.81",
+          "anchor": "appendix-a5hash-64",
+          "evidence": "≥ 118 × 2^-45 ≈ 2^-38.12",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths. v5.25 not vector-checked.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit UseSeed.",
+          "profile": "a5",
+          "summary": "An exactly counted class of seeds makes a multiplication erase a message word. This proves a lower bound on one pair’s collision probability, and therefore an upper cap on the family’s score.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+        },
+        {
+          "id": "a5wide",
+          "name": "a5hash v5.21, 128-bit",
+          "label": "a5hash 128-bit",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 7.93,
+          "bits": 1.584962500721156,
+          "score": "≤ 1.59",
+          "anchor": "appendix-a5hash-128",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Additional variant, not one of the original ten entries.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit UseSeed; both full output words collide.",
+          "profile": "a5",
+          "summary": "A public zero-product operand erases a changed word for every seed. Both output words collide, despite this tested 128-bit variant passing all 250 published SMHasher3 tests.",
+          "output_bits": 128,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+        },
+        {
+          "id": "rapid3",
+          "name": "rapidhash v3",
+          "label": "rapidhash v3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 10.67,
+          "bits": 28.540568381362704,
+          "score": "≈ 28.5*",
+          "anchor": "appendix-rapidhash-v3",
+          "evidence": "11/2^30 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3; protected variants were not measured by this reproduction. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5].",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "rapid3",
+          "summary": "Complementing both operands of an early multiplication can leave its high/low fold unchanged. The measured pair gives an upper cap, not a ranking against other hashes whose searches used different budgets.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rapidhash.cpp"
+        },
+        {
+          "id": "mum",
+          "name": "MUM v3",
+          "label": "MUM v3",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 6.57,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-mum",
+          "evidence": "1 (every seed); 2^20/2^20 in both unroll variants",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact multiplication, fixed public constants, pre-fix MUM v3. The key-free 8-byte pair collides for both 8-word and 16-word unroll variants. The plotted speed is mum3.exact.unroll3 (8 words), from the two-host benchmark. Its unroll4 timings are not substituted. This does not describe the later collision-prevention default.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "mum",
+          "summary": "Two distinct eight-byte words have the same public multiplication fold before they meet the seeded state. The every-seed result concerns pre-fix MUM v3, not the later collision-prevention default.",
+          "output_bits": 64,
+          "code_url": "https://github.com/vnmakarov/mum-hash/blob/master/mum.h"
+        },
+        {
+          "id": "mir",
+          "name": "mir.exact / mir.inexact",
+          "label": "mir.exact / mir.inexact",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 2.59,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-mir",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. mir has no algorithm version number; its arithmetic is unchanged since April 2019. SMHasher3 mir.exact (0x00A393C8) and mir.inexact (0x422A66FC) are output-equivalent to upstream mir_hash and mir_hash_strict on little-endian hosts. The strict fold drops one cross-product carry; it does not drop every carry. The 64-bit seed is passed verbatim, including seed+len = 0; SMHasher3’s inexact seed-fixup is a harness option, not the API model here. The chart uses only mir.exact timings from the two-host benchmark.",
+          "source": "records/speeds.json",
+          "family": "mum family (64×64→128 multiply-fold)",
+          "key_model": "64 (`uint64_t seed`, entering only as `uint64_t r = seed + len;`, mir-hash.h line 67); every message word enters only through the public fold mum(v, p_i) XORed into the state (p1 = 0x65862b62bdf5ef4d, p2 = 0x288eea216831e6a7). SMHasher3: 64 (mir.inexact carries seedfixfn excludeBadseeds for len+seed == 0, a harness fixup only).",
+          "profile": "mir",
+          "summary": "Two eight-byte words yield the same zero public fold, leaving identical seeded states. The selected pair works in both the exact and inexact implementations.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mum_mir.cpp"
+        },
+        {
+          "id": "xxh3-64",
+          "name": "XXH3-64 0.8.3",
+          "label": "XXH3-64 0.8.3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 19.69,
+          "bits": 24.991571377929418,
+          "score": "≈ 24.99*",
+          "anchor": "appendix-xxh3-64",
+          "evidence": "1030/2^31 measured (504 + 526 in two fresh 2^30 runs)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. The rate depends on the first two words. Changing bytes 16 onward changes the output, not the colliding-seed set. No practical flooding attack is established by this approximately 2^-21 fixed-pair rate. Approximate 95% sampling half-width: ±0.09 bits. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+          "source": "records/speeds.json",
+          "family": "NH-like stripe accumulators",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "xxh3-64",
+          "summary": "Complementing the first two words can preserve their multiplication fold. The measured cap comes from a selected fixed pair; it is not a demonstrated flooding attack or a result for independently randomized custom secrets.",
+          "output_bits": 64,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "xxh3-128",
+          "name": "XXH3-128 0.8.3",
+          "label": "XXH3-128 0.8.3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 19.82,
+          "bits": 29.67807190511264,
+          "score": "≈ 29.7*",
+          "anchor": "appendix-xxh3-128",
+          "evidence": "5/2^30 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Pair F sets w1=~w0 before complementing both words, preserving their sum. Both low64 and high64 are compared; this is a full 128-bit collision. Exact Poisson 95% interval for this witness-derived score: [28.5, 31.3]. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+          "source": "records/speeds.json",
+          "family": "NH-like stripe accumulators",
+          "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+          "profile": "xxh3-64",
+          "summary": "The selected pair preserves both an early product fold and the relevant word sum. Both halves of the 128-bit output are compared: the measured collisions are full-output collisions.",
+          "output_bits": 128,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "highway",
+          "name": "HighwayHash-64, frozen",
+          "label": "HighwayHash-64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 3.24,
+          "bits": 59.8075787461754,
+          "score": "≤ 59.81",
+          "anchor": "appendix-highwayhash",
+          "evidence": "class contribution 56165/2^72 ≈ 2^-56.22",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Conservative 96-byte headline witness. Exact sufficient-event contribution, not exact total collision probability. All 64/128/256 output widths inherit it. Original second-family capped sample confirmed pair but not exact numerator.",
+          "source": "records/speeds.json",
+          "family": "SIMD lane multiply (Google)",
+          "key_model": "Full uniform 256-bit HHKey, four independent 64-bit words.",
+          "profile": "highway",
+          "summary": "A rare, explicitly counted key event lets a 96-byte pair merge the entire internal state before finalization. The cap uses that sufficient event; it is not an exact total collision probability.",
+          "output_bits": 64,
+          "code_url": "https://github.com/google/highwayhash/blob/f8381f3331d9c56a9792f9b4a35f61c41108c39e/c/highwayhash.c"
+        },
+        {
+          "id": "spooky",
+          "name": "SpookyHash V2-64",
+          "label": "SpookyHash V2-64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 5.08,
+          "bits": 6.129270753827899,
+          "score": "≈ 6.13*",
+          "anchor": "appendix-spookyhash",
+          "evidence": "about half the seeds; verifier 536875475/1073741823",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. The same pair collides on SpookyHash2-32 at the same measured rate, and on both 64-bit halves. SMHasher3 duplicates a 64-bit seed; native Hash32 takes a 32-bit seed. Exact half balance is unproved. The claimed 2^32 and independent-seed-word runs were not independently reproduced.",
+          "source": "records/speeds.json",
+          "family": "ARX lanes (add–rotate–xor)",
+          "key_model": "Hash64 duplicates one uniform seed into both native seed words. Similar rate measured with independent 128-bit native seeds.",
+          "profile": "spooky",
+          "summary": "A late-injected difference cancels in the internal state before finalization. The selected pair collides for about half the sampled seeds; exact half balance has not been proved.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/spookyhash.cpp"
+        },
+        {
+          "id": "pengyhash",
+          "name": "pengyhash v0.3",
+          "label": "pengyhash v0.3",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 4.41,
+          "bits": 2.0,
+          "score": "≤ 2",
+          "anchor": "appendix-pengyhash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. The task’s original v0.2 label and rurban’s v0.2 results concern an older 32-bit-seed implementation. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.",
+          "source": "records/speeds.json",
+          "family": "ARX lanes (add–rotate–xor)",
+          "key_model": "64 (`uint64_t pengyhash(const void *p, size_t size, uint64_t seed);` pengyhash.h line 7; 32 in v0.1/v0.2). The seed enters only in the 6-round finalization (`s[1] += f[1] + seed` each round, with the 0..31-byte zero-padded tail f -- corrected from '<=32'); the 32-byte bulk loop is seed-free, so the 256-bit state after it is a public function of the message and its length (s0 = size). SMHasher3: 64.",
+          "profile": "pengyhash",
+          "summary": "The bulk loop never uses the seed. Two messages reach the same public state before seeded finalization, so they collide for every seed. This record uses SMHasher3’s sequenced v0.3 implementation.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/pengyhash.cpp"
+        },
+        {
+          "id": "nmhash32",
+          "name": "nmhash32 v2",
+          "label": "nmhash32 v2",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 6.88,
+          "bits": 4.993026634712533,
+          "score": "≤ 4.994",
+          "anchor": "appendix-nmhash32",
+          "evidence": "1078944392/2^32 (exhaustive)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. NMHASH32 v2 uses a 32-bit seed and returns 32 bits. Verification is 0x12A30553. The last algorithmic change was 2021-06-08; the 2021-06-09 commit changed the version label, and the December 2024 undefined-behaviour fix preserved verification values. The new timings use scalar code on M2 Pro and AVX-512 on Xeon; the reproduction is scalar.",
+          "source": "records/speeds.json",
+          "family": "narrow-multiply lanes",
+          "key_model": "32 (`uint32_t seed`, nmhash.h line 593; author on issue #2: 'output size is fixed to 32bit. seed is also 32bit.'; SMHasher3 FLAG_HASH_SMALL_SEED). The seed enters only as sl = seed+len (9..255 B: four lanes y_j = sl ^ word; 0..8 B: seed+const added to the data and rotl(seed,5) XORed mid-mixer). For a uniform 32-bit seed, fixed-pair probabilities are integer multiples of 2^-32; nonzero probabilities are at least 2^-32, not at most that value.",
+          "profile": "nmhash32",
+          "summary": "A difference passes through a lane under specific seed-bit and carry conditions, then cancels in later words. Exhaustive enumeration counts the successful seeds; this is not the every-seed result of NMHASH32X.",
+          "output_bits": 32,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+        },
+        {
+          "id": "nmhash32x",
+          "name": "nmhash32x v2",
+          "label": "nmhash32x v2",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 6.88,
+          "bits": 2.0,
+          "score": "≤ 2",
+          "anchor": "appendix-nmhash32x",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. NMHASH32X v2 is a separate function from NMHASH32, with 32×32 short-key multiplication, a 32-bit seed, 32-bit output and verification 0xA8580227. It has its own row and witness. Its statistical failures and host-specific timings must not be merged with NMHASH32’s; these timings use scalar code on M2 Pro and AVX-512 on Xeon.",
+          "source": "records/speeds.json",
+          "family": "narrow-multiply lanes",
+          "key_model": "32 (same `uint32_t seed` API as NMHASH32; SMHasher3 FLAG_HASH_SMALL_SEED). For 9..255 B the y and b streams are affine in (seed, message) and the seed meets the x stream only through y. For a uniform 32-bit seed, fixed-pair probabilities are integer multiples of 2^-32; nonzero probabilities are at least 2^-32, not at most that value.",
+          "profile": "nmhash32",
+          "summary": "A controlled difference becomes a top-bit change through public mixing. Two later message words cancel both state differences for every seed.",
+          "output_bits": 32,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+        },
+        {
+          "id": "gx",
+          "name": "gxhash-64 v3.5.0",
+          "label": "gxhash-64",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 18.28,
+          "bits": 1.0,
+          "score": "≤ 1",
+          "anchor": "appendix-gxhash",
+          "evidence": "1 (every seed)",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. 15 versus 16 bytes. Equal-length 24-byte witness gives 1.585 bits; both verified.",
+          "source": "records/speeds.json",
+          "family": "AES-round mixing",
+          "key_model": "Uniform 64-bit seed; public-compression collision also defeats full 128-bit output.",
+          "profile": "gx",
+          "summary": "The selected 15-byte and 16-byte inputs collide in public compression before the seed can distinguish them. The resulting pair collides for every seed.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/gxhash.cpp"
+        },
+        {
+          "id": "ahash",
+          "name": "aHash 0.8.12, AES path",
+          "label": "aHash AES",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 0.81,
+          "bits": 22.454208096559523,
+          "score": "≈ 22.45*",
+          "anchor": "appendix-ahash",
+          "evidence": "about 2^-19.7 measured",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Score uses verifier pool 2616/2^31 in heur_panel synthesis. Original 1227/2^30 and second family 75/2^26 are compatible sampling estimates. Approximate 95% sampling half-width: ±0.06 bits.",
+          "source": "records/speeds.json",
+          "family": "AES-round mixing",
+          "key_model": "Four independent uniform internal RandomState words in the validated C reproduction of the specified aHash 0.8.12 AES path; native Rust transfer is conditional on the operation and constructor mapping.",
+          "profile": "ahash",
+          "summary": "A chosen difference cancels in both the AES and shuffled-addition accumulators. The measured result uses four independent internal key words in the validated C reproduction; transfer to native Rust depends on the operation and constructor mapping.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rust-ahash.cpp"
+        },
+        {
+          "id": "polymur",
+          "name": "PolymurHash 2.0",
+          "label": "PolymurHash 2.0",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 4.97,
+          "bits": 54.22679349755191,
+          "score": "≥ 54.2267",
+          "anchor": "proofs",
+          "evidence": "D(8L)/K0; K0 = 189729088763903999",
+          "scope": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified.",
+          "source": "records/speeds.json",
+          "family": "polynomial over a prime field",
+          "key_model": "full 64-bit output; uniform restricted-set key",
+          "profile": "polymur",
+          "summary": "The audit recovers a full-output guarantee using a rigorous lower bound on the allowed key set’s size. It requires a uniform key from that restricted set; the shipped seed distribution and stronger ASU claim remain uncertified.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/polymurhash.cpp"
+        },
+        {
+          "id": "umash",
+          "name": "UMASH-64",
+          "label": "UMASH-64",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 11.33,
+          "bits": 55,
+          "score": "55 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "ceil(n/4096)·2^-55 (n bytes; equivalently ceil(L/512)·2^-55)",
+          "scope": "Uniform full key; n bytes = 8L. The published projection argument has a gap; the claimed bound could not be certified from the text as written.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "full ideal key; claim unresolved",
+          "profile": "umash",
+          "summary": "The hollow point retains the published claim. This post’s audit identifies a gap in the projection argument and does not certify that bound as written; it demonstrates no collision attack on UMASH.",
+          "output_bits": 64,
+          "code_url": "https://github.com/backtrace-labs/umash/blob/master/umash.c"
+        },
+        {
+          "id": "umash128",
+          "name": "UMASH-128 fingerprint",
+          "label": "UMASH-128 fingerprint",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 6.02,
+          "bits": 83,
+          "score": "83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "ceil(n/2^26)^2·2^-83 (n bytes)",
+          "scope": "Uniform full key; claimed 83-bit score on the short range, 1 ≤ n ≤ 2^26 bytes. The published projection argument has a gap; the claimed bound could not be certified from the text as written.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "≤64 MiB for claimed score",
+          "profile": "umash",
+          "summary": "The hollow point retains the published claim. This post’s audit identifies a gap in the projection argument and does not certify that bound as written; it demonstrates no collision attack on UMASH.",
+          "output_bits": 128,
+          "code_url": "https://github.com/backtrace-labs/umash/blob/master/umash.c"
+        },
+        {
+          "id": "clhash",
+          "name": "CLHASH",
+          "label": "CLHASH",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 11.56,
+          "bits": 64,
+          "score": "≥ 64",
+          "anchor": "proofs",
+          "evidence": "1/q for L≤128; 2/q+(ceil(L/128)−1)/2^126 otherwise",
+          "scope": "Ideal Algorithm 4, byte strings shorter than 2^64 bytes, full independent key. The timed seed initializer is not certified by this theorem.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "byte strings <2^64 bytes; ideal keys",
+          "profile": "clhash",
+          "summary": "The plotted guarantee is for ideal Algorithm 4 with its full independent key. The timed implementation’s seed initializer is not certified by that theorem.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/clhash.cpp"
+        },
+        {
+          "id": "halftimehash-64",
+          "name": "HalftimeHash 64",
+          "label": "HalftimeHash 64",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 2.5,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "halftimehash-128",
+          "name": "HalftimeHash 128",
+          "label": "HalftimeHash 128",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 8.07,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "halftimehash-256",
+          "name": "HalftimeHash 256",
+          "label": "HalftimeHash 256",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 15.7,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "halftimehash-512",
+          "name": "HalftimeHash 512",
+          "label": "HalftimeHash 512",
+          "kind": "claim",
+          "key_free": false,
+          "speed": 19.29,
+          "bits": 59.83007499855769,
+          "score": "≈ 59.83 (claimed)",
+          "anchor": "proof-audit-notes",
+          "evidence": "(2^4 + h^2 + 2)·2^-64; h = floor(log₈(floor(n/144))), n bytes",
+          "scope": "Derived claim for the shipped k = 2 core plus 64-bit tabulation fold, not a bound stated in the paper. At h = 0 (including 1 KB), 64 − log₂(18) ≈ 59.83 bits; the formula is applied below the > 1 KB design regime. No nontrivial bound for the shipped wrappers could be certified from the text as written; all four styles return 64 bits.",
+          "source": "records/speeds.json",
+          "family": "NH family (multiply–add, Halevi–Krawczyk)",
+          "key_model": "shipped 64-bit wrappers; claim unresolved",
+          "profile": "halftimehash-64",
+          "summary": "The hollow point shows an unresolved claim for the shipped wrapper, not an audited guarantee. This post could not certify a nontrivial end-to-end bound from the written proof; it presents no collision attack on HalftimeHash.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+        },
+        {
+          "id": "chain256",
+          "name": "ChainHash (ours), 256 B blocks",
+          "label": "ChainHash (ours) | 256 B blocks",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 14.42,
+          "bits": 62.415037499278846,
+          "score": "≥ 62.41",
+          "anchor": "proofs",
+          "evidence": "(ceil(L/32)+2)/q",
+          "scope": "Byte strings shorter than 2^64 bytes; 41 independent field words and the audited finalizer. Timed SplitMix64 seed expansion is outside this theorem.",
+          "source": "records/speeds.json",
+          "family": "this paper",
+          "key_model": "byte strings <2^64 bytes; ideal keys",
+          "profile": "chain256",
+          "summary": "The audited ideal-key family has a lower score guarantee of 62.41 bits. The benchmark’s SplitMix64 seed expansion is outside that theorem. This is the author’s own construction and audit record, not independent expert review.",
+          "output_bits": 64,
+          "code_url": "https://gitlab.com/lobais/smhasher3/-/blob/mr/chainhash/hashes/chainhash.cpp"
+        }
+      ]
+    }
+  }
+}
