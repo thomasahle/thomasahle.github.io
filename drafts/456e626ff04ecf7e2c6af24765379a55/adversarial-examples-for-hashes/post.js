@@ -26,7 +26,7 @@
       const link = document.createElement('a');
       item.className = 'toc-level-' + heading.tagName.slice(1);
       link.href = '#' + heading.id;
-      link.textContent = heading.textContent;
+      link.textContent = heading.dataset.tocLabel || heading.textContent;
       item.append(link);
       if (groupList) groupList.append(item);
       else items.push(item);

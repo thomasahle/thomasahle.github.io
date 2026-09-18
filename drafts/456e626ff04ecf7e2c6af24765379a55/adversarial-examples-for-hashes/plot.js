@@ -2,6 +2,7 @@
 const HASH_POINTS = [
   {
     "id": "city",
+    "pattern": ["P2", "P6"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/cityhash.cpp",
     "name": "CityHash64 v1.1.1",
     "claim_id": "cityhash64",
@@ -395,6 +396,7 @@ const HASH_POINTS = [
   },
   {
     "id": "farm",
+    "pattern": ["P2"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/farmhash.cpp",
     "name": "FarmHash64 NA v1.1",
     "claim_id": "farmhash64",
@@ -789,6 +791,7 @@ const HASH_POINTS = [
   },
   {
     "id": "murmur",
+    "pattern": ["P2", "P6", "P7"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/murmurhash3.cpp",
     "name": "MurmurHash3 x64_128",
     "claim_id": "murmurhash3",
@@ -1190,6 +1193,7 @@ const HASH_POINTS = [
   },
   {
     "id": "mx3",
+    "pattern": ["P2", "P5"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mx3.cpp",
     "name": "mx3 v3",
     "version": "v3.0.0",
@@ -1598,6 +1602,7 @@ const HASH_POINTS = [
   },
   {
     "id": "fasthash-64",
+    "pattern": ["P2", "P5", "P7"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp",
     "name": "fasthash-64",
     "version": "08a25db2",
@@ -2015,6 +2020,7 @@ const HASH_POINTS = [
   },
   {
     "id": "fasthash-32",
+    "pattern": ["P2", "P5", "P7"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp",
     "name": "fasthash-32",
     "version": "08a25db2",
@@ -2429,6 +2435,7 @@ const HASH_POINTS = [
   },
   {
     "id": "muse",
+    "pattern": ["P2", "P6"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp",
     "name": "MuseAir v0.3",
     "claim_id": "museair",
@@ -2817,6 +2824,7 @@ const HASH_POINTS = [
   },
   {
     "id": "komi",
+    "pattern": ["P4"],
     "code_url": "https://github.com/avaneev/komihash/blob/master/komihash.h",
     "name": "komihash v5.27 / v5.34",
     "claim_id": "komihash",
@@ -3228,6 +3236,7 @@ const HASH_POINTS = [
   },
   {
     "id": "t1ha",
+    "pattern": ["P7"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/t1ha.cpp",
     "name": "t1ha2_atonce-64 v2.1.4",
     "claim_id": "t1ha2",
@@ -3621,6 +3630,7 @@ const HASH_POINTS = [
   },
   {
     "id": "a5",
+    "pattern": ["P3"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp",
     "name": "a5hash v5.21, 64-bit",
     "claim_id": "a5hash",
@@ -4009,6 +4019,7 @@ const HASH_POINTS = [
   },
   {
     "id": "a5wide",
+    "pattern": ["P3"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp",
     "name": "a5hash v5.21, 128-bit",
     "claim_id": "a5hash",
@@ -4398,6 +4409,7 @@ const HASH_POINTS = [
   },
   {
     "id": "wyhash",
+    "pattern": ["P1"],
     "code_url": "https://github.com/wangyi-fudan/wyhash/blob/master/wyhash.h",
     "name": "wyhash final v4.3",
     "version": "final v4.3",
@@ -4573,6 +4585,7 @@ const HASH_POINTS = [
   },
   {
     "id": "rapid1",
+    "pattern": ["P1"],
     "code_url": "https://github.com/Nicoshev/rapidhash/blob/rapidhash_v1.0/rapidhash.h",
     "name": "rapidhash v1",
     "version": "v1",
@@ -4738,6 +4751,7 @@ const HASH_POINTS = [
   },
   {
     "id": "rapid3",
+    "pattern": ["P1"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rapidhash.cpp",
     "name": "rapidhash v3",
     "version": "v3",
@@ -5792,6 +5806,7 @@ const HASH_POINTS = [
   },
   {
     "id": "foldhash-fast",
+    "pattern": ["P1"],
     "name": "foldhash-fast 0.2.0",
     "version": "0.2.0",
     "label": "foldhash-fast",
@@ -6528,6 +6543,7 @@ const HASH_POINTS = [
   },
   {
     "id": "foldhash-quality",
+    "pattern": ["P1"],
     "name": "foldhash-quality 0.2.0",
     "version": "0.2.0",
     "label": "foldhash-quality",
@@ -7219,6 +7235,7 @@ const HASH_POINTS = [
   },
   {
     "id": "mum",
+    "pattern": ["P2"],
     "code_url": "https://github.com/vnmakarov/mum-hash/blob/master/mum.h",
     "name": "MUM v3",
     "version": "v3",
@@ -7696,6 +7713,7 @@ const HASH_POINTS = [
   },
   {
     "id": "mir",
+    "pattern": ["P2"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mum_mir.cpp",
     "name": "mir.exact / mir.inexact",
     "version": "arithmetic since 2019-04-09",
@@ -8119,6 +8137,7 @@ const HASH_POINTS = [
   },
   {
     "id": "xxh3-64",
+    "pattern": ["P1"],
     "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h",
     "name": "XXH3-64 0.8.3",
     "version": "0.8.3",
@@ -8577,6 +8596,7 @@ const HASH_POINTS = [
   },
   {
     "id": "xxh3-128",
+    "pattern": ["P1"],
     "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h",
     "name": "XXH3-128 0.8.3",
     "version": "0.8.3",
@@ -9025,6 +9045,7 @@ const HASH_POINTS = [
   },
   {
     "id": "highway",
+    "pattern": ["P3"],
     "code_url": "https://github.com/google/highwayhash/blob/f8381f3331d9c56a9792f9b4a35f61c41108c39e/c/highwayhash.c",
     "name": "HighwayHash-64, frozen",
     "claim_id": "highwayhash",
@@ -9438,6 +9459,7 @@ const HASH_POINTS = [
   },
   {
     "id": "spooky",
+    "pattern": ["P7"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/spookyhash.cpp",
     "name": "SpookyHash V2-64",
     "claim_id": "spookyhash2",
@@ -9871,6 +9893,7 @@ const HASH_POINTS = [
   },
   {
     "id": "pengyhash",
+    "pattern": ["P2"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/pengyhash.cpp",
     "name": "pengyhash v0.3",
     "version": "v0.3",
@@ -10278,6 +10301,7 @@ const HASH_POINTS = [
   },
   {
     "id": "nmhash32",
+    "pattern": ["P7"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp",
     "name": "nmhash32 v2",
     "version": "v2",
@@ -10725,6 +10749,7 @@ const HASH_POINTS = [
   },
   {
     "id": "nmhash32x",
+    "pattern": ["P7"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp",
     "name": "nmhash32x v2",
     "version": "v2",
@@ -11174,6 +11199,7 @@ const HASH_POINTS = [
   },
   {
     "id": "gx",
+    "pattern": ["P2", "P5"],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/gxhash.cpp",
     "name": "gxhash-64 v3.5.0",
     "claim_id": "gxhash",
@@ -11578,6 +11604,7 @@ const HASH_POINTS = [
   },
   {
     "id": "ahash",
+    "pattern": [],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rust-ahash.cpp",
     "name": "aHash 0.8.12, AES path",
     "claim_id": "ahash",
@@ -11977,6 +12004,7 @@ const HASH_POINTS = [
   },
   {
     "id": "siphash-1-3",
+    "pattern": [],
     "name": "SipHash-1-3",
     "label": "SipHash-1-3",
     "family": "heuristic",
@@ -12441,6 +12469,7 @@ const HASH_POINTS = [
   },
   {
     "id": "siphash-2-4",
+    "pattern": [],
     "name": "SipHash-2-4",
     "label": "SipHash-2-4",
     "family": "heuristic",
@@ -12905,6 +12934,7 @@ const HASH_POINTS = [
   },
   {
     "id": "halftime24",
+    "pattern": ["P3", "P5"],
     "name": "HalftimeHash24 (advanced 24-byte API, Encode3)",
     "label": "HalftimeHash24",
     "family": "heuristic",
@@ -12997,6 +13027,7 @@ const HASH_POINTS = [
   },
   {
     "id": "polymur",
+    "pattern": [],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/polymurhash.cpp",
     "name": "PolymurHash 2.0",
     "bound": "D(8L)/K0; K0 = 189729088763903999",
@@ -13369,6 +13400,7 @@ const HASH_POINTS = [
   },
   {
     "id": "poly1305",
+    "pattern": [],
     "name": "Poly1305",
     "label": "Poly1305",
     "version": "Bernstein 2005",
@@ -13798,6 +13830,7 @@ const HASH_POINTS = [
   },
   {
     "id": "horner",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "Horner / unrolled, GF(2^64)",
     "bound": "(L−1)/q",
@@ -13914,6 +13947,7 @@ const HASH_POINTS = [
   },
   {
     "id": "brw",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "BRW, GF(2^64)",
     "bound": "(2L−1)/q",
@@ -14026,6 +14060,7 @@ const HASH_POINTS = [
   },
   {
     "id": "recurrence",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "Injective recurrence, one chain",
     "bound": "ceil(L/2)/q",
@@ -14138,6 +14173,7 @@ const HASH_POINTS = [
   },
   {
     "id": "lanes",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "Injective recurrence, eight lanes",
     "bound": "(ceil(ceil(L/2)/8)+7)/q",
@@ -14250,6 +14286,7 @@ const HASH_POINTS = [
   },
   {
     "id": "ghash",
+    "pattern": [],
     "name": "GHASH",
     "label": "GHASH",
     "version": "McGrew–Viega 2004",
@@ -14679,6 +14716,7 @@ const HASH_POINTS = [
   },
   {
     "id": "nh",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "NH with 64-bit words",
     "bound": "1/q",
@@ -14786,6 +14824,7 @@ const HASH_POINTS = [
   },
   {
     "id": "halftimehash",
+    "pattern": [],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp",
     "name": "HalftimeHash, shipped 64-bit API",
     "version": "Style64/128/256/512",
@@ -16368,6 +16407,7 @@ const HASH_POINTS = [
   },
   {
     "id": "umash",
+    "pattern": [],
     "code_url": "https://github.com/backtrace-labs/umash/blob/master/umash.c",
     "name": "UMASH-64",
     "bound": "ceil(L/512)·2^-55",
@@ -16768,6 +16808,7 @@ const HASH_POINTS = [
   },
   {
     "id": "umash128",
+    "pattern": [],
     "code_url": "https://github.com/backtrace-labs/umash/blob/master/umash.c",
     "name": "UMASH-128 fingerprint",
     "bound": "ceil(L/2^23)^2·2^-83",
@@ -17161,6 +17202,7 @@ const HASH_POINTS = [
   },
   {
     "id": "clhash",
+    "pattern": [],
     "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/clhash.cpp",
     "name": "CLHASH",
     "bound": "1/q for L≤128; 2/q+(ceil(L/128)−1)/2^126 otherwise",
@@ -17539,6 +17581,7 @@ const HASH_POINTS = [
   },
   {
     "id": "clnh",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "Carryless NH (CLNH)",
     "bound": "1/q",
@@ -17652,6 +17695,7 @@ const HASH_POINTS = [
   },
   {
     "id": "chain256",
+    "pattern": [],
     "code_url": "https://gitlab.com/lobais/smhasher3/-/blob/mr/chainhash/hashes/chainhash.cpp",
     "name": "ChainHash (ours), 256 B blocks",
     "bound": "min(1,E_A(L)/2^64); E_A=8ceil(R/4) if n=1, otherwise n+62+1[R≥29]; n=ceil(L/32), R=L−32(n−1)",
@@ -18028,6 +18072,7 @@ const HASH_POINTS = [
   },
   {
     "id": "tabulation",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "Simple tabulation",
     "bound": "1/q",
@@ -18135,6 +18180,7 @@ const HASH_POINTS = [
   },
   {
     "id": "multiply",
+    "pattern": [],
     "code_url": "https://github.com/thomasahle/fast-polynomials",
     "name": "Vector multiply-shift",
     "bound": "1/q",
@@ -18256,6 +18302,67 @@ const HASH_POINTS = [
   ];
   const fmt = value => Number(value.toFixed(2)).toString();
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  // Same-score registrations of the existing MUM v3 family. Copied from the
+  // matching records/speeds.json benchmark (including the corrected M2 pass).
+  const mumRegistrations = {
+  "mum3.exact.unroll1": {
+    "Xeon8375C": {
+      "bulk_bytes_per_cycle": 3.17,
+      "backend_token": ""
+    },
+    "M2Pro": {
+      "bulk_bytes_per_cycle": 2.38,
+      "backend_token": null
+    }
+  },
+  "mum3.exact.unroll2": {
+    "Xeon8375C": {
+      "bulk_bytes_per_cycle": 6.04,
+      "backend_token": ""
+    },
+    "M2Pro": {
+      "bulk_bytes_per_cycle": 4.29,
+      "backend_token": null
+    }
+  },
+  "mum3.exact.unroll3": {
+    "Xeon8375C": {
+      "bulk_bytes_per_cycle": 6.57,
+      "backend_token": ""
+    },
+    "M2Pro": {
+      "bulk_bytes_per_cycle": 7.54,
+      "backend_token": null
+    }
+  },
+  "mum3.exact.unroll4": {
+    "Xeon8375C": {
+      "bulk_bytes_per_cycle": 6.65,
+      "backend_token": ""
+    },
+    "M2Pro": {
+      "bulk_bytes_per_cycle": 14.12,
+      "backend_token": null
+    }
+  }
+};
+  const registrations = row => row.style_speeds || (row.id === 'mum' ? mumRegistrations : null);
+  const registrationLabel = name => name.replace('HalftimeHash-', 'Style');
+  const familyRow = (row, axis) => {
+    const variants = registrations(row);
+    if (!variants) return row;
+    const timed = Object.entries(variants).filter(([, hosts]) =>
+      Number.isFinite(hosts[axis.host]?.bulk_bytes_per_cycle) && hosts[axis.host].bulk_bytes_per_cycle > 0);
+    const best = timed.reduce((best, entry) => !best || entry[1][axis.host].bulk_bytes_per_cycle > best[1][axis.host].bulk_bytes_per_cycle ? entry : best, null);
+    const name = row.style_speeds ? 'HalftimeHash (Style wrappers)' : row.name;
+    return {...row, name, label: row.style_speeds ? name : row.label,
+      speeds: {...row.speeds, [axis.key]: {...row.speeds[axis.key],
+        value: best ? best[1][axis.host].bulk_bytes_per_cycle : null,
+        registered_name: best?.[0], backend_note: best?.[1][axis.host].backend_token || '',
+        url: row.style_speeds ? 'data.json' : 'records/speeds.json', source_short: axis.name,
+      }},
+    };
+  };
   const pixels = value => ({value, scale: null});
   // Keep displayed inequalities conservative; marker coordinates remain exact.
   const scoreBits = row => fmt((row.bits_kind === 'claimed' ? row.bits * 100 : row.family === 'proven' ? Math.floor(row.bits * 100) : Math.ceil(row.bits * 100)) / 100);
@@ -18276,10 +18383,8 @@ const HASH_POINTS = [
     const phone = () => chart.clientWidth < 600;
     const css = () => getComputedStyle(chart);
     const readColors = () => Object.fromEntries(['proven','heuristic','surface','ink','muted','grid'].map(k=>[k,css().getPropertyValue('--chart-'+k).trim()]));
-    const rowsForAxis = axis => HASH_POINTS.flatMap(row => row.style_speeds ? Object.entries(row.style_speeds).map(([name, hosts]) => ({
-      ...row, id: row.id + '-' + name.split('-').at(-1), label: 'HalftimeHash ' + name.split('-').at(-1), name: name + ' (64-bit output)',
-      speeds: {...row.speeds, [axis.key]: {...row.speeds[axis.key], value: hosts[axis.host].bulk_bytes_per_cycle, url: 'data.json', source_short: axis.name}},
-    })) : [row]).filter(row => row.chart_eligible && Number.isFinite(row.bits) && Number.isFinite(row.speeds[axis.key]?.value) && row.speeds[axis.key].value > 0);
+    const rowsForAxis = axis => HASH_POINTS.map(row => familyRow(row, axis))
+      .filter(row => row.chart_eligible && Number.isFinite(row.bits) && Number.isFinite(row.speeds[axis.key]?.value) && row.speeds[axis.key].value > 0);
 
     function hideCard(restore = false) {
       clearTimeout(hideTimer);
@@ -18315,7 +18420,16 @@ const HASH_POINTS = [
       } else {
         details += '<dl class="tooltip-facts">'+entry('Output',row.output_bits+' bits')+entry('Fixed pair',(row.pair_lengths_bytes || row.pair?.lengths_bytes || []).join(' / ')+' bytes')+entry('Collisions',esc(row.collision?.display))+'</dl>';
       }
-      const qualification = claimed ? row.domain : row.qualification || row.domain;
+      let qualification = claimed ? row.domain : row.qualification || row.domain;
+      if (row.id === 'mum') qualification = qualification.replace('The plotted speed is mum3.exact.unroll3 (8 words), from the two-host benchmark. Its unroll4 timings are not substituted.', 'The plotted bulk speed is the fastest exact-unroll registration on the selected host.');
+      const variants = registrations(row);
+      const variantDetails = variants ? '<div class="tooltip-variants"><p>Bulk registrations · '+esc(axis.name)+' · B/cycle. Fastest shown on chart.</p><dl class="tooltip-facts">'+
+        Object.entries(variants).map(([name, hosts]) => {
+          const value = hosts[axis.host]?.bulk_bytes_per_cycle;
+          return entry(esc(registrationLabel(name)), Number.isFinite(value) && value > 0 ? fmt(value)+(name === speed.registered_name ? ' · plotted' : '') : 'Unavailable');
+        }).join('')+'</dl></div>' : row.supporting_variants?.length ?
+        '<dl class="tooltip-facts">'+entry(esc(row.speed_registration),fmt(speed.value)+' B/cycle')+
+        row.supporting_variants.map(v=>entry(esc(v.name),'No matching timing')).join('')+'</dl>' : '';
       const smh = row.smhasher3;
       const verdict = smh ? esc(smh.verdict) + (Number.isFinite(smh.passed)?' · '+smh.passed+'/'+smh.total+' tests':'') : '';
       return '<button class="tooltip-close" aria-label="Close hash details" type="button">×</button>'+
@@ -18323,7 +18437,7 @@ const HASH_POINTS = [
         '<p class="tooltip-family">'+esc(row.mechanism_family)+'</p>'+
         '<dl class="tooltip-metrics">'+entry(claimed?'Claimed resistance':row.family==='proven'?'Proven resistance':'Resistance cap','<strong>'+score+'</strong> bits')+
         entry(axis.name,'<strong>'+fmt(speed.value)+'</strong> B/cycle')+'</dl>'+
-        '<p class="tooltip-evidence">'+evidence+'</p>'+details+
+        variantDetails+'<p class="tooltip-evidence">'+evidence+'</p>'+details+
         '<details class="tooltip-details"><summary>Scope and evidence</summary>'+
         (row.family==='heuristic' && row.official_claim?.text?'<p class="tooltip-claim"><span>Published wording</span><a href="'+esc(row.official_claim.url)+'">“'+esc(row.official_claim.text)+'”</a></p>':'')+'<p>'+esc(qualification)+'</p>'+
         (row.family_definition?'<p>'+esc(row.family_definition)+'</p>':'')+

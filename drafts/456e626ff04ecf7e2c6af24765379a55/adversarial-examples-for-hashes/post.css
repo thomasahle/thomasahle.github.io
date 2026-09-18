@@ -439,3 +439,17 @@ blockquote { margin: 0 0 1.2em; padding-left: 20px; border-left: 1px solid var(-
 .foldhash-cross-type h4 { margin-top: 0; }
 .foldhash-cross-type p:last-child { margin-bottom: 0; }
 .foldhash-diagram svg { display: block; width: 100%; height: auto; color: #45585a; }
+
+/* Recurring patterns: compact return links and equations contained on narrow screens. */
+.recurring-patterns { margin-bottom: 2rem; }
+.recurring-patterns h4 { margin-top: 1.6rem; margin-bottom: .75rem; scroll-margin-top: 24px; }
+.recurring-patterns .pattern-equation { display: block; max-width: 100%; overflow-x: auto; padding-block: .5rem; }
+.pattern-rows { margin-bottom: .65rem; }
+.pattern-proof { color: var(--muted); }
+.pattern-tags { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: .3em; max-width: 100%; margin-left: .5em; font-size: var(--small-size); font-weight: 400; line-height: 1.6; vertical-align: middle; }
+.pattern-label { color: var(--muted); }
+.pattern-tags a { white-space: nowrap; }
+@media (max-width: 600px) {
+  .pattern-tags { display: flex; width: fit-content; margin: .4em 0 0; }
+  .recurring-patterns .math { max-width: 100%; overflow-x: auto; }
+}
