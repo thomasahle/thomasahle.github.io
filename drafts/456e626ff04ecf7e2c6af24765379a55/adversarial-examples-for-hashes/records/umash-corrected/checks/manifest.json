@@ -1,0 +1,30 @@
+{
+  "hostname": "hardware.normalcomputing.net",
+  "platform": "Linux-5.14.0-687.20.1.el9_8.x86_64-x86_64-with-glibc2.34",
+  "python": "3.9.25",
+  "niceness": 10,
+  "cpu_affinity": [
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "OMP_NUM_THREADS": "8",
+  "address_space_limit_bytes": 32000000000,
+  "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)",
+  "sha256": {
+    "README.md": "545a1512421f52ba77995a0514a670b85dbbeb3377b71272e192acdf104d8824",
+    "certify_constants.py": "145c388224c2273537e6e063c3fa289fed4fb9fa203f2d3e73ee494f2500d46d",
+    "constants.json": "e918fabfe36d4ed735468f633c943863ddc3687dd812481a7d42feb543407138",
+    "exhaustive_lift.cpp": "bc78ffcda5dfe1b6c2ea7e9c77784738d46af66bef739ab2a8ceaec7fcb2f64b",
+    "exhaustive_lift.json": "4ec229f04e7369e106d4f92edb832530065d31dd7582a7f4070d9e3f6b31e8f3",
+    "manifest.py": "603cde7bdc480cbcb2ad997bf7444dcaec67cc2e6b2778e7b755ab5efe78fa97",
+    "run_xeon.sh": "edd0e47502a0e26a99599a7b13dbda089ce7e3d09ce2252ac7b777072c663ba6",
+    "triangular.json": "c60346c0f4b2834125b3c7f39ba1f8c2df90c4409149c331784e6a6fca37e2f7",
+    "triangular.py": "4ab6070b5bb4ccfb3ade9eea4a1cb5a7fd234093c337c308e33514f0e1f5ef67"
+  }
+}

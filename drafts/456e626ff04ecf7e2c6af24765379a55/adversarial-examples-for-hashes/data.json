@@ -16546,16 +16546,16 @@
    "code_url": "https://github.com/backtrace-labs/umash/blob/master/umash.c",
    "name": "UMASH-64",
    "bound": "ceil(L/512)·2^-55",
-   "score_lower_guarantee": 25.614137596713487,
+   "score_lower_guarantee": 46.52312724941417,
    "key_words_64bit": "38",
    "output_bits": 64,
-   "domain": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. Claimed 55-bit score is not certified.",
+   "domain": "The corrected unconditional UMASH-64 bound certifies 46.52 bits under both fixed-length and at-most conventions; −log₂ ε is 45.52 at 1 KB, 45.28 at 1 MB, and 37.99 at 1 GB. The 55-bit hollow marker remains the published claim. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
    "m2_paper_gbps_16KB_512B": [
     40.7,
     32.9
    ],
    "reference_url": "https://github.com/backtrace-labs/umash/blob/master/umash.pdf",
-   "notes": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. Claimed 55-bit score is not certified.",
+   "notes": "The corrected unconditional UMASH-64 bound certifies 46.52 bits under both fixed-length and at-most conventions; −log₂ ε is 45.52 at 1 KB, 45.28 at 1 MB, and 37.99 at 1 GB. The 55-bit hollow marker remains the published claim. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
    "provenance": [
     "data/provable.json#/result/table/rows/8",
     "data/paper_injective.tex, tab:injective:adversarial when M2 figures supplied"
@@ -16870,9 +16870,9 @@
      "verification": {}
     }
    },
-   "qualification": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. Claimed 55-bit score is not certified.",
+   "qualification": "The corrected unconditional UMASH-64 bound certifies 46.52 bits under both fixed-length and at-most conventions; −log₂ ε is 45.52 at 1 KB, 45.28 at 1 MB, and 37.99 at 1 GB. The 55-bit hollow marker remains the published claim. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
    "hover": {
-    "scope": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. Claimed 55-bit score is not certified."
+    "scope": "The corrected unconditional UMASH-64 bound certifies 46.52 bits under both fixed-length and at-most conventions; −log₂ ε is 45.52 at 1 KB, 45.28 at 1 MB, and 37.99 at 1 GB. The 55-bit hollow marker remains the published claim. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited."
    },
    "smhasher3": {
     "verdict": "FAIL",
@@ -16900,7 +16900,7 @@
    "speed_registration": "UMASH-64",
    "chart_eligible": true,
    "score_minimizer_L": null,
-   "score_derivation": "Claimed height retained under the final author decision; the published projection argument has a gap. See appendix and separate certified bounds.",
+   "score_derivation": "Claimed chart height stays 55. Certified score = min_L log₂(L/max(2^-64,min(1,ε(L)))) = 46.52312724941417 at L=2, both fixed-length and at-most. ε(1) = 1/(2^64−561); ε(L ≥ 2) = A + (1−A)·min(1, 2⌈L/32⌉/(2^61−3)); A = 364816/(2^64−561)",
    "proof_status": "proof gap found (see appendix)",
    "proof_source": "records/umash/GAP.md",
    "score_display": "55 (claimed)",
@@ -16912,18 +16912,18 @@
     "minimizer_L": null,
     "formula": "ceil(L/512)·2^-55"
    },
-   "bits_certified": 25.614137596713487,
+   "bits_certified": 46.52312724941417,
    "bits_claimed": 55,
-   "bound_certified": "L=1: 1/(qD); L≥2: A+(1−A)min(1,2ceil(L/32)/(p−2)); D=1−561/q, A=718333281557/(qD), p=2^61−1",
+   "bound_certified": "ε(1) = 1/(2^64−561); ε(L ≥ 2) = A + (1−A)·min(1, 2⌈L/32⌉/(2^61−3)); A = 364816/(2^64−561)",
    "mechanism_family": "PH/NH + prime-field polynomial",
    "rurban_alias": "umash",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
    "masking": {
-    "label": "Weaker full-output certificate only.",
-    "note": "The new 25.6141-bit envelope does not certify the claimed 55-bit rate; masking needs its own bound or the generic projection loss.",
+    "label": "Corrected full-output certificate only.",
+    "note": "The corrected 46.52-bit certificate does not establish the claimed 55-bit rate; masking needs its own bound or the generic projection loss.",
     "audit_url": "records/AUDIT_REVIEW.md#2-umash-64-and-umash-128"
    },
-   "domain_short": "uniform full key; claimed bound not yet fully certified",
+   "domain_short": "ideal random key; corrected bound proved, sharp claim open",
    "alternate_suite_result": {
     "registered_name": "UMASH-64.reseed",
     "verdict": "FAIL",
@@ -16932,14 +16932,35 @@
     "url": "https://gitlab.com/fwojcik/smhasher3/-/blob/3b619371/results/README.md",
     "scope": "Full Salsa20 parameter re-derivation; not a mixer or a proof repair."
    },
-   "bound_ph_chunk": "≤ 852²/2^64 per block (about 44 bits), for a differing PH chunk; not an all-pairs 55/83-bit certificate",
-   "proved_all_pairs": "≥ 25.6141 bits (proved here, weaker than claimed)",
-   "proof_progress_source": "records/umash/ENH_RESULT.md",
+   "bound_ph_chunk": "≤ 604²/2^64 per primary block under IID OH words; 604² = 364816; distinct-word conditioning gives 364816/(2^64−561)",
+   "proved_all_pairs": "≥ 46.52 bits (fixed-length and at-most; corrected proof)",
+   "proof_progress_source": "records/umash-corrected/PROOF.md",
    "family_definition": "Carry-less PH chunks plus final ENH/NH chunk, followed by a prime-field polynomial.",
    "lean": {
     "label": "partial: block-case probability proofs remain incomplete",
     "source": "records/umash/LEAN_UMASH_STATUS.md",
-    "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
+    "scope": "Literal model, 852-mask count and conditional end-to-end implications checked in Lean; the corrected unconditional bound and OpenENHOnly closure have a reviewed natural-language proof, not a completed Lean formalization. The published 55/83-bit claims remain neither proved nor refuted."
+   },
+   "certified": {
+    "formula": "ε(1) = 1/(2^64−561); ε(L ≥ 2) = A + (1−A)·min(1, 2⌈L/32⌉/(2^61−3)); A = 364816/(2^64−561)",
+    "score_bits": 46.52,
+    "linear_envelope": "ε ≤ 45635·⌈L/512⌉/2^61",
+    "status": "Unconditional natural-language proof, three independent adversarial reviews, exhaustive scaled checks; not yet formalized in Lean.",
+    "scope": "Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
+    "closed_and_open": "OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted.",
+    "proof": "records/umash-corrected/PROOF.md",
+    "verdict": "records/umash-corrected/VERDICT.md",
+    "minimizer_L": 2,
+    "conventions": [
+     "fixed-length",
+     "at-most"
+    ],
+    "collision_bits_by_length": {
+     "1_KB": 45.52,
+     "1_MB": 45.28,
+     "1_GB": 37.99
+    },
+    "supersedes": "Previous 25.6-bit certificate; gain 20.9 bits"
    }
   },
   {
@@ -16948,16 +16969,16 @@
    "code_url": "https://github.com/backtrace-labs/umash/blob/master/umash.c",
    "name": "UMASH-128 fingerprint",
    "bound": "ceil(L/2^23)^2·2^-83",
-   "score_lower_guarantee": 1,
+   "score_lower_guarantee": 45.52214688908606,
    "key_words_64bit": "38",
    "output_bits": 128,
-   "domain": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. claimed bound ⌈L/2^23⌉²·2^-83, i.e. score(L) ≥ min(83 + log₂L, 127 − log₂L); 83 for inputs up to 2^46 words, about 68 over the full 64-bit length range",
+   "domain": "UMASH-128 inherits only the certified linear envelope ε ≤ 45635·⌈L/512⌉/2^61, by inclusion in the primary collision event. The primary bound has score 46.52 bits; the inherited linear envelope alone guarantees 45.52 bits. The quadratic 83-bit bound remains a claim, shown hollow; its claimed score is 83 up to 2^46 words and about 68 over the full 64-bit length range. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
    "m2_paper_gbps_16KB_512B": [
     23.9,
     19.7
    ],
    "reference_url": "https://github.com/backtrace-labs/umash/blob/master/umash.pdf",
-   "notes": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. claimed bound ⌈L/2^23⌉²·2^-83, i.e. score(L) ≥ min(83 + log₂L, 127 − log₂L); 83 for inputs up to 2^46 words, about 68 over the full 64-bit length range",
+   "notes": "UMASH-128 inherits only the certified linear envelope ε ≤ 45635·⌈L/512⌉/2^61, by inclusion in the primary collision event. The primary bound has score 46.52 bits; the inherited linear envelope alone guarantees 45.52 bits. The quadratic 83-bit bound remains a claim, shown hollow; its claimed score is 83 up to 2^46 words and about 68 over the full 64-bit length range. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
    "provenance": [
     "data/provable.json#/result/table/rows/9",
     "data/paper_injective.tex, tab:injective:adversarial when M2 figures supplied"
@@ -17272,9 +17293,9 @@
      "verification": {}
     }
    },
-   "qualification": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. claimed bound ⌈L/2^23⌉²·2^-83, i.e. score(L) ≥ min(83 + log₂L, 127 − log₂L); 83 for inputs up to 2^46 words, about 68 over the full 64-bit length range",
+   "qualification": "UMASH-128 inherits only the certified linear envelope ε ≤ 45635·⌈L/512⌉/2^61, by inclusion in the primary collision event. The primary bound has score 46.52 bits; the inherited linear envelope alone guarantees 45.52 bits. The quadratic 83-bit bound remains a claim, shown hollow; its claimed score is 83 up to 2^46 words and about 68 over the full 64-bit length range. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
    "hover": {
-    "scope": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. claimed bound ⌈L/2^23⌉²·2^-83, i.e. score(L) ≥ min(83 + log₂L, 127 − log₂L); 83 for inputs up to 2^46 words, about 68 over the full 64-bit length range"
+    "scope": "UMASH-128 inherits only the certified linear envelope ε ≤ 45635·⌈L/512⌉/2^61, by inclusion in the primary collision event. The primary bound has score 46.52 bits; the inherited linear envelope alone guarantees 45.52 bits. The quadratic 83-bit bound remains a claim, shown hollow; its claimed score is 83 up to 2^46 words and about 68 over the full 64-bit length range. OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted. Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited."
    },
    "smhasher3": {
     "verdict": "FAIL",
@@ -17303,7 +17324,7 @@
    "speed_registration": "UMASH-128",
    "chart_eligible": true,
    "score_minimizer_L": null,
-   "score_derivation": "Claimed height retained under the final author decision; the published projection argument has a gap. See appendix and separate certified bounds.",
+   "score_derivation": "Claimed chart height stays 83. Only the linear envelope is inherited: ε ≤ 45635·⌈L/512⌉/2^61; its score is at least 61−log₂(45635) = 45.52214688908606. The primary theorem’s tighter 46.52-bit score is separate; no quadratic 83-bit certificate is asserted.",
    "proof_status": "proof gap found (see appendix)",
    "proof_source": "records/umash/GAP.md",
    "score_display": "83 (claimed)",
@@ -17315,27 +17336,40 @@
     "minimizer_L": null,
     "formula": "ceil(L/2^23)^2·2^-83"
    },
-   "bits_certified": 1,
+   "bits_certified": 45.52214688908606,
    "bits_claimed": 83,
-   "bound_certified": "F128(1)=2^-128/(1−561/q); F128(L)=1 for L≥2",
+   "bound_certified": "ε ≤ 45635·⌈L/512⌉/2^61",
    "mechanism_family": "PH/NH + prime-field polynomial",
    "rurban_alias": "umash",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
    "masking": {
-    "label": "Unresolved.",
-    "note": "The raw compressor’s AXU theorem does not certify the projected full hash or its truncation.",
+    "label": "Corrected full-output certificate only.",
+    "note": "The corrected linear envelope does not establish the quadratic 83-bit claim; masking needs its own bound or the generic projection loss.",
     "audit_url": "records/AUDIT_REVIEW.md#2-umash-64-and-umash-128"
    },
-   "domain_short": "uniform full key; claimed bound not yet fully certified",
-   "bound_ph_chunk": "≤ 852²/2^64 per block (about 44 bits), for a differing PH chunk; not an all-pairs 55/83-bit certificate",
-   "proved_all_pairs": "no complete bound; only the trivial certificate",
+   "domain_short": "ideal random key; corrected bound proved, sharp claim open",
+   "bound_ph_chunk": "≤ 604²/2^64 per primary block under IID OH words; 604² = 364816; distinct-word conditioning gives 364816/(2^64−561)",
+   "proved_all_pairs": "ε ≤ 45635·⌈L/512⌉/2^61 (inherited linear envelope; score ≥ 45.52 bits)",
    "family_definition": "Carry-less PH chunks plus final ENH/NH chunk, followed by a prime-field polynomial.",
    "lean": {
     "label": "partial: block-case probability proofs remain incomplete",
     "source": "records/umash/LEAN_UMASH_STATUS.md",
-    "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
+    "scope": "Literal model, 852-mask count and conditional end-to-end implications checked in Lean; the corrected unconditional bound and OpenENHOnly closure have a reviewed natural-language proof, not a completed Lean formalization. The published 55/83-bit claims remain neither proved nor refuted."
    },
-   "length_cap_words": 70368744177664
+   "length_cap_words": 70368744177664,
+   "proof_progress_source": "records/umash-corrected/PROOF.md",
+   "certified": {
+    "formula": "ε ≤ 45635·⌈L/512⌉/2^61",
+    "score_bits": 45.52,
+    "linear_envelope": "ε ≤ 45635·⌈L/512⌉/2^61",
+    "status": "Unconditional natural-language proof, three independent adversarial reviews, exhaustive scaled checks; not yet formalized in Lean.",
+    "scope": "Reference/Lean model of umash_reference.py; fixed seed, 34 OH words sampled uniformly without replacement (IID also covered), independent multiplier uniform on {2,…,2^61−2}. Production umash.c was not re-audited.",
+    "closed_and_open": "OpenENHOnly is closed (joint < 2^-105); the sharp primary projection constant and OpenPHENH remain open. Published 55/83-bit claims are neither proved nor refuted.",
+    "proof": "records/umash-corrected/PROOF.md",
+    "verdict": "records/umash-corrected/VERDICT.md",
+    "primary_score_bits": 46.52,
+    "primary_score_scope": "UMASH-64 tighter envelope only; UMASH-128 is assigned only the linear envelope."
+   }
   },
   {
    "id": "clhash",

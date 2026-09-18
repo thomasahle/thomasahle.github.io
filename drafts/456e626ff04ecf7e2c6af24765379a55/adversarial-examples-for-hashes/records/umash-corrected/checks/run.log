@@ -1,0 +1,112 @@
+{
+  "word_bits": 64,
+  "p": 2305843009213693951,
+  "q": 18446744073709551616,
+  "mask_count": 852,
+  "pattern_counts_by_min_valuation": [
+    2771,
+    615,
+    127,
+    3,
+    1
+  ],
+  "small_r_primary_numerators": [
+    2771,
+    1230,
+    508,
+    24
+  ],
+  "low_equal_primary_numerator": 5542,
+  "enh_only_high_r_joint_numerator": 4721784,
+  "mask_parity_counts": [
+    248,
+    604
+  ],
+  "mask_topbit_counts": [
+    248,
+    604
+  ],
+  "even_ph_primary_numerator": 364816,
+  "odd_ph_primary_numerator": 17,
+  "tag_primary_numerator": 269280,
+  "primary_block_numerator": 364816,
+  "corrected_full_hash_constant": 45635,
+  "full_constant_unrounded": [
+    1941055691508763227645934840993350667993088,
+    42535295865117306584003665538960066195
+  ],
+  "scaled_total_key_pairs": 1489152,
+  "scaled_total_lift_checks": 15853
+}
+{
+  "status": "PASS",
+  "mask_counts_per_positive_multiple": [
+    1,
+    184,
+    123,
+    361,
+    62,
+    355,
+    121,
+    178,
+    1
+  ],
+  "mask_pattern_histogram": {
+    "1": 1,
+    "2": 435,
+    "4": 357,
+    "8": 59
+  },
+  "mask_divisibility_counts": [
+    852,
+    248,
+    64,
+    2,
+    1
+  ],
+  "block_primary_numerator": 364816,
+  "iid_block_primary": {
+    "numerator": 22801,
+    "denominator": 1152921504606846976
+  },
+  "distinct_block_primary": {
+    "numerator": 364816,
+    "denominator": 18446744073709551055
+  },
+  "low_equal_enh_primary": {
+    "numerator": 2771,
+    "denominator": 9223372036854775808
+  },
+  "enh_only_joint": {
+    "numerator": 590223,
+    "denominator": 42535295865117307932921825928971026432
+  },
+  "enh_only_joint_after_distinctness": {
+    "numerator": 590223,
+    "denominator": 42535295865117306639343897760088719360
+  },
+  "enh_only_joint_small_r_numerators": [
+    2360892,
+    610080,
+    130048,
+    384
+  ],
+  "full_constant_unrounded": {
+    "numerator": 1941055691508763227645934840993350667993088,
+    "denominator": 42535295865117306584003665538960066195
+  },
+  "full_constant_ceiling": 45635,
+  "slack_below_ceiling": {
+    "numerator": 42535295865058315072435877091952815737,
+    "denominator": 42535295865117306584003665538960066195
+  },
+  "corrected_vs_published_envelope_factor": {
+    "numerator": 45635,
+    "denominator": 64
+  },
+  "old_over_new_block_numerator": {
+    "numerator": 718333281557,
+    "denominator": 364816
+  }
+}
+Manifest and environment: PASS

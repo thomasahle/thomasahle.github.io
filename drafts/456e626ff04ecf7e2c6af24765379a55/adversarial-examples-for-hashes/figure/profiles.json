@@ -697,11 +697,19 @@
     {
      "label": "Author’s proof & reference",
      "url": "https://github.com/backtrace-labs/umash/blob/master/umash.pdf"
+    },
+    {
+     "label": "Corrected bound: proof",
+     "url": "records/umash-corrected/PROOF.md"
+    },
+    {
+     "label": "Corrected bound: verified judgement",
+     "url": "records/umash-corrected/VERDICT.md"
     }
    ],
    "results": {
-    "umash": "The published analysis claims a 55-bit score, but the audit found a missing justification in one proof step. The hollow marker keeps that distinction visible: it is a claim, not a certified guarantee. This proof gap has not produced a collision that violates the claimed rate in production UMASH.",
-    "umash128": "The published analysis claims an 83-bit score over the stated length range, but a proof step remains unresolved. The hollow marker is therefore a claim. Its guarantee also weakens for extremely long messages. No collision violating the production fingerprint’s claimed rate is known from this audit."
+    "umash": "A corrected unconditional proof now certifies a 46.52-bit score for the reference 64-bit hash. Its collision bound gives 45.52 bits at 1 KB, 45.28 at 1 MB and 37.99 at 1 GB, before adjusting for length. The hollow 55-bit marker remains the published claim, which is neither proved nor refuted.",
+    "umash128": "The fingerprint inherits the corrected linear collision bound from the primary hash. This guarantees a 45.52-bit score from that envelope alone; the primary hash’s tighter bound scores 46.52 bits. The hollow 83-bit marker remains the published quadratic claim, which is neither proved nor refuted."
    },
    "sources": [
     "https://github.com/backtrace-labs/umash",
@@ -709,30 +717,32 @@
     "records/umash/ENH_RESULT.md",
     "records/umash/FIFTH_RECOUNT.md",
     "index.html#appendix-umash",
-    "records/umash/LEAN_UMASH_STATUS.md"
+    "records/umash/LEAN_UMASH_STATUS.md",
+    "records/umash-corrected/PROOF.md",
+    "records/umash-corrected/VERDICT.md"
    ],
    "lean": {
     "umash": {
      "label": "partial: block-case probability proofs remain incomplete",
      "source": "records/umash/LEAN_UMASH_STATUS.md",
-     "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
+     "scope": "Literal model, 852-mask count and conditional end-to-end implications checked in Lean; the corrected unconditional bound and OpenENHOnly closure have a reviewed natural-language proof, not a completed Lean formalization. The published 55/83-bit claims remain neither proved nor refuted."
     },
     "umash128": {
      "label": "partial: block-case probability proofs remain incomplete",
      "source": "records/umash/LEAN_UMASH_STATUS.md",
-     "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
+     "scope": "Literal model, 852-mask count and conditional end-to-end implications checked in Lean; the corrected unconditional bound and OpenENHOnly closure have a reviewed natural-language proof, not a completed Lean formalization. The published 55/83-bit claims remain neither proved nor refuted."
     }
    },
    "reader_notes": {
     "umash": {
-     "evidence": "The audit proves weaker intermediate bounds, but neither the full published claim nor the complete weaker fallback has been certified in Lean. A gap in a proof is not itself a counterexample.",
-     "key": "The claim assumes the full random key described by UMASH’s analysis. Replacing that key with values generated from a smaller seed requires an additional justification.",
-     "scope": "This entry concerns the production 64-bit hash. The appendix explains the missing reduction step and the weaker result that the audit can establish."
+     "evidence": "The unconditional natural-language proof passed three independent adversarial reviews and exhaustive scaled checks; it is not yet formalized in Lean. ENH-only changes are closed with a joint bound below 2^-105. The sharp primary constant and changes involving both PH and ENH remain open.",
+     "key": "The corrected proof fixes the seed and samples 34 random OH words without replacement, with an independent polynomial multiplier uniform on {2,…,2^61−2}. Independent sampling of the OH words is also covered; expansion from a short seed needs separate justification.",
+     "scope": "The certificate covers the Python reference and its Lean model; production umash.c was not re-audited. The 46.52-bit score holds for fixed-length and at-most-length inputs and supersedes the previous 25.6-bit fallback, a gain of 20.9 bits."
     },
     "umash128": {
-     "evidence": "The audit proves weaker intermediate bounds, but neither the full published claim nor the complete weaker fallback has been certified in Lean. A gap in a proof is not itself a counterexample.",
-     "key": "The claim assumes the full random key described by UMASH’s analysis. Replacing that key with values generated from a smaller seed requires an additional justification.",
-     "scope": "The displayed 83-bit claim applies up to 2⁴⁶ eight-byte words, about 512 TiB. The claimed score falls as the maximum admitted length grows beyond that range; it is about 68 bits at the full 64-bit length limit."
+     "evidence": "The unconditional natural-language proof passed three independent adversarial reviews and exhaustive scaled checks; it is not yet formalized in Lean. ENH-only changes are closed with a joint bound below 2^-105. The sharp primary constant and changes involving both PH and ENH remain open.",
+     "key": "The corrected proof fixes the seed and samples 34 random OH words without replacement, with an independent polynomial multiplier uniform on {2,…,2^61−2}. Independent sampling of the OH words is also covered; expansion from a short seed needs separate justification.",
+     "scope": "The certificate covers the Python reference and its Lean model; production umash.c was not re-audited. Only the linear envelope is inherited. The displayed 83-bit quadratic claim applies up to 2^46 eight-byte words (about 512 TiB), falling to about 68 bits at the full 64-bit length limit."
     }
    }
   },
