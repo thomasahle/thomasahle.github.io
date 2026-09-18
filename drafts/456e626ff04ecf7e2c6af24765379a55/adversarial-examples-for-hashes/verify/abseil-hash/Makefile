@@ -52,10 +52,12 @@ else
 NATIVE_BINS := native/absl_check_scalar
 endif
 
+# Both sides are built with the same flags, so they select the same LowLevelHash backend
+# (default flags: scalar on x86-64, ARM crypto on arm64 macOS; -msse4.2 -maes: x86 AES-NI).
 native: abseil_hash_verify $(NATIVE_BINS)
 	@for b in $(NATIVE_BINS); do \
 	  echo "== $$b vectors vs the C program's --vectors"; \
-	  case $$b in *_aes) flags="-msse4.2 -maes";; *) flags="-DABSL_VERIFY_SCALAR";; esac; \
+	  case $$b in *_aes) flags="-msse4.2 -maes";; *) flags="";; esac; \
 	  $(CC) $(CFLAGS) $$flags -o abseil_hash_verify_tmp abseil_hash_verify.c -lm || exit 1; \
 	  ./$$b vectors > native/vectors_real.tmp; ./abseil_hash_verify_tmp --vectors > native/vectors_c.tmp; \
 	  if cmp -s native/vectors_real.tmp native/vectors_c.tmp; then echo "identical ($$(wc -l < native/vectors_real.tmp) vectors)"; else echo "DIFFER"; exit 1; fi; \

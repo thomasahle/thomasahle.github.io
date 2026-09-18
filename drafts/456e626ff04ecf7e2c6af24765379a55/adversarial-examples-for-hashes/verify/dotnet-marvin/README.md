@@ -143,13 +143,14 @@ The page row quotes pair A at 2^32 seeds.  Reruns of this program at the row's s
 the same Xeon (single-threaded, `run_2p32_xeon.txt` and `run_2p34_xeon.txt`, timing blocks
 retained):
 
-* pair A, `./marvin32_verify 32 1 A`: **collisions = @@A32@@ / 2^32 = 2^@@A32LOG@@**
-  (all full-state), sampled score @@A32SCORE@@ bits; @@A32TIME@@.
+* pair A, `./marvin32_verify 32 1 A`: **collisions = 8,949,129 / 2^32 = 2^-8.9067**,
+  sampled score 9.9067 bits; 8,949,127 of them full 64-bit state collisions (the other two are
+  32-bit xor collapses); 54 s CPU (5m20s wall on a shared machine).
   The row's independent samples: 8,945,794 / 2^32 = 2^-8.907 (95% Poisson [2^-8.908, 2^-8.906])
   and 8,947,470 / 2^32 = 2^-8.91 from a different RNG, and 34,855 / 2^24 = 2^-8.91 through the
   real runtime.
-* pair B, `./marvin32_verify 34 1 B`: **collisions = @@B34@@ / 2^34 = 2^@@B34LOG@@**;
-  @@B34TIME@@.  The row's samples: 1398 / 2^33 and 2857 / 2^34 (pooled 2^-22.53).
+* pair B, `./marvin32_verify 34 1 B`: **collisions = 2,844 / 2^34 = 2^-22.526**;
+  2,839 of them full-state; 3 min CPU (16 min wall on a shared machine).  The row's samples: 1398 / 2^33 and 2857 / 2^34 (pooled 2^-22.53).
 * real runtime, `dotnet out/dotnet_check.dll 24` (`dotnet_check.txt`): pair A
   **34,923 / 2^24 = 2^-8.908**, pair B 1 / 2^24; both recorded seeds reproduce their hash codes
   through `System.Marvin.ComputeHash32`, and `string.GetHashCode()` equals

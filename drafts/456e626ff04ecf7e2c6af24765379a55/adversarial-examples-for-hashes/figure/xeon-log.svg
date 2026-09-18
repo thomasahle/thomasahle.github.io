@@ -310,6 +310,21 @@
      <use xlink:href="#m716f67a578" x="94.73297" y="308.162162" style="fill: #ffffff; stroke: #737d8d; stroke-width: 1.6" />
     </g>
    <circle cx="94.73296952833422" cy="308.16216216216225" r="12" fill="transparent" class="point-hit" /><circle cx="94.73296952833422" cy="308.16216216216225" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
+   <g id="point-go-maphash" data-point-id="go-maphash" data-speed="17.66" data-bits="25.0" tabindex="0" role="button" aria-label="Go runtime map hash / hash/maphash (go1.27.1, amd64 AES path): at most 25.0 bits (cap; analytic trail 2^-24, measured 2^-23.96); 95% Poisson on the verifier sample [24.61, 25.33] bits; 17.66 B/cycle. Inspect result.">
+    <g clip-path="url(#pe1bfc003b6)">
+     <use xlink:href="#ma47640ded7" x="800.73399" y="369.298591" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
+    </g>
+   <circle cx="800.7339898289493" cy="369.29859122853406" r="12" fill="transparent" class="point-hit" /><circle cx="800.7339898289493" cy="369.29859122853406" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
+   <g id="point-abseil-hash" data-point-id="abseil-hash" data-speed="8.22" data-bits="0.0" tabindex="0" role="button" aria-label="absl::Hash (abseil-cpp 20260817.0 / HEAD 73d2688): 0 bits (key-free pair at L = 1) bits; 8.22 B/cycle. Inspect result.">
+    <g clip-path="url(#pe1bfc003b6)">
+     <use xlink:href="#mbed47526d4" x="646.748316" y="623.72973" style="fill: #bd5637; fill-opacity: 0.85; stroke: #bd5637; stroke-opacity: 0.85; stroke-width: 1.6" />
+    </g>
+   <circle cx="646.7483158352998" cy="623.7297297297298" r="12" fill="transparent" class="point-hit" /><circle cx="646.7483158352998" cy="623.7297297297298" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
+   <g id="point-dotnet-marvin" data-point-id="dotnet-marvin" data-speed="0.95" data-bits="9.907221893728378" tabindex="0" role="button" aria-label="Marvin32 (.NET 10 string.GetHashCode): at most 9.91 bits (sampled cap); 95% Poisson interval [9.9063, 9.9082] bits; 0.95 B/cycle. Inspect result.">
+    <g clip-path="url(#pe1bfc003b6)">
+     <use xlink:href="#ma47640ded7" x="212.243062" y="429.498768" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
+    </g>
+   <circle cx="212.24306170420428" cy="429.4987680528406" r="12" fill="transparent" class="point-hit" /><circle cx="212.24306170420428" cy="429.4987680528406" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
    <g id="point-polymur" data-point-id="polymur" data-speed="4.97" data-bits="54.22679349755191" tabindex="0" role="button" aria-label="PolymurHash 2.0: ≥ 54.2267 bits (proved) bits; 4.97 B/cycle. Inspect result.">
     <defs>
      <path id="m587f84937d" d="M 0 4.062019  C 1.07726 4.062019 2.110543 3.634019 2.872281 2.872281  C 3.634019 2.110543 4.062019 1.07726 4.062019 0  C 4.062019 -1.07726 3.634019 -2.110543 2.872281 -2.872281  C 2.110543 -3.634019 1.07726 -4.062019 0 -4.062019  C -1.07726 -4.062019 -2.110543 -3.634019 -2.872281 -2.872281  C -3.634019 -2.110543 -4.062019 -1.07726 -4.062019 0  C -4.062019 1.07726 -3.634019 2.110543 -2.872281 2.872281  C -2.110543 3.634019 -1.07726 4.062019 0 4.062019  z " style="stroke: #176f83; stroke-width: 0.7" />
@@ -534,7 +549,7 @@
    <text style="fill: #626e69; font: 13px 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="83" y="199.463594" transform="rotate(-0 83 199.463594)">Collision score · bits · log scale (linear 0–1)</text>
   </g>
   <g id="text_24">
-   <text style="fill: #bd5637; font: 700 14px 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="40" y="721.191563" transform="rotate(-0 40 721.191563)">×  13 variants have a fixed pair that collides for every seed.</text>
+   <text style="fill: #bd5637; font: 700 14px 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="40" y="721.191563" transform="rotate(-0 40 721.191563)">×  14 variants have a fixed pair that collides for every seed.</text>
   </g>
   <g id="text_25">
    <text style="fill: #626e69; font: 12px 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="40" y="752.735625" transform="rotate(-0 40 752.735625)">Guarantees require the stated random keys. GHASH timing includes setup costs.</text>

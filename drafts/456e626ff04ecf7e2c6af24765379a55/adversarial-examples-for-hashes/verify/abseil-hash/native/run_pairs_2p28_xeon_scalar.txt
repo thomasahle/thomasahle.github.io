@@ -1,0 +1,25 @@
+absl_check: real abseil-cpp 73d2688 through hash_internal::HashWithSeed (LowLevelHash backend for len > 32: scalar)
+N = 2^28 uniform 64-bit seeds per pair (rng seed 1), plus the 32 SwissTable seeds {0, 64, ..., 1984}
+
+pair 1: '' (0 B) vs a6e02637c07bd386 (8 B)
+  seed 0x0: H(m) = 2bda3ac53577c4b7  H(m') = 2bda3ac53577c4b7  COLLIDE
+  seed 0x4055c8: H(m) = 06bb4292e0eae907  H(m') = 06bb4292e0eae907  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 268435456 / 268435456
+  first colliding seed 0xb3f2af6d0fc710c5: H = 216d4614c709b2b6
+
+pair 2: 'a' (1 B) vs 44b53d572db1948b (8 B)
+  seed 0x0: H(m) = a65e8ab2c950c927  H(m') = a65e8ab2c950c927  COLLIDE
+  seed 0x4055c8: H(m) = e3a0eef311f0006a  H(m') = e3a0eef311f0006a  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 268435456 / 268435456
+  first colliding seed 0xb3f2af6d0fc710c5: H = ee7feffd0ea4f277
+
+pair 3: abcdefgh||kMul vs ABCDEFGH||kMul (16 B, both hash to 0)
+  seed 0x0: H(m) = 0000000000000000  H(m') = 0000000000000000  COLLIDE
+  seed 0x4055c8: H(m) = 0000000000000000  H(m') = 0000000000000000  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 268435456 / 268435456
+  first colliding seed 0xb3f2af6d0fc710c5: H = 0000000000000000
+
+ALL PAIRS COLLIDE FOR EVERY SAMPLED SEED (real abseil-cpp 73d2688)

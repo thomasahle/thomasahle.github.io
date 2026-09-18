@@ -1,0 +1,40 @@
+absl::Hash key-free collision check  (LowLevelHash backend for len > 32: ARM crypto (arm64 default))
+hash: absl::Hash<std::string_view>, abseil-cpp 73d2688 (= LTS 20260817.0), re-implemented from absl/hash/internal/hash.{h,cc}
+validation: 325 vectors recorded from the real library (len 0..8192, 5 seeds): 0 mismatches OK
+validation: pair 1 recipe bytes8(D(0) ^ D(8) ^ 0x57) = a6e02637c07bd386 matches the published hex
+validation: pair 2 recipe bytes8(D(1) ^ D(8) ^ 0x616161) = 44b53d572db1948b matches the published hex
+validation: pair 3 last 8 bytes = kMul little-endian (f58c1edee0f9d579) on both strings: yes
+
+Pair 1: 0-byte vs 8-byte cross-length pair (L = 1 word), key-free -- the post's row
+   mechanism: len 0: Mix(seed ^ D(0) ^ 0x57, kMul); len 8: Mix(seed ^ D(8) ^ v, kMul) with v = load32(m')<<32 | load32(m'+4).
+   Choosing m' so that v = D(0) ^ D(8) ^ 0x57 makes the two multiplicands identical for every seed.
+  m  ( 0 bytes) = (empty)
+  m' ( 8 bytes) = a6e02637c07bd386
+  seed 0x0:      H(m) = 2bda3ac53577c4b7  H(m') = 2bda3ac53577c4b7  (real library: 2bda3ac53577c4b7)
+  seed 0x4055c8: H(m) = 06bb4292e0eae907  H(m') = 06bb4292e0eae907  (real library: 06bb4292e0eae907)  recorded values reproduced, both COLLIDE
+  SwissTable per-table seeds {0, 64, ..., 1984} (exhaustive): collisions = 32 / 32
+  uniform 64-bit seeds, N = 65536 (2^16): collisions = 65536 / 65536, rate = 1.000000, log2 rate = 0.000
+  first random colliding seed 0xb3f2af6d0fc710c5: H(m) = H(m') = 216d4614c709b2b6
+
+Pair 2: 1-byte vs 8-byte cross-length pair (L = 1 word), key-free -- non-empty variant of the same identity
+   mechanism: len 1: v = p[0]<<16 | p[0]<<8 | p[0] = 0x616161 for 'a'; m' packs v = D(1) ^ D(8) ^ 0x616161.
+  m  ( 1 bytes) = 61
+  m' ( 8 bytes) = 44b53d572db1948b
+  seed 0x0:      H(m) = a65e8ab2c950c927  H(m') = a65e8ab2c950c927  (real library: a65e8ab2c950c927)
+  seed 0x4055c8: H(m) = e3a0eef311f0006a  H(m') = e3a0eef311f0006a  (real library: e3a0eef311f0006a)  recorded values reproduced, both COLLIDE
+  SwissTable per-table seeds {0, 64, ..., 1984} (exhaustive): collisions = 32 / 32
+  uniform 64-bit seeds, N = 65536 (2^16): collisions = 65536 / 65536, rate = 1.000000, log2 rate = 0.000
+  first random colliding seed 0xb3f2af6d0fc710c5: H(m) = H(m') = ee7feffd0ea4f277
+
+Pair 3: 16-byte same-length pair (L = 2 words), key-free -- the post's other_pair
+   mechanism: len 9..16: Mix(seed ^ D(16) ^ w0, kMul ^ w1) with w1 = the last 8 bytes.  With w1 = kMul the second
+   multiplicand is 0, so every such string hashes to 0 for every seed (a 2^64-way multicollision).
+  m  (16 bytes) = 6162636465666768f58c1edee0f9d579
+  m' (16 bytes) = 4142434445464748f58c1edee0f9d579
+  seed 0x0:      H(m) = 0000000000000000  H(m') = 0000000000000000  (real library: 0000000000000000)
+  seed 0x4055c8: H(m) = 0000000000000000  H(m') = 0000000000000000  (real library: 0000000000000000)  recorded values reproduced, both COLLIDE
+  SwissTable per-table seeds {0, 64, ..., 1984} (exhaustive): collisions = 32 / 32
+  uniform 64-bit seeds, N = 65536 (2^16): collisions = 65536 / 65536, rate = 1.000000, log2 rate = 0.000
+  first random colliding seed 0xb3f2af6d0fc710c5: H(m) = H(m') = 0000000000000000
+
+ALL CHECKS PASSED: all three pairs collide for every SwissTable seed and every sampled 64-bit seed.

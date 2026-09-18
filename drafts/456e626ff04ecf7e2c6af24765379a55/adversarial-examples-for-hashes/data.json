@@ -13269,6 +13269,556 @@
       "mechanism_family": "NH trees",
       "family_definition": "NH keyed pair products, encoding and tree combination; advanced Encode3 core.",
       "fairness_record": "records/fairness-pass/halftime24/README.md"
+    },
+    {
+      "id": "go-maphash",
+      "pattern": [
+        "P2"
+      ],
+      "name": "Go runtime map hash / hash/maphash (go1.27.1, amd64 AES path)",
+      "version": "go1.27.1",
+      "version_note": "Audited go1.27.1, tag commit 862c888e612ac346c7c4d99c9392bdfd265f33b0; default amd64 AES path. Covers string map keys and hash/maphash byte-sequence APIs.",
+      "label": "Go maphash",
+      "anchor": "appendix-go-maphash",
+      "family": "heuristic",
+      "mechanism_family": "keyless AES rounds on a secret lane state",
+      "family_definition": "The 64-bit seed and the length are XORed into per-process AES round keys to derive a secret 128-bit lane state; the message is XORed into that state and passed through three keyless AES rounds with feedforward (AESENC x,x); the low 64 bits are the hash.",
+      "output_bits": 64,
+      "key_bits": 1088,
+      "native_key_bits": 192,
+      "key_model": "Per process: aeskeysched = 128 uniformly random bytes (16 x ChaCha8 bootstrapRand) drawn once at startup; per hash table: a uniformly random 64-bit seed (map creation / maphash.MakeSeed). A message of at most 16 bytes sees only K_0 (128 bits) and the seed (64 bits), i.e. one uniformly random 128-bit lane state. Both layers were drawn fresh and uniformly in every trial. The witness event depends only on aeskeysched bytes 8, 10, 12, 14, so the rate is over the per-process key: in a process where it fires the pair collides in every map and under every maphash seed.",
+      "api": "internal/runtime/maps.memhash (amd64 AES path), reached by map[string], maphash.Bytes/String/Hash. Byte slices are accepted by maphash.Bytes but are not comparable Go map keys. Integer keys use separate memhash32/64 paths.",
+      "status": "NEW",
+      "classification_reason": "No prior published fixed-pair result for the Go AES map hash found. New cross-length seed-state differential: the length enters the seed vector only through the low length byte replicated at bytes 8, 10, 12, 14, and one keyless AES round separates it from the message XOR.",
+      "prior_work": [],
+      "official_claim": {
+        "text": "Hashes are intended to be collision-resistant, even for situations where an adversary controls the byte sequences being hashed. [...] The hash functions are not cryptographically secure. (See crypto/sha256 and crypto/sha512 for cryptographic use.)",
+        "url": "https://pkg.go.dev/hash/maphash",
+        "context": "hash/maphash package documentation (type Hash and package doc). hasher.go adds: 'computing hashes as a sequence of values emitted into a Hash with an unpredictable Seed that varies from one hash table to another mitigates this attack. In effect, the Seed chooses one of 2^64 different hash functions.' runtime_alg.go initAlgAES: 'Initialize with random data so hash collisions will be hard to engineer.' No numeric collision bound is claimed.",
+        "badge": "claims: collision-resistant against adversarial inputs; disclaims cryptographic security",
+        "provenance": "https://pkg.go.dev/hash/maphash"
+      },
+      "claim_category": "keyed collision / DoS claim",
+      "smhasher3": null,
+      "smhasher3_note": "Implementation checks and speed measurements are separate from the statistical suite; no complete suite verdict is supplied here.",
+      "pair": {
+        "m_hex": "000000000000000000000000000000",
+        "m_prime_hex": "a3fe5da3a3fe5da342a3bcfe42a3bcfe",
+        "lengths_bytes": [
+          15,
+          16
+        ],
+        "L_words": 2,
+        "verifier_confirmed": true,
+        "example_seed_raw": "aeskeysched bytes [8,10,12,14] = ab0fb4ab with map seed 0x12c3be9a410c165a: maphash.Bytes = 1b7db7aab24e95c9 for both; the same key under seed 0x74e0b8b8df8dd591: 3456a4a54b1ad399 for both (real go1.27.1 runtime, verify/verify.log)",
+        "example_output_hex": "1b7db7aab24e95c9",
+        "output_order": "64-bit integer",
+        "construction": "b = pad16(a) XOR Delta*(L), Delta*(15) = a3fe5da3a3fe5da342a3bcfe42a3bcfe = MC(SR(w at bytes 8,10,12,14)) XOR (L^16 at bytes 8,10,12,14) with w the DDT-4 S-box output difference for input difference 0x1f; same construction for every L = 1..15 vs 16 (e.g. L=1: a=00, b=e138d9e1e138d9e1c8e1f038c8e1f038; L=6: a=000000000000, b=246c4824246c48245e24326c5e24326c)",
+        "provenance": [
+          "verify/go-maphash/README.md"
+        ]
+      },
+      "pair_lengths_bytes": [
+        15,
+        16
+      ],
+      "L_words": 2,
+      "equal_length_pair": false,
+      "collision": {
+        "display": "66 / 2^30 (sampled); ε ≈ 2^-23.9556",
+        "count": 66,
+        "trials": 1073741824,
+        "trials_log2": 30.0,
+        "epsilon": 6.146728992462158e-08,
+        "log2_contribution": -23.955605880641546,
+        "exact_contribution": false,
+        "total_equality_proved": false,
+        "poisson_95_interval": [
+          4.753879757471502e-08,
+          7.820146385813765e-08
+        ],
+        "interval_method": "central 95% exact Poisson (Garwood), rounded only for display",
+        "note": "Independent verifier sample (verify/gomh.c, fresh 128-byte key + fresh 64-bit seed per trial). Analytic trail value is exactly (4/256)^4 = 2^-24 (four AES S-box DDT-4 events); pooled L=1..7 vs 16 at 7x2^30: 454 -> 2^-23.98 [2^-24.12, 2^-23.85]; real go1.27.1 runtime 20/2^28 = 2^-23.68."
+      },
+      "score": {
+        "calculated": 25.0,
+        "display": 25.0,
+        "display_text": "at most 25.0 bits (cap; analytic trail 2^-24, measured 2^-23.96); 95% Poisson on the verifier sample [24.61, 25.33]",
+        "direction": "estimated_upper_bound",
+        "poisson_95_interval": [
+          24.60822914541398,
+          25.32631934624628
+        ],
+        "interval_95_bits": [
+          24.60822914541398,
+          25.32631934624628
+        ],
+        "poisson_count": 66,
+        "poisson_trials": 1073741824,
+        "derivation": "log2(L/epsilon) = log2(2 / 2^-24) = 25.0 with epsilon the exact probability of the unique trail (4/256)^4 (four independent DDT-4 S-box events in the seed-state round); the verifier sample 66/2^30 gives log2(2/(66/2^30)) = 24.956, consistent"
+      },
+      "bits": 25.0,
+      "bits_kind": "measured",
+      "mechanism": "For 1..16 bytes the hash is lo64(F^3(pad16(m) XOR S_0)) with S_0 = F(X0 XOR K_0), X0 = [seed | len16 x4], F(x) = AESENC(x, x). Two lengths L < 16 and 16 feed y and y XOR Dlen into the one keyless round that derives S_0. With probability exactly (4/256)^4 the four active S-boxes take their DDT-4 output, so S_0 XOR S_0' equals a fixed Delta*; choosing b = pad16(a) XOR Delta* makes the F^3 inputs identical, and the pair collides for every map seed in that process.",
+      "qualification": "Cross-length pair (15 vs 16 bytes; the longer message must be exactly 16 bytes and all its bytes are fixed by Delta*). Rate is over the per-process key, seed-free given the key. Same-length pairs: no structured route found (F has no fixed-point differential with <= 7 active bytes; truncated 3-round trails need >= 6 active S-boxes, <= 2^-36). memhash64/memhash32 (integer map keys): best trails <= 2^-48, not measurable. arm64 AES path (full 64-bit length in the seed vector, S_0 reused as round key): best enumerated trail 2^-31, measured 2 hits in 2^33 = 2^-32.0 under qemu only, cap about 32-33 bits, not verified on arm64 hardware. Fallback (no-AES) path: no finding (0 in 2^32 for the cheapest candidates). hash/maphash chunking (>128 bytes) chains the 64-bit state as the next seed, so any 64-bit internal collision is key-free for the remainder.",
+      "key_free": false,
+      "key_free_definition": "The exhibited pair is not key-free over the process key; its sufficient collision event holds for every map seed once the relevant process-key bytes meet the trail condition. No general nonexistence theorem is asserted.",
+      "notes": "The rate 2^-24 is per PROCESS (aeskeysched bytes 8,10,12,14 only): in about one process in 16.8 million the pair collides in every map and under every maphash.Seed; elsewhere it never collides. Verified three ways: the AES-NI C harness (66/2^30 = 2^-23.96, pooled L=1..7 vs 16: 454/7x2^30 = 2^-23.98), an independent transcription of memhash_amd64.s (2883/2883 real-runtime vectors bit-exact, Delta* re-derived from the S-box DDT for every L), and the real go1.27.1 runtime with aeskeysched re-randomised per sample through go:linkname (20/2^28 = 2^-23.68; the reporting lane got 12/2^28). A colliding key collides under 2^24/2^24 random seeds and 65536/65536 re-draws of the other 124 key bytes. The per-process re-randomisation is a simulation of 2^28 process starts inside one process; memhash reads the global on every call, so it is equivalent. Only the amd64 AES path was re-measured independently.",
+      "hover": {
+        "mechanism": "The length byte enters the secret lane state through one keyless AES round; four S-box events make the state difference a fixed constant, which the 16-byte message cancels.",
+        "quote": "intended to be collision-resistant, even for situations where an adversary controls the byte sequences"
+      },
+      "provenance": [
+        "verify/go-maphash/README.md"
+      ],
+      "reproduction": {
+        "status": "Standalone reproduction package; see README for build commands and recorded runs.",
+        "directory": "verify/go-maphash/",
+        "readme": "verify/go-maphash/README.md"
+      },
+      "supporting_measurements": {
+        "per_length_L_vs_16_2p30": {
+          "L1..L7": "pooled 454 (search lane 455) / 7x2^30 = 2^-23.98 [2^-24.12, 2^-23.85]; per-L examples L=5: 61/2^30, L=6: 58/2^30, L=7: 63/2^30"
+        },
+        "real_runtime_2p28": {
+          "search_lane": "12/2^28 = 2^-24.42 [2^-25.37, 2^-23.61]",
+          "verifier": "20/2^28 = 2^-23.68 [2^-24.39, 2^-23.05]"
+        },
+        "seed_free_given_key": "one colliding key: 2^24/2^24 random seeds, 65536/65536 re-draws of the other 124 key bytes",
+        "arm64_aes_path": "best trail 2^-31 at L=1 vs 14 (a=00, b=00007d00000000d62a15153f002b); 2 hits in 2^33 = 2^-32.0 (qemu, unverified on hardware)",
+        "earlier_same_length_search": "0 collisions in 2^32 for the 7 cheapest same-length candidates on both shipped paths (superseded: it missed the cross-length route)"
+      },
+      "deployment_transfer": "Applies to map[string] and hash/maphash.Bytes/String/Hash on amd64 AES. Byte slices are valid maphash inputs, not Go map keys. Integer keys use separate memhash32/64 paths. ARM64 is a different algorithm; its qemu-only observation is not scored here.",
+      "code_url": "https://github.com/golang/go/blob/go1.27.1/src/internal/runtime/maps/memhash_amd64.s",
+      "reference_url": "https://pkg.go.dev/hash/maphash",
+      "verification_url": "verify/go-maphash/README.md",
+      "speed_registration": "GoMapHash",
+      "speed_note": "Available host-specific measurements are linked in records/new-hashes/speeds_new_hashes.json; missing timings stay blank. The 25-bit score is specific to amd64 AES and is not plotted with ARM64 timing.",
+      "speeds": {
+        "smh_m2_bulk_Bpc": {
+          "value": null,
+          "source": "Timing not yet available for this host."
+        },
+        "smh_xeon_bulk_Bpc": {
+          "value": 17.66,
+          "source": "SMHasher3 Xeon8375C; completed timing runs",
+          "url": "records/new-hashes/speeds_new_hashes.json",
+          "record": "records/new-hashes/speeds_new_hashes.json#/go-maphash/Xeon8375C",
+          "registered_name": "GoMapHash",
+          "host": "Xeon8375C",
+          "backend_token": "GO_AMD64_AES",
+          "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
+          "completed_runs": 1,
+          "timing_status": "running"
+        },
+        "smh_m2_small_cycles": {
+          "value": null,
+          "source": "Timing not yet available for this host."
+        },
+        "smh_xeon_small_cycles": {
+          "value": 64.32,
+          "source": "SMHasher3 Xeon8375C; completed timing runs",
+          "url": "records/new-hashes/speeds_new_hashes.json",
+          "record": "records/new-hashes/speeds_new_hashes.json#/go-maphash/Xeon8375C",
+          "registered_name": "GoMapHash",
+          "host": "Xeon8375C",
+          "backend_token": "GO_AMD64_AES",
+          "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
+          "completed_runs": 1,
+          "timing_status": "running"
+        }
+      },
+      "chart_eligible": true,
+      "rurban_alias": null,
+      "input_domain": "Variable-length byte strings (string / []byte map keys, maphash input); selected witness lengths shown.",
+      "domain_short": "variable-length byte strings; selected witness only",
+      "latest_checked": {
+        "go_dl": "go1.27.1 (2026-08-28) is the newest release at 2026-09-18",
+        "core_changed": false,
+        "note": "memhash_amd64.s / memhash_arm64.s unchanged on master vs the tag at the time of the port"
+      },
+      "chart_hosts": [
+        "Xeon8375C"
+      ]
+    },
+    {
+      "id": "abseil-hash",
+      "pattern": [
+        "P1"
+      ],
+      "name": "absl::Hash (abseil-cpp 20260817.0 / HEAD 73d2688)",
+      "version": "20260817.0",
+      "version_note": "Latest LTS 20260817.0 (2026-08-18); measured on master HEAD 73d2688300440c8af028eec865ee0dcd85e93025 (2026-09-17), whose hash.h/hash.cc are what the LTS ships (LowLevelHash folded into absl/hash/internal/hash.cc). Default open-source build on every platform: scalar path for len <= 32 (the CRC32C path needs ABSL_OPTION_INLINE_HW_ACCEL_STRATEGY != 0, shipped as 0); len > 32 scalar LowLevelHash on x86-64 by default, AES-NI with -maes -msse4.2, ARM-crypto on arm64 macOS by default.",
+      "label": "absl::Hash",
+      "anchor": "appendix-abseil-hash",
+      "family": "heuristic",
+      "mechanism_family": "keyed multiply-fold (mum)",
+      "family_definition": "Mix(a,b) = hi64(a*b) XOR lo64(a*b); for len <= 32 the seed is XORed into one multiplicand of one or two Mix calls whose other multiplicand is a public constant; the length enters only as D(len), an unaligned 8-byte window of the pi-constant table.",
+      "output_bits": 64,
+      "key_bits": 64,
+      "native_key_bits": 5,
+      "key_model": "64-bit seed passed through absl::hash_internal::HashWithSeed, the hook raw_hash_set uses; absl::Hash<T>{}(x) == hash_with_seed(x, Seed()). Scored with the 32 SwissTable per-table seeds {0, 64, ..., 1984} (exhaustive) plus 2^28 uniform 64-bit seeds; the result holds for all 2^64 seeds by identity. Real deployments have far less: flat_hash_set/map use a 5-bit per-table seed (32 values); direct absl::Hash uses Seed() = the ASLR-slid address of a global (about 28 bits on Linux PIE, about 12 bits on macOS arm64, 0 bits on a non-PIE Linux build).",
+      "api": "absl::Hash<std::string_view> / absl::HashOf and absl::flat_hash_{set,map}<std::string,...> with the default hasher, via hash_internal::HashWithSeed(seed).hash(bytes, len)",
+      "status": "NEW",
+      "classification_reason": "No prior published every-seed pair for the current absl::Hash found. Cross-length cancellation of the length mix D(len) at len <= 8, where the seed enters only by XOR before a fixed Mix.",
+      "prior_work": [
+        {
+          "label": "Paper: wyhash/rapidhash complement-both-operands mechanism (same Mix primitive)",
+          "url": "https://github.com/thomasahle/fast-polynomials"
+        }
+      ],
+      "official_claim": {
+        "text": "One should assume that a hash algorithm is chosen randomly at the start of each process.  E.g., `absl::Hash<int>{}(9)` in one process and `absl::Hash<int>{}(9)` in another process are likely to differ. [...] `absl::Hash` is intended to strongly mix input bits with a target of passing an Avalanche Test.",
+        "url": "https://github.com/abseil/abseil-cpp/blob/master/absl/hash/hash.h",
+        "context": "absl/hash/hash.h header comment. The Seed() comment in absl/hash/internal/hash.h: 'A non-deterministic seed. The current purpose of this seed is to generate non-deterministic results and prevent having users depend on the particular hash values. It is not meant as a security feature right now, but it leaves the door open to upgrade it to a true per-process random seed.' No collision-resistance, DoS-resistance or security claim is made anywhere.",
+        "badge": "claims: per-process non-determinism and avalanche only; no security claim",
+        "provenance": "https://github.com/abseil/abseil-cpp/blob/master/absl/hash/hash.h"
+      },
+      "claim_category": "statistical quality only",
+      "smhasher3": null,
+      "smhasher3_note": "Implementation checks and speed measurements are separate from the statistical suite; no complete suite verdict is supplied here.",
+      "pair": {
+        "m_hex": "",
+        "m_prime_hex": "a6e02637c07bd386",
+        "lengths_bytes": [
+          0,
+          8
+        ],
+        "L_words": 1,
+        "verifier_confirmed": true,
+        "example_seed_raw": "every seed: 32/32 SwissTable seeds {0,...,1984} and 2^28/2^28 uniform 64-bit seeds on the real scalar and real -maes builds (verify/ lane, fresh generator), 2^30/2^30 in the search lane; process (ASLR) seed collides too; e.g. seed 0 and seed 0x4055c8",
+        "output_order": "64-bit integer",
+        "construction": "len 0 -> Mix(seed ^ D(0) ^ 0x57, kMul); len 8 -> Mix(seed ^ D(8) ^ v, kMul) with v = load32(b) << 32 | load32(b+4); b = bytes8(D(0) ^ D(8) ^ 0x57) makes the multiplicands identical for every seed. Non-empty alternatives from the same identity: 'a' (61, len 1) vs 44b53d572db1948b (len 8); eee229e46a (len 5) vs b31833d9cc65b02d (len 8).",
+        "provenance": [
+          "verify/abseil-hash/README.md"
+        ]
+      },
+      "pair_lengths_bytes": [
+        0,
+        8
+      ],
+      "L_words": 1,
+      "equal_length_pair": false,
+      "collision": {
+        "display": "every key",
+        "log2_contribution": 0,
+        "exact_contribution": true,
+        "total_equality_proved": true,
+        "interpretation": "Exact sufficient event: identical Mix inputs for every seed (algebraic identity); sampled 32/32 + 268,435,456/268,435,456 on the real scalar and -maes builds, Clopper-Pearson 95% lower bound 1 - 1.1e-8"
+      },
+      "score": {
+        "calculated": 0.0,
+        "display": 0.0,
+        "display_text": "0 bits (key-free pair at L = 1)",
+        "direction": "upper_bound",
+        "rounding": "upward",
+        "derivation": "log2(1) - 0"
+      },
+      "bits": 0.0,
+      "bits_kind": "exact",
+      "mechanism": "For len <= 8 the whole hash is Mix(seed ^ D(len) ^ v, kMul) with v a public packing of the bytes; the seed and the length mix D(len) are both XORed before one fixed map, so any two (len, bytes) with equal v ^ D(len) collide for every seed.",
+      "qualification": "Cross-length pair (0 vs 8 bytes; non-empty variants exist at every la <= 8 vs 8). Same-length cap 1 bit at L = 2: every 9..16-byte string whose last 8 bytes are kMul (f58c1edee0f9d579) hashes to 0 for every seed (2^64-way multicollision), e.g. 6162636465666768f58c1edee0f9d579 vs 4142434445464748f58c1edee0f9d579. Key-free pairs exist at every length 0..2048 tested on the scalar default build (swaps of commutatively merged lanes at 32/64/128 bytes, Mix(x,0)=0 zero families) and at every length on the arm64 macOS default build; the x86 AES-NI (-maes) build breaks the >32-byte scalar families but keeps everything at <= 32 bytes and has a 2^-3-per-bit cross-length family at 33..64 bytes. Non-default CRC32C build: key-free same-length pair at 16 bytes (GF(2)-affine per word). Separately, SwissTable has only 32 table seeds: any nonzero collision probability over a uniform table seed is at least 1/32. This limits table-seed randomization to five bits; it does not say every arbitrary pair must collide.",
+      "key_free": true,
+      "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
+      "notes": "Confirmed by an independent re-implementation written from hash.h/hash.cc only (verify/myhash.h, 47,439 vectors bit-exact on scalar, -maes and -fPIE builds), by the real implementation through HashWithSeed, and inside real flat_hash_set tables (800 tables showed exactly the 32 seeds; the pair collides in 2800/2800 tables). ARM-crypto path not re-run by the verifier (no ARM host; the <= 32-byte verdict is build-independent by source structure). The rows' 'process seed' is an ASLR address, not a random key; moot for a key-free pair. Two search lanes reached the same 0-bit verdict independently.",
+      "hover": {
+        "mechanism": "The seed and the length mix are XORed into the same multiplicand before one fixed multiply, so a cross-length pair cancels the length mix and collides for every seed.",
+        "quote": "It is not meant as a security feature right now"
+      },
+      "other_pair": {
+        "m_hex": "6162636465666768f58c1edee0f9d579",
+        "m_prime_hex": "4142434445464748f58c1edee0f9d579",
+        "lengths_bytes": [
+          16,
+          16
+        ],
+        "L_words": 2,
+        "bits": 1.0,
+        "verifier_confirmed": true,
+        "example_seed_raw": "every seed; both outputs are 0 (Mix(x, kMul ^ kMul) = Mix(x, 0) = 0)",
+        "note": "same-length witness; the upstream comment in CombineContiguousImpl9to16 says this needs 'an unlucky seed', but the kMul side is seed-free"
+      },
+      "provenance": [
+        "verify/abseil-hash/README.md"
+      ],
+      "reproduction": {
+        "status": "Standalone reproduction package; see README for build commands and recorded runs.",
+        "directory": "verify/abseil-hash/",
+        "readme": "verify/abseil-hash/README.md"
+      },
+      "supporting_measurements": {
+        "headline_pairs_real_scalar_and_aes": "'' vs a6e02637c07bd386, 'a' vs 44b53d572db1948b, eee229e46a vs b31833d9cc65b02d, abcdefgh||kMul vs ABCDEFGH||kMul: 32/32 + 2^28/2^28 (verifier), 2^30/2^30 (search lane)",
+        "x86_aes_cross_length_33_64": "len 58 vs 59: 33,555,946/2^28 = 2^-2.9999 [2^-3.0004, 2^-2.9995]; eps = 2^(-3 popcount(la^lb))",
+        "swisstable": "800 real tables: seeds exactly {0,64,...,1984}; hash_of == reimplementation on 4800 keys; headline pairs collide in 2800/2800 tables",
+        "same_length_L1_scan": "8 vs 8 bytes, 6249 deltas x 2^24 seeds: no collision (< 2^-24)"
+      },
+      "deployment_transfer": "Applies to absl::Hash<std::string>/string_view/absl::Cord bytes and to flat_hash_set/map<std::string> with the default hasher on every default build (x86-64 scalar, x86 AES-NI, arm64 macOS ARM-crypto). Integer keys use a different (Mix-based) fast path, not covered by this pair.",
+      "code_url": "https://github.com/abseil/abseil-cpp/blob/73d2688300440c8af028eec865ee0dcd85e93025/absl/hash/internal/hash.h",
+      "reference_url": "https://abseil.io/docs/cpp/guides/hash",
+      "verification_url": "verify/abseil-hash/README.md",
+      "speed_registration": "AbseilHash-default",
+      "speed_note": "Available host-specific measurements are linked in records/new-hashes/speeds_new_hashes.json; missing timings stay blank.",
+      "speeds": {
+        "smh_m2_bulk_Bpc": {
+          "value": null,
+          "source": "Timing not yet available for this host."
+        },
+        "smh_xeon_bulk_Bpc": {
+          "value": 8.22,
+          "source": "SMHasher3 Xeon8375C; completed timing runs",
+          "url": "records/new-hashes/speeds_new_hashes.json",
+          "record": "records/new-hashes/speeds_new_hashes.json#/abseil-hash/Xeon8375C",
+          "registered_name": "AbseilHash-default",
+          "host": "Xeon8375C",
+          "backend_token": "scalar-mul128",
+          "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
+          "completed_runs": 1,
+          "timing_status": "running"
+        },
+        "smh_m2_small_cycles": {
+          "value": null,
+          "source": "Timing not yet available for this host."
+        },
+        "smh_xeon_small_cycles": {
+          "value": 20.67,
+          "source": "SMHasher3 Xeon8375C; completed timing runs",
+          "url": "records/new-hashes/speeds_new_hashes.json",
+          "record": "records/new-hashes/speeds_new_hashes.json#/abseil-hash/Xeon8375C",
+          "registered_name": "AbseilHash-default",
+          "host": "Xeon8375C",
+          "backend_token": "scalar-mul128",
+          "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
+          "completed_runs": 1,
+          "timing_status": "running"
+        }
+      },
+      "chart_eligible": true,
+      "rurban_alias": null,
+      "input_domain": "Variable-length byte strings (std::string keys); selected witness lengths shown.",
+      "domain_short": "variable-length byte strings; selected witness only",
+      "latest_checked": {
+        "lts": "20260817.0 (2026-08-18)",
+        "git_master": "73d2688300440c8af028eec865ee0dcd85e93025 (2026-09-17)",
+        "core_changed": false
+      }
+    },
+    {
+      "id": "dotnet-marvin",
+      "pattern": [
+        "P2"
+      ],
+      "name": "Marvin32 (.NET 10 string.GetHashCode)",
+      "version": ".NET 10.0.12",
+      "version_note": "Microsoft.NETCore.App 10.0.12 (SDK 10.0.401 LTS) as executed; source dotnet/runtime main @ aec1470a (2026-09-18), Marvin.cs algorithm unchanged since ddb22ef2 (2022-02-20; last touch 2dada4c5 2025-08-18 is a NoInlining attribute). release/10.0 and release/8.0 differ only by attributes/usings. No ISA-specific code path.",
+      "label": "Marvin32 (.NET)",
+      "anchor": "appendix-dotnet-marvin",
+      "family": "heuristic",
+      "mechanism_family": "ARX (SipHash-like half rounds)",
+      "family_definition": "A 64-bit state (p0, p1) is initialised from the seed; each 32-bit message word is added into p0 and followed by one keyless 8-operation ARX Block (xor, rotl 20, add, rotl 9, xor, rotl 27, add, rotl 19); the tail carries a 0x80 pad byte; two final Blocks; output p0 XOR p1.",
+      "output_bits": 32,
+      "key_bits": 64,
+      "key_model": "Marvin.DefaultSeed: 64 uniformly random bits drawn once per process from Interop.GetRandomBytes (arc4random_buf on macOS/glibc >= 2.36, BCryptGenRandom on Windows, getrandom() XOR an lrand48 stream elsewhere; uniform in every shipped configuration), entering only as the initial state (p0 = low 32, p1 = high 32). No key material anywhere else. Fresh uniform 64-bit seed per trial. The same pair applies unchanged to StringComparer.Ordinal and to the per-instance 64-bit seed of RandomizedStringEqualityComparer (Dictionary<string,_> / HashSet<string> after the 100-collision switch).",
+      "api": "string.GetHashCode() = Marvin.ComputeHash32(UTF-16LE bytes, 2*len, seed lo32, seed hi32); Dictionary<string,_> starts on the keyless NonRandomizedStringEqualityComparer and switches per instance to Marvin with a fresh seed after a 100-long bucket chain",
+      "status": "NEW",
+      "classification_reason": "No prior published fixed-pair differential for Marvin32 found (floodyberry's Marvin32.c is an implementation, not an analysis). New two-Block additive differential that annihilates inside Block 2; only one Block of diffusion separates consecutive word injections.",
+      "prior_work": [
+        {
+          "label": "Marvin32 reference implementation (floodyberry), test vector only",
+          "url": "https://github.com/floodyberry/Marvin32/blob/master/Marvin32.c"
+        },
+        {
+          "label": "US patent 9,002,812 (Ferguson et al., Microsoft 2015): resilient hashing design",
+          "url": "https://patents.google.com/patent/US9002812B2/en"
+        }
+      ],
+      "official_claim": {
+        "text": "This matches `string.GetHashCode()` in .NET 6+, where the 64-bit Marvin32 seed is chosen at app start and remains static for the life of the app. The possibility exists that information about the static seed could be disclosed through side channels. Contrast this against `Dictionary<string, ...>` today, where a unique Marvin32 seed is chosen for each dictionary instantiation, limiting the adversary's ability to learn information about the seed.",
+        "url": "https://github.com/dotnet/runtime/blob/main/docs/design/security/System.HashCode.md",
+        "context": "dotnet/runtime security design note for System.HashCode, describing the Marvin32 seed model it inherits; the same document says of System.HashCode (xxHash32, a different function) 'No collision resistance is claimed.' API docs (learn.microsoft.com, String.GetHashCode): 'The hash code itself is not guaranteed to be stable. ... don't use the hash code instead of a value returned by a cryptographic hashing function if you need a cryptographically strong hash.' The randomized-seed design exists for hash-flooding (DoS) resistance (patent US 9,002,812: 'a fast, non-cryptographic hash/checksum function that has good diffusion properties'). No quantitative collision bound is claimed for Marvin32.",
+        "badge": "claims: randomized per-process/per-dictionary seed for flooding resistance; disclaims cryptographic strength",
+        "provenance": "https://github.com/dotnet/runtime/blob/main/docs/design/security/System.HashCode.md"
+      },
+      "claim_category": "keyed collision / DoS claim",
+      "smhasher3": null,
+      "smhasher3_note": "Implementation checks and speed measurements are separate from the statistical suite; no complete suite verdict is supplied here.",
+      "pair": {
+        "m_hex": "610061002f546d1662006200",
+        "m_prime_hex": "610061802f9579a262fc6100",
+        "lengths_bytes": [
+          12,
+          12
+        ],
+        "L_words": 2,
+        "verifier_confirmed": true,
+        "strings": {
+          "m": "\"aa\" U+542F U+166D \"bb\"",
+          "m_prime": "\"a\" U+8061 U+952F U+A279 U+FC62 \"a\""
+        },
+        "example_seed_raw": "any seed in the 2^-8.9 colliding fraction; the harness prints the process DefaultSeed and both GetHashCode values (csharp_verify/Verify.cs); example from the fresh-process run: see verify/pairA_procs3000.txt (COLLIDE lines) when finished",
+        "output_order": "32-bit integer (int)",
+        "construction": "LE words m = 00610061 166d542f 00620062, m' = 80610061 a279952f 0061fc62; additive word differences d0 = 0x80000000, d1 = 0x8c0c4100, d2 = -0x400. After Block 1 the state difference is (84084100, 08040040); adding d1 leaves (08040000, 08040040), whose shared bits {27, 18} cancel in Block 2's first xor, the remaining bit cancels against rotl(p0, 20) in the first add, the second xor clears p1, and d2 removes the single surviving p0 bit.",
+        "provenance": [
+          "verify/dotnet-marvin/README.md"
+        ]
+      },
+      "pair_lengths_bytes": [
+        12,
+        12
+      ],
+      "L_words": 2,
+      "equal_length_pair": true,
+      "collision": {
+        "display": "8945794 / 2^32 (sampled); ε ≈ 2^-8.9072",
+        "count": 8945794,
+        "trials": 4294967296,
+        "trials_log2": 32.0,
+        "epsilon": 0.002082854975014925,
+        "log2_contribution": -8.907221893728378,
+        "exact_contribution": false,
+        "total_equality_proved": false,
+        "poisson_95_interval": [
+          0.0020814903054775513,
+          0.0020842203185116826
+        ],
+        "interval_method": "central 95% exact Poisson (Garwood), rounded only for display",
+        "note": "Independent verifier sample (verify/verify.c, SplitMix64 streams keyed by getrandom; searches used xoshiro256**). Reporting lane: 8,947,470/2^32 = 2^-8.91 (0.4 sigma apart). Real .NET 10.0.12 runtime via reflection on System.Marvin.ComputeHash32, 2^24 fresh seeds: 34,855/2^24 = 2^-8.91 [2^-8.93, 2^-8.90]. 8,945,793 of the collisions are full 64-bit internal-state collisions."
+      },
+      "score": {
+        "calculated": 9.907221893728378,
+        "display": 9.91,
+        "display_text": "at most 9.91 bits (sampled cap); 95% Poisson interval [9.9063, 9.9082]",
+        "direction": "estimated_upper_bound",
+        "poisson_95_interval": [
+          9.90627649475014,
+          9.908167445507535
+        ],
+        "interval_95_bits": [
+          9.90627649475014,
+          9.908167445507535
+        ],
+        "poisson_count": 8945794,
+        "poisson_trials": 4294967296,
+        "derivation": "log2(L/epsilon) = log2(2 / (8945794/2^32)); min over L: the L = 1 pair gives 22.53 bits, so the L = 2 pair sets the score"
+      },
+      "bits": 9.907221893728378,
+      "bits_kind": "measured",
+      "mechanism": "The seed is only the initial 64-bit state and every later step is a keyless bijection, so a fixed pair collides iff its word differences cancel in the state. With one 8-op Block between word injections, a two-word additive differential (2^31 into word 1, 0x8c0c4100 into word 2, -0x400 into word 3) annihilates inside the second Block for a 2^-8.9 fraction of seeds; the 64-bit state collision then survives every later word and the finaliser.",
+      "qualification": "Same-length 6-character strings (all valid non-surrogate BMP code units). Position independent: the same three-word differential embedded anywhere in a longer string collides at the same rate. Not key-free (each message is a bijection of the seed). The output is only 32 bits; the width alone does not assign a collision probability to every individual pair. For L = 1 (<= 4 chars) the best pair found is 'aaaa' vs U+1172 U+1172 U+EF50 U+EF4F at 2^-22.5 (22.5 bits), one-Block cancellation being linearly impossible. Not covered: OrdinalIgnoreCase, System.HashCode (xxHash32; Microsoft disclaims collision resistance), Dictionary's initial keyless NonRandomized comparer (trivially collidable by design, hence the switch).",
+      "key_free": false,
+      "key_free_definition": "This fixed pair collides for a fraction of seeds, not every seed. Its internal-state differential survives the common finalizer.",
+      "notes": "Independent transcription matches 5833 runtime vectors. Pair A: 8,945,794/2^32; real .NET 10.0.12 runtime: 34,855/2^24. About one process seed in 480 makes the pair collide through string.GetHashCode and StringComparer.Ordinal. Each randomized dictionary or hash set draws its own seed and separately has the same odds; a process collision does not imply a collision in every dictionary. See the reproduction package for additional runs.",
+      "hover": {
+        "mechanism": "One ARX Block between word injections lets a three-word additive differential cancel inside the second Block for one seed in 480.",
+        "quote": "the 64-bit Marvin32 seed is chosen at app start and remains static for the life of the app"
+      },
+      "other_pair": {
+        "m_hex": "6100610061006100",
+        "m_prime_hex": "7211721150ef4fef",
+        "lengths_bytes": [
+          8,
+          8
+        ],
+        "L_words": 1,
+        "strings": {
+          "m": "\"aaaa\"",
+          "m_prime": "U+1172 U+1172 U+EF50 U+EF4F"
+        },
+        "collision": {
+          "display": "4255 / 2^34.58 (sampled); ε ≈ 2^-22.5300",
+          "count": 4255,
+          "trials": 25769803776,
+          "trials_log2": 34.584962500721154,
+          "epsilon": 1.651157314578692e-07,
+          "log2_contribution": -22.53001908414783,
+          "exact_contribution": false,
+          "total_equality_proved": false,
+          "poisson_95_interval": [
+            1.6019138719881352e-07,
+            1.701529712875541e-07
+          ],
+          "interval_method": "central 95% exact Poisson (Garwood), rounded only for display",
+          "note": "verifier pooled fresh 2^33 + 2^34 (1398 + 2857); reporting lane pooled 4334/(2^33+2^34) = 2^-22.50 [2^-22.55, 2^-22.46]"
+        },
+        "bits": 22.53001908414783,
+        "interval_95_bits": [
+          22.48666431970032,
+          22.573700081880585
+        ],
+        "verifier_confirmed": true,
+        "note": "L = 1 witness: word difference (+0x11111111, -0x11111111), period-4 pattern fixed by rotl 20; 4323/4334 of the search-lane collisions were full 64-bit state collisions"
+      },
+      "provenance": [
+        "verify/dotnet-marvin/README.md"
+      ],
+      "reproduction": {
+        "status": "Standalone reproduction package; see README for build commands and recorded runs.",
+        "directory": "verify/dotnet-marvin/",
+        "readme": "verify/dotnet-marvin/README.md"
+      },
+      "supporting_measurements": {
+        "pairA": {
+          "search_lane_2p32": "8,947,470/2^32 = 2^-8.91",
+          "verifier_2p32": "8,945,794/2^32 = 2^-8.907 [2^-8.908, 2^-8.906]",
+          "real_runtime_2p24": "34,855/2^24 = 2^-8.91 [2^-8.93, 2^-8.90]",
+          "pos_independence": "same differential at words 3-4 of a 22-byte string: 321/2^31 = 2^-22.67 is for pair B's family; pair A is a 2-Block trail"
+        },
+        "pairB": {
+          "search_lane": "1473/2^33, 2861/2^34 (pooled 2^-22.50 [2^-22.55, 2^-22.46])",
+          "verifier": "1398/2^33 = 2^-22.55, 2857/2^34 = 2^-22.52",
+          "one_block_histogram": "5718/2^35 = 2^-22.52"
+        },
+        "L1_one_block_scan": "2015 additive differences +-2^i, +-2^i+-2^j at 2^22 seeds each: zero p1-cancellations (one-Block cancellation linearly impossible: x^9+x^20+1 is a unit mod (x+1)^32)"
+      },
+      "deployment_transfer": "string.GetHashCode(), string.GetHashCode(ReadOnlySpan<char>), StringComparer.Ordinal.GetHashCode, and Dictionary<string,_>/HashSet<string> after their per-instance switch to RandomizedStringEqualityComparer (same Marvin, fresh 64-bit seed per instance). x86-64 and arm64 run the identical scalar C# path.",
+      "code_url": "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs",
+      "reference_url": "https://learn.microsoft.com/en-us/dotnet/api/system.string.gethashcode",
+      "verification_url": "verify/dotnet-marvin/README.md",
+      "speed_registration": "Marvin32",
+      "speed_note": "Available host-specific measurements are linked in records/new-hashes/speeds_new_hashes.json; missing timings stay blank.",
+      "speeds": {
+        "smh_m2_bulk_Bpc": {
+          "value": null,
+          "source": "Timing not yet available for this host."
+        },
+        "smh_xeon_bulk_Bpc": {
+          "value": 0.95,
+          "source": "SMHasher3 Xeon8375C; completed timing runs",
+          "url": "records/new-hashes/speeds_new_hashes.json",
+          "record": "records/new-hashes/speeds_new_hashes.json#/dotnet-marvin/Xeon8375C",
+          "registered_name": "Marvin32",
+          "host": "Xeon8375C",
+          "backend_token": "scalar",
+          "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
+          "completed_runs": 1,
+          "timing_status": "running"
+        },
+        "smh_m2_small_cycles": {
+          "value": null,
+          "source": "Timing not yet available for this host."
+        },
+        "smh_xeon_small_cycles": {
+          "value": 31.07,
+          "source": "SMHasher3 Xeon8375C; completed timing runs",
+          "url": "records/new-hashes/speeds_new_hashes.json",
+          "record": "records/new-hashes/speeds_new_hashes.json#/dotnet-marvin/Xeon8375C",
+          "registered_name": "Marvin32",
+          "host": "Xeon8375C",
+          "backend_token": "scalar",
+          "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
+          "completed_runs": 1,
+          "timing_status": "running"
+        }
+      },
+      "chart_eligible": true,
+      "rurban_alias": null,
+      "input_domain": "UTF-16LE strings (any byte string of even length; witness uses valid BMP code units); selected witness lengths shown.",
+      "domain_short": "UTF-16 strings; selected witness only",
+      "latest_checked": {
+        "runtime": ".NET 10.0.12 / SDK 10.0.401 (LTS)",
+        "git_main": "aec1470ade734e9186b6d1f744d96d60f25d0dc6 (2026-09-18)",
+        "core_changed": false,
+        "note": "Marvin.cs algorithm identical in release/8.0, release/10.0 and main"
+      }
     }
   ],
   "proven": [

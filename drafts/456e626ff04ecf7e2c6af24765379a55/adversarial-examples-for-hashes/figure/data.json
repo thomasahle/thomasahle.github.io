@@ -1,6 +1,6 @@
 {
-  "source_sha256": "e6e5641b370ecf0a6cfa5810e039379d05bd7dc334e797695a7a44c31b9bd1fa",
-  "profiles_sha256": "b5e74d3a9dd4f2bd5b7bd3841745017152dcc3ac238f9c1053d4afdea7748288",
+  "source_sha256": "0f6431fb53f440b67b0f4a07c11760ba89cc0aad589b6cedd5660bcb9955efaf",
+  "profiles_sha256": "8430f9b93227ddcef91cd726cbc736b4418d631a8765a599345558c57aaee98e",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -590,6 +590,75 @@
         "records/chainhash/128/speeds_chainhash128.json",
         "records/chainhash/128/speeds_chainhash128.json",
         "records/chainhash128/STATUS.md"
+      ]
+    },
+    "go-maphash": {
+      "authors": "Go team / Google",
+      "background": "Go uses its runtime hash for string map keys and exposes the byte-sequence hash through hash/maphash. The implementation selects a processor-specific path; this entry studies go1.27.1 on amd64 with AES instructions.",
+      "links": [
+        {
+          "label": "Documentation and claim",
+          "url": "https://pkg.go.dev/hash/maphash"
+        },
+        {
+          "label": "Implementation studied",
+          "url": "https://github.com/golang/go/blob/go1.27.1/src/internal/runtime/maps/memhash_amd64.s"
+        },
+        {
+          "label": "Reproduction package",
+          "url": "verify/go-maphash/README.md"
+        }
+      ],
+      "sources": [
+        "https://pkg.go.dev/hash/maphash",
+        "https://github.com/golang/go/blob/go1.27.1/src/internal/runtime/maps/memhash_amd64.s",
+        "verify/go-maphash/README.md"
+      ]
+    },
+    "abseil-hash": {
+      "authors": "Abseil team / Google",
+      "background": "Abseil supplies C++ hash functions and SwissTable containers such as flat_hash_map. absl::Hash aims to mix ordinary inputs well and vary results between processes. Its source explicitly says the process seed is not a security feature.",
+      "links": [
+        {
+          "label": "Documentation and claim",
+          "url": "https://github.com/abseil/abseil-cpp/blob/master/absl/hash/hash.h"
+        },
+        {
+          "label": "Implementation studied",
+          "url": "https://github.com/abseil/abseil-cpp/blob/73d2688300440c8af028eec865ee0dcd85e93025/absl/hash/internal/hash.h"
+        },
+        {
+          "label": "Reproduction package",
+          "url": "verify/abseil-hash/README.md"
+        }
+      ],
+      "sources": [
+        "https://github.com/abseil/abseil-cpp/blob/master/absl/hash/hash.h",
+        "https://github.com/abseil/abseil-cpp/blob/73d2688300440c8af028eec865ee0dcd85e93025/absl/hash/internal/hash.h",
+        "verify/abseil-hash/README.md"
+      ]
+    },
+    "dotnet-marvin": {
+      "authors": "Microsoft (Ferguson et al.)",
+      "background": "Marvin is the small add–rotate–xor hash used by .NET for string hash codes. It starts from a random 64-bit seed and returns 32 bits. This entry studies the .NET 10 string path, which hashes UTF-16 bytes.",
+      "links": [
+        {
+          "label": "Documentation and claim",
+          "url": "https://github.com/dotnet/runtime/blob/main/docs/design/security/System.HashCode.md"
+        },
+        {
+          "label": "Implementation studied",
+          "url": "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs"
+        },
+        {
+          "label": "Reproduction package",
+          "url": "verify/dotnet-marvin/README.md"
+        }
+      ],
+      "sources": [
+        "https://github.com/dotnet/runtime/blob/main/docs/design/security/System.HashCode.md",
+        "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs",
+        "verify/dotnet-marvin/README.md"
       ]
     }
   },
@@ -2255,6 +2324,81 @@
           },
           "output_bits": 64,
           "code_url": "https://github.com/veorq/SipHash"
+        },
+        {
+          "id": "go-maphash",
+          "name": "Go runtime map hash / hash/maphash (go1.27.1, amd64 AES path)",
+          "label": "Go maphash",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 17.66,
+          "bits": 25.0,
+          "score": "≈ 25.00*",
+          "anchor": "appendix-go-maphash",
+          "evidence": "66 / 2^30 (sampled); ε ≈ 2^-23.9556",
+          "scope": "Cross-length pair (15 vs 16 bytes; the longer message must be exactly 16 bytes and all its bytes are fixed by Delta*). Rate is over the per-process key, seed-free given the key. Same-length pairs: no structured route found (F has no fixed-point differential with <= 7 active bytes; truncated 3-round trails need >= 6 active S-boxes, <= 2^-36). memhash64/memhash32 (integer map keys): best trails <= 2^-48, not measurable. arm64 AES path (full 64-bit length in the seed vector, S_0 reused as round key): best enumerated trail 2^-31, measured 2 hits in 2^33 = 2^-32.0 under qemu only, cap about 32-33 bits, not verified on arm64 hardware. Fallback (no-AES) path: no finding (0 in 2^32 for the cheapest candidates). hash/maphash chunking (>128 bytes) chains the 64-bit state as the next seed, so any 64-bit internal collision is key-free for the remainder.",
+          "source": "records/new-hashes/speeds_new_hashes.json",
+          "family": "keyless AES rounds on a secret lane state",
+          "key_model": "Per process: aeskeysched = 128 uniformly random bytes (16 x ChaCha8 bootstrapRand) drawn once at startup; per hash table: a uniformly random 64-bit seed (map creation / maphash.MakeSeed). A message of at most 16 bytes sees only K_0 (128 bits) and the seed (64 bits), i.e. one uniformly random 128-bit lane state. Both layers were drawn fresh and uniformly in every trial. The witness event depends only on aeskeysched bytes 8, 10, 12, 14, so the rate is over the per-process key: in a process where it fires the pair collides in every map and under every maphash seed.",
+          "profile": "go-maphash",
+          "summary": "A fixed 15-byte string and a fixed 16-byte string collide for about one process key in 16.8 million. In those processes, changing the map seed does not separate them. The resulting 25-bit cap directly contradicts the documented intent to resist adversarial byte sequences, although Go gives no numerical bound and disclaims cryptographic security.",
+          "reader_notes": {
+            "evidence": "Four AES substitution events give an exact sufficient trail probability of 2^-24. The independent implementation found 66 collisions in 2^30 trials; the real runtime found 20 in 2^28.",
+            "key": "The experiment redraws the random process AES key and the 64-bit map seed. The trail depends on four bytes of the process key and is independent of the map seed.",
+            "scope": "String map keys and maphash byte sequences on amd64 AES only. Integer keys, ARM64 and the non-AES fallback are different paths; the ARM64 observation is qemu-only and is not scored here."
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/golang/go/blob/go1.27.1/src/internal/runtime/maps/memhash_amd64.s"
+        },
+        {
+          "id": "abseil-hash",
+          "name": "absl::Hash (abseil-cpp 20260817.0 / HEAD 73d2688)",
+          "label": "absl::Hash",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 8.22,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-abseil-hash",
+          "evidence": "every key",
+          "scope": "Cross-length pair (0 vs 8 bytes; non-empty variants exist at every la <= 8 vs 8). Same-length cap 1 bit at L = 2: every 9..16-byte string whose last 8 bytes are kMul (f58c1edee0f9d579) hashes to 0 for every seed (2^64-way multicollision), e.g. 6162636465666768f58c1edee0f9d579 vs 4142434445464748f58c1edee0f9d579. Key-free pairs exist at every length 0..2048 tested on the scalar default build (swaps of commutatively merged lanes at 32/64/128 bytes, Mix(x,0)=0 zero families) and at every length on the arm64 macOS default build; the x86 AES-NI (-maes) build breaks the >32-byte scalar families but keeps everything at <= 32 bytes and has a 2^-3-per-bit cross-length family at 33..64 bytes. Non-default CRC32C build: key-free same-length pair at 16 bytes (GF(2)-affine per word). Separately, SwissTable has only 32 table seeds: any nonzero collision probability over a uniform table seed is at least 1/32. This limits table-seed randomization to five bits; it does not say every arbitrary pair must collide.",
+          "source": "records/new-hashes/speeds_new_hashes.json",
+          "family": "keyed multiply-fold (mum)",
+          "key_model": "64-bit seed passed through absl::hash_internal::HashWithSeed, the hook raw_hash_set uses; absl::Hash<T>{}(x) == hash_with_seed(x, Seed()). Scored with the 32 SwissTable per-table seeds {0, 64, ..., 1984} (exhaustive) plus 2^28 uniform 64-bit seeds; the result holds for all 2^64 seeds by identity. Real deployments have far less: flat_hash_set/map use a 5-bit per-table seed (32 values); direct absl::Hash uses Seed() = the ASLR-slid address of a global (about 28 bits on Linux PIE, about 12 bits on macOS arm64, 0 bits on a non-PIE Linux build).",
+          "profile": "abseil-hash",
+          "summary": "The empty string and one fixed eight-byte string collide for every seed, giving a zero-bit cap. A pair of 16-byte strings also collides for every seed, giving a one-bit cap after length adjustment. These findings contradict no security promise from Abseil.",
+          "reader_notes": {
+            "evidence": "The short-input formula gives identical inputs to the final multiplication for the headline pair. Real-library checks cover all 32 table seeds and 2^28 additional seeds.",
+            "key": "The headline identity holds for every process and table seed, so neither the ASLR-based process seed nor the five-bit table seed can separate this pair.",
+            "scope": "The short-input result covers the 64-bit scalar, x86 AES and ARM-crypto default paths in 20260817.0. ARM coverage follows the shared source path; the independent verifier did not rerun it on ARM hardware."
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/abseil/abseil-cpp/blob/73d2688300440c8af028eec865ee0dcd85e93025/absl/hash/internal/hash.h"
+        },
+        {
+          "id": "dotnet-marvin",
+          "name": "Marvin32 (.NET 10 string.GetHashCode)",
+          "label": "Marvin32 (.NET)",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 0.95,
+          "bits": 9.907221893728378,
+          "score": "≈ 9.91*",
+          "anchor": "appendix-dotnet-marvin",
+          "evidence": "8945794 / 2^32 (sampled); ε ≈ 2^-8.9072",
+          "scope": "Same-length 6-character strings (all valid non-surrogate BMP code units). Position independent: the same three-word differential embedded anywhere in a longer string collides at the same rate. Not key-free (each message is a bijection of the seed). The output is only 32 bits; the width alone does not assign a collision probability to every individual pair. For L = 1 (<= 4 chars) the best pair found is 'aaaa' vs U+1172 U+1172 U+EF50 U+EF4F at 2^-22.5 (22.5 bits), one-Block cancellation being linearly impossible. Not covered: OrdinalIgnoreCase, System.HashCode (xxHash32; Microsoft disclaims collision resistance), Dictionary's initial keyless NonRandomized comparer (trivially collidable by design, hence the switch).",
+          "source": "records/new-hashes/speeds_new_hashes.json",
+          "family": "ARX (SipHash-like half rounds)",
+          "key_model": "Marvin.DefaultSeed: 64 uniformly random bits drawn once per process from Interop.GetRandomBytes (arc4random_buf on macOS/glibc >= 2.36, BCryptGenRandom on Windows, getrandom() XOR an lrand48 stream elsewhere; uniform in every shipped configuration), entering only as the initial state (p0 = low 32, p1 = high 32). No key material anywhere else. Fresh uniform 64-bit seed per trial. The same pair applies unchanged to StringComparer.Ordinal and to the per-instance 64-bit seed of RandomizedStringEqualityComparer (Dictionary<string,_> / HashSet<string> after the 100-collision switch).",
+          "profile": "dotnet-marvin",
+          "summary": "Two fixed six-character strings collide for about one seed in 480, giving a sampled cap of 9.91 bits. Microsoft documents randomized seeds and disclaims cryptographic strength; it does not promise a numerical collision bound. Randomized dictionaries use independent seeds and each has the same odds.",
+          "reader_notes": {
+            "evidence": "The independent implementation found 8,945,794 collisions in 2^32 seeds. A real-runtime check found 34,855 in 2^24, consistent with the same rate.",
+            "key": "A uniform 64-bit seed is chosen once for the process string hash. A dictionary that switches to the randomized string comparer draws its own seed; these are separate experiments.",
+            "scope": "The pair uses valid UTF-16 code units and applies to ordinal string hashing and randomized string comparers. OrdinalIgnoreCase, the initial nonrandomized comparer and System.HashCode are outside this result."
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs"
         },
         {
           "id": "polymur",

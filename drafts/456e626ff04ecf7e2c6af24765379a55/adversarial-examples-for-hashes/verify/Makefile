@@ -17,7 +17,7 @@ CFLAGS    ?= -O2 -std=c11
 LDLIBS    ?= -lm
 CHECK_TOL ?= 0
 
-DIRS ?= a5hash cityhash-64 farmhash-64 gxhash-64 highwayhash komihash murmurhash3-128 museair rust-ahash spookyhash2-64 t1ha2-64 pengyhash nmhash32 nmhash32x mx3 mir fasthash mum rapidhash-v3 wyhash rapidhash-v1 xxh3-64 xxh3-128 dotnet-marvin
+DIRS ?= a5hash cityhash-64 farmhash-64 gxhash-64 highwayhash komihash murmurhash3-128 museair rust-ahash spookyhash2-64 t1ha2-64 pengyhash nmhash32 nmhash32x mx3 mir fasthash mum rapidhash-v3 wyhash rapidhash-v1 xxh3-64 xxh3-128 dotnet-marvin abseil-hash
 
 # Program name per directory; the source is <name>.c in the same directory.
 PROG_a5hash          := a5hash_verify
@@ -46,6 +46,7 @@ PROG_rapidhash-v1 := rapidhash_v1_verify
 PROG_xxh3-64 := xxh3_64_verify
 PROG_xxh3-128 := xxh3_128_verify
 PROG_dotnet-marvin := marvin32_verify
+PROG_abseil-hash := abseil_hash_verify
 
 # gxhash and aHash have a hardware-AES path that the source enables when the compiler
 # advertises the target feature.  Both programs also build and validate without these flags
@@ -96,7 +97,7 @@ check: all
 	    rust-ahash)      key='collisions/N = [0-9]+' ;; \
 	    spookyhash2-64)  key='32-bit collisions [0-9]+|64-bit collisions [0-9]+|128-bit collisions [0-9]+|right for [0-9]+' ;; \
 	    t1ha2-64)        key='[0-9]+ collisions' ;; \
-	    pengyhash|nmhash32|nmhash32x|mx3|mir|fasthash|mum|rapidhash-v3|wyhash|rapidhash-v1|xxh3-64|xxh3-128|dotnet-marvin) key='collisions = [0-9]+' ;; \
+	    pengyhash|nmhash32|nmhash32x|mx3|mir|fasthash|mum|rapidhash-v3|wyhash|rapidhash-v1|xxh3-64|xxh3-128|dotnet-marvin|abseil-hash) key='collisions = [0-9]+' ;; \
 	    *) echo "FAIL  $$d: no count pattern in the Makefile"; fail=1; continue ;; \
 	  esac; \
 	  row=$$(awk -F'|' -v d="$$d" '$$2 ~ ("^ *`" d "` *$$") && $$3 ~ "^ *`[.]/" { print; exit }' README.md); \
