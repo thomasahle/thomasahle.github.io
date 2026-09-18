@@ -18534,6 +18534,150 @@
    }
   },
   {
+   "id": "chain-v3",
+   "name": "ChainHash v3 (ours)",
+   "label": "ChainHash v3 (ours)",
+   "pattern": [],
+   "family": "proven",
+   "bits": 63.0,
+   "bits_kind": "audited lower guarantee",
+   "output_bits": 64,
+   "bound": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
+   "source_bound": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
+   "score_lower_guarantee": 63.0,
+   "score_display": "≥ 63 bits · model A",
+   "score": {
+    "calculated": 63.0,
+    "display": 63.0,
+    "display_text": "≥ 63 bits · model A",
+    "direction": "lower_bound",
+    "formula": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
+    "minimizer_L": 1
+   },
+   "score_minimizer_L": 1,
+   "score_derivation": "p(1)=d(1)=1; both fixed-length and at-most scores are 63.0 bits, using the Frobenius root-count lemma.",
+   "key_words_64bit": "8 random / 56 expanded (paper model: 39 independent)",
+   "random_key_bytes": 64,
+   "domain": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
+   "qualification": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
+   "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
+   "domain_short": "model A; 8 independent uniform words = 64 bytes",
+   "hover": {
+    "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed."
+   },
+   "mechanism": "Reduced CLNH with comb pairs (w_i,w_{i+8}) in logical 256-byte blocks; Horner in independent y with byte length as leading coefficient; unchanged integer twist + quintic finalizer",
+   "mechanism_family": "CLNH + Horner + quintic",
+   "family_definition": "Reduced carry-less NH, length-led Horner polynomial over GF(2^64), integer-add twist and independent quintic finalizer",
+   "anchor": "appendix-chainhash",
+   "proof_status": "proved (natural-language proofs adversarially reviewed; Lean lane running)",
+   "proof_source": "records/chainhash/v3/THEOREM_v3.md",
+   "code_url": "records/chainhash/v3/chainhash3.h",
+   "reference_url": "https://github.com/thomasahle/chainhash",
+   "version": "v3 / ChainHash-Horner; 256-byte logical comb blocks",
+   "chart_eligible": true,
+   "chart_hosts": [
+    "M2Pro",
+    "Xeon8375C"
+   ],
+   "key_free": false,
+   "lean": {
+    "label": "— Lean lane running (paper-model and model A proofs reviewed)",
+    "source": "records/chainhash/v3/THEOREM_v3.md",
+    "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed."
+   },
+   "smhasher3": {
+    "verdict": "Sanity/verification PASS; full suite not supplied",
+    "provenance": "records/chainhash/v3/REPORT.md"
+   },
+   "speed_registration": "chainhash-v3",
+   "provenance": [
+    "records/chainhash/v3/SPEC_v3.md",
+    "records/chainhash/v3/THEOREM_v3.md",
+    "records/chainhash/v3/MEMO.md",
+    "records/chainhash/v3/REPORT.md",
+    "records/chainhash/v3/speeds_chainhash_v3.json"
+   ],
+   "notes": "Shipped default chainhash3.h alongside the original paper function chainhash.h; digests changed from both the paper function and v2. One function: digests are independent of Horner stride k, SIMD width, lazy/eager reduction, streaming chunking and valid thread splits (the partial API joins region-aligned partitions). The flat long-input product loop follows Orson Peters’s PolymurHash lineage; the field, comb, Horner combiner and finalizer define ChainHash v3. Short 1–31 B inputs cost 155.14 cycles/hash on Xeon versus the original shipped control’s 103.00, and 87.49 on M2 versus 72.57. Bulk: Xeon 28.31 B/cycle, M2 26.26 (median of three). Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
+   "speeds": {
+    "smh_m2_bulk_Bpc": {
+     "value": 26.26,
+     "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle",
+     "source_short": "SMHasher3 M2Pro",
+     "url": "records/chainhash/v3/speeds_chainhash_v3.json",
+     "record": "records/chainhash/v3/speeds_chainhash_v3.json#/chainhash-v3/M2Pro",
+     "registered_name": "chainhash-v3",
+     "host": "M2Pro",
+     "selection": "median of three; >15% deviations flagged, not discarded",
+     "selected_run": 1,
+     "binary_sha256": "f871e853d39d2a56499503153460fb9926d5dce1344d2e1b071db2116b65b230",
+     "verification": {
+      "raw_file": "out/M2Pro/chainhash-v3.sanity.txt",
+      "lines": [
+       "Verification value LE 0x66672BD6 ...... PASS",
+       "Verification value is 0x00000001 - Testing took 0.369450 seconds"
+      ]
+     }
+    },
+    "smh_m2_small_cycles": {
+     "value": 87.49,
+     "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
+     "source_short": "SMHasher3 M2Pro",
+     "url": "records/chainhash/v3/speeds_chainhash_v3.json",
+     "record": "records/chainhash/v3/speeds_chainhash_v3.json#/chainhash-v3/M2Pro",
+     "registered_name": "chainhash-v3",
+     "host": "M2Pro",
+     "selection": "median of three; >15% deviations flagged, not discarded",
+     "selected_run": 2,
+     "binary_sha256": "f871e853d39d2a56499503153460fb9926d5dce1344d2e1b071db2116b65b230",
+     "verification": {
+      "raw_file": "out/M2Pro/chainhash-v3.sanity.txt",
+      "lines": [
+       "Verification value LE 0x66672BD6 ...... PASS",
+       "Verification value is 0x00000001 - Testing took 0.369450 seconds"
+      ]
+     }
+    },
+    "smh_xeon_bulk_Bpc": {
+     "value": 28.31,
+     "source": "SMHasher3 Xeon8375C, 262144 B bulk, B/cycle",
+     "source_short": "SMHasher3 Xeon8375C",
+     "url": "records/chainhash/v3/speeds_chainhash_v3.json",
+     "record": "records/chainhash/v3/speeds_chainhash_v3.json#/chainhash-v3/Xeon8375C",
+     "registered_name": "chainhash-v3",
+     "host": "Xeon8375C",
+     "selection": "higher bulk of two passes; independently lower small average",
+     "selected_run": 2,
+     "binary_sha256": "df5d27c32b8d3f67fcbc74c3217aeb394d7e60a37df2621869a3a56044ed5a0d",
+     "verification": {
+      "raw_file": "out/Xeon/chainhash-v3.sanity.txt",
+      "lines": [
+       "Verification value LE 0x66672BD6 ...... PASS",
+       "Verification value is 0x00000001 - Testing took 0.693687 seconds"
+      ]
+     }
+    },
+    "smh_xeon_small_cycles": {
+     "value": 155.14,
+     "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
+     "source_short": "SMHasher3 Xeon8375C",
+     "url": "records/chainhash/v3/speeds_chainhash_v3.json",
+     "record": "records/chainhash/v3/speeds_chainhash_v3.json#/chainhash-v3/Xeon8375C",
+     "registered_name": "chainhash-v3",
+     "host": "Xeon8375C",
+     "selection": "higher bulk of two passes; independently lower small average",
+     "selected_run": 2,
+     "binary_sha256": "df5d27c32b8d3f67fcbc74c3217aeb394d7e60a37df2621869a3a56044ed5a0d",
+     "verification": {
+      "raw_file": "out/Xeon/chainhash-v3.sanity.txt",
+      "lines": [
+       "Verification value LE 0x66672BD6 ...... PASS",
+       "Verification value is 0x00000001 - Testing took 0.693687 seconds"
+      ]
+     }
+    }
+   }
+  },
+  {
    "id": "chain256",
    "pattern": [],
    "code_url": "https://gitlab.com/lobais/smhasher3/-/blob/mr/chainhash/hashes/chainhash.cpp",
@@ -18548,7 +18692,7 @@
     37.6
    ],
    "reference_url": "https://github.com/thomasahle/chainhash",
-   "notes": "Model A: PH keys s,s²,…,s³² in GF(2^64); s, three chain keys, five finalizer parameters, and twist are independent uniform 64-bit words. Byte strings shorter than 2^64 bytes, W=32,S=1. Lean checks the ideal-key and model A mathematical reference bounds; compiler/SIMD correctness is outside scope. Timed SplitMix64 initialization is outside model A. Chart: plotted on the M2 Pro, where this strided function is the fastest measured ChainHash (22.8 B/cycle); the Xeon point is the adjacent-pair v2. The two hosts currently use different pairing layouts of the same construction; a single layout is pending the NEON kernel work.",
+   "notes": "Model A: PH keys s,s²,…,s³² in GF(2^64); s, three chain keys, five finalizer parameters, and twist are independent uniform 64-bit words. Byte strings shorter than 2^64 bytes, W=32,S=1. Lean checks the ideal-key and model A mathematical reference bounds; compiler/SIMD correctness is outside scope. Timed SplitMix64 initialization is outside model A. Historical function retained in Table 2; ChainHash v3 is the 64-bit ChainHash point on both hosts.",
    "provenance": [
     "records/review-inputs/provable.json#/result/table/rows/1",
     "records/review-inputs/paper_injective.tex, tab:injective:adversarial when M2 figures supplied"
@@ -18878,7 +19022,7 @@
     "suite_context": "200 = without --extra plus the default SeedDifferential tier; author local combined tree, not the upstream 250-test suite."
    },
    "speed_registration": "chainhash-256",
-   "chart_eligible": true,
+   "chart_eligible": false,
    "score_minimizer_L": 1,
    "score_derivation": "At-most length domain: minimum at L=1, E_A(1)=8, score=61",
    "proof_status": "proved (paper appendix + seeded-key theorem; Lean: see status)",
@@ -19307,7 +19451,7 @@
    "proof_status": "proved (audited)",
    "proof_source": "records/chainhash/v2/SPEC.md",
    "code_url": "records/chainhash/v2/chainhash_x86.h",
-   "chart_eligible": true,
+   "chart_eligible": false,
    "key_free": false,
    "lean": {
     "label": "✓ (paper function); v2 re-indexing pending",
@@ -19363,7 +19507,7 @@
    "chart_hosts": [
     "Xeon8375C"
    ],
-   "notes": " Chart: plotted on the Xeon only. The first NEON kernel of this adjacent-pair function (LD2 de-interleaving loads) measured 11.19 B/cycle on the M2 against 22.29 for the strided control in the same binary and is superseded by ongoing kernel work; the M2 point therefore shows the paper function."
+   "notes": " Historical function retained in Table 2; ChainHash v3 is the 64-bit ChainHash point on both hosts."
   },
   {
    "id": "chain128",
@@ -19473,7 +19617,7 @@
   "missing_speeds": "Null measurements are omitted only from the selected speed axis, never substituted or converted.",
   "outside_y_range": "All scored points fit; UMASH is claimed with a proof gap found, shown hollow at 55/83.",
   "polymur_constant_retained": true,
-  "chainhash": "Exactly one 64-bit ChainHash point per host: adjacent-pair v2 on both hosts; paper function retained in Table 2. Separate ChainHash-128 strided point on both hosts.",
+  "chainhash": "Exactly one 64-bit ChainHash point on both hosts: ChainHash v3 (ChainHash-Horner), the same function at 63.0 bits under model A with 64 random bytes and the Frobenius root-count lemma. Original paper and x86 v2 functions retained in Table 2, chart_eligible false. Separate ChainHash-128 strided point on both hosts.",
   "axis_options": [
    {
     "key": "smh_m2_bulk_Bpc",

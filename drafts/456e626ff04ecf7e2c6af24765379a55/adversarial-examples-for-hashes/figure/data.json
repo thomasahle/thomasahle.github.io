@@ -1,6 +1,6 @@
 {
-  "source_sha256": "597d9ea27b4fb898ba381dec12b94fa6297e0fa55f74d347a45955c42bd661d2",
-  "profiles_sha256": "82f1bac9ba5a0aa45b73b668466206ab63099461068945e6d1c6ef40c20c4de0",
+  "source_sha256": "6fa12d2e962d443035bb143ee3f75ae1adc2a895a0b9b5b0bc0f1295fd16b389",
+  "profiles_sha256": "040ae7739b3e48e3d611fbfe83e0f392b880955d7f1686616e2f289beb39e0b2",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -401,7 +401,7 @@
     },
     "chain256": {
       "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash is my construction for hashing long messages with a provable collision bound. This version processes 256-byte blocks and combines their results with secret-key arithmetic. It is the design from the paper; the Xeon chart uses a different layout called ChainHash v2.",
+      "background": "ChainHash is my construction for hashing long messages with a provable collision bound. This version processes 256-byte blocks and combines their results with secret-key arithmetic. It is the original design from the paper, retained in Table 2; v3 is now the shipped default and the 64-bit ChainHash point on both hosts.",
       "links": [
         {
           "label": "ChainHash project & code",
@@ -660,6 +660,35 @@
         "https://github.com/dotnet/runtime/blob/main/docs/design/security/System.HashCode.md",
         "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs",
         "verify/dotnet-marvin/README.md"
+      ]
+    },
+    "chain-v3": {
+      "authors": "Thomas Dybdahl Ahle · author of this post",
+      "background": "ChainHash v3 (ChainHash-Horner) is my default construction for hashing long messages with a collision guarantee. It combines 256-byte logical blocks with a secret-key polynomial. Its flat product loop follows Orson Peters’s PolymurHash design lineage. The public repository ships chainhash3.h alongside the original paper function, chainhash.h; v3 changes the digests.",
+      "links": [
+        {
+          "label": "Specification and implementation",
+          "url": "records/chainhash/v3/SPEC_v3.md"
+        },
+        {
+          "label": "Reviewed bounds",
+          "url": "records/chainhash/v3/THEOREM_v3.md"
+        },
+        {
+          "label": "Measurements and controls",
+          "url": "records/chainhash/v3/REPORT.md"
+        },
+        {
+          "label": "Design memo",
+          "url": "records/chainhash/v3/MEMO.md"
+        }
+      ],
+      "sources": [
+        "records/chainhash/v3/SPEC_v3.md",
+        "records/chainhash/v3/THEOREM_v3.md",
+        "records/chainhash/v3/MEMO.md",
+        "records/chainhash/v3/REPORT.md",
+        "records/chainhash/v3/speeds_chainhash_v3.json"
       ]
     }
   },
@@ -1620,29 +1649,29 @@
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/clhash.cpp"
         },
         {
-          "id": "chain256",
-          "name": "ChainHash (paper), 256 B blocks",
-          "label": "ChainHash (paper)",
+          "id": "chain-v3",
+          "name": "ChainHash v3 (ours)",
+          "label": "ChainHash v3 (ours)",
           "kind": "proof",
           "key_free": false,
-          "speed": 22.8,
-          "bits": 61,
-          "score": "≥ 61",
+          "speed": 26.26,
+          "bits": 63.0,
+          "score": "≥ 63",
           "anchor": "appendix-chainhash",
-          "evidence": "min(1,E_A(L)/2^64); E_A=8ceil(R/4) if n=1, otherwise n+62+1[R≥29]; n=ceil(L/32), R=L−32(n−1)",
-          "scope": "Model A: PH keys s,s²,…,s³² in GF(2^64); s, three chain keys, five finalizer parameters, and twist are independent uniform 64-bit words. Byte strings shorter than 2^64 bytes, W=32,S=1. Lean checks the ideal-key and model A mathematical reference bounds; compiler/SIMD correctness is outside scope. Timed SplitMix64 initialization is outside model A.",
-          "source": "records/speeds.json",
-          "family": "PH + recurrence + finalizer",
-          "key_model": "Model A: PH keys s,s²,…,s³² in GF(2^64); s, three chain keys, five finalizer parameters, and twist are independent uniform 64-bit words.",
-          "profile": "chain256",
-          "summary": "The proof gives at least 61 bits on this post’s collision score when the key starts with 80 independently random bytes. It shows that a mathematical guarantee can coexist with competitive speed on large inputs. Those key assumptions matter: the smaller seed used by the timing harness is not covered by the proof.",
+          "evidence": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
+          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/v3/speeds_chainhash_v3.json",
+          "family": "CLNH + Horner + quintic",
+          "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
+          "profile": "chain-v3",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records.",
           "reader_notes": {
-            "evidence": "Lean has checked the paper’s mathematical construction and the theorem for its 80-byte key setup. This is not a proof of the compiled C or SIMD implementation.",
-            "key": "Choose ten independent random 64-bit words, totaling 80 bytes. Some further key values are calculated from those words in the way covered by the theorem; the technical notes call this setup “model A.”",
-            "scope": "This point appears on the M2 chart and uses the original 256-byte layout. ChainHash v2 changes the layout and the hash values. Short-message costs are reported separately from this bulk timing."
+            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the design panel. The Lean lane is running. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
+            "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including unequal lengths, under the stated key distribution. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three. Sanity and verification passed, but no complete v3 statistical-suite result or machine-checked implementation proof is claimed."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/lobais/smhasher3/-/blob/mr/chainhash/hashes/chainhash.cpp"
+          "code_url": "records/chainhash/v3/chainhash3.h"
         },
         {
           "id": "chain128",
@@ -2702,29 +2731,29 @@
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/clhash.cpp"
         },
         {
-          "id": "chain-v2",
-          "name": "ChainHash v2 (ours), 1 KB blocks",
-          "label": "ChainHash v2 (ours)",
+          "id": "chain-v3",
+          "name": "ChainHash v3 (ours)",
+          "label": "ChainHash v3 (ours)",
           "kind": "proof",
           "key_free": false,
-          "speed": 24.86,
-          "bits": 61,
-          "score": "≥ 61",
+          "speed": 28.31,
+          "bits": 63.0,
+          "score": "≥ 63",
           "anchor": "appendix-chainhash",
-          "evidence": "Ideal: (max(1,ceil(L/128))+2)/2^64; model A: conservative 8L/2^64",
-          "scope": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model.",
-          "source": "records/chainhash/v2/speeds_chainhash_x86.json",
-          "family": "polynomial (CLNH + injective recurrence)",
-          "key_model": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model.",
-          "profile": "chain-v2",
-          "summary": "The collision argument transfers to this layout and gives at least 61 bits on the post’s score with 80 independently random key bytes. Its Xeon throughput is shown here. The original layout’s Lean proof has not yet been fully adapted to v2, and neither proof covers the benchmark’s smaller seed-based key setup.",
+          "evidence": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
+          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/v3/speeds_chainhash_v3.json",
+          "family": "CLNH + Horner + quintic",
+          "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
+          "profile": "chain-v3",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records.",
           "reader_notes": {
-            "evidence": "The mathematical argument transfers after changing the indexing of message pieces. The corresponding v2 proof-checker work is still pending.",
-            "key": "The guarantee uses ten independent random 64-bit words, totaling 80 bytes. The technical specification calls this “model A.” Expanding the benchmark’s 64-bit seed is a different key distribution.",
-            "scope": "This point is shown on the Xeon chart. The M2 chart keeps the original 256-byte layout. A proof of either mathematical construction does not establish correctness of compiled C or SIMD instructions."
+            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the design panel. The Lean lane is running. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
+            "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including unequal lengths, under the stated key distribution. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three. Sanity and verification passed, but no complete v3 statistical-suite result or machine-checked implementation proof is claimed."
           },
           "output_bits": 64,
-          "code_url": "records/chainhash/v2/chainhash_x86.h"
+          "code_url": "records/chainhash/v3/chainhash3.h"
         },
         {
           "id": "chain128",

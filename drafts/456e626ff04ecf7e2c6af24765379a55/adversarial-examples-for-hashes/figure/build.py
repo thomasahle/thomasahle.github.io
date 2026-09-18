@@ -102,7 +102,7 @@ def rows_for(host):
             if not row.get('chart_eligible') or speed is None or not math.isfinite(speed) or speed <= 0:
                 continue
             if row.get('chart_hosts') and host['host'] not in row['chart_hosts']:
-                continue  # a row may be plotted on a subset of hosts (e.g. ChainHash layouts)
+                continue  # a row may be plotted on a subset of hosts when measurements are host-specific
             kind = 'claim' if row['bits_kind'] == 'claimed' else 'proof' if row['family'] == 'proven' else 'witness'
             row.update(speed=speed, kind=kind)
             rows.append(row)
@@ -115,7 +115,7 @@ LABELS = {'m2': {'siphash-1-3': (2.05, 20.0, 'left', 'SipHash-1-3', ''),
         'umash128': (8.28213798512708, 222.86094420380775, 'left', 'UMASH-128', ''),
         'chain128': (13.472985573602719, 128.0, 'left', 'ChainHash-128 (ours)', ''),
         'halftime24-fixed': (0.57, 147.0333894396205, 'left', 'HalftimeHash24 (fixed)', ''),
-        'chain256': (45.47443397859695, 48.50293012833273, 'right', 'ChainHash (ours)', ''),
+        'chain-v3': (45.47443397859695, 48.50293012833273, 'right', 'ChainHash v3 (ours)', ''),
         'polymur': (4.508070852474694, 21.112126572366314, 'left', 'PolymurHash', ''),
         'highway': (1.0471926475891462, 73.51669471981025, 'right', 'HighwayHash', ''),
         'rapid3': (19.40684253056874, 18.37917367995256, 'left', 'rapidhash v3', ''),
@@ -127,7 +127,7 @@ LABELS = {'m2': {'siphash-1-3': (2.05, 20.0, 'left', 'SipHash-1-3', ''),
           'umash128': (5.74978260458602, 21.112126572366314, 'right', 'UMASH-128', ''),
           'chain128': (6.493543741487783, 194.0117205133309, 'right', 'ChainHash-128 (ours)', ''),
           'halftime24-fixed': (11.929809233130745, 222.86094420380775, 'left', 'HalftimeHash24 (fixed)', ''),
-          'chain-v2': (27.9541260508884, 147.0333894396205, 'left', 'ChainHash v2 (ours)', ''),
+          'chain-v3': (27.9541260508884, 147.0333894396205, 'left', 'ChainHash v3 (ours)', ''),
           'clhash': (24.752300760967383, 42.22425314473263, 'left', 'CLHASH', ''),
           'polymur': (4.508070852474694, 42.22425314473263, 'right', 'PolymurHash', ''),
           'highway': (2.4537991092912335, 36.75834735990512, 'right', 'HighwayHash', ''),
@@ -136,7 +136,7 @@ LABELS = {'m2': {'siphash-1-3': (2.05, 20.0, 'left', 'SipHash-1-3', ''),
           'komi': (10.563386085541142, 8.0, 'left', 'komihash', '')}}
 MOBILE_LABELS = {'m2': {'ghash': (3.1296782804570187, 256.0, 'left', 'GHASH', ''),
         'poly1305': (0.57, 168.89701257893051, 'left', 'Poly1305', ''),
-        'chain256': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash (ours)', ''),
+        'chain-v3': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash v3 (ours)', ''),
         'chain128': (45.47443397859695, 147.0333894396205, 'right', 'ChainHash-128 (ours)', ''),
         'halftime24-fixed': (0.57, 42.22425314473263, 'left', 'HalftimeHash24 (fixed)', ''),
         'highway': (0.57, 84.44850628946526, 'left', 'HighwayHash', ''),
@@ -144,7 +144,7 @@ MOBILE_LABELS = {'m2': {'ghash': (3.1296782804570187, 256.0, 'left', 'GHASH', ''
         'komi': (10.563386085541142, 6.062866266041593, 'left', 'komihash', '')},
  'xeon': {'ghash': (4.508070852474694, 256.0, 'left', 'GHASH', ''),
           'poly1305': (0.57, 222.86094420380775, 'left', 'Poly1305', ''),
-          'chain-v2': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash v2 (ours)', ''),
+          'chain-v3': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash v3 (ours)', ''),
           'chain128': (51.35676363205364, 147.0333894396205, 'right', 'ChainHash-128 (ours)', ''),
           'halftime24-fixed': (0.57, 111.43047210190387, 'left', 'HalftimeHash24 (fixed)', ''),
           'highway': (0.57, 42.22425314473263, 'left', 'HighwayHash', ''),
@@ -155,7 +155,7 @@ LINEAR_LABELS = {'m2': {'siphash-1-3': (0.62, 54, 'left', 'SipHash-1-3', ''),
         'ghash': (2.9, 132, 'left', 'GHASH', ''),
         'poly1305': (2.7, 109, 'left', 'Poly1305', ''),
         'umash128': (9.2, 91, 'left', 'UMASH-128', ''),
-        'chain256': (35, 77, 'right', 'ChainHash (ours)', ''),
+        'chain-v3': (35, 77, 'right', 'ChainHash v3 (ours)', ''),
         'clhash': (18, 96, 'left', 'CLHASH', ''),
         'polymur': (5.8, 49, 'left', 'PolymurHash', ''),
         'highway': (1.05, 74, 'right', 'HighwayHash', ''),
@@ -175,11 +175,11 @@ LINEAR_LABELS = {'m2': {'siphash-1-3': (0.62, 54, 'left', 'SipHash-1-3', ''),
           'xxh3-64': (24, 25, 'left', 'XXH3-64', ''),
           'komi': (8.4, 15, 'left', 'komihash', ''),
           'chain128': (10, 132, 'left', 'ChainHash-128 (ours)', ''),
-          'chain-v2': (26, 77, 'left', 'ChainHash v2 (ours)', ''),
+          'chain-v3': (26, 77, 'left', 'ChainHash v3 (ours)', ''),
           'halftime24-fixed': (24, 110, 'left', 'HalftimeHash24 (fixed)', '')}}
 LINEAR_MOBILE_LABELS = {'m2': {'ghash': (0.58, 134, 'left', 'GHASH', ''),
         'poly1305': (0.58, 111, 'left', 'Poly1305', ''),
-        'chain256': (40, 76, 'right', 'ChainHash (ours)', ''),
+        'chain-v3': (40, 76, 'right', 'ChainHash v3 (ours)', ''),
         'highway': (0.58, 84, 'left', 'HighwayHash', ''),
         'xxh3-64': (50, 37, 'right', 'XXH3-64', ''),
         'komi': (8.5, 18, 'left', 'komihash', ''),
@@ -192,7 +192,7 @@ LINEAR_MOBILE_LABELS = {'m2': {'ghash': (0.58, 134, 'left', 'GHASH', ''),
           'komi': (8.5, 18, 'left', 'komihash', ''),
           'chain128': (48, 132, 'right', 'ChainHash-128 (ours)', ''),
           'halftime24-fixed': (0.58, 91, 'left', 'HalftimeHash24 (fixed)', ''),
-          'chain-v2': (40, 76, 'right', 'ChainHash v2 (ours)', '')}}
+          'chain-v3': (40, 76, 'right', 'ChainHash v3 (ours)', '')}}
 
 def render(key, mobile=False, compact=False, scale='linear'):
     host = HOSTS[key]
@@ -292,7 +292,7 @@ def render(key, mobile=False, compact=False, scale='linear'):
         c=BLUE if row['kind']=='proof' else CLAIM if row['kind']=='claim' else ORANGE
         # Deliberate label positions, with leaders terminating at the true data.
         annotation=ax.annotate(label,xy=(row['speed'],row['bits']),xytext=(tx,ty),
-            fontsize=12 if mobile else 14,weight='bold' if id in ('chain-v2','chain256','chain128') else 'normal',
+            fontsize=12 if mobile else 14,weight='bold' if id in ('chain-v3','chain128') else 'normal',
             color=c,ha=align,va='top',linespacing=1.5,
             bbox=dict(boxstyle='square,pad=.2',fc='white',ec='none',alpha=.96),
             arrowprops=dict(arrowstyle='-',color=c,alpha=.5,lw=.8,shrinkA=5,shrinkB=8),zorder=5)

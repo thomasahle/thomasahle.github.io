@@ -5,7 +5,7 @@ prior analysis's code.  The header under test is `halftime-current.hpp`, SHA-256
 `7ef5dd48f54537b430f85bc1867b23a93551ab1c56415cfcef362d1651956cc3`, byte-identical to
 `https://raw.githubusercontent.com/jbapple/HalftimeHash/master/halftime-hash.hpp` as fetched
 on 2026-09-18.  **The header was not edited.**  Heavy runs were on the Xeon
-(`hardware.normalcomputing.net`, 2 x Xeon Platinum 8375C, 48 cores / 96 threads,
+(a dual-socket Xeon Platinum 8375C host, 48 cores / 96 threads,
 GCC 11.5.0), `nice -n 10`, at most 48 OpenMP threads; the ARM/UBSan checks are local
 compiles on an arm64 Mac (Apple clang 17).
 
