@@ -48,6 +48,8 @@ def rows_for(host):
             speed = row['speeds'][host['key']]['value']
             if not row.get('chart_eligible') or speed is None or not math.isfinite(speed) or speed <= 0:
                 continue
+            if row.get('chart_hosts') and host['host'] not in row['chart_hosts']:
+                continue  # a row may be plotted on a subset of hosts (e.g. ChainHash layouts)
             kind = 'claim' if row['bits_kind'] == 'claimed' else 'proof' if row['family'] == 'proven' else 'witness'
             row.update(speed=speed, kind=kind)
             rows.append(row)
@@ -59,7 +61,7 @@ LABELS = {'m2': {'ghash': (3.1296782804570187, 222.86094420380775, 'left', 'GHAS
         'umash128': (8.28213798512708, 222.86094420380775, 'left', 'UMASH-128', ''),
         'chain128': (13.472985573602719, 128.0, 'left', 'ChainHash-128 (ours)', ''),
         'halftime24-fixed': (0.57, 147.0333894396205, 'left', 'HalftimeHash24 (fixed)', ''),
-        'chain-v2': (45.47443397859695, 48.50293012833273, 'right', 'ChainHash v2 (ours)', ''),
+        'chain256': (45.47443397859695, 48.50293012833273, 'right', 'ChainHash (ours)', ''),
         'polymur': (4.508070852474694, 21.112126572366314, 'left', 'PolymurHash', ''),
         'highway': (1.0471926475891462, 73.51669471981025, 'right', 'HighwayHash', ''),
         'rapid3': (19.40684253056874, 18.37917367995256, 'left', 'rapidhash v3', ''),
@@ -79,7 +81,7 @@ LABELS = {'m2': {'ghash': (3.1296782804570187, 222.86094420380775, 'left', 'GHAS
           'komi': (10.563386085541142, 8.0, 'left', 'komihash', '')}}
 MOBILE_LABELS = {'m2': {'ghash': (3.1296782804570187, 256.0, 'left', 'GHASH', ''),
         'poly1305': (0.57, 168.89701257893051, 'left', 'Poly1305', ''),
-        'chain-v2': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash v2 (ours)', ''),
+        'chain256': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash (ours)', ''),
         'chain128': (45.47443397859695, 147.0333894396205, 'right', 'ChainHash-128 (ours)', ''),
         'halftime24-fixed': (0.57, 42.22425314473263, 'left', 'HalftimeHash24 (fixed)', ''),
         'highway': (0.57, 84.44850628946526, 'left', 'HighwayHash', ''),
@@ -168,7 +170,7 @@ def render(key, mobile=False, compact=False):
         # Derive label values from the record, so data updates cannot leave stale text.
         if row['kind'] == 'proof':
             number = f"≥ {math.floor(row['bits']*100)/100:g}" + ('' if mobile else ' bits')
-            if id in ('chain-v2', 'chain128'): number += ' · model A'
+            if id in ('chain-v2', 'chain256', 'chain128'): number += ' · model A'
         elif row['kind'] == 'claim':
             number = f"{row['bits']:g}" + ('' if mobile else ' bits') + ' · claim'
         elif row['bits_kind'] == 'measured':
@@ -178,7 +180,7 @@ def render(key, mobile=False, compact=False):
         c=BLUE if row['kind']=='proof' else CLAIM if row['kind']=='claim' else ORANGE
         # Deliberate label positions, with leaders terminating at the true data.
         annotation=ax.annotate(name+'\n'+number,xy=(row['speed'],row['bits']),xytext=(tx,ty),
-            fontsize=12 if mobile else 14,weight='bold' if id in ('chain-v2','chain128') else 'normal',
+            fontsize=12 if mobile else 14,weight='bold' if id in ('chain-v2','chain256','chain128') else 'normal',
             color=c,ha=align,va='top',linespacing=1.5,
             bbox=dict(boxstyle='square,pad=.2',fc='white',ec='none',alpha=.96),
             arrowprops=dict(arrowstyle='-',color=c,alpha=.5,lw=.8,shrinkA=5,shrinkB=8),zorder=5)

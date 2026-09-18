@@ -1,9 +1,0 @@
-{
-  "model": "Apple M2 Pro",
-  "os": "macOS-27.0-arm64-arm-64bit",
-  "cpu_logical": "12",
-  "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
-  "baseline_build": "../m2-rerun/build-fixed",
-  "source": "../m2-rerun/smhasher3",
-  "note": "Metadata collection is read-only; no timing occurred in this step."
-}

@@ -1,9 +1,0 @@
-{
-  "inputs": 10000,
-  "style_wrappers": 4,
-  "identical_outputs": 40000,
-  "baseline": "fix-neon-dispatch compiled with -fwrapv for legacy signed sums",
-  "fixed": "final header, no -fwrapv or -fno-strict-aliasing",
-  "baseline_vector_sha256": "c0ff6279960e898a39fd005775498f0ab77678aa8aa07e80cf3f9eee9e8a48cb",
-  "fixed_vector_sha256": "f3645437abe590a7b5eb8280c4154bc053ddea846791fb8cce441fd789822e07"
-}

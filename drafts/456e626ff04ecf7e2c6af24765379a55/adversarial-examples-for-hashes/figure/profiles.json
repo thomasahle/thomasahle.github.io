@@ -1,855 +1,855 @@
 {
-  "checked": "2026-09-18",
-  "profiles": [
+ "checked": "2026-09-18",
+ "profiles": [
+  {
+   "ids": [
+    "city"
+   ],
+   "authors": "Geoff Pike and Jyrki Alakuijala · Google",
+   "background": "CityHash is Google’s family of noncryptographic string hashes, drawing on earlier work by Austin Appleby and Bob Jenkins. CityHash64 was designed with short strings and hash-table keys in mind.",
+   "links": [
     {
-      "ids": [
-        "city"
-      ],
-      "authors": "Geoff Pike and Jyrki Alakuijala · Google",
-      "background": "CityHash is Google’s family of noncryptographic string hashes, drawing on earlier work by Austin Appleby and Bob Jenkins. CityHash64 was designed with short strings and hash-table keys in mind.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/google/cityhash"
-        }
-      ],
-      "results": {
-        "city": "Two different eight-byte messages reach the same public hash before the seed is applied. The seeded wrapper therefore returns the same result for every seed."
-      },
-      "sources": [
-        "https://github.com/google/cityhash",
-        "sources/cityhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "farm"
-      ],
-      "authors": "Geoff Pike · Google",
-      "background": "FarmHash continues Google’s work on fast string hashing after CityHash. The library includes several implementations selected for different processors; the point here is specifically the NA variant’s seeded 64-bit function.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/google/farmhash"
-        }
-      ],
-      "results": {
-        "farm": "Like CityHash’s seeded wrapper, this variant compresses the message before applying the secret. The eight-byte witness pair already agrees at that point, so changing the seed cannot separate it."
-      },
-      "sources": [
-        "https://github.com/google/farmhash",
-        "sources/farmhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "murmur"
-      ],
-      "authors": "Austin Appleby",
-      "background": "MurmurHash3 belongs to the same project as the original SMHasher test suite. Its name reflects its use of multiplication and rotation. The x64_128 variant maintains two 64-bit state words and returns 128 bits.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/aappleby/smhasher"
-        }
-      ],
-      "results": {
-        "murmur": "A controlled difference survives the public word mixing and is cancelled by later message words. The selected pair collides in the full 128-bit output for every 32-bit API seed."
-      },
-      "sources": [
-        "https://github.com/aappleby/smhasher",
-        "sources/murmurhash3.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "mx3"
-      ],
-      "authors": "Jon Maiga",
-      "background": "mx3 grew out of work on bit mixers and supplies a mixer, a pseudorandom generator, and a string hash. Version 3 revised the hash’s seeding and speed while retaining its multiply-and-xorshift design.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/jonmaiga/mx3"
-        }
-      ],
-      "results": {
-        "mx3": "A one-byte message and an eight-byte message cancel their public length and word terms. Both leave the same seed-dependent state, giving an every-seed collision."
-      },
-      "sources": [
-        "https://github.com/jonmaiga/mx3",
-        "sources/mx3.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "fasthash-64",
-        "fasthash-32"
-      ],
-      "authors": "Zilong Tan",
-      "background": "fasthash is a compact C design built around multiplication and xorshift mixing. The project describes its mixing function as learned using genetic programming. It offers both 64-bit and 32-bit outputs.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/ztanml/fast-hash"
-        }
-      ],
-      "results": {
-        "fasthash-64": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths.",
-        "fasthash-32": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths."
-      },
-      "sources": [
-        "https://github.com/ztanml/fast-hash",
-        "sources/fasthash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "muse"
-      ],
-      "authors": "K--Aethiax",
-      "background": "MuseAir is a portable design using widening multiplication. The record here is the historical v0.3 implementation retained in SMHasher3; later upstream algorithm versions must be considered separately.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/eternal-io/museair"
-        }
-      ],
-      "results": {
-        "muse": "A public zero-product operand makes a changed message word disappear before secret mixing. The fixed pair collides for every seed in the studied v0.3 implementation."
-      },
-      "sources": [
-        "https://github.com/eternal-io/museair",
-        "sources/museair.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "komi"
-      ],
-      "authors": "Aleksey Vaneev",
-      "background": "komihash is a header-only C/C++ hash from the author of a5hash. Its multiplication-based design keeps the high and low halves of products in separate state variables and processes long inputs through parallel lanes.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/avaneev/komihash"
-        }
-      ],
-      "results": {
-        "komi": "Two messages differing in just two bits collide for about 91.06% of sampled seeds. Public relations between lanes allow the changes to cancel. This construction applies only to lengths 64–127 bytes."
-      },
-      "sources": [
-        "https://github.com/avaneev/komihash",
-        "sources/komihash.h"
-      ]
-    },
-    {
-      "ids": [
-        "t1ha"
-      ],
-      "authors": "Leonid Yuriev · Positive Technologies",
-      "background": "t1ha (“Fast Positive Hash”) is a family of noncryptographic hashes with separate variants for different platforms and uses. This point is t1ha2’s one-shot 64-bit function, not its streaming or 128-bit API.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/erthink/t1ha"
-        }
-      ],
-      "results": {
-        "t1ha": "The 16-byte and 11-byte witness messages exploit carry patterns for a structured class of seeds. The cap combines an exact class size with a measured success rate inside that class."
-      },
-      "sources": [
-        "https://github.com/erthink/t1ha",
-        "sources/t1ha.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "a5",
-        "a5wide"
-      ],
-      "authors": "Aleksey Vaneev",
-      "background": "a5hash is a header-only C/C++ family aimed at hash tables and hash maps, from the author of komihash. It supplies 64-bit and 128-bit functions. Both plotted results concern v5.21.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/avaneev/a5hash"
-        }
-      ],
-      "results": {
-        "a5": "An exactly counted class of seeds makes a multiplication erase a message word. This proves a lower bound on one pair’s collision probability, and therefore an upper cap on the family’s score.",
-        "a5wide": "A public zero-product operand erases a changed word for every seed. Both output words collide, despite this tested 128-bit variant passing all 250 published SMHasher3 tests."
-      },
-      "sources": [
-        "https://github.com/avaneev/a5hash",
-        "sources/a5hash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "rapid3"
-      ],
-      "authors": "Nicolas De Carli · based on wyhash by Wang Yi",
-      "background": "rapidhash builds on wyhash’s widening-multiplication approach. Its standard, Micro, and Nano variants trade throughput against code size. The plotted benchmark is the standard v3 implementation.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/Nicoshev/rapidhash"
-        }
-      ],
-      "results": {
-        "rapid3": "Complementing both operands of an early multiplication can leave its high/low fold unchanged. The measured pair gives an upper cap, not a ranking against other hashes whose searches used different budgets."
-      },
-      "sources": [
-        "https://github.com/Nicoshev/rapidhash",
-        "sources/rapidhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "mum"
-      ],
-      "authors": "Vladimir Makarov",
-      "background": "MUM stands for “multiply and mix”: it combines the halves of a wide product to mix bits. The project also contains pseudorandom generators. This post studies the pre-fix v3 design with fixed public constants.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/vnmakarov/mum-hash"
-        }
-      ],
-      "results": {
-        "mum": "Two distinct eight-byte words have the same public multiplication fold before they meet the seeded state. The every-seed result concerns pre-fix MUM v3, not the later collision-prevention default."
-      },
-      "sources": [
-        "https://github.com/vnmakarov/mum-hash",
-        "sources/mum_mir.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "mir"
-      ],
-      "authors": "Vladimir Makarov",
-      "background": "mir’s hash lives in the MIR compiler project and uses multiplication followed by addition of the high and low halves. It includes native-wide and decomposed-multiplication implementations; this chart uses mir.exact timings.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/vnmakarov/mir/blob/master/mir-hash.h"
-        }
-      ],
-      "results": {
-        "mir": "Two eight-byte words yield the same zero public fold, leaving identical seeded states. The selected pair works in both the exact and inexact implementations."
-      },
-      "sources": [
-        "https://github.com/vnmakarov/mir/blob/master/mir-hash.h",
-        "sources/mum_mir.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "xxh3-64",
-        "xxh3-128"
-      ],
-      "authors": "Yann Collet and the xxHash contributors",
-      "background": "XXH3 extends the xxHash family with 64-bit and 128-bit outputs and optimized paths for different input lengths and CPUs. These results use v0.8.3’s seeded API with the default public secret.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/Cyan4973/xxHash"
-        },
-        {
-          "label": "Algorithm specification",
-          "url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md"
-        }
-      ],
-      "results": {
-        "xxh3-64": "Complementing the first two words can preserve their multiplication fold. The measured cap comes from a selected fixed pair; it is not a demonstrated flooding attack or a result for independently randomized custom secrets.",
-        "xxh3-128": "The selected pair preserves both an early product fold and the relevant word sum. Both halves of the 128-bit output are compared: the measured collisions are full-output collisions."
-      },
-      "sources": [
-        "https://github.com/Cyan4973/xxHash",
-        "sources/xxhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "highway"
-      ],
-      "authors": "Jyrki Alakuijala, Bill Cox, and Jan Wassenberg · Google",
-      "background": "Introduced in a 2016 paper, HighwayHash uses SIMD multiplication and permutation with a 256-bit key. It was designed as a fast keyed hash and pseudorandom function, with 64-bit, 128-bit, and 256-bit outputs.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/google/highwayhash"
-        },
-        {
-          "label": "Original paper",
-          "url": "https://arxiv.org/abs/1612.06257"
-        }
-      ],
-      "results": {
-        "highway": "Exact sufficient contribution; other pairs or collision events may lower the score. Conservative 96-byte headline witness. Exact sufficient-event contribution, not exact total collision probability. All 64/128/256 output widths inherit it. Original second-family capped sample confirmed pair but not exact numerator. Lean: ✓ checked. M1–M4 complete: exact full-key trail count 56165·2^184, unconditional state and all three output collision bounds, and score enclosure 59.807–59.808; C/Lean vectors are execution evidence, not compiler correctness."
-      },
-      "sources": [
-        "https://github.com/google/highwayhash",
-        "https://arxiv.org/abs/1612.06257",
-        "records/highway-bridge/LEAN_HIGHWAY_STATUS.md"
-      ],
-      "lean": {
-        "highway": {
-          "label": "✓ checked",
-          "source": "records/highway-bridge/LEAN_HIGHWAY_STATUS.md",
-          "scope": "M1–M4 complete: exact full-key trail count 56165·2^184, unconditional state and all three output collision bounds, and score enclosure 59.807–59.808; C/Lean vectors are execution evidence, not compiler correctness."
-        }
-      }
-    },
-    {
-      "ids": [
-        "spooky"
-      ],
-      "authors": "Bob Jenkins",
-      "background": "SpookyHash is Jenkins’s noncryptographic 128-bit hash, designed for 64-bit machines, with wrappers for shorter outputs. The V2 revision corrected issues in the original design; this point is its 64-bit wrapper.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://burtleburtle.net/bob/hash/spooky.html"
-        }
-      ],
-      "results": {
-        "spooky": "A late-injected difference cancels in the internal state before finalization. The selected pair collides for about half the sampled seeds; exact half balance has not been proved."
-      },
-      "sources": [
-        "https://burtleburtle.net/bob/hash/spooky.html",
-        "sources/spookyhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "pengyhash"
-      ],
-      "authors": "Alberto Fajardo",
-      "background": "pengyhash is a compact noncryptographic 64-bit hash built from additions, rotations, and XORs. Version 0.3 uses a 64-bit seed, whereas earlier versions used 32 bits.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/tinypeng/pengyhash"
-        }
-      ],
-      "results": {
-        "pengyhash": "The bulk loop never uses the seed. Two messages reach the same public state before seeded finalization, so they collide for every seed. This record uses SMHasher3’s sequenced v0.3 implementation."
-      },
-      "sources": [
-        "https://github.com/tinypeng/pengyhash",
-        "sources/pengyhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "nmhash32",
-        "nmhash32x"
-      ],
-      "authors": "James Z. M. Gao",
-      "background": "NMHASH32 and NMHASH32X are separate functions in the hash-garage project. Both return 32 bits and accept a 32-bit seed, but use different mixing designs. The two points retain their own witnesses and measurements.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/gzm55/hash-garage"
-        }
-      ],
-      "results": {
-        "nmhash32": "A difference passes through a lane under specific seed-bit and carry conditions, then cancels in later words. Exhaustive enumeration counts the successful seeds; this is not the every-seed result of NMHASH32X.",
-        "nmhash32x": "A controlled difference becomes a top-bit change through public mixing. Two later message words cancel both state differences for every seed."
-      },
-      "sources": [
-        "https://github.com/gzm55/hash-garage",
-        "sources/nmhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "gx"
-      ],
-      "authors": "Olivier Giniaux",
-      "background": "gxhash is a Rust hash designed around hardware AES instructions. It uses parallel processing to obtain high throughput and provides several output widths. This point is the studied 64-bit v3.5.0 implementation.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/ogxd/gxhash"
-        }
-      ],
-      "results": {
-        "gx": "The selected 15-byte and 16-byte inputs collide in public compression before the seed can distinguish them. The resulting pair collides for every seed."
-      },
-      "sources": [
-        "https://github.com/ogxd/gxhash",
-        "sources/gxhash.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "ahash"
-      ],
-      "authors": "Tom Kaitchuck",
-      "background": "aHash is a Rust hash-table hasher that uses AES instructions when available, with a separate fallback design. This post’s result is specifically for the AES path in version 0.8.12.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/tkaitchuck/aHash"
-        },
-        {
-          "label": "Design & FAQ",
-          "url": "https://github.com/tkaitchuck/aHash/blob/master/FAQ.md"
-        }
-      ],
-      "results": {
-        "ahash": "A chosen difference cancels in both the AES and shuffled-addition accumulators. The measured result uses four independent internal key words in the validated C reproduction; transfer to native Rust depends on the operation and constructor mapping."
-      },
-      "sources": [
-        "https://github.com/tkaitchuck/aHash",
-        "https://github.com/tkaitchuck/aHash/blob/master/Cargo.toml"
-      ]
-    },
-    {
-      "ids": [
-        "polymur"
-      ],
-      "authors": "Orson Peters",
-      "background": "PolymurHash combines polynomial hashing over a prime field with a Murmur-inspired final mixer. It aims to provide a universal hash using ordinary widening multiplication, without requiring carry-less multiplication instructions.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/orlp/polymur-hash"
-        },
-        {
-          "label": "Author’s universality proof",
-          "url": "https://github.com/orlp/polymur-hash/blob/master/extras/universality-proof.md"
-        }
-      ],
-      "results": {
-        "polymur": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified. Lean: ✓ checked. The exact restricted-key cardinality lower bound and numerical idealHash collision/score theorems are unconditional; the shipped seed distribution and C arithmetic refinement remain outside scope."
-      },
-      "sources": [
-        "https://github.com/orlp/polymur-hash",
-        "https://github.com/orlp/polymur-hash/blob/master/polymur-hash.h",
-        "records/polymur-card/LEAN_POLYMUR_STATUS.md"
-      ],
-      "lean": {
-        "polymur": {
-          "label": "✓ checked",
-          "source": "records/polymur-card/LEAN_POLYMUR_STATUS.md",
-          "scope": "The exact restricted-key cardinality lower bound and numerical idealHash collision/score theorems are unconditional; the shipped seed distribution and C arithmetic refinement remain outside scope."
-        }
-      }
-    },
-    {
-      "ids": [
-        "halftimehash-64",
-        "halftimehash-128",
-        "halftimehash-256",
-        "halftimehash-512"
-      ],
-      "authors": "Jim Apple",
-      "background": "HalftimeHash’s 2021 paper targets long strings without widening 64-bit multiplication or finite-field arithmetic. The four plotted styles are implementation variants: all return 64-bit hashes, despite the numbers in their names.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/jbapple/HalftimeHash"
-        },
-        {
-          "label": "Original paper",
-          "url": "https://arxiv.org/abs/2104.08865"
-        }
-      ],
-      "results": {
-        "halftimehash-64": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean.",
-        "halftimehash-128": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean.",
-        "halftimehash-256": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean.",
-        "halftimehash-512": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
-      },
-      "sources": [
-        "https://github.com/jbapple/HalftimeHash",
-        "https://arxiv.org/abs/2104.08865",
-        "records/halftime/REFEREE.md",
-        "records/halftime/fourth_review_summary.md",
-        "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md"
-      ],
-      "lean": {
-        "halftimehash-64": {
-          "label": "partial: executable refinement remains unproved",
-          "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
-          "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
-        },
-        "halftimehash-128": {
-          "label": "partial: executable refinement remains unproved",
-          "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
-          "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
-        },
-        "halftimehash-256": {
-          "label": "partial: executable refinement remains unproved",
-          "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
-          "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
-        },
-        "halftimehash-512": {
-          "label": "partial: executable refinement remains unproved",
-          "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
-          "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
-        }
-      }
-    },
-    {
-      "ids": [
-        "umash",
-        "umash128"
-      ],
-      "authors": "Paul Khuong · Backtrace",
-      "background": "UMASH was introduced at Backtrace in 2020 to combine fast string hashing with collision bounds. It also computes a second hash alongside the first to produce a 128-bit fingerprint.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/backtrace-labs/umash"
-        },
-        {
-          "label": "Design history",
-          "url": "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/"
-        },
-        {
-          "label": "Author’s proof & reference",
-          "url": "https://github.com/backtrace-labs/umash/blob/master/umash.pdf"
-        }
-      ],
-      "results": {
-        "umash": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. Claimed 55-bit score is not certified. Lean: partial: block-case probability proofs remain incomplete. Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean.",
-        "umash128": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. claimed bound ⌈L/2^23⌉²·2^-83, i.e. score(L) ≥ min(83 + log₂L, 127 − log₂L); 83 for inputs up to 2^46 words, about 68 over the full 64-bit length range Lean: partial: block-case probability proofs remain incomplete. Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
-      },
-      "sources": [
-        "https://github.com/backtrace-labs/umash",
-        "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/",
-        "records/umash/ENH_RESULT.md",
-        "records/umash/FIFTH_RECOUNT.md",
-        "index.html#appendix-umash",
-        "records/umash/LEAN_UMASH_STATUS.md"
-      ],
-      "lean": {
-        "umash": {
-          "label": "partial: block-case probability proofs remain incomplete",
-          "source": "records/umash/LEAN_UMASH_STATUS.md",
-          "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
-        },
-        "umash128": {
-          "label": "partial: block-case probability proofs remain incomplete",
-          "source": "records/umash/LEAN_UMASH_STATUS.md",
-          "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
-        }
-      }
-    },
-    {
-      "ids": [
-        "clhash"
-      ],
-      "authors": "Daniel Lemire and Owen Kaser",
-      "background": "CLHASH uses carry-less multiplication instructions to accelerate universal hashing. Its construction was published as “Faster 64-bit universal hashing using carry-less multiplications.”",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/lemire/clhash"
-        },
-        {
-          "label": "Original paper",
-          "url": "https://arxiv.org/abs/1503.03465"
-        }
-      ],
-      "results": {
-        "clhash": "Ideal Algorithm 4, byte strings shorter than 2^64 bytes, full independent key. The timed seed initializer is not certified by this theorem. Lean: ✓ checked. Ideal Algorithm-4 bound for distinct byte strings shorter than 2^64 bytes, including empty, partial and unequal-length inputs; no implementation or seed-expander theorem."
-      },
-      "sources": [
-        "https://github.com/lemire/clhash",
-        "https://arxiv.org/abs/1503.03465",
-        "records/clhash/LEAN_CLHASH_STATUS.md"
-      ],
-      "lean": {
-        "clhash": {
-          "label": "✓ checked",
-          "source": "records/clhash/LEAN_CLHASH_STATUS.md",
-          "scope": "Ideal Algorithm-4 bound for distinct byte strings shorter than 2^64 bytes, including empty, partial and unequal-length inputs; no implementation or seed-expander theorem."
-        }
-      }
-    },
-    {
-      "ids": [
-        "chain256"
-      ],
-      "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "The paper’s strided-pair ChainHash uses 256-byte blocks and an 80-byte model A random key. It remains in Table 2; the chart uses the adjacent-pair v2 measurements.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/thomasahle/fast-polynomials"
-        },
-        {
-          "label": "Reference implementation",
-          "url": "https://github.com/thomasahle/fast-polynomials/blob/main/tools/bench/chainhash/chainhash.h"
-        }
-      ],
-      "results": {
-        "chain256": "Model A: PH keys s,s²,…,s³² in GF(2^64); s, three chain keys, five finalizer parameters, and twist are independent uniform 64-bit words. Byte strings shorter than 2^64 bytes, W=32,S=1. Lean checks the ideal-key and model A mathematical reference bounds; compiler/SIMD correctness is outside scope. Timed SplitMix64 initialization is outside model A. Lean: ✓ checked. Both model-A reference bounds are proved for the paper’s strided function; 583 axiom audits and the integrated build pass; compiler/SIMD correctness and SplitMix64 expansion are outside scope."
-      },
-      "sources": [
-        "https://github.com/thomasahle/fast-polynomials",
-        "#proof-audit-notes",
-        "records/chainhash/THEOREMS.md",
-        "records/chainhash/LEAN_CHAINHASH_STATUS.md",
-        "records/m2_REPORT.md",
-        "records/chainhash-integrate/STATUS.md"
-      ],
-      "lean": {
-        "chain256": {
-          "label": "✓ checked",
-          "source": "records/chainhash-integrate/STATUS.md",
-          "scope": "Both model-A reference bounds are proved for the paper’s strided function; 583 axiom audits and the integrated build pass; compiler/SIMD correctness and SplitMix64 expansion are outside scope."
-        }
-      }
-    },
-    {
-      "ids": [
-        "poly1305"
-      ],
-      "authors": "Daniel J. Bernstein",
-      "background": "Poly1305 is the polynomial-hashing component of Bernstein’s Poly1305-AES authenticator. It works modulo 2¹³⁰ − 5 with a restricted (“clamped”) polynomial key and produces a 128-bit tag.",
-      "results": {
-        "poly1305": "Audited conservative 103-bit bound with uniform clamped r. The timed SMHasher3 Poly1305 wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply. Lean: ✓ checked (ideal key). Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
-      },
-      "links": [
-        {
-          "label": "Original paper",
-          "url": "https://cr.yp.to/mac/poly1305-20050329.pdf"
-        },
-        {
-          "label": "OpenSSL implementation",
-          "url": "https://github.com/openssl/openssl/tree/master/crypto/poly1305"
-        }
-      ],
-      "sources": [
-        "https://cr.yp.to/mac/poly1305-20050329.pdf",
-        "https://github.com/openssl/openssl/tree/master/crypto/poly1305",
-        "records/classic_REPORT.md",
-        "records/m2_REPORT.md",
-        "records/classic/LEAN_CLASSIC_STATUS.md"
-      ],
-      "lean": {
-        "poly1305": {
-          "label": "✓ checked (ideal key)",
-          "source": "records/classic/LEAN_CLASSIC_STATUS.md",
-          "scope": "Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
-        }
-      }
-    },
-    {
-      "ids": [
-        "ghash"
-      ],
-      "authors": "David A. McGrew and John Viega · GCM construction",
-      "background": "GHASH is the universal-hashing component of Galois/Counter Mode (GCM). It evaluates a polynomial over the binary field GF(2¹²⁸); GCM combines that hash with counter-mode encryption.",
-      "results": {
-        "ghash": "Audited 127-bit single-stream (AAD-only, empty ciphertext) bound with uniform H; each byte length is <2^61. The cited two-stream envelope gives 126.4 bits. GMAC timings include setup. The timed SMHasher3 GHASH/GMAC wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply; the audit exhibits a fixed GHASH pair colliding for seed zero. Lean: ✓ checked (ideal key). Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
-      },
-      "links": [
-        {
-          "label": "Original paper",
-          "url": "https://eprint.iacr.org/2004/193"
-        },
-        {
-          "label": "OpenSSL implementation",
-          "url": "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c"
-        }
-      ],
-      "sources": [
-        "https://eprint.iacr.org/2004/193",
-        "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c",
-        "records/classic_REPORT.md",
-        "records/m2_REPORT.md",
-        "records/classic/LEAN_CLASSIC_STATUS.md"
-      ],
-      "lean": {
-        "ghash": {
-          "label": "✓ checked (ideal key)",
-          "source": "records/classic/LEAN_CLASSIC_STATUS.md",
-          "scope": "Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
-        }
-      }
-    },
-    {
-      "ids": [
-        "foldhash-fast",
-        "foldhash-quality"
-      ],
-      "authors": "Orson Peters",
-      "background": "foldhash is a Rust hash-table hasher built around the XOR fold of a widening multiplication. Version 0.2.0 offers fast and quality variants; quality adds a deterministic final mixing step. The scored independent-key model differs from default RandomState and from the direct-seeded benchmark wrapper.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/orlp/foldhash/tree/v0.2.0"
-        }
-      ],
-      "results": {
-        "foldhash-fast": "At eight bytes, overlapping reads put the same word in both keyed operands. Complementing that word can preserve their multiplication fold. The selected pair gives 2757 collisions in 2³⁸ independent-key trials, a sampled 26.57-bit cap. Cross-type every-instance collisions are outside this fixed-key-type score.",
-        "foldhash-quality": "The deterministic final map preserves every fast collision. The selected independent-key run gives 696 collisions in 2³⁶ trials, a sampled 26.56-bit cap; its counters found no quality-only collisions. The extra mixing does not repair this fixed-pair differential."
-      },
-      "sources": [
-        "records/foldhash/SYNTHESIS.md",
-        "records/foldhash/README.md",
-        "records/foldhash/VERIFIED_XTYPE.md",
-        "verify/foldhash-fast/README.md",
-        "verify/foldhash-quality/README.md"
-      ]
-    },
-    {
-      "ids": [
-        "siphash-1-3",
-        "siphash-2-4"
-      ],
-      "authors": "Jean-Philippe Aumasson and Daniel J. Bernstein",
-      "background": "SipHash is a family of keyed pseudorandom functions built from additions, rotations and XORs, with a 128-bit key. The variant numbers give the compression and finalization round counts.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/veorq/SipHash"
-        }
-      ],
-      "results": {
-        "siphash-1-3": "This reduced-round PRF has benchmark timings in the tables, but this post supplies neither a universality theorem nor a scored collision pair. It remains unscored and is omitted from the plot.",
-        "siphash-2-4": "The standard two-compression/four-finalization-round PRF has benchmark timings in the tables, but no universality theorem or collision pair is scored here. It is omitted from the plot rather than assigned an output-width guarantee."
-      },
-      "sources": [
-        "index.html#appendix-siphash",
-        "data.json",
-        "records/speeds.json"
-      ]
-    },
-    {
-      "ids": [
-        "halftime24"
-      ],
-      "authors": "Jim Apple",
-      "background": "HalftimeHash’s advanced Encode3 API returns 24 bytes and is distinct from the shipped Style64/128/256/512 wrappers, which return 64 bits. Its raw core is intended for fixed-length strings.",
-      "links": [
-        {
-          "label": "Original project & code",
-          "url": "https://github.com/jbapple/HalftimeHash"
-        },
-        {
-          "label": "Original paper",
-          "url": "https://arxiv.org/abs/2104.08865"
-        }
-      ],
-      "results": {
-        "halftime24": "A 168-byte equal-length pair collides whenever a key word’s high half is zero, an event of probability 2⁻³² that refutes the advertised same-length bound. Empty and one zero byte also collide for every key in the raw core, giving score 0 under this post’s unequal-length convention. No matching speed is available, so it is not plotted."
-      },
-      "sources": [
-        "index.html#appendix-halftime24",
-        "records/halftime/fourth_review_summary.md",
-        "verify/halftime/verify2/run.cpp"
-      ]
-    },
-    {
-      "ids": [
-        "halftime24-fixed"
-      ],
-      "authors": "Jim Apple; repairs by Thomas Dybdahl Ahle",
-      "background": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
-      "links": [
-        {
-          "label": "Specification and theorem",
-          "url": "records/halftime/THEOREM.md"
-        },
-        {
-          "label": "Implementation studied",
-          "url": "records/halftime/HalftimeHash24-fixed.hpp"
-        }
-      ],
-      "results": {
-        "halftime24-fixed": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed. Lean: ✓ construction (M1–M4). Our fixed-24byte-core branch in github.com/thomasahle/HalftimeHash; not yet upstream. 0 collisions in 2^36 keys at each of four widths on the old 2^-32 witness."
-      },
-      "sources": [
-        "records/halftime/THEOREM.md",
-        "records/halftime/LEAN_HALFTIME_STATUS.md",
-        "records/halftime/speeds_halftime_fixed.json",
-        "records/halftime/speeds_halftime_fixed.json",
-        "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md"
-      ],
-      "lean": {
-        "halftime24-fixed": {
-          "label": "✓ construction (M1–M4)",
-          "source": "records/halftime/LEAN_HALFTIME_STATUS.md",
-          "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed. Concrete fixed-header encoder/layout refinement remains partial; see records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md."
-        }
-      }
-    },
-    {
-      "ids": [
-        "chain-v2"
-      ],
-      "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model.",
-      "links": [
-        {
-          "label": "Specification and theorem",
-          "url": "records/chainhash/v2/SPEC.md"
-        },
-        {
-          "label": "Implementation studied",
-          "url": "records/chainhash/v2/chainhash_x86.h"
-        }
-      ],
-      "results": {
-        "chain-v2": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model. Lean: ✓ (paper function); v2 re-indexing pending."
-      },
-      "sources": [
-        "records/chainhash/v2/SPEC.md",
-        "records/chainhash/v2/LEAN_CHAINHASH_STATUS.md",
-        "records/chainhash/v2/speeds_chainhash_x86.json",
-        "records/chainhash/m2-adjacent/speeds_m2_adjacent.json"
-      ],
-      "lean": {
-        "chain-v2": {
-          "label": "✓ (paper function); v2 re-indexing pending",
-          "source": "records/chainhash/v2/LEAN_CHAINHASH_STATUS.md",
-          "scope": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model."
-        }
-      }
-    },
-    {
-      "ids": [
-        "chain128"
-      ],
-      "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
-      "links": [
-        {
-          "label": "Specification and theorem",
-          "url": "records/chainhash/128/SPEC.md"
-        },
-        {
-          "label": "Implementation studied",
-          "url": "records/chainhash/128/chainhash128.h"
-        }
-      ],
-      "results": {
-        "chain128": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: — not checked (Lean lane queued)."
-      },
-      "sources": [
-        "records/chainhash/128/SPEC.md",
-        "records/chainhash/128/LEAN_CHAINHASH_STATUS.md",
-        "records/chainhash/128/speeds_chainhash128.json",
-        "records/chainhash/128/speeds_chainhash128.json",
-        "records/chainhash128/STATUS.md"
-      ],
-      "lean": {
-        "chain128": {
-          "label": "— not checked (Lean lane queued)",
-          "source": "records/chainhash/128/LEAN_CHAINHASH_STATUS.md",
-          "scope": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. The queued lane has now started: field certificate and end-to-end builds/audits remain incomplete (records/chainhash128/STATUS.md)."
-        }
-      }
+     "label": "Original project & code",
+     "url": "https://github.com/google/cityhash"
     }
-  ]
+   ],
+   "results": {
+    "city": "Two different eight-byte messages reach the same public hash before the seed is applied. The seeded wrapper therefore returns the same result for every seed."
+   },
+   "sources": [
+    "https://github.com/google/cityhash",
+    "sources/cityhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "farm"
+   ],
+   "authors": "Geoff Pike · Google",
+   "background": "FarmHash continues Google’s work on fast string hashing after CityHash. The library includes several implementations selected for different processors; the point here is specifically the NA variant’s seeded 64-bit function.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/google/farmhash"
+    }
+   ],
+   "results": {
+    "farm": "Like CityHash’s seeded wrapper, this variant compresses the message before applying the secret. The eight-byte witness pair already agrees at that point, so changing the seed cannot separate it."
+   },
+   "sources": [
+    "https://github.com/google/farmhash",
+    "sources/farmhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "murmur"
+   ],
+   "authors": "Austin Appleby",
+   "background": "MurmurHash3 belongs to the same project as the original SMHasher test suite. Its name reflects its use of multiplication and rotation. The x64_128 variant maintains two 64-bit state words and returns 128 bits.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/aappleby/smhasher"
+    }
+   ],
+   "results": {
+    "murmur": "A controlled difference survives the public word mixing and is cancelled by later message words. The selected pair collides in the full 128-bit output for every 32-bit API seed."
+   },
+   "sources": [
+    "https://github.com/aappleby/smhasher",
+    "sources/murmurhash3.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "mx3"
+   ],
+   "authors": "Jon Maiga",
+   "background": "mx3 grew out of work on bit mixers and supplies a mixer, a pseudorandom generator, and a string hash. Version 3 revised the hash’s seeding and speed while retaining its multiply-and-xorshift design.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/jonmaiga/mx3"
+    }
+   ],
+   "results": {
+    "mx3": "A one-byte message and an eight-byte message cancel their public length and word terms. Both leave the same seed-dependent state, giving an every-seed collision."
+   },
+   "sources": [
+    "https://github.com/jonmaiga/mx3",
+    "sources/mx3.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "fasthash-64",
+    "fasthash-32"
+   ],
+   "authors": "Zilong Tan",
+   "background": "fasthash is a compact C design built around multiplication and xorshift mixing. The project describes its mixing function as learned using genetic programming. It offers both 64-bit and 32-bit outputs.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/ztanml/fast-hash"
+    }
+   ],
+   "results": {
+    "fasthash-64": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths.",
+    "fasthash-32": "The selected seven-byte and eight-byte messages cancel the different length terms before the common finalizer. The same construction collides for every seed at both output widths."
+   },
+   "sources": [
+    "https://github.com/ztanml/fast-hash",
+    "sources/fasthash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "muse"
+   ],
+   "authors": "K--Aethiax",
+   "background": "MuseAir is a portable design using widening multiplication. The record here is the historical v0.3 implementation retained in SMHasher3; later upstream algorithm versions must be considered separately.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/eternal-io/museair"
+    }
+   ],
+   "results": {
+    "muse": "A public zero-product operand makes a changed message word disappear before secret mixing. The fixed pair collides for every seed in the studied v0.3 implementation."
+   },
+   "sources": [
+    "https://github.com/eternal-io/museair",
+    "sources/museair.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "komi"
+   ],
+   "authors": "Aleksey Vaneev",
+   "background": "komihash is a header-only C/C++ hash from the author of a5hash. Its multiplication-based design keeps the high and low halves of products in separate state variables and processes long inputs through parallel lanes.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/avaneev/komihash"
+    }
+   ],
+   "results": {
+    "komi": "Two messages differing in just two bits collide for about 91.06% of sampled seeds. Public relations between lanes allow the changes to cancel. This construction applies only to lengths 64–127 bytes."
+   },
+   "sources": [
+    "https://github.com/avaneev/komihash",
+    "sources/komihash.h"
+   ]
+  },
+  {
+   "ids": [
+    "t1ha"
+   ],
+   "authors": "Leonid Yuriev · Positive Technologies",
+   "background": "t1ha (“Fast Positive Hash”) is a family of noncryptographic hashes with separate variants for different platforms and uses. This point is t1ha2’s one-shot 64-bit function, not its streaming or 128-bit API.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/erthink/t1ha"
+    }
+   ],
+   "results": {
+    "t1ha": "The 16-byte and 11-byte witness messages exploit carry patterns for a structured class of seeds. The cap combines an exact class size with a measured success rate inside that class."
+   },
+   "sources": [
+    "https://github.com/erthink/t1ha",
+    "sources/t1ha.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "a5",
+    "a5wide"
+   ],
+   "authors": "Aleksey Vaneev",
+   "background": "a5hash is a header-only C/C++ family aimed at hash tables and hash maps, from the author of komihash. It supplies 64-bit and 128-bit functions. Both plotted results concern v5.21.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/avaneev/a5hash"
+    }
+   ],
+   "results": {
+    "a5": "An exactly counted class of seeds makes a multiplication erase a message word. This proves a lower bound on one pair’s collision probability, and therefore an upper cap on the family’s score.",
+    "a5wide": "A public zero-product operand erases a changed word for every seed. Both output words collide, despite this tested 128-bit variant passing all 250 published SMHasher3 tests."
+   },
+   "sources": [
+    "https://github.com/avaneev/a5hash",
+    "sources/a5hash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "rapid3"
+   ],
+   "authors": "Nicolas De Carli · based on wyhash by Wang Yi",
+   "background": "rapidhash builds on wyhash’s widening-multiplication approach. Its standard, Micro, and Nano variants trade throughput against code size. The plotted benchmark is the standard v3 implementation.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/Nicoshev/rapidhash"
+    }
+   ],
+   "results": {
+    "rapid3": "Complementing both operands of an early multiplication can leave its high/low fold unchanged. The measured pair gives an upper cap, not a ranking against other hashes whose searches used different budgets."
+   },
+   "sources": [
+    "https://github.com/Nicoshev/rapidhash",
+    "sources/rapidhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "mum"
+   ],
+   "authors": "Vladimir Makarov",
+   "background": "MUM stands for “multiply and mix”: it combines the halves of a wide product to mix bits. The project also contains pseudorandom generators. This post studies the pre-fix v3 design with fixed public constants.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/vnmakarov/mum-hash"
+    }
+   ],
+   "results": {
+    "mum": "Two distinct eight-byte words have the same public multiplication fold before they meet the seeded state. The every-seed result concerns pre-fix MUM v3, not the later collision-prevention default."
+   },
+   "sources": [
+    "https://github.com/vnmakarov/mum-hash",
+    "sources/mum_mir.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "mir"
+   ],
+   "authors": "Vladimir Makarov",
+   "background": "mir’s hash lives in the MIR compiler project and uses multiplication followed by addition of the high and low halves. It includes native-wide and decomposed-multiplication implementations; this chart uses mir.exact timings.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/vnmakarov/mir/blob/master/mir-hash.h"
+    }
+   ],
+   "results": {
+    "mir": "Two eight-byte words yield the same zero public fold, leaving identical seeded states. The selected pair works in both the exact and inexact implementations."
+   },
+   "sources": [
+    "https://github.com/vnmakarov/mir/blob/master/mir-hash.h",
+    "sources/mum_mir.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "xxh3-64",
+    "xxh3-128"
+   ],
+   "authors": "Yann Collet and the xxHash contributors",
+   "background": "XXH3 extends the xxHash family with 64-bit and 128-bit outputs and optimized paths for different input lengths and CPUs. These results use v0.8.3’s seeded API with the default public secret.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/Cyan4973/xxHash"
+    },
+    {
+     "label": "Algorithm specification",
+     "url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md"
+    }
+   ],
+   "results": {
+    "xxh3-64": "Complementing the first two words can preserve their multiplication fold. The measured cap comes from a selected fixed pair; it is not a demonstrated flooding attack or a result for independently randomized custom secrets.",
+    "xxh3-128": "The selected pair preserves both an early product fold and the relevant word sum. Both halves of the 128-bit output are compared: the measured collisions are full-output collisions."
+   },
+   "sources": [
+    "https://github.com/Cyan4973/xxHash",
+    "sources/xxhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "highway"
+   ],
+   "authors": "Jyrki Alakuijala, Bill Cox, and Jan Wassenberg · Google",
+   "background": "Introduced in a 2016 paper, HighwayHash uses SIMD multiplication and permutation with a 256-bit key. It was designed as a fast keyed hash and pseudorandom function, with 64-bit, 128-bit, and 256-bit outputs.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/google/highwayhash"
+    },
+    {
+     "label": "Original paper",
+     "url": "https://arxiv.org/abs/1612.06257"
+    }
+   ],
+   "results": {
+    "highway": "Exact sufficient contribution; other pairs or collision events may lower the score. Conservative 96-byte headline witness. Exact sufficient-event contribution, not exact total collision probability. All 64/128/256 output widths inherit it. Original second-family capped sample confirmed pair but not exact numerator. Lean: ✓ checked. M1–M4 complete: exact full-key trail count 56165·2^184, unconditional state and all three output collision bounds, and score enclosure 59.807–59.808; C/Lean vectors are execution evidence, not compiler correctness."
+   },
+   "sources": [
+    "https://github.com/google/highwayhash",
+    "https://arxiv.org/abs/1612.06257",
+    "records/highway-bridge/LEAN_HIGHWAY_STATUS.md"
+   ],
+   "lean": {
+    "highway": {
+     "label": "✓ checked",
+     "source": "records/highway-bridge/LEAN_HIGHWAY_STATUS.md",
+     "scope": "M1–M4 complete: exact full-key trail count 56165·2^184, unconditional state and all three output collision bounds, and score enclosure 59.807–59.808; C/Lean vectors are execution evidence, not compiler correctness."
+    }
+   }
+  },
+  {
+   "ids": [
+    "spooky"
+   ],
+   "authors": "Bob Jenkins",
+   "background": "SpookyHash is Jenkins’s noncryptographic 128-bit hash, designed for 64-bit machines, with wrappers for shorter outputs. The V2 revision corrected issues in the original design; this point is its 64-bit wrapper.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://burtleburtle.net/bob/hash/spooky.html"
+    }
+   ],
+   "results": {
+    "spooky": "A late-injected difference cancels in the internal state before finalization. The selected pair collides for about half the sampled seeds; exact half balance has not been proved."
+   },
+   "sources": [
+    "https://burtleburtle.net/bob/hash/spooky.html",
+    "sources/spookyhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "pengyhash"
+   ],
+   "authors": "Alberto Fajardo",
+   "background": "pengyhash is a compact noncryptographic 64-bit hash built from additions, rotations, and XORs. Version 0.3 uses a 64-bit seed, whereas earlier versions used 32 bits.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/tinypeng/pengyhash"
+    }
+   ],
+   "results": {
+    "pengyhash": "The bulk loop never uses the seed. Two messages reach the same public state before seeded finalization, so they collide for every seed. This record uses SMHasher3’s sequenced v0.3 implementation."
+   },
+   "sources": [
+    "https://github.com/tinypeng/pengyhash",
+    "sources/pengyhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "nmhash32",
+    "nmhash32x"
+   ],
+   "authors": "James Z. M. Gao",
+   "background": "NMHASH32 and NMHASH32X are separate functions in the hash-garage project. Both return 32 bits and accept a 32-bit seed, but use different mixing designs. The two points retain their own witnesses and measurements.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/gzm55/hash-garage"
+    }
+   ],
+   "results": {
+    "nmhash32": "A difference passes through a lane under specific seed-bit and carry conditions, then cancels in later words. Exhaustive enumeration counts the successful seeds; this is not the every-seed result of NMHASH32X.",
+    "nmhash32x": "A controlled difference becomes a top-bit change through public mixing. Two later message words cancel both state differences for every seed."
+   },
+   "sources": [
+    "https://github.com/gzm55/hash-garage",
+    "sources/nmhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "gx"
+   ],
+   "authors": "Olivier Giniaux",
+   "background": "gxhash is a Rust hash designed around hardware AES instructions. It uses parallel processing to obtain high throughput and provides several output widths. This point is the studied 64-bit v3.5.0 implementation.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/ogxd/gxhash"
+    }
+   ],
+   "results": {
+    "gx": "The selected 15-byte and 16-byte inputs collide in public compression before the seed can distinguish them. The resulting pair collides for every seed."
+   },
+   "sources": [
+    "https://github.com/ogxd/gxhash",
+    "sources/gxhash.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "ahash"
+   ],
+   "authors": "Tom Kaitchuck",
+   "background": "aHash is a Rust hash-table hasher that uses AES instructions when available, with a separate fallback design. This post’s result is specifically for the AES path in version 0.8.12.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/tkaitchuck/aHash"
+    },
+    {
+     "label": "Design & FAQ",
+     "url": "https://github.com/tkaitchuck/aHash/blob/master/FAQ.md"
+    }
+   ],
+   "results": {
+    "ahash": "A chosen difference cancels in both the AES and shuffled-addition accumulators. The measured result uses four independent internal key words in the validated C reproduction; transfer to native Rust depends on the operation and constructor mapping."
+   },
+   "sources": [
+    "https://github.com/tkaitchuck/aHash",
+    "https://github.com/tkaitchuck/aHash/blob/master/Cargo.toml"
+   ]
+  },
+  {
+   "ids": [
+    "polymur"
+   ],
+   "authors": "Orson Peters",
+   "background": "PolymurHash combines polynomial hashing over a prime field with a Murmur-inspired final mixer. It aims to provide a universal hash using ordinary widening multiplication, without requiring carry-less multiplication instructions.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/orlp/polymur-hash"
+    },
+    {
+     "label": "Author’s universality proof",
+     "url": "https://github.com/orlp/polymur-hash/blob/master/extras/universality-proof.md"
+    }
+   ],
+   "results": {
+    "polymur": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified. Lean: ✓ checked. The exact restricted-key cardinality lower bound and numerical idealHash collision/score theorems are unconditional; the shipped seed distribution and C arithmetic refinement remain outside scope."
+   },
+   "sources": [
+    "https://github.com/orlp/polymur-hash",
+    "https://github.com/orlp/polymur-hash/blob/master/polymur-hash.h",
+    "records/polymur-card/LEAN_POLYMUR_STATUS.md"
+   ],
+   "lean": {
+    "polymur": {
+     "label": "✓ checked",
+     "source": "records/polymur-card/LEAN_POLYMUR_STATUS.md",
+     "scope": "The exact restricted-key cardinality lower bound and numerical idealHash collision/score theorems are unconditional; the shipped seed distribution and C arithmetic refinement remain outside scope."
+    }
+   }
+  },
+  {
+   "ids": [
+    "halftimehash-64",
+    "halftimehash-128",
+    "halftimehash-256",
+    "halftimehash-512"
+   ],
+   "authors": "Jim Apple",
+   "background": "HalftimeHash’s 2021 paper targets long strings without widening 64-bit multiplication or finite-field arithmetic. The four plotted styles are implementation variants: all return 64-bit hashes, despite the numbers in their names.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/jbapple/HalftimeHash"
+    },
+    {
+     "label": "Original paper",
+     "url": "https://arxiv.org/abs/2104.08865"
+    }
+   ],
+   "results": {
+    "halftimehash-64": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean.",
+    "halftimehash-128": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean.",
+    "halftimehash-256": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean.",
+    "halftimehash-512": "The wrapper proof gap is closed: the audited contract gives a score of at least 63 bits with independent entropy and finite, style-specific length caps. This certificate does not cover literal ISO-C++ portability, seed expansion, or the separate advanced API. Lean: partial: executable refinement remains unproved. The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
+   },
+   "sources": [
+    "https://github.com/jbapple/HalftimeHash",
+    "https://arxiv.org/abs/2104.08865",
+    "records/halftime/REFEREE.md",
+    "records/halftime/fourth_review_summary.md",
+    "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md"
+   ],
+   "lean": {
+    "halftimehash-64": {
+     "label": "partial: executable refinement remains unproved",
+     "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
+     "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
+    },
+    "halftimehash-128": {
+     "label": "partial: executable refinement remains unproved",
+     "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
+     "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
+    },
+    "halftimehash-256": {
+     "label": "partial: executable refinement remains unproved",
+     "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
+     "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
+    },
+    "halftimehash-512": {
+     "label": "partial: executable refinement remains unproved",
+     "source": "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md",
+     "scope": "The abstract Style construction is checked; the combined lane remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean."
+    }
+   }
+  },
+  {
+   "ids": [
+    "umash",
+    "umash128"
+   ],
+   "authors": "Paul Khuong · Backtrace",
+   "background": "UMASH was introduced at Backtrace in 2020 to combine fast string hashing with collision bounds. It also computes a second hash alongside the first to produce a 128-bit fingerprint.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/backtrace-labs/umash"
+    },
+    {
+     "label": "Design history",
+     "url": "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/"
+    },
+    {
+     "label": "Author’s proof & reference",
+     "url": "https://github.com/backtrace-labs/umash/blob/master/umash.pdf"
+    }
+   ],
+   "results": {
+    "umash": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. Claimed 55-bit score is not certified. Lean: partial: block-case probability proofs remain incomplete. Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean.",
+    "umash128": "Genuine gap in the published projection argument; no collision violating the claimed production bound is known. claimed bound ⌈L/2^23⌉²·2^-83, i.e. score(L) ≥ min(83 + log₂L, 127 − log₂L); 83 for inputs up to 2^46 words, about 68 over the full 64-bit length range Lean: partial: block-case probability proofs remain incomplete. Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
+   },
+   "sources": [
+    "https://github.com/backtrace-labs/umash",
+    "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/",
+    "records/umash/ENH_RESULT.md",
+    "records/umash/FIFTH_RECOUNT.md",
+    "index.html#appendix-umash",
+    "records/umash/LEAN_UMASH_STATUS.md"
+   ],
+   "lean": {
+    "umash": {
+     "label": "partial: block-case probability proofs remain incomplete",
+     "source": "records/umash/LEAN_UMASH_STATUS.md",
+     "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
+    },
+    "umash128": {
+     "label": "partial: block-case probability proofs remain incomplete",
+     "source": "records/umash/LEAN_UMASH_STATUS.md",
+     "scope": "Literal model, 852-mask count and conditional end-to-end implications checked; neither the unconditional 25.6-bit envelope nor the published 55/83-bit bounds is certified in Lean."
+    }
+   }
+  },
+  {
+   "ids": [
+    "clhash"
+   ],
+   "authors": "Daniel Lemire and Owen Kaser",
+   "background": "CLHASH uses carry-less multiplication instructions to accelerate universal hashing. Its construction was published as “Faster 64-bit universal hashing using carry-less multiplications.”",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/lemire/clhash"
+    },
+    {
+     "label": "Original paper",
+     "url": "https://arxiv.org/abs/1503.03465"
+    }
+   ],
+   "results": {
+    "clhash": "Ideal Algorithm 4, byte strings shorter than 2^64 bytes, full independent key. The timed seed initializer is not certified by this theorem. Lean: ✓ checked. Ideal Algorithm-4 bound for distinct byte strings shorter than 2^64 bytes, including empty, partial and unequal-length inputs; no implementation or seed-expander theorem."
+   },
+   "sources": [
+    "https://github.com/lemire/clhash",
+    "https://arxiv.org/abs/1503.03465",
+    "records/clhash/LEAN_CLHASH_STATUS.md"
+   ],
+   "lean": {
+    "clhash": {
+     "label": "✓ checked",
+     "source": "records/clhash/LEAN_CLHASH_STATUS.md",
+     "scope": "Ideal Algorithm-4 bound for distinct byte strings shorter than 2^64 bytes, including empty, partial and unequal-length inputs; no implementation or seed-expander theorem."
+    }
+   }
+  },
+  {
+   "ids": [
+    "chain256"
+   ],
+   "authors": "Thomas Dybdahl Ahle · author of this post",
+   "background": "The paper’s strided-pair ChainHash uses 256-byte blocks and an 80-byte model A random key. It is the chart’s M2 Pro point (22.8 B/cycle, the fastest measured ChainHash on that host); the Xeon point is the adjacent-pair v2. The two hosts currently use different pairing layouts of the same construction; a single layout is pending the NEON kernel work.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/thomasahle/fast-polynomials"
+    },
+    {
+     "label": "Reference implementation",
+     "url": "https://github.com/thomasahle/fast-polynomials/blob/main/tools/bench/chainhash/chainhash.h"
+    }
+   ],
+   "results": {
+    "chain256": "Model A: PH keys s,s²,…,s³² in GF(2^64); s, three chain keys, five finalizer parameters, and twist are independent uniform 64-bit words. Byte strings shorter than 2^64 bytes, W=32,S=1. Lean checks the ideal-key and model A mathematical reference bounds; compiler/SIMD correctness is outside scope. Timed SplitMix64 initialization is outside model A. Lean: ✓ checked. Both model-A reference bounds are proved for the paper’s strided function; 583 axiom audits and the integrated build pass; compiler/SIMD correctness and SplitMix64 expansion are outside scope."
+   },
+   "sources": [
+    "https://github.com/thomasahle/fast-polynomials",
+    "#proof-audit-notes",
+    "records/chainhash/THEOREMS.md",
+    "records/chainhash/LEAN_CHAINHASH_STATUS.md",
+    "records/m2_REPORT.md",
+    "records/chainhash-integrate/STATUS.md"
+   ],
+   "lean": {
+    "chain256": {
+     "label": "✓ checked",
+     "source": "records/chainhash-integrate/STATUS.md",
+     "scope": "Both model-A reference bounds are proved for the paper’s strided function; 583 axiom audits and the integrated build pass; compiler/SIMD correctness and SplitMix64 expansion are outside scope."
+    }
+   }
+  },
+  {
+   "ids": [
+    "poly1305"
+   ],
+   "authors": "Daniel J. Bernstein",
+   "background": "Poly1305 is the polynomial-hashing component of Bernstein’s Poly1305-AES authenticator. It works modulo 2¹³⁰ − 5 with a restricted (“clamped”) polynomial key and produces a 128-bit tag.",
+   "results": {
+    "poly1305": "Audited conservative 103-bit bound with uniform clamped r. The timed SMHasher3 Poly1305 wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply. Lean: ✓ checked (ideal key). Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
+   },
+   "links": [
+    {
+     "label": "Original paper",
+     "url": "https://cr.yp.to/mac/poly1305-20050329.pdf"
+    },
+    {
+     "label": "OpenSSL implementation",
+     "url": "https://github.com/openssl/openssl/tree/master/crypto/poly1305"
+    }
+   ],
+   "sources": [
+    "https://cr.yp.to/mac/poly1305-20050329.pdf",
+    "https://github.com/openssl/openssl/tree/master/crypto/poly1305",
+    "records/classic_REPORT.md",
+    "records/m2_REPORT.md",
+    "records/classic/LEAN_CLASSIC_STATUS.md"
+   ],
+   "lean": {
+    "poly1305": {
+     "label": "✓ checked (ideal key)",
+     "source": "records/classic/LEAN_CLASSIC_STATUS.md",
+     "scope": "Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
+    }
+   }
+  },
+  {
+   "ids": [
+    "ghash"
+   ],
+   "authors": "David A. McGrew and John Viega · GCM construction",
+   "background": "GHASH is the universal-hashing component of Galois/Counter Mode (GCM). It evaluates a polynomial over the binary field GF(2¹²⁸); GCM combines that hash with counter-mode encryption.",
+   "results": {
+    "ghash": "Audited 127-bit single-stream (AAD-only, empty ciphertext) bound with uniform H; each byte length is <2^61. The cited two-stream envelope gives 126.4 bits. GMAC timings include setup. The timed SMHasher3 GHASH/GMAC wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply; the audit exhibits a fixed GHASH pair colliding for seed zero. Lean: ✓ checked (ideal key). Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
+   },
+   "links": [
+    {
+     "label": "Original paper",
+     "url": "https://eprint.iacr.org/2004/193"
+    },
+    {
+     "label": "OpenSSL implementation",
+     "url": "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c"
+    }
+   ],
+   "sources": [
+    "https://eprint.iacr.org/2004/193",
+    "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c",
+    "records/classic_REPORT.md",
+    "records/m2_REPORT.md",
+    "records/classic/LEAN_CLASSIC_STATUS.md"
+   ],
+   "lean": {
+    "ghash": {
+     "label": "✓ checked (ideal key)",
+     "source": "records/classic/LEAN_CLASSIC_STATUS.md",
+     "scope": "Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly."
+    }
+   }
+  },
+  {
+   "ids": [
+    "foldhash-fast",
+    "foldhash-quality"
+   ],
+   "authors": "Orson Peters",
+   "background": "foldhash is a Rust hash-table hasher built around the XOR fold of a widening multiplication. Version 0.2.0 offers fast and quality variants; quality adds a deterministic final mixing step. The scored independent-key model differs from default RandomState and from the direct-seeded benchmark wrapper.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/orlp/foldhash/tree/v0.2.0"
+    }
+   ],
+   "results": {
+    "foldhash-fast": "At eight bytes, overlapping reads put the same word in both keyed operands. Complementing that word can preserve their multiplication fold. The selected pair gives 2757 collisions in 2³⁸ independent-key trials, a sampled 26.57-bit cap. Cross-type every-instance collisions are outside this fixed-key-type score.",
+    "foldhash-quality": "The deterministic final map preserves every fast collision. The selected independent-key run gives 696 collisions in 2³⁶ trials, a sampled 26.56-bit cap; its counters found no quality-only collisions. The extra mixing does not repair this fixed-pair differential."
+   },
+   "sources": [
+    "records/foldhash/SYNTHESIS.md",
+    "records/foldhash/README.md",
+    "records/foldhash/VERIFIED_XTYPE.md",
+    "verify/foldhash-fast/README.md",
+    "verify/foldhash-quality/README.md"
+   ]
+  },
+  {
+   "ids": [
+    "siphash-1-3",
+    "siphash-2-4"
+   ],
+   "authors": "Jean-Philippe Aumasson and Daniel J. Bernstein",
+   "background": "SipHash is a family of keyed pseudorandom functions built from additions, rotations and XORs, with a 128-bit key. The variant numbers give the compression and finalization round counts.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/veorq/SipHash"
+    }
+   ],
+   "results": {
+    "siphash-1-3": "This reduced-round PRF has benchmark timings in the tables, but this post supplies neither a universality theorem nor a scored collision pair. It remains unscored and is omitted from the plot.",
+    "siphash-2-4": "The standard two-compression/four-finalization-round PRF has benchmark timings in the tables, but no universality theorem or collision pair is scored here. It is omitted from the plot rather than assigned an output-width guarantee."
+   },
+   "sources": [
+    "index.html#appendix-siphash",
+    "data.json",
+    "records/speeds.json"
+   ]
+  },
+  {
+   "ids": [
+    "halftime24"
+   ],
+   "authors": "Jim Apple",
+   "background": "HalftimeHash’s advanced Encode3 API returns 24 bytes and is distinct from the shipped Style64/128/256/512 wrappers, which return 64 bits. Its raw core is intended for fixed-length strings.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/jbapple/HalftimeHash"
+    },
+    {
+     "label": "Original paper",
+     "url": "https://arxiv.org/abs/2104.08865"
+    }
+   ],
+   "results": {
+    "halftime24": "A 168-byte equal-length pair collides whenever a key word’s high half is zero, an event of probability 2⁻³² that refutes the advertised same-length bound. Empty and one zero byte also collide for every key in the raw core, giving score 0 under this post’s unequal-length convention. No matching speed is available, so it is not plotted."
+   },
+   "sources": [
+    "index.html#appendix-halftime24",
+    "records/halftime/fourth_review_summary.md",
+    "verify/halftime/verify2/run.cpp"
+   ]
+  },
+  {
+   "ids": [
+    "halftime24-fixed"
+   ],
+   "authors": "Jim Apple; repairs by Thomas Dybdahl Ahle",
+   "background": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+   "links": [
+    {
+     "label": "Specification and theorem",
+     "url": "records/halftime/THEOREM.md"
+    },
+    {
+     "label": "Implementation studied",
+     "url": "records/halftime/HalftimeHash24-fixed.hpp"
+    }
+   ],
+   "results": {
+    "halftime24-fixed": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed. Lean: ✓ construction (M1–M4). Our fixed-24byte-core branch in github.com/thomasahle/HalftimeHash; not yet upstream. 0 collisions in 2^36 keys at each of four widths on the old 2^-32 witness."
+   },
+   "sources": [
+    "records/halftime/THEOREM.md",
+    "records/halftime/LEAN_HALFTIME_STATUS.md",
+    "records/halftime/speeds_halftime_fixed.json",
+    "records/halftime/speeds_halftime_fixed.json",
+    "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md"
+   ],
+   "lean": {
+    "halftime24-fixed": {
+     "label": "✓ construction (M1–M4)",
+     "source": "records/halftime/LEAN_HALFTIME_STATUS.md",
+     "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed. Concrete fixed-header encoder/layout refinement remains partial; see records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md."
+    }
+   }
+  },
+  {
+   "ids": [
+    "chain-v2"
+   ],
+   "authors": "Thomas Dybdahl Ahle · author of this post",
+   "background": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model. Plotted on the Xeon only: its first NEON kernel (LD2 de-interleaving loads) measured 11.19 B/cycle on the M2 against 22.29 for the strided control in the same binary and is superseded by ongoing kernel work.",
+   "links": [
+    {
+     "label": "Specification and theorem",
+     "url": "records/chainhash/v2/SPEC.md"
+    },
+    {
+     "label": "Implementation studied",
+     "url": "records/chainhash/v2/chainhash_x86.h"
+    }
+   ],
+   "results": {
+    "chain-v2": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model. Lean: ✓ (paper function); v2 re-indexing pending."
+   },
+   "sources": [
+    "records/chainhash/v2/SPEC.md",
+    "records/chainhash/v2/LEAN_CHAINHASH_STATUS.md",
+    "records/chainhash/v2/speeds_chainhash_x86.json",
+    "records/chainhash/m2-adjacent/speeds_m2_adjacent.json"
+   ],
+   "lean": {
+    "chain-v2": {
+     "label": "✓ (paper function); v2 re-indexing pending",
+     "source": "records/chainhash/v2/LEAN_CHAINHASH_STATUS.md",
+     "scope": "Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; v2 Lean re-indexing is pending. The timed SplitMix64 expansion is outside either ideal-key model."
+    }
+   }
+  },
+  {
+   "ids": [
+    "chain128"
+   ],
+   "authors": "Thomas Dybdahl Ahle · author of this post",
+   "background": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
+   "links": [
+    {
+     "label": "Specification and theorem",
+     "url": "records/chainhash/128/SPEC.md"
+    },
+    {
+     "label": "Implementation studied",
+     "url": "records/chainhash/128/chainhash128.h"
+    }
+   ],
+   "results": {
+    "chain128": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. Lean: — not checked (Lean lane queued)."
+   },
+   "sources": [
+    "records/chainhash/128/SPEC.md",
+    "records/chainhash/128/LEAN_CHAINHASH_STATUS.md",
+    "records/chainhash/128/speeds_chainhash128.json",
+    "records/chainhash/128/speeds_chainhash128.json",
+    "records/chainhash128/STATUS.md"
+   ],
+   "lean": {
+    "chain128": {
+     "label": "— not checked (Lean lane queued)",
+     "source": "records/chainhash/128/LEAN_CHAINHASH_STATUS.md",
+     "scope": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem. The queued lane has now started: field certificate and end-to-end builds/audits remain incomplete (records/chainhash128/STATUS.md)."
+    }
+   }
+  }
+ ]
 }
