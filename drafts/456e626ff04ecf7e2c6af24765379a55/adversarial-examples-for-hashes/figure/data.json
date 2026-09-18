@@ -1,6 +1,6 @@
 {
-  "source_sha256": "0f6431fb53f440b67b0f4a07c11760ba89cc0aad589b6cedd5660bcb9955efaf",
-  "profiles_sha256": "8430f9b93227ddcef91cd726cbc736b4418d631a8765a599345558c57aaee98e",
+  "source_sha256": "597d9ea27b4fb898ba381dec12b94fa6297e0fa55f74d347a45955c42bd661d2",
+  "profiles_sha256": "82f1bac9ba5a0aa45b73b668466206ab63099461068945e6d1c6ef40c20c4de0",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -519,7 +519,8 @@
         "index.html#appendix-halftime24",
         "records/halftime/fourth_review_summary.md",
         "verify/halftime/verify2/run.cpp",
-        "records/fairness-pass/halftime24/README.md"
+        "records/fairness-pass/halftime24/README.md",
+        "records/halftime24-shipped/REPORT.md"
       ]
     },
     "halftime24-fixed": {
@@ -1342,6 +1343,31 @@
           },
           "output_bits": 64,
           "code_url": "https://github.com/veorq/SipHash"
+        },
+        {
+          "id": "halftime24",
+          "name": "HalftimeHash24 (shipped advanced 24-byte API)",
+          "label": "HalftimeHash24 shipped",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.37,
+          "bits": 0,
+          "score": "≤ 0",
+          "anchor": "appendix-halftime24",
+          "evidence": "every key (unequal lengths; the raw core is fixed-length by design); at equal length, collides for at least 1 of every 2^32 keys (counted); sampled 76/316053236830, 95% interval [2^-32.30, 2^-31.63]",
+          "scope": "Raw core intentionally fixed-length: empty and 00 collide for every key. Equal-length Encode3 witness separately refutes the advertised bound. No matching timing; not plotted.",
+          "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
+          "family": "NH trees",
+          "key_model": "independent uniform entropy words; raw fixed-length core",
+          "profile": "halftime24",
+          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score 0 bits for the full 24-byte value.",
+          "reader_notes": {
+            "evidence": "The equal-length counterexample has a counted sufficient key class and sampled confirmation. The unequal-length collision is an exact identity.",
+            "key": "The experiment uses the independent random key words assumed by the advanced function’s claim.",
+            "scope": "These results do not refute the corrected bounds for the public 64-bit wrappers. The repaired 24-byte construction has its own entry. The original has no matching timing and is not plotted."
+          },
+          "output_bits": 192,
+          "code_url": "verify/halftime/verify2/run.cpp"
         },
         {
           "id": "polymur",
@@ -2324,6 +2350,31 @@
           },
           "output_bits": 64,
           "code_url": "https://github.com/veorq/SipHash"
+        },
+        {
+          "id": "halftime24",
+          "name": "HalftimeHash24 (shipped advanced 24-byte API)",
+          "label": "HalftimeHash24 shipped",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 12.81,
+          "bits": 0,
+          "score": "≤ 0",
+          "anchor": "appendix-halftime24",
+          "evidence": "every key (unequal lengths; the raw core is fixed-length by design); at equal length, collides for at least 1 of every 2^32 keys (counted); sampled 76/316053236830, 95% interval [2^-32.30, 2^-31.63]",
+          "scope": "Raw core intentionally fixed-length: empty and 00 collide for every key. Equal-length Encode3 witness separately refutes the advertised bound. No matching timing; not plotted.",
+          "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
+          "family": "NH trees",
+          "key_model": "independent uniform entropy words; raw fixed-length core",
+          "profile": "halftime24",
+          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score 0 bits for the full 24-byte value.",
+          "reader_notes": {
+            "evidence": "The equal-length counterexample has a counted sufficient key class and sampled confirmation. The unequal-length collision is an exact identity.",
+            "key": "The experiment uses the independent random key words assumed by the advanced function’s claim.",
+            "scope": "These results do not refute the corrected bounds for the public 64-bit wrappers. The repaired 24-byte construction has its own entry. The original has no matching timing and is not plotted."
+          },
+          "output_bits": 192,
+          "code_url": "verify/halftime/verify2/run.cpp"
         },
         {
           "id": "go-maphash",

@@ -1,6 +1,6 @@
 # verify: reader-runnable reproductions of the collision pairs
 
-25 collision-reproduction directories, one per hash or separately tested output/version, plus the separate HalftimeHash audit directory.  Each holds a primary C11 program, a README and (for some)
+26 collision-reproduction directories, one per hash or separately tested output/version, plus the separate HalftimeHash audit directory.  Each holds a primary C11 program, a README and (for some)
 the raw logs of the runs quoted there.  A program re-implements or embeds the hash, checks its implementation at
 startup against the listed verification values and available test vectors (it recomputes the SMHasher3 verification
 value with SMHasher3's own procedure or checks a reference vector, and exits
@@ -34,6 +34,7 @@ compiler, libm or pthreads as documented, and writes nothing but stdout/stderr.
 | `rapidhash-v1` | rapidhash v1.0 | A (32 B) | First-product XOR-fold differential; fixed default secret. | Historical 12 / 2^30 = 2^-26.415037; 2^20 is a smoke run only | `cd rapidhash-v1 && ./rapidhash_v1_verify [log2 N] [rng seed]` |
 | `xxh3-64` | XXH3-64, xxHash 0.8.3 | A (32 B); base-1143 (128 B) | First 16-byte fold collision; fixed default secret. | Historical A: 11 / 2^30 = 2^-26.540568; base-1143: 504 / 2^30 = 2^-21.022720 and 526 / 2^30 = 2^-20.961081; 2^20 is a smoke run only | `cd xxh3-64 && ./xxh3_64_verify [log2 N] [rng seed]` |
 | `xxh3-128` | XXH3-128, xxHash 0.8.3 | F (32 B) | Complementary first-word swap; equality of both output halves. | Historical 5 / 2^30 = 2^-27.678072 (full 128-bit collisions); 2^20 is a smoke run only | `cd xxh3-128 && ./xxh3_128_verify [log2 N] [rng seed]` |
+| `go-maphash` | Go runtime map hash / hash/maphash, go1.27.1 (862c888e), amd64 AES path (`memhash_amd64.s`; C port validated on 5766 real-runtime outputs) | 15 vs 16 B | The 16-bit length is repeated into the seed vector and passes through one keyless AES round before the message is XORed in; when the four active S-boxes take their difference-table-4 output (probability (4/256)^4 over the per-process key) the seed-state difference is a constant, cancelled by the 16-byte message.  Depends only on `aeskeysched[8,10,12,14]`: in one process in 2^24 the pair collides in every map and under every `maphash.Seed`. | exactly 2^-24 over the per-process key (a constructed key collides on 65536/65536 seeds); sampled 68 / 2^30 = 2^-23.91 (row: 66 / 2^30); real runtime 13 / 2^28 | `cd go-maphash && ./go_maphash_verify [log2 N] [rng seed]` (3 s with AES-NI) |
 | `dotnet-marvin` | Marvin32, .NET 10.0.12 `string.GetHashCode()` (`Marvin.cs` at tag v10.0.12) | A: 12/12 B (L = 2); B: 8/8 B (L = 1) | The 64-bit seed is only the initial state and every later step is a keyless bijection; one ARX Block between word injections lets a three-word additive differential cancel inside Block 2 (pair A) for one seed in 480. | Historical A: 8945794 / 2^32 = 2^-8.907 (cap 9.91 bits); B: 2^-22.5; 2^20 gives 2274 and 0 (smoke) | `cd dotnet-marvin && ./marvin32_verify [log2 N] [rng seed] [A, B or AB]` (0.2 s; `32 1 A` for the row's sample size) |
 | `abseil-hash` | absl::Hash, abseil-cpp 73d2688 (= LTS 20260817.0), `absl::Hash<std::string_view>` / SwissTable default hasher | 0 vs 8 B; 1 vs 8 B; 16 B | For `len <= 8` the hash is `Mix(seed ^ D(len) ^ v, kMul)`: the seed and the length mix `D(len)` are XORed into the same multiplicand of one fixed map, so a cross-length pair with equal `v ^ D(len)` collides for every seed; for `9..16` bytes a last word equal to `kMul` zeroes the other multiplicand (both hashes 0). | 1 (2^0) on the 32 SwissTable seeds and 2^28 uniform 64-bit seeds, all three pairs, scalar and AES-NI builds, and inside real `flat_hash_set` tables; key-free | `cd abseil-hash && ./abseil_hash_verify [log2 N] [rng seed]` (0.1 s; `28` for the row's sample size) |
 
@@ -50,7 +51,7 @@ is the index.
 
     make            # builds every directory's program in place
     make check      # runs every program with 2^20 seeds and compares its collision counts
-                    # with the table below; exit status 0 only if all 23 agree
+                    # with the table below; exit status 0 only if all 24 agree
     make clean      # removes the binaries
 
 `make check` reads, for each directory, the command and the expected counts from the table in
@@ -65,8 +66,8 @@ rather than a byte-exact one.  `DIRS=<subset>` restricts any target, e.g.
 `make check DIRS="komihash t1ha2-64"`.
 
 The Makefile compiles with `cc -O2 -std=c11 … -lm`, adding `-march=armv8-a+crypto` (arm64) or
-`-maes` (x86-64) for the two programs with a hardware-AES path (`gxhash-64`, `rust-ahash`);
-both also build and validate without those flags.  `CC`, `CFLAGS` and `LDLIBS` can be
+`-maes` (x86-64) for the two programs with a hardware-AES path (`gxhash-64`, `rust-ahash`, `go-maphash`);
+all three also build and validate without those flags.  `CC`, `CFLAGS` and `LDLIBS` can be
 overridden on the command line.  All sampling is single-threaded; use `make -j2` to limit parallel compilation to two jobs and `make -j1 check` to run the checks serially.
 
 ## make check reference
@@ -101,6 +102,7 @@ space-separated counts in column 3.
 | `rapidhash-v1` | `./rapidhash_v1_verify 20` | `0` |
 | `xxh3-64` | `./xxh3_64_verify 20` | `0 0` |
 | `xxh3-128` | `./xxh3_128_verify 20` | `1` |
+| `go-maphash` | `./go_maphash_verify 20` | `65536 65536 0 0` |
 | `dotnet-marvin` | `./marvin32_verify 20` | `2274 0` |
 | `abseil-hash` | `./abseil_hash_verify 20` | `32 1048576 32 1048576 32 1048576` |
 
@@ -129,6 +131,9 @@ What the counts are:
 * `wyhash`, `rapidhash-v1`: pair A.
 * `xxh3-64`: 32-byte pair A, then the exact 128-byte base-1143 pair.
 * `xxh3-128`: pair F, full 128-bit equality (one hit in this fixed smoke stream).
+* `go-maphash`: the constructed key under 65536 random map seeds (all), the same four key bytes with
+  the other 124 bytes and the seed random (all), a control key (0), then the random (key, seed)
+  sample (2^-24 is invisible at 2^20; the 2^30 run is in its README).
 * `dotnet-marvin`: pair A (12-byte strings, L = 2), then pair B (8-byte, L = 1; 2^-22.5 is invisible
   at 2^20).
 * `abseil-hash`: for each of pairs 1, 2, 3: the 32 SwissTable seeds (all collide), then the 2^20
@@ -171,6 +176,9 @@ Counts justified by an every-seed identity remain N for any RNG seed. Other refe
   **verbatim** (Apache License 2.0, Copyright 2017 Google Inc.), with its first line (an
   `#include`) replaced by a comment; the Apache notice and the statement of that one
   modification are in the file header.
+* **Go map hash** (`go-maphash/`) keeps verbatim copies of four go1.27.1 runtime files under `upstream/`
+  (Copyright The Go Authors, BSD 3-Clause, `upstream/LICENSE`); the C transcription of the assembly is a
+  derivative under that notice.
 * The other hashes are re-implemented from their references and validated against them.  Where
   the code is close enough to count as a derivative the upstream copyright line is reproduced
   next to ours: CityHash (Google, Inc. 2011, MIT), FarmHash (Google, Inc. 2014 and Frank J. T.

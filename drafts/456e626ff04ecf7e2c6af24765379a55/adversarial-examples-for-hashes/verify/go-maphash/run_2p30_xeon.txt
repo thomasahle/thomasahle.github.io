@@ -1,0 +1,39 @@
+Go runtime map hash / hash/maphash cross-length pair check  (impl = x86-aesni)
+hash: go1.27.1 (862c888e) internal/runtime/maps memHashAES, memhash_amd64.s: the amd64 AES-NI path behind
+      map[string], map[[]byte]-style keys (typ.Hasher -> memhash) and hash/maphash.Bytes/String/Hash
+validation: x86-aesni round vs portable table round: 0 mismatches / 4096 OK
+validation: real go1.27.1 runtime vectors, key A (vectors_go fixed aes): 2883 / 2883 match (memhash 1560, page-end loads 75, maphash.Bytes 1248) OK
+validation: real go1.27.1 runtime vectors, key B (vectors_go random aes, a real process key): 2883 / 2883 match (memhash 1560, page-end loads 75, maphash.Bytes 1248) OK
+validation: AES S-box difference table: largest entry 4 (so one active S-box passes with probability at most 4/256) OK
+validation: L = 15 vs 16: input difference 0x1f -> output difference 0xa3 for 4 of 256 inputs (y = 00, 1f, a4, bb)
+validation: Delta*(15) re-derived from the difference table = a3fe5da3a3fe5da342a3bcfe42a3bcfe (published a3fe5da3a3fe5da342a3bcfe42a3bcfe) OK
+
+Pair: 15-byte vs 16-byte cross-length pair (L = 2 words), per-process key event
+   mechanism: for 1..16 bytes h = lo64(F^3(pad16(m) ^ S0)), S0 = F(X0 ^ K0), X0 = [seed | len16 x4], F(x) = AESENC(x,x).
+   The length enters X0 only as its low byte at bytes 8,10,12,14, so lengths 15 and 16 feed y and y ^ 0x1f into
+   the one keyless round that makes S0.  When the four S-boxes at those bytes all take the difference-table-4
+   output (probability (4/256)^4 = 2^-24 over K0 = aeskeysched[0..15]), S0 ^ S0' is the constant Delta*, and
+   m' = pad16(m) ^ Delta* makes the F^3 inputs identical: the pair collides for every map seed in that process.
+  m  (15 bytes) = 000000000000000000000000000000
+  m' (16 bytes) = a3fe5da3a3fe5da342a3bcfe42a3bcfe
+  re-deriving m' from m (difference table only, no search): matches the published hex
+  constructed colliding key (no search): aeskeysched[0..15] = 97f3c8345b1b9e040fb510c3ab89b493
+    bytes 8,10,12,14 = 0f 10 ab b4 (each solution y ^ 0x0f); a process whose aeskeysched has these four
+    bytes (one in 2^24) collides on this pair in every map and under every maphash.Seed
+    witness seed 12c3be9a410c165a (the row's example seed): maphash.Bytes(m) = 1e9f1988569a717a  maphash.Bytes(m') = 1e9f1988569a717a (expected 1e9f1988569a717a, the real runtime's value) OK
+    that key, 65536 random map seeds: collisions = 65536 / 65536 (e.g. seed b3f2af6d0fc710c5 -> e0d02dc9f4f636e8 for both) OK
+    same four bytes, the other 124 key bytes and the seed random, 65536 draws: collisions = 65536 / 65536 OK
+    control: byte 8 of that key changed, 65536 random seeds: collisions = 0 / 65536 OK
+  random samples: N = 1073741824 (2^30), a fresh 128-byte aeskeysched and a fresh 64-bit seed per trial (rng master seed 1)
+    collisions = 68 / 1073741824; rate = 6.33299e-08; log2(rate) = -23.913; exact 95% Poisson interval [2^-24.277, 2^-23.570]
+    analytic rate (4/256)^4 = 2^-24.000; cap log2(2 words / 2^-24) = 25.0 bits
+    first colliding sample: aeskeysched[0..15] = 334e1e4862edff14abf71082102eb40b (bytes 8,10,12,14 = ab 10 10 b4), seed 90a1f2d8981b24dd: memhash(m) = memhash(m') = 4cadf64a7de30baa
+    first hit's bytes 8,10,12,14 are all solutions of the difference table: yes OK
+
+ALL CHECKS PASSED: implementation matches the real runtime, the constructed key collides for every seed,
+and the sampled rate is consistent with (4/256)^4.
+
+
+real	17m28.117s
+user	3m16.320s
+sys	0m0.000s
