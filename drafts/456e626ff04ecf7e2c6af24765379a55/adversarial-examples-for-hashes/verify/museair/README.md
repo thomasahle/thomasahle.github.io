@@ -133,3 +133,9 @@ mask. Since that mask also admits 2^43 seeds, the two classes are equal.
 See `count_class.log`. This exact class contributes 2^-21 through the
 source-derived lane-swap identity; collisions outside it are not excluded.
 These additions concern deprecated algorithm v0.3 and do not test v2.
+
+## Version transfer check
+
+The pairs also collide for every seed on the upstream v0.4 crate; they do not collide on v1 or v2 (0/2^24 each, all four APIs). The cross-check program (paircheck/{Cargo.toml,src/main.rs,paircheck_2p24.log}, path dependencies on the matching 0.3.0, 0.4.0, 0.5.1 and 0.6.0 crate sources under records/fairness-pass/muse-verify/crates) is included; the crates.io tarballs 0.3.0/0.4.0/0.6.0 are byte-identical to those tags and 0.5.1 differs from v1 only in a docsrs attribute.
+
+The 1.59-bit score is version-bound to v0.3; current v2 has no scored witness here. Disclosure: upstream issue #4, 2026-09-18.

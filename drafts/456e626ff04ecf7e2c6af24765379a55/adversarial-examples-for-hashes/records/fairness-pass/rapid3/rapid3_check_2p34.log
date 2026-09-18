@@ -1,0 +1,46 @@
+== upstream master rapidhash.h, default mode (RAPIDHASH_FAST/unprotected, RAPIDHASH_COMPACT)
+rapidhash v3 32B seed 3187ae8a8617e034: a7ee6375a78a86f0 a7ee6375a78a86f0 COLLIDE (record a7ee6375a78a86f0)
+rapidhash v3 48B seed 3187ae8a8617e034: b52b5b5759f1d08a b52b5b5759f1d08a COLLIDE (record b52b5b5759f1d08a)
+rapidhash v3 32B seed 0: 0d20ed65346f1683 c5edbf6f73ebfe93 (record 0d20ed65346f1683 c5edbf6f73ebfe93)
+rapidhash v3 32B seed 1: bdbb8ff6a4b55840 df632f0ff8d94704 (record bdbb8ff6a4b55840 df632f0ff8d94704)
+rapidhash v3 48B seed 0/1: 7db1189e1a7b8262 f55876e5398b384e / ee70e342e0da67d9 f833b72f2285b326 (record 7db1189e1a7b8262 f55876e5398b384e / ee70e342e0da67d9 f833b72f2285b326)
+rapidhash v3 micro 32B seed 3187ae8a8617e034: a7ee6375a78a86f0 a7ee6375a78a86f0 COLLIDE (record a7ee6375a78a86f0)
+rapidhash v3 micro 48B seed 3187ae8a8617e034: b52b5b5759f1d08a b52b5b5759f1d08a COLLIDE (record b52b5b5759f1d08a)
+rapidhash v3 micro 32B seed 0: 0d20ed65346f1683 c5edbf6f73ebfe93 (record 0d20ed65346f1683 c5edbf6f73ebfe93)
+rapidhash v3 micro 32B seed 1: bdbb8ff6a4b55840 df632f0ff8d94704 (record bdbb8ff6a4b55840 df632f0ff8d94704)
+rapidhash v3 micro 48B seed 0/1: 7db1189e1a7b8262 f55876e5398b384e / ee70e342e0da67d9 f833b72f2285b326 (record 7db1189e1a7b8262 f55876e5398b384e / ee70e342e0da67d9 f833b72f2285b326)
+rapidhash v3 nano 32B seed 3187ae8a8617e034: a7ee6375a78a86f0 a7ee6375a78a86f0 COLLIDE (record a7ee6375a78a86f0)
+rapidhash v3 nano 48B seed 3187ae8a8617e034: b52b5b5759f1d08a b52b5b5759f1d08a COLLIDE (record b52b5b5759f1d08a)
+rapidhash v3 nano 32B seed 0: 0d20ed65346f1683 c5edbf6f73ebfe93 (record 0d20ed65346f1683 c5edbf6f73ebfe93)
+rapidhash v3 nano 32B seed 1: bdbb8ff6a4b55840 df632f0ff8d94704 (record bdbb8ff6a4b55840 df632f0ff8d94704)
+rapidhash v3 nano 48B seed 0/1: 7db1189e1a7b8262 f55876e5398b384e / ee70e342e0da67d9 f833b72f2285b326 (record 7db1189e1a7b8262 f55876e5398b384e / ee70e342e0da67d9 f833b72f2285b326)
+record mismatches: 0
+
+fold pair 32B: 174 / 2^34 collisions; rate 2^-26.557; bits = log2(4) - log2(rate) = 28.557; exact Poisson 95% CI on bits [28.34, 28.78]
+  example colliding seed 62a5273174d9fca1 -> 2c4c9b9f0563072e
+  example colliding seed d0ff951030c625dc -> 1f3882dc52d6a0b6
+  example colliding seed 82d55b55ec1c8bf1 -> 8d9e2ad8470e2dfb
+fold pair 48B: 174 / 2^34 collisions; rate 2^-26.557; bits = log2(6) - log2(rate) = 29.142; exact Poisson 95% CI on bits [28.93, 29.36]
+  example colliding seed 62a5273174d9fca1 -> 8670344d31597122
+  example colliding seed d0ff951030c625dc -> 8d28e00eb727e98f
+  example colliding seed d8d80ca903db184b -> af324f128fdf8427
+
+rapidhash v3 | 16B: w0 = secret[1] (final product zeroed), w1 differs; L=2: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=a50a4a2a22949120 h(seed 2^63)=a50a4a2a22949120
+rapidhash v3 micro | 16B: w0 = secret[1] (final product zeroed), w1 differs; L=2: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=a50a4a2a22949120 h(seed 2^63)=a50a4a2a22949120
+rapidhash v3 nano | 16B: w0 = secret[1] (final product zeroed), w1 differs; L=2: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=a50a4a2a22949120 h(seed 2^63)=a50a4a2a22949120
+rapidhash v3 | 32B: w2 = secret[1]^32 (final product zeroed), w0,w1,w3 differ; L=4: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=ffffffffffffffff h(seed 2^63)=ffffffffffffffff
+rapidhash v3 micro | 32B: w2 = secret[1]^32 (final product zeroed), w0,w1,w3 differ; L=4: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=ffffffffffffffff h(seed 2^63)=ffffffffffffffff
+rapidhash v3 nano | 32B: w2 = secret[1]^32 (final product zeroed), w0,w1,w3 differ; L=4: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=ffffffffffffffff h(seed 2^63)=ffffffffffffffff
+rapidhash v3 | 32B: w0 = secret[2] (first fold zeroed), w1 differs; L=4: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=c2c0e143ad79f7d2 h(seed 2^63)=c2c0e143ad79f7d2
+rapidhash v3 micro | 32B: w0 = secret[2] (first fold zeroed), w1 differs; L=4: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=c2c0e143ad79f7d2 h(seed 2^63)=c2c0e143ad79f7d2
+rapidhash v3 nano | 32B: w0 = secret[2] (first fold zeroed), w1 differs; L=4: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=c2c0e143ad79f7d2 h(seed 2^63)=c2c0e143ad79f7d2
+rapidhash v3 | 48B: w0 = secret[2] (first fold zeroed), w1 differs; L=6: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=618f7ce2eeb89946 h(seed 2^63)=618f7ce2eeb89946
+rapidhash v3 micro | 48B: w0 = secret[2] (first fold zeroed), w1 differs; L=6: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=618f7ce2eeb89946 h(seed 2^63)=618f7ce2eeb89946
+rapidhash v3 nano | 48B: w0 = secret[2] (first fold zeroed), w1 differs; L=6: 0 non-collisions in 2^28 seeds (2^27 sequential + 2^27 uniform) -> collides for every tested seed; h(seed 0)=618f7ce2eeb89946 h(seed 2^63)=618f7ce2eeb89946
+16B w0=secret[1] family, seed 0000000000000000: 256/256 messages share output a50a4a2a22949120
+16B w0=secret[1] family, seed 3187ae8a8617e034: 256/256 messages share output a50a4a2a22949120
+16B w0=secret[1] family, seed ffffffffffffffff: 256/256 messages share output a50a4a2a22949120
+
+real	3m38.449s
+user	4m18.111s
+sys	0m0.219s

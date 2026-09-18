@@ -1,0 +1,21 @@
+  case 0 fast_raw HEAD=76515ea1a03101fb v0.2.0-vector=76515ea1a03101fb OK
+  case 0 fast_vec HEAD=66ca112256c774fa v0.2.0-vector=66ca112256c774fa OK
+  case 0 fast_str HEAD=9ac395840828b9ae v0.2.0-vector=9ac395840828b9ae OK
+  case 0 qual_raw HEAD=6608bc5df43f5b74 v0.2.0-vector=6608bc5df43f5b74 OK
+  case 0 qual_vec HEAD=647e5b7098fa10de v0.2.0-vector=647e5b7098fa10de OK
+  case 1 fast_raw HEAD=84165e99364de5f4 v0.2.0-vector=84165e99364de5f4 OK
+  case 1 fast_vec HEAD=1126871eba2b7a20 v0.2.0-vector=1126871eba2b7a20 OK
+  case 1 fast_str HEAD=a612287b16657ff7 v0.2.0-vector=a612287b16657ff7 OK
+  case 1 qual_raw HEAD=757e226dd898e948 v0.2.0-vector=757e226dd898e948 OK
+  case 1 qual_vec HEAD=c9a03fd89c1af7fa v0.2.0-vector=c9a03fd89c1af7fa OK
+  case 2 fast_raw HEAD=9cac4433811168a2 v0.2.0-vector=9cac4433811168a2 OK
+  case 2 fast_vec HEAD=9e731322f0728b3f v0.2.0-vector=9e731322f0728b3f OK
+  case 2 fast_str HEAD=92d7b847ace9dd11 v0.2.0-vector=92d7b847ace9dd11 OK
+  case 2 qual_raw HEAD=1748bcd35d9a46d4 v0.2.0-vector=1748bcd35d9a46d4 OK
+  case 2 qual_vec HEAD=c4f0e6fce3f1277d v0.2.0-vector=c4f0e6fce3f1277d OK
+  -> 0 mismatches against the 0.2.0 reference vectors
+seeds = 1048576 (2^20), model: per-hasher uniform, SharedSeed::from_u64(uniform)
+hits fast raw    = 0
+hits fast &[u8]  = 0
+hits quality &[u8]= 0
+eps(raw) = 0.0000e0 = 2^-inf

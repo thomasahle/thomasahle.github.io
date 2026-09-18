@@ -29,10 +29,7 @@ closed form to place both messages in one `HashLen16` collision class (the same 
 gives arbitrary multicollisions). Pair C is Peters' published pair
 (<https://orlp.net/blog/breaking-hash-functions/>), included as an external cross-check.
 
-Pairs A and B were confirmed by an independent implementation at 2^30 seeds each. By code
-identity (not run here) the same pairs collide for every seed in `FarmHash_64__UO/XO/TE`
-(which call the NA code for `len <= 64`) and in CityHash64 v1.1, whose short-input paths and
-seed combine are identical.
+Pairs A and B were confirmed by an independent implementation at 2^30 seeds each. The same pairs were also run against google/farmhash master (commit 9d99331e) with src/farmhash.cc included directly: farmhashna, farmhashuo, farmhashxo and farmhashte Hash64WithSeed/Hash64WithSeeds each gave 2^26/2^26 collisions for all three pairs (UO/XO/TE call the NA code for `len <= 64`). libfarmhash's public farmhash::Hash64WithSeed applies DebugTweak (x -> ~bswap64(x*k1), a bijection) unless NDEBUG is defined, so the collision is unchanged but the printed value is 0x7f1be06374f4f57b instead of 0x49186432ae14e980 at the example seed. The corresponding CityHash64 v1.1 short-input path and seed combine are identical.
 
 ## Build and run
 

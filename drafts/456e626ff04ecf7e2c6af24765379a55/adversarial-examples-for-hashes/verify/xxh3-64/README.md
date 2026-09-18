@@ -1,6 +1,6 @@
 # xxh3-64: standalone fixed-pair reproduction
 
-XXH3-64, xxHash 0.8.3, default public secret/constants, uniformly sampled 64-bit API seeds. Pairs: A (32 B); base-1143 (128 B).
+XXH3-64, xxHash 0.8.3, default public secret/constants, uniformly sampled 64-bit API seeds. The scored base-1143 pair is a 32-byte pair checked by `xxh3_64_32B_check.c`; see `CHECK_32B.md`. The historical `xxh3_64_verify.c` driver also contains pair A and a 128-byte supporting pair.
 
 ## Build and run
 
@@ -24,11 +24,11 @@ The C file embeds `../../ref/xxhash.h` **verbatim** with `XXH_INLINE_ALL` and ca
 17973c0dc49d9854ca26caa191f0e12f7a424b68858d9a78de3860d959d85e4b
 ```
 
-Startup recomputes SMHasher3 verification **0x1AAEE62C**, read from the local `/Users/ahle/repos/smhasher3-mr-seeddiff/hashes/xxhash.cpp`. Verification encodes outputs in canonical big-endian order (high half first for 128 bits), matching that wrapper.
+Startup recomputes SMHasher3 verification **0x1AAEE62C**, read from SMHasher3 `hashes/xxhash.cpp` (commit 7ad8939d). Verification encodes outputs in canonical big-endian order (high half first for 128 bits), matching that wrapper.
 
 The SMHasher3 check hashes byte prefixes of lengths 0..255 with seeds 256..1, concatenates the encoded outputs, hashes that array with seed 0, and reads the first four output bytes little-endian. It therefore exercises short and long input paths. No seed fixup is applied.
 
-It additionally checks all ten official XXH3-64 sanity vectors: lengths 12, 24, 48, 80 and 195 with seeds 0 and PRIME64 = 11400714785074694797 (`0x9e3779b185ebca8d`). These are transcribed from `/Users/ahle/repos/fast-polynomials/tools/bench/adversarial/selftest.cpp`, which credits xxHash `cli/xsum_sanity_check.c`. The buffer starts with byteGen = 2654435761; each byte is byteGen >> 56, followed by byteGen *= PRIME64 modulo 2^64.
+It additionally checks all ten official XXH3-64 sanity vectors: lengths 12, 24, 48, 80 and 195 with seeds 0 and PRIME64 = 11400714785074694797 (`0x9e3779b185ebca8d`). These are transcribed from xxHash `cli/xsum_sanity_check.c`. The buffer starts with byteGen = 2654435761; each byte is byteGen >> 56, followed by byteGen *= PRIME64 modulo 2^64.
 
 Before sampling, each recorded colliding seed is hashed on both messages and checked
 against its literal expected output. A mismatch exits nonzero. These witnesses are
@@ -93,3 +93,12 @@ no sampled collision; the recorded witness above was checked separately
 The embedded xxHash header retains Yann Collet’s copyright and full BSD 2-Clause license verbatim. Driver additions are Copyright (c) 2026 Thomas Dybdahl Ahle, MIT, with the full notice in the C file.
 The supplied `collision_driver.cpp`, `harness/hashes.h`, and JSON evidence records
 are credited as the sources of the implementation and reproduction data.
+
+Scored-pair reproduction:
+
+```sh
+cc -O3 -std=c11 xxh3_64_32B_check.c -lm -o check
+./check 20
+```
+
+The scored pair and score are unchanged; a stronger candidate is under separate verification.

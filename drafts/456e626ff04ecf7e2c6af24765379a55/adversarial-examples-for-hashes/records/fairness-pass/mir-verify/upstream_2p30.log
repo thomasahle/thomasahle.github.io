@@ -1,0 +1,9 @@
+8B seed 0000000000000000: exact 1e30aaaa9235e65a/1e30aaaa9235e65a strict 1e30aaaa9235e65b/1e30aaaa9235e65b expected 1e30aaaa9235e65a/1e30aaaa9235e65b OK
+8B seed 0000000000000001: exact 38d782429014d4bf/38d782429014d4bf strict 38d782429014d4bf/38d782429014d4bf expected 38d782429014d4bf/38d782429014d4bf OK
+8B seed fffffffffffffff8: exact 0000000000000000/0000000000000000 strict 0000000000000000/0000000000000000 expected 0000000000000000/0000000000000000 OK
+16B seed 0 exact fd26864d6d50b5b1 expected fd26864d6d50b5b1 OK
+pair 0 (8 B): recorded seed 910a2dec89025cc1 upstream mir_hash 5e900c9f273619d2/5e900c9f273619d2 (exp 5e900c9f273619d2) mir_hash_strict 5e900c9f273619d2/5e900c9f273619d2 (exp 5e900c9f273619d2)
+pair 0: mir_hash collisions 1073741824/1073741824; mir_hash_strict collisions 1073741824/1073741824; fmir cross-check mismatches 0
+pair 1 (16 B): recorded seed 22118258a9d111a0 upstream mir_hash 4d337930c595fdd0/4d337930c595fdd0 (exp 4d337930c595fdd0) mir_hash_strict 66c4631e3e47d736/66c4631e3e47d736 (exp 66c4631e3e47d736)
+pair 1: mir_hash collisions 1073741824/1073741824; mir_hash_strict collisions 1073741824/1073741824; fmir cross-check mismatches 0
+RESULT: PASS

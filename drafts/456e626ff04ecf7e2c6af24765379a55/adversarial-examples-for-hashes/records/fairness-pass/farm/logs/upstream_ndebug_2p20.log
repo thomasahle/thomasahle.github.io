@@ -1,0 +1,17 @@
+google/farmhash master src/farmhash.cc; N=2^20 seeds per pair per interface (xoshiro256**, seed 1)
+pair A (8 B rho): len 8/8  farmhashna::Hash64 25ddc82d6c8a301a 25ddc82d6c8a301a EQUAL   public farmhash::Hash64 25ddc82d6c8a301a 25ddc82d6c8a301a EQUAL
+  explicit seed 82bdf567d8ebbf4f: farmhash::Hash64WithSeed 49186432ae14e980 49186432ae14e980 COLLIDE
+  farmhash::Hash64WithSeed  1048576/1048576   farmhash::Hash64WithSeeds 1048576/1048576
+  farmhashuo::Hash64WithSeed 1048576/1048576  farmhashuo::Hash64WithSeeds 1048576/1048576
+  farmhashxo::Hash64WithSeed 1048576/1048576  farmhashxo::Hash64WithSeeds 1048576/1048576
+pair B (32 B closed form): len 32/32  farmhashna::Hash64 b49071fd6dc4354d b49071fd6dc4354d EQUAL   public farmhash::Hash64 b49071fd6dc4354d b49071fd6dc4354d EQUAL
+  explicit seed 82bdf567d8ebbf4f: farmhash::Hash64WithSeed 6aeaa95070e78f9e 6aeaa95070e78f9e COLLIDE
+  farmhash::Hash64WithSeed  1048576/1048576   farmhash::Hash64WithSeeds 1048576/1048576
+  farmhashuo::Hash64WithSeed 1048576/1048576  farmhashuo::Hash64WithSeeds 1048576/1048576
+  farmhashxo::Hash64WithSeed 1048576/1048576  farmhashxo::Hash64WithSeeds 1048576/1048576
+pair C (Peters): len 32/32  farmhashna::Hash64 0000000000000539 0000000000000539 EQUAL   public farmhash::Hash64 0000000000000539 0000000000000539 EQUAL
+  explicit seed 82bdf567d8ebbf4f: farmhash::Hash64WithSeed f8cf13cec7b1d83f f8cf13cec7b1d83f COLLIDE
+  farmhash::Hash64WithSeed  1048576/1048576   farmhash::Hash64WithSeeds 1048576/1048576
+  farmhashuo::Hash64WithSeed 1048576/1048576  farmhashuo::Hash64WithSeeds 1048576/1048576
+  farmhashxo::Hash64WithSeed 1048576/1048576  farmhashxo::Hash64WithSeeds 1048576/1048576
+result: all pairs collide for every sampled seed on every interface

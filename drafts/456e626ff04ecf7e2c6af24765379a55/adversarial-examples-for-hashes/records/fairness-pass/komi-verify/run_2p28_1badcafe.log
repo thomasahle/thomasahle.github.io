@@ -1,0 +1,31 @@
+komihash 5.34 (reference code embedded verbatim), 64-bit output; collision = full 64-bit equality
+validation: SMHasher3 verification value 0x8157FF6D (expected 0x8157FF6D) OK
+validation: upstream README test vectors 4/4 OK
+
+[pair 1] lane-tie pair, 64 bytes, unconditional (uniform 64-bit seed)
+  m  = 0000000000000000447370032e8a191311111111111111112222222222222222f0f9dda4c1c0a15e9cf534900ea6f5e033333333333333334444444444444444
+  m' = 0100000000000000457370032e8a191311111111111111112222222222222222f0f9dda4c1c0a15e9cf534900ea6f5e033333333333333334444444444444444
+  bytes that differ: 0 8
+  N = 2^28 seeds (rng seed 0x1badcafe)
+  collisions: 244426416/268435456 = 0.910559 (log2 -0.1352, s.e. 0.000017)
+  lane-1 high half unchanged (no carry): 172421095/268435456 = 0.642319 (log2 -0.6386, s.e. 0.000029)
+    collisions given no carry (predicted 1): 172421095/172421095 = 1.000000 (log2 0.0000, s.e. 0.000000)
+    collisions given a carry (predicted 3/4): 72005321/96014361 = 0.749943 (log2 -0.4151, s.e. 0.000044)
+  published seed 0x27d1f77dc2a01269: h(m) = 0x113c6b88bc913857 h(m') = 0x113c6b88bc913857 COLLIDE (record: 0x113c6b88bc913857)
+  first colliding seed in this run: 0xc2d7adf220916f62 -> h = 0x20e31df862a9b3c7
+  same pair as the first block of longer messages (suffix bytes 0x99, 2^16 seeds each):
+    len  63:     0/65536 (0.0000) len  64: 59552/65536 (0.9087) len  65: 59700/65536 (0.9109)
+    len  96: 59672/65536 (0.9105) len 127: 59547/65536 (0.9086) len 128:     0/65536 (0.0000)
+
+[pair 2] weak-seed pair, 15 bytes, conditional on S5 == 0x01efb1a780a4e2df after the init round
+  m  = 8877665544332211dfe2a480a7b1ef
+  m' = 1122334455667788dfe2a480a7b1ef
+  bytes that differ: 0 1 2 3 4 5 6 7
+  N = 2^28 uniform seeds
+  unconditional collisions: 0/268435456 = 0.000000 (< 2^-28.0 at this sample size)
+  seed class {S5 == 0x01efb1a780a4e2df}: exactly 1 seed in 2^64, density 2^-64
+    (exhaustive count by the panel's solver, not re-run here; unconditional rate is therefore 2^-64)
+  class member 0xa41b7e7e02118bba: S5 after init = 0x01efb1a780a4e2df OK, tail word = 0x01efb1a780a4e2df, r2h = S5 ^ tail = 0x0 (dead multiply)
+  under that seed: h(m) = 0x722cdb7c77771040 h(m') = 0x722cdb7c77771040 COLLIDE (record: 0x722cdb7c77771040)
+  conditional rate over the class: 1/1 = 1.000000 (log2 0)
+  random 8-byte prefixes with the same 7-byte tail under that seed: 65536/65536 hash to 0x722cdb7c77771040

@@ -19,7 +19,7 @@ It reads no external files and writes only stdout/stderr.
 
 ## Implementation and validation
 
-Adapted from `heur2_scratch/verify-mx3/mymx3.h and construct.c` in the supplied workspace, credited in the C
+Adapted from `experiment/verify-mx3/mymx3.h and construct.c` in the supplied workspace, credited in the C
 header. Loads are explicit little-endian and work on either host byte order.
 Algorithm notices are retained. NMHASH's 16-bit products use unsigned
 32-bit intermediates to avoid signed integer-promotion overflow.

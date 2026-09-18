@@ -86,7 +86,7 @@ reference, not a copy.
 ## Integration pass 2: selected 275-byte pair and 32-bit output
 
 The program also includes the verifier-confirmed 275-byte pair from
-`heur2_scratch/verify-spooky32/pair275/` (credited in the C header).
+`experiment/verify-spooky32/pair275/` (credited in the C header).
 It validates the recorded seed 0 outputs and non-colliding seed 3, prints both
 literal inputs, and samples the 32-, 64- and full 128-bit outputs on a fresh
 copy of the same RNG stream. L=35 gives an estimated score cap of 6.13.

@@ -1,0 +1,14 @@
+base-1143 (control)    hits=28/2^26 log2rate=-21.19
+(0,0)                  hits=1/2^26 log2rate=-26.00
+(1,1)                  hits=1/2^26 log2rate=-26.00
+(2^63,2^63)            hits=0/2^26 log2rate=<-26.00
+(~0,0)                 hits=0/2^26 log2rate=<-26.00
+(k0,k1)                hits=1/2^26 log2rate=-26.00
+(k0,~k1)               hits=1865/2^26 log2rate=-15.14
+(k1,k0)                hits=4/2^26 log2rate=-24.00
+(0,~k0-k1... 0)        hits=300/2^26 log2rate=-17.77
+random#1               hits=0/2^26 log2rate=<-26.00
+random#2               hits=1/2^26 log2rate=-26.00
+random#3               hits=4/2^26 log2rate=-24.00
+random#4               hits=1/2^26 log2rate=-26.00
+15.59 s

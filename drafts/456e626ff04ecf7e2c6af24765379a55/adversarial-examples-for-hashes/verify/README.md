@@ -34,6 +34,7 @@ compiler, libm or pthreads as documented, and writes nothing but stdout/stderr.
 | `rapidhash-v1` | rapidhash v1.0 | A (32 B) | First-product XOR-fold differential; fixed default secret. | Historical 12 / 2^30 = 2^-26.415037; 2^20 is a smoke run only | `cd rapidhash-v1 && ./rapidhash_v1_verify [log2 N] [rng seed]` |
 | `xxh3-64` | XXH3-64, xxHash 0.8.3 | A (32 B); base-1143 (128 B) | First 16-byte fold collision; fixed default secret. | Historical A: 11 / 2^30 = 2^-26.540568; base-1143: 504 / 2^30 = 2^-21.022720 and 526 / 2^30 = 2^-20.961081; 2^20 is a smoke run only | `cd xxh3-64 && ./xxh3_64_verify [log2 N] [rng seed]` |
 | `xxh3-128` | XXH3-128, xxHash 0.8.3 | F (32 B) | Complementary first-word swap; equality of both output halves. | Historical 5 / 2^30 = 2^-27.678072 (full 128-bit collisions); 2^20 is a smoke run only | `cd xxh3-128 && ./xxh3_128_verify [log2 N] [rng seed]` |
+| `dotnet-marvin` | Marvin32, .NET 10.0.12 `string.GetHashCode()` (`Marvin.cs` at tag v10.0.12) | A: 12/12 B (L = 2); B: 8/8 B (L = 1) | The 64-bit seed is only the initial state and every later step is a keyless bijection; one ARX Block between word injections lets a three-word additive differential cancel inside Block 2 (pair A) for one seed in 480. | Historical A: 8945794 / 2^32 = 2^-8.907 (cap 9.91 bits); B: 2^-22.5; 2^20 gives 2274 and 0 (smoke) | `cd dotnet-marvin && ./marvin32_verify [log2 N] [rng seed] [A, B or AB]` (0.2 s; `32 1 A` for the row's sample size) |
 
 | `foldhash-fast` | 0.2.0 | 8/8 B; L = 1 | complement both xor-keyed operands via overlapping reads | 2757 / 2^38 | [README](foldhash-fast/README.md) |
 | `foldhash-quality` | 0.2.0 | 8/8 B; L = 1 | same pair; deterministic final fold preserves equality | 696 / 2^36 | [README](foldhash-quality/README.md) |
@@ -99,6 +100,7 @@ space-separated counts in column 3.
 | `rapidhash-v1` | `./rapidhash_v1_verify 20` | `0` |
 | `xxh3-64` | `./xxh3_64_verify 20` | `0 0` |
 | `xxh3-128` | `./xxh3_128_verify 20` | `1` |
+| `dotnet-marvin` | `./marvin32_verify 20` | `2274 0` |
 
 What the counts are:
 
@@ -125,6 +127,8 @@ What the counts are:
 * `wyhash`, `rapidhash-v1`: pair A.
 * `xxh3-64`: 32-byte pair A, then the exact 128-byte base-1143 pair.
 * `xxh3-128`: pair F, full 128-bit equality (one hit in this fixed smoke stream).
+* `dotnet-marvin`: pair A (12-byte strings, L = 2), then pair B (8-byte, L = 1; 2^-22.5 is invisible
+  at 2^20).
 
 Counts justified by an every-seed identity remain N for any RNG seed. Other reference counts, including zero-hit rare-event samples, can change with the RNG seed. The exact check uses the fixed default stream.
 
@@ -176,7 +180,7 @@ Counts justified by an every-seed identity remain N for any RNG seed. Other refe
 ## Integration pass 2
 
 The added standalone programs credit the supplied independent implementations
-under `heur2_scratch/verify-*/` and the validated driver/records under
+under `experiment/verify-*/` and the validated driver/records under
 `paper_rows/`. Per-hash READMEs include complete expected output. The new RNG
 uses one stream per case (default seed 1), so these small checks are distinct
 from the earlier large, sometimes multithreaded measurements. No large counts

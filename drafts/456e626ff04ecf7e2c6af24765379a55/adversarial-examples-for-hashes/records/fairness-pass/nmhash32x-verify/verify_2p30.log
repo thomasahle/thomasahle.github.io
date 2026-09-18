@@ -1,0 +1,9 @@
+SMHasher3 nmhash32x v2: A8580227 expected A8580227 PASS
+SMHasher3 checks complete; recorded output assertions follow
+
+selected pair / nmhash32x v2
+M (28 B) = 00000000000000000000000000000000000000000000000000000000
+M' (28 B) = 08800008088000080000000000000000000000000000088080000880
+recorded colliding seed 0000000000000000: H(M)=dc5952ce H(M')=dc5952ce
+collisions = 1073741824 / 1073741824; rate = 1; log2(rate) = 0.000000; sampled score = 2.000000
+first sampled colliding seed 000000000fc710c5: H(M)=H(M')=15cd32a0

@@ -13,7 +13,7 @@ Requires a C11 compiler with `unsigned __int128`, POSIX threads and a 64-bit lit
 
 ## Implementation and validation
 
-The original independent verifier is copied unchanged from scratchpad/vkf1/foldhash_verify.c (verify:key-free:1). It reimplements the short and long paths, seed expansion and finish, and checks baked-in outputs from the unmodified real Rust crate `foldhash = "=0.2.0"`. See the source header for exact coverage. These checks establish consistency on the reference cases, not equivalence for every possible input.
+The original independent verifier is copied unchanged from experiment/vkf1/foldhash_verify.c (verify:key-free:1). It reimplements the short and long paths, seed expansion and finish, and checks baked-in outputs from the unmodified real Rust crate `foldhash = "=0.2.0"`. See the source header for exact coverage. These checks establish consistency on the reference cases, not equivalence for every possible input.
 
 ## Pair and seed model
 
@@ -44,4 +44,6 @@ Algorithm: Orson Peters, foldhash, tag v0.2.0 ([source](https://github.com/orlp/
 
 No every-seed pair was verified within a fixed byte-slice key type. The separately verified cross-key-type ambiguities in the article are outside this score and are not tested by this C byte-pair harness. The discarded from_u64(u64::MAX) absorbing-state claim is not used.
 
-Disclosure: not yet reported to the maintainer.
+Disclosure: reported as https://github.com/orlp/foldhash/issues/50 on 2026-09-18; maintainer acknowledged.
+
+The Zlib notice is included as FOLDHASH-LICENSE in this directory. The tag v0.2.0 source snapshot is in ../../sources/foldhash-0.2.0/.

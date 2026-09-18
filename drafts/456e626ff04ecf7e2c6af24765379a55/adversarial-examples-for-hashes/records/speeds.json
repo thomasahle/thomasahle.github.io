@@ -10,7 +10,7 @@
           "name": "rapidhash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -68,7 +68,7 @@
           "name": "rapidhash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -144,7 +144,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -205,7 +205,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -292,7 +292,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],
@@ -436,7 +436,7 @@
           "name": "rapidhash.protected",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rapidhash.protected",
             "--test=Speed"
           ],
@@ -494,7 +494,7 @@
           "name": "rapidhash.protected",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rapidhash.protected",
             "--test=Speed"
           ],
@@ -570,7 +570,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rapidhash.protected",
             "--test=Speed"
           ],
@@ -631,7 +631,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rapidhash.protected",
             "--test=Speed"
           ],
@@ -718,7 +718,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "rapidhash.protected",
               "--test=Sanity"
             ],
@@ -803,7 +803,7 @@
           "name": "XXH3-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -861,7 +861,7 @@
           "name": "XXH3-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -937,7 +937,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -998,7 +998,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -1085,7 +1085,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "XXH3-64",
               "--test=Sanity"
             ],
@@ -1219,7 +1219,7 @@
           "name": "XXH3-128",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "XXH3-128",
             "--test=Speed"
           ],
@@ -1277,7 +1277,7 @@
           "name": "XXH3-128",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "XXH3-128",
             "--test=Speed"
           ],
@@ -1353,7 +1353,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "XXH3-128",
             "--test=Speed"
           ],
@@ -1414,7 +1414,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "XXH3-128",
             "--test=Speed"
           ],
@@ -1501,7 +1501,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "XXH3-128",
               "--test=Sanity"
             ],
@@ -1586,7 +1586,7 @@
           "name": "wyhash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "wyhash",
             "--test=Speed"
           ],
@@ -1644,7 +1644,7 @@
           "name": "wyhash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "wyhash",
             "--test=Speed"
           ],
@@ -1720,7 +1720,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "wyhash",
             "--test=Speed"
           ],
@@ -1781,7 +1781,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "wyhash",
             "--test=Speed"
           ],
@@ -1868,7 +1868,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "wyhash",
               "--test=Sanity"
             ],
@@ -1953,7 +1953,7 @@
           "name": "komihash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -2011,7 +2011,7 @@
           "name": "komihash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -2087,7 +2087,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -2148,7 +2148,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -2235,7 +2235,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -2379,7 +2379,7 @@
           "name": "a5hash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "a5hash",
             "--test=Speed"
           ],
@@ -2437,7 +2437,7 @@
           "name": "a5hash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "a5hash",
             "--test=Speed"
           ],
@@ -2513,7 +2513,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "a5hash",
             "--test=Speed"
           ],
@@ -2574,7 +2574,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "a5hash",
             "--test=Speed"
           ],
@@ -2661,7 +2661,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "a5hash",
               "--test=Sanity"
             ],
@@ -2746,7 +2746,7 @@
           "name": "a5hash-128",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "a5hash-128",
             "--test=Speed"
           ],
@@ -2804,7 +2804,7 @@
           "name": "a5hash-128",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "a5hash-128",
             "--test=Speed"
           ],
@@ -2880,7 +2880,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "a5hash-128",
             "--test=Speed"
           ],
@@ -2941,7 +2941,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "a5hash-128",
             "--test=Speed"
           ],
@@ -3028,7 +3028,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "a5hash-128",
               "--test=Sanity"
             ],
@@ -3113,7 +3113,7 @@
           "name": "MuseAir",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],
@@ -3171,7 +3171,7 @@
           "name": "MuseAir",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],
@@ -3247,7 +3247,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],
@@ -3308,7 +3308,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],
@@ -3395,7 +3395,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "MuseAir",
               "--test=Sanity"
             ],
@@ -3480,7 +3480,7 @@
           "name": "MuseAir.bfast",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "MuseAir.bfast",
             "--test=Speed"
           ],
@@ -3538,7 +3538,7 @@
           "name": "MuseAir.bfast",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "MuseAir.bfast",
             "--test=Speed"
           ],
@@ -3614,7 +3614,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "MuseAir.bfast",
             "--test=Speed"
           ],
@@ -3675,7 +3675,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "MuseAir.bfast",
             "--test=Speed"
           ],
@@ -3762,7 +3762,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "MuseAir.bfast",
               "--test=Sanity"
             ],
@@ -3847,7 +3847,7 @@
           "name": "t1ha2-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "t1ha2-64",
             "--test=Speed"
           ],
@@ -3905,7 +3905,7 @@
           "name": "t1ha2-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "t1ha2-64",
             "--test=Speed"
           ],
@@ -3981,7 +3981,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "t1ha2-64",
             "--test=Speed"
           ],
@@ -4042,7 +4042,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "t1ha2-64",
             "--test=Speed"
           ],
@@ -4129,7 +4129,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "t1ha2-64",
               "--test=Sanity"
             ],
@@ -4214,7 +4214,7 @@
           "name": "CityHash-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "CityHash-64",
             "--test=Speed"
           ],
@@ -4272,7 +4272,7 @@
           "name": "CityHash-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "CityHash-64",
             "--test=Speed"
           ],
@@ -4348,7 +4348,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "CityHash-64",
             "--test=Speed"
           ],
@@ -4409,7 +4409,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "CityHash-64",
             "--test=Speed"
           ],
@@ -4496,7 +4496,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "CityHash-64",
               "--test=Sanity"
             ],
@@ -4581,7 +4581,7 @@
           "name": "FarmHash-64.NA",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "FarmHash-64.NA",
             "--test=Speed"
           ],
@@ -4639,7 +4639,7 @@
           "name": "FarmHash-64.NA",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "FarmHash-64.NA",
             "--test=Speed"
           ],
@@ -4715,7 +4715,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "FarmHash-64.NA",
             "--test=Speed"
           ],
@@ -4776,7 +4776,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "FarmHash-64.NA",
             "--test=Speed"
           ],
@@ -4863,7 +4863,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "FarmHash-64.NA",
               "--test=Sanity"
             ],
@@ -4948,7 +4948,7 @@
           "name": "MurmurHash3-128",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "MurmurHash3-128",
             "--test=Speed"
           ],
@@ -5006,7 +5006,7 @@
           "name": "MurmurHash3-128",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "MurmurHash3-128",
             "--test=Speed"
           ],
@@ -5082,7 +5082,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "MurmurHash3-128",
             "--test=Speed"
           ],
@@ -5143,7 +5143,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "MurmurHash3-128",
             "--test=Speed"
           ],
@@ -5230,7 +5230,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "MurmurHash3-128",
               "--test=Sanity"
             ],
@@ -5315,7 +5315,7 @@
           "name": "gxhash-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "gxhash-64",
             "--test=Speed"
           ],
@@ -5373,7 +5373,7 @@
           "name": "gxhash-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "gxhash-64",
             "--test=Speed"
           ],
@@ -5449,7 +5449,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "gxhash-64",
             "--test=Speed"
           ],
@@ -5510,7 +5510,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "gxhash-64",
             "--test=Speed"
           ],
@@ -5597,7 +5597,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "gxhash-64",
               "--test=Sanity"
             ],
@@ -5682,7 +5682,7 @@
           "name": "rust-ahash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rust-ahash",
             "--test=Speed"
           ],
@@ -5740,7 +5740,7 @@
           "name": "rust-ahash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rust-ahash",
             "--test=Speed"
           ],
@@ -5816,7 +5816,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rust-ahash",
             "--test=Speed"
           ],
@@ -5877,7 +5877,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rust-ahash",
             "--test=Speed"
           ],
@@ -5964,7 +5964,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "rust-ahash",
               "--test=Sanity"
             ],
@@ -6049,7 +6049,7 @@
           "name": "rust-ahash-fb",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rust-ahash-fb",
             "--test=Speed"
           ],
@@ -6107,7 +6107,7 @@
           "name": "rust-ahash-fb",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "rust-ahash-fb",
             "--test=Speed"
           ],
@@ -6183,7 +6183,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rust-ahash-fb",
             "--test=Speed"
           ],
@@ -6244,7 +6244,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "rust-ahash-fb",
             "--test=Speed"
           ],
@@ -6331,7 +6331,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "rust-ahash-fb",
               "--test=Sanity"
             ],
@@ -6416,7 +6416,7 @@
           "name": "SpookyHash2-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SpookyHash2-64",
             "--test=Speed"
           ],
@@ -6474,7 +6474,7 @@
           "name": "SpookyHash2-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SpookyHash2-64",
             "--test=Speed"
           ],
@@ -6550,7 +6550,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SpookyHash2-64",
             "--test=Speed"
           ],
@@ -6611,7 +6611,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SpookyHash2-64",
             "--test=Speed"
           ],
@@ -6698,7 +6698,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "SpookyHash2-64",
               "--test=Sanity"
             ],
@@ -6783,7 +6783,7 @@
           "name": "SpookyHash2-32",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SpookyHash2-32",
             "--test=Speed"
           ],
@@ -6841,7 +6841,7 @@
           "name": "SpookyHash2-32",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SpookyHash2-32",
             "--test=Speed"
           ],
@@ -6917,7 +6917,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SpookyHash2-32",
             "--test=Speed"
           ],
@@ -6978,7 +6978,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SpookyHash2-32",
             "--test=Speed"
           ],
@@ -7065,7 +7065,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "SpookyHash2-32",
               "--test=Sanity"
             ],
@@ -7150,7 +7150,7 @@
           "name": "HighwayHash-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HighwayHash-64",
             "--test=Speed"
           ],
@@ -7208,7 +7208,7 @@
           "name": "HighwayHash-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HighwayHash-64",
             "--test=Speed"
           ],
@@ -7284,7 +7284,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HighwayHash-64",
             "--test=Speed"
           ],
@@ -7345,7 +7345,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HighwayHash-64",
             "--test=Speed"
           ],
@@ -7432,7 +7432,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "HighwayHash-64",
               "--test=Sanity"
             ],
@@ -7517,7 +7517,7 @@
           "name": "HighwayHash-128",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HighwayHash-128",
             "--test=Speed"
           ],
@@ -7575,7 +7575,7 @@
           "name": "HighwayHash-128",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HighwayHash-128",
             "--test=Speed"
           ],
@@ -7651,7 +7651,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HighwayHash-128",
             "--test=Speed"
           ],
@@ -7712,7 +7712,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HighwayHash-128",
             "--test=Speed"
           ],
@@ -7799,7 +7799,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "HighwayHash-128",
               "--test=Sanity"
             ],
@@ -7884,7 +7884,7 @@
           "name": "pengyhash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "pengyhash",
             "--test=Speed"
           ],
@@ -7942,7 +7942,7 @@
           "name": "pengyhash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "pengyhash",
             "--test=Speed"
           ],
@@ -8018,7 +8018,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "pengyhash",
             "--test=Speed"
           ],
@@ -8079,7 +8079,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "pengyhash",
             "--test=Speed"
           ],
@@ -8166,7 +8166,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "pengyhash",
               "--test=Sanity"
             ],
@@ -8251,7 +8251,7 @@
           "name": "NMHASH",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "NMHASH",
             "--test=Speed"
           ],
@@ -8309,7 +8309,7 @@
           "name": "NMHASH",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "NMHASH",
             "--test=Speed"
           ],
@@ -8385,7 +8385,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "NMHASH",
             "--test=Speed"
           ],
@@ -8446,7 +8446,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "NMHASH",
             "--test=Speed"
           ],
@@ -8533,7 +8533,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "NMHASH",
               "--test=Sanity"
             ],
@@ -8633,7 +8633,7 @@
           "name": "NMHASHX",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "NMHASHX",
             "--test=Speed"
           ],
@@ -8691,7 +8691,7 @@
           "name": "NMHASHX",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "NMHASHX",
             "--test=Speed"
           ],
@@ -8767,7 +8767,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "NMHASHX",
             "--test=Speed"
           ],
@@ -8828,7 +8828,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "NMHASHX",
             "--test=Speed"
           ],
@@ -8915,7 +8915,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "NMHASHX",
               "--test=Sanity"
             ],
@@ -9015,7 +9015,7 @@
           "name": "fasthash-32",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "fasthash-32",
             "--test=Speed"
           ],
@@ -9073,7 +9073,7 @@
           "name": "fasthash-32",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "fasthash-32",
             "--test=Speed"
           ],
@@ -9149,7 +9149,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "fasthash-32",
             "--test=Speed"
           ],
@@ -9210,7 +9210,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "fasthash-32",
             "--test=Speed"
           ],
@@ -9297,7 +9297,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "fasthash-32",
               "--test=Sanity"
             ],
@@ -9382,7 +9382,7 @@
           "name": "fasthash-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "fasthash-64",
             "--test=Speed"
           ],
@@ -9440,7 +9440,7 @@
           "name": "fasthash-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "fasthash-64",
             "--test=Speed"
           ],
@@ -9516,7 +9516,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "fasthash-64",
             "--test=Speed"
           ],
@@ -9577,7 +9577,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "fasthash-64",
             "--test=Speed"
           ],
@@ -9664,7 +9664,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "fasthash-64",
               "--test=Sanity"
             ],
@@ -9749,7 +9749,7 @@
           "name": "HalftimeHash-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-64",
             "--test=Speed"
           ],
@@ -9807,7 +9807,7 @@
           "name": "HalftimeHash-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-64",
             "--test=Speed"
           ],
@@ -9883,7 +9883,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-64",
             "--test=Speed"
           ],
@@ -9944,7 +9944,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-64",
             "--test=Speed"
           ],
@@ -10031,7 +10031,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "HalftimeHash-64",
               "--test=Sanity"
             ],
@@ -10116,7 +10116,7 @@
           "name": "HalftimeHash-128",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-128",
             "--test=Speed"
           ],
@@ -10174,7 +10174,7 @@
           "name": "HalftimeHash-128",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-128",
             "--test=Speed"
           ],
@@ -10250,7 +10250,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-128",
             "--test=Speed"
           ],
@@ -10311,7 +10311,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-128",
             "--test=Speed"
           ],
@@ -10398,7 +10398,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "HalftimeHash-128",
               "--test=Sanity"
             ],
@@ -10483,7 +10483,7 @@
           "name": "HalftimeHash-256",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-256",
             "--test=Speed"
           ],
@@ -10541,7 +10541,7 @@
           "name": "HalftimeHash-256",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-256",
             "--test=Speed"
           ],
@@ -10617,7 +10617,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-256",
             "--test=Speed"
           ],
@@ -10678,7 +10678,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-256",
             "--test=Speed"
           ],
@@ -10765,7 +10765,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "HalftimeHash-256",
               "--test=Sanity"
             ],
@@ -10850,7 +10850,7 @@
           "name": "HalftimeHash-512",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -10908,7 +10908,7 @@
           "name": "HalftimeHash-512",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -10984,7 +10984,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -11045,7 +11045,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -11132,7 +11132,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "HalftimeHash-512",
               "--test=Sanity"
             ],
@@ -11217,7 +11217,7 @@
           "name": "polymurhash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "polymurhash",
             "--test=Speed"
           ],
@@ -11275,7 +11275,7 @@
           "name": "polymurhash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "polymurhash",
             "--test=Speed"
           ],
@@ -11351,7 +11351,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "polymurhash",
             "--test=Speed"
           ],
@@ -11412,7 +11412,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "polymurhash",
             "--test=Speed"
           ],
@@ -11499,7 +11499,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "polymurhash",
               "--test=Sanity"
             ],
@@ -11584,7 +11584,7 @@
           "name": "CLhash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "CLhash",
             "--test=Speed"
           ],
@@ -11642,7 +11642,7 @@
           "name": "CLhash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "CLhash",
             "--test=Speed"
           ],
@@ -11718,7 +11718,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "CLhash",
             "--test=Speed"
           ],
@@ -11779,7 +11779,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "CLhash",
             "--test=Speed"
           ],
@@ -11866,7 +11866,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "CLhash",
               "--test=Sanity"
             ],
@@ -12000,7 +12000,7 @@
           "name": "poly-mersenne.deg1",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg1",
             "--test=Speed"
           ],
@@ -12058,7 +12058,7 @@
           "name": "poly-mersenne.deg1",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg1",
             "--test=Speed"
           ],
@@ -12134,7 +12134,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg1",
             "--test=Speed"
           ],
@@ -12195,7 +12195,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg1",
             "--test=Speed"
           ],
@@ -12282,7 +12282,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "poly-mersenne.deg1",
               "--test=Sanity"
             ],
@@ -12369,7 +12369,7 @@
           "name": "poly-mersenne.deg2",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg2",
             "--test=Speed"
           ],
@@ -12427,7 +12427,7 @@
           "name": "poly-mersenne.deg2",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg2",
             "--test=Speed"
           ],
@@ -12503,7 +12503,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg2",
             "--test=Speed"
           ],
@@ -12564,7 +12564,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg2",
             "--test=Speed"
           ],
@@ -12651,7 +12651,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "poly-mersenne.deg2",
               "--test=Sanity"
             ],
@@ -12738,7 +12738,7 @@
           "name": "poly-mersenne.deg3",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg3",
             "--test=Speed"
           ],
@@ -12796,7 +12796,7 @@
           "name": "poly-mersenne.deg3",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg3",
             "--test=Speed"
           ],
@@ -12872,7 +12872,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg3",
             "--test=Speed"
           ],
@@ -12933,7 +12933,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg3",
             "--test=Speed"
           ],
@@ -13020,7 +13020,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "poly-mersenne.deg3",
               "--test=Sanity"
             ],
@@ -13107,7 +13107,7 @@
           "name": "poly-mersenne.deg4",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg4",
             "--test=Speed"
           ],
@@ -13165,7 +13165,7 @@
           "name": "poly-mersenne.deg4",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "poly-mersenne.deg4",
             "--test=Speed"
           ],
@@ -13241,7 +13241,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg4",
             "--test=Speed"
           ],
@@ -13302,7 +13302,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly-mersenne.deg4",
             "--test=Speed"
           ],
@@ -13389,7 +13389,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "poly-mersenne.deg4",
               "--test=Sanity"
             ],
@@ -13476,7 +13476,7 @@
           "name": "multiply-shift",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "multiply-shift",
             "--test=Speed"
           ],
@@ -13534,7 +13534,7 @@
           "name": "multiply-shift",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "multiply-shift",
             "--test=Speed"
           ],
@@ -13610,7 +13610,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "multiply-shift",
             "--test=Speed"
           ],
@@ -13671,7 +13671,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "multiply-shift",
             "--test=Speed"
           ],
@@ -13758,7 +13758,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "multiply-shift",
               "--test=Sanity"
             ],
@@ -13843,7 +13843,7 @@
           "name": "pair-multiply-shift",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "pair-multiply-shift",
             "--test=Speed"
           ],
@@ -13901,7 +13901,7 @@
           "name": "pair-multiply-shift",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "pair-multiply-shift",
             "--test=Speed"
           ],
@@ -13977,7 +13977,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "pair-multiply-shift",
             "--test=Speed"
           ],
@@ -14038,7 +14038,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "pair-multiply-shift",
             "--test=Speed"
           ],
@@ -14125,7 +14125,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "pair-multiply-shift",
               "--test=Sanity"
             ],
@@ -14210,7 +14210,7 @@
           "name": "tabulation-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "tabulation-64",
             "--test=Speed"
           ],
@@ -14268,7 +14268,7 @@
           "name": "tabulation-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "tabulation-64",
             "--test=Speed"
           ],
@@ -14344,7 +14344,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "tabulation-64",
             "--test=Speed"
           ],
@@ -14405,7 +14405,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "tabulation-64",
             "--test=Speed"
           ],
@@ -14492,7 +14492,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "tabulation-64",
               "--test=Sanity"
             ],
@@ -14579,7 +14579,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -14643,7 +14643,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -14733,7 +14733,7 @@
               "taskset",
               "-c",
               "6",
-              "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+              "experiment/speedbench/build-release-20260917/SMHasher3",
               "SipHash-2-4",
               "--test=Sanity"
             ],
@@ -14815,7 +14815,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -14876,7 +14876,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -14963,7 +14963,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "SipHash-2-4",
               "--test=Sanity"
             ],
@@ -15050,7 +15050,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -15114,7 +15114,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -15204,7 +15204,7 @@
               "taskset",
               "-c",
               "6",
-              "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+              "experiment/speedbench/build-release-20260917/SMHasher3",
               "SipHash-1-3",
               "--test=Sanity"
             ],
@@ -15286,7 +15286,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -15347,7 +15347,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -15434,7 +15434,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "SipHash-1-3",
               "--test=Sanity"
             ],
@@ -15568,7 +15568,7 @@
           "name": "chainhash-256",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -15626,7 +15626,7 @@
           "name": "chainhash-256",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -15702,7 +15702,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -15763,7 +15763,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -15850,7 +15850,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "chainhash-256",
               "--test=Sanity"
             ],
@@ -15984,7 +15984,7 @@
           "name": "chainhash-1k",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "chainhash-1k",
             "--test=Speed"
           ],
@@ -16042,7 +16042,7 @@
           "name": "chainhash-1k",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "chainhash-1k",
             "--test=Speed"
           ],
@@ -16118,7 +16118,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "chainhash-1k",
             "--test=Speed"
           ],
@@ -16179,7 +16179,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "chainhash-1k",
             "--test=Speed"
           ],
@@ -16266,7 +16266,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "chainhash-1k",
               "--test=Sanity"
             ],
@@ -16400,7 +16400,7 @@
           "name": "HalfSipHash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalfSipHash",
             "--test=Speed"
           ],
@@ -16458,7 +16458,7 @@
           "name": "HalfSipHash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "HalfSipHash",
             "--test=Speed"
           ],
@@ -16534,7 +16534,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalfSipHash",
             "--test=Speed"
           ],
@@ -16595,7 +16595,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "HalfSipHash",
             "--test=Speed"
           ],
@@ -16682,7 +16682,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "HalfSipHash",
               "--test=Sanity"
             ],
@@ -16767,7 +16767,7 @@
           "name": "mir.exact",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mir.exact",
             "--test=Speed"
           ],
@@ -16825,7 +16825,7 @@
           "name": "mir.exact",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mir.exact",
             "--test=Speed"
           ],
@@ -16901,7 +16901,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mir.exact",
             "--test=Speed"
           ],
@@ -16962,7 +16962,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mir.exact",
             "--test=Speed"
           ],
@@ -17049,7 +17049,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mir.exact",
               "--test=Sanity"
             ],
@@ -17134,7 +17134,7 @@
           "name": "mum3.exact.unroll1",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll1",
             "--test=Speed"
           ],
@@ -17192,7 +17192,7 @@
           "name": "mum3.exact.unroll1",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll1",
             "--test=Speed"
           ],
@@ -17268,7 +17268,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll1",
             "--test=Speed"
           ],
@@ -17329,7 +17329,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll1",
             "--test=Speed"
           ],
@@ -17416,7 +17416,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mum3.exact.unroll1",
               "--test=Sanity"
             ],
@@ -17501,7 +17501,7 @@
           "name": "mum3.exact.unroll2",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll2",
             "--test=Speed"
           ],
@@ -17559,7 +17559,7 @@
           "name": "mum3.exact.unroll2",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll2",
             "--test=Speed"
           ],
@@ -17635,7 +17635,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll2",
             "--test=Speed"
           ],
@@ -17696,7 +17696,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll2",
             "--test=Speed"
           ],
@@ -17783,7 +17783,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mum3.exact.unroll2",
               "--test=Sanity"
             ],
@@ -17868,7 +17868,7 @@
           "name": "mum3.exact.unroll3",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll3",
             "--test=Speed"
           ],
@@ -17926,7 +17926,7 @@
           "name": "mum3.exact.unroll3",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll3",
             "--test=Speed"
           ],
@@ -18002,7 +18002,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll3",
             "--test=Speed"
           ],
@@ -18063,7 +18063,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll3",
             "--test=Speed"
           ],
@@ -18150,7 +18150,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mum3.exact.unroll3",
               "--test=Sanity"
             ],
@@ -18235,7 +18235,7 @@
           "name": "mum3.exact.unroll4",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll4",
             "--test=Speed"
           ],
@@ -18293,7 +18293,7 @@
           "name": "mum3.exact.unroll4",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mum3.exact.unroll4",
             "--test=Speed"
           ],
@@ -18369,7 +18369,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll4",
             "--test=Speed"
           ],
@@ -18430,7 +18430,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mum3.exact.unroll4",
             "--test=Speed"
           ],
@@ -18517,7 +18517,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mum3.exact.unroll4",
               "--test=Sanity"
             ],
@@ -18602,7 +18602,7 @@
           "name": "mx3.v1",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mx3.v1",
             "--test=Speed"
           ],
@@ -18660,7 +18660,7 @@
           "name": "mx3.v1",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mx3.v1",
             "--test=Speed"
           ],
@@ -18736,7 +18736,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mx3.v1",
             "--test=Speed"
           ],
@@ -18797,7 +18797,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mx3.v1",
             "--test=Speed"
           ],
@@ -18884,7 +18884,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mx3.v1",
               "--test=Sanity"
             ],
@@ -18969,7 +18969,7 @@
           "name": "mx3.v2",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mx3.v2",
             "--test=Speed"
           ],
@@ -19027,7 +19027,7 @@
           "name": "mx3.v2",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mx3.v2",
             "--test=Speed"
           ],
@@ -19103,7 +19103,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mx3.v2",
             "--test=Speed"
           ],
@@ -19164,7 +19164,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mx3.v2",
             "--test=Speed"
           ],
@@ -19251,7 +19251,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mx3.v2",
               "--test=Sanity"
             ],
@@ -19336,7 +19336,7 @@
           "name": "mx3.v3",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mx3.v3",
             "--test=Speed"
           ],
@@ -19394,7 +19394,7 @@
           "name": "mx3.v3",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "mx3.v3",
             "--test=Speed"
           ],
@@ -19470,7 +19470,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mx3.v3",
             "--test=Speed"
           ],
@@ -19531,7 +19531,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "mx3.v3",
             "--test=Speed"
           ],
@@ -19618,7 +19618,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "mx3.v3",
               "--test=Sanity"
             ],
@@ -19703,7 +19703,7 @@
           "name": "UMASH-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "UMASH-64",
             "--test=Speed"
           ],
@@ -19761,7 +19761,7 @@
           "name": "UMASH-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "UMASH-64",
             "--test=Speed"
           ],
@@ -19837,7 +19837,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "UMASH-64",
             "--test=Speed"
           ],
@@ -19898,7 +19898,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "UMASH-64",
             "--test=Speed"
           ],
@@ -19985,7 +19985,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "UMASH-64",
               "--test=Sanity"
             ],
@@ -20119,7 +20119,7 @@
           "name": "UMASH-128",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "UMASH-128",
             "--test=Speed"
           ],
@@ -20177,7 +20177,7 @@
           "name": "UMASH-128",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "UMASH-128",
             "--test=Speed"
           ],
@@ -20253,7 +20253,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "UMASH-128",
             "--test=Speed"
           ],
@@ -20314,7 +20314,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "UMASH-128",
             "--test=Speed"
           ],
@@ -20401,7 +20401,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "UMASH-128",
               "--test=Sanity"
             ],
@@ -20486,7 +20486,7 @@
           "name": "UMASH-64.reseed",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "UMASH-64.reseed",
             "--test=Speed"
           ],
@@ -20544,7 +20544,7 @@
           "name": "UMASH-64.reseed",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "experiment/speedbench/build-release-20260917/SMHasher3",
             "UMASH-64.reseed",
             "--test=Speed"
           ],
@@ -20620,7 +20620,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "UMASH-64.reseed",
             "--test=Speed"
           ],
@@ -20681,7 +20681,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "UMASH-64.reseed",
             "--test=Speed"
           ],
@@ -20768,7 +20768,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "UMASH-64.reseed",
               "--test=Sanity"
             ],
@@ -20856,7 +20856,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "experiment/speedbench-classic/build-classic/SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -20907,7 +20907,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "experiment/speedbench-classic/build-classic/SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -20962,7 +20962,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "experiment/speedbench-classic/build-classic/SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -20997,7 +20997,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "experiment/speedbench-classic/build-classic/SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -21059,7 +21059,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -21120,7 +21120,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -21143,7 +21143,7 @@
             "load15": 5.79443359375
           },
           "raw_sha256": "451ddd3719780ef281b8d40a849a3adbef0055380b84e53d6eaa55ad394093ee",
-          "note": "run by hand after the runner process died with the interrupted Codex job; same binary and command",
+          "note": "run by hand after the runner process died with the interrupted independent verifier job; same binary and command",
           "sha256_verified": true,
           "bulk_bytes_per_cycle": 2.2,
           "bulk_gib_s": 7.18,
@@ -21206,7 +21206,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -21284,7 +21284,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "experiment/speedbench-classic/build-classic/SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -21335,7 +21335,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "experiment/speedbench-classic/build-classic/SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -21390,7 +21390,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "experiment/speedbench-classic/build-classic/SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -21425,7 +21425,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "experiment/speedbench-classic/build-classic/SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -21487,7 +21487,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -21548,7 +21548,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+            "experiment/review/m2-rerun/build-fixed/SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -21571,7 +21571,7 @@
             "load15": 5.79443359375
           },
           "raw_sha256": "16dcdd75a27fb496ea06963a7aedd8339f244383030f97353121d05fabfc8568",
-          "note": "run by hand after the runner process died with the interrupted Codex job; same binary and command",
+          "note": "run by hand after the runner process died with the interrupted independent verifier job; same binary and command",
           "sha256_verified": true,
           "bulk_bytes_per_cycle": 2.48,
           "bulk_gib_s": 8.1,
@@ -21634,7 +21634,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/SMHasher3",
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -21705,35 +21705,35 @@
         "metadata": {
           "binary": {
             "M2Pro": {
-              "binary": "/Users/ahle/repos/smhasher3/build-speed/SMHasher3",
+              "binary": "source/smhasher3/build-speed/SMHasher3",
               "binary_sha256": "33670275b735a33de9384d74d970cac932e1d5019ab505f7564c42bc1532b541",
               "binary_sha256_after": "33670275b735a33de9384d74d970cac932e1d5019ab505f7564c42bc1532b541",
-              "build_directory": "/Users/ahle/repos/smhasher3/build-speed",
-              "source_directory": "/Users/ahle/repos/smhasher3",
+              "build_directory": "source/smhasher3/build-speed",
+              "source_directory": "source/smhasher3",
               "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
-              "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? CLAUDE.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+              "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
               "source_manifest": "provenance/source-sha256.json",
               "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
-              "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 4.1\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I/Users/ahle/repos/smhasher3/build-speed/include -I/Users/ahle/repos/smhasher3/include/common -I/Users/ahle/repos/smhasher3/util -I/Users/ahle/repos/smhasher3/tests -I/Users/ahle/repos/smhasher3/include/hashlib\n\nCXX_FLAGSarm64 = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\nCXX_FLAGS = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\n",
+              "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 4.1\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Isource/smhasher3/build-speed/include -Isource/smhasher3/include/common -Isource/smhasher3/util -Isource/smhasher3/tests -Isource/smhasher3/include/hashlib\n\nCXX_FLAGSarm64 = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\nCXX_FLAGS = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\n",
               "build_type": "Release",
               "build_details": {
-                "path": "/Users/ahle/repos/smhasher3/build-speed/SMHasher3",
-                "build_directory": "/Users/ahle/repos/smhasher3/build-speed",
-                "source_directory": "/Users/ahle/repos/smhasher3",
+                "path": "source/smhasher3/build-speed/SMHasher3",
+                "build_directory": "source/smhasher3/build-speed",
+                "source_directory": "source/smhasher3",
                 "sha256": "33670275b735a33de9384d74d970cac932e1d5019ab505f7564c42bc1532b541",
                 "size": 8855288,
                 "mtime": "2026-09-18T00:29:06.340713+00:00",
                 "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
-                "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? CLAUDE.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+                "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
                 "configure_command": [
                   "nice",
                   "-n",
                   "10",
                   "cmake",
                   "-S",
-                  "/Users/ahle/repos/smhasher3",
+                  "source/smhasher3",
                   "-B",
-                  "/Users/ahle/repos/smhasher3/build-speed",
+                  "source/smhasher3/build-speed",
                   "-DCMAKE_BUILD_TYPE=Release",
                   "-DENDIAN_DETECT_BUILDTIME=OFF",
                   "-DCMAKE_CXX_FLAGS=-Xclang -target-feature -Xclang +aes"
@@ -21744,7 +21744,7 @@
                   "10",
                   "cmake",
                   "--build",
-                  "/Users/ahle/repos/smhasher3/build-speed",
+                  "source/smhasher3/build-speed",
                   "--target",
                   "SMHasher3",
                   "-j8"
@@ -21753,16 +21753,16 @@
               }
             },
             "Xeon8375C": {
-              "binary": "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+              "binary": "experiment/speedbench/build-release-20260917/SMHasher3",
               "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
               "binary_sha256_after": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
-              "build_directory": "/home/thomas-ahle/agents/speedbench/build-release-20260917",
-              "source_directory": "/home/thomas-ahle/agents/speedbench/source",
+              "build_directory": "experiment/speedbench/build-release-20260917",
+              "source_directory": "experiment/speedbench/source",
               "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
-              "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? CLAUDE.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+              "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
               "source_manifest": "provenance/source-sha256.json",
               "compiler": "c++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
-              "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I/home/thomas-ahle/agents/speedbench/build-release-20260917/include -I/home/thomas-ahle/agents/speedbench/source/include/common -I/home/thomas-ahle/agents/speedbench/source/util -I/home/thomas-ahle/agents/speedbench/source/tests -I/home/thomas-ahle/agents/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
+              "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Iexperiment/speedbench/build-release-20260917/include -Iexperiment/speedbench/source/include/common -Iexperiment/speedbench/source/util -Iexperiment/speedbench/source/tests -Iexperiment/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
               "build_type": "Release",
               "remote_recheck": {
                 "timestamp": "2026-09-18T00:28:51.045516+00:00",
@@ -21777,7 +21777,7 @@
             }
           },
           "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
-          "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? CLAUDE.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+          "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
           "source_copy_verification": {
             "checked_files": 795,
             "mismatches": [],
@@ -21968,7 +21968,7 @@
               "id": "a5",
               "label": "a5hash v5.21, 64-bit",
               "registered_name": "a5hash",
-              "note": "Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths. v5.25 not vector-checked."
+              "note": "Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths. v5.25 header and full class rechecked; see records/fairness-pass/a5/."
             },
             {
               "table": "heuristics",
@@ -22129,7 +22129,7 @@
             "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428\n",
             "uname": "Darwin Mac 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:20:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6020 arm64\n",
             "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
-            "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 4.1\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I/Users/ahle/repos/smhasher3/build-speed/include -I/Users/ahle/repos/smhasher3/include/common -I/Users/ahle/repos/smhasher3/util -I/Users/ahle/repos/smhasher3/tests -I/Users/ahle/repos/smhasher3/include/hashlib\n\nCXX_FLAGSarm64 = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\nCXX_FLAGS = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\n",
+            "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 4.1\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Isource/smhasher3/build-speed/include -Isource/smhasher3/include/common -Isource/smhasher3/util -Isource/smhasher3/tests -Isource/smhasher3/include/hashlib\n\nCXX_FLAGSarm64 = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\nCXX_FLAGS = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64\n\n",
             "load1_range_at_run_boundaries": [
               2.85,
               6.25
@@ -22220,7 +22220,7 @@
             "os": "NAME=\"Red Hat Enterprise Linux\"\nVERSION=\"9.8 (Plow)\"\nID=\"rhel\"\nID_LIKE=\"fedora\"\nVERSION_ID=\"9.8\"\nPLATFORM_ID=\"platform:el9\"\nPRETTY_NAME=\"Red Hat Enterprise Linux 9.8 (Plow)\"\nANSI_COLOR=\"0;31\"\nLOGO=\"fedora-logo-icon\"\nCPE_NAME=\"cpe:/o:redhat:enterprise_linux:9::baseos\"\nHOME_URL=\"https://www.redhat.com/\"\nDOCUMENTATION_URL=\"https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9\"\nBUG_REPORT_URL=\"https://issues.redhat.com/\"\n\nREDHAT_BUGZILLA_PRODUCT=\"Red Hat Enterprise Linux 9\"\nREDHAT_BUGZILLA_PRODUCT_VERSION=9.8\nREDHAT_SUPPORT_PRODUCT=\"Red Hat Enterprise Linux\"\nREDHAT_SUPPORT_PRODUCT_VERSION=\"9.8\"\n",
             "uname": "Linux hardware.normalcomputing.net 5.14.0-687.20.1.el9_8.x86_64 #1 SMP PREEMPT_DYNAMIC Sun Jun 28 21:16:58 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux\n",
             "compiler": "c++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
-            "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I/home/thomas-ahle/agents/speedbench/build-release-20260917/include -I/home/thomas-ahle/agents/speedbench/source/include/common -I/home/thomas-ahle/agents/speedbench/source/util -I/home/thomas-ahle/agents/speedbench/source/tests -I/home/thomas-ahle/agents/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
+            "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Iexperiment/speedbench/build-release-20260917/include -Iexperiment/speedbench/source/include/common -Iexperiment/speedbench/source/util -Iexperiment/speedbench/source/tests -Iexperiment/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
             "load1_range_at_run_boundaries": [
               2.16,
               18.34

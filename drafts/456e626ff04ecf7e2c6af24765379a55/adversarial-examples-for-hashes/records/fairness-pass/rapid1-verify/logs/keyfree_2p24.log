@@ -1,0 +1,6 @@
+upstream v1.0 'message digest' seed 3: 0031cdc21324150f expected 0031cdc21324150f PASS
+key-free literal pair (24 B, w[1]=secret[1]): 16777216 / 2^24 collide; output f3d82622ec4bad54 constant over all seeds: yes
+expected constant rapid_mix(secret[0]^24, secret[1]) = f3d82622ec4bad54
+random (seed,M,M') with w[len-16]=secret[1], len 17: 65536 / 65536 collide
+random (seed,M,M') with w[len-16]=secret[1], len 24: 65536 / 65536 collide
+random (seed,M,M') with w[len-16]=secret[1], len 32: 65536 / 65536 collide

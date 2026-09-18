@@ -1,0 +1,10 @@
+[package]
+name = "ahashcheck"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ahash = { path = "../aHash" }
+
+[profile.release]
+opt-level = 3

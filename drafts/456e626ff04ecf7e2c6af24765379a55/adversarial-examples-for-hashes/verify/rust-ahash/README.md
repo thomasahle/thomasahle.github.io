@@ -150,3 +150,18 @@ until the discrepancy between the two samplers is understood.
 aHash itself is (c) Tom Kaitchuck, MIT OR Apache-2.0; the two constants copied from it
 are listed in the source.  Pair data: the panel records (`pairs_heur.json`) for this
 hash; the verification procedure follows SMHasher3 `lib/Hashinfo.cpp`.
+
+## Native Rust check
+
+The `native/` Cargo program hashes byte slices against aHash 0.8.12. Run on an x86 host:
+
+```sh
+cd native
+RUSTFLAGS="-C target-feature=+aes" cargo run --release -- 34 3 7
+```
+
+To reproduce an explicit internal key k0..k3, call `RandomState::with_seeds(k_i ^ PI2[i])`; independent uniform arguments give independent uniform internal words. The recorded native run gives 19,964/2^34, cap 22.52 bits. The same stream against master a9d649d agrees; the independent program gives 19,884/2^34, recorded as two 2^33 runs in ../../records/fairness-pass/ahash-verify/. The default C reproduction takes about 2 seconds on Apple M2 Pro and about 6 seconds per model on a loaded Xeon 8375C.
+
+The 0.8.12 release additionally gates ARM AES on `nightly-arm-aes`. Master dropped that gate in PR #268 (2025-05-06), before the release, but the 0.8.12 release merge did not carry it.
+
+The recorded seven-thread run takes floor(2^34 / 7) samples per thread (17,179,869,182 trials); the log rounds this to 2^34. The two-sample difference does not affect the displayed score.

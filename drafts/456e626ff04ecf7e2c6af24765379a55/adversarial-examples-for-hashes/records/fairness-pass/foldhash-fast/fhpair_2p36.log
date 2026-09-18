@@ -1,0 +1,11 @@
+ref fast_raw(seed 1122334455667788, from_u64 0123456789abcdef, 00*8) = 9144e3f8f75c1cf0
+ref fast_vec = 28655aab676383c4
+seeds = 68719476736 (2^36), model: per-hasher uniform, SharedSeed::from_u64(uniform)
+hits fast raw    = 642
+hits fast &[u8]  = 642
+hits quality &[u8]= 642
+eps(raw) = 9.3423e-9 = 2^-26.6736
+
+real	12m53.719s
+user	22m50.143s
+sys	0m0.294s

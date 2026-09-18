@@ -19,7 +19,7 @@ It reads no external files and writes only stdout/stderr.
 
 ## Implementation and validation
 
-Adapted from `heur2_scratch/verify-fasthash/vf.c and mine/vfh.c` in the supplied workspace, credited in the C
+Adapted from `experiment/verify-fasthash/vf.c and mine/vfh.c` in the supplied workspace, credited in the C
 header. Loads are explicit little-endian and work on either host byte order.
 Algorithm notices are retained. NMHASH's 16-bit products use unsigned
 32-bit intermediates to avoid signed integer-promotion overflow.
@@ -56,7 +56,7 @@ The seed enters on line 4, but every message word first passes through the publi
 
 The independent verifier measured 1,073,741,824/1,073,741,824 collisions at both output widths for the selected seven-byte-versus-eight-byte pair. The one-step identity proves ε = 1, L = 1, score 0. The equal-length 16-byte pair was independently checked on 4,294,967,296 seeds and has score 1. Equal-length one-word full 64-bit collisions are impossible because that path is bijective; truncation to 32 bits is a different question.
 
-No generic scan was run after reaching the metric floor. The shorter-total-length one-byte-versus-eight-byte pair is claimant-only and is not used for scoring.
+No generic scan was run after reaching the metric floor. The shorter one-byte-versus-eight-byte pair (00 vs 2cb6512f74662d63) was confirmed on 2^30 seeds per width (64-bit seed for fasthash64, 32-bit seed for fasthash32) against the upstream source in a separate driver and is not used for scoring.
 
 ## Sampling and expected output
 

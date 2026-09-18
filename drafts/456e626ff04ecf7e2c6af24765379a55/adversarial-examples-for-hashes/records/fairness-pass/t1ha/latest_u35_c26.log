@@ -1,0 +1,14 @@
+t1ha2_atonce from upstream library; threads=8
+upstream t1ha_selfcheck__t1ha2: ok
+
+pair A: m1 16 B, m2 11 B; example seed 3c805cc67a687f30: H1=f2a1196d24fddaab H2=f2a1196d24fddaab COLLIDE
+  uniform: N=2^35, collisions=44 (in-class 44), rate=2^-29.54, approx 95% CI [2^-30.05, 2^-29.17]
+  first uniform colliding seed: e3f00d4c209233a0
+  class (density 2^-26): N=2^26, collisions=4194972, cond rate=2^-4.000, Wilson 95% [2^-4.001, 2^-3.998]
+  => class contribution 2^-30.000  [2^-30.001, 2^-29.998]
+
+pair B: m1 13 B, m2 16 B; example seed d870b802f1050157: H1=63cf67ba079a2997 H2=63cf67ba079a2997 COLLIDE
+  uniform: N=2^35, collisions=21 (in-class 21), rate=2^-30.61, approx 95% CI [2^-31.41, 2^-30.09]
+  first uniform colliding seed: 40381b84954e81fa
+  class (density 2^-27): N=2^26, collisions=4162625, cond rate=2^-4.011, Wilson 95% [2^-4.012, 2^-4.010]
+  => class contribution 2^-31.011  [2^-31.012, 2^-31.010]

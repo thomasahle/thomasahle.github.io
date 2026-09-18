@@ -24,7 +24,7 @@ The C file embeds `../../ref/xxhash.h` **verbatim** with `XXH_INLINE_ALL` and ca
 17973c0dc49d9854ca26caa191f0e12f7a424b68858d9a78de3860d959d85e4b
 ```
 
-Startup recomputes SMHasher3 verification **0x288DAA94**, read from the local `/Users/ahle/repos/smhasher3-mr-seeddiff/hashes/xxhash.cpp`. Verification encodes outputs in canonical big-endian order (high half first for 128 bits), matching that wrapper.
+Startup recomputes SMHasher3 verification **0x288DAA94**, read from SMHasher3 `hashes/xxhash.cpp` (commit 7ad8939d). Verification encodes outputs in canonical big-endian order (high half first for 128 bits), matching that wrapper.
 
 The SMHasher3 check hashes byte prefixes of lengths 0..255 with seeds 256..1, concatenates the encoded outputs, hashes that array with seed 0, and reads the first four output bytes little-endian. It therefore exercises short and long input paths. No seed fixup is applied.
 
@@ -74,3 +74,7 @@ first sampled colliding seed 2ac74c721ddeaca6: H(M)=9ce669c18ec555215a4b197d8fef
 The embedded xxHash header retains Yann Collet’s copyright and full BSD 2-Clause license verbatim. Driver additions are Copyright (c) 2026 Thomas Dybdahl Ahle, MIT, with the full notice in the C file.
 The supplied `collision_driver.cpp`, `harness/hashes.h`, and JSON evidence records
 are credited as the sources of the implementation and reproduction data.
+
+Rerun 2026-09-18 with this program on a Xeon 8375C: arguments `30 1` … `30 8` (built against xxHash dev 6cc7b4b, XXH3 core functionally identical to 0.8.3) gave 10, 12, 11, 10, 11, 4, 12, 16 = 86 / 2^33; arguments `30 9` … `30 16` (this embedded 0.8.3 header) gave 10, 11, 9, 11, 8, 8, 12, 10 = 79 / 2^33; pooled 165 / 2^34 = 2^-26.634. Counts are deterministic per (log2 N, RNG seed): rerunning `30 1` must print exactly 10.
+
+The logs are in ../../records/fairness-pass/xxh3-128/runs/ and ../../records/fairness-pass/xxh3-128-verify/. The larger sample replaces the selected estimate; the original five-event run remains supporting evidence.

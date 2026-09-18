@@ -20,7 +20,7 @@ multiplication code uses the `unsigned __int128` extension.
 
 Complete C transcription of `wyhash_ref` from `../../harness/hashes.h`, with explicit little-endian loads and the default public four-word secret. Configuration: final v4.3, `WYHASH_CONDOM=1`, 64-by-64-bit multiplication.
 
-Startup recomputes SMHasher3 `wyhash` verification **0x9DAE7DD3**, read from the local `/Users/ahle/repos/smhasher3-mr-seeddiff/hashes/wyhash.cpp`. That registration is labelled v4.2; the supplied final-v4.3 implementation reproduces its value. Output encoding is little-endian. It also checks `"message digest"`, length 14, seed 3, against **0x786d1f1df3801df4**, confirmed by the local harness selftest.
+Startup recomputes SMHasher3 `wyhash` verification **0x9DAE7DD3**, read from the local `source/smhasher3-mr-seeddiff/hashes/wyhash.cpp`. That registration is labelled v4.2; the supplied final-v4.3 implementation reproduces its value. Output encoding is little-endian. It also checks `"message digest"`, length 14, seed 3, against **0x786d1f1df3801df4**, confirmed by the local harness selftest.
 
 The SMHasher3 check hashes byte prefixes of lengths 0..255 with seeds 256..1, concatenates the encoded outputs, hashes that array with seed 0, and reads the first four output bytes little-endian. It therefore exercises short and long input paths. No seed fixup is applied.
 

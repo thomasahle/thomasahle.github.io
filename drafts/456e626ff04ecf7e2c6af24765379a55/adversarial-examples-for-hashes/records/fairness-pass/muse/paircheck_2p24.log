@@ -1,0 +1,57 @@
+v0.3 crate, 17B pair, seed 0x2cb0f69f4abea221: hash(M)=0xd4ed417ecc529ae4 hash(M2)=0xd4ed417ecc529ae4 (published 0xd4ed417ecc529ae4)
+N = 2^24 uniformly random 64-bit seeds (splitmix64 from 0x243F6A8885A308D3); 128-bit two-seed APIs get an independent second seed
+== pair 17B
+  v0.3 hash              collisions 16777216 / 16777216
+  v0.3 bfast::hash       collisions 16777216 / 16777216
+  v0.3 hash_128          collisions 16777216 / 16777216
+  v0.3 bfast::hash_128   collisions 16777216 / 16777216
+  v0.4 hash              collisions 16777216 / 16777216
+  v0.4 bfast::hash       collisions 16777216 / 16777216
+  v0.4 hash_128          collisions 16777216 / 16777216
+  v0.4 bfast::hash_128   collisions 16777216 / 16777216
+  v1 hash                collisions 0 / 16777216
+  v1 bfast::hash         collisions 0 / 16777216
+  v1 hash128             collisions 0 / 16777216
+  v1 bfast::hash128      collisions 0 / 16777216
+  v2 hash                collisions 0 / 16777216
+  v2 bfast::hash         collisions 0 / 16777216
+  v2 hash128             collisions 0 / 16777216
+  v2 bfast::hash128      collisions 0 / 16777216
+== pair 24B
+  v0.3 hash              collisions 16777216 / 16777216
+  v0.3 bfast::hash       collisions 16777216 / 16777216
+  v0.3 hash_128          collisions 16777216 / 16777216
+  v0.3 bfast::hash_128   collisions 16777216 / 16777216
+  v0.4 hash              collisions 16777216 / 16777216
+  v0.4 bfast::hash       collisions 16777216 / 16777216
+  v0.4 hash_128          collisions 16777216 / 16777216
+  v0.4 bfast::hash_128   collisions 16777216 / 16777216
+  v1 hash                collisions 0 / 16777216
+  v1 bfast::hash         collisions 0 / 16777216
+  v1 hash128             collisions 0 / 16777216
+  v1 bfast::hash128      collisions 0 / 16777216
+  v2 hash                collisions 0 / 16777216
+  v2 bfast::hash         collisions 0 / 16777216
+  v2 hash128             collisions 0 / 16777216
+  v2 bfast::hash128      collisions 0 / 16777216
+== pair 32B
+  v0.3 hash              collisions 16777216 / 16777216
+  v0.3 bfast::hash       collisions 16777216 / 16777216
+  v0.3 hash_128          collisions 16777216 / 16777216
+  v0.3 bfast::hash_128   collisions 16777216 / 16777216
+  v0.4 hash              collisions 16777216 / 16777216
+  v0.4 bfast::hash       collisions 16777216 / 16777216
+  v0.4 hash_128          collisions 16777216 / 16777216
+  v0.4 bfast::hash_128   collisions 16777216 / 16777216
+  v1 hash                collisions 0 / 16777216
+  v1 bfast::hash         collisions 0 / 16777216
+  v1 hash128             collisions 0 / 16777216
+  v1 bfast::hash128      collisions 0 / 16777216
+  v2 hash                collisions 0 / 16777216
+  v2 bfast::hash         collisions 0 / 16777216
+  v2 hash128             collisions 0 / 16777216
+  v2 bfast::hash128      collisions 0 / 16777216
+
+real	0m20.269s
+user	0m11.729s
+sys	0m0.001s

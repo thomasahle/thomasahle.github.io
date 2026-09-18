@@ -11,7 +11,7 @@ startup unless it reproduces SMHasher3's verification value (keys of length 0..2
 bytes 0..i-1 and seed 256-i, the 2048-byte concatenation hashed with seed 0, first 4 bytes
 little-endian).
 
-Note: the two published CityHash64 attacks (Aumasson-Bernstein 2012, Peters 2023) target
+Note: the two published CityHash64 attacks (Aumasson, Bernstein and Bosslet 2012; Peters 2024) target
 CityHash **v1.0.3**, the version inside libc++'s `std::hash`; their messages do not collide
 under v1.1.1.  The pairs below are v1.1.1 pairs built on the same observation.
 

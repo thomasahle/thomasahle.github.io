@@ -1,6 +1,6 @@
 # nmhash32: standalone fixed-pair reproduction
 
-NMHASH32 v2 uses a 32-bit seed and returns 32 bits. Verification is 0x12A30553. The last algorithmic change was 2021-06-08; the 2021-06-09 commit changed the version label, and the December 2024 undefined-behaviour fix preserved verification values. The suite timing is the AVX2 implementation; the reproduction is scalar.
+NMHASH32 v2 uses a 32-bit seed and returns 32 bits. Verification is 0x12A30553. The last algorithmic change was commit 8dbdc6f9 (2021-06-08 UTC); commit bb223145 (2021-06-09 UTC) changed only the version label, and the December 2024 undefined-behaviour fix (7712708e, merged e022156c) preserves the verification values 0x12A30553/0xA8580227, re-checked against the header at e022156c in scalar and AVX-512 builds. The post's SMHasher3 timings are the scalar code path on M2 Pro and the AVX-512 code path on Xeon (data.json backend tokens); the reproduction is scalar.
 
 NEW: no prior literature is identified in the supplied checked record. Statistical failures in SMHasher3 and rurban are recorded separately from this fixed same-seed pair.
 
@@ -19,8 +19,7 @@ It reads no external files and writes only stdout/stderr.
 
 ## Implementation and validation
 
-Adapted from `heur2_scratch/verify-nmhash32/own_x28/own_nmhash.h; NMHASH32 trail also independently checked in verify-nmhash32/nm.h` in the supplied workspace, credited in the C
-header. Loads are explicit little-endian and work on either host byte order.
+Own re-implementation written from SMHasher3 hashes/nmhash.cpp. Loads are explicit little-endian and work on either host byte order.
 Algorithm notices are retained. NMHASH's 16-bit products use unsigned
 32-bit intermediates to avoid signed integer-promotion overflow.
 
@@ -32,8 +31,7 @@ The SMHasher3 `_ComputedVerifyImpl` procedure hashes byte prefixes of lengths
 0..255 with seeds 256..1, concatenates their encoded outputs, hashes that
 array with seed 0, and reads the first four output bytes little-endian.
 Thus the check exercises the complete long-input path as well as short inputs.
-No seed fixup is applied. For fasthash32, both upstream 32-bit and SMHasher3
-64-bit seed interfaces are tested; the verification inputs fit either width.
+No seed fixup is applied.
 
 Every recorded witness below is **asserted against its expected output**
 before sampling. A validation mismatch, wrong output, identical built-in
@@ -49,7 +47,7 @@ The changed lane is j = 0. XORing 0x80400000 into both words on lines 13–14 le
 
 The claimant and an independent scalar verifier each enumerated all 2^32 seeds and counted 1,078,944,392 collisions. Thus ε for this fixed pair is exactly 1078944392/2^32 ≈ 0.251211; L = 8 gives score ≤ log2(8·2^32/1078944392) ≈ 4.993. The verifier’s separate sampled run found 269,753,620/1,073,741,823. The package’s smaller sample is reported separately and does not replace that exhaustive count.
 
-* Not verified (claimant only): the proposed exclusion of L ≤ 7, the 8-byte fold histogram, the 24-byte null search (0/2^32; resolution 2^-32), and the 1,251-cell generic scan at 2^26 seeds per cell (resolution about 2^-26). No optimality claim is made.
+* Not verified (search program only): the proposed exclusion of L ≤ 7, the 8-byte fold histogram, the 24-byte null search (0/2^32; resolution 2^-32), and the 1,251-cell generic scan at 2^26 seeds per cell (resolution about 2^-26). No optimality claim is made.
 
 ## Sampling and expected output
 
@@ -88,5 +86,8 @@ The supplied claimant/verifier authors and paper driver are credited by path
 above and in the source header. Algorithm authors and license notices are
 preserved in the C file. Driver additions are Copyright (c) 2026 Thomas
 Dybdahl Ahle, MIT; this does not relicense embedded algorithm code.
-Pengyhash v0.3 carries GPLv3-or-later, NMHASH BSD 2-Clause, mx3 CC0,
-and mir/fasthash/MUM/rapidhash MIT notices, as applicable.
+NMHASH carries a BSD 2-Clause notice.
+
+The search program's scalar transcription, an independent scalar verifier, and the upstream nmhash.h itself (hash-garage e022156ca8, AVX-512 and NMH_SCALAR builds) each enumerated all 2^32 seeds and counted 1,078,944,392 collisions.
+
+The M2 Pro SMHasher3 binary fails NMHASH's built-in verification (0x4B575DFB, expected 0x12A30553; speed-table footnote ‡), so its M2 figures time a mis-built variant and are indicative only; the shipped reproduction and a scalar build of the upstream header both reproduce 0x12A30553, so the pair result is unaffected.

@@ -1,0 +1,16 @@
+# xxh3-128 heuristic-pass rerun, Fri Sep 18 21:20:28 UTC 2026
+upstream dev HEAD 6cc7b4b56f5190f288a58642fd24ba62ec56bb3d (XXH_VERSION 0.8.4-dev), pair F, XXH3_128bits_withSeed, xoshiro256** streams seeds 1..8, 2^30 each
+runs/run_2p30_seed1.txt:collisions = 10 / 1073741824; rate = 9.31322574615e-09; log2(rate) = -26.678072; sampled score = 28.678072
+runs/run_2p30_seed2.txt:collisions = 12 / 1073741824; rate = 1.11758708954e-08; log2(rate) = -26.415037; sampled score = 28.415037
+runs/run_2p30_seed3.txt:collisions = 11 / 1073741824; rate = 1.02445483208e-08; log2(rate) = -26.540568; sampled score = 28.540568
+runs/run_2p30_seed4.txt:collisions = 10 / 1073741824; rate = 9.31322574615e-09; log2(rate) = -26.678072; sampled score = 28.678072
+runs/run_2p30_seed5.txt:collisions = 11 / 1073741824; rate = 1.02445483208e-08; log2(rate) = -26.540568; sampled score = 28.540568
+runs/run_2p30_seed6.txt:collisions = 4 / 1073741824; rate = 3.72529029846e-09; log2(rate) = -28.000000; sampled score = 30.000000
+runs/run_2p30_seed7.txt:collisions = 12 / 1073741824; rate = 1.11758708954e-08; log2(rate) = -26.415037; sampled score = 28.415037
+runs/run_2p30_seed8.txt:collisions = 16 / 1073741824; rate = 1.49011611938e-08; log2(rate) = -26.000000; sampled score = 28.000000
+pooled: 86 / 2^33
+random-w0 Pair-F family screen: 2048 bases x 2^22 -> 75 hits total; refine 74 bases x 2^26 -> 51 hits; confirm top 4 at 2^30:
+base 0 w0=918a0c0c8892e578 lg=30 count=10 first_seed=fef5bcb9a8a8e968
+base 0 w0=e3dc183a3b892ea3 lg=30 count=8 first_seed=d2ef2f6df8c93d7a
+base 0 w0=bf8acdfc99381792 lg=30 count=18 first_seed=9cbb3d5df0d03aa2
+base 0 w0=bb6402f88a1c4658 lg=30 count=6 first_seed=81f932fc11a9b4c4

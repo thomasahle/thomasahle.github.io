@@ -1,6 +1,6 @@
 {
-  "source_sha256": "55967704e9fae179977e2d4d06b3c6fb0a5de3113ab50a9e079ee86de82308e1",
-  "profiles_sha256": "44b09a4356c14cc671e2122cc4949019f80ed3389580257ea17d8a49e1af3323",
+  "source_sha256": "e6e5641b370ecf0a6cfa5810e039379d05bd7dc334e797695a7a44c31b9bd1fa",
+  "profiles_sha256": "b5e74d3a9dd4f2bd5b7bd3841745017152dcc3ac238f9c1053d4afdea7748288",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -13,7 +13,8 @@
       ],
       "sources": [
         "https://github.com/google/cityhash",
-        "sources/cityhash.cpp"
+        "sources/cityhash.cpp",
+        "records/fairness-pass/city/README.md"
       ]
     },
     "farm": {
@@ -27,7 +28,8 @@
       ],
       "sources": [
         "https://github.com/google/farmhash",
-        "sources/farmhash.cpp"
+        "sources/farmhash.cpp",
+        "records/fairness-pass/farm/README.md"
       ]
     },
     "murmur": {
@@ -41,7 +43,8 @@
       ],
       "sources": [
         "https://github.com/aappleby/smhasher",
-        "sources/murmurhash3.cpp"
+        "sources/murmurhash3.cpp",
+        "records/fairness-pass/murmur/README.md"
       ]
     },
     "mx3": {
@@ -55,7 +58,8 @@
       ],
       "sources": [
         "https://github.com/jonmaiga/mx3",
-        "sources/mx3.cpp"
+        "sources/mx3.cpp",
+        "records/fairness-pass/mx3/README.md"
       ]
     },
     "fasthash-64": {
@@ -69,7 +73,9 @@
       ],
       "sources": [
         "https://github.com/ztanml/fast-hash",
-        "sources/fasthash.cpp"
+        "sources/fasthash.cpp",
+        "records/fairness-pass/fasthash-64/README.md",
+        "records/fairness-pass/fasthash-32/README.md"
       ]
     },
     "muse": {
@@ -83,7 +89,8 @@
       ],
       "sources": [
         "https://github.com/eternal-io/museair",
-        "sources/museair.cpp"
+        "sources/museair.cpp",
+        "records/fairness-pass/muse/README.md"
       ]
     },
     "komi": {
@@ -97,7 +104,8 @@
       ],
       "sources": [
         "https://github.com/avaneev/komihash",
-        "sources/komihash.h"
+        "sources/komihash.h",
+        "records/fairness-pass/komi/README.md"
       ]
     },
     "t1ha": {
@@ -111,7 +119,8 @@
       ],
       "sources": [
         "https://github.com/erthink/t1ha",
-        "sources/t1ha.cpp"
+        "sources/t1ha.cpp",
+        "records/fairness-pass/t1ha/README.md"
       ]
     },
     "a5": {
@@ -125,7 +134,9 @@
       ],
       "sources": [
         "https://github.com/avaneev/a5hash",
-        "sources/a5hash.cpp"
+        "sources/a5hash.cpp",
+        "records/fairness-pass/a5/README.md",
+        "records/fairness-pass/a5wide/README.md"
       ]
     },
     "rapid3": {
@@ -139,7 +150,8 @@
       ],
       "sources": [
         "https://github.com/Nicoshev/rapidhash",
-        "sources/rapidhash.cpp"
+        "sources/rapidhash.cpp",
+        "records/fairness-pass/rapid3/README.md"
       ]
     },
     "mum": {
@@ -153,7 +165,8 @@
       ],
       "sources": [
         "https://github.com/vnmakarov/mum-hash",
-        "sources/mum_mir.cpp"
+        "sources/mum_mir.cpp",
+        "records/fairness-pass/mum/README.md"
       ]
     },
     "mir": {
@@ -167,7 +180,8 @@
       ],
       "sources": [
         "https://github.com/vnmakarov/mir/blob/master/mir-hash.h",
-        "sources/mum_mir.cpp"
+        "sources/mum_mir.cpp",
+        "records/fairness-pass/mir/README.md"
       ]
     },
     "xxh3-64": {
@@ -185,7 +199,9 @@
       ],
       "sources": [
         "https://github.com/Cyan4973/xxHash",
-        "sources/xxhash.cpp"
+        "sources/xxhash.cpp",
+        "records/fairness-pass/xxh3-64/README.md",
+        "records/fairness-pass/xxh3-128/README.md"
       ]
     },
     "highway": {
@@ -204,7 +220,8 @@
       "sources": [
         "https://github.com/google/highwayhash",
         "https://arxiv.org/abs/1612.06257",
-        "records/highway-bridge/LEAN_HIGHWAY_STATUS.md"
+        "records/highway-bridge/LEAN_HIGHWAY_STATUS.md",
+        "records/fairness-pass/highway/README.md"
       ]
     },
     "spooky": {
@@ -218,7 +235,8 @@
       ],
       "sources": [
         "https://burtleburtle.net/bob/hash/spooky.html",
-        "sources/spookyhash.cpp"
+        "sources/spookyhash.cpp",
+        "records/fairness-pass/spooky/README.md"
       ]
     },
     "pengyhash": {
@@ -232,7 +250,8 @@
       ],
       "sources": [
         "https://github.com/tinypeng/pengyhash",
-        "sources/pengyhash.cpp"
+        "sources/pengyhash.cpp",
+        "records/fairness-pass/pengyhash/README.md"
       ]
     },
     "nmhash32": {
@@ -246,7 +265,9 @@
       ],
       "sources": [
         "https://github.com/gzm55/hash-garage",
-        "sources/nmhash.cpp"
+        "sources/nmhash.cpp",
+        "records/fairness-pass/nmhash32/README.md",
+        "records/fairness-pass/nmhash32x/README.md"
       ]
     },
     "gx": {
@@ -260,7 +281,8 @@
       ],
       "sources": [
         "https://github.com/ogxd/gxhash",
-        "sources/gxhash.cpp"
+        "sources/gxhash.cpp",
+        "records/fairness-pass/gx/README.md"
       ]
     },
     "ahash": {
@@ -278,7 +300,8 @@
       ],
       "sources": [
         "https://github.com/tkaitchuck/aHash",
-        "https://github.com/tkaitchuck/aHash/blob/master/Cargo.toml"
+        "https://github.com/tkaitchuck/aHash/blob/master/Cargo.toml",
+        "records/fairness-pass/ahash/README.md"
       ]
     },
     "polymur": {
@@ -454,7 +477,9 @@
         "records/foldhash/README.md",
         "records/foldhash/VERIFIED_XTYPE.md",
         "verify/foldhash-fast/README.md",
-        "verify/foldhash-quality/README.md"
+        "verify/foldhash-quality/README.md",
+        "records/fairness-pass/foldhash-fast/README.md",
+        "records/fairness-pass/foldhash-quality/README.md"
       ]
     },
     "siphash-1-3": {
@@ -472,7 +497,9 @@
         "records/speeds.json",
         "records/siphash/MEMO.md",
         "records/siphash/LITERATURE.md",
-        "https://github.com/rust-lang/rust/issues/29754"
+        "https://github.com/rust-lang/rust/issues/29754",
+        "records/fairness-pass/siphash-1-3/README.md",
+        "records/fairness-pass/siphash-2-4/README.md"
       ]
     },
     "halftime24": {
@@ -491,7 +518,8 @@
       "sources": [
         "index.html#appendix-halftime24",
         "records/halftime/fourth_review_summary.md",
-        "verify/halftime/verify2/run.cpp"
+        "verify/halftime/verify2/run.cpp",
+        "records/fairness-pass/halftime24/README.md"
       ]
     },
     "halftime24-fixed": {
@@ -610,13 +638,13 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "Uniform 64-bit Hash64WithSeed seed; all-seed result also holds for Hash64WithSeeds.",
+          "key_model": "Uniform 64-bit Hash64WithSeed seed; the all-seed result also holds for Hash64WithSeeds and (run on upstream master) for the farmhashuo/xo/te Hash64WithSeed(s) entry points.",
           "profile": "farm",
           "summary": "The two eight-byte messages become indistinguishable before the seed is used. Adding a secret after that step cannot recover the lost distinction: both messages get the same final hash for every seed.",
           "reader_notes": {
             "evidence": "The algebra shows that this pair collides for every seed. Trying a new seed cannot separate these two messages.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "This pair applies to FarmHash64 NA with either one or two seeds. Other FarmHash implementations use different code and need their own analysis."
+            "scope": "The pair applies to FarmHash64 NA with either one or two seeds. Direct upstream checks also reproduce it through the UO, XO and TE entry points, which use the NA path for these short inputs."
           },
           "output_bits": 64,
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/farmhash.cpp"
@@ -635,7 +663,7 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "Uniform 32-bit API seed; all 2^32 seeds enumerated by the supplied panel.",
+          "key_model": "Uniform 32-bit API seed (SMHasher3 truncates seed_t to uint32_t at hashes/murmurhash3.cpp lines 227-228; the reference API takes uint32_t); all 2^32 seeds enumerated and re-enumerated 2026-09-18 against upstream HEAD.",
           "profile": "murmur",
           "summary": "A carefully chosen change in one part of the message can be cancelled by a later change. Both halves of the 128-bit result then agree for every seed. The wider output does not protect against two messages that reach the same internal state.",
           "reader_notes": {
@@ -685,7 +713,7 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
           "profile": "fasthash-64",
           "summary": "A seven-byte message and an eight-byte message cancel the hash’s attempt to encode their different lengths. They then follow the same computation for every seed. Reducing the output to 32 bits preserves the collision.",
           "reader_notes": {
@@ -710,7 +738,7 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
           "profile": "fasthash-64",
           "summary": "A seven-byte message and an eight-byte message cancel the hash’s attempt to encode their different lengths. They then follow the same computation for every seed. Reducing the output to 32 bits preserves the collision.",
           "reader_notes": {
@@ -723,7 +751,7 @@
         },
         {
           "id": "muse",
-          "name": "MuseAir v0.3",
+          "name": "MuseAir v0.3 (SMHasher3); current v2 untested",
           "label": "MuseAir",
           "kind": "witness",
           "key_free": true,
@@ -732,16 +760,16 @@
           "score": "≤ 1.59",
           "anchor": "appendix-museair",
           "evidence": "every key",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecated earlier versions.",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecated earlier versions. Also holds on upstream v0.4; does not transfer to v1/v2 (0/2^24 each). The current v2 has no scored witness here; testing the old pairs is not a v2 search.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit seed. Pair collides on both full 128-bit variants and both 64-bit variants.",
           "profile": "muse",
-          "summary": "The messages exploit an intermediate calculation that does not depend on the seed. A change in one part of the message cancels a change elsewhere, leaving the same value for the secret-dependent steps. The pair collides for every seed, including in the full 128-bit variants.",
+          "summary": "In the v0.3 implementation measured by SMHasher3, the two messages cancel before the seed can distinguish them. They collide for every seed, including in the 128-bit variants. This score is version-bound: the same pairs also affect v0.4, but produced no collisions in the tested v1 and v2 samples.",
           "reader_notes": {
             "evidence": "The algebra shows that this pair collides for every seed. Trying a new seed cannot separate these two messages.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "The claim covers the studied v0.3 variants only. This is an extension of an earlier reported weakness, credited in the appendix; it is not a claim about current MuseAir releases."
+            "scope": "The row scores v0.3 (SMHasher3); current v2 has no scored witness here. The old pairs gave zero collisions in 2²⁴ seeds on each of the four v1/v2 APIs. That sample is not a security bound for those versions."
           },
           "output_bits": 64,
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp"
@@ -757,7 +785,7 @@
           "score": "≈ 3.14*",
           "anchor": "appendix-komihash",
           "evidence": "about 0.9106 of keys (sampled; 3,910,946,997 events / 2^32 keys)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. This high-probability construction applies to lengths 64..127 bytes only; not an all-length probability.",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. This high-probability construction applies to lengths 64..127 bytes only; not an all-length probability. At 64 bytes (L = 8) no pair can score below 3.00 bits, so this cap is within 0.14 bits of the best possible witness at this length.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit UseSeed.",
@@ -807,7 +835,7 @@
           "score": "≤ 47.81",
           "anchor": "appendix-a5hash-64",
           "evidence": "collides for at least 118 of every 2^45 keys (counted)",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths. v5.25 not vector-checked.",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths.  Re-checked 2026-09-18 against upstream v5.25 (latest; 5.22-5.25 change only macros and comments): SMHasher3 verification 0xADDE79B3 reproduced from the v5.25 header, class re-enumerated over all 64 seed bits (118 x 2^19 seeds), all 61,865,984 collide.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit UseSeed.",
@@ -857,7 +885,7 @@
           "score": "≈ 28.54*",
           "anchor": "appendix-rapidhash-v3",
           "evidence": "about 11 of every 2^30 keys (sampled; 11 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3; protected variants were not measured by this reproduction. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5].",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/fairness-pass/rapid3/. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5]. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
@@ -932,7 +960,7 @@
           "score": "≤ 0",
           "anchor": "appendix-mum",
           "evidence": "every key",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact multiplication, fixed public constants, pre-fix MUM v3. The key-free 8-byte pair collides for both 8-word and 16-word unroll variants. The plotted speed is mum3.exact.unroll3 (8 words), from the two-host benchmark. Its unroll4 timings are not substituted. This does not describe the later collision-prevention default.",
+          "scope": "Exact multiplication, fixed public constants, default macro configuration of mum.h. The key-free 8-byte pair collides for every seed in both the 8-word and 16-word unroll variants and is unaffected by the November 28, 2025 collision-prevention change (commit 52c7d6c), which only guards the paired-word loop for inputs longer than 8×unroll bytes: re-checked against mum.h at 595c091 (2026-06-02) in the default, MUM_V3, MUM_V1 and MUM_V2 builds, 2^20 seeds each. Only the opt-in MUM_QUALITY build, whose remainder-word term is _mum(word + prime, prime), resists this pair; a short rho search on that term gives it its own every-seed 8-byte pair (4f14c5312ab68a6e / 9bff572f76b22816, seed 0 -> 35186508eed8194a). The plotted speed is mum3.exact.unroll3 (8 words), from the two-host benchmark.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
@@ -941,10 +969,10 @@
           "reader_notes": {
             "evidence": "The algebra shows that this pair collides for every seed. Trying a new seed cannot separate these two messages.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "The witness is for the pre-fix v3 implementation retained for this comparison. It should not be attributed to later MUM versions without checking their code."
+            "scope": "The eight-byte pair still collides in the current default build at commit 595c091. The November 2025 fix protects a longer-input loop that this pair never enters. The optional MUM_QUALITY build needs a different pair, documented in the appendix."
           },
           "output_bits": 64,
-          "code_url": "https://github.com/vnmakarov/mum-hash/blob/master/mum.h"
+          "code_url": "https://github.com/vnmakarov/mum-hash/blob/595c091da6872da6a4f0a3852291c83aa37ea7eb/mum.h"
         },
         {
           "id": "mir",
@@ -1003,18 +1031,18 @@
           "kind": "witness",
           "key_free": false,
           "speed": 13.37,
-          "bits": 29.67807190511264,
-          "score": "≈ 29.68*",
+          "bits": 28.634,
+          "score": "≈ 28.63*",
           "anchor": "appendix-xxh3-128",
-          "evidence": "about 5 of every 2^30 keys (sampled; 5 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Pair F sets w1=~w0 before complementing both words, preserving their sum. Both low64 and high64 are compared; this is a full 128-bit collision. Exact Poisson 95% interval for this witness-derived score: [28.5, 31.3]. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+          "evidence": "about 165 of every 2^34 keys (sampled; 165 events)",
+          "scope": "Exact Poisson 95% interval for this witness-derived score: [28.4, 28.9] (165 events in 2^34 seeds, 2026-09-18 rerun). The paper harness's earlier 5/2^30 run gave 29.7 with interval [28.5, 31.3]; the new estimate lies inside that interval, so the 5-event count was a low draw.",
           "source": "records/speeds.json",
           "family": "NH-like accumulators",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
           "profile": "xxh3-64",
-          "summary": "The pair preserves both a multiplication result and a sum used by the hash. Both halves of the 128-bit output then collide for some seeds. The rate is estimated from only five observed collisions, so the plotted cap should be read as a sample-based estimate.",
+          "summary": "The pair preserves both a multiplication result and a sum used by the hash, causing both output halves to collide for some seeds. A larger sample of 165 collisions in 2³⁴ seeds gives a measured score cap of 28.6 bits, with a 95% interval of 28.4–28.9 bits.",
           "reader_notes": {
-            "evidence": "The recorded experiment found five collisions in 2³⁰ sampled seeds, involving the full 128-bit result.",
+            "evidence": "Sixteen deterministic runs found 165 full-output collisions in 2³⁴ seeds. The earlier five-event sample is retained in the appendix; its wider uncertainty interval contains the new estimate.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
             "scope": "The experiment keeps XXH3’s standard public constants fixed and varies its seed. It does not describe the separate interface that accepts a custom random secret."
           },
@@ -1031,7 +1059,7 @@
           "bits": 59.8075787461754,
           "score": "≤ 59.81",
           "anchor": "appendix-highwayhash",
-          "evidence": "collides for at least 56,165 of every 2^72 keys (counted class contribution)",
+          "evidence": "collides for at least 56,165 of every 2^72 keys (counted class contribution); best certified cap on record 59.28 (72 B, supplement)",
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Conservative 96-byte headline witness. Exact sufficient-event contribution, not exact total collision probability. All 64/128/256 output widths inherit it. Original second-family capped sample confirmed pair but not exact numerator.",
           "source": "records/speeds.json",
           "family": "keyed-state lane products",
@@ -1082,10 +1110,10 @@
           "score": "≤ 2",
           "anchor": "appendix-pengyhash",
           "evidence": "every key",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. The task’s original v0.2 label and rurban’s v0.2 results concern an older 32-bit-seed implementation. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. rurban's SMHasher tests the older v0.2 (32-bit seed, verification 0x1FC2217B), not the v0.3 attacked here. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.",
           "source": "records/speeds.json",
           "family": "ARX lanes",
-          "key_model": "64 (`uint64_t pengyhash(const void *p, size_t size, uint64_t seed);` pengyhash.h line 7; 32 in v0.1/v0.2). The seed enters only in the 6-round finalization (`s[1] += f[1] + seed` each round, with the 0..31-byte zero-padded tail f -- corrected from '<=32'); the 32-byte bulk loop is seed-free, so the 256-bit state after it is a public function of the message and its length (s0 = size). SMHasher3: 64.",
+          "key_model": "64 (`uint64_t pengyhash(const void *p, size_t size, uint64_t seed);` pengyhash.h line 7; 32 in v0.1/v0.2). The seed enters only in the 6-round finalization (`s[1] += f[1] + seed` each round, with the 0..31-byte zero-padded tail f); the 32-byte bulk loop is seed-free, so the 256-bit state after it is a public function of the message and its length (s0 = size). SMHasher3: 64.",
           "profile": "pengyhash",
           "summary": "Its main loop processes full message blocks without using the seed. Two chosen messages finish that loop in the same state, so the later seeded steps cannot tell them apart. The collision survives every choice of seed.",
           "reader_notes": {
@@ -1107,7 +1135,7 @@
           "score": "≤ 5",
           "anchor": "appendix-nmhash32",
           "evidence": "collides for 1,078,944,392 of every 2^32 keys (exhaustively counted)",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. NMHASH32 v2 uses a 32-bit seed and returns 32 bits. Verification is 0x12A30553. The last algorithmic change was 2021-06-08; the 2021-06-09 commit changed the version label, and the December 2024 undefined-behaviour fix preserved verification values. The new timings use scalar code on M2 Pro and AVX-512 on Xeon; the reproduction is scalar.",
+          "scope": "The last algorithmic change was commit 8dbdc6f9 (2021-06-08 UTC); commit bb223145 (2021-06-09 UTC) changed only the version label, and the December 2024 undefined-behaviour fix (7712708e, merged e022156c) preserves the verification values 0x12A30553/0xA8580227, re-checked against the header at e022156c in scalar and AVX-512 builds.",
           "source": "records/speeds.json",
           "family": "narrow 16-bit multiplies",
           "key_model": "32 (`uint32_t seed`, nmhash.h line 593; author on issue #2: 'output size is fixed to 32bit. seed is also 32bit.'; SMHasher3 FLAG_HASH_SMALL_SEED). The seed enters only as sl = seed+len (9..255 B: four lanes y_j = sl ^ word; 0..8 B: seed+const added to the data and rotl(seed,5) XORed mid-mixer). For a uniform 32-bit seed, fixed-pair probabilities are integer multiples of 2^-32; nonzero probabilities are at least 2^-32, not at most that value.",
@@ -1178,20 +1206,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 1.12,
-          "bits": 22.454208096559523,
-          "score": "≈ 22.45*",
+          "bits": 22.5222,
+          "score": "≈ 22.52*",
           "anchor": "appendix-ahash",
-          "evidence": "about 2^-19.7 of keys (sampled; 2,616 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Score uses verifier pool 2616/2^31 in heur_panel synthesis. Original 1227/2^30 and second family 75/2^26 are compatible sampling estimates. Approximate 95% sampling half-width: ±0.06 bits.",
+          "evidence": "about 2^-19.7 of keys (sampled; 19,964 events, native Rust)",
+          "scope": "at most 22.52 bits (cap; sampled); 95% ≈ ±0.02 bits. A native Rust run (crate v0.8.12 and master a9d649d, x86-64 with target-feature aes) reproduces the explicit key and measures 19964/2^34 = 2^-19.71; the C reproduction and SMHasher3 consistency agree. Transfer to another key type or write sequence remains conditional on the mapping and AES backend.",
           "source": "records/speeds.json",
           "family": "keyed AES rounds",
-          "key_model": "Four independent uniform internal RandomState words in the validated C reproduction of the specified aHash 0.8.12 AES path; native Rust transfer is conditional on the operation and constructor mapping.",
+          "key_model": "Four independent uniform internal RandomState words (RandomState::with_seeds(a,b,c,d) with uniform arguments, which XOR with PI2 bijectively). Confirmed natively against the ahash crate v0.8.12 and master a9d649d, and by the validated C reproduction.",
           "profile": "ahash",
-          "summary": "A chosen difference can cancel through the AES-based mixing and the subsequent combination of partial results. The measured cap comes from a C reproduction checked against the specified operations. Applying the rate to a native Rust program also requires its key constructor and operations to match that experiment.",
+          "summary": "A chosen difference can cancel through the AES mixing and the subsequent combination of partial results. Native Rust runs against version 0.8.12 and master confirm the pair and a measured score cap of 22.52 bits.",
           "reader_notes": {
-            "evidence": "The recorded experiment observed 2,616 collisions. The probability, and therefore the score cap, is estimated from the sample.",
-            "key": "The experiment chooses four internal 64-bit key words independently and uniformly. A native Rust constructor may generate those words differently.",
-            "scope": "The finding concerns the specified AES path and key setup, not aHash’s fallback implementation. The appendix records what was checked against native Rust and what remains conditional."
+            "evidence": "Two independent native Rust programs found 19,964 and 19,884 collisions in approximately 2³⁴ keys each. The earlier C and C++ estimates remain supporting measurements.",
+            "key": "Four RandomState arguments are chosen independently and uniformly. Their fixed XOR with the public constants maps them bijectively to four independent internal key words.",
+            "scope": "This covers the AES path and hashing byte slices through the stated constructor. Another key distribution, data type or sequence of write calls needs a separate check."
           },
           "output_bits": 64,
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rust-ahash.cpp"
@@ -1592,13 +1620,13 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "Uniform 64-bit Hash64WithSeed seed; all-seed result also holds for Hash64WithSeeds.",
+          "key_model": "Uniform 64-bit Hash64WithSeed seed; the all-seed result also holds for Hash64WithSeeds and (run on upstream master) for the farmhashuo/xo/te Hash64WithSeed(s) entry points.",
           "profile": "farm",
           "summary": "The two eight-byte messages become indistinguishable before the seed is used. Adding a secret after that step cannot recover the lost distinction: both messages get the same final hash for every seed.",
           "reader_notes": {
             "evidence": "The algebra shows that this pair collides for every seed. Trying a new seed cannot separate these two messages.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "This pair applies to FarmHash64 NA with either one or two seeds. Other FarmHash implementations use different code and need their own analysis."
+            "scope": "The pair applies to FarmHash64 NA with either one or two seeds. Direct upstream checks also reproduce it through the UO, XO and TE entry points, which use the NA path for these short inputs."
           },
           "output_bits": 64,
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/farmhash.cpp"
@@ -1617,7 +1645,7 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "Uniform 32-bit API seed; all 2^32 seeds enumerated by the supplied panel.",
+          "key_model": "Uniform 32-bit API seed (SMHasher3 truncates seed_t to uint32_t at hashes/murmurhash3.cpp lines 227-228; the reference API takes uint32_t); all 2^32 seeds enumerated and re-enumerated 2026-09-18 against upstream HEAD.",
           "profile": "murmur",
           "summary": "A carefully chosen change in one part of the message can be cancelled by a later change. Both halves of the 128-bit result then agree for every seed. The wider output does not protect against two messages that reach the same internal state.",
           "reader_notes": {
@@ -1667,7 +1695,7 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
           "profile": "fasthash-64",
           "summary": "A seven-byte message and an eight-byte message cancel the hash’s attempt to encode their different lengths. They then follow the same computation for every seed. Reducing the output to 32 bits preserves the collision.",
           "reader_notes": {
@@ -1692,7 +1720,7 @@
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The unversioned fast-hash code is pinned to upstream commit 08a25db2 (2018-10-22). SMHasher3 verification is 0xA16231A7 at 64 bits and 0xE9481AFC at 32 bits. Its wrappers pass a 64-bit seed to both widths; upstream fasthash32 takes a 32-bit seed. The every-seed identity covers both models, which the reproduction program measures separately.",
           "source": "records/speeds.json",
           "family": "constant-multiplier lanes",
-          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41 -- corrected from 40), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
+          "key_model": "64 for fasthash64 (`uint64_t fasthash64(const void *buf, size_t len, uint64_t seed);` fasthash.h line 50); upstream fasthash32 takes `uint32_t seed` (fasthash.h line 42), so nonzero fixed-pair probabilities are at least 2^-32 under a uniform native seed; SMHasher3 passes a 64-bit seed_t to both widths. The seed enters once, `uint64_t h = seed ^ (len * m);` (fasthash.c line 41), before any message word; each 8-byte word (and the zero-padded tail) passes through the public bijection mix() (xorshift 23, *0x2127599bf4325c37, xorshift 47) and then h = (h ^ mix(v)) * m with odd m = 0x880355f21e6d1965; output mix(h).",
           "profile": "fasthash-64",
           "summary": "A seven-byte message and an eight-byte message cancel the hash’s attempt to encode their different lengths. They then follow the same computation for every seed. Reducing the output to 32 bits preserves the collision.",
           "reader_notes": {
@@ -1705,7 +1733,7 @@
         },
         {
           "id": "muse",
-          "name": "MuseAir v0.3",
+          "name": "MuseAir v0.3 (SMHasher3); current v2 untested",
           "label": "MuseAir",
           "kind": "witness",
           "key_free": true,
@@ -1714,16 +1742,16 @@
           "score": "≤ 1.59",
           "anchor": "appendix-museair",
           "evidence": "every key",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecated earlier versions.",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecated earlier versions. Also holds on upstream v0.4; does not transfer to v1/v2 (0/2^24 each). The current v2 has no scored witness here; testing the old pairs is not a v2 search.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit seed. Pair collides on both full 128-bit variants and both 64-bit variants.",
           "profile": "muse",
-          "summary": "The messages exploit an intermediate calculation that does not depend on the seed. A change in one part of the message cancels a change elsewhere, leaving the same value for the secret-dependent steps. The pair collides for every seed, including in the full 128-bit variants.",
+          "summary": "In the v0.3 implementation measured by SMHasher3, the two messages cancel before the seed can distinguish them. They collide for every seed, including in the 128-bit variants. This score is version-bound: the same pairs also affect v0.4, but produced no collisions in the tested v1 and v2 samples.",
           "reader_notes": {
             "evidence": "The algebra shows that this pair collides for every seed. Trying a new seed cannot separate these two messages.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "The claim covers the studied v0.3 variants only. This is an extension of an earlier reported weakness, credited in the appendix; it is not a claim about current MuseAir releases."
+            "scope": "The row scores v0.3 (SMHasher3); current v2 has no scored witness here. The old pairs gave zero collisions in 2²⁴ seeds on each of the four v1/v2 APIs. That sample is not a security bound for those versions."
           },
           "output_bits": 64,
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp"
@@ -1739,7 +1767,7 @@
           "score": "≈ 3.14*",
           "anchor": "appendix-komihash",
           "evidence": "about 0.9106 of keys (sampled; 3,910,946,997 events / 2^32 keys)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. This high-probability construction applies to lengths 64..127 bytes only; not an all-length probability.",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. This high-probability construction applies to lengths 64..127 bytes only; not an all-length probability. At 64 bytes (L = 8) no pair can score below 3.00 bits, so this cap is within 0.14 bits of the best possible witness at this length.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit UseSeed.",
@@ -1789,7 +1817,7 @@
           "score": "≤ 47.81",
           "anchor": "appendix-a5hash-64",
           "evidence": "collides for at least 118 of every 2^45 keys (counted)",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths. v5.25 not vector-checked.",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths.  Re-checked 2026-09-18 against upstream v5.25 (latest; 5.22-5.25 change only macros and comments): SMHasher3 verification 0xADDE79B3 reproduced from the v5.25 header, class re-enumerated over all 64 seed bits (118 x 2^19 seeds), all 61,865,984 collide.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit UseSeed.",
@@ -1839,7 +1867,7 @@
           "score": "≈ 28.54*",
           "anchor": "appendix-rapidhash-v3",
           "evidence": "about 11 of every 2^30 keys (sampled; 11 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3; protected variants were not measured by this reproduction. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5].",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/fairness-pass/rapid3/. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5]. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
@@ -1914,7 +1942,7 @@
           "score": "≤ 0",
           "anchor": "appendix-mum",
           "evidence": "every key",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact multiplication, fixed public constants, pre-fix MUM v3. The key-free 8-byte pair collides for both 8-word and 16-word unroll variants. The plotted speed is mum3.exact.unroll3 (8 words), from the two-host benchmark. Its unroll4 timings are not substituted. This does not describe the later collision-prevention default.",
+          "scope": "Exact multiplication, fixed public constants, default macro configuration of mum.h. The key-free 8-byte pair collides for every seed in both the 8-word and 16-word unroll variants and is unaffected by the November 28, 2025 collision-prevention change (commit 52c7d6c), which only guards the paired-word loop for inputs longer than 8×unroll bytes: re-checked against mum.h at 595c091 (2026-06-02) in the default, MUM_V3, MUM_V1 and MUM_V2 builds, 2^20 seeds each. Only the opt-in MUM_QUALITY build, whose remainder-word term is _mum(word + prime, prime), resists this pair; a short rho search on that term gives it its own every-seed 8-byte pair (4f14c5312ab68a6e / 9bff572f76b22816, seed 0 -> 35186508eed8194a). The plotted speed is mum3.exact.unroll3 (8 words), from the two-host benchmark.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
@@ -1923,10 +1951,10 @@
           "reader_notes": {
             "evidence": "The algebra shows that this pair collides for every seed. Trying a new seed cannot separate these two messages.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "The witness is for the pre-fix v3 implementation retained for this comparison. It should not be attributed to later MUM versions without checking their code."
+            "scope": "The eight-byte pair still collides in the current default build at commit 595c091. The November 2025 fix protects a longer-input loop that this pair never enters. The optional MUM_QUALITY build needs a different pair, documented in the appendix."
           },
           "output_bits": 64,
-          "code_url": "https://github.com/vnmakarov/mum-hash/blob/master/mum.h"
+          "code_url": "https://github.com/vnmakarov/mum-hash/blob/595c091da6872da6a4f0a3852291c83aa37ea7eb/mum.h"
         },
         {
           "id": "mir",
@@ -1985,18 +2013,18 @@
           "kind": "witness",
           "key_free": false,
           "speed": 19.82,
-          "bits": 29.67807190511264,
-          "score": "≈ 29.68*",
+          "bits": 28.634,
+          "score": "≈ 28.63*",
           "anchor": "appendix-xxh3-128",
-          "evidence": "about 5 of every 2^30 keys (sampled; 5 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Pair F sets w1=~w0 before complementing both words, preserving their sum. Both low64 and high64 are compared; this is a full 128-bit collision. Exact Poisson 95% interval for this witness-derived score: [28.5, 31.3]. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+          "evidence": "about 165 of every 2^34 keys (sampled; 165 events)",
+          "scope": "Exact Poisson 95% interval for this witness-derived score: [28.4, 28.9] (165 events in 2^34 seeds, 2026-09-18 rerun). The paper harness's earlier 5/2^30 run gave 29.7 with interval [28.5, 31.3]; the new estimate lies inside that interval, so the 5-event count was a low draw.",
           "source": "records/speeds.json",
           "family": "NH-like accumulators",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
           "profile": "xxh3-64",
-          "summary": "The pair preserves both a multiplication result and a sum used by the hash. Both halves of the 128-bit output then collide for some seeds. The rate is estimated from only five observed collisions, so the plotted cap should be read as a sample-based estimate.",
+          "summary": "The pair preserves both a multiplication result and a sum used by the hash, causing both output halves to collide for some seeds. A larger sample of 165 collisions in 2³⁴ seeds gives a measured score cap of 28.6 bits, with a 95% interval of 28.4–28.9 bits.",
           "reader_notes": {
-            "evidence": "The recorded experiment found five collisions in 2³⁰ sampled seeds, involving the full 128-bit result.",
+            "evidence": "Sixteen deterministic runs found 165 full-output collisions in 2³⁴ seeds. The earlier five-event sample is retained in the appendix; its wider uncertainty interval contains the new estimate.",
             "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
             "scope": "The experiment keeps XXH3’s standard public constants fixed and varies its seed. It does not describe the separate interface that accepts a custom random secret."
           },
@@ -2013,7 +2041,7 @@
           "bits": 59.8075787461754,
           "score": "≤ 59.81",
           "anchor": "appendix-highwayhash",
-          "evidence": "collides for at least 56,165 of every 2^72 keys (counted class contribution)",
+          "evidence": "collides for at least 56,165 of every 2^72 keys (counted class contribution); best certified cap on record 59.28 (72 B, supplement)",
           "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. Conservative 96-byte headline witness. Exact sufficient-event contribution, not exact total collision probability. All 64/128/256 output widths inherit it. Original second-family capped sample confirmed pair but not exact numerator.",
           "source": "records/speeds.json",
           "family": "keyed-state lane products",
@@ -2064,10 +2092,10 @@
           "score": "≤ 2",
           "anchor": "appendix-pengyhash",
           "evidence": "every key",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. The task’s original v0.2 label and rurban’s v0.2 results concern an older 32-bit-seed implementation. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.",
+          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. rurban's SMHasher tests the older v0.2 (32-bit seed, verification 0x1FC2217B), not the v0.3 attacked here. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.",
           "source": "records/speeds.json",
           "family": "ARX lanes",
-          "key_model": "64 (`uint64_t pengyhash(const void *p, size_t size, uint64_t seed);` pengyhash.h line 7; 32 in v0.1/v0.2). The seed enters only in the 6-round finalization (`s[1] += f[1] + seed` each round, with the 0..31-byte zero-padded tail f -- corrected from '<=32'); the 32-byte bulk loop is seed-free, so the 256-bit state after it is a public function of the message and its length (s0 = size). SMHasher3: 64.",
+          "key_model": "64 (`uint64_t pengyhash(const void *p, size_t size, uint64_t seed);` pengyhash.h line 7; 32 in v0.1/v0.2). The seed enters only in the 6-round finalization (`s[1] += f[1] + seed` each round, with the 0..31-byte zero-padded tail f); the 32-byte bulk loop is seed-free, so the 256-bit state after it is a public function of the message and its length (s0 = size). SMHasher3: 64.",
           "profile": "pengyhash",
           "summary": "Its main loop processes full message blocks without using the seed. Two chosen messages finish that loop in the same state, so the later seeded steps cannot tell them apart. The collision survives every choice of seed.",
           "reader_notes": {
@@ -2089,7 +2117,7 @@
           "score": "≤ 5",
           "anchor": "appendix-nmhash32",
           "evidence": "collides for 1,078,944,392 of every 2^32 keys (exhaustively counted)",
-          "scope": "Exact sufficient contribution; other pairs or collision events may lower the score. NMHASH32 v2 uses a 32-bit seed and returns 32 bits. Verification is 0x12A30553. The last algorithmic change was 2021-06-08; the 2021-06-09 commit changed the version label, and the December 2024 undefined-behaviour fix preserved verification values. The new timings use scalar code on M2 Pro and AVX-512 on Xeon; the reproduction is scalar.",
+          "scope": "The last algorithmic change was commit 8dbdc6f9 (2021-06-08 UTC); commit bb223145 (2021-06-09 UTC) changed only the version label, and the December 2024 undefined-behaviour fix (7712708e, merged e022156c) preserves the verification values 0x12A30553/0xA8580227, re-checked against the header at e022156c in scalar and AVX-512 builds.",
           "source": "records/speeds.json",
           "family": "narrow 16-bit multiplies",
           "key_model": "32 (`uint32_t seed`, nmhash.h line 593; author on issue #2: 'output size is fixed to 32bit. seed is also 32bit.'; SMHasher3 FLAG_HASH_SMALL_SEED). The seed enters only as sl = seed+len (9..255 B: four lanes y_j = sl ^ word; 0..8 B: seed+const added to the data and rotl(seed,5) XORed mid-mixer). For a uniform 32-bit seed, fixed-pair probabilities are integer multiples of 2^-32; nonzero probabilities are at least 2^-32, not at most that value.",
@@ -2160,20 +2188,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 0.81,
-          "bits": 22.454208096559523,
-          "score": "≈ 22.45*",
+          "bits": 22.5222,
+          "score": "≈ 22.52*",
           "anchor": "appendix-ahash",
-          "evidence": "about 2^-19.7 of keys (sampled; 2,616 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Score uses verifier pool 2616/2^31 in heur_panel synthesis. Original 1227/2^30 and second family 75/2^26 are compatible sampling estimates. Approximate 95% sampling half-width: ±0.06 bits.",
+          "evidence": "about 2^-19.7 of keys (sampled; 19,964 events, native Rust)",
+          "scope": "at most 22.52 bits (cap; sampled); 95% ≈ ±0.02 bits. A native Rust run (crate v0.8.12 and master a9d649d, x86-64 with target-feature aes) reproduces the explicit key and measures 19964/2^34 = 2^-19.71; the C reproduction and SMHasher3 consistency agree. Transfer to another key type or write sequence remains conditional on the mapping and AES backend.",
           "source": "records/speeds.json",
           "family": "keyed AES rounds",
-          "key_model": "Four independent uniform internal RandomState words in the validated C reproduction of the specified aHash 0.8.12 AES path; native Rust transfer is conditional on the operation and constructor mapping.",
+          "key_model": "Four independent uniform internal RandomState words (RandomState::with_seeds(a,b,c,d) with uniform arguments, which XOR with PI2 bijectively). Confirmed natively against the ahash crate v0.8.12 and master a9d649d, and by the validated C reproduction.",
           "profile": "ahash",
-          "summary": "A chosen difference can cancel through the AES-based mixing and the subsequent combination of partial results. The measured cap comes from a C reproduction checked against the specified operations. Applying the rate to a native Rust program also requires its key constructor and operations to match that experiment.",
+          "summary": "A chosen difference can cancel through the AES mixing and the subsequent combination of partial results. Native Rust runs against version 0.8.12 and master confirm the pair and a measured score cap of 22.52 bits.",
           "reader_notes": {
-            "evidence": "The recorded experiment observed 2,616 collisions. The probability, and therefore the score cap, is estimated from the sample.",
-            "key": "The experiment chooses four internal 64-bit key words independently and uniformly. A native Rust constructor may generate those words differently.",
-            "scope": "The finding concerns the specified AES path and key setup, not aHash’s fallback implementation. The appendix records what was checked against native Rust and what remains conditional."
+            "evidence": "Two independent native Rust programs found 19,964 and 19,884 collisions in approximately 2³⁴ keys each. The earlier C and C++ estimates remain supporting measurements.",
+            "key": "Four RandomState arguments are chosen independently and uniformly. Their fixed XOR with the public constants maps them bijectively to four independent internal key words.",
+            "scope": "This covers the AES path and hashing byte slices through the stated constructor. Another key distribution, data type or sequence of write calls needs a separate check."
           },
           "output_bits": 64,
           "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rust-ahash.cpp"

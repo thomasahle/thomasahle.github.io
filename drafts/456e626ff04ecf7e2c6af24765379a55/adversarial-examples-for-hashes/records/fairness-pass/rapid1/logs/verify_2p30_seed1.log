@@ -1,0 +1,8 @@
+harness message digest, seed 3: 0031cdc21324150f expected 0031cdc21324150f PASS
+
+paper pair A / rapidhash v1.0
+M (32 B) = 9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c
+M' (32 B) = 642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c
+recorded colliding seed 3788f2419a81e2d6: H(M)=8f7a71ffebd4a14b H(M')=8f7a71ffebd4a14b
+collisions = 10 / 1073741824; rate = 9.31322574615e-09; log2(rate) = -26.678072; sampled score = 28.678072
+first sampled colliding seed ac2092371d0afa40: H(M)=07f4c5226351f146 H(M')=07f4c5226351f146

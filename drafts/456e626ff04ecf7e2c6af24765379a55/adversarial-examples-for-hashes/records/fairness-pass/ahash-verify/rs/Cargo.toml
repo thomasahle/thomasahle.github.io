@@ -1,0 +1,8 @@
+[package]
+name = "ahv"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+ahash = { path = "AHASH_PATH", default-features = false }
+[profile.release]
+opt-level = 3

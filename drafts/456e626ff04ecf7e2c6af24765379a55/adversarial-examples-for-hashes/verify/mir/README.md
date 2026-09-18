@@ -19,10 +19,8 @@ It reads no external files and writes only stdout/stderr.
 
 ## Implementation and validation
 
-Adapted from `heur2_scratch/verify-mir/fable_71582/fmir.h and fderive.py; 16-byte case from verify-mir/README.md` in the supplied workspace, credited in the C
-header. Loads are explicit little-endian and work on either host byte order.
-Algorithm notices are retained. NMHASH's 16-bit products use unsigned
-32-bit intermediates to avoid signed integer-promotion overflow.
+Own re-implementation written from SMHasher3 hashes/mum_mir.cpp. Loads are explicit little-endian and work on either host byte order.
+Algorithm notices are retained.
 
 | variant | output bits | sampled seed bits | SMHasher3 verification | output encoding for verification |
 |---|---:|---:|---|---|
@@ -33,8 +31,7 @@ The SMHasher3 `_ComputedVerifyImpl` procedure hashes byte prefixes of lengths
 0..255 with seeds 256..1, concatenates their encoded outputs, hashes that
 array with seed 0, and reads the first four output bytes little-endian.
 Thus the check exercises the complete long-input path as well as short inputs.
-No seed fixup is applied. For fasthash32, both upstream 32-bit and SMHasher3
-64-bit seed interfaces are tested; the verification inputs fit either width.
+No seed fixup is applied.
 
 Every recorded witness below is **asserted against its expected output**
 before sampling. A validation mismatch, wrong output, identical built-in
@@ -114,5 +111,4 @@ The supplied claimant/verifier authors and paper driver are credited by path
 above and in the source header. Algorithm authors and license notices are
 preserved in the C file. Driver additions are Copyright (c) 2026 Thomas
 Dybdahl Ahle, MIT; this does not relicense embedded algorithm code.
-Pengyhash v0.3 carries GPLv3-or-later, NMHASH BSD 2-Clause, mx3 CC0,
-and mir/fasthash/MUM/rapidhash MIT notices, as applicable.
+The embedded MUM/mir code carries the MIT notice reproduced in the source header.

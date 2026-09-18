@@ -1,0 +1,11 @@
+XXH_VERSION_NUMBER=804 k0=be4ba423396cfeb8 k1=1cad21f72c81017c
+M  = b8fe6c3923a44bbe83fe7ed308de52e300000000000000000000000000000000
+M2 = 470193c6dc5bb4417c01812cf721ad1c00000000000000000000000000000000
+seed 0: H(M)=ab88e1e38f85bdca H(M2)=ab88e1e38f85bdca
+sampling trials=4194304 salt=0x2026091805000477
+witness seed=5e8f473cf1e054c4 len32 H=b370913e6f835f2b len128 H=bb2fd3bc9681e3be
+witness seed=fee8caf3081c5c3f len32 H=3d7861fd79c32f5a len128 H=0739c1a9110828fc
+witness seed=c78300a69c7bced4 len32 H=bbe7d974c179e2a0 len128 H=1a3e70d707774a29
+summary len=32 L=4 collisions=106/4194304 log2eps=-15.2721 score=log2(4N/c)=17.2721
+summary len=128 L=16 collisions=106/4194304 log2eps=-15.2721 score=19.2721
+event_mismatch_32_128=0 PASS

@@ -1,6 +1,6 @@
 # nmhash32x: standalone fixed-pair reproduction
 
-NMHASH32X v2 is a separate function from NMHASH32, with 32×32 short-key multiplication, a 32-bit seed, 32-bit output and verification 0xA8580227. It has its own row and witness. Its statistical failures and AVX2 timing must not be merged with NMHASH32’s.
+NMHASH32X v2 is a separate function from NMHASH32, with 32×32 short-key multiplication, a 32-bit seed, 32-bit output and verification 0xA8580227. It has its own row and witness. Its statistical failures and host-specific timings (scalar on M2 Pro, AVX-512 on Xeon) must not be merged with NMHASH32's.
 
 NEW: the supplied checked record identifies no prior literature for this deterministic short-path trail.
 
@@ -19,8 +19,7 @@ It reads no external files and writes only stdout/stderr.
 
 ## Implementation and validation
 
-Adapted from `heur2_scratch/verify-nmhash32/own_x28/own_nmhash.h; NMHASH32 trail also independently checked in verify-nmhash32/nm.h` in the supplied workspace, credited in the C
-header. Loads are explicit little-endian and work on either host byte order.
+Own re-implementation written from SMHasher3 hashes/nmhash.cpp. Loads are explicit little-endian and work on either host byte order.
 Algorithm notices are retained. NMHASH's 16-bit products use unsigned
 32-bit intermediates to avoid signed integer-promotion overflow.
 
@@ -32,8 +31,7 @@ The SMHasher3 `_ComputedVerifyImpl` procedure hashes byte prefixes of lengths
 0..255 with seeds 256..1, concatenates their encoded outputs, hashes that
 array with seed 0, and reads the first four output bytes little-endian.
 Thus the check exercises the complete long-input path as well as short inputs.
-No seed fixup is applied. For fasthash32, both upstream 32-bit and SMHasher3
-64-bit seed interfaces are tested; the verification inputs fit either width.
+No seed fixup is applied.
 
 Every recorded witness below is **asserted against its expected output**
 before sampling. A validation mismatch, wrong output, identical built-in
@@ -88,5 +86,6 @@ The supplied claimant/verifier authors and paper driver are credited by path
 above and in the source header. Algorithm authors and license notices are
 preserved in the C file. Driver additions are Copyright (c) 2026 Thomas
 Dybdahl Ahle, MIT; this does not relicense embedded algorithm code.
-Pengyhash v0.3 carries GPLv3-or-later, NMHASH BSD 2-Clause, mx3 CC0,
-and mir/fasthash/MUM/rapidhash MIT notices, as applicable.
+NMHASH carries a BSD 2-Clause notice.
+
+Re-run 2026-09-19 on Xeon 8375C against upstream hash-garage nmhash.h at e022156 (independent driver, SSE2 and AVX-512 builds): all 2^32 seeds collide for the 28-, 32- and 33-byte pairs; the shipped program reproduced run_2p20.txt byte-for-byte and 1073741824/1073741824 at 2^30.

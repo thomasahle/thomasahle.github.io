@@ -1,0 +1,11 @@
+NMH_VERSION=2 verification(SMHasher3 procedure)=A8580227 expected A8580227
+pair len=28: 00000000->dc5952ce/dc5952ce 00000001->b4e64737/b4e64737 deadbeef->e79bc644/e79bc644 ffffffff->a0a1d8b2/a0a1d8b2 c78b9a30->73b04a67/73b04a67
+len=28: collisions=4294967296 / 4294967296
+pair len=32: 00000000->1eaf5c83/1eaf5c83 00000001->e3aeaa6a/e3aeaa6a deadbeef->b475247e/b475247e ffffffff->f9813f48/f9813f48 c78b9a30->bebbda6b/bebbda6b
+len=32: collisions=4294967296 / 4294967296
+pair len=33: 00000000->7b32df7d/7b32df7d 00000001->65e2aa10/65e2aa10 deadbeef->430d0ea1/430d0ea1 ffffffff->05b0b29c/05b0b29c c78b9a30->edce8eec/edce8eec
+len=33: collisions=4294967296 / 4294967296
+
+real	2m23.541s
+user	3m50.180s
+sys	0m0.055s

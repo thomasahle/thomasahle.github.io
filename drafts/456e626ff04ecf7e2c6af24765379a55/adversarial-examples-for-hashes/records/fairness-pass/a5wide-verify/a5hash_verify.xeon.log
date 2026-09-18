@@ -1,0 +1,46 @@
+a5hash v5.21 (SMHasher3 hashes/a5hash.cpp; https://github.com/avaneev/a5hash) -- seed-collision pairs
+validation: a5hash      SMHasher3 verification 0xADDE79B3 (expected 0xADDE79B3) OK
+            a5hash_128  SMHasher3 verification 0x89406B11 (expected 0x89406B11) OK
+
+== pair 1: a5hash (64-bit), len 23 -- weak-seed class, dead first block ==
+mechanism: seeds with s1_0(seed) == W0 = 0xf01bbe7047b3e000 make the first block's operand W0 ^ s1_0 == 0,
+  so the 128-bit block product is 0 and the state becomes (val01, val10) whatever W1 (bytes 8..15) is:
+  the pair differs only in byte 8.  The class was enumerated exhaustively over all 2^64 seeds.
+m  = 70be1bf000e0b34700000000000000000000000000000000
+m2 = 70be1bf000e0b34701000000000000000000000000000000
+(record lists 24 bytes; the hashed length is 23, the trailing 0x00 is not read)
+uniform seeds: N = 2^24, collisions = 0/16777216, none observed in 2^24 trials; no population bound
+seed class s1_0(seed) == 0xf01bbe7047b3e000: 156800 seeds (2-adic lift; 24-bit brute-force cross-check 384 == 384 OK)
+conditional rate: 156800/156800 = 1.000000 colliding class members
+class density:    156800/2^64 = 2^-46.74
+=> collision probability over uniform seeds >= 2^-46.74 (this class alone); L = 3 words -> bits = log2(L/eps) = 48.3
+   (2^24 uniform seeds expect 1.4e-07 collisions from this class, so 0 above is consistent)
+explicit seed 0x016c190d78e85d64: h(m) = d6dfd54ea0f0a3a4  h(m2) = d6dfd54ea0f0a3a4  COLLIDE  (s1_0 = 0xf01bbe7047b3e000, class member)
+
+== pair 2: a5hash (64-bit), len 8 -- weak-seed class, dead tail multiply (both hashes are 0) ==
+mechanism: seeds with s1_0(seed) == A = 0x1248299ed31fa942 (or A^1) zero the tail operand s1 ^ A, so
+  umul128(s1, s2) = (0, 0) and the output is 0 whatever the other word B is; the flipped byte 4 gives
+  s1 = 1 for the other message, whose product then has hi == 0 and also hashes to 0.
+m  = 9e29481242a91fd3
+m2 = 9e29481243a91fd3
+uniform seeds: N = 2^24, collisions = 0/16777216, none observed in 2^24 trials; no population bound
+seed class s1_0(seed) == 0x1248299ed31fa942: 7290 seeds (2-adic lift; 24-bit brute-force cross-check 50 == 50 OK)
+seed class s1_0(seed) == 0x1248299ed31fa943: 1 seeds (2-adic lift; 24-bit brute-force cross-check 1 == 1 OK)
+conditional rate: 7291/7291 = 1.000000 colliding class members
+class density:    7291/2^64 = 2^-51.17
+=> collision probability over uniform seeds >= 2^-51.17 (this class alone); L = 1 words -> bits = log2(L/eps) = 51.2
+   (2^24 uniform seeds expect 6.6e-09 collisions from this class, so 0 above is consistent)
+explicit seed 0x7b9e6e3ec8b1997d: h(m) = 0000000000000000  h(m2) = 0000000000000000  COLLIDE  (s1_0 = 0x1248299ed31fa942, class member)
+
+== pair 3: a5hash_128 (full 128-bit output), len 25 -- key-free, public-constant product ==
+mechanism: on the 17..32-byte path the last 16 bytes (c, d) enter only through umul128(c + K3, d + K4) with the
+  PUBLIC constants K3 = 0xA4093822299F31D0, K4 = 0xC0AC29B7C97C50DD (Seed3/Seed4 are never seeded).
+  The pair sets (c+K3, d+K4) = (1, 1+2^24) vs (1+2^24, 1): equal 128-bit products for every seed.
+m  = 000000000000000000ddc7f65b31ce60d648d6533f24af8337
+m2 = 000000000000000000ddc7f65b31ce60d748d6533f24af8336
+uniform seeds: N = 2^24, collisions = 16777216/16777216, rate = 1 (2^0.00)
+seed class: unconditional (every seed collides); L = 4 words -> bits = log2(L/1) = 2.0
+explicit seed 0xdeadbeefcafef00d: h(m) = 30fb5b4e29fc72cbd0077c500047f77e  h(m2) = 30fb5b4e29fc72cbd0077c500047f77e  COLLIDE
+first random colliding seed 0xae59c8595aa56d69
+(the 64-bit a5hash of the same pair under this seed differs: a65a86661b034da8 vs 5c9f43df87ecb269)
+

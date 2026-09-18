@@ -1,0 +1,13 @@
+upstream city.cc: SMHasher3 verification value = 0x5FABC5C5 (SMHasher3 expects 0x5FABC5C5)
+pair A (8 B): unseeded 794ce2bbd3dc7242 794ce2bbd3dc7242 EQUAL
+  seed 0000000000000000: 3d6746761adc8d10 3d6746761adc8d10 COLLIDE
+  seed 0000000000000001: 39336cd0fd4135fe 39336cd0fd4135fe COLLIDE
+  seed 6637c1ce6357a2c8: d4d44b0c5f8bae0a d4d44b0c5f8bae0a COLLIDE
+  random 64-bit seeds: N=16777216 collisions=16777216; random (seed0,seed1) WithSeeds: N=16777216 collisions=16777216
+pair B (32 B): unseeded 0000000000001337 0000000000001337 EQUAL
+  seed 0000000000000000: ea7a79d69644ac08 ea7a79d69644ac08 COLLIDE
+  seed 0000000000000001: 710cffbf21377195 710cffbf21377195 COLLIDE
+  seed cbd18ebcd1f9b00d: 9f176442ecd010a8 9f176442ecd010a8 COLLIDE
+  random 64-bit seeds: N=16777216 collisions=16777216; random (seed0,seed1) WithSeeds: N=16777216 collisions=16777216
+control (last bit flipped): N=16777216 collisions=0
+result: ALL CHECKS PASSED

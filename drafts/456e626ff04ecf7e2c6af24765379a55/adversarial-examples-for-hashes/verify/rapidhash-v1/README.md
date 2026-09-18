@@ -20,7 +20,7 @@ multiplication code uses the `unsigned __int128` extension.
 
 Complete C transcription of `rapidhash_ref` from `../../harness/hashes.h`, with explicit little-endian loads, the default public three-word secret, and the v1.0 fast multiplication path.
 
-Startup checks `"message digest"`, length 14, seed 3, against **0x0031cdc21324150f**. This literal was obtained by running the pre-existing `/Users/ahle/repos/fast-polynomials/tools/bench/adversarial/selftest` and inspecting its `selftest.cpp` source. The recorded pair output below is also asserted. The local SMHasher3 `rapidhash` registration is v3, so its verification constant is not used for v1.
+Startup checks `"message digest"`, length 14, seed 3, against **0x0031cdc21324150f**. This literal was obtained by running the pre-existing `source/fast-polynomials/tools/bench/adversarial/selftest` and inspecting its `selftest.cpp` source. The recorded pair output below is also asserted. The local SMHasher3 `rapidhash` registration is v3, so its verification constant is not used for v1.
 
 Before sampling, each recorded colliding seed is hashed on both messages and checked
 against its literal expected output. A mismatch exits nonzero. These witnesses are

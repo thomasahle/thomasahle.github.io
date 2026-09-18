@@ -112,3 +112,7 @@ confirms that the implementation is the real gxhash.
   upstream MIT copyright lines, Frank J. T. Wojcik (2025) and Olivier Giniaux (2023).
 - `README.md` — this file.
 - `run_*.txt` — the runs quoted above, exactly as the program printed them.
+
+## Upstream Rust check
+
+`rust_check_head.rs` and `rust_check_head.txt` record the upstream crate check at 55bde47 (3.5.0). Create a Cargo binary with `gxhash = "=3.5.0"`, use the supplied Rust file as src/main.rs, and build with `RUSTFLAGS="-C target-feature=+aes,+sse2"` on x86. The Xeon AES-NI and portable reruns are recorded in `run_2e26_xeon_aesni.txt` and `run_2e24_xeon_portable.txt`; their trailing timing blocks are retained.

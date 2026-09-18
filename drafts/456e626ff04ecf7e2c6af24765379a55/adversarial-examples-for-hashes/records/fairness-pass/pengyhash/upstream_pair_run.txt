@@ -1,0 +1,28 @@
+== gcc -O2 ==
+upstream verification = 861A1254 (SMHasher3 sequenced expects 861A1254)
+seed 3a34ce6380fc0bc5: pair1 90f2edac34d9a4d5 90f2edac34d9a4d5  pair2 cd93fc86a39c2c20 cd93fc86a39c2c20
+seed 0000000000000000: pair1 76a337c4b9d61cf9 76a337c4b9d61cf9  pair2 937af7f4b9c00694 937af7f4b9c00694
+seed 0000000000000001: pair1 938d2f6beab2457f 938d2f6beab2457f  pair2 88c04971182dae4e 88c04971182dae4e
+seed ffffffffffffffff: pair1 9936086fe57a4f5c 9936086fe57a4f5c  pair2 0e6a18b144e4ac30 0e6a18b144e4ac30
+random seeds: pair1 16777216/16777216  pair2 16777216/16777216
+== gcc -O0 ==
+upstream verification = 861A1254 (SMHasher3 sequenced expects 861A1254)
+seed 3a34ce6380fc0bc5: pair1 90f2edac34d9a4d5 90f2edac34d9a4d5  pair2 cd93fc86a39c2c20 cd93fc86a39c2c20
+seed 0000000000000000: pair1 76a337c4b9d61cf9 76a337c4b9d61cf9  pair2 937af7f4b9c00694 937af7f4b9c00694
+seed 0000000000000001: pair1 938d2f6beab2457f 938d2f6beab2457f  pair2 88c04971182dae4e 88c04971182dae4e
+seed ffffffffffffffff: pair1 9936086fe57a4f5c 9936086fe57a4f5c  pair2 0e6a18b144e4ac30 0e6a18b144e4ac30
+random seeds: pair1 16777216/16777216  pair2 16777216/16777216
+== clang -O2 ==
+upstream verification = 861A1254 (SMHasher3 sequenced expects 861A1254)
+seed 3a34ce6380fc0bc5: pair1 90f2edac34d9a4d5 90f2edac34d9a4d5  pair2 cd93fc86a39c2c20 cd93fc86a39c2c20
+seed 0000000000000000: pair1 76a337c4b9d61cf9 76a337c4b9d61cf9  pair2 937af7f4b9c00694 937af7f4b9c00694
+seed 0000000000000001: pair1 938d2f6beab2457f 938d2f6beab2457f  pair2 88c04971182dae4e 88c04971182dae4e
+seed ffffffffffffffff: pair1 9936086fe57a4f5c 9936086fe57a4f5c  pair2 0e6a18b144e4ac30 0e6a18b144e4ac30
+random seeds: pair1 16777216/16777216  pair2 16777216/16777216
+== clang -O0 ==
+upstream verification = 861A1254 (SMHasher3 sequenced expects 861A1254)
+seed 3a34ce6380fc0bc5: pair1 90f2edac34d9a4d5 90f2edac34d9a4d5  pair2 cd93fc86a39c2c20 cd93fc86a39c2c20
+seed 0000000000000000: pair1 76a337c4b9d61cf9 76a337c4b9d61cf9  pair2 937af7f4b9c00694 937af7f4b9c00694
+seed 0000000000000001: pair1 938d2f6beab2457f 938d2f6beab2457f  pair2 88c04971182dae4e 88c04971182dae4e
+seed ffffffffffffffff: pair1 9936086fe57a4f5c 9936086fe57a4f5c  pair2 0e6a18b144e4ac30 0e6a18b144e4ac30
+random seeds: pair1 16777216/16777216  pair2 16777216/16777216

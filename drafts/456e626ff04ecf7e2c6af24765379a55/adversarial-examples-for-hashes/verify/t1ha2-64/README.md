@@ -6,9 +6,7 @@ t1ha2 ("Fast Positive Hash", generation 2) by Leonid Yuriev / Positive Technolog
 zlib license.  This is the one-shot 64-bit function `t1ha2_atonce(data, len, seed)`
 with a 64-bit seed, i.e. the variant SMHasher3 registers as `t1ha2_64`
 (`hashes/t1ha.cpp`, template `t1ha2<MODE_LE_NATIVE,false>`, `verification_LE = 0x8F16C948`).
-SMHasher3 carries a frozen copy of upstream t1ha v2.1
-(<https://web.archive.org/web/20211209095620/https://github.com/erthink/t1ha>;
-the live repository is <https://github.com/PositiveTechnologies/t1ha>).
+SMHasher3 carries a C++ port of upstream t1ha whose t1ha2 core is identical to tag v2.1.4 and to the newest upstream commit 00eb779 (2025-02-15); the port also includes upstream's 2022 ARM unaligned-load fix (4ba81b7). The GitHub repositories erthink/t1ha (archived mirror) and PositiveTechnologies/t1ha (frozen 2021-03-02) are stale; the primary repository is https://gitflic.ru/project/erthink/t1ha.
 
 `t1ha2_64_verify.c` re-implements the hash from that source.  The only copied material is
 the upstream self-check: the 81-entry known-answer table `t1ha_refval_2atonce`, the 64-byte

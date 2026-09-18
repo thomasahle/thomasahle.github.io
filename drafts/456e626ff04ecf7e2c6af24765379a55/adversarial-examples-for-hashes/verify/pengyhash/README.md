@@ -1,6 +1,6 @@
 # pengyhash: standalone fixed-pair reproduction
 
-The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. The task’s original v0.2 label and rurban’s v0.2 results concern an older 32-bit-seed implementation. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.
+The attacked function is SMHasher3’s sequenced pengyhash v0.3, verification 0x861A1254, with a 64-bit seed. rurban's SMHasher tests the older v0.2 (32-bit seed, verification 0x1FC2217B), not the v0.3 attacked here. Upstream v0.3 has a reported unsequenced modification; this result is pinned to the sequenced SMHasher3 form. v0.3 uses GPLv3; earlier versions used BSD 2-Clause.
 
 NEW: the supplied checked record identifies no prior literature for this pair or seed-free bulk collision. The SeedBlockLen failures in SMHasher3 are related-seed collisions, not the same-seed event scored here.
 
@@ -19,10 +19,8 @@ It reads no external files and writes only stdout/stderr.
 
 ## Implementation and validation
 
-Adapted from `heur2_scratch/verify-pengyhash/pengy_own.h and its verifier` in the supplied workspace, credited in the C
-header. Loads are explicit little-endian and work on either host byte order.
-Algorithm notices are retained. NMHASH's 16-bit products use unsigned
-32-bit intermediates to avoid signed integer-promotion overflow.
+Own re-implementation written from SMHasher3 hashes/pengyhash.cpp. Loads are explicit little-endian and work on either host byte order.
+Algorithm notices are retained.
 
 | variant | output bits | sampled seed bits | SMHasher3 verification | output encoding for verification |
 |---|---:|---:|---|---|
@@ -32,8 +30,7 @@ The SMHasher3 `_ComputedVerifyImpl` procedure hashes byte prefixes of lengths
 0..255 with seeds 256..1, concatenates their encoded outputs, hashes that
 array with seed 0, and reads the first four output bytes little-endian.
 Thus the check exercises the complete long-input path as well as short inputs.
-No seed fixup is applied. For fasthash32, both upstream 32-bit and SMHasher3
-64-bit seed interfaces are tested; the verification inputs fit either width.
+No seed fixup is applied.
 
 Every recorded witness below is **asserted against its expected output**
 before sampling. A validation mismatch, wrong output, identical built-in
@@ -50,7 +47,7 @@ Lines 3–7 compress each block before the seed enters on line 10. For the selec
 
 The independent verifier measured 1,073,741,824/1,073,741,824 collisions. State equality proves ε = 1, so L = 4 gives score ≤ 2. The separately verified 32-byte-versus-one-byte pair has the same cap; the package includes it too.
 
-* Not verified (claimant only): the generic scan of 2,000 cells × 2^26 seeds (zero hits, resolution about 2^-26 per cell), the heuristic for lengths below 32 bytes, and the other solver targets. They do not affect the score.
+* Not independently re-run: the generic scan of 2,000 cells × 2^26 seeds (zero hits, resolution about 2^-26 per cell), the heuristic for lengths below 32 bytes, and the other solver targets. They do not affect the score.
 
 ## Sampling and expected output
 
@@ -96,5 +93,6 @@ The supplied claimant/verifier authors and paper driver are credited by path
 above and in the source header. Algorithm authors and license notices are
 preserved in the C file. Driver additions are Copyright (c) 2026 Thomas
 Dybdahl Ahle, MIT; this does not relicense embedded algorithm code.
-Pengyhash v0.3 carries GPLv3-or-later, NMHASH BSD 2-Clause, mx3 CC0,
-and mir/fasthash/MUM/rapidhash MIT notices, as applicable.
+Upstream pengyhash v0.3 is GPLv3; the SMHasher3 port this re-implementation follows is marked GPLv3-or-later.
+
+Pair 1's every-seed status rests on the same structural bulk-loop argument plus the sampled assertion; the 32-byte message reaches bulk state (1,0,0,0) with an empty tail, matching the one-byte 00 pair. The 2,000-cell scan, sub-32-byte argument and other solver targets were not independently re-run and do not affect the score.

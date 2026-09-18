@@ -1,0 +1,11 @@
+[package]
+name = "paircheck"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+m03 = { package = "museair", path = "../wt-v0.3", default-features = false }
+m04 = { package = "museair", path = "../wt-v0.4", default-features = false }
+m1  = { package = "museair", path = "../wt-v1", default-features = false }
+m2  = { package = "museair", path = "../wt-crate-0.6.0", default-features = false }
+[profile.release]
+opt-level = 3

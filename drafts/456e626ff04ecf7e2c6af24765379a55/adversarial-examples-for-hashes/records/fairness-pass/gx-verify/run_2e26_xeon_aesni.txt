@@ -1,0 +1,46 @@
+gxhash / gxhash_64 key-free collision check  (impl = x86-aesni)
+hash: ogxd/gxhash (v3 algorithm, commit 55bde47) as ported in SMHasher3 hashes/gxhash.cpp
+validation: SMHasher3 verification gxhash_64 = 0x48F84240 (expect 0x48F84240) OK, gxhash = 0x64A77B47 (expect 0x64A77B47) OK
+validation: x86-aesni round vs portable table round, and inverse round: 0 mismatches / 4096
+validation: pair 1 at seed 0x0123456789abcdef: gxhash_64 = 69ccb8a053812a7b / 69ccb8a053812a7b (published 69ccb8a053812a7b) OK
+
+Pair 1: 24-byte same-length pair (L = 3 words), key-free
+   mechanism: 17..32 bytes: C(m) = SR(SB(hv)) ^ P2(v0) with hv = get_partial(m[0:8]) and v0 = m[8:24];
+   P2 = two public AES rounds (keys K0, K1) is invertible, so flip byte 0 of hv and set
+   v0' = P2^-1( P2(v0) ^ SR(SB(hv)) ^ SR(SB(hv')) ).  The seed only enters after C.
+  m  (24 bytes) = 000000000000000000000000000000000000000000000000
+  m' (24 bytes) = 0100000000000000a803d3a0b6cb85eb1120e4f3a270c9a6
+  re-deriving m' from m (constant time, no search): matches the published hex
+  compress_all(m) = 953a6ffc8610b87f7f40c81e7dea7eaf
+  compress_all(m')= 953a6ffc8610b87f7f40c81e7dea7eaf  -> EQUAL (the seed is applied after this point, so every seed collides)
+  random seeds: N = 67108864 (2^26)
+    gxhash_64 : collisions = 67108864, rate = 1.000000, log2 rate = 0.000
+    gxhash 128: collisions = 67108864, rate = 1.000000, log2 rate = 0.000
+  first random colliding seed 0xf1f5fbabc606b373: gxhash_64(m) = 2104e5d47c6801a1  gxhash_64(m') = 2104e5d47c6801a1
+  published example seed 0xd73a9a3d941e7ec7:
+    gxhash_64(m)  = 4c6ff29ce0549cdd   gxhash(m)  = dd9c54e09cf26f4c390150562e7344f4
+    gxhash_64(m') = 4c6ff29ce0549cdd   gxhash(m') = dd9c54e09cf26f4c390150562e7344f4
+    -> COLLIDE (64 and 128 bit); published gxhash_64 value 4c6ff29ce0549cdd reproduced
+
+Pair 2: 15-byte vs 16-byte cross-length pair (L = 2 words), key-free
+   mechanism: len <= 16: C(m) = zero-pad(m) + len, added to every byte mod 256, so
+   0^15 -> 0x0f^16 and 0xff^16 -> 0x0f^16: every message shorter than 16 bytes has a 16-byte twin.
+  m  (15 bytes) = 000000000000000000000000000000
+  m' (16 bytes) = ffffffffffffffffffffffffffffffff
+  re-deriving m' from m (constant time, no search): matches the published hex
+  compress_all(m) = 0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f
+  compress_all(m')= 0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f  -> EQUAL (the seed is applied after this point, so every seed collides)
+  random seeds: N = 67108864 (2^26)
+    gxhash_64 : collisions = 67108864, rate = 1.000000, log2 rate = 0.000
+    gxhash 128: collisions = 67108864, rate = 1.000000, log2 rate = 0.000
+  first random colliding seed 0x4e445d749c31f5ef: gxhash_64(m) = ea61d2e193b31dae  gxhash_64(m') = ea61d2e193b31dae
+  published example seed 0xf556ecbfcbfee3ad:
+    gxhash_64(m)  = 43ec3783791d0fb8   gxhash(m)  = b80f1d798337ec43c5cdc136b3c57d0d
+    gxhash_64(m') = 43ec3783791d0fb8   gxhash(m') = b80f1d798337ec43c5cdc136b3c57d0d
+    -> COLLIDE (64 and 128 bit); published gxhash_64 value 43ec3783791d0fb8 reproduced
+
+ALL CHECKS PASSED: both pairs collide for every sampled seed on both outputs.
+
+real	0m30.330s
+user	0m14.402s
+sys	0m0.003s

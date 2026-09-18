@@ -1,0 +1,22 @@
+rust-ahash: aHash 0.8.12 as tested by SMHasher3 (hashes/rust-ahash.cpp); AES backend: AES-NI
+  rust_ahash     SMHasher3 verification 0x3BF4383B (registered 0x3BF4383B) OK
+  rust_ahash_fb  SMHasher3 verification 0x53C9F167 (registered 0x53C9F167) OK
+N = 2^29 random secrets per model, rng seed 13
+
+== pair A: rust_ahash (AES path), 56-byte messages
+  m1 = 40313233343536373839253b3c3d3e3f408142094445464748494a4b4c4d4e4f8d896d065c5d5e5f606162636465666768696a6b6c6d6e6f
+  m2 = 3e313233343536373839403b3c3d3e3f405e42204445464748494a4b4c4d4e4f727290085c5d5e5f606162636465666768696a6b6c6d6e6f
+  xor= 7e00000000000000000065000000000000df0029000000000000000000000000fffbfd0e0000000000000000000000000000000000000000
+  mechanism: 3-S-box differential trail through hash_in: the byte differences in block 1 (bytes 0,10)
+  are chosen so that InvShiftRows puts them in one column and InvMixColumns of the inverse-S-box
+  outputs (DDT 4/256 each) leaves one byte, which block 2 cancels except for one byte (DDT 2/256)
+  that block 3 cancels; the sum lane cancels additively through the shuffle.  Predicted
+  4/256 * 4/256 * 2/256 * (carry factor ~2^-0.7) = 2^-19.7; unconditional over the keys.
+  explicit colliding secret: k0..k3 = 711096b41e1b7d99 59af3b7ae3b7d595 d2fb75eb5658a771 5a0f91d8ed1ffe38
+    H(m1) = 45ef7682d72b19b6  H(m2) = 45ef7682d72b19b6  COLLIDE
+  model rs4 (four uniform keys k0..k3)      : collisions/N = 645/2^29 = 2^-19.67
+    154.5 s;  first colliding secret: k0..k3 = d81f532c04fc39ff 44235a6f1d01ee07 eae38196bdcb470f f0edbdfb2d5b1efd
+    H(m1) = H(m2) = c83437ca31dbf1e8
+  model smh (one uniform seed, k_j = PI2[j]^seed): collisions/N = 639/2^29 = 2^-19.68
+    131.8 s;  first colliding secret: seed = 13daf8d9bde9134c, k0..k3 = 56f2d93f8539003b ad8e9e1689001f20 d376d16e74954391 2c5e2d6c08ae1a5b
+    H(m1) = H(m2) = a204228990c20ad2

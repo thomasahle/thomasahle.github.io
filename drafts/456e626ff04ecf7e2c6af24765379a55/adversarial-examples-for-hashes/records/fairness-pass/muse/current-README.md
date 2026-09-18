@@ -1,0 +1,214 @@
+# <img src="MuseAir-icon-light.png" style="height:1em" /> MuseAir Hash
+
+MuseAir is the top-performing portable hashing algorithm to date.
+
+- **Improved quality** -
+  Not vulnerable to blinding multiplication attacks that hinder public use (which affect [wyhash] and [rapidhash]);
+  passed all [SMHasher3] tests, the de facto non-crypto hash quality standard;
+  ideal for checksums such as in communication protocols and persistent file formats.
+
+- **Blazing fast** - The fastest portable hashing algorithm not affected by such attacks.
+
+- **Various widths** - Providing 64-bit and 128-bit hash outputs with essentially the same overhead.
+
+- **Portable** - Has no dependency on hardware-specific instructions, produces stable hash output on all platforms, and runs optimally on most 64-bit architectures.
+
+MuseAir is **not designed for cryptographic security** and must not be used for security-critical purposes, such as protecting against malicious tampering. For such cases, consider using KangarooTwelve (K12), BLAKE3, or Ascon.
+
+The only stable and functional release of the algorithm is **v2**.
+
+
+## Variants
+
+MuseAir provides two variants, *Standard* and *BFast*.
+If unspecified, the default is the *Standard* variant.
+
+- The *Standard* variant is completely immune to blinding multiplication and related attacks.
+
+- The *BFast* variant is faster than *Standard*, matching the speed of wyhash and rapidhash.
+  While those are susceptible to blinding multiplication, MuseAir-BFast is significantly less so.
+
+    <details><summary><i>Details</i></summary>
+
+    In summary, when the seed/secret is public, constructing a blinding multiplication against MuseAir-BFast
+    for long inputs requires a different sequence per prefix and only corrupts the most recent 8 bytes,
+    whereas for wyhash and rapidhash (without `protected` mode), a fixed sequence works for any prefix
+    and corrupts a moderate portion of past bytes.
+    See the [algorithm analysis](#algorithm-analysis) below for details.
+
+    Thus, in most cases where MuseAir-Standard is acceptable, MuseAir-BFast can be used to improve performance
+    without noticeable quality degradation.
+
+    Note, however, that for the 64-bit version of MuseAir-BFast, with a fixed seed and inputs of 9-16 bytes,
+    there always exists a fixed 8-byte prefix such that the content of bytes 9-16 does not affect the hash output.
+    Consider using the 128-bit version of MuseAir-BFast and ADD-folding the result down to obtain a 64-bit hash output
+    while avoiding this issue.
+
+    </details>
+
+Each variant provides two functions:
+
+```rs
+/// 64-bit version, accepts a 64-bit seed.
+fn hash(bytes: &[u8], seed: u64) -> u64;
+
+/// 128-bit version, accepts two 64-bit seeds.
+fn hash128(bytes: &[u8], seed_a: u64, seed_b: u64) -> u128;
+```
+
+and two additional derived functions that fold 64-bit and 128-bit outputs using XOR and ADD, respectively:
+
+```rs
+/// 64-bit version, XOR-folded down to 32-bit.
+fn hash_folded(bytes: &[u8], seed: u64) -> u32;
+
+/// 128-bit version, ADD-folded down to 64-bit.
+fn hash128_folded(bytes: &[u8], seed_a: u64, seed_b: u64) -> u64;
+```
+
+## Benchmarks
+
+Benchmarks conducted on AMD Ryzen 7 5700G desktop, with frequency locked at 4.0 GHz.
+
+<p align="center">
+<img width="100%" src="results/bench-bulkdata.png" alt="Throughput for bulk data" /></p>
+
+<p align="center">
+<img width="90%" src="results/bench-smallkeys.png" alt="Latency for small keys" /></p>
+
+
+## Choose an appropriate hash
+
+To keep a simple interface, MuseAir relies solely on an initial seed, without any additional secret; this makes it unsuitable for direct use on servers—it is more susceptible than other hashes in such environments.
+
+Therefore, if you only need in-memory hashing, without needing a stable hash output:
+- If you are using Rust, [foldhash] and [ahash] are the best choices.
+- If you are using C/C++, wyhash and rapidhash remain good choices.
+
+
+## Ports
+
+This repository provides the official Rust implementation, available on [crates.io](https://crates.io/crates/museair) or straight to [docs.rs](https://docs.rs/museair/latest/museair/).
+
+If you have ported MuseAir to another language and would like to link to your repository here, please open an issue and include the information and link.
+
+<details><summary><i>Implementation notes</i></summary>
+
+- Please note the endianness; all inputs are read in little-endian.
+- Use [verification codes](https://gitlab.com/fwojcik/smhasher3/-/blob/6ab4343396fbe0f7a1c7ac4f01d0eb9acffe4202/misc/hashverify.c) to ensure that the same hashes are implemented; this avoids the need for lengthy test vectors:
+    ```c
+    0x7140CABC, // MuseAir
+    0x0B8F0243, // MuseAir.folded
+    0x38028C88, // MuseAir-128
+    0xB9CD57B7, // MuseAir-128.folded
+    0xA4BFD093, // MuseAir-BFast
+    0xDCCDD53A, // MuseAir-BFast.folded
+    0x81863E77, // MuseAir-BFast-128
+    0x9BAAAF63, // MuseAir-BFast-128.folded
+    ```
+- For the *BFast* variant, loop unrolling helps achieve the peak throughput; as for the *Standard* variant, this appears unnecessary.
+
+</details>
+
+
+## Algorithm analysis
+
+MuseAir's core step relies on *wide multiplication* (64-bit × 64-bit → 128-bit).
+
+From a computational perspective, multiplication can be decomposed into shifts and additions, giving it inherent diffusion properties.
+On most modern processors, multiplication is a single-instruction operation. Compared to manually combining multiple bitwise operations, wide multiplication offers significant advantages in performance and implementation complexity.
+Thus, many recent non-crypto hashing algorithms (e.g., [wyhash], [rapidhash], [komihash]) rely on this primitive.
+
+The core steps of wyhash and rapidhash look like this, in a loop, large inputs are split into lanes:
+
+```rs
+lane0 = fold_mul(lane0 ^ Input[0], Input[1] ^ SECRET[0]);
+lane1 = fold_mul(lane1 ^ Input[2], Input[3] ^ SECRET[1]);
+lane2 = fold_mul(lane2 ^ Input[4], Input[5] ^ SECRET[2]);
+// ...more lanes possible...
+```
+
+Here, `fold_mul` is a *folding multiplication*: it performs a 128-bit wide multiplication and returns the XOR of its lower and upper 64-bit halves. `SECRET` is a set of magic constants to add entropy to the state.
+
+At first glance, this seems fine. Wide multiplication ensures full diffusion within each lane, and splitting inputs into lanes enables instruction-level parallelism (ILP). Right?
+
+If only it were that simple. We must consider all scenarios, especially those related to multiplication's fundamental properties.
+In the example above, what if `input[1] ^ SECRET[0] == 0`? Boom! A puff of magic smoke later, `lane0` becomes zero. All information in that lane is lost, and prior inputs in the lane won't affect the final result!
+This is known as *blinding multiplication*. Adding more lanes doesn't help, as all lanes are susceptible.
+
+> *We shouldn't forget that "zero times anything equals zero!"*
+
+From this perspective, if `SECRET`s must be public, even CRCs (Cyclic Redundancy Check) offer better security properties (though they are all non-cryptographic).
+If you're designing a persistent file format or communication protocol and want a fast checksum, you wouldn't want to use wyhash or rapidhash&mdash;they're *too easy* to break for such uses!
+
+To address these problems, MuseAir introduces the circular accumulator structure:
+
+```rs
+state[0] ^= input[0];
+state[1] ^= input[1];
+(lo0, hi0) = wide_mul(state[0], state[1]);
+state[0] = lo5 ^ hi0;
+
+state[1] ^= input[2];
+state[2] ^= input[3];
+(lo1, hi1) = wide_mul(state[1], state[2]);
+state[1] = lo0 ^ hi1;
+
+// ...3 more sections...
+
+state[5] ^= input[10];
+state[0] ^= input[11];
+(lo5, hi5) = wide_mul(state[5], state[0]);
+state[5] = lo4 ^ hi5;
+```
+
+This is the accumulator array for the *BFast* variant. Here, `wide_mul` performs a wide multiplication and returns a tuple containing the lower and upper 64-bit results, respectively.
+
+1. Inputs are **not split into multiple independent lanes**, leading to superior diffusion: Every bit of input eventually influences all accumulators. Unlike wyhash or rapidhash, where an input bit can only affect a moderate portion of the accumulators.
+
+2. Inputs are **not directly mixed with constants or seeds**, which significantly heightens the difficulty of intentionally crafting a blinding multiplication: Even if the seed and constants are public, an attacker must track how all previous inputs have acted upon the accumulator array. Unlike wyhash or rapidhash, which are fragile under such scrutiny.
+
+    In short, constructing a blinding multiplication here for long inputs requires a different sequence per prefix;
+    whereas for wyhash and rapidhash (without `protected` mode), a fixed sequence works for any prefix.
+
+Because earlier inputs have already permeated the accumulator array, even if a blinding multiplication occurs,
+in most cases, it only corrupts the **most recent 8 bytes** (does not affect the hash output).
+Unlike wyhash or rapidhash, blinding multiplications can easily corrupt **a moderate portion** of past bytes!
+
+3. This structure interleaves the wide multiplication result. Thus, for general inputs, the probability of a blinding multiplication leading to an accumulator zero out is only $2^{-122}$, far lower than the $2^{-63}$ found in wyhash and rapidhash. Moreover, the impact of blinding multiplication is localized because earlier inputs have already permeated the accumulator array.
+
+4. This structure is designed to be highly conducive to instruction-level parallelism (ILP). Throughput should reach the theoretical limits of modern processors (pure scalar, performing 1 MUL and 3 XORs per 16 bytes), while maintaining quality above the baseline.
+
+Finally, the *Standard* variant simply replaces all assignments (`=`) in the accumulator array with sub assignments (`-=`),
+completely immunizing the algorithm against blinding multiplication at minimal performance cost.
+(Actually, the order in which the multiplication results are used is also swapped, but this does not affect the conclusion.)
+
+### Bad seed avoidance
+
+- For long inputs, the masked mixing:
+    ```rs
+    state = [CONST[0] ^ (seed & MASK_A), CONST[1] ^ (seed & MASK_B), ...];
+    ```
+    where `MASK_A = 0xAAA...` and `MASK_B = 0x555...`, ensures the initial state contains no zeros.
+
+- For short inputs, the multiplication used to spread the seed takes the form:
+    ```rs
+    _used = wide_mul(CONST[2] ^ seed ^ len, CONST[3] ^ len);
+    ```
+    ensures that unique seed and length information is always mixed into the state.
+
+
+## License
+
+The MuseAir hashing algorithm itself and its reference implementation [`museair.cpp`](museair.cpp)
+are released into the public domain under CC0 1.0.
+
+All other code in this repository is dual-licensed under MIT and Apache 2.0, at your option.
+
+
+[wyhash]: https://github.com/wangyi-fudan/wyhash
+[rapidhash]: https://github.com/Nicoshev/rapidhash
+[komihash]: https://github.com/avaneev/komihash
+[SMHasher3]: https://gitlab.com/fwojcik/smhasher3/-/blob/main/results/README.md#passing-hashes
+[foldhash]: https://github.com/orlp/foldhash
+[ahash]: https://github.com/tkaitchuck/ahash

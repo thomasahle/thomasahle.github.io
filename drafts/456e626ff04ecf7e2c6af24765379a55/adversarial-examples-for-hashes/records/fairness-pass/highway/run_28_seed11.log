@@ -1,0 +1,35 @@
+HighwayHash (google/highwayhash reference C, frozen; SMHasher3 HighwayHash_64/128/256): weak-key collision pair
+validation: HighwayHash_64  SMHasher3 verification 0xF3246108 (expected 0xF3246108) OK
+            HighwayHash_128 SMHasher3 verification 0x232D434E (expected 0x232D434E) OK
+            HighwayHash_256 SMHasher3 verification 0x0D50D328 (expected 0x0D50D328) OK
+            upstream 33-byte test vector 53c516cce478cad7 (expected 53c516cce478cad7) OK
+
+pair: 96 bytes = three 32-byte packets; additive lane-0 trail +2^8 | -(2^9+2^24) | +2^8; weak-key class hi32(key[0]) = 0xdbe6d5d5
+mechanism: in the class hi32(v0[0]) = 0 after Reset, so packet 1's lane-0 multiply is 0 and the +2^8 in v1[0] stays
+  a single-byte additive difference that the zipper merely relocates; packet 2's -(2^9+2^24) collapses it to one -2^8
+  iff the packet-2 lane-0 multiplier operands satisfy lo32(v1[0]) - hi32(v0[0]) = 2^8 mod 2^32 (event E_2, proved
+  probability 235*239/2^40 over the other key bits); packet 3's +2^8 cancels it, the whole 1024-bit state is equal,
+  so all three output widths and any common suffix collide.
+m1 = d131b3012a2a1924000000000000000000000000000000000000000000000000d132b3b42a2a19240000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+m2 = d132b3012a2a1924000000000000000000000000000000000000000000000000d130b3b32a2a19240000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000
+lane-0 words of m2 - m1 = +2^8 | -(2^9+2^24) | +2^8 (mod 2^64), lanes 1..3 identical: OK
+
+uniform 256-bit keys, N = 2^28 (rng seed 11):
+  HighwayHash64 collisions: 0/268435456, none observed in 2^28 trials; no population bound
+  (proved lower bound over uniform keys 2^-32 * 235*239/2^40 = 2^-56.22: 3.2e-09 expected here, so 0 is the null check)
+
+weak-key class hi32(key[0]) = 0xdbe6d5d5, 32 of the 256 key bits fixed (density exactly 2^-32), other bits uniform:
+  N = 2^28 class keys, both messages hashed in full (expected 13.71 collisions at the proved rate):
+    HighwayHash64 collisions: 22/268435456 = 8.196e-08, rate 2^-23.54
+    HighwayHash128 22, HighwayHash256 22, full 1024-bit state equal after packet 3 22, E_2 22
+  E_2 screen of 16N = 2^32 class keys (Reset + packet 1 each; every hit then hashed in full):
+    E_2 hits: 212/4294967296 = 4.936e-08, rate 2^-24.27
+    expected 219.4 +- 14.8 at the proved rate 235*239/2^40 = 2^-24.22; hits colliding at 64/128/256 bits: 212/212/212, full state: 212
+    first colliding class key: dbe6d5d536db40df 327679323f3015b7 6e8ad02d3717ba92 b089ca306dcf619a  ->  HighwayHash64 92963826adc8fc41 for both
+  class density 2^-32 x proved conditional rate 2^-24.22 => eps >= 56165/2^72 = 2^-56.22 over uniform keys at every width
+
+explicit key dbe6d5d58afad71e a0142b42de197939 5bd2b2861106bd66 b6c304527caad524 (published: HighwayHash64 = f5eba26391be727f for both)
+  HighwayHash64  h(m1) = f5eba26391be727f  h(m2) = f5eba26391be727f  COLLIDE
+  HighwayHash128 h(m1) = 46b567c5d05f08f37b1fa476689ef04e  h(m2) = 46b567c5d05f08f37b1fa476689ef04e  COLLIDE
+  HighwayHash256 h(m1) = 38ac5302dbcd9e232fafb0b99164d0f3ce0f093fd9d7df5ff198aa4797f74288
+                 h(m2) = 38ac5302dbcd9e232fafb0b99164d0f3ce0f093fd9d7df5ff198aa4797f74288  COLLIDE

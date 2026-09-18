@@ -1,0 +1,46 @@
+WYHASH_CONDOM=1
+SMHasher3 verification: 9DAE7DD3 expected 9DAE7DD3 PASS
+message digest seed 3: 786d1f1df3801df4 expected 786d1f1df3801df4 PASS
+recorded seed 131b854bbd1f5b12: H(M)=a7dd61b404363777 H(M')=a7dd61b404363777 expected a7dd61b404363777 PASS
+recorded seed 7df3a9721aedda79: H(M)=b6df77843786b309 H(M')=b6df77843786b309 expected b6df77843786b309 PASS
+recorded seed c9ba3955003456f1: H(M)=32aabeb277b5aa0f H(M')=32aabeb277b5aa0f expected 32aabeb277b5aa0f PASS
+recorded seed bffd9725feb83e1e: H(M)=622a2a5072b0ad1e H(M')=622a2a5072b0ad1e expected 622a2a5072b0ad1e PASS
+recorded seed a6f80edc9165ae6a: H(M)=bf48dcbb31c8bdfd H(M')=bf48dcbb31c8bdfd expected bf48dcbb31c8bdfd PASS
+recorded seed 167084425ff59a01: H(M)=c8c8068dcd21a3c8 H(M')=c8c8068dcd21a3c8 expected c8c8068dcd21a3c8 PASS
+recorded seed 46762a8d365e542b: H(M)=2cd3259e4c5d72cc H(M')=2cd3259e4c5d72cc expected 2cd3259e4c5d72cc PASS
+recorded seed b194e03d9c625ed2: H(M)=cc7f0266af931fd9 H(M')=cc7f0266af931fd9 expected cc7f0266af931fd9 PASS
+recorded seed 4e6d29062896ae04: H(M)=72455f0c25900727 H(M')=72455f0c25900727 expected 72455f0c25900727 PASS
+pair A recorded seeds: ALL PASS
+
+key-free 16 B: bytes 0..3,8..11 read as secret[1] (annihilates the final product); bytes 12..15 differ
+M  (16 B) = 934bb88b14151617c9ac2e961c1d1e1f
+M' (16 B) = 934bb88b14151617c9ac2e96acadaeaf
+seed 0000000000000000: H(M)=951ec28da2be0730 H(M')=951ec28da2be0730
+seed 0000000000000001: H(M)=951ec28da2be0730 H(M')=951ec28da2be0730
+seed ffffffffffffffff: H(M)=951ec28da2be0730 H(M')=951ec28da2be0730
+collisions = 1073741824 / 2^30 random seeds
+
+key-free 12 B: bytes 0..7 read as secret[1]; bytes 8..11 differ
+M  (12 B) = 934bb88bc9ac2e9618191a1b
+M' (12 B) = 934bb88bc9ac2e96a8a9aaab
+seed 0000000000000000: H(M)=19a24dbaa8ee2d96 H(M')=19a24dbaa8ee2d96
+seed 0000000000000001: H(M)=19a24dbaa8ee2d96 H(M')=19a24dbaa8ee2d96
+seed ffffffffffffffff: H(M)=19a24dbaa8ee2d96 H(M')=19a24dbaa8ee2d96
+collisions = 1073741824 / 2^30 random seeds
+
+key-free 32 B: w2 = secret[1]; w3 complemented
+M  (32 B) = 9bd4604137366abec688a63706aa4a21c9ac2e96934bb88b33e0964e8c04600c
+M' (32 B) = 9bd4604137366abec688a63706aa4a21c9ac2e96934bb88bcc1f69b173fb9ff3
+seed 0000000000000000: H(M)=4388ae798a7d997e H(M')=4388ae798a7d997e
+seed 0000000000000001: H(M)=4388ae798a7d997e H(M')=4388ae798a7d997e
+seed ffffffffffffffff: H(M)=4388ae798a7d997e H(M')=4388ae798a7d997e
+collisions = 1073741824 / 2^30 random seeds
+
+key-free 32 B: w0 = secret[1] (block state zeroed); w1 complemented
+M  (32 B) = c9ac2e96934bb88bc688a63706aa4a2188d35499de169df633e0964e8c04600c
+M' (32 B) = c9ac2e96934bb88b397759c8f955b5de88d35499de169df633e0964e8c04600c
+seed 0000000000000000: H(M)=094ec5a07d069577 H(M')=094ec5a07d069577
+seed 0000000000000001: H(M)=094ec5a07d069577 H(M')=094ec5a07d069577
+seed ffffffffffffffff: H(M)=094ec5a07d069577 H(M')=094ec5a07d069577
+collisions = 1073741824 / 2^30 random seeds
+check exit 0

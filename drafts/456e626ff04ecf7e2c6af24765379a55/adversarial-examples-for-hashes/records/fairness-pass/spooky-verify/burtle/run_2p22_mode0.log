@@ -1,0 +1,16 @@
+SMHasher3 verification SpookyHash2_64 (Hash64 wrapper, h1=h2=seed): 0x972C4BDC (expect 0x972C4BDC)
+275-pair lengths 275 275; 286-pair lengths 286 286
+  275 diff byte [183] ee->6e
+  275 diff byte [207] 7c->fc
+  275 diff byte [271] dd->5d
+  275 diff byte [274] e3->c3
+275 seed 0: 6d1347279ecef355 147d4b759d34be02 | 6d1347279ecef355 147d4b759d34be02 COLLIDE
+286 seed 0: 87672d64efa29429 f42ca1c50731e7f4 | 18ceaf21f313d59e df99196eb42fac66 differ
+275 seed 3: 18e0b0491d115fbd 5a6cab1b2df5aa4a | eb7bc00caa6a510b 1fe92d7267d77eb7 differ
+286 seed 3: 6e105e5c655426ad 5aa7a7235131c8c7 | 2a50ba84895968b2 3923377b5fe8e350 differ
+275 seed 4: 42f26772b8f51e29 2e1de860778ead32 | 42f26772b8f51e29 2e1de860778ead32 COLLIDE
+286 seed 4: e3f63e3f415763ac 324f320615c4e120 | e3f63e3f415763ac 324f320615c4e120 COLLIDE
+N=2^22 mode=0 rng=777
+275-pair: c32=2100168 c64=2100168 c128=2100168 rate64=0.5007191 log2=-0.99793 95%CI[0.500241,0.501198] score=log2(35)-log2(rate)=6.1272
+286-pair1: c32=2096274 c64=2096274 c128=2096274 rate64=0.4997907 log2=-1.00060 score=6.1705
+elapsed 2.83s

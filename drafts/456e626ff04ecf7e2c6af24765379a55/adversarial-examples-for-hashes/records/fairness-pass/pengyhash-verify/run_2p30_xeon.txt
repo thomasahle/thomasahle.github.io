@@ -1,0 +1,16 @@
+SMHasher3 pengyhash v0.3: 861A1254 expected 861A1254 PASS
+structural checks PASS
+
+equal-length / pengyhash v0.3
+M (32 B) = 7d664c02e4863788063367fb37f290ef00000000000000000000000000000000
+M' (32 B) = 2bbb99a5513852e1aa89ccb45c8f5b3d00000000000000000000000000000000
+recorded colliding seed 3a34ce6380fc0bc5: H(M)=90f2edac34d9a4d5 H(M')=90f2edac34d9a4d5
+collisions = 1073741824 / 1073741824; rate = 1; log2(rate) = 0.000000; sampled score = 2.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=08f74a78723385cd
+
+cross-length / pengyhash v0.3
+M (32 B) = c5e359af9bb2c4c857384ca1c89a566e1eb7630b6d21d924c49138e925bd4db6
+M' (1 B) = 00
+recorded colliding seed 3a34ce6380fc0bc5: H(M)=cd93fc86a39c2c20 H(M')=cd93fc86a39c2c20
+collisions = 1073741824 / 1073741824; rate = 1; log2(rate) = 0.000000; sampled score = 2.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=aa93b6cef9a97f26

@@ -1,0 +1,38 @@
+Case A: mix2^-1(d) for d in 1..15 (must be < 2^56 to fit a tail):
+  d= 1 mix2inv=5d43a19404b2650c bits=63
+  d= 2 mix2inv=cd982ce88964ca18 bits=64
+  d= 3 mix2inv=2adbce7c8e172f24 bits=62
+  d= 4 mix2inv=434e6ebeeca7c0af bits=63
+  d= 5 mix2inv=b3a2fa13715a25bb bits=64
+  d= 6 mix2inv=10e69ba7760c8ac7 bits=61
+  d= 7 mix2inv=813b26fbfabeefd3 bits=64
+  d= 8 mix2inv=99adc73e594f815e bits=64
+  d= 9 mix2inv=f6f168d25e01e66a bits=64
+  d=10 mix2inv=6745f426e2b44b76 bits=63
+  d=11 mix2inv=d79a7f7b6766b082 bits=64
+  d=12 mix2inv=dcfc35fd45f7420d bits=64
+  d=13 mix2inv=4d50c151caa9a719 bits=63
+  d=14 mix2inv=bda54ca64f5c0c25 bits=64
+  d=15 mix2inv=1ae8ee3a540e7131 bits=61
+Case A': mix1^-1(d):
+  d= 1 mix1inv=a9d7feef2a314eef bits=64
+  d= 2 mix1inv=f7976cccd730eb5b bits=64
+  d= 3 mix1inv=4af375a4843087c7 bits=63
+  d= 4 mix1inv=ef2ed999ae61d6b6 bits=64
+  d= 5 mix1inv=3cee47775b617322 bits=62
+  d= 6 mix1inv=904a504f08610f8e bits=64
+  d= 7 mix1inv=3485b44432925e7d bits=62
+  d= 8 mix1inv=82452221df91fae9 bits=64
+  d= 9 mix1inv=d5a12af98c919755 bits=64
+  d=10 mix1inv=236098d7399133c1 bits=62
+  d=11 mix1inv=c79bfccc63c282b0 bits=64
+  d=12 mix1inv=1af805a410c21f1c bits=61
+  d=13 mix1inv=68b77381bdc1bb88 bits=63
+  d=14 mix1inv=0cf2d776e7f30a77 bits=60
+  d=15 mix1inv=604ee04e94f2a6e3 bits=63
+  SMALL: 4 4 1 1 0xfe7d6d6d4685ed2e 57
+  SMALL: 4 -4 0 0 0x1829292b97a12d2 57
+  SMALL: 12 -4 0 0 0x1829292b97a12d2 57
+  SMALL: 12 4 1 1 0xfe7d6d6d4685ed2e 57
+Case B: min |k2'-k2| over all (d,delta,c,c'): 57 bits ['0xfe7d6d6d4685ed2e'] (4, 4, 1, 1)
+Case B random sample hits (k2' < 2^56): 0 of 245760

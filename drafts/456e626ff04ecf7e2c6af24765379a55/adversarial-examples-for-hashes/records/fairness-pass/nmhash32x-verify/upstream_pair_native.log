@@ -1,0 +1,23 @@
+NMH_VERSION=2
+SMHasher3 verification NMHASH32X: A8580227 (expected A8580227) PASS
+pair 0 len=28
+  seed 00000000: H(M)=dc5952ce H(M')=dc5952ce
+  seed 00000001: H(M)=b4e64737 H(M')=b4e64737
+  seed deadbeef: H(M)=e79bc644 H(M')=e79bc644
+  seed ffffffff: H(M)=a0a1d8b2 H(M')=a0a1d8b2
+  seed c78b9a30: H(M)=73b04a67 H(M')=73b04a67
+  len=28 collisions=4294967296/4294967296
+pair 1 len=32
+  seed 00000000: H(M)=1eaf5c83 H(M')=1eaf5c83
+  seed 00000001: H(M)=e3aeaa6a H(M')=e3aeaa6a
+  seed deadbeef: H(M)=b475247e H(M')=b475247e
+  seed ffffffff: H(M)=f9813f48 H(M')=f9813f48
+  seed c78b9a30: H(M)=bebbda6b H(M')=bebbda6b
+  len=32 collisions=4294967296/4294967296
+pair 2 len=33
+  seed 00000000: H(M)=7b32df7d H(M')=7b32df7d
+  seed 00000001: H(M)=65e2aa10 H(M')=65e2aa10
+  seed deadbeef: H(M)=430d0ea1 H(M')=430d0ea1
+  seed ffffffff: H(M)=05b0b29c H(M')=05b0b29c
+  seed c78b9a30: H(M)=edce8eec H(M')=edce8eec
+  len=33 collisions=4294967296/4294967296
