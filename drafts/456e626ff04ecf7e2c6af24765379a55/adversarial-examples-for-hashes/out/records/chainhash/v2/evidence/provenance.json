@@ -1,0 +1,233 @@
+{
+  "timestamp": "2026-09-18T17:30:32.992862+00:00",
+  "remote_root": "/home/thomas-ahle/agents/chainhash-x86",
+  "platform": "Linux-5.14.0-687.20.1.el9_8.x86_64-x86_64-with-glibc2.34",
+  "cpu": {
+    "lscpu": [
+      {
+        "field": "Architecture:",
+        "data": "x86_64"
+      },
+      {
+        "field": "CPU op-mode(s):",
+        "data": "32-bit, 64-bit"
+      },
+      {
+        "field": "Address sizes:",
+        "data": "46 bits physical, 48 bits virtual"
+      },
+      {
+        "field": "Byte Order:",
+        "data": "Little Endian"
+      },
+      {
+        "field": "CPU(s):",
+        "data": "96"
+      },
+      {
+        "field": "On-line CPU(s) list:",
+        "data": "0-95"
+      },
+      {
+        "field": "Vendor ID:",
+        "data": "GenuineIntel"
+      },
+      {
+        "field": "Model name:",
+        "data": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz"
+      },
+      {
+        "field": "CPU family:",
+        "data": "6"
+      },
+      {
+        "field": "Model:",
+        "data": "106"
+      },
+      {
+        "field": "Thread(s) per core:",
+        "data": "2"
+      },
+      {
+        "field": "Core(s) per socket:",
+        "data": "24"
+      },
+      {
+        "field": "Socket(s):",
+        "data": "2"
+      },
+      {
+        "field": "Stepping:",
+        "data": "6"
+      },
+      {
+        "field": "BogoMIPS:",
+        "data": "5799.95"
+      },
+      {
+        "field": "Flags:",
+        "data": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd ida arat avx512vbmi pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities"
+      },
+      {
+        "field": "Hypervisor vendor:",
+        "data": "KVM"
+      },
+      {
+        "field": "Virtualization type:",
+        "data": "full"
+      },
+      {
+        "field": "L1d cache:",
+        "data": "2.3 MiB (48 instances)"
+      },
+      {
+        "field": "L1i cache:",
+        "data": "1.5 MiB (48 instances)"
+      },
+      {
+        "field": "L2 cache:",
+        "data": "60 MiB (48 instances)"
+      },
+      {
+        "field": "L3 cache:",
+        "data": "108 MiB (2 instances)"
+      },
+      {
+        "field": "NUMA node(s):",
+        "data": "2"
+      },
+      {
+        "field": "NUMA node0 CPU(s):",
+        "data": "0-23,48-71"
+      },
+      {
+        "field": "NUMA node1 CPU(s):",
+        "data": "24-47,72-95"
+      },
+      {
+        "field": "Vulnerability Gather data sampling:",
+        "data": "Unknown: Dependent on hypervisor status"
+      },
+      {
+        "field": "Vulnerability Indirect target selection:",
+        "data": "Mitigation; Aligned branch/return thunks"
+      },
+      {
+        "field": "Vulnerability Itlb multihit:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability L1tf:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Mds:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Meltdown:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Mmio stale data:",
+        "data": "Mitigation; Clear CPU buffers; SMT Host state unknown"
+      },
+      {
+        "field": "Vulnerability Old microcode:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Reg file data sampling:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Retbleed:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Spec rstack overflow:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Spec store bypass:",
+        "data": "Mitigation; Speculative Store Bypass disabled via prctl"
+      },
+      {
+        "field": "Vulnerability Spectre v1:",
+        "data": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization"
+      },
+      {
+        "field": "Vulnerability Spectre v2:",
+        "data": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop"
+      },
+      {
+        "field": "Vulnerability Srbds:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Tsa:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Tsx async abort:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Vmscape:",
+        "data": "Not affected"
+      }
+    ]
+  },
+  "gcc": "gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)",
+  "clang": "clang version 21.1.8 (Red Hat, Inc. 21.1.8-2.el9)",
+  "compile_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I/home/thomas-ahle/agents/chainhash-x86/build/include -I/home/thomas-ahle/agents/chainhash-x86/smhasher/include/hashlib -I/home/thomas-ahle/agents/chainhash-x86/smhasher/include/common\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n# Custom include directories: CMakeFiles/SMHasher3Hashlib.dir/lib/Hashinfo.cpp.o_INCLUDE_DIRECTORIES = /home/thomas-ahle/agents/chainhash-x86/smhasher/util\n\n# Custom flags: CMakeFiles/SMHasher3Hashlib.dir/hashes/halftimehash.cpp.o_FLAGS = -flax-vector-conversions -Wno-ignored-attributes\n\n# Custom flags: CMakeFiles/SMHasher3Hashlib.dir/hashes/floppsyhash.cpp.o_FLAGS = -ffp-contract=off\n\n",
+  "link_command": "/usr/bin/c++  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG CMakeFiles/SMHasher3.dir/main.cpp.o -o SMHasher3  libSMHasher3Tests.a libSMHasher3Hashlib.a\n",
+  "controls": {
+    "xxhash": {
+      "original_sha256": "4bef3cc80fff913b0f47be3f73b03119f24287df337d12b08634fee6f9d02240",
+      "scratch_sha256": "4bef3cc80fff913b0f47be3f73b03119f24287df337d12b08634fee6f9d02240",
+      "unchanged": true
+    },
+    "halftimehash": {
+      "original_sha256": "b6d3d56172e2f336b98004d684f3ed1eb715d0feb6b7adad243195d22c7c71e6",
+      "scratch_sha256": "b6d3d56172e2f336b98004d684f3ed1eb715d0feb6b7adad243195d22c7c71e6",
+      "unchanged": true
+    },
+    "komihash": {
+      "original_sha256": "f39219ae314dae977936ffa666b679a03a281d2ff6f0478dded3dfb9a5be829e",
+      "scratch_sha256": "f39219ae314dae977936ffa666b679a03a281d2ff6f0478dded3dfb9a5be829e",
+      "unchanged": true
+    },
+    "rapidhash": {
+      "original_sha256": "653f60998b7b43efbc9f95cc8822c7b640a9164fa7ac5a41ea3749f0e6460278",
+      "scratch_sha256": "653f60998b7b43efbc9f95cc8822c7b640a9164fa7ac5a41ea3749f0e6460278",
+      "unchanged": true
+    }
+  },
+  "sha256": {
+    "chainhash_x86.h": "98d6cc3729691ef490c8019d312e76d2b0558bd2159aff741127c68847220698",
+    "SPEC.md": "4ca00ffd1c45277afdd42b365efde5ec20690c7d4146ec2afdba39b9c24f26ca",
+    "PROOF_SKETCH.md": "e4f5abae553c52cf7df04118bf3f81c5e0a15ddc6017291a237d43af0eba8909",
+    "REPORT.md": "ce566e9c11091e70b3b69f226665f7a0eec04a0e698609f8c7da03a4a31f9a80",
+    "experiments/smhasher_chainhash_x86.cpp": "146d0fd430b6b650402e75b1c8a3055cab8c48fcef7bd9aa5ae32216d00789db",
+    "tests/test_chainhash_x86.c": "7206e2cc46b989cb74b4ca1fa529d6dd4cbcc3a585c15ce57b4c161e47c938b6",
+    "experiments/micro_l1.c": "c61a7d39b80da9df2af1692417a40e71034836e9eff6a8a4b141bf2ff2641eea",
+    "experiments/micro_ports.c": "83d639042481daddbbe4fdcfe506c217d81d82e5a89e8561c4327a9837b4dd21",
+    "experiments/bench_header.c": "9bdb8dd0564f3ecfda5f409ee4a7e3b0ca1de61648f72074fab554ed1ece1187",
+    "experiments/idle_run.py": "85074b2161fd232670a46d366c97ac9f475742ff296f9d89221e098411148837",
+    "experiments/run_speeds.py": "3b70f432c7b9370ad62f6749cc211db36c89dc75f798b122567ef7daa60775e4",
+    "experiments/verify.sh": "19a5be976bcaea4e5628b12049cbe58f1da949c58ad8feb5277b7c1312d5c32a",
+    "experiments/collect_results.py": "ef484b4d36183a670d91b1a0edc46b41d9260e2c147e5b914035217f2e03b3a1",
+    "experiments/reproduce.sh": "b82a437176b47618c65059c5ed06340ec96fd5d22b17e4a6e19c1d0fddc5aa72",
+    "experiments/write_provenance.py": "da6d4f2a45ef082feeb2d71edb5c9fbd9714a52a536ba0d8029e0ccd0e2933aa",
+    "build/SMHasher3": "8a8dc939540a238485aeca79c8e67462aea696527fa5f9156deaada357df025c",
+    "experiments/micro_l1": "2b9ef30b963356ebc01ce4e6e08244c94bd4e254be5da0b2cfb4c1c441adb192",
+    "experiments/micro_ports": "c5d4dac054094a3a100f9b4bb82ca3b3e359c04ed0ebb902d0f97625ce69b947",
+    "tests/test_chainhash_x86": "d5d25a41a860ab577b1a1d57b4aaf826ba1fe29b624157eddc6ae73f00d88d5a",
+    "tests/test_portable": "75f851646c0c47b0d90b110634aeba64a1923e7e7c9a7252318aadbf4f9253b0",
+    "tests/test_sanitize": "5e1d058035c16ce7bfef6aabe8380024649016933d96ee6cfc42e241a2e523a6",
+    "tests/test_cpp": "874304cb38e158787ab00592fcc7851d7ff96aaac0c0fa7031289784bc1415b7"
+  },
+  "counter_scope": "RDTS(C/P) timing; /sys/bus/event_source/devices has no cpu PMU; no hardware port-counter measurements",
+  "mac_work": "File inspection, text editing, SSH/SCP only; all builds/tests/benchmarks ran on Xeon"
+}

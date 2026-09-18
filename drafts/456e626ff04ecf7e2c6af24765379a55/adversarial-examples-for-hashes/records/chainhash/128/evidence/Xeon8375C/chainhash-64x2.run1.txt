@@ -1,0 +1,71 @@
+WARNING: Hash with verification code 742de5a5 was already registered: chainhash-128
+         Are you certain chainhash-128.scalar is a unique implementation?
+WARNING: Hash with verification code 742de5a5 was already registered: chainhash-128
+         Are you certain chainhash-128.schoolbook is a unique implementation?
+WARNING: Hash with verification code aa4e2a3b was already registered: chainhash-64-header
+         Are you certain chainhash-256 is a unique implementation?
+--- Testing chainhash-64x2 "Two separate ChainHash-64 evaluations (timed seed family outside independence theorem)" [pclmul]
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -   208.05 cycles/hash
+   2-byte keys -   208.27 cycles/hash
+   3-byte keys -   208.31 cycles/hash
+   4-byte keys -   207.93 cycles/hash
+   5-byte keys -   211.21 cycles/hash
+   6-byte keys -   211.23 cycles/hash
+   7-byte keys -   211.20 cycles/hash
+   8-byte keys -   211.23 cycles/hash
+   9-byte keys -   211.21 cycles/hash
+  10-byte keys -   211.26 cycles/hash
+  11-byte keys -   211.27 cycles/hash
+  12-byte keys -   211.24 cycles/hash
+  13-byte keys -   211.26 cycles/hash
+  14-byte keys -   211.26 cycles/hash
+  15-byte keys -   211.22 cycles/hash
+  16-byte keys -   108.72 cycles/hash
+  17-byte keys -   211.29 cycles/hash
+  18-byte keys -   211.32 cycles/hash
+  19-byte keys -   211.23 cycles/hash
+  20-byte keys -   211.27 cycles/hash
+  21-byte keys -   211.31 cycles/hash
+  22-byte keys -   211.31 cycles/hash
+  23-byte keys -   211.30 cycles/hash
+  24-byte keys -   211.31 cycles/hash
+  25-byte keys -   211.30 cycles/hash
+  26-byte keys -   211.31 cycles/hash
+  27-byte keys -   211.29 cycles/hash
+  28-byte keys -   211.33 cycles/hash
+  29-byte keys -   211.30 cycles/hash
+  30-byte keys -   211.32 cycles/hash
+  31-byte keys -   211.39 cycles/hash
+Average        -   207.56 cycles/hash
+ rnd-byte keys -   207.88 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 -  7.09 bytes/cycle - 23.12 GiB/sec @ 3.5 ghz
+Alignment   6 -  7.09 bytes/cycle - 23.13 GiB/sec @ 3.5 ghz
+Alignment   5 -  7.12 bytes/cycle - 23.21 GiB/sec @ 3.5 ghz
+Alignment   4 -  7.09 bytes/cycle - 23.12 GiB/sec @ 3.5 ghz
+Alignment   3 -  7.40 bytes/cycle - 24.12 GiB/sec @ 3.5 ghz
+Alignment   2 -  7.40 bytes/cycle - 24.13 GiB/sec @ 3.5 ghz
+Alignment   1 -  7.11 bytes/cycle - 23.16 GiB/sec @ 3.5 ghz
+Alignment   0 -  7.32 bytes/cycle - 23.87 GiB/sec @ 3.5 ghz
+Average       -  7.20 bytes/cycle - 23.48 GiB/sec @ 3.5 ghz
+Alignment rnd -  7.13 bytes/cycle - 23.23 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 -  7.08 bytes/cycle - 23.09 GiB/sec @ 3.5 ghz
+Alignment   6 -  7.10 bytes/cycle - 23.13 GiB/sec @ 3.5 ghz
+Alignment   5 -  7.38 bytes/cycle - 24.05 GiB/sec @ 3.5 ghz
+Alignment   4 -  7.08 bytes/cycle - 23.09 GiB/sec @ 3.5 ghz
+Alignment   3 -  7.08 bytes/cycle - 23.09 GiB/sec @ 3.5 ghz
+Alignment   2 -  7.10 bytes/cycle - 23.14 GiB/sec @ 3.5 ghz
+Alignment   1 -  7.08 bytes/cycle - 23.09 GiB/sec @ 3.5 ghz
+Alignment   0 -  7.29 bytes/cycle - 23.75 GiB/sec @ 3.5 ghz
+Average       -  7.15 bytes/cycle - 23.31 GiB/sec @ 3.5 ghz
+Alignment rnd -  7.09 bytes/cycle - 23.11 GiB/sec @ 3.5 ghz
+
+Verification value is 0x00000001 - Testing took 102.079499 seconds
+

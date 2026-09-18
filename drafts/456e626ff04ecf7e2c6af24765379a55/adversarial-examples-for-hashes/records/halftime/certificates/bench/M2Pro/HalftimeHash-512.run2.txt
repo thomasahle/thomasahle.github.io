@@ -1,0 +1,67 @@
+WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed
+         Are you certain HalftimeHash-512 is a unique implementation?
+--- Testing HalftimeHash-512 "Halftime Hash (512-bit blocks)" [neon]
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -    60.60 cycles/hash
+   2-byte keys -    62.85 cycles/hash
+   3-byte keys -    63.75 cycles/hash
+   4-byte keys -    61.95 cycles/hash
+   5-byte keys -    63.30 cycles/hash
+   6-byte keys -    66.22 cycles/hash
+   7-byte keys -    65.77 cycles/hash
+   8-byte keys -    80.58 cycles/hash
+   9-byte keys -    59.93 cycles/hash
+  10-byte keys -    59.26 cycles/hash
+  11-byte keys -    61.73 cycles/hash
+  12-byte keys -    61.05 cycles/hash
+  13-byte keys -    61.73 cycles/hash
+  14-byte keys -    63.75 cycles/hash
+  15-byte keys -    61.73 cycles/hash
+  16-byte keys -    70.48 cycles/hash
+  17-byte keys -    59.48 cycles/hash
+  18-byte keys -    59.48 cycles/hash
+  19-byte keys -    64.20 cycles/hash
+  20-byte keys -    63.52 cycles/hash
+  21-byte keys -    62.18 cycles/hash
+  22-byte keys -    63.07 cycles/hash
+  23-byte keys -    61.73 cycles/hash
+  24-byte keys -    63.07 cycles/hash
+  25-byte keys -    60.60 cycles/hash
+  26-byte keys -    60.60 cycles/hash
+  27-byte keys -    64.42 cycles/hash
+  28-byte keys -    64.42 cycles/hash
+  29-byte keys -    62.40 cycles/hash
+  30-byte keys -    61.95 cycles/hash
+  31-byte keys -    62.63 cycles/hash
+Average        -    63.18 cycles/hash
+ rnd-byte keys -    64.40 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 -  7.42 bytes/cycle - 24.17 GiB/sec @ 3.5 ghz
+Alignment   6 -  7.42 bytes/cycle - 24.17 GiB/sec @ 3.5 ghz
+Alignment   5 -  7.42 bytes/cycle - 24.17 GiB/sec @ 3.5 ghz
+Alignment   4 -  7.42 bytes/cycle - 24.17 GiB/sec @ 3.5 ghz
+Alignment   3 -  7.42 bytes/cycle - 24.17 GiB/sec @ 3.5 ghz
+Alignment   2 -  7.42 bytes/cycle - 24.17 GiB/sec @ 3.5 ghz
+Alignment   1 -  7.42 bytes/cycle - 24.17 GiB/sec @ 3.5 ghz
+Alignment   0 -  7.79 bytes/cycle - 25.38 GiB/sec @ 3.5 ghz
+Average       -  7.46 bytes/cycle - 24.32 GiB/sec @ 3.5 ghz
+Alignment rnd -  7.46 bytes/cycle - 24.32 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 -  7.39 bytes/cycle - 24.09 GiB/sec @ 3.5 ghz
+Alignment   6 -  7.39 bytes/cycle - 24.08 GiB/sec @ 3.5 ghz
+Alignment   5 -  7.40 bytes/cycle - 24.11 GiB/sec @ 3.5 ghz
+Alignment   4 -  7.40 bytes/cycle - 24.11 GiB/sec @ 3.5 ghz
+Alignment   3 -  7.38 bytes/cycle - 24.07 GiB/sec @ 3.5 ghz
+Alignment   2 -  7.39 bytes/cycle - 24.08 GiB/sec @ 3.5 ghz
+Alignment   1 -  7.39 bytes/cycle - 24.09 GiB/sec @ 3.5 ghz
+Alignment   0 -  7.48 bytes/cycle - 24.38 GiB/sec @ 3.5 ghz
+Average       -  7.40 bytes/cycle - 24.13 GiB/sec @ 3.5 ghz
+Alignment rnd -  7.18 bytes/cycle - 23.41 GiB/sec @ 3.5 ghz
+
+Verification value is 0x00000001 - Testing took 68.976269 seconds
+

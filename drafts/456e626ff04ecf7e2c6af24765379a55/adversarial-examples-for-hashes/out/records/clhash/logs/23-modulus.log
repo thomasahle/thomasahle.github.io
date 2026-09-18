@@ -1,0 +1,18 @@
+✔ [7358/7359] Built ProvenHashes.BinaryRabin (5.1s)
+✖ [7359/7359] Building ProvenHashes.Modulus (4.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-chainhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-chainhash/lean/ProvenHashes/Modulus.lean -o /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/Modulus.olean -i /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/Modulus.ilean -c /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/Modulus.c --setup /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/Modulus.setup.json --json
+error: ProvenHashes/Modulus.lean:15:4: unsolved goals
+case h₁.h₁
+⊢ 4 < 64 ∧ 3 < 64
+info: ProvenHashes/Modulus.lean:29:2: Try this:
+  ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+error: ProvenHashes/Modulus.lean:28:68: unsolved goals
+⊢ 1 + X * 2 + X ^ 2 = 1 + X ^ 2
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Modulus
+error: build failed

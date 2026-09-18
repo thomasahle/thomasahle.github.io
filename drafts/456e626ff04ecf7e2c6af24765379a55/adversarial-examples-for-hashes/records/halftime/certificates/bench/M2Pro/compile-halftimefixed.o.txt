@@ -1,0 +1,564 @@
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:3:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/hashlib/Hashlib.h:44:20: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   44 |     HashFamilyInfo $(#N);                          \
+      |                    ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/hashlib/Hashlib.h:46:12: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   46 |     return $;                                      \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/hashlib/Hashlib.h:54:14: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   54 |     HashInfo $(#N, THIS_HASH_FAMILY.name);       \
+      |              ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/hashlib/Hashlib.h:56:20: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   56 |     register_hash(&$);                           \
+      |                    ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/hashlib/Hashlib.h:57:12: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   57 |     return $;                                    \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:44:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   44 |  $.src_url="https://github.com/jbapple/HalftimeHash",
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:45:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   45 |  $.src_status=HashFamilyInfo::SRC_STABLEISH
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:49:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   49 |  $.desc="Fixed HalftimeHash24 (192-bit output, 512-bit blocks, length tagged)",
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:50:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   50 |  $.impl=HH_FIXED_IMPL,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:51:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   51 |  $.hash_flags=0,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:52:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   52 |  $.impl_flags=FLAG_IMPL_MULTIPLY|FLAG_IMPL_LICENSE_MIT,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:53:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   53 |  $.bits=192,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:54:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   54 |  $.verification_LE=0,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:55:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   55 |  $.verification_BE=0,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:56:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   56 |  $.hashfn_native=fixed24,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:57:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   57 |  $.hashfn_bswap=fixed24,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:58:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   58 |  $.seedfn=fixed_seed
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:61:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   61 |  $.desc="Fixed HalftimeHash Style512 (64-bit output)",
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:62:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   62 |  $.impl=HH_FIXED_IMPL,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:63:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   63 |  $.hash_flags=FLAG_HASH_LOOKUP_TABLE,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:64:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   64 |  $.impl_flags=FLAG_IMPL_MULTIPLY|FLAG_IMPL_LICENSE_MIT,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:65:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   65 |  $.bits=64,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:66:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   66 |  $.verification_LE=0x1E0F99EA,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:67:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   67 |  $.verification_BE=0x1E0F99EA,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:68:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   68 |  $.hashfn_native=fixed512,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:69:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   69 |  $.hashfn_bswap=fixed512,
+      |  ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:70:2: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+   70 |  $.seedfn=fixed_seed
+      |  ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:490:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode3<halftime_hash_fixed::advanced::(anonymous namespace)::Repeat<__attribute__((neon_vector_type(2))) unsigned long long, 4>>' requested here
+  490 |     if (out_width == 3) return Encode3<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1095:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5U, 3U, 9U, 5U>' requested here
+ 1095 | HASH_WRAP_REPEAT(V4Sse2, BlockWrapper128, 4)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1074:12: note: expanded from macro 'HASH_WRAP_REPEAT'
+ 1074 |     return Hash<RepeatWrapper<block, count>, dimension, in_width, encoded_dimension, \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1147:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V4Sse2<5U, 3U, 9U, 5U>' requested here
+ 1147 | SPECIALIZE_4(4, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:82:1: note: expanded from here
+   82 | V4Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:492:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode4<halftime_hash_fixed::advanced::(anonymous namespace)::Repeat<__attribute__((neon_vector_type(2))) unsigned long long, 4>>' requested here
+  492 |     if (out_width == 4) return Encode4<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1095:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5U, 3U, 9U, 5U>' requested here
+ 1095 | HASH_WRAP_REPEAT(V4Sse2, BlockWrapper128, 4)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1074:12: note: expanded from macro 'HASH_WRAP_REPEAT'
+ 1074 |     return Hash<RepeatWrapper<block, count>, dimension, in_width, encoded_dimension, \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1147:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V4Sse2<5U, 3U, 9U, 5U>' requested here
+ 1147 | SPECIALIZE_4(4, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:82:1: note: expanded from here
+   82 | V4Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:493:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode5<halftime_hash_fixed::advanced::(anonymous namespace)::Repeat<__attribute__((neon_vector_type(2))) unsigned long long, 4>>' requested here
+  493 |     if (out_width == 5) return Encode5<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1095:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 4>, 5U, 3U, 9U, 5U>' requested here
+ 1095 | HASH_WRAP_REPEAT(V4Sse2, BlockWrapper128, 4)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1074:12: note: expanded from macro 'HASH_WRAP_REPEAT'
+ 1074 |     return Hash<RepeatWrapper<block, count>, dimension, in_width, encoded_dimension, \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1147:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V4Sse2<5U, 3U, 9U, 5U>' requested here
+ 1147 | SPECIALIZE_4(4, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:82:1: note: expanded from here
+   82 | V4Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:490:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode3<halftime_hash_fixed::advanced::(anonymous namespace)::Repeat<__attribute__((neon_vector_type(2))) unsigned long long, 2>>' requested here
+  490 |     if (out_width == 3) return Encode3<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1094:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5U, 3U, 9U, 5U>' requested here
+ 1094 | HASH_WRAP_REPEAT(V3Sse2, BlockWrapper128, 2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1074:12: note: expanded from macro 'HASH_WRAP_REPEAT'
+ 1074 |     return Hash<RepeatWrapper<block, count>, dimension, in_width, encoded_dimension, \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1148:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V3Sse2<5U, 3U, 9U, 5U>' requested here
+ 1148 | SPECIALIZE_4(3, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:94:1: note: expanded from here
+   94 | V3Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:492:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode4<halftime_hash_fixed::advanced::(anonymous namespace)::Repeat<__attribute__((neon_vector_type(2))) unsigned long long, 2>>' requested here
+  492 |     if (out_width == 4) return Encode4<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1094:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5U, 3U, 9U, 5U>' requested here
+ 1094 | HASH_WRAP_REPEAT(V3Sse2, BlockWrapper128, 2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1074:12: note: expanded from macro 'HASH_WRAP_REPEAT'
+ 1074 |     return Hash<RepeatWrapper<block, count>, dimension, in_width, encoded_dimension, \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1148:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V3Sse2<5U, 3U, 9U, 5U>' requested here
+ 1148 | SPECIALIZE_4(3, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:94:1: note: expanded from here
+   94 | V3Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:493:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode5<halftime_hash_fixed::advanced::(anonymous namespace)::Repeat<__attribute__((neon_vector_type(2))) unsigned long long, 2>>' requested here
+  493 |     if (out_width == 5) return Encode5<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1094:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::RepeatWrapper<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 2>, 5U, 3U, 9U, 5U>' requested here
+ 1094 | HASH_WRAP_REPEAT(V3Sse2, BlockWrapper128, 2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1074:12: note: expanded from macro 'HASH_WRAP_REPEAT'
+ 1074 |     return Hash<RepeatWrapper<block, count>, dimension, in_width, encoded_dimension, \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1148:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V3Sse2<5U, 3U, 9U, 5U>' requested here
+ 1148 | SPECIALIZE_4(3, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:94:1: note: expanded from here
+   94 | V3Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:490:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode3<__attribute__((neon_vector_type(2))) unsigned long long>' requested here
+  490 |     if (out_width == 3) return Encode3<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1093:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5U, 3U, 9U, 5U>' requested here
+ 1093 | HASH_WRAP(V2Sse2, BlockWrapper128)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1065:12: note: expanded from macro 'HASH_WRAP'
+ 1065 |     return Hash<block, dimension, in_width, encoded_dimension, out_width>(  \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1149:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V2Sse2<5U, 3U, 9U, 5U>' requested here
+ 1149 | SPECIALIZE_4(2, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:106:1: note: expanded from here
+  106 | V2Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:492:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode4<__attribute__((neon_vector_type(2))) unsigned long long>' requested here
+  492 |     if (out_width == 4) return Encode4<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1093:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5U, 3U, 9U, 5U>' requested here
+ 1093 | HASH_WRAP(V2Sse2, BlockWrapper128)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1065:12: note: expanded from macro 'HASH_WRAP'
+ 1065 |     return Hash<block, dimension, in_width, encoded_dimension, out_width>(  \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1149:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V2Sse2<5U, 3U, 9U, 5U>' requested here
+ 1149 | SPECIALIZE_4(2, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:106:1: note: expanded from here
+  106 | V2Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:493:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode5<__attribute__((neon_vector_type(2))) unsigned long long>' requested here
+  493 |     if (out_width == 5) return Encode5<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1093:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapper128, 5U, 3U, 9U, 5U>' requested here
+ 1093 | HASH_WRAP(V2Sse2, BlockWrapper128)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1065:12: note: expanded from macro 'HASH_WRAP'
+ 1065 |     return Hash<block, dimension, in_width, encoded_dimension, out_width>(  \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1149:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V2Sse2<5U, 3U, 9U, 5U>' requested here
+ 1149 | SPECIALIZE_4(2, Sse2)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:106:1: note: expanded from here
+  106 | V2Sse2
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:490:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode3<unsigned long long>' requested here
+  490 |     if (out_width == 3) return Encode3<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1099:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5U, 3U, 9U, 5U>' requested here
+ 1099 | HASH_WRAP(V1Scalar, BlockWrapperScalar)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1065:12: note: expanded from macro 'HASH_WRAP'
+ 1065 |     return Hash<block, dimension, in_width, encoded_dimension, out_width>(  \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1150:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V1Scalar<5U, 3U, 9U, 5U>' requested here
+ 1150 | SPECIALIZE_4(1, Scalar)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:118:1: note: expanded from here
+  118 | V1Scalar
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:276:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  276 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:492:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode4<unsigned long long>' requested here
+  492 |     if (out_width == 4) return Encode4<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1099:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5U, 3U, 9U, 5U>' requested here
+ 1099 | HASH_WRAP(V1Scalar, BlockWrapperScalar)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1065:12: note: expanded from macro 'HASH_WRAP'
+ 1065 |     return Hash<block, dimension, in_width, encoded_dimension, out_width>(  \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1150:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V1Scalar<5U, 3U, 9U, 5U>' requested here
+ 1150 | SPECIALIZE_4(1, Scalar)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:118:1: note: expanded from here
+  118 | V1Scalar
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:327:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  327 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:45: warning: lambda capture 'x' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                             ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:493:32: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Encode5<unsigned long long>' requested here
+  493 |     if (out_width == 5) return Encode5<Block>(io);
+      |                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:599:5: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::Encode' requested here
+  599 |     Encode(scratch);
+      |     ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:621:7: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::EhcBaseLayer' requested here
+  621 |       EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+      |       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:890:23: note: in instantiation of member function 'halftime_hash_fixed::advanced::(anonymous namespace)::EhcBadger<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5, 3, 9, 5>::DfsTreeHash' requested here
+  890 |             kFanout>::DfsTreeHash(char_input, wide_length, stack, stack_lengths, entropy);
+      |                       ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1099:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::(anonymous namespace)::Hash<halftime_hash_fixed::advanced::(anonymous namespace)::BlockWrapperScalar, 5U, 3U, 9U, 5U>' requested here
+ 1099 | HASH_WRAP(V1Scalar, BlockWrapperScalar)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1065:12: note: expanded from macro 'HASH_WRAP'
+ 1065 |     return Hash<block, dimension, in_width, encoded_dimension, out_width>(  \
+      |            ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1150:1: note: in instantiation of function template specialization 'halftime_hash_fixed::advanced::V1Scalar<5U, 3U, 9U, 5U>' requested here
+ 1150 | SPECIALIZE_4(1, Scalar)
+      | ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1126:3: note: expanded from macro 'SPECIALIZE_4'
+ 1126 |   SPECIALIZE(version, isa, 5, 5, 3, 9)  \
+      |   ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:1121:12: note: expanded from macro 'SPECIALIZE'
+ 1121 |     return V##version##isa<dimension, in_width, encoded_dimension, out_width>(       \
+      |            ^
+<scratch space>:118:1: note: expanded from here
+  118 | V1Scalar
+      | ^
+In file included from /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp:5:
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:48: warning: lambda capture 'y' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                ^
+/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftime-fixed.hpp:381:51: warning: lambda capture 'z' is not required to be captured for this use [-Wunused-lambda-capture]
+  381 |   auto Distribute3 = [&iter, DistributeRaw, x, y, z](unsigned idx,
+      |                                                   ^
+63 warnings generated.

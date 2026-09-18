@@ -1,0 +1,29 @@
+✖ [7358/7358] Building ProvenHashes.BinaryRabin (6.7s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-chainhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-chainhash/lean/ProvenHashes/BinaryRabin.lean -o /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/BinaryRabin.olean -i /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/BinaryRabin.ilean -c /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/BinaryRabin.c --setup /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/BinaryRabin.setup.json --json
+error: ProvenHashes/BinaryRabin.lean:20:16: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.167 ^ ?m.168 = 1
+in the target expression
+  g ∣ X ^ 2 ^ n - X ↔ orderOf f ∣ n
+
+g : BitsPolynomial
+hg : Irreducible g
+n : ℕ
+this✝ : Fact (Irreducible g) := { out := hg }
+this : Fintype (AdjoinRoot g) :=
+  Fintype.ofEquiv (Fin (natDegree g) → ZMod 2) (AdjoinRoot.powerBasisAux ⋯).equivFun.symm.toEquiv
+f : AdjoinRoot g →ₐ[ZMod 2] AdjoinRoot g := FiniteField.frobeniusAlgHom (ZMod 2) (AdjoinRoot g)
+horder : orderOf f = natDegree g
+heval : (f ^ n) (AdjoinRoot.root g) = AdjoinRoot.root g ^ 2 ^ n
+⊢ g ∣ X ^ 2 ^ n - X ↔ orderOf f ∣ n
+error: ProvenHashes/BinaryRabin.lean:50:69: Application type mismatch: The argument
+  hgmon
+has type
+  g.Monic
+but is expected to have type
+  Monic p
+in the application
+  eq_of_monic_of_dvd_of_natDegree_le hgmon
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.BinaryRabin
+error: build failed

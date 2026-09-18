@@ -1,0 +1,449 @@
+diff --git a/halftime-hash.hpp b/halftime-hash.hpp
+index 36166f8..6d1c0de 100644
+--- a/halftime-hash.hpp
++++ b/halftime-hash.hpp
+@@ -66,7 +66,14 @@ inline u512 Plus(u512 a, u512 b) { return _mm512_add_epi64(a, b); }
+ inline u512 Plus32(u512 a, u512 b) { return _mm512_add_epi32(a, b); }
+ inline u512 Times(u512 a, u512 b) { return _mm512_mul_epu32(a, b); }
+ inline u512 Xor(u512 a, u512 b) { return _mm512_xor_epi32(a, b); }
+-inline uint64_t Sum(u512 a) { return _mm512_reduce_add_epi64(a); }
++inline uint64_t Sum(u512 a) {
++  // Some intrinsic headers reduce with a final signed scalar addition.
++  auto c = _mm256_add_epi64(_mm512_extracti64x4_epi64(a, 1),
++                            _mm512_castsi512_si256(a));
++  auto d = _mm_add_epi64(_mm256_extracti128_si256(c, 1),
++                         _mm256_castsi256_si128(c));
++  return uint64_t(d[0]) + uint64_t(d[1]);
++}
+ inline u512 RightShift32(u512 a) { return _mm512_srli_epi64(a, 32); }
+ //  inline u512 RightShift32(u512 a, int i) { return _mm512_shuffle_epi32(a,
+ //  _MM_PERM_ACAC); }
+@@ -105,7 +112,7 @@ inline uint64_t Sum(u256 a) {
+   c = _mm_add_epi64(c, d);
+   static_assert(sizeof(c[0]) == sizeof(uint64_t), "u256 too granular");
+   static_assert(sizeof(c) == 2 * sizeof(uint64_t), "u256 too granular");
+-  return c[0] + c[1];
++  return uint64_t(c[0]) + uint64_t(c[1]);
+ }
+ 
+ struct BlockWrapper256 {
+@@ -148,7 +155,7 @@ static inline u128 Negate(u128 a) {
+   return Minus(zero, a);
+ }
+ 
+-inline uint64_t Sum(u128 a) { return vgetq_lane_s64(a, 0) + vgetq_lane_s64(a, 1); }
++inline uint64_t Sum(u128 a) { return uint64_t(vgetq_lane_s64(a, 0)) + uint64_t(vgetq_lane_s64(a, 1)); }
+ 
+ struct BlockWrapper128 {
+   using Block = u128;
+@@ -180,7 +187,7 @@ static inline u128 Negate(u128 a) {
+   return Minus(zero, a);
+ }
+ 
+-inline uint64_t Sum(u128 a) { return a[0] + a[1]; }
++inline uint64_t Sum(u128 a) { return uint64_t(a[0]) + uint64_t(a[1]); }
+ 
+ struct BlockWrapper128 {
+   using Block = u128;
+@@ -247,7 +254,7 @@ u128 MultiplyAdd(u128 summand, u128 factor1, u128 factor2) {
+ // Here begin the encoding functions as part of EHC. Each takes an array of size
+ // `encoded_dimension * in_width` as an argument. Only the first `dimension * in_width`
+ // values are present.  The remaining ones are populated so as to make an erasure code
+-// with minimum distance `encoded_dimension - dimension`.
++// with minimum distance `encoded_dimension - dimension + 1`.
+ //
+ // Each of these (except the trivial use case) uses an erasure code from Emin Gabrielyan.
+ //
+@@ -255,22 +262,21 @@ u128 MultiplyAdd(u128 summand, u128 factor1, u128 factor2) {
+ // https://docs.switzernet.com/people/emin-gabrielyan/051102-erasure-10-7-resilient/
+ // https://docs.switzernet.com/people/emin-gabrielyan/051103-erasure-9-5-resilient/
+ template <typename Block>
+-inline void Encode3(Block raw_io[9 * 3]) {
+-  auto io = reinterpret_cast<Block(*)[3]>(raw_io);
++inline void Encode3(Block io[9][3]) {
+   constexpr unsigned x = 0, y = 1, z = 2;
+ 
+-  const Block* iter = io[0];
+-  io[7][x] = io[8][x] = iter[x];
+-  io[7][y] = io[8][y] = iter[y];
+-  io[7][z] = io[8][z] = iter[z];
+-  iter += 1;
++  const Block (*iter)[3] = io;
++  io[7][x] = io[8][x] = (*iter)[x];
++  io[7][y] = io[8][y] = (*iter)[y];
++  io[7][z] = io[8][z] = (*iter)[z];
++  ++iter;
+ 
+   // TODO: can't lift these to top-level functions, since that slows things down
+   // considerably. Think about making them macros so they don't need to be repeated?
+-  auto DistributeRaw = [io, iter](unsigned slot, unsigned label,
++  auto DistributeRaw = [io, &iter](unsigned slot, unsigned label,
+                                   std::initializer_list<unsigned> rest) {
+     for (unsigned i : rest) {
+-      io[slot][i] = Xor(io[slot][i], iter[label]);
++      io[slot][i] = Xor(io[slot][i], (*iter)[label]);
+     }
+   };
+ 
+@@ -281,14 +287,14 @@ inline void Encode3(Block raw_io[9 * 3]) {
+     DistributeRaw(idx, x, a);
+     DistributeRaw(idx, y, b);
+     DistributeRaw(idx, z, c);
+-    iter += 1;
++    ++iter;
+   };
+ 
+-  while (iter != io[9]) {
++  while (iter != io + 7) {
+     Distribute3(7, {x}, {y}, {z});
+   }
+ 
+-  iter = io[1];
++  iter = io + 1;
+   Distribute3(8, {z}, {x, z}, {y});
+   Distribute3(8, {x, z}, {x, y, z}, {y, z});
+   Distribute3(8, {y}, {y, z}, {x, z});
+@@ -298,8 +304,7 @@ inline void Encode3(Block raw_io[9 * 3]) {
+ }
+ 
+ template <typename Block>
+-inline void Encode2(Block raw_io[7 * 3]) {
+-  auto io = reinterpret_cast<Block(*)[3]>(raw_io);
++inline void Encode2(Block io[7][3]) {
+   for (int i = 0; i < 3; ++i) {
+     io[6][i] = io[0][i];
+     for (int j = 1; j < 6; ++j) {
+@@ -309,21 +314,20 @@ inline void Encode2(Block raw_io[7 * 3]) {
+ }
+ 
+ template <typename Block>
+-inline void Encode4(Block raw_io[10 * 3]) {
+-  auto io = reinterpret_cast<Block(*)[3]>(raw_io);
++inline void Encode4(Block io[10][3]) {
+ 
+   constexpr unsigned x = 0, y = 1, z = 2;
+ 
+-  const Block* iter = io[0];
+-  io[7][x] = io[8][x] = io[9][x] = iter[x];
+-  io[7][y] = io[8][y] = io[9][y] = iter[y];
+-  io[7][z] = io[8][z] = io[9][z] = iter[z];
+-  iter += 1;
++  const Block (*iter)[3] = io;
++  io[7][x] = io[8][x] = io[9][x] = (*iter)[x];
++  io[7][y] = io[8][y] = io[9][y] = (*iter)[y];
++  io[7][z] = io[8][z] = io[9][z] = (*iter)[z];
++  ++iter;
+ 
+-  auto DistributeRaw = [io, iter](unsigned slot, unsigned label,
++  auto DistributeRaw = [io, &iter](unsigned slot, unsigned label,
+                                   std::initializer_list<unsigned> rest) {
+     for (unsigned i : rest) {
+-      io[slot][i] = Xor(io[slot][i], iter[label]);
++      io[slot][i] = Xor(io[slot][i], (*iter)[label]);
+     }
+   };
+ 
+@@ -334,14 +338,14 @@ inline void Encode4(Block raw_io[10 * 3]) {
+     DistributeRaw(idx, x, a);
+     DistributeRaw(idx, y, b);
+     DistributeRaw(idx, z, c);
+-    iter += 1;
++    ++iter;
+   };
+ 
+-  while (iter != io[10]) {
++  while (iter != io + 7) {
+     Distribute3(7, {x}, {y}, {z});
+   }
+ 
+-  iter = io[1];
++  iter = io + 1;
+   Distribute3(8, {z}, {x, z}, {y});           // 73
+   Distribute3(8, {x, z}, {x, y, z}, {y, z});  // 140
+   Distribute3(8, {y}, {y, z}, {x, z});        // 167
+@@ -349,7 +353,7 @@ inline void Encode4(Block raw_io[10 * 3]) {
+   Distribute3(8, {y, z}, {x, y}, {x, y, z});  // 292
+   Distribute3(8, {x, y, z}, {x}, {x, y});     // 323
+ 
+-  iter = io[1];
++  iter = io + 1;
+   Distribute3(9, {x, z}, {x, y, z}, {y, z});  // 140
+   Distribute3(9, {x, y}, {z}, {x});           // 198
+   Distribute3(9, {z}, {x, z}, {y});           // 73
+@@ -360,25 +364,24 @@ inline void Encode4(Block raw_io[10 * 3]) {
+ 
+ // https://docs.switzernet.com/people/emin-gabrielyan/051103-erasure-9-5-resilient/
+ template <typename Block>
+-inline void Encode5(Block raw_io[9 * 3]) {
+-  auto io = reinterpret_cast<Block(*)[3]>(raw_io);
++inline void Encode5(Block io[9][3]) {
+ 
+   constexpr unsigned x = 0, y = 1, z = 2;
+ 
+-  const Block* iter = io[0];
+-  io[5][x] = io[6][x] = iter[x];
+-  io[5][y] = io[6][y] = iter[y];
+-  io[5][z] = io[6][z] = iter[z];
++  const Block (*iter)[3] = io;
++  io[5][x] = io[6][x] = (*iter)[x];
++  io[5][y] = io[6][y] = (*iter)[y];
++  io[5][z] = io[6][z] = (*iter)[z];
+ 
+-  io[7][x] = io[8][x] = iter[y];
+-  io[7][y] = io[8][y] = iter[z];
+-  io[7][z] = io[8][z] = Xor(iter[x], iter[y]);
+-  iter += 1;
++  io[7][x] = io[8][x] = (*iter)[y];
++  io[7][y] = io[8][y] = (*iter)[z];
++  io[7][z] = io[8][z] = Xor((*iter)[x], (*iter)[y]);
++  ++iter;
+ 
+-  auto DistributeRaw = [io, iter](unsigned slot, unsigned label,
++  auto DistributeRaw = [io, &iter](unsigned slot, unsigned label,
+                                   std::initializer_list<unsigned> rest) {
+     for (unsigned i : rest) {
+-      io[slot][i] = Xor(io[slot][i], iter[label]);
++      io[slot][i] = Xor(io[slot][i], (*iter)[label]);
+     }
+   };
+ 
+@@ -389,26 +392,26 @@ inline void Encode5(Block raw_io[9 * 3]) {
+     DistributeRaw(idx, x, a);
+     DistributeRaw(idx, y, b);
+     DistributeRaw(idx, z, c);
+-    iter += 1;
++    ++iter;
+   };
+ 
+-  while (iter != io[9]) {
++  while (iter != io + 5) {
+     Distribute3(5, {x}, {y}, {z});
+   }
+ 
+-  iter = io[1];
++  iter = io + 1;
+   Distribute3(6, {z}, {x, z}, {y});           // 73
+   Distribute3(6, {x, z}, {x, y, z}, {y, z});  // 140
+   Distribute3(6, {y}, {y, z}, {x, z});        // 167
+   Distribute3(6, {x, y}, {z}, {x});           // 198
+ 
+-  iter = io[1];
++  iter = io + 1;
+   Distribute3(7, {x, y, z}, {x}, {x, y});     // 323
+   Distribute3(7, {x, z}, {x, y, z}, {y, z});  // 140
+   Distribute3(7, {x}, {y}, {z});              // 11
+   Distribute3(7, {y}, {y, z}, {x, z});        // 167
+ 
+-  iter = io[1];
++  iter = io + 1;
+   Distribute3(8, {x}, {y}, {z});              // 11
+   Distribute3(8, {x, y}, {z}, {x});           // 198
+   Distribute3(8, {y, z}, {x, y}, {x, y, z});  // 292
+@@ -491,10 +494,10 @@ struct EhcBadger {
+ 
+   static void Encode(Block io[encoded_dimension][in_width]) {
+     static_assert(2 <= out_width && out_width <= 5, "uhoh");
+-    if (out_width == 3) return Encode3<Block>(&io[0][0]);
+-    if (out_width == 2) return Encode2<Block>(&io[0][0]);
+-    if (out_width == 4) return Encode4<Block>(&io[0][0]);
+-    if (out_width == 5) return Encode5<Block>(&io[0][0]);
++    if (out_width == 3) return Encode3<Block>(io);
++    if (out_width == 2) return Encode2<Block>(io);
++    if (out_width == 4) return Encode4<Block>(io);
++    if (out_width == 5) return Encode5<Block>(io);
+   }
+ 
+   static Block SimpleTimes(std::integral_constant<int, -1>, Block x) { return Negate(x); }
+@@ -579,15 +582,15 @@ struct EhcBadger {
+   }
+ 
+   static void Hash(const Block (&input)[encoded_dimension][in_width],
+-                   const uint64_t entropy[encoded_dimension][in_width],
++                   const uint64_t entropy[encoded_dimension * in_width],
+                    Block output[encoded_dimension]) {
+     for (unsigned i = 0; i < encoded_dimension; ++i) {
+-      output[i] = MixNone(input[i][0], entropy[i][0]);
++      output[i] = MixNone(input[i][0], entropy[i * in_width]);
+       // TODO: should loading take care of this?
+     }
+     for (unsigned j = 1; j < in_width; ++j) {
+       for (unsigned i = 0; i < encoded_dimension; ++i) {
+-        output[i] = MixOne(output[i], input[i][j], entropy[i][j]);
++        output[i] = MixOne(output[i], input[i][j], entropy[i * in_width + j]);
+         // TODO: this might be optional; it might not matter which way we iterate over
+         // entropy
+       }
+@@ -595,7 +598,7 @@ struct EhcBadger {
+   }
+ 
+   static void EhcBaseLayer(const char input[dimension * in_width * sizeof(Block)],
+-                           const uint64_t raw_entropy[encoded_dimension][in_width],
++                           const uint64_t raw_entropy[encoded_dimension * in_width],
+                            Block (&output)[out_width]) {
+     Block scratch[encoded_dimension][in_width];
+     Block tmpout[encoded_dimension];
+@@ -608,7 +611,6 @@ struct EhcBadger {
+   static void DfsTreeHash(const char* data, size_t block_group_length,
+                           Block stack[][fanout][out_width], int stack_lengths[],
+                           const uint64_t* entropy) {
+-    auto entropy_matrix = reinterpret_cast<const uint64_t(*)[in_width]>(entropy);
+     for (size_t k = 0; k < block_group_length; ++k) {
+       int i = 0;
+       while (stack_lengths[i] == fanout) ++i;
+@@ -623,7 +625,7 @@ struct EhcBadger {
+ #if defined(IACA)
+       IACA_START;
+ #endif
+-      EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy_matrix,
++      EhcBaseLayer(&data[k * dimension * in_width * sizeof(Block)], entropy,
+                    stack[0][stack_lengths[0]]);
+       stack_lengths[0] += 1;
+     }
+@@ -632,12 +634,31 @@ struct EhcBadger {
+ #endif
+   }
+ 
++  // n is a byte length. Return the exact required key-prefix extent for a
++  // stack-safe call; larger n requests the maximum over the stack-safe domain.
+   static constexpr size_t GetEntropyBytesNeeded(size_t n) {
+-    auto b = sizeof(Block) / sizeof(uint64_t);
+-    auto h = FloorLog(fanout, n / (b * dimension * in_width));
+-    auto words = (encoded_dimension * in_width + (fanout - 1) * out_width * h +
+-                  b * fanout * out_width * h + b * dimension * in_width + out_width - 1);
+-    return sizeof(uint64_t) * words;
++    const size_t b = sizeof(Block) / sizeof(uint64_t);
++    const size_t group_bytes = sizeof(Block) * dimension * in_width;
++    const size_t max_roots = 8 * fanout;  // eight live levels and a zero sentinel
++    const size_t final_start = encoded_dimension * in_width +
++                               9 * (fanout - 1) * out_width;
++    if (out_width == 3) {
++      // Separate, right-aligned Toeplitz tail. Its last pair is the byte length.
++      return sizeof(uint64_t) *
++             (final_start + b * out_width * max_roots +
++              b * (dimension * in_width + out_width - 1) + 1);
++    }
++    size_t groups = n / group_bytes;
++    size_t roots = 0, levels = 0;
++    for (; groups && levels < 8; ++levels) {
++      roots += (groups - 1) % fanout + 1;
++      groups = (groups - 1) / fanout;
++    }
++    const size_t tail_blocks = groups ? dimension * in_width
++        : (n % group_bytes) / sizeof(Block) + 1;
++    if (groups) roots = max_roots;
++    return sizeof(uint64_t) *
++           (final_start + b * (out_width * roots + tail_blocks + out_width - 1));
+   }
+ 
+   // The minimum byte length necessary to get code coverage for the all parts of
+@@ -671,6 +692,18 @@ struct EhcBadger {
+       seeds += sizeof(Block) / sizeof(uint64_t);
+     }
+ 
++    void ResetSeeds(const uint64_t* fresh_seeds) { seeds = fresh_seeds; }
++
++    // Append one scalar NH pair to the Toeplitz tail, shifted by b whole pairs
++    // per output, just like Insert(Block). The length occupies a fixed key
++    // position for every message, including messages with different forests.
++    void HashWithLength(uint64_t length, uint64_t output[out_width]) const {
++      for (unsigned i = 0; i < out_width; ++i) {
++        uint64_t word = Plus32(length, seeds[i * sizeof(Block) / sizeof(uint64_t)]);
++        output[i] = Sum(accum[i]) + Times(word, RightShift32(word));
++      }
++    }
++
+     void Hash(uint64_t output[out_width]) const {
+       for (unsigned i = 0; i < out_width; ++i) {
+         output[i] = Sum(accum[i]);
+@@ -681,7 +714,7 @@ struct EhcBadger {
+   static void DfsGreedyFinalizer(const Block stack[][fanout][out_width],
+                                  const int stack_lengths[], const char* char_input,
+                                  size_t char_length, const uint64_t* entropy,
+-                                 uint64_t output[out_width]) {
++                                 uint64_t output[out_width], size_t total_length) {
+     BlockGreedy b(entropy);
+     for (int j = 0; stack_lengths[j] > 0; ++j) {
+       for (int k = 0; k < stack_lengths[j]; k += 1) {
+@@ -689,6 +722,15 @@ struct EhcBadger {
+       }
+     }
+ 
++    if (out_width == 3) {
++      const size_t lanes = sizeof(Block) / sizeof(uint64_t);
++      const size_t tail_blocks = char_length / sizeof(Block) + 1;
++      // No tail key overlaps any possible forest-finalizer key. Align the last
++      // (length) pair, not the first data pair, across unequal message lengths.
++      b.ResetSeeds(entropy + lanes * out_width * (8 * fanout) +
++                   lanes * (dimension * in_width - tail_blocks));
++    }
++
+     size_t i = 0;
+     for (; i + sizeof(Block) <= char_length; i += sizeof(Block)) {
+       b.Insert(BlockWrapper::LoadBlock(&char_input[i]));
+@@ -710,7 +752,8 @@ struct EhcBadger {
+       }
+       b.Insert(extra);
+     }
+-    b.Hash(output);
++    if (out_width == 3) b.HashWithLength(uint64_t(total_length), output);
++    else b.Hash(output);
+   }
+ };  // EhcBadger
+ 
+@@ -829,12 +872,10 @@ inline void Combine5(const Block input[10], Block output[5]) {
+ 
+ template <int width>
+ inline uint64_t TabulateBytes(uint64_t input, const uint64_t entropy[256 * width]) {
+-  const uint64_t(&table)[width][256] =
+-      *reinterpret_cast<const uint64_t(*)[width][256]>(entropy);
+   uint64_t result = 0;
+   for (unsigned i = 0; i < width; ++i) {
+     uint8_t index = input >> (i * CHAR_BIT);
+-    result ^= table[i][index];
++    result ^= entropy[256 * i + index];
+   }
+   return result;
+ }
+@@ -861,7 +902,7 @@ void Hash(const uint64_t* entropy, const char* char_input, size_t length,
+ 
+   EhcBadger<BlockWrapper, dimension, in_width, encoded_dimension, out_width,
+             kFanout>::DfsGreedyFinalizer(stack, stack_lengths, char_input,
+-                                         length - used_chars, entropy, output);
++                                         length - used_chars, entropy, output, length);
+ }
+ 
+ template <typename Block, unsigned count>
+@@ -991,12 +1032,7 @@ inline constexpr size_t GetEntropyBytesNeeded(size_t n) {
+ }
+ 
+ inline constexpr size_t MaxEntropyBytesNeeded() {
+-  auto b = 8;
+-  auto h = FloorLog(8, ~0ull / 21);
+-  auto words = 21 + 7 * 5 * h + b * 8 * 5 * h + b * 21 + 5 - 1;
+-  // TODO: include words of tabulation?
+-  auto tab_words = 0;//6 * 8 * 256;
+-  return sizeof(uint64_t) * (words + tab_words);
++  return GetEntropyBytesNeeded<RepeatWrapper<BlockWrapperScalar, 8>, 5>(~size_t(0));
+ }
+ 
+ template <typename Wrapper, unsigned out_width>
+@@ -1015,14 +1051,15 @@ template <void (*Hasher)(const uint64_t* entropy, const char* char_input, size_t
+           int width>
+ inline uint64_t TabulateAfter(const uint64_t* entropy, const char* char_input,
+                               size_t length) {
+-  const uint64_t(&table)[1 + width][256] =
+-      *reinterpret_cast<const uint64_t(*)[1 + width][256]>(entropy);
++  // Eight byte tables per 64-bit word: 8 * (1 + width) * 256 words.
++  // Keep the caller's flat uint64_t array type; do not invent subarray objects.
++  const uint64_t* table = entropy;
+   entropy += width * 256;
+   uint64_t output[width];
+   Hasher(entropy, char_input, length, output);
+-  uint64_t result = TabulateBytes<sizeof(length)>(length, &table[0][0]);
++  uint64_t result = TabulateBytes<sizeof(length)>(length, table);
+   for (int i = 0; i < width; ++i) {
+-    result ^= TabulateBytes<sizeof(output[i])>(output[i], &table[8 * (i + 1)][0]);
++    result ^= TabulateBytes<sizeof(output[i])>(output[i], table + 256 * 8 * (i + 1));
+   }
+   return result;
+ }

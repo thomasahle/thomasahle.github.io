@@ -1,0 +1,22 @@
+✖ [7357/7357] Building ProvenHashes.Finalizer (5.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-chainhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-chainhash/lean/ProvenHashes/Finalizer.lean -o /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/Finalizer.olean -i /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/Finalizer.ilean -c /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/Finalizer.c --setup /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/Finalizer.setup.json --json
+warning: ProvenHashes/Finalizer.lean:39:58: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ProvenHashes/Finalizer.lean:63:11: Possibly looping simp theorem: `← sub_eq_zero`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+error: ProvenHashes/Finalizer.lean:63:11: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+error: ProvenHashes/Finalizer.lean:84:2: unsolved goals
+case right
+F : Type u_1
+word : F ≃ ZMod (2 ^ 64)
+τ v : F
+⊢ word.symm (word (word.symm (word v - word τ)) + word τ) = v
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Finalizer
+error: build failed

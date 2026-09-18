@@ -1,0 +1,111 @@
+@ProvenHashes.BRW.split_injective : ∀ {F : Type u_1} [inst : Field F] (t : ℕ),
+  0 < t →
+    ∀ (p p' r r' : Polynomial F) (a a' : F),
+      p.natDegree < t →
+        p'.natDegree < t →
+          r.natDegree < t →
+            r'.natDegree < t →
+              p.coeff (t - 1) = 1 →
+                r.coeff (t - 1) = r'.coeff (t - 1) →
+                  p * (Polynomial.X ^ t + Polynomial.C a) + r = p' * (Polynomial.X ^ t + Polynomial.C a') + r' →
+                    p = p' ∧ a = a' ∧ r = r'
+'ProvenHashes.BRW.split_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.tree_shape : ∀ {F : Type u_1} [inst : Field F] (h n : ℕ) (m : ℕ → F),
+  n < 2 ^ (h + 2) →
+    (ProvenHashes.BRW.tree h n m).natDegree < 2 ^ (h + 2) ∧
+      (ProvenHashes.BRW.tree h n m).coeff (2 ^ (h + 2) - 1) = if 2 ^ (h + 2) / 2 ≤ n ∧ 3 ≤ n then 1 else 0
+'ProvenHashes.BRW.tree_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.tree_injective : ∀ {F : Type u_1} [inst : Field F] (h n : ℕ) (m m' : ℕ → F),
+  n < 2 ^ (h + 2) → ProvenHashes.BRW.tree h n m = ProvenHashes.BRW.tree h n m' → ∀ i < n, m i = m' i
+'ProvenHashes.BRW.tree_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.tree_degree : ∀ {F : Type u_1} [inst : Field F] (h n : ℕ) (m : ℕ → F),
+  n < 2 ^ (h + 2) → (ProvenHashes.BRW.tree h n m).natDegree ≤ 2 * n - 1
+'ProvenHashes.BRW.tree_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.tree_stable : ∀ {F : Type u_1} [inst : Field F] {h H n : ℕ},
+  h ≤ H → n < 2 ^ (h + 2) → ∀ (m : ℕ → F), ProvenHashes.BRW.tree H n m = ProvenHashes.BRW.tree h n m
+'ProvenHashes.BRW.tree_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.tree_eq_polynomial : ∀ {F : Type u_1} [inst : Field F] (h n : ℕ) (m : ℕ → F),
+  n < 2 ^ (h + 2) → ProvenHashes.BRW.tree h n m = ProvenHashes.BRW.polynomial n m
+'ProvenHashes.BRW.tree_eq_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.polynomial_recursion : ∀ {F : Type u_1} [inst : Field F] (k n : ℕ),
+  2 ≤ k →
+    2 ^ k ≤ n →
+      n < 2 ^ (k + 1) →
+        ∀ (m : ℕ → F),
+          ProvenHashes.BRW.polynomial n m =
+            ProvenHashes.BRW.polynomial (2 ^ k - 1) m * (Polynomial.X ^ 2 ^ k + Polynomial.C (m (2 ^ k - 1))) +
+              ProvenHashes.BRW.polynomial (n - 2 ^ k) fun i => m (2 ^ k + i)
+'ProvenHashes.BRW.polynomial_recursion' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.polynomial_base : ∀ {F : Type u_1} [inst : Field F] (m : ℕ → F),
+  ProvenHashes.BRW.polynomial 0 m = 0 ∧
+    ProvenHashes.BRW.polynomial 1 m = Polynomial.C (m 0) ∧
+      ProvenHashes.BRW.polynomial 2 m = Polynomial.C (m 0) * Polynomial.X + Polynomial.C (m 1) ∧
+        ProvenHashes.BRW.polynomial 3 m =
+          (Polynomial.X + Polynomial.C (m 0)) * (Polynomial.X ^ 2 + Polynomial.C (m 1)) + Polynomial.C (m 2)
+'ProvenHashes.BRW.polynomial_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.encode_injective : ∀ {F : Type u_1} [inst : Field F] (n : ℕ),
+  Function.Injective ProvenHashes.BRW.encode
+'ProvenHashes.BRW.encode_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.encode_degree : ∀ {F : Type u_1} [inst : Field F] {n : ℕ} (m : Fin n → F),
+  (ProvenHashes.BRW.encode m).natDegree ≤ 2 * n - 1
+'ProvenHashes.BRW.encode_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.collision_bound : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F] {n : ℕ} (m m' : Fin n → F),
+  m ≠ m' →
+    (ProvenHashes.uniformProb fun x => ProvenHashes.BRW.hash m x = ProvenHashes.BRW.hash m' x) ≤
+      ↑(2 * n - 1) / ↑(Fintype.card F)
+'ProvenHashes.BRW.collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.BRW.collision_bound_gf64 : ∀ {L : ℕ} (m m' : Fin L → GaloisField 2 64),
+  m ≠ m' →
+    (ProvenHashes.uniformProb fun x => ProvenHashes.BRW.hash m x = ProvenHashes.BRW.hash m' x) ≤ ↑(2 * L - 1) / 2 ^ 64
+'ProvenHashes.BRW.collision_bound_gf64' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.EightLanes.collision_bound : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F] (n : ℕ)
+  (m m' : Fin 8 → List (F × F)),
+  (∀ (j : Fin 8), (m j).length = (m' j).length) →
+    (∀ (j : Fin 8), (m j).length ≤ n) →
+      m ≠ m' →
+        (ProvenHashes.uniformProb fun k => ProvenHashes.EightLanes.hash m k = ProvenHashes.EightLanes.hash m' k) ≤
+          ↑(n + 7) / ↑(Fintype.card F)
+'ProvenHashes.EightLanes.collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.EightLanes.lanes_length : ∀ {F : Type u_1} [inst : Field F] {L : ℕ} (m : Fin L → F) (j : Fin 8),
+  (ProvenHashes.EightLanes.lanes m j).length = ProvenHashes.EightLanes.laneLength L j
+'ProvenHashes.EightLanes.lanes_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.EightLanes.lanes_injective : ∀ {F : Type u_1} [inst : Field F] (L : ℕ),
+  Function.Injective ProvenHashes.EightLanes.lanes
+'ProvenHashes.EightLanes.lanes_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.EightLanes.word_collision_bound_gf64 : ∀ {L : ℕ} (m m' : Fin L → GaloisField 2 64),
+  m ≠ m' →
+    (ProvenHashes.uniformProb fun k => ProvenHashes.EightLanes.wordHash m k = ProvenHashes.EightLanes.wordHash m' k) ≤
+      ↑(ProvenHashes.EightLanes.rounds L + 7) / 2 ^ 64
+'ProvenHashes.EightLanes.word_collision_bound_gf64' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.brw_ratio_gt : ∀ (L : ℕ), 1 ≤ L → 2 ^ 63 < ProvenHashes.ChartScores.brwRatio L
+'ProvenHashes.ChartScores.brw_ratio_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChartScores.brw_ratio_antitone : ∀ {L M : ℕ},
+  1 ≤ L → L ≤ M → ProvenHashes.ChartScores.brwRatio M ≤ ProvenHashes.ChartScores.brwRatio L
+'ProvenHashes.ChartScores.brw_ratio_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.brw_minimum : ∀ (L : ℕ),
+  1 ≤ L →
+    L ≤ ProvenHashes.ChartScores.maxLength →
+      ProvenHashes.ChartScores.brwScore ProvenHashes.ChartScores.maxLength ≤ ProvenHashes.ChartScores.brwScore L
+'ProvenHashes.ChartScores.brw_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.brw_minimum_bracket : 63 <
+    ProvenHashes.ChartScores.brwScore ProvenHashes.ChartScores.maxLength ∧
+  ProvenHashes.ChartScores.brwScore ProvenHashes.ChartScores.maxLength < 64
+'ProvenHashes.ChartScores.brw_minimum_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.lane_ratio_ge : ∀ (L : ℕ), 1 ≤ L → 2 ^ 61 ≤ ProvenHashes.ChartScores.laneRatio L
+'ProvenHashes.ChartScores.lane_ratio_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.lane_minimum : ProvenHashes.ChartScores.laneScore 1 = 61 ∧
+  ∀ (L : ℕ), 1 ≤ L → 61 ≤ ProvenHashes.ChartScores.laneScore L
+'ProvenHashes.ChartScores.lane_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.brw_whole_bits : ⌊ProvenHashes.ChartScores.brwScore ProvenHashes.ChartScores.maxLength⌋ = 63
+'ProvenHashes.ChartScores.brw_whole_bits' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.score_formulas : ∀ (L : ℕ),
+  1 ≤ L →
+    ProvenHashes.ChartScores.brwScore L = Real.logb 2 (↑L / (↑(2 * L - 1) / 2 ^ 64)) ∧
+      ProvenHashes.ChartScores.laneScore L = Real.logb 2 (↑L / (↑(ProvenHashes.EightLanes.rounds L + 7) / 2 ^ 64))
+'ProvenHashes.ChartScores.score_formulas' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChartScores.probability_floor : ∀ (L : ℕ),
+  1 ≤ L →
+    max (1 / 2 ^ 64) (↑(2 * L - 1) / 2 ^ 64) = ↑(2 * L - 1) / 2 ^ 64 ∧
+      max (1 / 2 ^ 64) (↑(ProvenHashes.EightLanes.rounds L + 7) / 2 ^ 64) =
+        ↑(ProvenHashes.EightLanes.rounds L + 7) / 2 ^ 64
+'ProvenHashes.ChartScores.probability_floor' depends on axioms: [propext, Classical.choice, Quot.sound]

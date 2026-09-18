@@ -1,0 +1,481 @@
+ProvenHashes.CLHash.IdealKey : Type
+'ProvenHashes.CLHash.IdealKey' does not depend on any axioms
+ProvenHashes.CLHash.lazyModulus : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.lazyModulus' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.CLHash.aggregate : {n : ℕ} →
+  (Fin n → ProvenHashes.ChainHash.BitsPolynomial) →
+    ProvenHashes.ChainHash.Word 126 → ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.aggregate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.longAccumulator : ProvenHashes.CLHash.IdealKey →
+  ProvenHashes.ChainHash.Message → ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.longAccumulator' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.finalProduct : ProvenHashes.ChainHash.BitsPolynomial →
+  ProvenHashes.ChainHash.Word 64 × ProvenHashes.ChainHash.Word 64 → ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.finalProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.hash : ProvenHashes.CLHash.IdealKey →
+  ProvenHashes.ChainHash.Message → ProvenHashes.ChainHash.Word 64
+'ProvenHashes.CLHash.hash' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.epsilon : ℕ → ℚ≥0
+'ProvenHashes.CLHash.epsilon' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.CollisionBound : Prop
+'ProvenHashes.CLHash.CollisionBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.UnequalLengthsBound : Prop
+'ProvenHashes.CLHash.UnequalLengthsBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.AggregateCollisionBound : Prop
+'ProvenHashes.CLHash.AggregateCollisionBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.ContentKey : Type
+'ProvenHashes.CLHash.ContentKey' does not depend on any axioms
+ProvenHashes.CLHash.keyEquiv : ProvenHashes.CLHash.ContentKey × ProvenHashes.ChainHash.Word 64 ≃
+  ProvenHashes.CLHash.IdealKey
+'ProvenHashes.CLHash.keyEquiv' does not depend on any axioms
+ProvenHashes.CLHash.content : ProvenHashes.CLHash.ContentKey →
+  ProvenHashes.ChainHash.Message → ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.content' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.hash_keyEquiv : ∀ (k : ProvenHashes.CLHash.ContentKey × ProvenHashes.ChainHash.Word 64)
+  (m : ProvenHashes.ChainHash.Message),
+  ProvenHashes.CLHash.hash (ProvenHashes.CLHash.keyEquiv k) m =
+    ProvenHashes.ChainHash.fieldRepr.symm
+      ((AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.CLHash.content k.1 m) +
+        ProvenHashes.ChainHash.fieldRepr k.2 *
+          ProvenHashes.ChainHash.fieldRepr (ProvenHashes.ChainHash.lengthWord (List.length m)))
+'ProvenHashes.CLHash.hash_keyEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.unequal_lengths_bound : ProvenHashes.CLHash.UnequalLengthsBound
+'ProvenHashes.CLHash.unequal_lengths_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.equal_length_content_prob : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  List.length m = List.length m' →
+    (ProvenHashes.uniformProb fun k => ProvenHashes.CLHash.hash k m = ProvenHashes.CLHash.hash k m') =
+      ProvenHashes.uniformProb fun k =>
+        (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.CLHash.content k m) =
+          (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.CLHash.content k m')
+'ProvenHashes.CLHash.equal_length_content_prob' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.short_equal_length_bound : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  List.length m = List.length m' →
+    m ≠ m' →
+      List.length m ≤ 1024 →
+        (ProvenHashes.uniformProb fun k => ProvenHashes.CLHash.hash k m = ProvenHashes.CLHash.hash k m') ≤ 1 / 2 ^ 64
+'ProvenHashes.CLHash.short_equal_length_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.raw_aggregate_collision_bound : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  List.length m = List.length m' →
+    m ≠ m' →
+      (ProvenHashes.uniformProb fun k =>
+          ProvenHashes.CLHash.aggregate (fun i => ProvenHashes.CLHash.rawBlock m k.1 ↑i) k.2 =
+            ProvenHashes.CLHash.aggregate (fun i => ProvenHashes.CLHash.rawBlock m' k.1 ↑i) k.2) ≤
+        1 / 2 ^ 64 + ↑(ProvenHashes.CLHash.blockCount m - 1) / 2 ^ 126
+'ProvenHashes.CLHash.raw_aggregate_collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.long_equal_length_bound : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  List.length m = List.length m' →
+    m ≠ m' →
+      1024 < List.length m →
+        (ProvenHashes.uniformProb fun k => ProvenHashes.CLHash.hash k m = ProvenHashes.CLHash.hash k m') ≤
+          2 / 2 ^ 64 + ↑(ProvenHashes.CLHash.blockCount m - 1) / 2 ^ 126
+'ProvenHashes.CLHash.long_equal_length_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.clhash_collision_bound : ∀ (L : ℕ) (m m' : ProvenHashes.ChainHash.Message),
+  List.length m < 2 ^ 64 →
+    List.length m' < 2 ^ 64 →
+      List.length m ≤ 8 * L →
+        List.length m' ≤ 8 * L →
+          m ≠ m' →
+            (ProvenHashes.uniformProb fun k => ProvenHashes.CLHash.hash k m = ProvenHashes.CLHash.hash k m') ≤
+              ProvenHashes.CLHash.epsilon L
+'ProvenHashes.CLHash.clhash_collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.collision_bound : ProvenHashes.CLHash.CollisionBound
+'ProvenHashes.CLHash.collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.hashBytes : ProvenHashes.CLHash.IdealKey → List UInt8 → UInt64
+'ProvenHashes.CLHash.hashBytes' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.hashBytes_eq_iff : ∀ (k : ProvenHashes.CLHash.IdealKey) (m m' : List UInt8),
+  ProvenHashes.CLHash.hashBytes k m = ProvenHashes.CLHash.hashBytes k m' ↔
+    ProvenHashes.CLHash.hash k (ProvenHashes.ChainHash.bytesToMessage m) =
+      ProvenHashes.CLHash.hash k (ProvenHashes.ChainHash.bytesToMessage m')
+'ProvenHashes.CLHash.hashBytes_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.collision_bound_bytes : ∀ (L : ℕ) (m m' : List UInt8),
+  m.length < 2 ^ 64 →
+    m'.length < 2 ^ 64 →
+      m.length ≤ 8 * L →
+        m'.length ≤ 8 * L →
+          m ≠ m' →
+            (ProvenHashes.uniformProb fun k => ProvenHashes.CLHash.hashBytes k m = ProvenHashes.CLHash.hashBytes k m') ≤
+              if L ≤ 128 then 1 / 2 ^ 64 else 2 / 2 ^ 64 + ↑((L + 127) / 128 - 1) / 2 ^ 126
+'ProvenHashes.CLHash.collision_bound_bytes' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.BlockKey : Type
+'ProvenHashes.CLHash.BlockKey' does not depend on any axioms
+ProvenHashes.CLHash.blockCount : ProvenHashes.ChainHash.Message → ℕ
+'ProvenHashes.CLHash.blockCount' does not depend on any axioms
+ProvenHashes.CLHash.blockBytes : ProvenHashes.ChainHash.Message → ℕ → ℕ
+'ProvenHashes.CLHash.blockBytes' does not depend on any axioms
+ProvenHashes.CLHash.activePairs : ProvenHashes.ChainHash.Message → ℕ → Finset (Fin 64)
+'ProvenHashes.CLHash.activePairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.blockData : ProvenHashes.ChainHash.Message → ℕ → Fin 64 × Bool → ProvenHashes.ChainHash.Word 64
+'ProvenHashes.CLHash.blockData' depends on axioms: [propext, Quot.sound]
+ProvenHashes.CLHash.rawBlock : ProvenHashes.ChainHash.Message →
+  ProvenHashes.CLHash.BlockKey → ℕ → ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.rawBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.rawBlock_degree : ∀ (m : ProvenHashes.ChainHash.Message) (k : ProvenHashes.CLHash.BlockKey) (t : ℕ),
+  Polynomial.natDegree (ProvenHashes.CLHash.rawBlock m k t) < 127
+'ProvenHashes.CLHash.rawBlock_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.block_encoding_injective : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  List.length m = List.length m' →
+    (∀ t < ProvenHashes.CLHash.blockCount m,
+        ∀ s ∈ ProvenHashes.CLHash.activePairs m t,
+          ∀ (b : Bool), ProvenHashes.CLHash.blockData m t (s, b) = ProvenHashes.CLHash.blockData m' t (s, b)) →
+      m = m'
+'ProvenHashes.CLHash.block_encoding_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.rawBlocks_collision_bound : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  List.length m = List.length m' →
+    m ≠ m' →
+      (ProvenHashes.uniformProb fun k =>
+          ∀ t < ProvenHashes.CLHash.blockCount m,
+            ProvenHashes.CLHash.rawBlock m k t = ProvenHashes.CLHash.rawBlock m' k t) ≤
+        1 / 2 ^ 64
+'ProvenHashes.CLHash.rawBlocks_collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r0 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r0' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r1 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r1' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r2 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r2' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r3 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r3' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r4 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r4' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r5 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r5' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r6 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r6' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r7 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r7' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r8 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r8' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r9 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r9' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r10 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r10' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r11 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r11' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r12 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r12' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r13 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r13' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r14 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r14' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r15 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r15' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r16 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r16' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r17 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r17' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r18 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r18' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r19 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r19' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r20 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r20' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r21 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r21' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r22 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r22' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r23 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r23' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r24 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r24' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r25 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r25' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r26 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r26' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r27 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r27' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r28 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r28' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r29 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r29' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r30 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r30' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r31 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r31' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r32 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r32' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r33 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r33' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r34 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r34' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r35 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r35' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r36 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r36' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r37 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r37' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r38 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r38' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r39 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r39' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r40 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r40' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r41 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r41' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r42 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r42' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r43 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r43' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r44 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r44' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r45 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r45' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r46 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r46' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r47 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r47' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r48 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r48' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r49 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r49' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r50 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r50' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r51 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r51' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r52 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r52' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r53 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r53' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r54 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r54' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r55 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r55' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r56 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r56' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r57 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r57' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r58 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r58' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r59 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r59' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r60 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r60' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r61 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r61' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r62 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r62' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r63 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r63' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r64 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r64' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r65 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r65' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r66 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r66' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r67 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r67' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r68 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r68' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r69 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r69' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r70 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r70' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r71 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r71' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r72 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r72' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r73 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r73' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r74 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r74' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r75 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r75' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r76 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r76' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r77 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r77' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r78 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r78' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r79 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r79' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r80 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r80' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r81 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r81' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r82 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r82' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r83 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r83' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r84 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r84' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r85 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r85' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r86 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r86' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r87 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r87' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r88 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r88' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r89 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r89' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r90 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r90' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r91 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r91' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r92 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r92' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r93 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r93' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r94 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r94' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r95 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r95' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r96 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r96' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r97 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r97' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r98 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r98' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r99 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r99' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r100 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r100' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r101 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r101' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r102 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r102' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r103 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r103' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r104 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r104' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r105 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r105' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r106 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r106' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r107 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r107' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r108 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r108' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r109 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r109' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r110 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r110' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r111 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r111' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r112 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r112' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r113 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r113' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r114 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r114' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r115 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r115' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r116 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r116' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r117 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r117' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r118 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r118' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r119 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r119' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r120 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r120' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r121 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r121' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r122 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r122' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r123 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r123' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r124 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r124' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r125 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r125' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r126 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r126' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.r127 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.r127' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.modulus127_certificate : ProvenHashes.CLHash.modulus127 ∣ Polynomial.X ^ 2 ^ 127 - Polynomial.X ∧
+  IsCoprime ProvenHashes.CLHash.modulus127 (Polynomial.X ^ 2 - Polynomial.X)
+'ProvenHashes.CLHash.modulus127_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.modulus127_irreducible : Irreducible ProvenHashes.CLHash.modulus127
+'ProvenHashes.CLHash.modulus127_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.F127 : Type
+'ProvenHashes.CLHash.F127' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.F64 : Type
+'ProvenHashes.CLHash.F64' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.remainder127_degree : ∀ (a : ProvenHashes.CLHash.F127),
+  ((AdjoinRoot.modByMonicHom ⋯) a).natDegree < 127
+'ProvenHashes.CLHash.remainder127_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.repr127 : ProvenHashes.ChainHash.Word 127 ≃+ ProvenHashes.CLHash.F127
+'ProvenHashes.CLHash.repr127' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.field_cards : Fintype.card ProvenHashes.CLHash.F127 = 2 ^ 127 ∧
+  Fintype.card ProvenHashes.CLHash.F64 = 2 ^ 64
+'ProvenHashes.CLHash.field_cards' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.CLHash.mk127_injective_below : ∀ {p q : ProvenHashes.ChainHash.BitsPolynomial},
+  Polynomial.natDegree p < 127 →
+    Polynomial.natDegree q < 127 →
+      (AdjoinRoot.mk ProvenHashes.CLHash.modulus127) p = (AdjoinRoot.mk ProvenHashes.CLHash.modulus127) q → p = q
+'ProvenHashes.CLHash.mk127_injective_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.polyKey : ProvenHashes.ChainHash.Word 126 → ProvenHashes.CLHash.F127
+'ProvenHashes.CLHash.polyKey' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.polyKey_injective : Function.Injective ProvenHashes.CLHash.polyKey
+'ProvenHashes.CLHash.polyKey_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.reduce64 : ProvenHashes.ChainHash.BitsPolynomial → ProvenHashes.ChainHash.Word 64
+'ProvenHashes.CLHash.reduce64' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.reduce64_eq : ∀ (p : ProvenHashes.ChainHash.BitsPolynomial),
+  ProvenHashes.CLHash.reduce64 p =
+    ProvenHashes.ChainHash.fieldRepr.symm ((AdjoinRoot.mk ProvenHashes.ChainHash.modulus) p)
+'ProvenHashes.CLHash.reduce64_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.CLHash.reduced_clnh_difference_bound : ∀ {I : Type u_1} [inst : Fintype I] [inst_1 : DecidableEq I]
+  (s : Finset I) (m m' : I × Bool → ProvenHashes.ChainHash.Word 64),
+  (∃ i ∈ s, ∃ b, m (i, b) ≠ m' (i, b)) →
+    ∀ (C : ProvenHashes.ChainHash.BinaryQuotient),
+      (ProvenHashes.uniformProb fun k =>
+          (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.ChainHash.clnh s m k) -
+              (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.ChainHash.clnh s m' k) =
+            C) ≤
+        1 / 2 ^ 64
+'ProvenHashes.CLHash.reduced_clnh_difference_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.finalProduct_difference_bound : ∀ (p q : ProvenHashes.ChainHash.BitsPolynomial),
+  Polynomial.natDegree p < 128 →
+    Polynomial.natDegree q < 128 →
+      p ≠ q →
+        ∀ (C : ProvenHashes.ChainHash.BinaryQuotient),
+          (ProvenHashes.uniformProb fun k =>
+              (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.CLHash.finalProduct p k) -
+                  (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.CLHash.finalProduct q k) =
+                C) ≤
+            1 / 2 ^ 64
+'ProvenHashes.CLHash.finalProduct_difference_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.final_reduction_difference_bound : ∀ (p q : ProvenHashes.ChainHash.BitsPolynomial),
+  Polynomial.natDegree p < 128 →
+    Polynomial.natDegree q < 128 →
+      p ≠ q →
+        ∀ (c : ProvenHashes.ChainHash.Word 64),
+          (ProvenHashes.uniformProb fun k =>
+              ProvenHashes.CLHash.reduce64 (ProvenHashes.CLHash.finalProduct p k) -
+                  ProvenHashes.CLHash.reduce64 (ProvenHashes.CLHash.finalProduct q k) =
+                c) ≤
+            1 / 2 ^ 64
+'ProvenHashes.CLHash.final_reduction_difference_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.modulus127 : ProvenHashes.ChainHash.BitsPolynomial
+'ProvenHashes.CLHash.modulus127' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.modulus127_spec : Polynomial.Monic ProvenHashes.CLHash.modulus127 ∧
+  Polynomial.natDegree ProvenHashes.CLHash.modulus127 = 127
+'ProvenHashes.CLHash.modulus127_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.CLHash.restricted_polynomial_collision_bound : ∀ {F : Type u_1} {K : Type u_2} [inst : Field F]
+  [Fintype F] [inst_2 : Fintype K] (embed : K → F),
+  Function.Injective embed →
+    ∀ {n : ℕ} (a b : Fin n → F),
+      a ≠ b →
+        (ProvenHashes.uniformProb fun k =>
+            ProvenHashes.polynomialHash a (embed k) = ProvenHashes.polynomialHash b (embed k)) ≤
+          ↑(n - 1) / ↑(Fintype.card K)
+'ProvenHashes.CLHash.restricted_polynomial_collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.lazyModulus_spec : Polynomial.Monic ProvenHashes.CLHash.lazyModulus ∧
+  Polynomial.natDegree ProvenHashes.CLHash.lazyModulus = 128
+'ProvenHashes.CLHash.lazyModulus_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.mk127_lazy_remainder : ∀ (p : ProvenHashes.ChainHash.BitsPolynomial),
+  (AdjoinRoot.mk ProvenHashes.CLHash.modulus127) (p %ₘ ProvenHashes.CLHash.lazyModulus) =
+    (AdjoinRoot.mk ProvenHashes.CLHash.modulus127) p
+'ProvenHashes.CLHash.mk127_lazy_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.CLHash.aggregate_projection : ∀ {n : ℕ} (a : Fin n → ProvenHashes.ChainHash.BitsPolynomial)
+  (k : ProvenHashes.ChainHash.Word 126),
+  (AdjoinRoot.mk ProvenHashes.CLHash.modulus127) (ProvenHashes.CLHash.aggregate a k) =
+    ProvenHashes.polynomialHash (fun i => (AdjoinRoot.mk ProvenHashes.CLHash.modulus127) (a i.rev))
+      (ProvenHashes.CLHash.polyKey k)
+'ProvenHashes.CLHash.aggregate_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.CLHash.aggregate_collision_bound : ProvenHashes.CLHash.AggregateCollisionBound
+'ProvenHashes.CLHash.aggregate_collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.CLHash.aggregate_degree : ∀ {n : ℕ} (a : Fin n → ProvenHashes.ChainHash.BitsPolynomial)
+  (k : ProvenHashes.ChainHash.Word 126), Polynomial.natDegree (ProvenHashes.CLHash.aggregate a k) < 128
+'ProvenHashes.CLHash.aggregate_degree' depends on axioms: [propext, Classical.choice, Quot.sound]

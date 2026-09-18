@@ -1,0 +1,36 @@
+✖ [7389/7389] Building ProvenHashes.CLHashBounds (9.8s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-clhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-clhash/lean/ProvenHashes/CLHashBounds.lean -o /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean/ProvenHashes/CLHashBounds.olean -i /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean/ProvenHashes/CLHashBounds.ilean -c /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/ir/ProvenHashes/CLHashBounds.c --setup /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/ir/ProvenHashes/CLHashBounds.setup.json --json
+error: ProvenHashes/CLHashBounds.lean:143:2: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+info: ProvenHashes/CLHashBounds.lean:142:2: m m' : Message
+hlen : List.length m = List.length m'
+hne : m ≠ m'
+hlong : 1024 < List.length m
+hlong' : ¬List.length m' ≤ 1024
+hbc : blockCount m = blockCount m'
+s : BlockKey × Word 126 → BitsPolynomial := fun k => aggregate (fun i => rawBlock m k.1 ↑i) k.2
+s' : BlockKey × Word 126 → BitsPolynomial := fun k => aggregate (fun i => rawBlock m' k.1 ↑i) k.2
+hc :
+  (uniformProb fun k =>
+      (fun k p => (AdjoinRoot.mk modulus) (finalProduct p k)) k.2 (s k.1) =
+        (fun k p => (AdjoinRoot.mk modulus) (finalProduct p k)) k.2 (s' k.1)) ≤
+    2 / 2 ^ 64 + ↑(blockCount m - 1) / 2 ^ 126
+he : 1 / 2 ^ 64 + ↑(blockCount m - 1) / 2 ^ 126 + 1 / 2 ^ 64 = 2 / 2 ^ 64 + ↑(blockCount m - 1) / 2 ^ 126
+⊢ (uniformProb fun k =>
+      (AdjoinRoot.mk modulus) (finalProduct (aggregate (fun i => rawBlock m k.1.1 ↑i) k.1.2) k.2) =
+        (AdjoinRoot.mk modulus) (finalProduct (aggregate (fun i => rawBlock m' k.1.1 ↑i) k.1.2) k.2)) ≤
+    2 / 2 ^ 64 + ↑(blockCount m - 1) / 2 ^ 126
+warning: ProvenHashes/CLHashBounds.lean:131:76: This simp argument is unused:
+  ← hbc
+
+Hint: Omit it from the simp argument list.
+  simp only [content, if_neg (by omega : ¬ ̵m.length ≤ 1024), if_neg hlong',̵ ̵←̵ ̵h̵b̵c̵]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.CLHashBounds
+error: build failed

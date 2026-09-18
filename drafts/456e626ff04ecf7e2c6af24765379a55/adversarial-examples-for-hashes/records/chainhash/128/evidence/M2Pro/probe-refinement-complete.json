@@ -1,0 +1,31 @@
+{
+  "command": [
+    "build-mac/probe-refined"
+  ],
+  "before": {
+    "utc": "2026-09-18T16:34:17.711256+00:00",
+    "load": [
+      3.78515625,
+      4.0654296875,
+      4.35107421875
+    ],
+    "smhasher_pids": [],
+    "load_limit": 4.5,
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-18T16:34:18.454118+00:00",
+    "load": [
+      3.78515625,
+      4.0654296875,
+      4.35107421875
+    ],
+    "smhasher_pids": []
+  },
+  "returncode": 0,
+  "seconds": 0.749084584,
+  "log": "probe-refined.json",
+  "output_sha256": "f4b39a8d9efca8ca1248454b7950753bd3b241dc5f47e71bbe8bc1136eb20697",
+  "source_sha256": "3d911a2d6f36199b160d503a9def1283d0d205c068f270ba7dfe53ec47a35196",
+  "binary_sha256": "66591190e2cd02c96e9becc05758b8c2b124f661992e2b1988a85bfa6c8d9f64"
+}

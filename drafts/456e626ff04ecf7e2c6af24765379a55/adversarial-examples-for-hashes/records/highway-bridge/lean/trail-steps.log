@@ -1,0 +1,57 @@
+ProvenHashes/Highway/TrailSteps.lean:8:57: error: unexpected identifier; expected '}'
+ProvenHashes/Highway/TrailSteps.lean:20:14: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ProvenHashes/Highway/TrailSteps.lean:20:14: warning: 'simp [widen]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ProvenHashes/Highway/TrailSteps.lean:33:53: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+ProvenHashes/Highway/TrailSteps.lean:45:2: error: Tactic `apply` failed: could not unify the conclusion of `zipper_first`
+  zipper
+      {
+        a :=
+          have __src := PairState.a ?s;
+          { v0 := __src.v0, v1 := (PairState.a ?s).v1 + 256, mul0 := __src.mul0, mul1 := __src.mul1 },
+        b := PairState.b ?s } =
+    bump1 (zipper ?s)
+with the goal
+  zipper
+      {
+        a :=
+          have __src := laneStep p s.a;
+          { v0 := __src.v0, v1 := (laneStep p s.a).v1 + 256, mul0 := __src.mul0, mul1 := __src.mul1 },
+        b := laneStep 0 s.b } =
+    bump1 (zipper { a := laneStep p s.a, b := laneStep 0 s.b })
+
+Note: The full type of `zipper_first` is
+  ∀ (s : PairState),
+    byte s.a.v1 1 ≠ 255 →
+      byte (s.a.v0 + zip0 s.a.v1 s.b.v1) 5 ≠ 255 →
+        zipper
+            {
+              a :=
+                have __src := s.a;
+                { v0 := __src.v0, v1 := s.a.v1 + 256, mul0 := __src.mul0, mul1 := __src.mul1 },
+              b := s.b } =
+          bump1 (zipper s)
+
+s : PairState
+p : Word
+hz : hi s.a.v0 = 0
+hp : s.a.mul0 + p = 0
+hb : byte s.a.v1 1 ≠ 255
+hc : byte ((laneStep p s.a).v0 + zip0 (laneStep p s.a).v1 (laneStep 0 s.b).v1) 5 ≠ 255
+hA : (laneStep p s.a).v1 = s.a.v1
+⊢ zipper
+      {
+        a :=
+          have __src := laneStep p s.a;
+          { v0 := __src.v0, v1 := (laneStep p s.a).v1 + 256, mul0 := __src.mul0, mul1 := __src.mul1 },
+        b := laneStep 0 s.b } =
+    bump1 (zipper { a := laneStep p s.a, b := laneStep 0 s.b })
+ProvenHashes/Highway/TrailSteps.lean:53:72: error: unexpected identifier; expected '}'
+ProvenHashes/Highway/TrailSteps.lean:75:64: error: unexpected identifier; expected '}'
+ProvenHashes/Highway/TrailSteps.lean:91:8: error(lean.unknownIdentifier): Unknown identifier `zipper_second`
+ProvenHashes/Highway/TrailSteps.lean:92:2: error: No goals to be solved

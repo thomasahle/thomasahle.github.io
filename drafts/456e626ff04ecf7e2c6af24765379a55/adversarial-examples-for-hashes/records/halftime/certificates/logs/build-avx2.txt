@@ -1,0 +1,5 @@
+In file included from certificates/src/verify.cpp:20:
+certificates/src/../../halftime-hash.hpp: In static member function 'static halftime_hash::advanced::{anonymous}::EhcBadger<BlockWrapper, dimension, in_width, encoded_dimension, out_width, fanout>::Block halftime_hash::advanced::{anonymous}::EhcBadger<BlockWrapper, dimension, in_width, encoded_dimension, out_width, fanout>::MixOne(halftime_hash::advanced::{anonymous}::EhcBadger<BlockWrapper, dimension, in_width, encoded_dimension, out_width, fanout>::Block, halftime_hash::advanced::{anonymous}::EhcBadger<BlockWrapper, dimension, in_width, encoded_dimension, out_width, fanout>::Block, uint64_t) [with BlockWrapper = halftime_hash::advanced::{anonymous}::RepeatWrapper<halftime_hash::advanced::{anonymous}::BlockWrapper256, 2>; unsigned int dimension = 6; unsigned int in_width = 3; unsigned int encoded_dimension = 7; unsigned int out_width = 2; unsigned int fanout = 8]':
+certificates/src/../../halftime-hash.hpp:472:16: note: the ABI for passing parameters with 64-byte alignment has changed in GCC 4.6
+  472 |   static Block MixOne(Block accum, Block input, uint64_t entropy) {
+      |                ^~~~~~

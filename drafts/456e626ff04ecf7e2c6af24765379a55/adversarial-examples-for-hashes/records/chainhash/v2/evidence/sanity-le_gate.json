@@ -1,0 +1,31 @@
+{
+  "cpu": 18,
+  "siblings": [
+    18,
+    66
+  ],
+  "busy_percent": {
+    "18": 0.0,
+    "66": 0.0
+  },
+  "load": [
+    25.46,
+    25.33,
+    21.6
+  ],
+  "timestamp": "2026-09-18T17:19:18.636651+00:00",
+  "command": [
+    "taskset",
+    "-c",
+    "18",
+    "nice",
+    "-n",
+    "10",
+    "./build/SMHasher3",
+    "chainhash-x86",
+    "--test=Sanity",
+    "--exit-code-on-failure"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.5696826389757916
+}

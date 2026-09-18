@@ -1,0 +1,11 @@
+⚠ [7364/7364] Built ProvenHashes.ChainHashModel (8.3s)
+warning: ProvenHashes/ChainHashModel.lean:21:41: This simp argument is unused:
+  word_card
+
+Hint: Omit it from the simp argument list.
+  simp only [IdealKey, BlockKey, Fintype.card_prod, Fintype.card_fun,
+  ̵  ̵ ̵ ̵Fintype.card_fin,
+  ̲  ̲ ̲ ̲Fintype.card_bool, w̵o̵r̵d̵_̵c̵a̵r̵d̵,̵ ̵field_card repr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (7364 jobs).

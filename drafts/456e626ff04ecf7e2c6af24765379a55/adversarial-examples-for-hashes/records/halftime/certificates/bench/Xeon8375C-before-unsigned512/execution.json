@@ -1,0 +1,507 @@
+{
+  "host": "Xeon8375C",
+  "binary": "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+  "binary_sha256": "88d1cd7a324e065b5d123cf5c9d4b663885944610293a0701eae7ec3aeb63d1a",
+  "runs": [
+    {
+      "name": "komihash",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "komihash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:42:29.986902+00:00",
+      "before": {
+        "time": "2026-09-18T16:42:29.985672+00:00",
+        "load": [
+          21.88,
+          21.75,
+          17.03
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "komihash.run1.txt",
+      "returncode": 0,
+      "elapsed_seconds": 82.04398344398942,
+      "finished": "2026-09-18T16:43:52.030961+00:00",
+      "after": {
+        "time": "2026-09-18T16:43:52.080928+00:00",
+        "load": [
+          7.86,
+          17.19,
+          15.83
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "fbe61a9546518d15a28d894abf2acd031a7ce0683943f1e6ae99f0a709de84f7"
+    },
+    {
+      "name": "rapidhash",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:43:52.127978+00:00",
+      "before": {
+        "time": "2026-09-18T16:43:52.126791+00:00",
+        "load": [
+          7.86,
+          17.19,
+          15.83
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run1.txt",
+      "returncode": 0,
+      "elapsed_seconds": 60.830262223025784,
+      "finished": "2026-09-18T16:44:52.958285+00:00",
+      "after": {
+        "time": "2026-09-18T16:44:53.007538+00:00",
+        "load": [
+          4.52,
+          14.55,
+          15.01
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "4fa44f82b2dc1290b9b477cd8afc12904240482634ea3af8bbb6d4fc6788a595"
+    },
+    {
+      "name": "HalftimeHash-512",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash-512",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:44:53.055020+00:00",
+      "before": {
+        "time": "2026-09-18T16:44:53.053857+00:00",
+        "load": [
+          4.52,
+          14.55,
+          15.01
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash-512.run1.txt",
+      "returncode": 0,
+      "elapsed_seconds": 45.72711373597849,
+      "finished": "2026-09-18T16:45:38.782179+00:00",
+      "after": {
+        "time": "2026-09-18T16:45:38.831377+00:00",
+        "load": [
+          3.55,
+          12.89,
+          14.42
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "a31522ae4da00247d90de91b33be824538829440cd82d059c532e70122b64ead"
+    },
+    {
+      "name": "HalftimeHash-512-fixed",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash-512-fixed",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:45:38.881850+00:00",
+      "before": {
+        "time": "2026-09-18T16:45:38.880612+00:00",
+        "load": [
+          3.55,
+          12.89,
+          14.42
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash-512-fixed.run1.txt",
+      "returncode": 0,
+      "elapsed_seconds": 46.732049281010404,
+      "finished": "2026-09-18T16:46:25.613946+00:00",
+      "after": {
+        "time": "2026-09-18T16:46:25.663478+00:00",
+        "load": [
+          3.05,
+          11.33,
+          13.81
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "7bcf142ba91eb1608284ceb41a34b7fb2325fdecd94d736253d2df030ab52927"
+    },
+    {
+      "name": "HalftimeHash24-fixed",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash24-fixed",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:46:25.714369+00:00",
+      "before": {
+        "time": "2026-09-18T16:46:25.713120+00:00",
+        "load": [
+          3.05,
+          11.33,
+          13.81
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash24-fixed.run1.txt",
+      "returncode": 0,
+      "elapsed_seconds": 54.60500534600578,
+      "finished": "2026-09-18T16:47:20.319425+00:00",
+      "after": {
+        "time": "2026-09-18T16:47:20.368062+00:00",
+        "load": [
+          3.04,
+          10.03,
+          13.24
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "7d60372c81b591f4dbc1c37c358f3d8d8b011b395ea6f4727b76876a05aa8f0d"
+    },
+    {
+      "name": "komihash",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "komihash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:47:20.417600+00:00",
+      "before": {
+        "time": "2026-09-18T16:47:20.416357+00:00",
+        "load": [
+          3.04,
+          10.03,
+          13.24
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "komihash.run2.txt",
+      "returncode": 0,
+      "elapsed_seconds": 81.96687613299582,
+      "finished": "2026-09-18T16:48:42.384527+00:00",
+      "after": {
+        "time": "2026-09-18T16:48:42.434829+00:00",
+        "load": [
+          3.4,
+          8.34,
+          12.35
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "b33c7e982698dc32ac4a29d0ca87a8dcbbe5fa50a756f08396af0e100c2e139b"
+    },
+    {
+      "name": "rapidhash",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:48:42.485896+00:00",
+      "before": {
+        "time": "2026-09-18T16:48:42.484675+00:00",
+        "load": [
+          3.4,
+          8.34,
+          12.35
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run2.txt",
+      "returncode": 0,
+      "elapsed_seconds": 60.915081053972244,
+      "finished": "2026-09-18T16:49:43.401040+00:00",
+      "after": {
+        "time": "2026-09-18T16:49:43.448424+00:00",
+        "load": [
+          3.41,
+          7.49,
+          11.81
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "2180eb4ac8cf043fa75bd59264de5cdf1232a730d0cbe51b0feb804cd293a978"
+    },
+    {
+      "name": "HalftimeHash-512",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash-512",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:49:43.494116+00:00",
+      "before": {
+        "time": "2026-09-18T16:49:43.492872+00:00",
+        "load": [
+          3.41,
+          7.49,
+          11.81
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash-512.run2.txt",
+      "returncode": 0,
+      "elapsed_seconds": 45.56579874700401,
+      "finished": "2026-09-18T16:50:29.059960+00:00",
+      "after": {
+        "time": "2026-09-18T16:50:29.109072+00:00",
+        "load": [
+          3.06,
+          6.81,
+          11.37
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "913775ffbf39efa3db9f581cb74b8613d80c8f9e1fa50f23cf78895f3f4ebc08"
+    },
+    {
+      "name": "HalftimeHash-512-fixed",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash-512-fixed",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:50:29.156841+00:00",
+      "before": {
+        "time": "2026-09-18T16:50:29.155659+00:00",
+        "load": [
+          3.06,
+          6.81,
+          11.37
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash-512-fixed.run2.txt",
+      "returncode": 0,
+      "elapsed_seconds": 46.49175334197935,
+      "finished": "2026-09-18T16:51:15.648640+00:00",
+      "after": {
+        "time": "2026-09-18T16:51:15.696805+00:00",
+        "load": [
+          2.84,
+          6.16,
+          10.91
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "78b0808ea010b438b87f6d44e3a995eee381d33a717124f933f5ba9f6f8f5ed4"
+    },
+    {
+      "name": "HalftimeHash24-fixed",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash24-fixed",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:51:15.745547+00:00",
+      "before": {
+        "time": "2026-09-18T16:51:15.744342+00:00",
+        "load": [
+          2.84,
+          6.16,
+          10.91
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash24-fixed.run2.txt",
+      "returncode": 0,
+      "elapsed_seconds": 54.67008321499452,
+      "finished": "2026-09-18T16:52:10.415678+00:00",
+      "after": {
+        "time": "2026-09-18T16:52:10.463637+00:00",
+        "load": [
+          2.68,
+          5.6,
+          10.47
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "0d149fcdb3e20d02c83e2242d613ef2fb8db6b8d6f763eca5842741ab4f0f55b"
+    },
+    {
+      "name": "komihash",
+      "run": 3,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "komihash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:52:10.509892+00:00",
+      "before": {
+        "time": "2026-09-18T16:52:10.508687+00:00",
+        "load": [
+          2.68,
+          5.6,
+          10.47
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "komihash.run3.txt",
+      "returncode": 0,
+      "elapsed_seconds": 81.89217961707618,
+      "finished": "2026-09-18T16:53:32.402129+00:00",
+      "after": {
+        "time": "2026-09-18T16:53:32.450813+00:00",
+        "load": [
+          2.75,
+          4.87,
+          9.78
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "e29d1c25e52f6b8dbe0a46c332667172ebfd41adafb1fe73b8238b3b7fdbf122"
+    },
+    {
+      "name": "rapidhash",
+      "run": 3,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:53:32.499188+00:00",
+      "before": {
+        "time": "2026-09-18T16:53:32.498007+00:00",
+        "load": [
+          2.75,
+          4.87,
+          9.78
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run3.txt",
+      "returncode": 0,
+      "elapsed_seconds": 61.001441864995286,
+      "finished": "2026-09-18T16:54:33.500676+00:00",
+      "after": {
+        "time": "2026-09-18T16:54:33.550138+00:00",
+        "load": [
+          2.89,
+          4.52,
+          9.35
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "1f946788e2e4a73aaf9f33f46e4abacd15d73dd5114bd9389ac42956cbd21fd1"
+    },
+    {
+      "name": "HalftimeHash-512",
+      "run": 3,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash-512",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:54:33.601094+00:00",
+      "before": {
+        "time": "2026-09-18T16:54:33.599844+00:00",
+        "load": [
+          2.89,
+          4.52,
+          9.35
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash-512.run3.txt",
+      "returncode": 0,
+      "elapsed_seconds": 45.904353020945564,
+      "finished": "2026-09-18T16:55:19.505496+00:00",
+      "after": {
+        "time": "2026-09-18T16:55:19.554978+00:00",
+        "load": [
+          3.36,
+          4.4,
+          9.08
+        ],
+        "smhasher_processes": [
+          "2399391 SMHasher3"
+        ]
+      },
+      "sha256": "e8569cfd96d81f9aedcacfd383098a282860a7e0f6558240d333354981a7c273"
+    },
+    {
+      "name": "HalftimeHash-512-fixed",
+      "run": 3,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash-512-fixed",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:55:34.668245+00:00",
+      "before": {
+        "time": "2026-09-18T16:55:34.667025+00:00",
+        "load": [
+          2.98,
+          4.26,
+          8.96
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash-512-fixed.run3.txt",
+      "returncode": 0,
+      "elapsed_seconds": 46.433833881048486,
+      "finished": "2026-09-18T16:56:21.102130+00:00",
+      "after": {
+        "time": "2026-09-18T16:56:21.149244+00:00",
+        "load": [
+          3.01,
+          4.08,
+          8.65
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "7f52e806a58edd1b1e6df226d1d868ce6bbf96eaccb30b6ff1790c32efe1d3c2"
+    },
+    {
+      "name": "HalftimeHash24-fixed",
+      "run": 3,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+        "HalftimeHash24-fixed",
+        "--test=Speed"
+      ],
+      "started": "2026-09-18T16:56:21.195684+00:00",
+      "before": {
+        "time": "2026-09-18T16:56:21.194547+00:00",
+        "load": [
+          3.01,
+          4.08,
+          8.65
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "HalftimeHash24-fixed.run3.txt",
+      "returncode": 0,
+      "elapsed_seconds": 54.544320833985694,
+      "finished": "2026-09-18T16:57:15.740049+00:00",
+      "after": {
+        "time": "2026-09-18T16:57:15.786616+00:00",
+        "load": [
+          2.94,
+          3.86,
+          8.31
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "c2963cecf02a0867b020d37c33119a77125918962754612d84b3d6c22a684138"
+    }
+  ],
+  "aggregation": "median of three runs, independently for fixed 262144-byte bulk and average 1..31-byte small",
+  "binary_sha256_after": "88d1cd7a324e065b5d123cf5c9d4b663885944610293a0701eae7ec3aeb63d1a",
+  "finished": "2026-09-18T16:57:15.847589+00:00"
+}

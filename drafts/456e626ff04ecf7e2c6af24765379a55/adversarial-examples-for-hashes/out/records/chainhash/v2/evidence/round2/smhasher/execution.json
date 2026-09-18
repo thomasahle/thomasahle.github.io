@@ -1,0 +1,540 @@
+{
+  "binary": "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+  "binary_sha256": "8a8dc939540a238485aeca79c8e67462aea696527fa5f9156deaada357df025c",
+  "header_sha256": "98d6cc3729691ef490c8019d312e76d2b0558bd2159aff741127c68847220698",
+  "started": "2026-09-18T17:19:21.907581+00:00",
+  "runs": [
+    {
+      "name": "chainhash-x86",
+      "run": 1,
+      "command": [
+        "taskset",
+        "-c",
+        "8",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "chainhash-x86",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 8,
+        "siblings": [
+          8,
+          56
+        ],
+        "busy_percent": {
+          "8": 0.0,
+          "56": 0.0
+        },
+        "load": [
+          25.5,
+          25.34,
+          21.63
+        ],
+        "timestamp": "2026-09-18T17:19:23.916424+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/chainhash-x86.run1.txt",
+      "raw_sha256": "a0123879daa4dae495ec75559232643d58c65d73a277e6443e5ffedb9ca17f49",
+      "elapsed_seconds": 41.40691180201247,
+      "finished": "2026-09-18T17:20:05.323430+00:00",
+      "bulk": 24.77,
+      "small_cycles": 104.34,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 24.77,
+          "gib_per_s": 80.74,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 24.68,
+          "gib_per_s": 80.45,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "komihash",
+      "run": 1,
+      "command": [
+        "taskset",
+        "-c",
+        "1",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "komihash",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 1,
+        "siblings": [
+          1,
+          49
+        ],
+        "busy_percent": {
+          "1": 0.0,
+          "49": 0.0
+        },
+        "load": [
+          24.15,
+          25.09,
+          21.72
+        ],
+        "timestamp": "2026-09-18T17:20:07.329556+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/komihash.run1.txt",
+      "raw_sha256": "489a438a6784aa48cce35157d84c204ef6ed2fc673445d9f0f354e74ac08960d",
+      "elapsed_seconds": 81.84511865093373,
+      "finished": "2026-09-18T17:21:29.174757+00:00",
+      "bulk": 7.35,
+      "small_cycles": 26.81,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 7.35,
+          "gib_per_s": 23.95,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 7.32,
+          "gib_per_s": 23.86,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "rapidhash",
+      "run": 1,
+      "command": [
+        "taskset",
+        "-c",
+        "2",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 2,
+        "siblings": [
+          2,
+          50
+        ],
+        "busy_percent": {
+          "2": 0.0,
+          "50": 0.0
+        },
+        "load": [
+          17.52,
+          22.86,
+          21.24
+        ],
+        "timestamp": "2026-09-18T17:21:31.180612+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/rapidhash.run1.txt",
+      "raw_sha256": "6952106b836d82b685a23b6efec80cd02e6545bfb166ffee9335dcef24f4ca65",
+      "elapsed_seconds": 60.83177215605974,
+      "finished": "2026-09-18T17:22:32.012465+00:00",
+      "bulk": 10.67,
+      "small_cycles": 27.58,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 10.67,
+          "gib_per_s": 34.78,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 10.53,
+          "gib_per_s": 34.33,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "XXH3-64",
+      "run": 1,
+      "command": [
+        "taskset",
+        "-c",
+        "5",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "XXH3-64",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 5,
+        "siblings": [
+          5,
+          53
+        ],
+        "busy_percent": {
+          "5": 0.0,
+          "53": 0.0
+        },
+        "load": [
+          12.18,
+          20.37,
+          20.48
+        ],
+        "timestamp": "2026-09-18T17:22:34.017792+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/XXH3-64.run1.txt",
+      "raw_sha256": "c9946c03db4ade576b92683b24c5300e58471815261d2483a535c77529b908c4",
+      "elapsed_seconds": 38.673243931960315,
+      "finished": "2026-09-18T17:23:12.691119+00:00",
+      "bulk": 19.99,
+      "small_cycles": 29.48,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 19.99,
+          "gib_per_s": 65.16,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 20.02,
+          "gib_per_s": 65.25,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "HalftimeHash-512",
+      "run": 1,
+      "command": [
+        "taskset",
+        "-c",
+        "2",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "HalftimeHash-512",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 2,
+        "siblings": [
+          2,
+          50
+        ],
+        "busy_percent": {
+          "2": 0.0,
+          "50": 0.0
+        },
+        "load": [
+          10.58,
+          18.91,
+          19.98
+        ],
+        "timestamp": "2026-09-18T17:23:14.696747+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/HalftimeHash-512.run1.txt",
+      "raw_sha256": "b7f7d9dc70c7abf8d33ec480e528a353dcfde7dc31f5b9b08532ee438d6ed0b3",
+      "elapsed_seconds": 45.9994757239474,
+      "finished": "2026-09-18T17:24:00.696309+00:00",
+      "bulk": 19.04,
+      "small_cycles": 83.09,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 19.04,
+          "gib_per_s": 62.07,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 19.0,
+          "gib_per_s": 61.93,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "chainhash-x86",
+      "run": 2,
+      "command": [
+        "taskset",
+        "-c",
+        "1",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "chainhash-x86",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 1,
+        "siblings": [
+          1,
+          49
+        ],
+        "busy_percent": {
+          "1": 0.0,
+          "49": 0.0
+        },
+        "load": [
+          6.28,
+          16.5,
+          19.11
+        ],
+        "timestamp": "2026-09-18T17:24:02.702380+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/chainhash-x86.run2.txt",
+      "raw_sha256": "0885c45035458842412d1121153eee4189c6cf3cea2ca7c0c7be7d72ba079587",
+      "elapsed_seconds": 41.412831930909306,
+      "finished": "2026-09-18T17:24:44.115289+00:00",
+      "bulk": 24.86,
+      "small_cycles": 104.34,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 24.86,
+          "gib_per_s": 81.02,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 24.64,
+          "gib_per_s": 80.33,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "komihash",
+      "run": 2,
+      "command": [
+        "taskset",
+        "-c",
+        "1",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "komihash",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 1,
+        "siblings": [
+          1,
+          49
+        ],
+        "busy_percent": {
+          "1": 0.0,
+          "49": 0.0
+        },
+        "load": [
+          4.63,
+          14.64,
+          18.36
+        ],
+        "timestamp": "2026-09-18T17:24:46.121282+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/komihash.run2.txt",
+      "raw_sha256": "4fe1ba3a134feb9ea5b6ebde93ebef3682881754b53da70283eaa77d69a9ab3b",
+      "elapsed_seconds": 81.89947132905945,
+      "finished": "2026-09-18T17:26:08.020831+00:00",
+      "bulk": 7.34,
+      "small_cycles": 26.65,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 7.34,
+          "gib_per_s": 23.94,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 7.32,
+          "gib_per_s": 23.86,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "rapidhash",
+      "run": 2,
+      "command": [
+        "taskset",
+        "-c",
+        "1",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 1,
+        "siblings": [
+          1,
+          49
+        ],
+        "busy_percent": {
+          "1": 0.0,
+          "49": 0.0
+        },
+        "load": [
+          2.98,
+          11.75,
+          17.03
+        ],
+        "timestamp": "2026-09-18T17:26:10.026993+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/rapidhash.run2.txt",
+      "raw_sha256": "21f6e2529c32baaf80fa526247166ff194276ef26938469ed1bf17687b37c596",
+      "elapsed_seconds": 60.84176711994223,
+      "finished": "2026-09-18T17:27:10.868845+00:00",
+      "bulk": 10.67,
+      "small_cycles": 27.59,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 10.67,
+          "gib_per_s": 34.76,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 10.53,
+          "gib_per_s": 34.33,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "XXH3-64",
+      "run": 2,
+      "command": [
+        "taskset",
+        "-c",
+        "1",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "XXH3-64",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 1,
+        "siblings": [
+          1,
+          49
+        ],
+        "busy_percent": {
+          "1": 0.0,
+          "49": 0.0
+        },
+        "load": [
+          2.62,
+          9.91,
+          16.04
+        ],
+        "timestamp": "2026-09-18T17:27:12.875068+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/XXH3-64.run2.txt",
+      "raw_sha256": "c2352405ac351a3993d48d3d888e9e1d03e960b84d8f2f3c1d96a9cf55c04b59",
+      "elapsed_seconds": 38.9563739100704,
+      "finished": "2026-09-18T17:27:51.831528+00:00",
+      "bulk": 19.73,
+      "small_cycles": 29.44,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 19.73,
+          "gib_per_s": 64.31,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 19.67,
+          "gib_per_s": 64.11,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    },
+    {
+      "name": "HalftimeHash-512",
+      "run": 2,
+      "command": [
+        "taskset",
+        "-c",
+        "1",
+        "nice",
+        "-n",
+        "10",
+        "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+        "HalftimeHash-512",
+        "--test=Speed"
+      ],
+      "gate": {
+        "cpu": 1,
+        "siblings": [
+          1,
+          49
+        ],
+        "busy_percent": {
+          "1": 0.0,
+          "49": 0.0
+        },
+        "load": [
+          2.37,
+          8.94,
+          15.45
+        ],
+        "timestamp": "2026-09-18T17:27:53.837728+00:00"
+      },
+      "returncode": 0,
+      "raw_file": "evidence/round2/smhasher/HalftimeHash-512.run2.txt",
+      "raw_sha256": "ff7bf5ba8702461d70da30c60ca45c2efc8daba4585f1e84adbbe27e11aa1e61",
+      "elapsed_seconds": 45.631765333004296,
+      "finished": "2026-09-18T17:28:39.469585+00:00",
+      "bulk": 19.33,
+      "small_cycles": 83.57,
+      "bulk_sections": [
+        {
+          "header": "Bulk speed test - 262144-byte keys",
+          "b_per_tsc": 19.33,
+          "gib_per_s": 63.01,
+          "clock_assumption": "3.5 ghz"
+        },
+        {
+          "header": "Bulk speed test - [262017, 262144]-byte keys",
+          "b_per_tsc": 19.18,
+          "gib_per_s": 62.51,
+          "clock_assumption": "3.5 ghz"
+        }
+      ]
+    }
+  ],
+  "finished": "2026-09-18T17:28:39.470529+00:00",
+  "binary_sha256_after": "8a8dc939540a238485aeca79c8e67462aea696527fa5f9156deaada357df025c"
+}

@@ -1,0 +1,13 @@
+256 _audit_batch1 PH loops 3 shuffles 3 spills (including ABI/tail) 5
+256 _audit_batch2 PH loops 5 shuffles 5 spills (including ABI/tail) 5
+256 _audit_batch4 PH loops 7 shuffles 7 spills (including ABI/tail) 5
+256 _audit_batch8 PH loops 11 shuffles 11 spills (including ABI/tail) 5
+256 _audit_ph PH loops 1 shuffles 0 spills (including ABI/tail) 0
+256 _audit_ld2_group PH loops 0 shuffles 0 spills (including ABI/tail) 0
+256 _audit_strided_group PH loops 0 shuffles 0 spills (including ABI/tail) 0
+256 _audit_shuffle_group PH loops 0 shuffles 2 spills (including ABI/tail) 0
+1024 _audit_batch1 PH loops 3 shuffles 3 spills (including ABI/tail) 5
+1024 _audit_ph PH loops 1 shuffles 0 spills (including ABI/tail) 0
+1024 _audit_ld2_group PH loops 0 shuffles 0 spills (including ABI/tail) 0
+1024 _audit_strided_group PH loops 0 shuffles 0 spills (including ABI/tail) 0
+1024 _audit_shuffle_group PH loops 0 shuffles 2 spills (including ABI/tail) 0

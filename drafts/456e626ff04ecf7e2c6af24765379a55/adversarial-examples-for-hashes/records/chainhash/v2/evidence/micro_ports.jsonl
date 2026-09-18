@@ -1,0 +1,12 @@
+{"cpu": 3, "siblings": [3, 51], "busy_percent": {"3": 0.0, "51": 0.0}, "load": [2.52, 5.19, 10.12], "timestamp": "2026-09-18T16:52:50.171190+00:00", "command": ["taskset", "-c", "3", "nice", "-n", "10", "./experiments/micro_ports"]}
+{"name":"vpmuludq_zmm","tsc_per_instruction_or_pair":[0.490555,0.487877,0.489052,0.491366,0.487842]}
+{"name":"vpmadd52luq_zmm","tsc_per_instruction_or_pair":[0.487805,0.491948,0.487692,0.490903,0.487670]}
+{"name":"vpclmul_zmm","tsc_per_instruction_or_pair":[1.727613,1.727268,1.724768,1.727431,1.727201]}
+{"name":"vpclmul_ymm","tsc_per_instruction_or_pair":[1.695254,1.684570,1.698837,1.697026,1.698609]}
+{"name":"vpclmul_xmm","tsc_per_instruction_or_pair":[0.860882,0.860635,0.861565,0.863752,0.858173]}
+{"name":"pclmul_legacy_xmm","tsc_per_instruction_or_pair":[1.725900,1.724110,1.727083,1.724728,1.727131]}
+{"name":"vpshufd_zmm","tsc_per_instruction_or_pair":[0.863427,0.861237,0.863470,0.863728,0.863463]}
+{"name":"vpsrlq_zmm","tsc_per_instruction_or_pair":[0.861147,0.863226,0.863156,0.863617,0.863585]}
+{"name":"vpaddq_zmm","tsc_per_instruction_or_pair":[0.431287,0.430118,0.431189,0.431960,0.431223]}
+{"name":"vpclmul_plus_vpmuludq_zmm_pair","tsc_per_instruction_or_pair":[1.989119,1.986602,1.989035,1.988869,1.989950]}
+{"name":"vpmuludq_plus_vpsrlq_zmm_pair","tsc_per_instruction_or_pair":[0.860136,0.863412,0.863875,0.863453,0.863606]}

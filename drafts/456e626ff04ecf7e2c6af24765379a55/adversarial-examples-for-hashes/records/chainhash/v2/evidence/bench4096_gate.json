@@ -1,0 +1,28 @@
+{
+  "cpu": 2,
+  "siblings": [
+    2,
+    50
+  ],
+  "busy_percent": {
+    "2": 0.0,
+    "50": 0.0
+  },
+  "load": [
+    3.55,
+    12.89,
+    14.42
+  ],
+  "timestamp": "2026-09-18T16:45:37.724724+00:00",
+  "command": [
+    "taskset",
+    "-c",
+    "2",
+    "nice",
+    "-n",
+    "10",
+    "./experiments/bench4096"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 3.9274951909901574
+}

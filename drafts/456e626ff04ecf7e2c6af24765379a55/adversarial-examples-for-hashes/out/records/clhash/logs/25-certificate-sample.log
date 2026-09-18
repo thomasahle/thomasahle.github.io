@@ -1,0 +1,52 @@
+✖ [7360/7360] Building ProvenHashes.CertificateSample (28s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-chainhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-chainhash/lean/ProvenHashes/CertificateSample.lean -o /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/CertificateSample.olean -i /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/CertificateSample.ilean -c /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/CertificateSample.c --setup /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/CertificateSample.setup.json --json
+error: ProvenHashes/CertificateSample.lean:14:4: expected '{' or indented tactic sequence
+error: ProvenHashes/CertificateSample.lean:13:43: unsolved goals
+⊢ 3 = 1
+error: ProvenHashes/CertificateSample.lean:9:379: unsolved goals
+⊢ X ^ 2 + X ^ 6 + X ^ 8 + X ^ 10 + X ^ 14 + X ^ 18 + X ^ 36 + X ^ 42 + X ^ 44 + X ^ 46 + X ^ 48 + X ^ 50 + X ^ 52 +
+      X ^ 62 =
+    2 + X * ⋯ + X ^ 2 * 3 + X ^ 3 * 2 + X ^ 4 * 2 + X ^ 5 * 2 + X ^ 6 + X ^ 8 + X ^ 10 + X ^ 14 + X ^ 15 * 2 +
+                                                                                  X ^ 17 * 2 +
+                                                                                X ^ 18 +
+                                                                              X ^ 24 * 2 +
+                                                                            X ^ 25 * 2 +
+                                                                          X ^ 26 * 2 +
+                                                                        X ^ 27 * 2 +
+                                                                      X ^ 28 * 2 +
+                                                                    X ^ 29 * 2 +
+                                                                  X ^ 30 * 2 +
+                                                                X ^ 32 * 2 +
+                                                              X ^ 33 * 2 +
+                                                            X ^ 34 * 2 +
+                                                          X ^ 35 * 2 +
+                                                        X ^ 36 +
+                                                      X ^ 37 * 2 +
+                                                    X ^ 38 * 2 +
+                                                  X ^ 40 * 2 +
+                                                X ^ 41 * 2 +
+                                              X ^ 42 +
+                                            X ^ 43 * 2 +
+                                          X ^ 44 +
+                                        X ^ 45 * 2 +
+                                      X ^ 46 +
+                                    X ^ 48 +
+                                  X ^ 49 * 2 +
+                                X ^ 50 +
+                              X ^ 51 * 2 +
+                            X ^ 52 +
+                          X ^ 53 * 2 +
+                        X ^ 54 * 2 +
+                      X ^ 58 * 2 +
+                    X ^ 59 * 2 +
+                  X ^ 60 * 2 +
+                X ^ 61 * 2 +
+              X ^ 62 * 3 +
+            X ^ 63 * 2 +
+          X ^ 64 * 2 +
+        X ^ 65 * 2 +
+      X ^ 66 * 2
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.CertificateSample
+error: build failed

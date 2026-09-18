@@ -1,0 +1,28 @@
+{
+  "cpu": 2,
+  "siblings": [
+    2,
+    50
+  ],
+  "busy_percent": {
+    "2": 0.0,
+    "50": 0.0
+  },
+  "load": [
+    3.19,
+    4.15,
+    8.72
+  ],
+  "timestamp": "2026-09-18T16:56:12.676265+00:00",
+  "command": [
+    "taskset",
+    "-c",
+    "2",
+    "nice",
+    "-n",
+    "10",
+    "./experiments/micro_l1"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.6145011449698359
+}

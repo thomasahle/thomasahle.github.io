@@ -1,0 +1,49 @@
+✔ [7356/7357] Built ProvenHashes.Counting (5.2s)
+✖ [7357/7357] Building ProvenHashes.Carryless (6.0s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-chainhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-chainhash/lean/ProvenHashes/Carryless.lean -o /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/Carryless.olean -i /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/lib/lean/ProvenHashes/Carryless.ilean -c /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/Carryless.c --setup /home/thomas-ahle/agents/lean-chainhash/lean/.lake/build/ir/ProvenHashes/Carryless.setup.json --json
+error: ProvenHashes/Carryless.lean:20:4: failed to compile definition, compiler IR check failed at `ProvenHashes.ChainHash.clnh._redArg._lam_2`. Error: depends on declaration 'Polynomial.mul'', which has no executable code; consider marking definition as 'noncomputable'
+error: ProvenHashes/Carryless.lean:70:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  clnh s m (Function.update k (i, !b) ?v) - clnh s m' (Function.update k (i, !b) ?v)
+in the target expression
+  (fun v => clnh s m (Function.update k (i, !b) v) - clnh s m' (Function.update k (i, !b) v)) v =
+    (fun v => clnh s m (Function.update k (i, !b) v) - clnh s m' (Function.update k (i, !b) v)) v'
+
+I : Type u_1
+inst✝¹ : Fintype I
+inst✝ : DecidableEq I
+w : ℕ
+s : Finset I
+m m' : I × Bool → Word w
+C : BitsPolynomial
+i : I
+hi : i ∈ s
+b : Bool
+hb : m (i, b) ≠ m' (i, b)
+hδ : (pack w) (m (i, b)) - (pack w) (m' (i, b)) ≠ 0
+k : I × Bool → Word w
+he :
+  ∀ (v : Word w),
+    clnh s m (Function.update k (i, !b) v) - clnh s m' (Function.update k (i, !b) v) =
+      ((pack w) (m (i, b)) - (pack w) (m' (i, b))) * (pack w) v +
+        (((pack w) (m (i, b)) + (pack w) (k (i, b))) * (pack w) (m (i, !b)) -
+              ((pack w) (m' (i, b)) + (pack w) (k (i, b))) * (pack w) (m' (i, !b)) +
+            clnh (s.erase i) m k -
+          clnh (s.erase i) m' k)
+v v' : Word w
+hv :
+  (fun v => clnh s m (Function.update k (i, !b) v) - clnh s m' (Function.update k (i, !b) v)) v =
+    (fun v => clnh s m (Function.update k (i, !b) v) - clnh s m' (Function.update k (i, !b) v)) v'
+⊢ v = v'
+error: ProvenHashes/Carryless.lean:72:54: Application type mismatch: The argument
+  hinj
+has type
+  ∀ (k : I × Bool → Word w),
+    Function.Injective fun v => clnh s m (Function.update k (i, !b) v) - clnh s m' (Function.update k (i, !b) v)
+but is expected to have type
+  ∀ (k : I × Bool → ?m.245), Function.Injective fun v => ?m.251 (Function.update k (i, !b) v)
+in the application
+  uniformProb_of_injective_update ?m.251 (i, !b) hinj
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Carryless
+error: build failed

@@ -17,7 +17,14 @@ The browser imports these same SVG files; `chart.js` adds point inspection,
 keyboard navigation, and host selection. `chart.css` styles only the controls.
 No plotting CDN is needed. The HTML includes a static image fallback.
 
-Both hosts share fixed axes. Host changes animate the same point IDs and their
+Both hosts share fixed axes. Speed uses a logarithmic axis. The score axis uses
+base-2 logarithmic spacing above 1 bit and a linear segment from 0 to 1
+(Matplotlib `symlog`, `linthresh=1`, `linscale=0.5`). Ticks show the original
+scores: 0, 1, 2, 4, 8, 16, 32, 64, 128. Never drop zero-score results or replace
+them with a positive epsilon. This is a display transform of the bit score,
+which is itself logarithmic; no scientific value is changed.
+
+Host changes animate the same point IDs and their
 landmark labels over 720 ms; leader lines move with them. Results unavailable on
 the other host fade in/out. Interrupted transitions resume from their visible
 positions, and reduced-motion preferences disable animation. The settled frame

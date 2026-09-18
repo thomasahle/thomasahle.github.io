@@ -1,0 +1,13 @@
+ℹ [7355/7359] Replayed ProvenHashes.ClassicGHASH
+info: ProvenHashes/ClassicGHASH.lean:117:0: 'ProvenHashes.Classic.GHASH.collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ProvenHashes/ClassicGHASH.lean:118:0: 'ProvenHashes.Classic.GHASH.poly_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [7356/7359] Replayed ProvenHashes.ClassicPrimes
+info: ProvenHashes/ClassicPrimes.lean:240:0: 'ProvenHashes.Classic.poly1305_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [7357/7359] Built ProvenHashes.ClassicPoly1305 (6.5s)
+info: ProvenHashes/ClassicPoly1305.lean:271:0: 'ProvenHashes.Classic.Poly1305.collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ProvenHashes/ClassicPoly1305.lean:272:0: 'ProvenHashes.Classic.Poly1305.clampedSet_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ProvenHashes/ClassicPoly1305.lean:273:0: 'ProvenHashes.Classic.Poly1305.projection_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ProvenHashes/ClassicPoly1305.lean:274:0: 'ProvenHashes.Classic.Poly1305.poly_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ProvenHashes/ClassicPoly1305.lean:275:0: 'ProvenHashes.Classic.Poly1305.tag_collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [7358/7359] Built ProvenHashes (3.3s)
+Build completed successfully (7359 jobs).

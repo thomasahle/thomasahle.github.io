@@ -1,0 +1,15 @@
+{"cpu": 14, "siblings": [14, 62], "busy_percent": {"14": 0.0, "62": 0.0}, "load": [25.5, 25.34, 21.63], "timestamp": "2026-09-18T17:19:21.246663+00:00", "command": ["taskset", "-c", "14", "nice", "-n", "10", "./build/SMHasher3", "chainhash-x86", "--test=Sanity", "--endian=nondefault", "--exit-code-on-failure"]}
+--- Testing chainhash-x86 "ChainHash-x86, adjacent PH pairs, 1 KB blocks, three-key GF(2^64) chain, twisted quintic" [C99 runtime AVX512F+VPCLMUL / AVX2+PCLMUL / portable]
+
+[[[ Sanity Tests ]]]
+
+Verification value BE 0x61C632F7 ...... PASS
+Running sanity check 1       .......... PASS
+Running sanity check 2       .......... PASS
+Running append zeroes test   .......... PASS
+Running prepend zeroes test  .......... PASS
+Running thread-safety test 1 .......... PASS
+Running thread-safety test 2 .......... PASS
+
+Verification value is 0x00000001 - Testing took 0.567988 seconds
+

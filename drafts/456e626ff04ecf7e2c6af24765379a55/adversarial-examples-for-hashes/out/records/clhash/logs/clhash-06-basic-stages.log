@@ -1,0 +1,15 @@
+✔ [7384/7386] Built ProvenHashes.CLHashAlgorithm (4.3s)
+✖ [7385/7386] Building ProvenHashes.CLHashPolynomial (4.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-clhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-clhash/lean/ProvenHashes/CLHashPolynomial.lean -o /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean/ProvenHashes/CLHashPolynomial.olean -i /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean/ProvenHashes/CLHashPolynomial.ilean -c /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/ir/ProvenHashes/CLHashPolynomial.c --setup /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/ir/ProvenHashes/CLHashPolynomial.setup.json --json
+error: ProvenHashes/CLHashPolynomial.lean:5:5: unknown namespace `ChainHash`
+error: ProvenHashes/CLHashPolynomial.lean:32:6: Type mismatch: After simplification, term
+  hk
+ has type
+  Membership.mem.{u_2, u_2} (↑{k | Polynomial.eval (embed k) p = 0}) k
+but is expected to have type
+  Membership.mem.{u_1, u_1} (↑{x | Polynomial.eval x p = 0}) (embed k)
+error: Lean exited with code 1
+✔ [7386/7386] Built ProvenHashes.CLHashFinalizer (4.2s)
+Some required targets logged failures:
+- ProvenHashes.CLHashPolynomial
+error: build failed

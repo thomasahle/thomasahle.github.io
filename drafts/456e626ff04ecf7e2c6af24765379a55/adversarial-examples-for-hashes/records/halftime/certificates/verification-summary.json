@@ -1,0 +1,302 @@
+{
+  "final_header_sha256": "77d30baf4c6dc12e270236400e5323ccd4ef7a17e0aac877b3cbe4bc325ecbad",
+  "validated_at": "2026-09-18T18:02:25.300803+00:00",
+  "rank_certificates": [
+    {
+      "k": 2,
+      "minimum_distance": 2,
+      "all_subsets": 128,
+      "critical_subsets": 7
+    },
+    {
+      "k": 3,
+      "minimum_distance": 3,
+      "all_subsets": 512,
+      "critical_subsets": 36
+    },
+    {
+      "k": 4,
+      "minimum_distance": 4,
+      "all_subsets": 1024,
+      "critical_subsets": 120
+    },
+    {
+      "k": 5,
+      "minimum_distance": 5,
+      "all_subsets": 512,
+      "critical_subsets": 126
+    }
+  ],
+  "direct_encoder_flips": [
+    {
+      "b": 1,
+      "single_bit_flips": 1344,
+      "distances": {
+        "3": 1344,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      }
+    },
+    {
+      "b": 2,
+      "single_bit_flips": 2688,
+      "distances": {
+        "3": 2688,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      }
+    },
+    {
+      "b": 4,
+      "single_bit_flips": 5376,
+      "distances": {
+        "3": 5376,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      }
+    },
+    {
+      "b": 8,
+      "single_bit_flips": 10752,
+      "distances": {
+        "3": 10752,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      }
+    }
+  ],
+  "guard_page": {
+    "cases": 592,
+    "exact_passes": 592,
+    "one_word_short_SIGSEGV": 592
+  },
+  "witness": [
+    {
+      "b": 1,
+      "completed": 68719476736,
+      "collisions": 0,
+      "parts": [
+        {
+          "log": "certificates/logs/chunks/witness-b1.part1.jsonl",
+          "completed": 15837691904,
+          "checkpoint_only": true
+        },
+        {
+          "log": "certificates/logs/chunks/witness-b1.part2.jsonl",
+          "completed": 52881784832,
+          "checkpoint_only": false
+        }
+      ],
+      "final_header_applicability": "Identical function bytes, relocations and constant sections; see final-object-equivalence.json."
+    },
+    {
+      "b": 2,
+      "completed": 68719476736,
+      "collisions": 0,
+      "parts": [
+        {
+          "log": "certificates/logs/chunks/witness-b2.part1.jsonl",
+          "completed": 22548578304,
+          "checkpoint_only": true
+        },
+        {
+          "log": "certificates/logs/chunks/witness-b2.part2.jsonl",
+          "completed": 46170898432,
+          "checkpoint_only": false
+        }
+      ],
+      "final_header_applicability": "Identical function bytes, relocations and constant sections; see final-object-equivalence.json."
+    },
+    {
+      "b": 4,
+      "completed": 68719476736,
+      "collisions": 0,
+      "parts": [
+        {
+          "log": "certificates/logs/chunks/witness-b4.part1.jsonl",
+          "completed": 19327352832,
+          "checkpoint_only": true
+        },
+        {
+          "log": "certificates/logs/chunks/witness-b4.part2.jsonl",
+          "completed": 49392123904,
+          "checkpoint_only": false
+        }
+      ],
+      "final_header_applicability": "Identical function bytes, relocations and constant sections; see final-object-equivalence.json."
+    },
+    {
+      "b": 8,
+      "completed": 68719476736,
+      "collisions": 0,
+      "parts": [
+        {
+          "log": "certificates/logs/witness-b8-final.jsonl",
+          "completed": 68719476736,
+          "checkpoint_only": false
+        }
+      ],
+      "final_header_applicability": "Fresh complete run of witness-final, compiled against the final header."
+    }
+  ],
+  "conditioning_high32_key6_zero": [
+    {
+      "b": 1,
+      "completed": 268435456,
+      "collisions": 0,
+      "log": "certificates/logs/condition-b1.jsonl"
+    },
+    {
+      "b": 2,
+      "completed": 268435456,
+      "collisions": 0,
+      "log": "certificates/logs/condition-b2.jsonl"
+    },
+    {
+      "b": 4,
+      "completed": 268435456,
+      "collisions": 0,
+      "log": "certificates/logs/condition-b4.jsonl"
+    },
+    {
+      "b": 8,
+      "completed": 268435456,
+      "collisions": 0,
+      "log": "certificates/logs/condition-b8.jsonl"
+    }
+  ],
+  "key_generator": "AES-128-CTR with getrandom seed per process, disjoint counter streams per worker, FIPS-197 KAT. Empirical pseudorandom key trials; the theorem separately assumes independent uniform key words.",
+  "witness_execution": "Separate noinline API translation unit, no LTO, two full header calls and comparison of all three output words per trial. Every live key word is redrawn; unread holes remain zero.",
+  "vector_sha256": "f3645437abe590a7b5eb8280c4154bc053ddea846791fb8cce441fd789822e07",
+  "vector_bytes": 4800000,
+  "Xeon_vectors": {
+    "scalar": {
+      "random_inputs": 10000,
+      "widths": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "output_words": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "style_wrappers": 4,
+      "core_calls": 160000,
+      "style_calls": 40000,
+      "unaligned_inputs": true,
+      "status": "passed"
+    },
+    "sse2": {
+      "random_inputs": 10000,
+      "widths": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "output_words": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "style_wrappers": 4,
+      "core_calls": 160000,
+      "style_calls": 40000,
+      "unaligned_inputs": true,
+      "status": "passed"
+    },
+    "avx2": {
+      "random_inputs": 10000,
+      "widths": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "output_words": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "style_wrappers": 4,
+      "core_calls": 160000,
+      "style_calls": 40000,
+      "unaligned_inputs": true,
+      "status": "passed"
+    },
+    "avx512": {
+      "random_inputs": 10000,
+      "widths": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "output_words": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "style_wrappers": 4,
+      "core_calls": 160000,
+      "style_calls": 40000,
+      "unaligned_inputs": true,
+      "status": "passed"
+    }
+  },
+  "M2_vector_sha256": {
+    "neon": "f3645437abe590a7b5eb8280c4154bc053ddea846791fb8cce441fd789822e07",
+    "scalar": "f3645437abe590a7b5eb8280c4154bc053ddea846791fb8cce441fd789822e07",
+    "ubsan": "f3645437abe590a7b5eb8280c4154bc053ddea846791fb8cce441fd789822e07"
+  },
+  "UBSan": [
+    "Xeon Clang 21",
+    "Xeon GCC 11 instrumentation linked with Clang UBSan runtime",
+    "M2 Apple Clang 17"
+  ],
+  "style_compatibility": {
+    "inputs": 10000,
+    "style_wrappers": 4,
+    "identical_outputs": 40000,
+    "baseline": "fix-neon-dispatch compiled with -fwrapv for legacy signed sums",
+    "fixed": "final header, no -fwrapv or -fno-strict-aliasing",
+    "baseline_vector_sha256": "c0ff6279960e898a39fd005775498f0ab77678aa8aa07e80cf3f9eee9e8a48cb",
+    "fixed_vector_sha256": "f3645437abe590a7b5eb8280c4154bc053ddea846791fb8cce441fd789822e07"
+  },
+  "extra_checks": {
+    "unequal_length_zero_message_pairs": 40000,
+    "unequal_length_collisions": 0,
+    "one_leaf_live_readset_checks": 40000,
+    "independent_short_tail_formula_checks": 40000,
+    "status": "passed"
+  },
+  "length_Lean_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "excluded": "All logs/pre-final-header data, both old b=8 chunk files, condition-b8-before-unsigned512.jsonl, and bench/Xeon8375C-before-unsigned512 are excluded from final counts/timings. Unreported interrupted work is excluded."
+}

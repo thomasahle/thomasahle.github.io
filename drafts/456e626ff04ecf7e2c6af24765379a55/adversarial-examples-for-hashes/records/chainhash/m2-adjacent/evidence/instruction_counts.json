@@ -1,0 +1,817 @@
+{
+  "256": {
+    "compile_command": [
+      "clang++",
+      "-std=c++11",
+      "-O3",
+      "-march=native",
+      "-Xclang",
+      "-target-feature",
+      "-Xclang",
+      "+aes",
+      "-DCHAINHASH_X86_BLOCK_BYTES=256",
+      "-S",
+      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/tests/audit.cpp",
+      "-o",
+      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/evidence/arm256.s"
+    ],
+    "functions": {
+      "_audit_batch1": {
+        "instruction_counts": {
+          "sub": 4,
+          "stp": 6,
+          "add": 20,
+          "adrp": 3,
+          "ldr": 8,
+          "stur": 1,
+          "eor": 32,
+          "cmp": 9,
+          "b": 15,
+          "mov": 20,
+          "movi": 8,
+          "ld2": 14,
+          "pmull": 14,
+          "pmull2": 17,
+          "eor3": 17,
+          "ext": 2,
+          "neg": 1,
+          "subs": 3,
+          "orr": 1,
+          "cbz": 1,
+          "bl": 2,
+          "ldp": 12,
+          "and": 2,
+          "ldur": 1,
+          "fmov": 2,
+          "dup": 1,
+          "ret": 1,
+          "cbnz": 1
+        },
+        "shuffle_count": 3,
+        "ph_loops": [
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB0_3"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB0_7"
+          },
+          {
+            "instructions": {
+              "mov": 2,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "sub": 1,
+              "add": 3,
+              "cmp": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB0_12"
+          }
+        ],
+        "folded_spills_whole_function": 5,
+        "folded_reloads_whole_function": 5
+      },
+      "_audit_batch2": {
+        "instruction_counts": {
+          "sub": 5,
+          "stp": 6,
+          "add": 29,
+          "adrp": 3,
+          "ldr": 9,
+          "stur": 1,
+          "eor": 44,
+          "cmp": 13,
+          "b": 20,
+          "mov": 24,
+          "movi": 12,
+          "ld2": 22,
+          "pmull": 21,
+          "pmull2": 27,
+          "eor3": 26,
+          "ext": 4,
+          "neg": 1,
+          "subs": 3,
+          "orr": 1,
+          "cbz": 1,
+          "bl": 2,
+          "ldp": 12,
+          "and": 2,
+          "ldur": 1,
+          "fmov": 2,
+          "dup": 1,
+          "ret": 1,
+          "cbnz": 1
+        },
+        "shuffle_count": 5,
+        "ph_loops": [
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB1_3"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB1_5"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB1_11"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB1_15"
+          },
+          {
+            "instructions": {
+              "mov": 2,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "sub": 1,
+              "add": 3,
+              "cmp": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB1_19"
+          }
+        ],
+        "folded_spills_whole_function": 5,
+        "folded_reloads_whole_function": 5
+      },
+      "_audit_batch4": {
+        "instruction_counts": {
+          "sub": 5,
+          "stp": 6,
+          "add": 39,
+          "adrp": 3,
+          "ldr": 9,
+          "stur": 1,
+          "eor": 54,
+          "cmp": 15,
+          "b": 22,
+          "mov": 28,
+          "movi": 16,
+          "ld2": 30,
+          "pmull": 29,
+          "pmull2": 39,
+          "eor3": 36,
+          "ext": 6,
+          "neg": 1,
+          "subs": 3,
+          "orr": 1,
+          "cbz": 1,
+          "bl": 2,
+          "ldp": 12,
+          "and": 2,
+          "ldur": 1,
+          "fmov": 2,
+          "dup": 1,
+          "ret": 1,
+          "cbnz": 1
+        },
+        "shuffle_count": 7,
+        "ph_loops": [
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB2_3"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB2_5"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB2_7"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB2_9"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB2_15"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB2_19"
+          },
+          {
+            "instructions": {
+              "mov": 2,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "sub": 1,
+              "add": 3,
+              "cmp": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB2_23"
+          }
+        ],
+        "folded_spills_whole_function": 5,
+        "folded_reloads_whole_function": 5
+      },
+      "_audit_batch8": {
+        "instruction_counts": {
+          "sub": 5,
+          "stp": 6,
+          "add": 59,
+          "adrp": 3,
+          "ldr": 9,
+          "stur": 1,
+          "eor": 78,
+          "cmp": 19,
+          "b": 26,
+          "mov": 36,
+          "movi": 24,
+          "ld2": 46,
+          "pmull": 45,
+          "pmull2": 63,
+          "eor3": 54,
+          "ext": 10,
+          "neg": 1,
+          "subs": 3,
+          "orr": 1,
+          "cbz": 1,
+          "bl": 2,
+          "ldp": 12,
+          "and": 2,
+          "ldur": 1,
+          "fmov": 2,
+          "dup": 1,
+          "ret": 1,
+          "cbnz": 1
+        },
+        "shuffle_count": 11,
+        "ph_loops": [
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_3"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_5"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_7"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_9"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_11"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_13"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_15"
+          },
+          {
+            "instructions": {
+              "add": 5,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_17"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_23"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_27"
+          },
+          {
+            "instructions": {
+              "mov": 2,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "sub": 1,
+              "add": 3,
+              "cmp": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB3_31"
+          }
+        ],
+        "folded_spills_whole_function": 5,
+        "folded_reloads_whole_function": 5
+      },
+      "_audit_ph": {
+        "instruction_counts": {
+          "mov": 2,
+          "movi": 2,
+          "add": 3,
+          "ld2": 4,
+          "eor": 5,
+          "pmull": 2,
+          "pmull2": 2,
+          "eor3": 2,
+          "cmp": 1,
+          "b": 1,
+          "ret": 1
+        },
+        "shuffle_count": 0,
+        "ph_loops": [
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB4_1"
+          }
+        ],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      },
+      "_audit_ld2_group": {
+        "instruction_counts": {
+          "ld2": 2,
+          "eor": 3,
+          "pmull": 1,
+          "pmull2": 1,
+          "ret": 1
+        },
+        "shuffle_count": 0,
+        "ph_loops": [],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      },
+      "_audit_strided_group": {
+        "instruction_counts": {
+          "ldp": 2,
+          "eor": 3,
+          "pmull": 1,
+          "pmull2": 1,
+          "ret": 1
+        },
+        "shuffle_count": 0,
+        "ph_loops": [],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      },
+      "_audit_shuffle_group": {
+        "instruction_counts": {
+          "ldp": 2,
+          "eor": 3,
+          "zip1": 1,
+          "zip2": 1,
+          "pmull": 1,
+          "pmull2": 1,
+          "ret": 1
+        },
+        "shuffle_count": 2,
+        "ph_loops": [],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      }
+    }
+  },
+  "1024": {
+    "compile_command": [
+      "clang++",
+      "-std=c++11",
+      "-O3",
+      "-march=native",
+      "-Xclang",
+      "-target-feature",
+      "-Xclang",
+      "+aes",
+      "-DCHAINHASH_X86_BLOCK_BYTES=1024",
+      "-S",
+      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/tests/audit.cpp",
+      "-o",
+      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/evidence/arm1024.s"
+    ],
+    "functions": {
+      "_audit_batch1": {
+        "instruction_counts": {
+          "sub": 4,
+          "stp": 6,
+          "add": 20,
+          "adrp": 3,
+          "ldr": 14,
+          "stur": 1,
+          "eor": 32,
+          "cmp": 9,
+          "b": 15,
+          "mov": 20,
+          "movi": 8,
+          "ld2": 14,
+          "pmull": 14,
+          "pmull2": 17,
+          "eor3": 17,
+          "ext": 2,
+          "neg": 1,
+          "subs": 3,
+          "orr": 1,
+          "cbz": 1,
+          "bl": 2,
+          "ldp": 9,
+          "and": 2,
+          "ldur": 1,
+          "fmov": 2,
+          "dup": 1,
+          "ret": 1,
+          "cbnz": 1
+        },
+        "shuffle_count": 3,
+        "ph_loops": [
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB0_3"
+          },
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB0_7"
+          },
+          {
+            "instructions": {
+              "mov": 2,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "sub": 1,
+              "add": 3,
+              "cmp": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB0_12"
+          }
+        ],
+        "folded_spills_whole_function": 5,
+        "folded_reloads_whole_function": 5
+      },
+      "_audit_ph": {
+        "instruction_counts": {
+          "mov": 2,
+          "movi": 2,
+          "add": 3,
+          "ld2": 4,
+          "eor": 5,
+          "pmull": 2,
+          "pmull2": 2,
+          "eor3": 2,
+          "cmp": 1,
+          "b": 1,
+          "ret": 1
+        },
+        "shuffle_count": 0,
+        "ph_loops": [
+          {
+            "instructions": {
+              "add": 3,
+              "ld2": 4,
+              "eor": 4,
+              "pmull": 2,
+              "pmull2": 2,
+              "eor3": 2,
+              "cmp": 1,
+              "mov": 1,
+              "b": 1
+            },
+            "shuffle_count": 0,
+            "start_label": "LBB1_1"
+          }
+        ],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      },
+      "_audit_ld2_group": {
+        "instruction_counts": {
+          "ld2": 2,
+          "eor": 3,
+          "pmull": 1,
+          "pmull2": 1,
+          "ret": 1
+        },
+        "shuffle_count": 0,
+        "ph_loops": [],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      },
+      "_audit_strided_group": {
+        "instruction_counts": {
+          "ldp": 2,
+          "eor": 3,
+          "pmull": 1,
+          "pmull2": 1,
+          "ret": 1
+        },
+        "shuffle_count": 0,
+        "ph_loops": [],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      },
+      "_audit_shuffle_group": {
+        "instruction_counts": {
+          "ldp": 2,
+          "eor": 3,
+          "zip1": 1,
+          "zip2": 1,
+          "pmull": 1,
+          "pmull2": 1,
+          "ret": 1
+        },
+        "shuffle_count": 2,
+        "ph_loops": [],
+        "folded_spills_whole_function": 0,
+        "folded_reloads_whole_function": 0
+      }
+    }
+  }
+}

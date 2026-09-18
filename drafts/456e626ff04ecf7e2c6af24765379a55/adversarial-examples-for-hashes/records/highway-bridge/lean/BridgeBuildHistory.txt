@@ -1,0 +1,2081 @@
+✖ [7383/7386] Building ProvenHashes.Highway.BridgeWords (3.3s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:19:4: 'change' tactic failed, pattern
+  ?m.34 = lo a ^^^ lo b
+is not definitionally equal to target
+  BitVec.extractLsb' 32 32 (rot32 (a ^^^ b)) = BitVec.extractLsb' 32 32 (rot32 a) ^^^ BitVec.extractLsb' 32 32 (rot32 b)
+error: ProvenHashes/Highway/BridgeWords.lean:23:4: 'change' tactic failed, pattern
+  ?m.52 = hi a ^^^ hi b
+is not definitionally equal to target
+  BitVec.extractLsb' 0 32 (rot32 (a ^^^ b)) = BitVec.extractLsb' 0 32 (rot32 a) ^^^ BitVec.extractLsb' 0 32 (rot32 b)
+warning: ProvenHashes/Highway/BridgeWords.lean:18:15: This simp argument is unused:
+  hi_rot32
+
+Hint: Omit it from the simp argument list.
+  simp only [̵h̵i̵_̵r̵o̵t̵3̵2̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ lo, BitVec.extractLsb'_xor]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeWords.lean:18:29: This simp argument is unused:
+  lo
+
+Hint: Omit it from the simp argument list.
+  simp only [hi_rot32, hi, l̵o̵,̵ ̵BitVec.extractLsb'_xor]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeWords.lean:22:15: This simp argument is unused:
+  lo_rot32
+
+Hint: Omit it from the simp argument list.
+  simp only [l̵o̵_̵r̵o̵t̵3̵2̵,̵ ̵hi, lo, BitVec.extractLsb'_xor]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeWords.lean:22:25: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  simp only [lo_rot32, h̵i̵,̵ ̵lo, BitVec.extractLsb'_xor]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✔ [7383/7386] Built ProvenHashes.Highway.BridgeWords (3.3s)
+✔ [7384/7386] Built ProvenHashes.Highway (3.1s)
+✔ [7385/7386] Built ProvenHashes (3.2s)
+Build completed successfully (7386 jobs).
+✖ [7383/7386] Building ProvenHashes.Highway.BridgeWords (10s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:36:58: Unknown constant `BitVec.getLsbD_zeroExtend`
+error: ProvenHashes/Highway/BridgeWords.lean:33:2: unsolved goals
+case a.v0.pred.«1»
+h : Half
+w : Word
+i : ℕ
+hi : 1 < 64
+⊢ BitVec.toNat h >>> 1 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 1 % 2 = 1
+
+case a.v0.pred.«2»
+h : Half
+w : Word
+i : ℕ
+hi : 2 < 64
+⊢ BitVec.toNat h >>> 2 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 2 % 2 = 1
+
+case a.v0.pred.«3»
+h : Half
+w : Word
+i : ℕ
+hi : 3 < 64
+⊢ BitVec.toNat h >>> 3 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 3 % 2 = 1
+
+case a.v0.pred.«4»
+h : Half
+w : Word
+i : ℕ
+hi : 4 < 64
+⊢ BitVec.toNat h >>> 4 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 4 % 2 = 1
+
+case a.v0.pred.«5»
+h : Half
+w : Word
+i : ℕ
+hi : 5 < 64
+⊢ BitVec.toNat h >>> 5 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 5 % 2 = 1
+
+case a.v0.pred.«6»
+h : Half
+w : Word
+i : ℕ
+hi : 6 < 64
+⊢ BitVec.toNat h >>> 6 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 6 % 2 = 1
+
+case a.v0.pred.«7»
+h : Half
+w : Word
+i : ℕ
+hi : 7 < 64
+⊢ BitVec.toNat h >>> 7 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 7 % 2 = 1
+
+case a.v0.pred.«8»
+h : Half
+w : Word
+i : ℕ
+hi : 8 < 64
+⊢ BitVec.toNat h >>> 8 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 8 % 2 = 1
+
+case a.v0.pred.«9»
+h : Half
+w : Word
+i : ℕ
+hi : 9 < 64
+⊢ BitVec.toNat h >>> 9 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 9 % 2 = 1
+
+case a.v0.pred.«10»
+h : Half
+w : Word
+i : ℕ
+hi : 10 < 64
+⊢ BitVec.toNat h >>> 10 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 10 % 2 = 1
+
+case a.v0.pred.«11»
+h : Half
+w : Word
+i : ℕ
+hi : 11 < 64
+⊢ BitVec.toNat h >>> 11 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 11 % 2 = 1
+
+case a.v0.pred.«12»
+h : Half
+w : Word
+i : ℕ
+hi : 12 < 64
+⊢ BitVec.toNat h >>> 12 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 12 % 2 = 1
+
+case a.v0.pred.«13»
+h : Half
+w : Word
+i : ℕ
+hi : 13 < 64
+⊢ BitVec.toNat h >>> 13 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 13 % 2 = 1
+
+case a.v0.pred.«14»
+h : Half
+w : Word
+i : ℕ
+hi : 14 < 64
+⊢ BitVec.toNat h >>> 14 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 14 % 2 = 1
+
+case a.v0.pred.«15»
+h : Half
+w : Word
+i : ℕ
+hi : 15 < 64
+⊢ BitVec.toNat h >>> 15 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 15 % 2 = 1
+
+case a.v0.pred.«16»
+h : Half
+w : Word
+i : ℕ
+hi : 16 < 64
+⊢ BitVec.toNat h >>> 16 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 16 % 2 = 1
+
+case a.v0.pred.«17»
+h : Half
+w : Word
+i : ℕ
+hi : 17 < 64
+⊢ BitVec.toNat h >>> 17 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 17 % 2 = 1
+
+case a.v0.pred.«18»
+h : Half
+w : Word
+i : ℕ
+hi : 18 < 64
+⊢ BitVec.toNat h >>> 18 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 18 % 2 = 1
+
+case a.v0.pred.«19»
+h : Half
+w : Word
+i : ℕ
+hi : 19 < 64
+⊢ BitVec.toNat h >>> 19 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 19 % 2 = 1
+
+case a.v0.pred.«20»
+h : Half
+w : Word
+i : ℕ
+hi : 20 < 64
+⊢ BitVec.toNat h >>> 20 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 20 % 2 = 1
+
+case a.v0.pred.«21»
+h : Half
+w : Word
+i : ℕ
+hi : 21 < 64
+⊢ BitVec.toNat h >>> 21 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 21 % 2 = 1
+
+case a.v0.pred.«22»
+h : Half
+w : Word
+i : ℕ
+hi : 22 < 64
+⊢ BitVec.toNat h >>> 22 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 22 % 2 = 1
+
+case a.v0.pred.«23»
+h : Half
+w : Word
+i : ℕ
+hi : 23 < 64
+⊢ BitVec.toNat h >>> 23 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 23 % 2 = 1
+
+case a.v0.pred.«24»
+h : Half
+w : Word
+i : ℕ
+hi : 24 < 64
+⊢ BitVec.toNat h >>> 24 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 24 % 2 = 1
+
+case a.v0.pred.«25»
+h : Half
+w : Word
+i : ℕ
+hi : 25 < 64
+⊢ BitVec.toNat h >>> 25 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 25 % 2 = 1
+
+case a.v0.pred.«26»
+h : Half
+w : Word
+i : ℕ
+hi : 26 < 64
+⊢ BitVec.toNat h >>> 26 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 26 % 2 = 1
+
+case a.v0.pred.«27»
+h : Half
+w : Word
+i : ℕ
+hi : 27 < 64
+⊢ BitVec.toNat h >>> 27 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 27 % 2 = 1
+
+case a.v0.pred.«28»
+h : Half
+w : Word
+i : ℕ
+hi : 28 < 64
+⊢ BitVec.toNat h >>> 28 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 28 % 2 = 1
+
+case a.v0.pred.«29»
+h : Half
+w : Word
+i : ℕ
+hi : 29 < 64
+⊢ BitVec.toNat h >>> 29 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 29 % 2 = 1
+
+case a.v0.pred.«30»
+h : Half
+w : Word
+i : ℕ
+hi : 30 < 64
+⊢ BitVec.toNat h >>> 30 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 30 % 2 = 1
+
+case a.v0.pred.«31»
+h : Half
+w : Word
+i : ℕ
+hi : 31 < 64
+⊢ BitVec.toNat h >>> 31 % 2 = 1 ↔ (BitVec.toNat h % 18446744073709551616) >>> 31 % 2 = 1
+
+case a.v0.pred.«32»
+h : Half
+w : Word
+i : ℕ
+hi : 32 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 32 % 2 = 0
+
+case a.v0.pred.«33»
+h : Half
+w : Word
+i : ℕ
+hi : 33 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 33 % 2 = 0
+
+case a.v0.pred.«34»
+h : Half
+w : Word
+i : ℕ
+hi : 34 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 34 % 2 = 0
+
+case a.v0.pred.«35»
+h : Half
+w : Word
+i : ℕ
+hi : 35 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 35 % 2 = 0
+
+case a.v0.pred.«36»
+h : Half
+w : Word
+i : ℕ
+hi : 36 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 36 % 2 = 0
+
+case a.v0.pred.«37»
+h : Half
+w : Word
+i : ℕ
+hi : 37 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 37 % 2 = 0
+
+case a.v0.pred.«38»
+h : Half
+w : Word
+i : ℕ
+hi : 38 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 38 % 2 = 0
+
+case a.v0.pred.«39»
+h : Half
+w : Word
+i : ℕ
+hi : 39 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 39 % 2 = 0
+
+case a.v0.pred.«40»
+h : Half
+w : Word
+i : ℕ
+hi : 40 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 40 % 2 = 0
+
+case a.v0.pred.«41»
+h : Half
+w : Word
+i : ℕ
+hi : 41 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 41 % 2 = 0
+
+case a.v0.pred.«42»
+h : Half
+w : Word
+i : ℕ
+hi : 42 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 42 % 2 = 0
+
+case a.v0.pred.«43»
+h : Half
+w : Word
+i : ℕ
+hi : 43 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 43 % 2 = 0
+
+case a.v0.pred.«44»
+h : Half
+w : Word
+i : ℕ
+hi : 44 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 44 % 2 = 0
+
+case a.v0.pred.«45»
+h : Half
+w : Word
+i : ℕ
+hi : 45 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 45 % 2 = 0
+
+case a.v0.pred.«46»
+h : Half
+w : Word
+i : ℕ
+hi : 46 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 46 % 2 = 0
+
+case a.v0.pred.«47»
+h : Half
+w : Word
+i : ℕ
+hi : 47 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 47 % 2 = 0
+
+case a.v0.pred.«48»
+h : Half
+w : Word
+i : ℕ
+hi : 48 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 48 % 2 = 0
+
+case a.v0.pred.«49»
+h : Half
+w : Word
+i : ℕ
+hi : 49 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 49 % 2 = 0
+
+case a.v0.pred.«50»
+h : Half
+w : Word
+i : ℕ
+hi : 50 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 50 % 2 = 0
+
+case a.v0.pred.«51»
+h : Half
+w : Word
+i : ℕ
+hi : 51 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 51 % 2 = 0
+
+case a.v0.pred.«52»
+h : Half
+w : Word
+i : ℕ
+hi : 52 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 52 % 2 = 0
+
+case a.v0.pred.«53»
+h : Half
+w : Word
+i : ℕ
+hi : 53 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 53 % 2 = 0
+
+case a.v0.pred.«54»
+h : Half
+w : Word
+i : ℕ
+hi : 54 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 54 % 2 = 0
+
+case a.v0.pred.«55»
+h : Half
+w : Word
+i : ℕ
+hi : 55 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 55 % 2 = 0
+
+case a.v0.pred.«56»
+h : Half
+w : Word
+i : ℕ
+hi : 56 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 56 % 2 = 0
+
+case a.v0.pred.«57»
+h : Half
+w : Word
+i : ℕ
+hi : 57 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 57 % 2 = 0
+
+case a.v0.pred.«58»
+h : Half
+w : Word
+i : ℕ
+hi : 58 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 58 % 2 = 0
+
+case a.v0.pred.«59»
+h : Half
+w : Word
+i : ℕ
+hi : 59 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 59 % 2 = 0
+
+case a.v0.pred.«60»
+h : Half
+w : Word
+i : ℕ
+hi : 60 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 60 % 2 = 0
+
+case a.v0.pred.«61»
+h : Half
+w : Word
+i : ℕ
+hi : 61 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 61 % 2 = 0
+
+case a.v0.pred.«62»
+h : Half
+w : Word
+i : ℕ
+hi : 62 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 62 % 2 = 0
+
+case a.v0.pred.«63»
+h : Half
+w : Word
+i : ℕ
+hi : 63 < 64
+⊢ (BitVec.toNat h % 18446744073709551616) >>> 63 % 2 = 0
+error: ProvenHashes/Highway/BridgeWords.lean:38:2: unsolved goals
+case a.v1.pred.«0»
+h : Half
+w : Word
+i : ℕ
+hi : 0 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) % 2 = 0
+
+case a.v1.pred.«1»
+h : Half
+w : Word
+i : ℕ
+hi : 1 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 1 % 2 = 1
+
+case a.v1.pred.«2»
+h : Half
+w : Word
+i : ℕ
+hi : 2 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 2 % 2 = 1
+
+case a.v1.pred.«3»
+h : Half
+w : Word
+i : ℕ
+hi : 3 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 3 % 2 = 0
+
+case a.v1.pred.«4»
+h : Half
+w : Word
+i : ℕ
+hi : 4 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 4 % 2 = 0
+
+case a.v1.pred.«5»
+h : Half
+w : Word
+i : ℕ
+hi : 5 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 5 % 2 = 0
+
+case a.v1.pred.«6»
+h : Half
+w : Word
+i : ℕ
+hi : 6 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 6 % 2 = 1
+
+case a.v1.pred.«7»
+h : Half
+w : Word
+i : ℕ
+hi : 7 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 7 % 2 = 0
+
+case a.v1.pred.«8»
+h : Half
+w : Word
+i : ℕ
+hi : 8 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 8 % 2 = 0
+
+case a.v1.pred.«9»
+h : Half
+w : Word
+i : ℕ
+hi : 9 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 9 % 2 = 0
+
+case a.v1.pred.«10»
+h : Half
+w : Word
+i : ℕ
+hi : 10 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 10 % 2 = 0
+
+case a.v1.pred.«11»
+h : Half
+w : Word
+i : ℕ
+hi : 11 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 11 % 2 = 0
+
+case a.v1.pred.«12»
+h : Half
+w : Word
+i : ℕ
+hi : 12 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 12 % 2 = 0
+
+case a.v1.pred.«13»
+h : Half
+w : Word
+i : ℕ
+hi : 13 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 13 % 2 = 1
+
+case a.v1.pred.«14»
+h : Half
+w : Word
+i : ℕ
+hi : 14 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 14 % 2 = 0
+
+case a.v1.pred.«15»
+h : Half
+w : Word
+i : ℕ
+hi : 15 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 15 % 2 = 0
+
+case a.v1.pred.«16»
+h : Half
+w : Word
+i : ℕ
+hi : 16 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 16 % 2 = 0
+
+case a.v1.pred.«17»
+h : Half
+w : Word
+i : ℕ
+hi : 17 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 17 % 2 = 0
+
+case a.v1.pred.«18»
+h : Half
+w : Word
+i : ℕ
+hi : 18 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 18 % 2 = 0
+
+case a.v1.pred.«19»
+h : Half
+w : Word
+i : ℕ
+hi : 19 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 19 % 2 = 1
+
+case a.v1.pred.«20»
+h : Half
+w : Word
+i : ℕ
+hi : 20 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 20 % 2 = 0
+
+case a.v1.pred.«21»
+h : Half
+w : Word
+i : ℕ
+hi : 21 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 21 % 2 = 1
+
+case a.v1.pred.«22»
+h : Half
+w : Word
+i : ℕ
+hi : 22 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 22 % 2 = 1
+
+case a.v1.pred.«23»
+h : Half
+w : Word
+i : ℕ
+hi : 23 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 23 % 2 = 1
+
+case a.v1.pred.«24»
+h : Half
+w : Word
+i : ℕ
+hi : 24 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 24 % 2 = 0
+
+case a.v1.pred.«25»
+h : Half
+w : Word
+i : ℕ
+hi : 25 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 25 % 2 = 0
+
+case a.v1.pred.«26»
+h : Half
+w : Word
+i : ℕ
+hi : 26 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 26 % 2 = 0
+
+case a.v1.pred.«27»
+h : Half
+w : Word
+i : ℕ
+hi : 27 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 27 % 2 = 0
+
+case a.v1.pred.«28»
+h : Half
+w : Word
+i : ℕ
+hi : 28 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 28 % 2 = 1
+
+case a.v1.pred.«29»
+h : Half
+w : Word
+i : ℕ
+hi : 29 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 29 % 2 = 0
+
+case a.v1.pred.«30»
+h : Half
+w : Word
+i : ℕ
+hi : 30 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 30 % 2 = 0
+
+case a.v1.pred.«31»
+h : Half
+w : Word
+i : ℕ
+hi : 31 < 64
+⊢ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 31 % 2 = 0
+
+case a.v1.pred.«32»
+h : Half
+w : Word
+i : ℕ
+hi : 32 < 64
+⊢ (BitVec.toNat h % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 32 % 2 == 1
+
+case a.v1.pred.«33»
+h : Half
+w : Word
+i : ℕ
+hi : 33 < 64
+⊢ (BitVec.toNat h >>> 1 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 33 % 2 == 1
+
+case a.v1.pred.«34»
+h : Half
+w : Word
+i : ℕ
+hi : 34 < 64
+⊢ (BitVec.toNat h >>> 2 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 34 % 2 == 1
+
+case a.v1.pred.«35»
+h : Half
+w : Word
+i : ℕ
+hi : 35 < 64
+⊢ (BitVec.toNat h >>> 3 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 35 % 2 == 1
+
+case a.v1.pred.«36»
+h : Half
+w : Word
+i : ℕ
+hi : 36 < 64
+⊢ (BitVec.toNat h >>> 4 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 36 % 2 == 1
+
+case a.v1.pred.«37»
+h : Half
+w : Word
+i : ℕ
+hi : 37 < 64
+⊢ (BitVec.toNat h >>> 5 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 37 % 2 == 1
+
+case a.v1.pred.«38»
+h : Half
+w : Word
+i : ℕ
+hi : 38 < 64
+⊢ BitVec.toNat h >>> 6 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 38 % 2 = 1
+
+case a.v1.pred.«39»
+h : Half
+w : Word
+i : ℕ
+hi : 39 < 64
+⊢ BitVec.toNat h >>> 7 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 39 % 2 = 1
+
+case a.v1.pred.«40»
+h : Half
+w : Word
+i : ℕ
+hi : 40 < 64
+⊢ BitVec.toNat h >>> 8 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 40 % 2 = 1
+
+case a.v1.pred.«41»
+h : Half
+w : Word
+i : ℕ
+hi : 41 < 64
+⊢ BitVec.toNat h >>> 9 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 41 % 2 = 1
+
+case a.v1.pred.«42»
+h : Half
+w : Word
+i : ℕ
+hi : 42 < 64
+⊢ BitVec.toNat h >>> 10 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 42 % 2 = 1
+
+case a.v1.pred.«43»
+h : Half
+w : Word
+i : ℕ
+hi : 43 < 64
+⊢ BitVec.toNat h >>> 11 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 43 % 2 = 1
+
+case a.v1.pred.«44»
+h : Half
+w : Word
+i : ℕ
+hi : 44 < 64
+⊢ (BitVec.toNat h >>> 12 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 44 % 2 == 1
+
+case a.v1.pred.«45»
+h : Half
+w : Word
+i : ℕ
+hi : 45 < 64
+⊢ BitVec.toNat h >>> 13 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 45 % 2 = 1
+
+case a.v1.pred.«46»
+h : Half
+w : Word
+i : ℕ
+hi : 46 < 64
+⊢ (BitVec.toNat h >>> 14 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 46 % 2 == 1
+
+case a.v1.pred.«47»
+h : Half
+w : Word
+i : ℕ
+hi : 47 < 64
+⊢ BitVec.toNat h >>> 15 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 47 % 2 = 1
+
+case a.v1.pred.«48»
+h : Half
+w : Word
+i : ℕ
+hi : 48 < 64
+⊢ (BitVec.toNat h >>> 16 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 48 % 2 == 1
+
+case a.v1.pred.«49»
+h : Half
+w : Word
+i : ℕ
+hi : 49 < 64
+⊢ (BitVec.toNat h >>> 17 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 49 % 2 == 1
+
+case a.v1.pred.«50»
+h : Half
+w : Word
+i : ℕ
+hi : 50 < 64
+⊢ (BitVec.toNat h >>> 18 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 50 % 2 == 1
+
+case a.v1.pred.«51»
+h : Half
+w : Word
+i : ℕ
+hi : 51 < 64
+⊢ (BitVec.toNat h >>> 19 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 51 % 2 == 1
+
+case a.v1.pred.«52»
+h : Half
+w : Word
+i : ℕ
+hi : 52 < 64
+⊢ (BitVec.toNat h >>> 20 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 52 % 2 == 1
+
+case a.v1.pred.«53»
+h : Half
+w : Word
+i : ℕ
+hi : 53 < 64
+⊢ BitVec.toNat h >>> 21 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 53 % 2 = 1
+
+case a.v1.pred.«54»
+h : Half
+w : Word
+i : ℕ
+hi : 54 < 64
+⊢ BitVec.toNat h >>> 22 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 54 % 2 = 1
+
+case a.v1.pred.«55»
+h : Half
+w : Word
+i : ℕ
+hi : 55 < 64
+⊢ (BitVec.toNat h >>> 23 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 55 % 2 == 1
+
+case a.v1.pred.«56»
+h : Half
+w : Word
+i : ℕ
+hi : 56 < 64
+⊢ (BitVec.toNat h >>> 24 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 56 % 2 == 1
+
+case a.v1.pred.«57»
+h : Half
+w : Word
+i : ℕ
+hi : 57 < 64
+⊢ BitVec.toNat h >>> 25 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 57 % 2 = 1
+
+case a.v1.pred.«58»
+h : Half
+w : Word
+i : ℕ
+hi : 58 < 64
+⊢ (BitVec.toNat h >>> 26 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 58 % 2 == 1
+
+case a.v1.pred.«59»
+h : Half
+w : Word
+i : ℕ
+hi : 59 < 64
+⊢ BitVec.toNat h >>> 27 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 59 % 2 = 1
+
+case a.v1.pred.«60»
+h : Half
+w : Word
+i : ℕ
+hi : 60 < 64
+⊢ BitVec.toNat h >>> 28 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 60 % 2 = 1
+
+case a.v1.pred.«61»
+h : Half
+w : Word
+i : ℕ
+hi : 61 < 64
+⊢ BitVec.toNat h >>> 29 % 2 = 1 ↔ BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 61 % 2 = 1
+
+case a.v1.pred.«62»
+h : Half
+w : Word
+i : ℕ
+hi : 62 < 64
+⊢ (BitVec.toNat h >>> 30 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 62 % 2 == 1
+
+case a.v1.pred.«63»
+h : Half
+w : Word
+i : ℕ
+hi : 63 < 64
+⊢ (BitVec.toNat h >>> 31 % 2 == 1) = !BitVec.toNat ((3315552319#32 ^^^ h) ++ 283648070#32) >>> 63 % 2 == 1
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✖ [7383/7386] Building ProvenHashes.Highway.BridgeWords (3.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:34:11: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (a, b).swap
+in the target expression
+  (lo (a ++ b), hi (a ++ b)) = (b, a)
+
+case a
+a b : Half
+hab : (hi (a ++ b), lo (a ++ b)) = (a, b)
+hba : wordHalves (b ++ a) = (b, a)
+⊢ (lo (a ++ b), hi (a ++ b)) = (b, a)
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✔ [7383/7386] Built ProvenHashes.Highway.BridgeWords (3.7s)
+✔ [7384/7386] Built ProvenHashes.Highway (3.2s)
+✔ [7385/7386] Built ProvenHashes (3.1s)
+Build completed successfully (7386 jobs).
+✖ [7383/7386] Building ProvenHashes.Highway.BridgeWords (3.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:44:2: unsolved goals
+case a.v0
+h : Half
+w : Word
+⊢ 15845587454020865583#64 ^^^ 3689338325#32 ++ (4266446383#32 ^^^ h) = 0#32 ++ h
+warning: ProvenHashes/Highway/BridgeWords.lean:46:10: This simp argument is unused:
+  BitVec.xor_append
+
+Hint: Omit it from the simp argument list.
+  simp [B̵i̵t̵V̵e̵c̵.̵x̵o̵r̵_̵a̵p̵p̵e̵n̵d̵,̵ ̵← BitVec.xor_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeWords.lean:46:29: This simp argument is unused:
+  ← BitVec.xor_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [BitVec.xor_append,̵ ̵←̵ ̵B̵i̵t̵V̵e̵c̵.̵x̵o̵r̵_̵a̵s̵s̵o̵c̵]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✔ [7383/7386] Built ProvenHashes.Highway.BridgeWords (3.9s)
+✔ [7384/7386] Built ProvenHashes.Highway (3.2s)
+✔ [7385/7386] Built ProvenHashes (3.1s)
+Build completed successfully (7386 jobs).
+✖ [7383/7386] Building ProvenHashes.Highway.BridgeWords (4.1s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:76:41: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ g ≤ 4294967295
+  -1542899678 ≤ b - 4294967296*c ≤ 2752067617
+  b - 4294967296*c - 4294967296*d - e - g ≥ -5837866973
+  -5837866974 ≤ b - 4294967296*c - 4294967296*d - g ≤ -1542899679
+  0 ≤ a ≤ 18446744073709551615
+  0 ≤ a - 4294967296*b ≤ 698298831
+  -6626703657320631856 ≤ a - 4294967296*e - 18446744073709551616*f ≤ -6626703653025664561
+  -6626703657320631856 ≤ a - 18446744073709551616*f ≤ 11820040416388919759
+where
+ a := ↑(BitVec.toNat w)
+ b := ↑(BitVec.toNat w) / 4294967296
+ c := ↑(1542899678 + BitVec.toNat w / 4294967296) / 4294967296
+ d := ↑(4294967296 - (1#32).toNat + (1542899678 + BitVec.toNat w / 4294967296) % 4294967296) / 4294967296
+ e := ↑((6626703657320631856 + BitVec.toNat w) % 18446744073709551616) / 4294967296
+ f := ↑(6626703657320631856 + BitVec.toNat w) / 18446744073709551616
+ g := ↑(1#32).toNat
+error: ProvenHashes/Highway/BridgeWords.lean:76:41: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ g ≤ 4294967295
+  -1542899678 ≤ b - 4294967296*c ≤ 2752067617
+  b - 4294967296*c - 4294967296*d - e - g ≥ -5837866973
+  -5837866974 ≤ b - 4294967296*c - 4294967296*d - g ≤ -1542899679
+  0 ≤ a ≤ 18446744073709551615
+  698298832 ≤ a - 4294967296*b ≤ 4294967295
+  -6626703657320631856 ≤ a - 4294967296*e - 18446744073709551616*f ≤ -6626703653025664561
+  -6626703657320631856 ≤ a - 18446744073709551616*f ≤ 11820040416388919759
+where
+ a := ↑(BitVec.toNat w)
+ b := ↑(BitVec.toNat w) / 4294967296
+ c := ↑(1542899678 + BitVec.toNat w / 4294967296) / 4294967296
+ d := ↑(4294967296 - (0#32).toNat + (1542899678 + BitVec.toNat w / 4294967296) % 4294967296) / 4294967296
+ e := ↑((6626703657320631856 + BitVec.toNat w) % 18446744073709551616) / 4294967296
+ f := ↑(6626703657320631856 + BitVec.toNat w) / 18446744073709551616
+ g := ↑(0#32).toNat
+warning: ProvenHashes/Highway/BridgeWords.lean:81:27: This simp argument is unused:
+  BitVec.getLsbD_extractLsb'
+
+Hint: Omit it from the simp argument list.
+  simp [byte, rot32, B̵i̵t̵V̵e̵c̵.̵g̵e̵t̵L̵s̵b̵D̵_̵e̵x̵t̵r̵a̵c̵t̵L̵s̵b̵'̵,̵ ̵BitVec.getLsbD_or, BitVec.getLsbD_ushiftRight, BitVec.getLsbD_shiftLeft]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeWords.lean:81:55: This simp argument is unused:
+  BitVec.getLsbD_or
+
+Hint: Omit it from the simp argument list.
+  simp [byte, rot32, BitVec.getLsbD_extractLsb', B̵i̵t̵V̵e̵c̵.̵g̵e̵t̵L̵s̵b̵D̵_̵o̵r̵,̵BitVec.getLsbD_ushiftRight,
+            BitVec.getLsbD_shiftLeft]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeWords.lean:82:10: This simp argument is unused:
+  BitVec.getLsbD_ushiftRight
+
+Hint: Omit it from the simp argument list.
+  simp [byte, rot32, BitVec.getLsbD_extractLsb', BitVec.getLsbD_or, B̵i̵t̵V̵e̵c̵.̵g̵e̵t̵L̵s̵b̵D̵_̵u̵s̵h̵i̵f̵t̵R̵i̵g̵h̵t̵,̵ ̵BitVec.getLsbD_shiftLeft]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeWords.lean:82:38: This simp argument is unused:
+  BitVec.getLsbD_shiftLeft
+
+Hint: Omit it from the simp argument list.
+  simp [byte, rot32, BitVec.getLsbD_extractLsb', BitVec.getLsbD_or,
+            BitVec.getLsbD_ushiftRight,̵ ̵B̵i̵t̵V̵e̵c̵.̵g̵e̵t̵L̵s̵b̵D̵_̵s̵h̵i̵f̵t̵L̵e̵f̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+⚠ [7383/7386] Built ProvenHashes.Highway.BridgeWords (4.5s)
+warning: ProvenHashes/Highway/BridgeWords.lean:68:4: 'change hi (_ ^^^ _) = _' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [7384/7386] Built ProvenHashes.Highway (3.1s)
+✔ [7385/7386] Built ProvenHashes (3.1s)
+Build completed successfully (7386 jobs).
+✔ [7383/7386] Built ProvenHashes.Highway.BridgeWords (4.6s)
+✔ [7384/7386] Built ProvenHashes.Highway (3.2s)
+✔ [7385/7386] Built ProvenHashes (3.1s)
+Build completed successfully (7386 jobs).
+✔ [7383/7386] Built ProvenHashes.Highway.BridgeWords (4.8s)
+✔ [7384/7386] Built ProvenHashes.Highway (3.2s)
+✔ [7385/7386] Built ProvenHashes (3.2s)
+Build completed successfully (7386 jobs).
+✔ [7384/7387] Built ProvenHashes.Highway.BridgeCoordinates (3.6s)
+✔ [7385/7387] Built ProvenHashes.Highway (3.2s)
+✔ [7386/7387] Built ProvenHashes (3.2s)
+Build completed successfully (7387 jobs).
+✔ [7384/7387] Built ProvenHashes.Highway.BridgeCoordinates (5.3s)
+✔ [7385/7387] Built ProvenHashes.Highway (3.2s)
+✔ [7386/7387] Built ProvenHashes (3.1s)
+Build completed successfully (7387 jobs).
+✔ [7384/7387] Built ProvenHashes.Highway.BridgeCoordinates (7.1s)
+✔ [7385/7387] Built ProvenHashes.Highway (3.1s)
+✔ [7386/7387] Built ProvenHashes (3.1s)
+Build completed successfully (7387 jobs).
+✔ [7384/7387] Built ProvenHashes.Highway.BridgeCoordinates (7.1s)
+✔ [7385/7387] Built ProvenHashes.Highway (3.2s)
+✔ [7386/7387] Built ProvenHashes (3.1s)
+Build completed successfully (7387 jobs).
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.5s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.2s)
+✔ [7387/7388] Built ProvenHashes (3.2s)
+Build completed successfully (7388 jobs).
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (5.0s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+info: stderr:
+Stack overflow detected. Aborting.
+error: Lean exited with code 134
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (5.9s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+info: stderr:
+Stack overflow detected. Aborting.
+error: Lean exited with code 134
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (3.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:42:2: ENTRY
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+⊢ firstW (assembledKey f a z) = assembleW f a z ∧
+    keyGamma (assembledKey f a z) = arithmeticGamma f a ∧
+      BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 2) =
+          lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 65536 % 256 ∧
+        BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 3) =
+          lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 16777216 % 256
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (3.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:55:2: BEFORE-GAMMA
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+a0 : byte (coordinateA (assembleH f a)) 0 = 70
+a1 : byte (coordinateA (assembleH f a)) 1 = 32
+a2 : byte (coordinateA (assembleH f a)) 2 = 232
+a3 : byte (coordinateA (assembleH f a)) 3 = 16
+a4 : byte (coordinateA (assembleH f a)) 4 = freeA4 f
+a5 : byte (coordinateA (assembleH f a)) 5 = freeA5 f
+hl : BitVec.toNat (lo (assembleW f a z)) = ↑f.2.1 * 256 + BitVec.toNat z
+hh : hi (assembleW f a z) = BitVec.ofNat 32 (highValue f a)
+w0 : byte (assembleW f a z) 0 = z
+w1 : BitVec.toNat (byte (assembleW f a z) 1) = ↑f.2.1 % 256
+w2 : BitVec.toNat (byte (assembleW f a z) 2) = ↑f.2.1 / 256 % 256
+w3 : BitVec.toNat (byte (assembleW f a z) 3) = ↑f.2.1 / 65536
+w4 : BitVec.toNat (byte (assembleW f a z) 4) = ↑f.2.2.1
+w5 : BitVec.toNat (byte (assembleW f a z) 5) = ↑f.2.2.2
+w6 : BitVec.toNat (byte (assembleW f a z) 6) = ↑a.2.2
+w7 : BitVec.toNat (byte (assembleW f a z) 7) = ↑a.1
+hH : BitVec.toNat (assembleH f a) = ↑f.1 + 65536 * ↑a.2.1
+hW : firstW (assembledKey f a z) = assembleW f a z
+hU :
+  firstU0 (reset (assembledKey f a z)).ab =
+    0 ++ assembleH f a + 4310963063287117203 + zip0 (coordinateA (assembleH f a)) (assembleW f a z)
+⊢ firstW (assembledKey f a z) = assembleW f a z ∧
+    keyGamma (assembledKey f a z) = arithmeticGamma f a ∧
+      BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 2) =
+          lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 65536 % 256 ∧
+        BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 3) =
+          lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 16777216 % 256
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (3.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:62:4: GAMMA-REWRITTEN
+case refine_1
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+a0 : byte (coordinateA (assembleH f a)) 0 = 70
+a1 : byte (coordinateA (assembleH f a)) 1 = 32
+a2 : byte (coordinateA (assembleH f a)) 2 = 232
+a3 : byte (coordinateA (assembleH f a)) 3 = 16
+a4 : byte (coordinateA (assembleH f a)) 4 = freeA4 f
+a5 : byte (coordinateA (assembleH f a)) 5 = freeA5 f
+hl : BitVec.toNat (lo (assembleW f a z)) = ↑f.2.1 * 256 + BitVec.toNat z
+hh : hi (assembleW f a z) = BitVec.ofNat 32 (highValue f a)
+w0 : byte (assembleW f a z) 0 = z
+w1 : BitVec.toNat (byte (assembleW f a z) 1) = ↑f.2.1 % 256
+w2 : BitVec.toNat (byte (assembleW f a z) 2) = ↑f.2.1 / 256 % 256
+w3 : BitVec.toNat (byte (assembleW f a z) 3) = ↑f.2.1 / 65536
+w4 : BitVec.toNat (byte (assembleW f a z) 4) = ↑f.2.2.1
+w5 : BitVec.toNat (byte (assembleW f a z) 5) = ↑f.2.2.2
+w6 : BitVec.toNat (byte (assembleW f a z) 6) = ↑a.2.2
+w7 : BitVec.toNat (byte (assembleW f a z) 7) = ↑a.1
+hH : BitVec.toNat (assembleH f a) = ↑f.1 + 65536 * ↑a.2.1
+hW : firstW (assembledKey f a z) = assembleW f a z
+hU :
+  firstU0 (reset (assembledKey f a z)).ab =
+    0 ++ assembleH f a + 4310963063287117203 + zip0 (coordinateA (assembleH f a)) (assembleW f a z)
+⊢ firstGamma (BitVec.toNat 0 * 2 ^ 32 + (↑f.1 + 65536 * ↑a.2.1)) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 =
+    arithmeticGamma f a
+error: ProvenHashes/Highway/BridgePredicate.lean:63:12: LOWBYTES
+case refine_2
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+a0 : byte (coordinateA (assembleH f a)) 0 = 70
+a1 : byte (coordinateA (assembleH f a)) 1 = 32
+a2 : byte (coordinateA (assembleH f a)) 2 = 232
+a3 : byte (coordinateA (assembleH f a)) 3 = 16
+a4 : byte (coordinateA (assembleH f a)) 4 = freeA4 f
+a5 : byte (coordinateA (assembleH f a)) 5 = freeA5 f
+hl : BitVec.toNat (lo (assembleW f a z)) = ↑f.2.1 * 256 + BitVec.toNat z
+hh : hi (assembleW f a z) = BitVec.ofNat 32 (highValue f a)
+w0 : byte (assembleW f a z) 0 = z
+w1 : BitVec.toNat (byte (assembleW f a z) 1) = ↑f.2.1 % 256
+w2 : BitVec.toNat (byte (assembleW f a z) 2) = ↑f.2.1 / 256 % 256
+w3 : BitVec.toNat (byte (assembleW f a z) 3) = ↑f.2.1 / 65536
+w4 : BitVec.toNat (byte (assembleW f a z) 4) = ↑f.2.2.1
+w5 : BitVec.toNat (byte (assembleW f a z) 5) = ↑f.2.2.2
+w6 : BitVec.toNat (byte (assembleW f a z) 6) = ↑a.2.2
+w7 : BitVec.toNat (byte (assembleW f a z) 7) = ↑a.1
+hH : BitVec.toNat (assembleH f a) = ↑f.1 + 65536 * ↑a.2.1
+hW : firstW (assembledKey f a z) = assembleW f a z
+hU :
+  firstU0 (reset (assembledKey f a z)).ab =
+    0 ++ assembleH f a + 4310963063287117203 + zip0 (coordinateA (assembleH f a)) (assembleW f a z)
+⊢ BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 2) =
+    lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 65536 % 256
+error: ProvenHashes/Highway/BridgePredicate.lean:63:12: LOWBYTES
+case refine_3
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+a0 : byte (coordinateA (assembleH f a)) 0 = 70
+a1 : byte (coordinateA (assembleH f a)) 1 = 32
+a2 : byte (coordinateA (assembleH f a)) 2 = 232
+a3 : byte (coordinateA (assembleH f a)) 3 = 16
+a4 : byte (coordinateA (assembleH f a)) 4 = freeA4 f
+a5 : byte (coordinateA (assembleH f a)) 5 = freeA5 f
+hl : BitVec.toNat (lo (assembleW f a z)) = ↑f.2.1 * 256 + BitVec.toNat z
+hh : hi (assembleW f a z) = BitVec.ofNat 32 (highValue f a)
+w0 : byte (assembleW f a z) 0 = z
+w1 : BitVec.toNat (byte (assembleW f a z) 1) = ↑f.2.1 % 256
+w2 : BitVec.toNat (byte (assembleW f a z) 2) = ↑f.2.1 / 256 % 256
+w3 : BitVec.toNat (byte (assembleW f a z) 3) = ↑f.2.1 / 65536
+w4 : BitVec.toNat (byte (assembleW f a z) 4) = ↑f.2.2.1
+w5 : BitVec.toNat (byte (assembleW f a z) 5) = ↑f.2.2.2
+w6 : BitVec.toNat (byte (assembleW f a z) 6) = ↑a.2.2
+w7 : BitVec.toNat (byte (assembleW f a z) 7) = ↑a.1
+hH : BitVec.toNat (assembleH f a) = ↑f.1 + 65536 * ↑a.2.1
+hW : firstW (assembledKey f a z) = assembleW f a z
+hU :
+  firstU0 (reset (assembledKey f a z)).ab =
+    0 ++ assembleH f a + 4310963063287117203 + zip0 (coordinateA (assembleH f a)) (assembleW f a z)
+⊢ BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 3) =
+    lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 16777216 % 256
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (5.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:62:4: `simp` made no progress
+error: ProvenHashes/Highway/BridgePredicate.lean:35:8: (kernel) deep recursion detected
+warning: ProvenHashes/Highway/BridgePredicate.lean:68:6: This simp argument is unused:
+  BitVec.toNat_zero
+
+Hint: Omit it from the simp argument list.
+  simp only [BitVec.toNat_add, zip0_bytes, pack8_toNat, append_toNat, hH, a0, a1, a2, a3, a5, w4,
+  ̲  ̲ ̲ ̲ ̲ ̲BitVec.ofNat_eq_ofNat, BitVec.toNat_ofNat, B̵i̵t̵V̵e̵c̵.̵t̵o̵N̵a̵t̵_̵z̵e̵r̵o̵,̵ ̵zero_mul, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgePredicate.lean:68:25: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [BitVec.toNat_add, zip0_bytes, pack8_toNat, append_toNat, hH, a0, a1, a2, a3, a5, w4,
+  ̲  ̲ ̲ ̲ ̲ ̲BitVec.ofNat_eq_ofNat, BitVec.toNat_ofNat, BitVec.toNat_zero, z̵e̵r̵o̵_̵m̵u̵l̵,̵ ̵zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgePredicate.lean:68:35: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  simp only [BitVec.toNat_add, zip0_bytes, pack8_toNat, append_toNat, hH, a0, a1, a2, a3, a5, w4,
+  ̲  ̲ ̲ ̲ ̲ ̲BitVec.ofNat_eq_ofNat, BitVec.toNat_ofNat, BitVec.toNat_zero, z̵e̵r̵o̵_̵m̵u̵l̵,̵ ̵z̵e̵r̵o̵_̵a̵d̵d̵]̵z̲e̲r̲o̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (5.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:35:8: (kernel) deep recursion detected
+warning: ProvenHashes/Highway/BridgePredicate.lean:68:6: This simp argument is unused:
+  BitVec.toNat_zero
+
+Hint: Omit it from the simp argument list.
+  simp only [BitVec.toNat_add, zip0_bytes, pack8_toNat, append_toNat, hH, a0, a1, a2, a3, a5, w4,
+  ̲  ̲ ̲ ̲ ̲ ̲BitVec.ofNat_eq_ofNat, BitVec.toNat_ofNat, B̵i̵t̵V̵e̵c̵.̵t̵o̵N̵a̵t̵_̵z̵e̵r̵o̵,̵ ̵zero_mul, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgePredicate.lean:68:25: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [BitVec.toNat_add, zip0_bytes, pack8_toNat, append_toNat, hH, a0, a1, a2, a3, a5, w4,
+  ̲  ̲ ̲ ̲ ̲ ̲BitVec.ofNat_eq_ofNat, BitVec.toNat_ofNat, BitVec.toNat_zero, z̵e̵r̵o̵_̵m̵u̵l̵,̵ ̵zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgePredicate.lean:68:35: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  simp only [BitVec.toNat_add, zip0_bytes, pack8_toNat, append_toNat, hH, a0, a1, a2, a3, a5, w4,
+  ̲  ̲ ̲ ̲ ̲ ̲BitVec.ofNat_eq_ofNat, BitVec.toNat_ofNat, BitVec.toNat_zero, z̵e̵r̵o̵_̵m̵u̵l̵,̵ ̵z̵e̵r̵o̵_̵a̵d̵d̵]̵z̲e̲r̲o̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (5.4s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:35:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.6s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.2s)
+✔ [7387/7388] Built ProvenHashes (3.3s)
+Build completed successfully (7388 jobs).
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.6s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.2s)
+✔ [7387/7388] Built ProvenHashes (3.1s)
+Build completed successfully (7388 jobs).
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.6s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.2s)
+✔ [7387/7388] Built ProvenHashes (3.2s)
+Build completed successfully (7388 jobs).
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (5.3s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:61:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (3.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:78:4: NAT-FORM
+case left
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+⊢ ((↑f.1 + 65536 * ↑a.2.1 + 4310963063287117203) % 18446744073709551616 +
+            (16 + 256 * ↑f.2.2.1 + 15204352 + 16777216 * BitVec.toNat (freeA5 f) +
+                    4294967296 * BitVec.toNat (byte (assembleW f a z) 6) +
+                  35184372088832 +
+                281474976710656 * BitVec.toNat (byte (assembleW f a z) 7) +
+              5044031582654955520)) %
+          18446744073709551616 /
+        65536 %
+      256 =
+    (↑f.1 + 65536 * ↑a.2.1 + 3406755219 + 16 + 256 * ↑f.2.2.1 + 15204352 + 16777216 * BitVec.toNat (freeA5 f)) / 65536 %
+      256
+error: ProvenHashes/Highway/BridgePredicate.lean:78:4: NAT-FORM
+case right
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+⊢ ((↑f.1 + 65536 * ↑a.2.1 + 4310963063287117203) % 18446744073709551616 +
+            (16 + 256 * ↑f.2.2.1 + 15204352 + 16777216 * BitVec.toNat (freeA5 f) +
+                    4294967296 * BitVec.toNat (byte (assembleW f a z) 6) +
+                  35184372088832 +
+                281474976710656 * BitVec.toNat (byte (assembleW f a z) 7) +
+              5044031582654955520)) %
+          18446744073709551616 /
+        16777216 %
+      256 =
+    (↑f.1 + 65536 * ↑a.2.1 + 3406755219 + 16 + 256 * ↑f.2.2.1 + 15204352 + 16777216 * BitVec.toNat (freeA5 f)) /
+        16777216 %
+      256
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (5.3s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:61:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+⚠ [7383/7388] Built ProvenHashes.Highway.BridgeWords (5.2s)
+warning: ProvenHashes/Highway/BridgeWords.lean:124:39: unused variable `hb`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ProvenHashes/Highway/BridgeWords.lean:125:5: unused variable `h4`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ProvenHashes/Highway/BridgeWords.lean:125:21: unused variable `h6`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ProvenHashes/Highway/BridgeWords.lean:125:37: unused variable `h7`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [7384/7388] Built ProvenHashes.Highway.BridgeCoordinates (7.3s)
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.6s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.1s)
+✔ [7387/7388] Built ProvenHashes (3.1s)
+Build completed successfully (7388 jobs).
+✔ [7383/7388] Built ProvenHashes.Highway.BridgeWords (5.2s)
+✔ [7384/7388] Built ProvenHashes.Highway.BridgeCoordinates (7.3s)
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (4.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:61:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✔ [7383/7388] Built ProvenHashes.Highway.BridgeWords (5.6s)
+✔ [7384/7388] Built ProvenHashes.Highway.BridgeCoordinates (7.3s)
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.6s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.1s)
+✔ [7387/7388] Built ProvenHashes (3.2s)
+Build completed successfully (7388 jobs).
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (3.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:74:2: `simp` made no progress
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (4.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:63:78: unsolved goals
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+a0 : byte (coordinateA (assembleH f a)) 0 = 70
+a1 : byte (coordinateA (assembleH f a)) 1 = 32
+a2 : byte (coordinateA (assembleH f a)) 2 = 232
+a3 : byte (coordinateA (assembleH f a)) 3 = 16
+a4 : byte (coordinateA (assembleH f a)) 4 = freeA4 f
+a5 : byte (coordinateA (assembleH f a)) 5 = freeA5 f
+w4 : BitVec.toNat (byte (assembleW f a z) 4) = ↑f.2.2.1
+hH : BitVec.toNat (assembleH f a) = ↑f.1 + 65536 * ↑a.2.1
+hl : lo (0 ++ assembleH f a) = assembleH f a
+hc : lo 4310963063287117203 = 3406755219
+⊢ ((↑f.1 + (65536 * ↑a.2.1 + 3406755219)) % 4294967296 +
+        (16 + (256 * ↑f.2.2.1 + (15204352 + 16777216 * BitVec.toNat (freeA5 f))))) %
+      4294967296 =
+    (↑f.1 +
+        (65536 * ↑a.2.1 +
+          (3406755219 + (16 + (256 * ↑f.2.2.1 + (65536 * 232 + 16777216 * BitVec.toNat (freeA5 f))))))) %
+      4294967296
+error: ProvenHashes/Highway/BridgePredicate.lean:61:8: (kernel) deep recursion detected
+warning: ProvenHashes/Highway/BridgePredicate.lean:74:23: This simp argument is unused:
+  Nat.add_mod_mod
+
+Hint: Omit it from the simp argument list.
+  simp only [lowTotal, N̵a̵t̵.̵a̵d̵d̵_̵m̵o̵d̵_̵m̵o̵d̵,̵ ̵Nat.add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (4.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:61:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✖ [7383/7388] Building ProvenHashes.Highway.BridgeWords (6.2s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:140:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✖ [7383/7388] Building ProvenHashes.Highway.BridgeWords (6.2s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:140:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✖ [7383/7388] Building ProvenHashes.Highway.BridgeWords (6.2s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+info: ProvenHashes/Highway/BridgeWords.lean:145:2: found a proof, but the corresponding tactic failed:
+  (expose_names; exact have hl := congrArg Prod.snd (Equiv.apply_symm_apply wordHalves (0, h));
+  have hc := of_decide_eq_true (id (Eq.refl true));
+  Eq.mpr
+    (id
+      (congrArg
+        (fun _a =>
+          BitVec.toNat _a =
+            (BitVec.toNat h + 3406755219 + 16 + 256 * BitVec.toNat (byte w 4) + 65536 * 232 +
+                16777216 * BitVec.toNat (byte a 5)) %
+              4294967296)
+        (lo_add (0 ++ h + 4310963063287117203) (zip0 a w))))
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            BitVec.toNat (_a + lo (zip0 a w)) =
+              (BitVec.toNat h + 3406755219 + 16 + 256 * BitVec.toNat (byte w 4) + 65536 * 232 +
+                  16777216 * BitVec.toNat (byte a 5)) %
+                4294967296)
+          (lo_add (0 ++ h) 4310963063287117203)))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun _a =>
+              BitVec.toNat (_a + lo 4310963063287117203 + lo (zip0 a w)) =
+                (BitVec.toNat h + 3406755219 + 16 + 256 * BitVec.toNat (byte w 4) + 65536 * 232 +
+                    16777216 * BitVec.toNat (byte a 5)) %
+                  4294967296)
+            hl))
+        (Eq.mpr
+          (id
+            (congrArg
+              (fun _a =>
+                BitVec.toNat (h + _a + lo (zip0 a w)) =
+                  (BitVec.toNat h + 3406755219 + 16 + 256 * BitVec.toNat (byte w 4) + 65536 * 232 +
+                      16777216 * BitVec.toNat (byte a 5)) %
+                    4294967296)
+              hc))
+          (Eq.mpr
+            (id
+              (congrArg
+                (fun x =>
+                  x % 2 ^ 32 =
+                    (BitVec.toNat h + 3406755219 + 16 + 256 * BitVec.toNat (byte w 4) + 65536 * 232 +
+                        16777216 * BitVec.toNat (byte a 5)) %
+                      4294967296)
+                (congr
+                  (congrArg (fun x => HAdd.hAdd ((BitVec.toNat h + x) % 2 ^ 32)) (BitVec.toNat_ofNat 3406755219 32))
+                  (Eq.trans (lo_zip0_toNat a w)
+                    (congrArg (fun x => x + 16777216 * BitVec.toNat (byte a 5))
+                      (congr
+                        (congrArg (fun x => HAdd.hAdd (x + 256 * BitVec.toNat (byte w 4)))
+                          (Eq.trans (congrArg BitVec.toNat ha3) (BitVec.toNat_ofNat 16 8)))
+                        (congrArg (HMul.hMul 65536)
+                          (Eq.trans (congrArg BitVec.toNat ha2) (BitVec.toNat_ofNat 232 8)))))))))
+            (Eq.mpr
+              (id
+                (congr
+                  (congrArg Eq
+                    (congr
+                      (congrArg HMod.hMod
+                        (congr
+                          (congrArg HAdd.hAdd
+                            (congr
+                              (congrArg (fun x => HMod.hMod (BitVec.toNat h + x))
+                                (Mathlib.Meta.NormNum.IsNat.to_eq
+                                  (Mathlib.Meta.NormNum.isNat_natMod
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 3406755219))
+                                    (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 32))
+                                      (Mathlib.Meta.NormNum.IsNatPowT.run
+                                        (Mathlib.Meta.NormNum.IsNatPowT.trans
+                                          (Mathlib.Meta.NormNum.IsNatPowT.trans
+                                            (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                              Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                                            Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                                          (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                            Mathlib.Meta.NormNum.IsNatPowT.bit0))))
+                                    (Eq.refl 3406755219))
+                                  (Eq.refl 3406755219)))
+                              (Mathlib.Meta.NormNum.IsNat.to_eq
+                                (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 32))
+                                  (Mathlib.Meta.NormNum.IsNatPowT.run
+                                    (Mathlib.Meta.NormNum.IsNatPowT.trans
+                                      (Mathlib.Meta.NormNum.IsNatPowT.trans
+                                        (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                          Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                                        Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                                      (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                        Mathlib.Meta.NormNum.IsNatPowT.bit0))))
+                                (Eq.refl 4294967296))))
+                          (congrArg (fun x => x + 16777216 * BitVec.toNat (byte a 5))
+                            (congr
+                              (congrArg (fun x => HAdd.hAdd (x + 256 * BitVec.toNat (byte w 4)))
+                                (Mathlib.Meta.NormNum.IsNat.to_eq
+                                  (Mathlib.Meta.NormNum.isNat_natMod (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 16))
+                                    (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 8))
+                                      (Mathlib.Meta.NormNum.IsNatPowT.run
+                                        (Mathlib.Meta.NormNum.IsNatPowT.trans
+                                          (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                            Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                                          Mathlib.Meta.NormNum.IsNatPowT.bit0)))
+                                    (Eq.refl 16))
+                                  (Eq.refl 16)))
+                              (Mathlib.Meta.NormNum.IsNat.to_eq
+                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65536))
+                                  (Mathlib.Meta.NormNum.isNat_natMod (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 232))
+                                    (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 8))
+                                      (Mathlib.Meta.NormNum.IsNatPowT.run
+                                        (Mathlib.Meta.NormNum.IsNatPowT.trans
+                                          (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                            Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                                          Mathlib.Meta.NormNum.IsNatPowT.bit0)))
+                                    (Eq.refl 232))
+                                  (Eq.refl 15204352))
+                                (Eq.refl 15204352))))))
+                      (Mathlib.Meta.NormNum.IsNat.to_eq
+                        (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 32))
+                          (Mathlib.Meta.NormNum.IsNatPowT.run
+                            (Mathlib.Meta.NormNum.IsNatPowT.trans
+                              (Mathlib.Meta.NormNum.IsNatPowT.trans
+                                (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                  Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                                Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                              (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                Mathlib.Meta.NormNum.IsNatPowT.bit0))))
+                        (Eq.refl 4294967296))))
+                  (congrArg
+                    (fun x =>
+                      (BitVec.toNat h + 3406755219 + 16 + 256 * BitVec.toNat (byte w 4) + x +
+                          16777216 * BitVec.toNat (byte a 5)) %
+                        4294967296)
+                    (Mathlib.Meta.NormNum.IsNat.to_eq
+                      (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                        (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65536))
+                        (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 232)) (Eq.refl 15204352))
+                      (Eq.refl 15204352)))))
+              (of_eq_true
+                (Eq.trans
+                  (congr
+                    (congrArg Eq
+                      (Eq.trans
+                        (Eq.trans
+                          (congrArg (fun x => ((BitVec.toNat h + 3406755219) % 4294967296 + x) % 4294967296)
+                            (Eq.trans
+                              (Eq.trans
+                                (congrArg (fun x => x + 16777216 * BitVec.toNat (byte a 5))
+                                  (Nat.add_assoc 16 (256 * BitVec.toNat (byte w 4)) 15204352))
+                                (Nat.add_assoc 16 (256 * BitVec.toNat (byte w 4) + 15204352)
+                                  (16777216 * BitVec.toNat (byte a 5))))
+                              (congrArg (HAdd.hAdd 16)
+                                (Nat.add_assoc (256 * BitVec.toNat (byte w 4)) 15204352
+                                  (16777216 * BitVec.toNat (byte a 5))))))
+                          (Nat.mod_add_mod (BitVec.toNat h + 3406755219) 4294967296
+                            (16 + (256 * BitVec.toNat (byte w 4) + (15204352 + 16777216 * BitVec.toNat (byte a 5))))))
+                        (congrArg (fun x => x % 4294967296)
+                          (Nat.add_assoc (BitVec.toNat h) 3406755219
+                            (16 + (256 * BitVec.toNat (byte w 4) + (15204352 + 16777216 * BitVec.toNat (byte a 5))))))))
+                    (congrArg (fun x => x % 4294967296)
+                      (Eq.trans
+                        (Eq.trans
+                          (congrArg (fun x => x + 16777216 * BitVec.toNat (byte a 5))
+                            (Eq.trans
+                              (Eq.trans
+                                (congrArg (fun x => x + 15204352)
+                                  (Eq.trans
+                                    (Eq.trans
+                                      (congrArg (fun x => x + 256 * BitVec.toNat (byte w 4))
+                                        (Nat.add_assoc (BitVec.toNat h) 3406755219 16))
+                                      (Nat.add_assoc (BitVec.toNat h) (3406755219 + 16)
+                                        (256 * BitVec.toNat (byte w 4))))
+                                    (congrArg (HAdd.hAdd (BitVec.toNat h))
+                                      (Nat.add_assoc 3406755219 16 (256 * BitVec.toNat (byte w 4))))))
+                                (Nat.add_assoc (BitVec.toNat h) (3406755219 + (16 + 256 * BitVec.toNat (byte w 4)))
+                                  15204352))
+                              (congrArg (HAdd.hAdd (BitVec.toNat h))
+                                (Eq.trans (Nat.add_assoc 3406755219 (16 + 256 * BitVec.toNat (byte w 4)) 15204352)
+                                  (congrArg (HAdd.hAdd 3406755219)
+                                    (Nat.add_assoc 16 (256 * BitVec.toNat (byte w 4)) 15204352))))))
+                          (Nat.add_assoc (BitVec.toNat h)
+                            (3406755219 + (16 + (256 * BitVec.toNat (byte w 4) + 15204352)))
+                            (16777216 * BitVec.toNat (byte a 5))))
+                        (congrArg (HAdd.hAdd (BitVec.toNat h))
+                          (Eq.trans
+                            (Nat.add_assoc 3406755219 (16 + (256 * BitVec.toNat (byte w 4) + 15204352))
+                              (16777216 * BitVec.toNat (byte a 5)))
+                            (congrArg (HAdd.hAdd 3406755219)
+                              (Eq.trans
+                                (Nat.add_assoc 16 (256 * BitVec.toNat (byte w 4) + 15204352)
+                                  (16777216 * BitVec.toNat (byte a 5)))
+                                (congrArg (HAdd.hAdd 16)
+                                  (Nat.add_assoc (256 * BitVec.toNat (byte w 4)) 15204352
+                                    (16777216 * BitVec.toNat (byte a 5)))))))))))
+                  (eq_self
+                    ((BitVec.toNat h +
+                        (3406755219 +
+                          (16 + (256 * BitVec.toNat (byte w 4) + (15204352 + 16777216 * BitVec.toNat (byte a 5)))))) %
+                      4294967296))))))))))
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+error: ProvenHashes/Highway/BridgeWords.lean:140:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✖ [7383/7388] Building ProvenHashes.Highway.BridgeWords (6.4s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeWords.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeWords.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeWords.setup.json --json
+error: ProvenHashes/Highway/BridgeWords.lean:140:8: (kernel) deep recursion detected
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeWords
+error: build failed
+✔ [7383/7388] Built ProvenHashes.Highway.BridgeWords (5.6s)
+✔ [7384/7388] Built ProvenHashes.Highway.BridgeCoordinates (7.3s)
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.6s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.2s)
+✔ [7387/7388] Built ProvenHashes (3.2s)
+Build completed successfully (7388 jobs).
+✔ [7383/7388] Built ProvenHashes.Highway.BridgeWords (5.6s)
+✔ [7384/7388] Built ProvenHashes.Highway.BridgeCoordinates (7.3s)
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.5s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.1s)
+✔ [7387/7388] Built ProvenHashes (3.1s)
+Build completed successfully (7388 jobs).
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.6s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.3s)
+✔ [7387/7388] Built ProvenHashes (3.3s)
+Build completed successfully (7388 jobs).
+✖ [7385/7388] Building ProvenHashes.Highway.BridgePredicate (3.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgePredicate.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgePredicate.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgePredicate.setup.json --json
+error: ProvenHashes/Highway/BridgePredicate.lean:75:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  BitVec.toNat (byte ?m.70 ↑2)
+in the target expression
+  BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 2) =
+    lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 65536 % 256
+
+case left
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+⊢ BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 2) =
+    lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 65536 % 256
+error: ProvenHashes/Highway/BridgePredicate.lean:79:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  BitVec.toNat (byte ?m.75 ↑3)
+in the target expression
+  BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 3) =
+    lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 16777216 % 256
+
+case right
+f : FreeCoordinates
+a : ArithmeticCoordinates
+z : Byte
+⊢ BitVec.toNat (byte (firstU0 (reset (assembledKey f a z)).ab) 3) =
+    lowTotal (↑f.1) (BitVec.toNat (freeA5 f)) ↑f.2.2.1 ↑a.2.1 / 16777216 % 256
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgePredicate
+error: build failed
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.8s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.1s)
+✔ [7387/7388] Built ProvenHashes (3.3s)
+Build completed successfully (7388 jobs).
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (3.8s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.2s)
+✔ [7387/7388] Built ProvenHashes (3.2s)
+Build completed successfully (7388 jobs).
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (4.1s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.1s)
+✔ [7387/7388] Built ProvenHashes (3.1s)
+Build completed successfully (7388 jobs).
+✔ [7385/7388] Built ProvenHashes.Highway.BridgePredicate (4.3s)
+✔ [7386/7388] Built ProvenHashes.Highway (3.1s)
+✔ [7387/7388] Built ProvenHashes (3.2s)
+Build completed successfully (7388 jobs).
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (3.6s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:9:5: failed to synthesize
+  DecidablePred fun p => E2 (assembledKey f p.1 p.2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ProvenHashes/Highway/BridgeCount.lean:11:2: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (3.3s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.2s)
+✔ [7388/7389] Built ProvenHashes (3.2s)
+Build completed successfully (7389 jobs).
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (3.4s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.2s)
+✔ [7388/7389] Built ProvenHashes (3.2s)
+Build completed successfully (7389 jobs).
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (76s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (3.2s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:43:2: SUM-READY
+⊢ ∑ x, 56165 = 56165 * 2 ^ 56
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (3.3s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.2s)
+✔ [7388/7389] Built ProvenHashes (3.1s)
+Build completed successfully (7389 jobs).
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (3.7s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.1s)
+✔ [7388/7389] Built ProvenHashes (3.1s)
+Build completed successfully (7389 jobs).
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (68s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:78:4: (deterministic) timeout at `whnf`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ProvenHashes/Highway/BridgeCount.lean:82:2: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (68s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:78:4: (deterministic) timeout at `whnf`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ProvenHashes/Highway/BridgeCount.lean:82:2: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (4.3s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.2s)
+✔ [7388/7389] Built ProvenHashes (3.1s)
+Build completed successfully (7389 jobs).
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (4.1s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:91:2: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (4.1s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:91:51: unsolved goals
+case h
+h : Half
+p : Half × Word
+r : Word × Word
+⊢ h = 3689338325 ∧ E2 (coordinateKey p.1 p.2) ↔
+    (h, p, r) ∈ {3689338325}.product ({p | E2 (coordinateKey p.1 p.2)}.product Finset.univ)
+error: ProvenHashes/Highway/BridgeCount.lean:96:10: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?s ×ˢ ?t).card
+in the target expression
+  ({3689338325}.product ({p | E2 (coordinateKey p.1 p.2)}.product Finset.univ)).card = 56165 * 2 ^ 184
+
+hs :
+  {p | Trail (fullKeyCoordinates.symm p)} = {3689338325}.product ({p | E2 (coordinateKey p.1 p.2)}.product Finset.univ)
+⊢ ({3689338325}.product ({p | E2 (coordinateKey p.1 p.2)}.product Finset.univ)).card = 56165 * 2 ^ 184
+warning: ProvenHashes/Highway/BridgeCount.lean:94:61: This simp argument is unused:
+  Finset.mem_product
+
+Hint: Omit it from the simp argument list.
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵p̵r̵o̵d̵u̵c̵t̵,̵Finset.mem_singleton, and_true,
+  ̲  ̲ ̲ ̲ ̲ ̲full_key_trail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeCount.lean:95:6: This simp argument is unused:
+  Finset.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_product, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵s̵i̵n̵g̵l̵e̵t̵o̵n̵,̵ ̵and_true,
+  ̲  ̲ ̲ ̲ ̲ ̲full_key_trail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ProvenHashes/Highway/BridgeCount.lean:95:28: This simp argument is unused:
+  and_true
+
+Hint: Omit it from the simp argument list.
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_product,
+        Finset.mem_singleton, a̵n̵d̵_̵t̵r̵u̵e̵,̵ ̵full_key_trail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (56s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (4.2s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:100:2: COUNT-NORMAL-FORM
+hs :
+  {p | Trail (fullKeyCoordinates.symm p)} = {3689338325}.product ({p | E2 (coordinateKey p.1 p.2)}.product Finset.univ)
+⊢ 56165 * 2 ^ 56 * (2 ^ 64 * 2 ^ 64) = 56165 * 2 ^ 184
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (61s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (4.2s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.1s)
+✔ [7388/7389] Built ProvenHashes (3.1s)
+Build completed successfully (7389 jobs).
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (67s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (197s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (4.3s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.2s)
+✔ [7388/7389] Built ProvenHashes (3.2s)
+Build completed successfully (7389 jobs).
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (4.4s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.1s)
+✔ [7388/7389] Built ProvenHashes (3.2s)
+Build completed successfully (7389 jobs).
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (40s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (95s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (4.2s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:108:2: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✖ [7386/7389] Building ProvenHashes.Highway.BridgeCount (4.1s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/BridgeCount.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/BridgeCount.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/BridgeCount.setup.json --json
+error: ProvenHashes/Highway/BridgeCount.lean:109:2: CARDINALITY-TRANSPORT-GOAL
+⊢ {p | E2 (coordinateKey p.1 p.2)}.card * Fintype.card (Word × Word) = 56165 * 2 ^ 184
+info: ProvenHashes/Highway/BridgeCount.lean:108:2: ⊢ {p | E2 (coordinateKey p.1 p.2)}.card * Fintype.card (Word × Word) = 56165 * 2 ^ 184
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.BridgeCount
+error: build failed
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (4.2s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.2s)
+✔ [7388/7389] Built ProvenHashes (3.2s)
+Build completed successfully (7389 jobs).
+✔ [7386/7389] Built ProvenHashes.Highway.BridgeCount (4.2s)
+✔ [7387/7389] Built ProvenHashes.Highway (3.2s)
+✔ [7388/7389] Built ProvenHashes (3.2s)
+Build completed successfully (7389 jobs).
+✔ [7387/7390] Built ProvenHashes.Highway.ExactBound (3.3s)
+✔ [7388/7390] Built ProvenHashes.Highway (3.1s)
+✔ [7389/7390] Built ProvenHashes (3.2s)
+Build completed successfully (7390 jobs).
+✔ [7387/7390] Built ProvenHashes.Highway.ExactBound (3.3s)
+✔ [7388/7390] Built ProvenHashes.Highway (3.2s)
+✔ [7389/7390] Built ProvenHashes (3.1s)
+Build completed successfully (7390 jobs).
+✔ [7387/7390] Built ProvenHashes.Highway.ExactBound (3.3s)
+✔ [7388/7390] Built ProvenHashes.Highway (3.2s)
+✔ [7389/7390] Built ProvenHashes (3.2s)
+Build completed successfully (7390 jobs).
+✔ [7387/7390] Built ProvenHashes.Highway.ExactBound (3.3s)
+✔ [7388/7390] Built ProvenHashes.Highway (3.2s)
+✔ [7389/7390] Built ProvenHashes (3.3s)
+Build completed successfully (7390 jobs).
+✔ [7387/7390] Built ProvenHashes.Highway.ExactBound (3.4s)
+✔ [7388/7390] Built ProvenHashes.Highway (3.1s)
+✔ [7389/7390] Built ProvenHashes (3.1s)
+Build completed successfully (7390 jobs).
+✔ [7387/7390] Built ProvenHashes.Highway.ExactBound (3.5s)
+✔ [7388/7390] Built ProvenHashes.Highway (3.2s)
+✔ [7389/7390] Built ProvenHashes (3.1s)
+Build completed successfully (7390 jobs).
+✖ [7388/7391] Building ProvenHashes.Highway.Score (3.3s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/Score.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/Score.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/Score.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/Score.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/Score.setup.json --json
+error: ProvenHashes/Highway/Score.lean:15:44: unsolved goals
+case left
+⊢ 12 ^ 1000 * 2 ^ 12192 < 56165 ^ 1000
+
+case right
+⊢ 56165 ^ 1000 < 12 ^ 1000 * 2 ^ 12193
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.Score
+error: build failed
+✖ [7388/7391] Building ProvenHashes.Highway.Score (3.5s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-hash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-highway/lean/ProvenHashes/Highway/Score.lean -o /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/Score.olean -i /home/thomas-ahle/agents/lean-highway/lean/.lake/build/lib/lean/ProvenHashes/Highway/Score.ilean -c /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/Score.c --setup /home/thomas-ahle/agents/lean-highway/lean/.lake/build/ir/ProvenHashes/Highway/Score.setup.json --json
+error: ProvenHashes/Highway/Score.lean:15:44: unsolved goals
+case left
+⊢ 12 ^ 1000 * 2 ^ 12192 < 56165 ^ 1000
+
+case right
+⊢ 56165 ^ 1000 < 12 ^ 1000 * 2 ^ 12193
+error: ProvenHashes/Highway/Score.lean:37:18: linarith failed to find a contradiction
+case left.h
+htwo : Real.logb 2 2 = 1
+hlog : ∀ (n : ℕ), Real.logb 2 (12 ^ 1000 * 2 ^ n) = 1000 * Real.logb 2 12 + ↑n
+hlo : ↑1000 * Real.logb 2 56165 < 1000 * Real.logb 2 12 + ↑12193
+hhi : 1000 * Real.logb 2 12 + ↑12192 < ↑1000 * Real.logb 2 56165
+hf : trailScore = Real.logb 2 12 + 72 - Real.logb 2 56165
+a✝ : Real.logb 2 12 + 72 - Real.logb 2 56165 ≤ 59807 / 1000
+⊢ False
+failed
+error: ProvenHashes/Highway/Score.lean:37:18: linarith failed to find a contradiction
+case right.h
+htwo : Real.logb 2 2 = 1
+hlog : ∀ (n : ℕ), Real.logb 2 (12 ^ 1000 * 2 ^ n) = 1000 * Real.logb 2 12 + ↑n
+hlo : ↑1000 * Real.logb 2 56165 < 1000 * Real.logb 2 12 + ↑12193
+hhi : 1000 * Real.logb 2 12 + ↑12192 < ↑1000 * Real.logb 2 56165
+hf : trailScore = Real.logb 2 12 + 72 - Real.logb 2 56165
+a✝ : 59808 / 1000 ≤ Real.logb 2 12 + 72 - Real.logb 2 56165
+⊢ False
+failed
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Highway.Score
+error: build failed
+✔ [7388/7391] Built ProvenHashes.Highway.Score (3.6s)
+✔ [7389/7391] Built ProvenHashes.Highway (3.2s)
+✔ [7390/7391] Built ProvenHashes (3.2s)
+Build completed successfully (7391 jobs).
+✔ [7388/7391] Built ProvenHashes.Highway.Score (3.7s)
+✔ [7389/7391] Built ProvenHashes.Highway (3.1s)
+✔ [7390/7391] Built ProvenHashes (3.2s)
+Build completed successfully (7391 jobs).
+✔ [7381/7391] Built ProvenHashes.Highway.ReducedCount (3.5s)
+✔ [7382/7391] Built ProvenHashes.Highway.Bound (3.5s)
+✔ [7383/7391] Built ProvenHashes.Highway.BridgeWords (5.7s)
+✔ [7384/7391] Built ProvenHashes.Highway.BridgeCoordinates (7.1s)
+✔ [7385/7391] Built ProvenHashes.Highway.BridgePredicate (4.2s)
+✔ [7386/7391] Built ProvenHashes.Highway.BridgeCount (4.2s)
+✔ [7387/7391] Built ProvenHashes.Highway.ExactBound (3.6s)
+✔ [7388/7391] Built ProvenHashes.Highway.Score (3.8s)
+✔ [7389/7391] Built ProvenHashes.Highway (3.2s)
+✔ [7390/7391] Built ProvenHashes (3.3s)
+Build completed successfully (7391 jobs).

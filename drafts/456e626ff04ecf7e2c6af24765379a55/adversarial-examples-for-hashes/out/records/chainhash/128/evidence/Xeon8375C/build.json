@@ -1,0 +1,109 @@
+{
+  "commands": [
+    [
+      "c++",
+      "-O3",
+      "-std=c++11",
+      "-march=native",
+      "-DNDEBUG",
+      "-DHAVE_THREADS",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+      "-c",
+      "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128.cpp",
+      "-o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128.o"
+    ],
+    [
+      "c++",
+      "-O3",
+      "-std=c++11",
+      "-march=native",
+      "-DNDEBUG",
+      "-DHAVE_THREADS",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+      "-c",
+      "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128__256.cpp",
+      "-o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__256.o"
+    ],
+    [
+      "c++",
+      "-O3",
+      "-std=c++11",
+      "-march=native",
+      "-DNDEBUG",
+      "-DHAVE_THREADS",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+      "-c",
+      "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128__scalar.cpp",
+      "-o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__scalar.o"
+    ],
+    [
+      "c++",
+      "-O3",
+      "-std=c++11",
+      "-march=native",
+      "-DNDEBUG",
+      "-DHAVE_THREADS",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+      "-c",
+      "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128__schoolbook.cpp",
+      "-o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__schoolbook.o"
+    ],
+    [
+      "c++",
+      "-O3",
+      "-std=c++11",
+      "-march=native",
+      "-DNDEBUG",
+      "-DHAVE_THREADS",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
+      "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+      "-c",
+      "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_64_header.cpp",
+      "-o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_64_header.o"
+    ],
+    [
+      "c++",
+      "-O3",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/main.cpp.o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128.o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__256.o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__scalar.o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__schoolbook.o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_64_header.o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/libSMHasher3Tests.a",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/libSMHasher3Hashlib.a",
+      "-o",
+      "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3"
+    ]
+  ],
+  "baseline": "/home/thomas-ahle/agents/speedbench/build-release-20260917",
+  "binary_sha256": "625dc55c32ea060afde4d4ed58f935b285b74186dd5ed58fcd1bed62131b6890",
+  "copied_objects": {
+    "main.cpp.o": "877a4598076d3c30326b11a352bbc3f8bd9a9a881035657e1af6756521ae8c39",
+    "libSMHasher3Tests.a": "677e878c7e4a41add883cff0d1fd1b3f7bdfef01fe9d279d2c6ba3cbaa60d55b",
+    "libSMHasher3Hashlib.a": "81dee0aff7103f2a98e520bcc18c139f2cb3b90ad31895775c43dc085301fc00"
+  },
+  "source_sha256": {
+    "benchmarks/chainhash_128.cpp": "7b8567596202009e692253512c9b1e7c807862992c8ba8440d9d4cc913e35abb",
+    "benchmarks/chainhash_128__256.cpp": "e6e2d40ab44a3c64d2da95df7907f699a1245726b87292ff21ad5a590d728fe3",
+    "benchmarks/chainhash_128__scalar.cpp": "9dea60e2161ecbde81844d045f2684b4cf9b775409dd979b78a99a6857eb6c08",
+    "benchmarks/chainhash_128__schoolbook.cpp": "08a5bd4269647724636981dbb84e19665a6a59151dc532ca6af7150290abeafa",
+    "benchmarks/chainhash_64_header.cpp": "b0347105fd79f6e2f76c053f2b66f0e6d5e10d6cbe2aab399e74287df1da691e",
+    "chainhash128.h": "329f3181135ffba9816577bc5292f03bfbc6b7bfc6f9be041e0ac3cedd9f5481",
+    "chainhash64.h": "90556e4f4ce55312b9440d9c0c427b8c5ffc9df2398b4b073e8cc5c555d19238"
+  }
+}

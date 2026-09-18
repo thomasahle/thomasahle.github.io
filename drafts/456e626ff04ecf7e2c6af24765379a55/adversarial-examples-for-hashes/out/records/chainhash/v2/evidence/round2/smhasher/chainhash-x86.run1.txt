@@ -1,0 +1,65 @@
+--- Testing chainhash-x86 "ChainHash-x86, adjacent PH pairs, 1 KB blocks, three-key GF(2^64) chain, twisted quintic" [C99 runtime AVX512F+VPCLMUL / AVX2+PCLMUL / portable]
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -    96.82 cycles/hash
+   2-byte keys -    97.02 cycles/hash
+   3-byte keys -    96.68 cycles/hash
+   4-byte keys -    96.98 cycles/hash
+   5-byte keys -    96.88 cycles/hash
+   6-byte keys -    96.84 cycles/hash
+   7-byte keys -    98.01 cycles/hash
+   8-byte keys -   103.78 cycles/hash
+   9-byte keys -   105.93 cycles/hash
+  10-byte keys -   104.74 cycles/hash
+  11-byte keys -   104.94 cycles/hash
+  12-byte keys -   104.68 cycles/hash
+  13-byte keys -   104.92 cycles/hash
+  14-byte keys -   105.11 cycles/hash
+  15-byte keys -   105.67 cycles/hash
+  16-byte keys -    83.11 cycles/hash
+  17-byte keys -   108.26 cycles/hash
+  18-byte keys -   107.90 cycles/hash
+  19-byte keys -   109.24 cycles/hash
+  20-byte keys -   107.86 cycles/hash
+  21-byte keys -   109.25 cycles/hash
+  22-byte keys -   108.48 cycles/hash
+  23-byte keys -   108.90 cycles/hash
+  24-byte keys -   107.70 cycles/hash
+  25-byte keys -   108.98 cycles/hash
+  26-byte keys -   108.83 cycles/hash
+  27-byte keys -   109.30 cycles/hash
+  28-byte keys -   108.91 cycles/hash
+  29-byte keys -   109.37 cycles/hash
+  30-byte keys -   109.20 cycles/hash
+  31-byte keys -   110.31 cycles/hash
+Average        -   104.34 cycles/hash
+ rnd-byte keys -   104.41 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 - 24.73 bytes/cycle - 80.61 GiB/sec @ 3.5 ghz
+Alignment   6 - 24.72 bytes/cycle - 80.57 GiB/sec @ 3.5 ghz
+Alignment   5 - 24.71 bytes/cycle - 80.54 GiB/sec @ 3.5 ghz
+Alignment   4 - 24.67 bytes/cycle - 80.42 GiB/sec @ 3.5 ghz
+Alignment   3 - 24.72 bytes/cycle - 80.57 GiB/sec @ 3.5 ghz
+Alignment   2 - 24.70 bytes/cycle - 80.53 GiB/sec @ 3.5 ghz
+Alignment   1 - 24.71 bytes/cycle - 80.54 GiB/sec @ 3.5 ghz
+Alignment   0 - 25.21 bytes/cycle - 82.16 GiB/sec @ 3.5 ghz
+Average       - 24.77 bytes/cycle - 80.74 GiB/sec @ 3.5 ghz
+Alignment rnd - 24.78 bytes/cycle - 80.77 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 - 24.57 bytes/cycle - 80.10 GiB/sec @ 3.5 ghz
+Alignment   6 - 24.58 bytes/cycle - 80.12 GiB/sec @ 3.5 ghz
+Alignment   5 - 24.57 bytes/cycle - 80.09 GiB/sec @ 3.5 ghz
+Alignment   4 - 24.58 bytes/cycle - 80.12 GiB/sec @ 3.5 ghz
+Alignment   3 - 24.55 bytes/cycle - 80.02 GiB/sec @ 3.5 ghz
+Alignment   2 - 24.84 bytes/cycle - 80.96 GiB/sec @ 3.5 ghz
+Alignment   1 - 24.80 bytes/cycle - 80.82 GiB/sec @ 3.5 ghz
+Alignment   0 - 24.96 bytes/cycle - 81.37 GiB/sec @ 3.5 ghz
+Average       - 24.68 bytes/cycle - 80.45 GiB/sec @ 3.5 ghz
+Alignment rnd - 24.49 bytes/cycle - 79.84 GiB/sec @ 3.5 ghz
+
+Verification value is 0x00000001 - Testing took 41.402015 seconds
+

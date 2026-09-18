@@ -1,0 +1,18 @@
+✖ [7389/7389] Building ProvenHashes.CLHashBounds (5.7s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-clhash/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-clhash/lean/ProvenHashes/CLHashBounds.lean -o /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean/ProvenHashes/CLHashBounds.olean -i /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/lib/lean/ProvenHashes/CLHashBounds.ilean -c /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/ir/ProvenHashes/CLHashBounds.c --setup /home/thomas-ahle/agents/lean-clhash/lean/.lake/build/ir/ProvenHashes/CLHashBounds.setup.json --json
+error: ProvenHashes/CLHashBounds.lean:131:2: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+warning: ProvenHashes/CLHashBounds.lean:130:76: This simp argument is unused:
+  ← hbc
+
+Hint: Omit it from the simp argument list.
+  simp only [content, if_neg (by omega : ¬ ̵m.length ≤ 1024), if_neg hlong',̵ ̵←̵ ̵h̵b̵c̵]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.CLHashBounds
+error: build failed

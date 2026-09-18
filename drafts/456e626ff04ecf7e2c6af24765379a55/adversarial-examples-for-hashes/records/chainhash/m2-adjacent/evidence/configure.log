@@ -1,0 +1,70 @@
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- The C compiler identification is AppleClang 17.0.0.17000604
+-- The CXX compiler identification is AppleClang 17.0.0.17000604
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- CMAKE_SYSTEM_PROCESSOR: arm64
+-- Probing fixed-width integer variants
+--   signed and unsigned 8,16,32,64-bit integers found
+--   signed and unsigned 128-bit integers found
+--   appropriate type for seed_t found
+-- Using runtime endianness detection
+-- Probing compiler builtin function variants
+--   likely() / unlikely() found
+--   expectp() found
+--   unpredictable() found
+--   unreachable() found
+--   assume() found
+--   prefetch() found
+--   forcing function inlining found
+--   preventing function inlining found
+--   C++ restrict keyword replacement found
+--   type aliasing attribute found
+--   32-bit integer rotation not found, using fallback
+--   64-bit integer rotation not found, using fallback
+--   Integer byteswapping found
+--   32-bit integer popcount found
+--   64-bit integer popcount found
+--   32-bit integer count leading zero bits found
+--   64-bit integer count leading zero bits found
+--   Generic vector types found
+--   Integer shuffling not found, using fallback
+-- ARM NEON available
+-- ARM ACLE available
+-- Probing instruction-set availability
+--   ARM AES intrinsics available
+--   ARM 32-bit __asm__() available
+--   ARM 64-bit __asm__() available
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Probing high-resolution timing functions
+--   monotonic clock found
+--   hardware performance counter found
+-- Found Git: /usr/bin/git (found version "2.50.1 (Apple Git-155)")
+-- Found OpenSSL: /opt/homebrew/opt/openssl@3/lib/libcrypto.dylib (found suitable version "3.6.4", minimum required is "3") found components: Crypto
+-- Configuring done (7.5s)
+-- Generating done (0.1s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    DETECTED_LITTLE_ENDIAN
+
+
+-- Build files have been written to: /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/build

@@ -1,0 +1,310 @@
+@ProvenHashes.ChainHash.ModelA.eval_phPoly : ∀ {F : Type u_1} [inst : CommRing F] (a : Finset (Fin 16))
+  (m : ProvenHashes.ChainHash.ModelA.Slot → F) (s : F),
+  Polynomial.eval s (ProvenHashes.ChainHash.ModelA.phPoly a m) = ProvenHashes.ChainHash.ModelA.ph a m s
+'ProvenHashes.ChainHash.ModelA.eval_phPoly' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.partnerExponent_injective : Function.Injective fun j =>
+  ProvenHashes.ChainHash.ModelA.exponent (ProvenHashes.ChainHash.ModelA.partner j)
+'ProvenHashes.ChainHash.ModelA.partnerExponent_injective' depends on axioms: [propext, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.phPoly_difference : ∀ {F : Type u_1} [inst : CommRing F] (a : Finset (Fin 16))
+  (m m' : ProvenHashes.ChainHash.ModelA.Slot → F) (t : F),
+  ProvenHashes.ChainHash.ModelA.phPoly a m - ProvenHashes.ChainHash.ModelA.phPoly a m' - Polynomial.C t =
+    ProvenHashes.ChainHash.ModelA.differencePoly a m m' t
+'ProvenHashes.ChainHash.ModelA.phPoly_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.differencePoly_coeff : ∀ {F : Type u_1} [inst : CommRing F] (a : Finset (Fin 16))
+  (m m' : ProvenHashes.ChainHash.ModelA.Slot → F) (t : F) (j : ProvenHashes.ChainHash.ModelA.Slot),
+  j.1 ∈ a →
+    (ProvenHashes.ChainHash.ModelA.differencePoly a m m' t).coeff
+        (ProvenHashes.ChainHash.ModelA.exponent (ProvenHashes.ChainHash.ModelA.partner j)) =
+      m j - m' j
+'ProvenHashes.ChainHash.ModelA.differencePoly_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.differencePoly_nonzero_degree : ∀ {F : Type u_1} [inst : Field F] (a : Finset (Fin 16))
+  (m m' : ProvenHashes.ChainHash.ModelA.Slot → F) (t : F) (D : ℕ),
+  (∃ j, j.1 ∈ a ∧ m j ≠ m' j) →
+    (∀ (j : ProvenHashes.ChainHash.ModelA.Slot),
+        j.1 ∈ a → m j ≠ m' j → ProvenHashes.ChainHash.ModelA.exponent (ProvenHashes.ChainHash.ModelA.partner j) ≤ D) →
+      ProvenHashes.ChainHash.ModelA.differencePoly a m m' t ≠ 0 ∧
+        (ProvenHashes.ChainHash.ModelA.differencePoly a m m' t).natDegree ≤ D
+'ProvenHashes.ChainHash.ModelA.differencePoly_nonzero_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.polynomial_probability_le : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F]
+  (p : Polynomial F),
+  p ≠ 0 →
+    ∀ (D : ℕ), p.natDegree ≤ D → (ProvenHashes.uniformProb fun s => Polynomial.eval s p = 0) ≤ ↑D / ↑(Fintype.card F)
+'ProvenHashes.ChainHash.ModelA.polynomial_probability_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.ph_equal_groups_bound : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F]
+  (a : Finset (Fin 16)) (m m' : ProvenHashes.ChainHash.ModelA.Slot → F) (t : F) (D : ℕ),
+  (∃ j, j.1 ∈ a ∧ m j ≠ m' j) →
+    (∀ (j : ProvenHashes.ChainHash.ModelA.Slot),
+        j.1 ∈ a → m j ≠ m' j → ProvenHashes.ChainHash.ModelA.exponent (ProvenHashes.ChainHash.ModelA.partner j) ≤ D) →
+      (ProvenHashes.uniformProb fun s =>
+          ProvenHashes.ChainHash.ModelA.ph a m s - ProvenHashes.ChainHash.ModelA.ph a m' s = t) ≤
+        ↑D / ↑(Fintype.card F)
+'ProvenHashes.ChainHash.ModelA.ph_equal_groups_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.pairPoly_monic_degree : ∀ {F : Type u_1} [inst : Field F]
+  (m : ProvenHashes.ChainHash.ModelA.Slot → F) (i : Fin 16),
+  (ProvenHashes.ChainHash.ModelA.pairPoly m i).Monic ∧
+    (ProvenHashes.ChainHash.ModelA.pairPoly m i).natDegree = 8 * (↑i / 2) + 2 * (↑i % 2) + 4
+'ProvenHashes.ChainHash.ModelA.pairPoly_monic_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.phPoly_group_degree : ∀ {F : Type u_1} [inst : Field F] (g : ℕ),
+  0 < g →
+    g ≤ 8 →
+      ∀ (m : ProvenHashes.ChainHash.ModelA.Slot → F),
+        (ProvenHashes.ChainHash.ModelA.phPoly (ProvenHashes.ChainHash.ModelA.groupPairs g) m).natDegree = 8 * g - 2 ∧
+          (ProvenHashes.ChainHash.ModelA.phPoly (ProvenHashes.ChainHash.ModelA.groupPairs g) m).Monic
+'ProvenHashes.ChainHash.ModelA.phPoly_group_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.ph_unequal_groups_polynomial : ∀ {F : Type u_1} [inst : Field F] (g h : ℕ),
+  g < h →
+    h ≤ 8 →
+      ∀ (m m' : ProvenHashes.ChainHash.ModelA.Slot → F) (t : F),
+        have p :=
+          ProvenHashes.ChainHash.ModelA.phPoly (ProvenHashes.ChainHash.ModelA.groupPairs g) m -
+              ProvenHashes.ChainHash.ModelA.phPoly (ProvenHashes.ChainHash.ModelA.groupPairs h) m' -
+            Polynomial.C t;
+        p ≠ 0 ∧ p.natDegree = 8 * h - 2
+'ProvenHashes.ChainHash.ModelA.ph_unequal_groups_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.ph_unequal_groups_bound : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F]
+  (g h : ℕ),
+  g < h →
+    h ≤ 8 →
+      ∀ (m m' : ProvenHashes.ChainHash.ModelA.Slot → F) (t : F),
+        (ProvenHashes.uniformProb fun s =>
+            ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.ModelA.groupPairs g) m s -
+                ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.ModelA.groupPairs h) m' s =
+              t) ≤
+          ↑(8 * h - 2) / ↑(Fintype.card F)
+'ProvenHashes.ChainHash.ModelA.ph_unequal_groups_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.cubic_linear_probability : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F]
+  [inst_2 : DecidableEq F] (a b : F),
+  a ≠ 0 ∨ b ≠ 0 →
+    (ProvenHashes.uniformProb fun s => s ^ 3 * (a + b * s) = 0) ≤ ↑(if b = 0 then 1 else 2) / ↑(Fintype.card F)
+'ProvenHashes.ChainHash.ModelA.cubic_linear_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.ph_small_bound : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F]
+  [inst_2 : DecidableEq F] (m m' : ProvenHashes.ChainHash.ModelA.Slot → F),
+  (∀ (i : Fin 16), ↑i < 2 → m (i, true) = 0 ∧ m' (i, true) = 0) →
+    m (0, false) ≠ m' (0, false) ∨ m (1, false) ≠ m' (1, false) →
+      (ProvenHashes.uniformProb fun s =>
+          ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.ModelA.groupPairs 1) m s =
+            ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.ModelA.groupPairs 1) m' s) ≤
+        ↑(if m (1, false) = m' (1, false) then 1 else 2) / ↑(Fintype.card F)
+'ProvenHashes.ChainHash.ModelA.ph_small_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.ph_nonzero_target_bound : ∀ {F : Type u_1} [inst : Field F] [inst_1 : Fintype F]
+  (g h G : ℕ),
+  g ≤ G →
+    h ≤ G →
+      0 < G →
+        G ≤ 8 →
+          ∀ (m m' : ProvenHashes.ChainHash.ModelA.Slot → F) (t : F),
+            t ≠ 0 →
+              (ProvenHashes.uniformProb fun s =>
+                  ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.ModelA.groupPairs g) m s -
+                      ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.ModelA.groupPairs h) m' s =
+                    t) ≤
+                ↑(8 * G - 2) / ↑(Fintype.card F)
+'ProvenHashes.ChainHash.ModelA.ph_nonzero_target_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.wordAt_zero : ∀ (m : ProvenHashes.ChainHash.Message) (j : ℕ),
+  List.length m ≤ 8 * j → ProvenHashes.ChainHash.wordAt m j = 0
+'ProvenHashes.ChainHash.ModelA.wordAt_zero' depends on axioms: [propext, Quot.sound]
+ProvenHashes.ChainHash.ModelA.reduce_seeded_clnh : ∀ (a : Finset (Fin 16))
+  (m : ProvenHashes.ChainHash.ModelA.Slot → ProvenHashes.ChainHash.Word 64) (s : ProvenHashes.ChainHash.ModelA.F),
+  (AdjoinRoot.mk ProvenHashes.ChainHash.modulus)
+      (ProvenHashes.ChainHash.clnh a m (ProvenHashes.ChainHash.ModelA.seededKey s)) =
+    ProvenHashes.ChainHash.ModelA.ph a (fun j => ProvenHashes.ChainHash.fieldRepr (m j)) s
+'ProvenHashes.ChainHash.ModelA.reduce_seeded_clnh' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.seededStream_equal_length_component : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  List.length m = List.length m' →
+    ∀ t < ProvenHashes.ChainHash.blockCount m,
+      ∀ (s : ProvenHashes.ChainHash.ModelA.F),
+        ProvenHashes.ChainHash.ModelA.seededStream m s = ProvenHashes.ChainHash.ModelA.seededStream m' s →
+          ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.activePairs m t)
+              (fun j => ProvenHashes.ChainHash.fieldRepr (ProvenHashes.ChainHash.blockData m t j)) s =
+            ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.activePairs m t)
+              (fun j => ProvenHashes.ChainHash.fieldRepr (ProvenHashes.ChainHash.blockData m' t j)) s
+'ProvenHashes.ChainHash.ModelA.seededStream_equal_length_component' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ProvenHashes.ChainHash.ModelA.partner_exponent_budget : ∀ (L : ℕ),
+  3 ≤ L →
+    ∀ (j : ProvenHashes.ChainHash.ModelA.Slot),
+      ↑(ProvenHashes.ChainHash.pairPosition j) < L →
+        ProvenHashes.ChainHash.ModelA.exponent (ProvenHashes.ChainHash.ModelA.partner j) ≤
+          ProvenHashes.ChainHash.ModelA.degreeBudget L
+'ProvenHashes.ChainHash.ModelA.partner_exponent_budget' depends on axioms: [propext, Quot.sound]
+ProvenHashes.ChainHash.ModelA.seededStream_fixed_bound : ∀ (L : ℕ),
+  0 < L →
+    ∀ (m m' : ProvenHashes.ChainHash.Message),
+      List.length m = 8 * L →
+        List.length m' = 8 * L →
+          m ≠ m' →
+            (ProvenHashes.uniformProb fun s =>
+                ProvenHashes.ChainHash.ModelA.seededStream m s = ProvenHashes.ChainHash.ModelA.seededStream m' s) ≤
+              ↑(ProvenHashes.ChainHash.ModelA.degreeBudget L) / ↑(Fintype.card ProvenHashes.ChainHash.ModelA.F)
+'ProvenHashes.ChainHash.ModelA.seededStream_fixed_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.reduced_lengthMask_injective : ∀ {n n' : ℕ},
+  n < 2 ^ 64 →
+    n' < 2 ^ 64 →
+      (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.ChainHash.lengthMask n) =
+          (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.ChainHash.lengthMask n') →
+        n = n'
+'ProvenHashes.ChainHash.ModelA.reduced_lengthMask_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.blockGroups_properties : ∀ (m : ProvenHashes.ChainHash.Message) (t : ℕ),
+  ProvenHashes.ChainHash.ModelA.blockGroups m t ≤ 8 ∧
+    ProvenHashes.ChainHash.activePairs m t =
+      ProvenHashes.ChainHash.ModelA.groupPairs (ProvenHashes.ChainHash.ModelA.blockGroups m t)
+'ProvenHashes.ChainHash.ModelA.blockGroups_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.seededStream_last_component : ∀ (m m' : ProvenHashes.ChainHash.Message),
+  ProvenHashes.ChainHash.blockCount m = ProvenHashes.ChainHash.blockCount m' →
+    ∀ (s : ProvenHashes.ChainHash.ModelA.F),
+      ProvenHashes.ChainHash.ModelA.seededStream m s = ProvenHashes.ChainHash.ModelA.seededStream m' s →
+        have t := ProvenHashes.ChainHash.blockCount m - 1;
+        ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.activePairs m t)
+              (fun j => ProvenHashes.ChainHash.fieldRepr (ProvenHashes.ChainHash.blockData m t j)) s -
+            ProvenHashes.ChainHash.ModelA.ph (ProvenHashes.ChainHash.activePairs m' t)
+              (fun j => ProvenHashes.ChainHash.fieldRepr (ProvenHashes.ChainHash.blockData m' t j)) s =
+          (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.ChainHash.lengthMask (List.length m')) -
+            (AdjoinRoot.mk ProvenHashes.ChainHash.modulus) (ProvenHashes.ChainHash.lengthMask (List.length m))
+'ProvenHashes.ChainHash.ModelA.seededStream_last_component' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.seededStream_common_count_bound : ∀ (G : ℕ),
+  0 < G →
+    G ≤ 8 →
+      ∀ (m m' : ProvenHashes.ChainHash.Message),
+        List.length m < 2 ^ 64 →
+          List.length m' < 2 ^ 64 →
+            m ≠ m' →
+              ProvenHashes.ChainHash.blockCount m = ProvenHashes.ChainHash.blockCount m' →
+                ProvenHashes.ChainHash.ModelA.blockGroups m (ProvenHashes.ChainHash.blockCount m - 1) ≤ G →
+                  ProvenHashes.ChainHash.ModelA.blockGroups m' (ProvenHashes.ChainHash.blockCount m - 1) ≤ G →
+                    (ProvenHashes.uniformProb fun s =>
+                        ProvenHashes.ChainHash.ModelA.seededStream m s =
+                          ProvenHashes.ChainHash.ModelA.seededStream m' s) ≤
+                      ↑(ProvenHashes.ChainHash.ModelA.countBudget (ProvenHashes.ChainHash.blockCount m) G) /
+                        ↑(Fintype.card ProvenHashes.ChainHash.ModelA.F)
+'ProvenHashes.ChainHash.ModelA.seededStream_common_count_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@ProvenHashes.ChainHash.ModelA.chainhash_equal_length_from_seeded_stages : ∀ {F : Type u_1} {K : Type u_2}
+  {J : Type u_3} [inst : Field F] [inst_1 : Fintype F] [inst_2 : Fintype K] [inst_3 : Fintype J] [Nonempty K]
+  [Nonempty J] (D p : ℕ) (s s' : K → List (F × F)) (g : J → F → F),
+  (∀ (k : K), (s k).length = (s' k).length) →
+    (∀ (k : K), (s k).length ≤ p) →
+      (ProvenHashes.uniformProb fun k => s k = s' k) ≤ ↑D / ↑(Fintype.card F) →
+        (∀ (v v' : F), v ≠ v' → (ProvenHashes.uniformProb fun j => g j v = g j v') ≤ 1 / ↑(Fintype.card F)) →
+          (ProvenHashes.uniformProb fun k =>
+              g k.2 (ProvenHashes.Recurrence.hash (s k.1.1) k.1.2) =
+                g k.2 (ProvenHashes.Recurrence.hash (s' k.1.1) k.1.2)) ≤
+            ↑(D + p + 1) / ↑(Fintype.card F)
+'ProvenHashes.ChainHash.ModelA.chainhash_equal_length_from_seeded_stages' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ProvenHashes.ChainHash.ModelA.key_card : Fintype.card ProvenHashes.ChainHash.ModelA.Key = (2 ^ 64) ^ 10
+'ProvenHashes.ChainHash.ModelA.key_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.expandedKey_power : ∀ (k : ProvenHashes.ChainHash.ModelA.Key) (j : Fin 32),
+  ProvenHashes.ChainHash.fieldRepr (ProvenHashes.ChainHash.ModelA.expandedKey k ⟨↑j, ⋯⟩) = k.1.1 ^ (↑j + 1)
+'ProvenHashes.ChainHash.ModelA.expandedKey_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.referenceHash_expanded : ∀ (k : ProvenHashes.ChainHash.ModelA.Key)
+  (m : ProvenHashes.ChainHash.Message),
+  ProvenHashes.ChainHash.referenceHash (ProvenHashes.ChainHash.ModelA.expandedKey k) m =
+    ProvenHashes.ChainHash.fieldRepr.symm (ProvenHashes.ChainHash.ModelA.hash k m)
+'ProvenHashes.ChainHash.ModelA.referenceHash_expanded' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ProvenHashes.ChainHash.ModelA.probability_le_one : ∀ {K : Type u_1} [inst : Fintype K] [Nonempty K] (E : K → Prop),
+  ProvenHashes.uniformProb E ≤ 1
+'ProvenHashes.ChainHash.ModelA.probability_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.collision_bound_fixed : ∀ (L : ℕ),
+  0 < L →
+    ∀ (m m' : ProvenHashes.ChainHash.Message),
+      List.length m = 8 * L →
+        List.length m' = 8 * L →
+          m ≠ m' →
+            (ProvenHashes.uniformProb fun k =>
+                ProvenHashes.ChainHash.ModelA.hash k m = ProvenHashes.ChainHash.ModelA.hash k m') ≤
+              ProvenHashes.ChainHash.ModelA.epsilonFixed L
+'ProvenHashes.ChainHash.ModelA.collision_bound_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.reference_collision_bound_fixed : ∀ (L : ℕ),
+  0 < L →
+    ∀ (m m' : ProvenHashes.ChainHash.Message),
+      List.length m = 8 * L →
+        List.length m' = 8 * L →
+          m ≠ m' →
+            (ProvenHashes.uniformProb fun k =>
+                ProvenHashes.ChainHash.referenceHash (ProvenHashes.ChainHash.ModelA.expandedKey k) m =
+                  ProvenHashes.ChainHash.referenceHash (ProvenHashes.ChainHash.ModelA.expandedKey k) m') ≤
+              ProvenHashes.ChainHash.ModelA.epsilonFixed L
+'ProvenHashes.ChainHash.ModelA.reference_collision_bound_fixed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ProvenHashes.ChainHash.ModelA.collision_bound_different_blocks : ∀ (p : ℕ) (m m' : ProvenHashes.ChainHash.Message),
+  ProvenHashes.ChainHash.blockCount m ≠ ProvenHashes.ChainHash.blockCount m' →
+    ProvenHashes.ChainHash.blockCount m ≤ p →
+      ProvenHashes.ChainHash.blockCount m' ≤ p →
+        (ProvenHashes.uniformProb fun k =>
+            ProvenHashes.ChainHash.ModelA.hash k m = ProvenHashes.ChainHash.ModelA.hash k m') ≤
+          min 1 (↑(p + 2) / 2 ^ 64)
+'ProvenHashes.ChainHash.ModelA.collision_bound_different_blocks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ProvenHashes.ChainHash.ModelA.envelope_arithmetic : ∀ (L : ℕ),
+  0 < L →
+    0 < ProvenHashes.ChainHash.ModelA.wordBlocks L ∧
+      0 < ProvenHashes.ChainHash.ModelA.lastGroups L ∧
+        ProvenHashes.ChainHash.ModelA.lastGroups L ≤ 8 ∧
+          ProvenHashes.ChainHash.ModelA.wordBlocks L + 2 ≤ ProvenHashes.ChainHash.ModelA.envelopeNumerator L ∧
+            ProvenHashes.ChainHash.ModelA.countBudget (ProvenHashes.ChainHash.ModelA.wordBlocks L)
+                      (ProvenHashes.ChainHash.ModelA.lastGroups L) +
+                    ProvenHashes.ChainHash.ModelA.wordBlocks L +
+                  1 ≤
+                ProvenHashes.ChainHash.ModelA.envelopeNumerator L ∧
+              ∀ (k : ℕ),
+                0 < k →
+                  k < ProvenHashes.ChainHash.ModelA.wordBlocks L →
+                    ProvenHashes.ChainHash.ModelA.countBudget k 8 + k + 1 ≤
+                      ProvenHashes.ChainHash.ModelA.envelopeNumerator L
+'ProvenHashes.ChainHash.ModelA.envelope_arithmetic' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.message_cap_arithmetic : ∀ (L : ℕ),
+  0 < L →
+    ∀ (m : ProvenHashes.ChainHash.Message),
+      List.length m ≤ 8 * L →
+        ProvenHashes.ChainHash.blockCount m ≤ ProvenHashes.ChainHash.ModelA.wordBlocks L ∧
+          (ProvenHashes.ChainHash.blockCount m = ProvenHashes.ChainHash.ModelA.wordBlocks L →
+            ProvenHashes.ChainHash.ModelA.blockGroups m (ProvenHashes.ChainHash.blockCount m - 1) ≤
+              ProvenHashes.ChainHash.ModelA.lastGroups L)
+'ProvenHashes.ChainHash.ModelA.message_cap_arithmetic' depends on axioms: [propext, Quot.sound]
+ProvenHashes.ChainHash.ModelA.collision_bound_common_blocks : ∀ (G : ℕ),
+  0 < G →
+    G ≤ 8 →
+      ∀ (m m' : ProvenHashes.ChainHash.Message),
+        List.length m < 2 ^ 64 →
+          List.length m' < 2 ^ 64 →
+            m ≠ m' →
+              ProvenHashes.ChainHash.blockCount m = ProvenHashes.ChainHash.blockCount m' →
+                ProvenHashes.ChainHash.ModelA.blockGroups m (ProvenHashes.ChainHash.blockCount m - 1) ≤ G →
+                  ProvenHashes.ChainHash.ModelA.blockGroups m' (ProvenHashes.ChainHash.blockCount m - 1) ≤ G →
+                    (ProvenHashes.uniformProb fun k =>
+                        ProvenHashes.ChainHash.ModelA.hash k m = ProvenHashes.ChainHash.ModelA.hash k m') ≤
+                      ↑(ProvenHashes.ChainHash.ModelA.countBudget (ProvenHashes.ChainHash.blockCount m) G +
+                              ProvenHashes.ChainHash.blockCount m +
+                            1) /
+                        2 ^ 64
+'ProvenHashes.ChainHash.ModelA.collision_bound_common_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.collision_bound_atMost : ∀ (L : ℕ),
+  0 < L →
+    8 * L < 2 ^ 64 →
+      ∀ (m m' : ProvenHashes.ChainHash.Message),
+        List.length m ≤ 8 * L →
+          List.length m' ≤ 8 * L →
+            m ≠ m' →
+              (ProvenHashes.uniformProb fun k =>
+                  ProvenHashes.ChainHash.ModelA.hash k m = ProvenHashes.ChainHash.ModelA.hash k m') ≤
+                ProvenHashes.ChainHash.ModelA.epsilonAtMost L
+'ProvenHashes.ChainHash.ModelA.collision_bound_atMost' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvenHashes.ChainHash.ModelA.reference_collision_bound_atMost : ∀ (L : ℕ),
+  0 < L →
+    8 * L < 2 ^ 64 →
+      ∀ (m m' : ProvenHashes.ChainHash.Message),
+        List.length m ≤ 8 * L →
+          List.length m' ≤ 8 * L →
+            m ≠ m' →
+              (ProvenHashes.uniformProb fun k =>
+                  ProvenHashes.ChainHash.referenceHash (ProvenHashes.ChainHash.ModelA.expandedKey k) m =
+                    ProvenHashes.ChainHash.referenceHash (ProvenHashes.ChainHash.ModelA.expandedKey k) m') ≤
+                ProvenHashes.ChainHash.ModelA.epsilonAtMost L
+'ProvenHashes.ChainHash.ModelA.reference_collision_bound_atMost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

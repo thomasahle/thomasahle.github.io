@@ -1,0 +1,728 @@
+{
+  "widths": [
+    {
+      "width": 375,
+      "hosts": [
+        {
+          "axis": "smh_m2_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        },
+        {
+          "axis": "smh_xeon_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        }
+      ],
+      "profiles": [
+        {
+          "host": "m2",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "5.55 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "11.19 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "10.28 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "2.2 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "2.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "14.12 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "24.86 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "8.16 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "4.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "7.02 B/cycle"
+        }
+      ],
+      "keyboard": true,
+      "animation": true,
+      "toc": {
+        "links": 110,
+        "bad": [],
+        "newSections": [
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed",
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed"
+        ]
+      },
+      "fallback": true
+    },
+    {
+      "width": 768,
+      "hosts": [
+        {
+          "axis": "smh_m2_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        },
+        {
+          "axis": "smh_xeon_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        }
+      ],
+      "profiles": [
+        {
+          "host": "m2",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "5.55 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "11.19 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "10.28 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "2.2 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "2.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "14.12 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "24.86 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "8.16 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "4.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "7.02 B/cycle"
+        }
+      ],
+      "keyboard": true,
+      "animation": true,
+      "toc": {
+        "links": 110,
+        "bad": [],
+        "newSections": [
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed",
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed"
+        ]
+      },
+      "fallback": true
+    },
+    {
+      "width": 1200,
+      "hosts": [
+        {
+          "axis": "smh_m2_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        },
+        {
+          "axis": "smh_xeon_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        }
+      ],
+      "profiles": [
+        {
+          "host": "m2",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "5.55 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "11.19 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "10.28 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "2.2 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "2.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "14.12 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "24.86 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "8.16 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "4.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "7.02 B/cycle"
+        }
+      ],
+      "keyboard": true,
+      "animation": true,
+      "toc": {
+        "links": 110,
+        "bad": [],
+        "newSections": [
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed",
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed"
+        ]
+      },
+      "fallback": true
+    },
+    {
+      "width": 1620,
+      "hosts": [
+        {
+          "axis": "smh_m2_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        },
+        {
+          "axis": "smh_xeon_bulk_Bpc",
+          "points": [
+            "city",
+            "farm",
+            "murmur",
+            "mx3",
+            "fasthash-64",
+            "fasthash-32",
+            "muse",
+            "komi",
+            "t1ha",
+            "a5",
+            "a5wide",
+            "rapid3",
+            "foldhash-fast",
+            "foldhash-quality",
+            "mum",
+            "mir",
+            "xxh3-64",
+            "xxh3-128",
+            "highway",
+            "spooky",
+            "pengyhash",
+            "nmhash32",
+            "nmhash32x",
+            "gx",
+            "ahash",
+            "polymur",
+            "poly1305",
+            "ghash",
+            "halftimehash-64",
+            "halftimehash-128",
+            "halftimehash-256",
+            "halftimehash-512",
+            "umash",
+            "umash128",
+            "clhash",
+            "halftime24-fixed",
+            "chain-v2",
+            "chain128"
+          ],
+          "overlaps": [],
+          "overflow": false
+        }
+      ],
+      "profiles": [
+        {
+          "host": "m2",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "5.55 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "11.19 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "10.28 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "2.2 B/cycle"
+        },
+        {
+          "host": "m2",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "2.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24 (fixed by us)",
+          "score": "≥ 83.27 bits",
+          "speed": "14.12 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain-v2",
+          "name": "ChainHash v2 (ours), 1 KB blocks",
+          "score": "≥ 61 bits",
+          "speed": "24.86 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "chain128",
+          "name": "ChainHash-128 (ours), 512 B blocks",
+          "score": "≥ 125 bits",
+          "speed": "8.16 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "poly1305",
+          "name": "Poly1305",
+          "score": "≥ 103 bits",
+          "speed": "4.48 B/cycle"
+        },
+        {
+          "host": "xeon",
+          "id": "ghash",
+          "name": "GHASH",
+          "score": "≥ 127 bits",
+          "speed": "7.02 B/cycle"
+        }
+      ],
+      "keyboard": true,
+      "animation": true,
+      "toc": {
+        "links": 110,
+        "bad": [],
+        "newSections": [
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed",
+          "#appendix-chainhash128",
+          "#appendix-halftime24-fixed"
+        ]
+      },
+      "fallback": true
+    }
+  ],
+  "errors": [],
+  "httpErrors": [],
+  "failed": [],
+  "analytics": "Disabled during local QA"
+}

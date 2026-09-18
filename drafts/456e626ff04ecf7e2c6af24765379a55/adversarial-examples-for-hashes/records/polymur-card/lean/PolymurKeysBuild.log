@@ -1,0 +1,18 @@
+✖ [7354/7354] Building ProvenHashes.Polymur.Keys (5.1s)
+trace: .> LEAN_PATH=/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/thomas-ahle/agents/lean-polymur/lean/.lake/build/lib/lean /home/thomas-ahle/agents/lean-polymur/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/thomas-ahle/agents/lean-polymur/lean/ProvenHashes/Polymur/Keys.lean -o /home/thomas-ahle/agents/lean-polymur/lean/.lake/build/lib/lean/ProvenHashes/Polymur/Keys.olean -i /home/thomas-ahle/agents/lean-polymur/lean/.lake/build/lib/lean/ProvenHashes/Polymur/Keys.ilean -c /home/thomas-ahle/agents/lean-polymur/lean/.lake/build/ir/ProvenHashes/Polymur/Keys.c --setup /home/thomas-ahle/agents/lean-polymur/lean/.lake/build/ir/ProvenHashes/Polymur/Keys.setup.json --json
+error: ProvenHashes/Polymur/Keys.lean:31:125: unexpected identifier; expected ')'
+error: ProvenHashes/Polymur/Keys.lean:13:2: unsolved goals
+case hx
+⊢ 37 ^ 2305843009213693950 % 2305843009213693951 = 1
+error: ProvenHashes/Polymur/Keys.lean:31:4: Unexpected syntax
+  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)
+error: ProvenHashes/Polymur/Keys.lean:45:10: unsolved goals
+⊢ ¬37 = 0
+error: ProvenHashes/Polymur/Keys.lean:47:26: unsolved goals
+⊢ ZMod.val 37 ^ 7 < 2305843009213693951
+error: ProvenHashes/Polymur/Keys.lean:44:44: unsolved goals
+⊢ ZMod.val 94931877133 < 1080863910568919040
+error: Lean exited with code 1
+Some required targets logged failures:
+- ProvenHashes.Polymur.Keys
+error: build failed

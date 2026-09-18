@@ -1,0 +1,28 @@
+{
+  "cpu": 4,
+  "siblings": [
+    4,
+    52
+  ],
+  "busy_percent": {
+    "4": 0.0,
+    "52": 0.0
+  },
+  "load": [
+    26.05,
+    24.57,
+    18.48
+  ],
+  "timestamp": "2026-09-18T17:10:12.678313+00:00",
+  "command": [
+    "taskset",
+    "-c",
+    "4",
+    "nice",
+    "-n",
+    "10",
+    "./tests/test_chainhash_x86"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.5515074209542945
+}

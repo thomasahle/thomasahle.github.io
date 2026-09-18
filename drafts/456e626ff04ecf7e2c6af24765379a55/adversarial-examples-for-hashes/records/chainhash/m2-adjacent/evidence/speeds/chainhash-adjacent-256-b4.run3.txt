@@ -1,0 +1,71 @@
+WARNING: Hash with verification code db5810d3 was already registered: chainhash-adjacent-256
+         Are you certain chainhash-adjacent-256-b2 is a unique implementation?
+WARNING: Hash with verification code db5810d3 was already registered: chainhash-adjacent-256
+         Are you certain chainhash-adjacent-256-b4 is a unique implementation?
+WARNING: Hash with verification code db5810d3 was already registered: chainhash-adjacent-256
+         Are you certain chainhash-adjacent-256-b8 is a unique implementation?
+--- Testing chainhash-adjacent-256-b4 "ChainHash adjacent LD2, 256-byte definition, batch=4" [neon-ld2-pmull]
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -    83.64 cycles/hash
+   2-byte keys -    83.20 cycles/hash
+   3-byte keys -    88.55 cycles/hash
+   4-byte keys -    90.56 cycles/hash
+   5-byte keys -    85.65 cycles/hash
+   6-byte keys -    85.87 cycles/hash
+   7-byte keys -    85.65 cycles/hash
+   8-byte keys -    86.54 cycles/hash
+   9-byte keys -    84.31 cycles/hash
+  10-byte keys -    83.42 cycles/hash
+  11-byte keys -    86.32 cycles/hash
+  12-byte keys -    87.21 cycles/hash
+  13-byte keys -    84.09 cycles/hash
+  14-byte keys -    83.64 cycles/hash
+  15-byte keys -    83.20 cycles/hash
+  16-byte keys -    78.51 cycles/hash
+  17-byte keys -    94.13 cycles/hash
+  18-byte keys -    94.35 cycles/hash
+  19-byte keys -    93.90 cycles/hash
+  20-byte keys -    90.56 cycles/hash
+  21-byte keys -    94.35 cycles/hash
+  22-byte keys -    93.01 cycles/hash
+  23-byte keys -    94.13 cycles/hash
+  24-byte keys -    93.90 cycles/hash
+  25-byte keys -    90.34 cycles/hash
+  26-byte keys -    90.11 cycles/hash
+  27-byte keys -    90.78 cycles/hash
+  28-byte keys -    90.56 cycles/hash
+  29-byte keys -    94.13 cycles/hash
+  30-byte keys -    90.11 cycles/hash
+  31-byte keys -    90.11 cycles/hash
+Average        -    88.54 cycles/hash
+ rnd-byte keys -    90.76 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment   6 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment   5 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment   4 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment   3 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment   2 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment   1 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment   0 - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Average       - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+Alignment rnd - 10.45 bytes/cycle - 34.05 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 - 10.01 bytes/cycle - 32.64 GiB/sec @ 3.5 ghz
+Alignment   6 - 10.01 bytes/cycle - 32.62 GiB/sec @ 3.5 ghz
+Alignment   5 -  9.98 bytes/cycle - 32.52 GiB/sec @ 3.5 ghz
+Alignment   4 -  9.86 bytes/cycle - 32.14 GiB/sec @ 3.5 ghz
+Alignment   3 -  9.94 bytes/cycle - 32.39 GiB/sec @ 3.5 ghz
+Alignment   2 -  9.97 bytes/cycle - 32.51 GiB/sec @ 3.5 ghz
+Alignment   1 -  9.95 bytes/cycle - 32.44 GiB/sec @ 3.5 ghz
+Alignment   0 - 10.18 bytes/cycle - 33.18 GiB/sec @ 3.5 ghz
+Average       -  9.99 bytes/cycle - 32.55 GiB/sec @ 3.5 ghz
+Alignment rnd -  9.65 bytes/cycle - 31.45 GiB/sec @ 3.5 ghz
+
+Verification value is 0x00000001 - Testing took 54.929916 seconds
+
