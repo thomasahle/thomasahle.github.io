@@ -10,6 +10,7 @@
 .has-indicator .figure-host-indicator { display: block; transition: transform 360ms cubic-bezier(.22,1,.36,1), width 360ms cubic-bezier(.22,1,.36,1); }
 .has-indicator button[aria-pressed="true"] { background: transparent; border-color: transparent; box-shadow: none; }
 .figure-scale { display: flex; align-items: center; gap: 7px; min-height: 30px; color: var(--muted); cursor: pointer; }
+.figure-scale[hidden] { display: none; }
 .figure-scale select { min-height: 30px; max-width: 180px; padding: 3px 7px; border: 1px solid var(--hairline); border-radius: 4px; background: white; color: var(--text); font: inherit; cursor: pointer; }
 .figure-toolbar :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
 .publication-plot #host-name, .publication-plot #host-note { visibility: hidden; }

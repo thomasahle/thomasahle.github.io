@@ -20,8 +20,8 @@
   hostIndicator.setAttribute('aria-hidden', 'true');
   root.querySelector('.figure-hosts').prepend(hostIndicator);
   let data, host = 'm2', desiredHost = 'm2', selectedId = '', currentLayout = '', requestId = 0, lastTrigger, motion;
-  let scale = 'linear', desiredScale = 'linear';
-  scaleSelect.value = 'linear';
+  let scale = 'sqrt', desiredScale = 'sqrt';
+  scaleSelect.value = 'sqrt';
   const scaleNames = {linear: 'Linear', sqrt: 'Square root', quadratic: 'Quadratic', log: 'Logarithmic'};
   const figureFile = (host, scale, layout) => host + (scale === 'linear' ? '' : '-' + scale) + (layout === 'desktop' ? '' : '-' + layout) + '.svg';
   const resource = file => new URL(file + revision, assetRoot);
@@ -35,7 +35,7 @@
   const rows = () => data.hosts[host].rows;
   const rowFor = id => rows().find(row => row.id === id);
   const pretty = value => new Intl.NumberFormat('en', {maximumFractionDigits: 2}).format(value);
-  const kindLabel = row => row.kind === 'proof' ? 'Proved lower guarantee' : row.kind === 'claim' ? 'Unresolved claim' : 'Witness upper cap';
+  const kindLabel = row => row.kind === 'proof' ? 'Proved minimum score' : row.kind === 'claim' ? 'Unresolved score claim' : 'Score limited by a colliding pair';
   const clearPeek = () => {peek.hidden = true;};
   function showPeek(row, node) {
     if (motion || matchMedia('(pointer: coarse)').matches) return;
@@ -71,16 +71,16 @@
     detail.querySelector('.inspector-host').textContent = host === 'm2' ? 'Apple M2 Pro' : 'Intel Xeon';
     detail.querySelector('.inspector-output').textContent = row.output_bits + ' bits';
     detail.querySelector('.inspector-evidence-label').textContent = row.kind === 'witness' ? 'Collision evidence' : row.kind === 'claim' ? 'Claimed bound (unresolved)' : 'Proved bound';
-    detail.querySelector('.inspector-evidence').textContent = row.evidence || '';
-    detail.querySelector('.inspector-key').textContent = row.key_model || '';
-    detail.querySelector('.inspector-scope').textContent = row.scope || row.key_model || '';
+    detail.querySelector('.inspector-evidence').textContent = row.reader_notes.evidence;
+    detail.querySelector('.inspector-key').textContent = row.reader_notes.key;
+    detail.querySelector('.inspector-scope').textContent = row.reader_notes.scope;
     detail.querySelector('.inspector-section').href = '#' + row.anchor;
     detail.querySelector('.inspector-code').href = new URL(row.code_url, new URL('../', assetRoot));
     detail.querySelector('.inspector-code').textContent = row.code_url.endsWith('.pdf') ? 'Paper & construction' : 'Implementation studied';
     detail.querySelector('.inspector-source').href = new URL(row.source, new URL('../', assetRoot));
     detail.querySelector('.inspector-benchmark-note').textContent = data.hosts[host].provisional
       ? 'M2 timings are provisional; corrected ARM benchmarks are pending. Results concern the named version and API.'
-      : 'Results concern the named version and API; the upstream project may have changed.';
+      : 'Results apply to the version and function studied here. Later releases may behave differently.';
     const links = detail.querySelector('[aria-label="Hash project and background"]');
     links.replaceChildren(...profile.links.map(({label, url}) => {
       const link = document.createElement('a'); link.textContent = label; link.href = url; return link;
@@ -94,7 +94,7 @@
   }
   function options() {
     select.replaceChildren(new Option('Choose a hash…', ''));
-    for (const [kind, label] of [['proof','Proved guarantees'],['claim','Unresolved claims'],['witness','Collision witnesses']]) {
+    for (const [kind, label] of [['proof','Proved guarantees'],['claim','Unresolved claims'],['witness','Pairs that expose a limit']]) {
       const group = document.createElement('optgroup'); group.label = label;
       for (const row of rows().filter(row => row.kind === kind).sort((a,b) => a.name.localeCompare(b.name))) {
         group.append(new Option(row.name, row.id));
@@ -291,9 +291,6 @@
       chart.setAttribute('aria-busy', 'false');
       // Warm the other host so the first toggle responds as quickly as later ones.
       get(figureFile(host === 'm2' ? 'xeon' : 'm2', scale, layout)).catch(() => {});
-      for (const alternative of Object.keys(scaleNames)) {
-        if (alternative !== scale) get(figureFile(host, alternative, layout)).catch(() => {});
-      }
     } catch (error) {
       if (request !== requestId) return;
       desiredHost = host; desiredScale = scale; scaleSelect.value = scale;

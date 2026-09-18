@@ -12127,19 +12127,19 @@
    "family": "heuristic",
    "version": "1-3",
    "anchor": "appendix-siphash",
-   "bits": null,
-   "bits_kind": "unscored",
+   "bits": 64,
+   "bits_kind": "claimed",
    "score": {
-    "calculated": null,
-    "display": null,
-    "display_text": "no theorem, no pair found: no score",
-    "direction": "none"
+    "calculated": 64,
+    "display": "64",
+    "display_text": "64 bits · PRF claim (no theorem, no pair found)",
+    "direction": "claim"
    },
    "key_bits": 128,
    "output_bits": 64,
    "key_model": "uniform 128-bit key; benchmark wrapper uses its registered seed expansion",
    "key_free": false,
-   "chart_eligible": false,
+   "chart_eligible": true,
    "status": "comparison",
    "claim_category": "PRF",
    "official_claim": {
@@ -12147,7 +12147,7 @@
     "url": "https://www.aumasson.jp/siphash/siphash.pdf"
    },
    "mechanism": "ARX permutation keyed by a 128-bit key (PRF)",
-   "qualification": "No theorem or collision pair scored in this post; omitted from the scatter plot.",
+   "qualification": "Plotted as an unresolved claim at its 64-bit output width. SipHash is a PRF design (Aumasson–Bernstein) with no proof of the fixed-pair collision bound in this post and no known attack; if the PRF claim holds, a fixed pair collides with probability about 2^-64 over the 128-bit key. The SMHasher3 wrapper expands a 64-bit seed into the key, so the timed function is a 2^64-member subfamily.",
    "speed_registration": "SipHash-1-3",
    "code_url": "https://github.com/veorq/SipHash",
    "collision": {
@@ -12582,7 +12582,10 @@
     }
    },
    "mechanism_family": "ARX PRF",
-   "family_definition": "ARX permutation keyed by a 128-bit key (PRF)."
+   "family_definition": "ARX permutation keyed by a 128-bit key (PRF).",
+   "score_display": "64 bits · claim",
+   "hover": "SipHash-1-3: 64-bit output; PRF design, unproven, no known attack. Rust std HashMap default (SipHash-1-3). Bulk speed is the price of the cryptographic option.",
+   "bound": "≈ 1/2^64 per fixed pair if the PRF claim holds (unproven)"
   },
   {
    "id": "siphash-2-4",
@@ -12592,19 +12595,19 @@
    "family": "heuristic",
    "version": "2-4",
    "anchor": "appendix-siphash",
-   "bits": null,
-   "bits_kind": "unscored",
+   "bits": 64,
+   "bits_kind": "claimed",
    "score": {
-    "calculated": null,
-    "display": null,
-    "display_text": "no theorem, no pair found: no score",
-    "direction": "none"
+    "calculated": 64,
+    "display": "64",
+    "display_text": "64 bits · PRF claim (no theorem, no pair found)",
+    "direction": "claim"
    },
    "key_bits": 128,
    "output_bits": 64,
    "key_model": "uniform 128-bit key; benchmark wrapper uses its registered seed expansion",
    "key_free": false,
-   "chart_eligible": false,
+   "chart_eligible": true,
    "status": "comparison",
    "claim_category": "PRF",
    "official_claim": {
@@ -12612,7 +12615,7 @@
     "url": "https://www.aumasson.jp/siphash/siphash.pdf"
    },
    "mechanism": "ARX permutation keyed by a 128-bit key (PRF)",
-   "qualification": "No theorem or collision pair scored in this post; omitted from the scatter plot.",
+   "qualification": "Plotted as an unresolved claim at its 64-bit output width. SipHash is a PRF design (Aumasson–Bernstein) with no proof of the fixed-pair collision bound in this post and no known attack; if the PRF claim holds, a fixed pair collides with probability about 2^-64 over the 128-bit key. The SMHasher3 wrapper expands a 64-bit seed into the key, so the timed function is a 2^64-member subfamily.",
    "speed_registration": "SipHash-2-4",
    "code_url": "https://github.com/veorq/SipHash",
    "collision": {
@@ -13047,7 +13050,10 @@
     }
    },
    "mechanism_family": "ARX PRF",
-   "family_definition": "ARX permutation keyed by a 128-bit key (PRF)."
+   "family_definition": "ARX permutation keyed by a 128-bit key (PRF).",
+   "score_display": "64 bits · claim",
+   "hover": "SipHash-2-4: 64-bit output; PRF design, unproven, no known attack. The conservative reference parameters. Bulk speed is the price of the cryptographic option.",
+   "bound": "≈ 1/2^64 per fixed pair if the PRF claim holds (unproven)"
   },
   {
    "id": "halftime24",
@@ -17839,7 +17845,7 @@
     67.7,
     37.6
    ],
-   "reference_url": "https://github.com/thomasahle/fast-polynomials",
+   "reference_url": "https://github.com/thomasahle/chainhash",
    "notes": "Model A: PH keys s,s²,…,s³² in GF(2^64); s, three chain keys, five finalizer parameters, and twist are independent uniform 64-bit words. Byte strings shorter than 2^64 bytes, W=32,S=1. Lean checks the ideal-key and model A mathematical reference bounds; compiler/SIMD correctness is outside scope. Timed SplitMix64 initialization is outside model A. Chart: plotted on the M2 Pro, where this strided function is the fastest measured ChainHash (22.8 B/cycle); the Xeon point is the adjacent-pair v2. The two hosts currently use different pairing layouts of the same construction; a single layout is pending the NEON kernel work.",
    "provenance": [
     "data/provable.json#/result/table/rows/1",
@@ -18428,8 +18434,8 @@
   },
   {
    "id": "halftime24-fixed",
-   "name": "HalftimeHash24 (fixed by us)",
-   "label": "HalftimeHash24 (fixed)",
+   "name": "HalftimeHash24, repaired encoder (not shipped)",
+   "label": "HalftimeHash24 repaired",
    "pattern": [],
    "family": "proven",
    "bits": 83.27,
@@ -18460,7 +18466,7 @@
    "proof_status": "proved (audited)",
    "proof_source": "records/halftime/THEOREM.md",
    "code_url": "records/halftime/HalftimeHash24-fixed.hpp",
-   "chart_eligible": true,
+   "chart_eligible": false,
    "key_free": false,
    "lean": {
     "label": "✓ construction (M1–M4)",
@@ -18562,7 +18568,8 @@
    },
    "fix_provenance": "Our fixed-24byte-core branch in github.com/thomasahle/HalftimeHash; not yet upstream.",
    "old_witness_result": "0 collisions in 2^36 keys at each of four widths on the old 2^-32 witness.",
-   "collision_bound_bits_exact": 83.26783257433661
+   "collision_bound_bits_exact": 83.26783257433661,
+   "notes": " Table-only by the author's decision: this post repairs the published proof and, to check it, the 24-byte core's encoder, but it does not ship fixed hashes; the repaired header and its theorem are disclosed in jbapple/HalftimeHash issue #3 and the appendix, and the point is not plotted."
   },
   {
    "id": "chain-v2",
