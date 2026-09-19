@@ -1,6 +1,6 @@
 {
-  "source_sha256": "e02dfdb8768aa6068bac48c8a0d2636078581e14e26b4778bba5ba105dab4ff1",
-  "profiles_sha256": "f06d82f82487ece0cc7263cd1f31c8dda1c602b4537f837b13a3b5129cfcb304",
+  "source_sha256": "d07a4f81c24a89b4d47fd587e6f80e00b729af6c9ffececcbada8c3e1635ee04",
+  "profiles_sha256": "bcbe28a16ca57f9f06d7e11ec2c32e233ddbf3d74dcb43219c2f086c62a849d0",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -224,7 +224,6 @@
       "sources": [
         "https://github.com/google/highwayhash",
         "https://arxiv.org/abs/1612.06257",
-        "records/highway-bridge/LEAN_HIGHWAY_STATUS.md",
         "records/fairness-pass/highway/README.md"
       ]
     },
@@ -325,8 +324,7 @@
       ],
       "sources": [
         "https://github.com/orlp/polymur-hash",
-        "https://github.com/orlp/polymur-hash/blob/master/polymur-hash.h",
-        "records/polymur-card/LEAN_POLYMUR_STATUS.md"
+        "https://github.com/orlp/polymur-hash/blob/master/polymur-hash.h"
       ]
     },
     "halftimehash-64": {
@@ -345,9 +343,7 @@
       "sources": [
         "https://github.com/jbapple/HalftimeHash",
         "https://arxiv.org/abs/2104.08865",
-        "records/halftime/REFEREE.md",
-        "records/halftime/fourth_review_summary.md",
-        "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md"
+        "records/halftime/REFEREE.md"
       ]
     },
     "umash": {
@@ -371,16 +367,8 @@
           "url": "records/umash-corrected/proof3/PROOF3.md"
         },
         {
-          "label": "Primary bound: review",
-          "url": "records/umash-corrected/proof3/VERDICT.md"
-        },
-        {
           "label": "PH+ENH and tag-only: proof",
           "url": "records/umash-corrected/proof2/PROOF2.md"
-        },
-        {
-          "label": "PH+ENH and tag-only: review",
-          "url": "records/umash-corrected/proof2/VERDICT.md"
         },
         {
           "label": "ENH-only joint proof",
@@ -391,10 +379,6 @@
           "url": "records/umash-corrected/proof4/PROOF4.md"
         },
         {
-          "label": "UMASH-64: four-lens verdict",
-          "url": "records/umash-corrected/proof4/VERDICT.md"
-        },
-        {
           "label": "UMASH-64: checks",
           "url": "records/umash-corrected/proof4/checks/README.md"
         },
@@ -403,16 +387,8 @@
           "url": "records/umash-corrected/proof5/PROOF5.md"
         },
         {
-          "label": "UMASH-128: four-lens verdict",
-          "url": "records/umash-corrected/proof5/VERDICT.md"
-        },
-        {
           "label": "UMASH-128: checks",
           "url": "records/umash-corrected/proof5/checks/README.md"
-        },
-        {
-          "label": "Partial Lean completion record",
-          "url": "records/umash-corrected/lean/LEAN_UMASH_CORRECTED_STATUS.md"
         }
       ],
       "sources": [
@@ -421,23 +397,16 @@
         "records/umash/ENH_RESULT.md",
         "records/umash/FIFTH_RECOUNT.md",
         "index.html#appendix-umash",
-        "records/umash/LEAN_UMASH_STATUS.md",
         "records/umash-corrected/PROOF.md",
-        "records/umash-corrected/VERDICT.md",
         "records/umash-corrected/checks/README.md",
         "records/umash-corrected/proof2/PROOF2.md",
-        "records/umash-corrected/proof2/VERDICT.md",
         "records/umash-corrected/proof2/checks/README.md",
         "records/umash-corrected/proof3/PROOF3.md",
-        "records/umash-corrected/proof3/VERDICT.md",
         "records/umash-corrected/proof3/checks/README.md",
         "records/umash-corrected/proof4/PROOF4.md",
-        "records/umash-corrected/proof4/VERDICT.md",
         "records/umash-corrected/proof4/checks/README.md",
         "records/umash-corrected/proof5/PROOF5.md",
-        "records/umash-corrected/proof5/VERDICT.md",
-        "records/umash-corrected/proof5/checks/README.md",
-        "records/umash-corrected/lean/LEAN_UMASH_CORRECTED_STATUS.md"
+        "records/umash-corrected/proof5/checks/README.md"
       ]
     },
     "clhash": {
@@ -455,8 +424,7 @@
       ],
       "sources": [
         "https://github.com/lemire/clhash",
-        "https://arxiv.org/abs/1503.03465",
-        "records/clhash/LEAN_CLHASH_STATUS.md"
+        "https://arxiv.org/abs/1503.03465"
       ]
     },
     "chain256": {
@@ -475,10 +443,7 @@
       "sources": [
         "https://github.com/thomasahle/chainhash",
         "#proof-audit-notes",
-        "records/chainhash/THEOREMS.md",
-        "records/chainhash/LEAN_CHAINHASH_STATUS.md",
-        "records/m2_REPORT.md",
-        "records/chainhash-integrate/STATUS.md"
+        "records/chainhash/THEOREMS.md"
       ]
     },
     "poly1305": {
@@ -496,10 +461,7 @@
       ],
       "sources": [
         "https://cr.yp.to/mac/poly1305-20050329.pdf",
-        "https://github.com/openssl/openssl/tree/master/crypto/poly1305",
-        "records/classic_REPORT.md",
-        "records/m2_REPORT.md",
-        "records/classic/LEAN_CLASSIC_STATUS.md"
+        "https://github.com/openssl/openssl/tree/master/crypto/poly1305"
       ]
     },
     "ghash": {
@@ -517,10 +479,7 @@
       ],
       "sources": [
         "https://eprint.iacr.org/2004/193",
-        "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c",
-        "records/classic_REPORT.md",
-        "records/m2_REPORT.md",
-        "records/classic/LEAN_CLASSIC_STATUS.md"
+        "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c"
       ]
     },
     "foldhash-fast": {
@@ -555,7 +514,6 @@
         "index.html#appendix-siphash",
         "data.json",
         "records/speeds.json",
-        "records/siphash/MEMO.md",
         "records/siphash/LITERATURE.md",
         "https://github.com/rust-lang/rust/issues/29754",
         "records/fairness-pass/siphash-1-3/README.md",
@@ -577,10 +535,8 @@
       ],
       "sources": [
         "index.html#appendix-halftime24",
-        "records/halftime/fourth_review_summary.md",
         "verify/halftime/verify2/run.cpp",
-        "records/fairness-pass/halftime24/README.md",
-        "records/halftime24-shipped/REPORT.md"
+        "records/fairness-pass/halftime24/README.md"
       ]
     },
     "halftime24-fixed": {
@@ -598,10 +554,8 @@
       ],
       "sources": [
         "records/halftime/THEOREM.md",
-        "records/halftime/LEAN_HALFTIME_STATUS.md",
         "records/halftime/speeds_halftime_fixed.json",
-        "records/halftime/speeds_halftime_fixed.json",
-        "records/nh-halftime/LEAN_NH_HALFTIME_STATUS.md"
+        "records/halftime/speeds_halftime_fixed.json"
       ]
     },
     "chain-v2": {
@@ -623,7 +577,6 @@
       ],
       "sources": [
         "records/chainhash/v2/SPEC.md",
-        "records/chainhash/v2/LEAN_CHAINHASH_STATUS.md",
         "records/chainhash/v2/speeds_chainhash_x86.json",
         "records/chainhash/m2-adjacent/speeds_m2_adjacent.json"
       ]
@@ -647,10 +600,8 @@
       ],
       "sources": [
         "records/chainhash/128/SPEC.md",
-        "records/chainhash/128/LEAN_CHAINHASH_STATUS.md",
         "records/chainhash/128/speeds_chainhash128.json",
-        "records/chainhash/128/speeds_chainhash128.json",
-        "records/chainhash128/STATUS.md"
+        "records/chainhash/128/speeds_chainhash128.json"
       ]
     },
     "go-maphash": {
@@ -729,25 +680,11 @@
         {
           "label": "Specification and implementation",
           "url": "records/chainhash/v3/SPEC_v3.md"
-        },
-        {
-          "label": "Reviewed bounds",
-          "url": "records/chainhash/v3/THEOREM_v3.md"
-        },
-        {
-          "label": "Measurements and controls",
-          "url": "records/chainhash/v3/REPORT.md"
-        },
-        {
-          "label": "Design memo",
-          "url": "records/chainhash/v3/MEMO.md"
         }
       ],
       "sources": [
         "records/chainhash/v3/SPEC_v3.md",
         "records/chainhash/v3/THEOREM_v3.md",
-        "records/chainhash/v3/MEMO.md",
-        "records/chainhash/v3/REPORT.md",
         "records/chainhash/v3/speeds_chainhash_v3.json"
       ]
     },
@@ -763,7 +700,6 @@
       "sources": [
         "records/witness-searches/muse-v2/README.md",
         "records/witness-searches/muse-v2-verify/README.md",
-        "records/review-inputs/claims.json#/result/table/rows/6",
         "records/fairness-pass/muse/current-README.md",
         "records/witness-searches/muse-v2-timing/speeds_museair_v2.json"
       ]
