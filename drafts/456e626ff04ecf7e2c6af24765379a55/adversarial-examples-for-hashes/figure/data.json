@@ -1,6 +1,6 @@
 {
-  "source_sha256": "18c609ff979536fdb44ac33f3afa0a7c55b876f1a97227c0fa8195310e645c16",
-  "profiles_sha256": "c46b8b9f176e2c3c45994ab38e763a2794a6cdb2ee9f1d5167616c1d26cf884a",
+  "source_sha256": "82b93ab9bb9c0f57679f1545f7d9362fe7783c2c019ef2274d3edc728ffc7b1e",
+  "profiles_sha256": "af21f9d895b60b2583732fa4ce41519116e7a148a96ae9305fb884ba659f6486",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -742,7 +742,7 @@
     },
     "chain128": {
       "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash-128 is the 128-bit version of my ChainHash construction. It processes messages in 512-byte blocks and combines them using secret-key arithmetic. Its wider output makes room for a stronger collision guarantee than the 64-bit versions.",
+      "background": "The strided ChainHash-128 is the previous 128-bit version of my ChainHash construction. It processes messages in 512-byte blocks and combines them using secret-key arithmetic. It has been replaced by ChainHash-128 v3, which returns different digests; this version stays in the table and is no longer plotted.",
       "links": [
         {
           "label": "Project and code",
@@ -761,6 +761,34 @@
         "https://github.com/thomasahle/chainhash",
         "records/chainhash/128/SPEC.html",
         "records/speeds.json"
+      ]
+    },
+    "chain128-v3": {
+      "authors": "Thomas Dybdahl Ahle · author of this post",
+      "background": "ChainHash-128 v3 is the shipped 128-bit version of my ChainHash v3 construction: the same three levels with 128-bit words over the GCM field, 512-byte logical blocks and a secret-key polynomial, ending in the existing twist and quintic finalizer. It replaces the earlier strided ChainHash-128, which stays in the table as the previous version; the two return different digests.",
+      "links": [
+        {
+          "label": "Project and code",
+          "url": "https://github.com/thomasahle/chainhash"
+        },
+        {
+          "label": "Specification",
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3_128.md"
+        },
+        {
+          "label": "Theorem and proof",
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/chainhash/v3-128/speeds_chainhash128_v3.json"
+        }
+      ],
+      "sources": [
+        "https://github.com/thomasahle/chainhash",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3_128.md",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md",
+        "records/chainhash/v3-128/speeds_chainhash128_v3.json"
       ]
     },
     "go-maphash": {
@@ -1956,29 +1984,29 @@
           "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
         },
         {
-          "id": "chain128",
-          "name": "ChainHash-128 (ours), 512 B blocks",
-          "label": "ChainHash-128 (ours)",
+          "id": "chain128-v3",
+          "name": "ChainHash-128 v3 (ours)",
+          "label": "ChainHash-128 v3 (ours)",
           "kind": "proof",
           "key_free": false,
-          "speed": 10.28,
-          "bits": 125,
-          "score": "≥ 125",
+          "speed": 10.26,
+          "bits": 122.96,
+          "score": "≥ 122.96",
           "anchor": "appendix-chainhash128",
-          "evidence": "Ideal: (n+2)/2^128, n=max(1,ceil(bytes/512)); model A: E_A(ceil(L/2))/2^128",
-          "scope": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
-          "source": "records/chainhash/128/speeds_chainhash128.json",
-          "family": "polynomial (CLNH + injective recurrence)",
-          "key_model": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
-          "profile": "chain128",
-          "summary": "The proof gives at least 125 bits on this post’s collision score when the key contains 160 independently random bytes. Lean, a proof-checking program, has verified the mathematical construction and its key setup. The guarantee does not cover the smaller seed used in the benchmark or establish that the compiled C implementation is correct.",
+          "evidence": "Paper model: min(1,(p(L)+1)/2^128); model A: min(1,(p(L)+32)/2^128), with p the logical 512-byte comb-block count (the specification’s short-length refinement replaces 32 by d(L) ≤ 32 with d(1)=1)",
+          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. Paper model (39 independent 128-bit key words, 624 bytes): 127 bits. Model A (128 random bytes): the chart uses the envelope (p+32)/2^128, 122.96 bits at L=1; the specification’s short-length refinement gives 127 bits. The written proof transfers from the 64-bit v3 theorem with the field swapped to GF(2^128); the Lean port is in progress. The benchmark SplitMix64 seed expansion is outside these key models; no full SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/v3-128/speeds_chainhash128_v3.json",
+          "family": "CLNH + Horner + quintic",
+          "key_model": "Model A: eight independent uniform 128-bit field words s, y, c0…c4, τ (128 random bytes); κ_a = s^(a+1). The resident key caches 16(W+24) = 896 bytes. The paper model has W+7 = 39 independent 128-bit words (624 bytes).",
+          "profile": "chain128-v3",
+          "summary": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with at least 123 bits on this post’s collision score when the key contains 128 independently random bytes, and 127 bits with fully independent key words. In the same binaries XXH3-128 runs at 19.82 and 12.53 and the previous strided ChainHash-128 at 8.14 and 10.07. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The written proof transfers from the 64-bit v3 theorem with the field swapped; the Lean port is in progress.",
           "reader_notes": {
-            "evidence": "The checked proof includes empty messages and messages whose length is not a multiple of a machine word. The exact length-dependent probability formula is in the linked specification.",
-            "key": "Choose twenty independent random 64-bit words, totaling 160 bytes. The theorem covers how the algorithm derives further values from them. The specification calls that setup “model A”; an arbitrary 64-bit seed expander is not equivalent.",
-            "scope": "The C interface accepts lengths below 2⁶⁴ bytes. The proof checks the mathematical hash and the required randomness, while the C implementation, processor instructions and compiler remain outside its scope."
+            "evidence": "The bound is a written proof: with p the larger number of 512-byte blocks in two fixed messages, a collision has probability at most (p+1)/2^128 with independent key words and at most (p+32)/2^128 with the 128-byte key. The argument is the 64-bit v3 proof with the field replaced by GF(2^128); its Lean port is not finished, unlike the previous strided version, whose 125-bit result is machine-checked.",
+            "key": "Model A starts with 128 independently random bytes: one 128-bit word expands the block keys as its powers, one independently keys the Horner polynomial, and six supply the finalizer and integer twist. The paper model uses 39 independent 128-bit words (624 bytes). The 64-bit seed used for benchmarking does not meet either assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, under the stated key distribution. Horner stride, SIMD width, schoolbook or Karatsuba products, lazy or eager reduction, streaming chunks and region-aligned thread splits leave the digest unchanged. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three with no run more than 15% from its median. Sanity and verification passed; no complete statistical-suite result or machine-checked implementation proof is claimed."
           },
           "output_bits": 128,
-          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
+          "code_url": "https://github.com/thomasahle/chainhash"
         }
       ]
     },
@@ -3063,29 +3091,29 @@
           "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
         },
         {
-          "id": "chain128",
-          "name": "ChainHash-128 (ours), 512 B blocks",
-          "label": "ChainHash-128 (ours)",
+          "id": "chain128-v3",
+          "name": "ChainHash-128 v3 (ours)",
+          "label": "ChainHash-128 v3 (ours)",
           "kind": "proof",
           "key_free": false,
-          "speed": 8.16,
-          "bits": 125,
-          "score": "≥ 125",
+          "speed": 14.43,
+          "bits": 122.96,
+          "score": "≥ 122.96",
           "anchor": "appendix-chainhash128",
-          "evidence": "Ideal: (n+2)/2^128, n=max(1,ceil(bytes/512)); model A: E_A(ceil(L/2))/2^128",
-          "scope": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
-          "source": "records/chainhash/128/speeds_chainhash128.json",
-          "family": "polynomial (CLNH + injective recurrence)",
-          "key_model": "Strided pairing, 512-byte blocks over GF(2^128), any byte length including empty (<2^64 for the C API). Ideal score 126.415 bits with (n+2)/2^128. Model A uses 160 independent random bytes (20 × 64-bit), with at-most-length score 125 bits in eight-byte word units; seeded benchmark expansion is outside the theorem.",
-          "profile": "chain128",
-          "summary": "The proof gives at least 125 bits on this post’s collision score when the key contains 160 independently random bytes. Lean, a proof-checking program, has verified the mathematical construction and its key setup. The guarantee does not cover the smaller seed used in the benchmark or establish that the compiled C implementation is correct.",
+          "evidence": "Paper model: min(1,(p(L)+1)/2^128); model A: min(1,(p(L)+32)/2^128), with p the logical 512-byte comb-block count (the specification’s short-length refinement replaces 32 by d(L) ≤ 32 with d(1)=1)",
+          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. Paper model (39 independent 128-bit key words, 624 bytes): 127 bits. Model A (128 random bytes): the chart uses the envelope (p+32)/2^128, 122.96 bits at L=1; the specification’s short-length refinement gives 127 bits. The written proof transfers from the 64-bit v3 theorem with the field swapped to GF(2^128); the Lean port is in progress. The benchmark SplitMix64 seed expansion is outside these key models; no full SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/v3-128/speeds_chainhash128_v3.json",
+          "family": "CLNH + Horner + quintic",
+          "key_model": "Model A: eight independent uniform 128-bit field words s, y, c0…c4, τ (128 random bytes); κ_a = s^(a+1). The resident key caches 16(W+24) = 896 bytes. The paper model has W+7 = 39 independent 128-bit words (624 bytes).",
+          "profile": "chain128-v3",
+          "summary": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with at least 123 bits on this post’s collision score when the key contains 128 independently random bytes, and 127 bits with fully independent key words. In the same binaries XXH3-128 runs at 19.82 and 12.53 and the previous strided ChainHash-128 at 8.14 and 10.07. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The written proof transfers from the 64-bit v3 theorem with the field swapped; the Lean port is in progress.",
           "reader_notes": {
-            "evidence": "The checked proof includes empty messages and messages whose length is not a multiple of a machine word. The exact length-dependent probability formula is in the linked specification.",
-            "key": "Choose twenty independent random 64-bit words, totaling 160 bytes. The theorem covers how the algorithm derives further values from them. The specification calls that setup “model A”; an arbitrary 64-bit seed expander is not equivalent.",
-            "scope": "The C interface accepts lengths below 2⁶⁴ bytes. The proof checks the mathematical hash and the required randomness, while the C implementation, processor instructions and compiler remain outside its scope."
+            "evidence": "The bound is a written proof: with p the larger number of 512-byte blocks in two fixed messages, a collision has probability at most (p+1)/2^128 with independent key words and at most (p+32)/2^128 with the 128-byte key. The argument is the 64-bit v3 proof with the field replaced by GF(2^128); its Lean port is not finished, unlike the previous strided version, whose 125-bit result is machine-checked.",
+            "key": "Model A starts with 128 independently random bytes: one 128-bit word expands the block keys as its powers, one independently keys the Horner polynomial, and six supply the finalizer and integer twist. The paper model uses 39 independent 128-bit words (624 bytes). The 64-bit seed used for benchmarking does not meet either assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, under the stated key distribution. Horner stride, SIMD width, schoolbook or Karatsuba products, lazy or eager reduction, streaming chunks and region-aligned thread splits leave the digest unchanged. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three with no run more than 15% from its median. Sanity and verification passed; no complete statistical-suite result or machine-checked implementation proof is claimed."
           },
           "output_bits": 128,
-          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
+          "code_url": "https://github.com/thomasahle/chainhash"
         }
       ]
     }

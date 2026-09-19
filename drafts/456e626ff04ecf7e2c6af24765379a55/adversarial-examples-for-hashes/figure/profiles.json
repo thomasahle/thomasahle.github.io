@@ -1307,7 +1307,7 @@
         "chain128"
       ],
       "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash-128 is the 128-bit version of my ChainHash construction. It processes messages in 512-byte blocks and combines them using secret-key arithmetic. Its wider output makes room for a stronger collision guarantee than the 64-bit versions.",
+      "background": "The strided ChainHash-128 is the previous 128-bit version of my ChainHash construction. It processes messages in 512-byte blocks and combines them using secret-key arithmetic. It has been replaced by ChainHash-128 v3, which returns different digests; this version stays in the table and is no longer plotted.",
       "links": [
         {
           "label": "Project and code",
@@ -1323,7 +1323,7 @@
         }
       ],
       "results": {
-        "chain128": "The proof gives at least 125 bits on this post’s collision score when the key contains 160 independently random bytes. Lean, a proof-checking program, has verified the mathematical construction and its key setup. The guarantee does not cover the smaller seed used in the benchmark or establish that the compiled C implementation is correct."
+        "chain128": "Previous version. The proof gives at least 125 bits on this post’s collision score when the key contains 160 independently random bytes. Lean, a proof-checking program, has verified the mathematical construction and its key setup. The guarantee does not cover the smaller seed used in the benchmark or establish that the compiled C implementation is correct."
       },
       "sources": [
         "https://github.com/thomasahle/chainhash",
@@ -1342,6 +1342,54 @@
           "evidence": "The checked proof includes empty messages and messages whose length is not a multiple of a machine word. The exact length-dependent probability formula is in the linked specification.",
           "key": "Choose twenty independent random 64-bit words, totaling 160 bytes. The theorem covers how the algorithm derives further values from them. The specification calls that setup “model A”; an arbitrary 64-bit seed expander is not equivalent.",
           "scope": "The C interface accepts lengths below 2⁶⁴ bytes. The proof checks the mathematical hash and the required randomness, while the C implementation, processor instructions and compiler remain outside its scope."
+        }
+      }
+    },
+    {
+      "ids": [
+        "chain128-v3"
+      ],
+      "authors": "Thomas Dybdahl Ahle · author of this post",
+      "background": "ChainHash-128 v3 is the shipped 128-bit version of my ChainHash v3 construction: the same three levels with 128-bit words over the GCM field, 512-byte logical blocks and a secret-key polynomial, ending in the existing twist and quintic finalizer. It replaces the earlier strided ChainHash-128, which stays in the table as the previous version; the two return different digests.",
+      "links": [
+        {
+          "label": "Project and code",
+          "url": "https://github.com/thomasahle/chainhash"
+        },
+        {
+          "label": "Specification",
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3_128.md"
+        },
+        {
+          "label": "Theorem and proof",
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/chainhash/v3-128/speeds_chainhash128_v3.json"
+        }
+      ],
+      "sources": [
+        "https://github.com/thomasahle/chainhash",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3_128.md",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md",
+        "records/chainhash/v3-128/speeds_chainhash128_v3.json"
+      ],
+      "results": {
+        "chain128-v3": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with at least 123 bits on this post’s collision score when the key contains 128 independently random bytes, and 127 bits with fully independent key words. In the same binaries XXH3-128 runs at 19.82 and 12.53 and the previous strided ChainHash-128 at 8.14 and 10.07. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The written proof transfers from the 64-bit v3 theorem with the field swapped; the Lean port is in progress."
+      },
+      "lean": {
+        "chain128-v3": {
+          "label": "paper proof by transfer from the 64-bit v3 theorem (field swapped); Lean port in progress",
+          "source": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md",
+          "scope": "Written proof by transfer from the 64-bit v3 theorem with the field swapped to GF(2^128); the Lean port is in progress. The previous strided ChainHash-128 keeps its own machine-checked 125-bit result."
+        }
+      },
+      "reader_notes": {
+        "chain128-v3": {
+          "evidence": "The bound is a written proof: with p the larger number of 512-byte blocks in two fixed messages, a collision has probability at most (p+1)/2^128 with independent key words and at most (p+32)/2^128 with the 128-byte key. The argument is the 64-bit v3 proof with the field replaced by GF(2^128); its Lean port is not finished, unlike the previous strided version, whose 125-bit result is machine-checked.",
+          "key": "Model A starts with 128 independently random bytes: one 128-bit word expands the block keys as its powers, one independently keys the Horner polynomial, and six supply the finalizer and integer twist. The paper model uses 39 independent 128-bit words (624 bytes). The 64-bit seed used for benchmarking does not meet either assumption.",
+          "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, under the stated key distribution. Horner stride, SIMD width, schoolbook or Karatsuba products, lazy or eager reduction, streaming chunks and region-aligned thread splits leave the digest unchanged. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three with no run more than 15% from its median. Sanity and verification passed; no complete statistical-suite result or machine-checked implementation proof is claimed."
         }
       }
     },
