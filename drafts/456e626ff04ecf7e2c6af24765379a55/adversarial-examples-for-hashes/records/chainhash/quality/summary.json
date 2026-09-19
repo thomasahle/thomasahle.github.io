@@ -1,624 +1,319 @@
 [
-  {
-    "log": "results/rurban-xeon-chainhash-256-all.log",
-    "complete": true,
-    "exit_code": 0,
-    "start": "2026-09-19T09:31:51.350462+00:00",
-    "end": "2026-09-19T09:58:48.094528+00:00",
-    "verification": [
-      [
-        "",
-        "0xAA4E2A3B"
-      ]
-    ],
-    "failure_lines": [],
-    "sections": [
-      {
-        "name": "Sanity Tests",
-        "failure": false
-      },
-      {
-        "name": "Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "'Hashmap' Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Sparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Permutation' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Window' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Cyclic' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'TwoBytes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Text' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Seed' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'PerlinNoise' Tests",
-        "failure": false
-      },
-      {
-        "name": "Diff 'Differential' Tests",
-        "failure": false
-      },
-      {
-        "name": "DiffDist 'Differential Distribution' Tests",
-        "failure": false
-      },
-      {
-        "name": "MomentChi2 Tests",
-        "failure": false
-      },
-      {
-        "name": "Prng Tests",
-        "failure": false
-      },
-      {
-        "name": "BIC 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "BadSeeds Tests",
-        "failure": false
-      }
-    ],
-    "quality_sections": 17,
-    "failed_quality_sections": 0,
-    "passed_quality_sections": 17,
-    "has_bic": true,
-    "has_badseeds": true
-  },
-  {
-    "log": "results/rurban-xeon-chainhash-v3-all.log",
-    "complete": true,
-    "exit_code": 0,
-    "start": "2026-09-19T08:51:49.570693+00:00",
-    "end": "2026-09-19T09:31:51.350087+00:00",
-    "verification": [
-      [
-        "",
-        "0x66672BD6"
-      ]
-    ],
-    "failure_lines": [],
-    "sections": [
-      {
-        "name": "Sanity Tests",
-        "failure": false
-      },
-      {
-        "name": "Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "'Hashmap' Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Sparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Permutation' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Window' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Cyclic' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'TwoBytes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Text' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Seed' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'PerlinNoise' Tests",
-        "failure": false
-      },
-      {
-        "name": "Diff 'Differential' Tests",
-        "failure": false
-      },
-      {
-        "name": "DiffDist 'Differential Distribution' Tests",
-        "failure": false
-      },
-      {
-        "name": "MomentChi2 Tests",
-        "failure": false
-      },
-      {
-        "name": "Prng Tests",
-        "failure": false
-      },
-      {
-        "name": "BIC 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "BadSeeds Tests",
-        "failure": false
-      }
-    ],
-    "quality_sections": 17,
-    "failed_quality_sections": 0,
-    "passed_quality_sections": 17,
-    "has_bic": true,
-    "has_badseeds": true
-  },
-  {
-    "log": "results/sm3-m2-chainhash-256-all.log",
-    "complete": true,
-    "exit_code": 0,
-    "start": "2026-09-19T08:36:58.780805+00:00",
-    "end": "2026-09-19T08:42:08.901657+00:00",
-    "verification": [
-      [
-        "LE",
-        "0xAA4E2A3B"
-      ]
-    ],
-    "failure_lines": [],
-    "sections": [
-      {
-        "name": "Sanity Tests",
-        "failure": false
-      },
-      {
-        "name": "Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "'Hashmap' Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "BIC 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Cyclic' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Sparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Permutation' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Text' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'TwoBytes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'PerlinNoise' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Bitflip' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'SeedSparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockLength Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockOffset Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Seed' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Bitflip Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Differential Tests",
-        "failure": false
-      }
-    ],
-    "result": "pass",
-    "passed": 200,
-    "total": 200
-  },
-  {
-    "log": "results/sm3-m2-chainhash-v3-all.log",
-    "complete": true,
-    "exit_code": 0,
-    "start": "2026-09-19T08:06:06.843044+00:00",
-    "end": "2026-09-19T08:26:32.823985+00:00",
-    "verification": [
-      [
-        "LE",
-        "0x66672BD6"
-      ]
-    ],
-    "failure_lines": [],
-    "sections": [
-      {
-        "name": "Sanity Tests",
-        "failure": false
-      },
-      {
-        "name": "Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "'Hashmap' Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "BIC 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Cyclic' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Sparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Permutation' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Text' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'TwoBytes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'PerlinNoise' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Bitflip' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'SeedSparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockLength Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockOffset Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Seed' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Bitflip Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Differential Tests",
-        "failure": false
-      }
-    ],
-    "result": "pass",
-    "passed": 200,
-    "total": 200
-  },
-  {
-    "log": "results/sm3-xeon-chainhash-256-all.log",
-    "complete": true,
-    "exit_code": 0,
-    "start": "2026-09-19T08:36:53.795429+00:00",
-    "end": "2026-09-19T08:47:03.972054+00:00",
-    "verification": [
-      [
-        "LE",
-        "0xAA4E2A3B"
-      ]
-    ],
-    "failure_lines": [],
-    "sections": [
-      {
-        "name": "Sanity Tests",
-        "failure": false
-      },
-      {
-        "name": "Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "'Hashmap' Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "BIC 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Cyclic' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Sparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Permutation' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Text' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'TwoBytes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'PerlinNoise' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Bitflip' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'SeedSparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockLength Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockOffset Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Seed' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Bitflip Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Differential Tests",
-        "failure": false
-      }
-    ],
-    "result": "pass",
-    "passed": 200,
-    "total": 200
-  },
-  {
-    "log": "results/sm3-xeon-chainhash-v3-all.log",
-    "complete": true,
-    "exit_code": 0,
-    "start": "2026-09-19T08:13:58.685947+00:00",
-    "end": "2026-09-19T08:36:53.795073+00:00",
-    "verification": [
-      [
-        "LE",
-        "0x66672BD6"
-      ]
-    ],
-    "failure_lines": [],
-    "sections": [
-      {
-        "name": "Sanity Tests",
-        "failure": false
-      },
-      {
-        "name": "Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "'Hashmap' Speed Tests",
-        "failure": false
-      },
-      {
-        "name": "Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "BIC 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Cyclic' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Sparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Permutation' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Text' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'TwoBytes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'PerlinNoise' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Bitflip' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Zeroes' Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'SeedSparse' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockLength Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed BlockOffset Tests",
-        "failure": false
-      },
-      {
-        "name": "Keyset 'Seed' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Avalanche Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed 'Bit Independence Criteria' Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Bitflip Tests",
-        "failure": false
-      },
-      {
-        "name": "Seed Differential Tests",
-        "failure": false
-      }
-    ],
-    "result": "pass",
-    "passed": 200,
-    "total": 200
-  }
+ {
+  "suite": "rurban",
+  "host": "xeon",
+  "hash": "chainhash",
+  "complete": true,
+  "exit_code": 0,
+  "start": "2026-09-19T08:51:49.570693+00:00",
+  "end": "2026-09-19T09:31:51.350087+00:00",
+  "verification": [
+   [
+    "",
+    "0x66672BD6"
+   ]
+  ],
+  "failure_lines": [],
+  "sections": [
+   {
+    "name": "Sanity Tests",
+    "failure": false
+   },
+   {
+    "name": "Speed Tests",
+    "failure": false
+   },
+   {
+    "name": "'Hashmap' Speed Tests",
+    "failure": false
+   },
+   {
+    "name": "Avalanche Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Sparse' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Permutation' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Window' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Cyclic' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'TwoBytes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Text' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Zeroes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Seed' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'PerlinNoise' Tests",
+    "failure": false
+   },
+   {
+    "name": "Diff 'Differential' Tests",
+    "failure": false
+   },
+   {
+    "name": "DiffDist 'Differential Distribution' Tests",
+    "failure": false
+   },
+   {
+    "name": "MomentChi2 Tests",
+    "failure": false
+   },
+   {
+    "name": "Prng Tests",
+    "failure": false
+   },
+   {
+    "name": "BIC 'Bit Independence Criteria' Tests",
+    "failure": false
+   },
+   {
+    "name": "BadSeeds Tests",
+    "failure": false
+   }
+  ],
+  "quality_sections": 17,
+  "failed_quality_sections": 0,
+  "passed_quality_sections": 17,
+  "has_bic": true,
+  "has_badseeds": true
+ },
+ {
+  "suite": "smhasher3",
+  "host": "m2",
+  "hash": "chainhash",
+  "complete": true,
+  "exit_code": 0,
+  "start": "2026-09-19T08:06:06.843044+00:00",
+  "end": "2026-09-19T08:26:32.823985+00:00",
+  "verification": [
+   [
+    "LE",
+    "0x66672BD6"
+   ]
+  ],
+  "failure_lines": [],
+  "sections": [
+   {
+    "name": "Sanity Tests",
+    "failure": false
+   },
+   {
+    "name": "Speed Tests",
+    "failure": false
+   },
+   {
+    "name": "'Hashmap' Speed Tests",
+    "failure": false
+   },
+   {
+    "name": "Avalanche Tests",
+    "failure": false
+   },
+   {
+    "name": "BIC 'Bit Independence Criteria' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Zeroes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Cyclic' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Sparse' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Permutation' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Text' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'TwoBytes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'PerlinNoise' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Bitflip' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed 'Zeroes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'SeedSparse' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed BlockLength Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed BlockOffset Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Seed' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed Avalanche Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed 'Bit Independence Criteria' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed Bitflip Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed Differential Tests",
+    "failure": false
+   }
+  ],
+  "result": "pass",
+  "passed": 200,
+  "total": 200
+ },
+ {
+  "suite": "smhasher3",
+  "host": "xeon",
+  "hash": "chainhash",
+  "complete": true,
+  "exit_code": 0,
+  "start": "2026-09-19T08:13:58.685947+00:00",
+  "end": "2026-09-19T08:36:53.795073+00:00",
+  "verification": [
+   [
+    "LE",
+    "0x66672BD6"
+   ]
+  ],
+  "failure_lines": [],
+  "sections": [
+   {
+    "name": "Sanity Tests",
+    "failure": false
+   },
+   {
+    "name": "Speed Tests",
+    "failure": false
+   },
+   {
+    "name": "'Hashmap' Speed Tests",
+    "failure": false
+   },
+   {
+    "name": "Avalanche Tests",
+    "failure": false
+   },
+   {
+    "name": "BIC 'Bit Independence Criteria' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Zeroes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Cyclic' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Sparse' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Permutation' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Text' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'TwoBytes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'PerlinNoise' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Bitflip' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed 'Zeroes' Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'SeedSparse' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed BlockLength Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed BlockOffset Tests",
+    "failure": false
+   },
+   {
+    "name": "Keyset 'Seed' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed Avalanche Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed 'Bit Independence Criteria' Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed Bitflip Tests",
+    "failure": false
+   },
+   {
+    "name": "Seed Differential Tests",
+    "failure": false
+   }
+  ],
+  "result": "pass",
+  "passed": 200,
+  "total": 200
+ }
 ]

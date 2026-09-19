@@ -1,6 +1,6 @@
 {
-  "source_sha256": "8cbcd139767cc8bd5dc0751e07b023a36198c0f7b806a20ace361f1f62701f4f",
-  "profiles_sha256": "072ababe060a4cb1e69e21d954357007b1a0030735833893f0109c4d855acccb",
+  "source_sha256": "f70630ac16f3d52a035e4e8987c97e08623daa9a5a2df5e596d54441e37e186d",
+  "profiles_sha256": "e456fb56b1e163f845a279c4a34cb75a200af2bba021fde35006e81f120a3b1e",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -551,29 +551,6 @@
         "records/speeds.json"
       ]
     },
-    "chain256": {
-      "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash is my construction for hashing long messages with a provable collision bound. This version processes 256-byte blocks and combines their results with secret-key arithmetic. It is the original design from the paper, retained in Table 2; v3 is now the shipped default and the 64-bit ChainHash point on both hosts.",
-      "links": [
-        {
-          "label": "Project and code",
-          "url": "https://github.com/thomasahle/chainhash"
-        },
-        {
-          "label": "Specification and theorem",
-          "url": "records/chainhash/THEOREMS.html"
-        },
-        {
-          "label": "Measurements",
-          "url": "records/speeds.json"
-        }
-      ],
-      "sources": [
-        "https://github.com/thomasahle/chainhash",
-        "records/chainhash/THEOREMS.html",
-        "records/speeds.json"
-      ]
-    },
     "poly1305": {
       "authors": "Daniel J. Bernstein",
       "background": "Poly1305 is the polynomial-hashing component of Daniel J. Bernstein’s message-authentication design. It helps detect whether a message has been altered. The chart compares that mathematical component and an OpenSSL implementation; using it as a complete authenticator requires the surrounding protocol.",
@@ -717,55 +694,9 @@
         "verify/halftime/README.html"
       ]
     },
-    "chain-v2": {
+    "chainhash128": {
       "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash v2 rearranges my original ChainHash design to process neighboring pieces of data together in 1,024-byte blocks. This layout targets faster processing on x86 processors. It produces different hash values from the original paper version.",
-      "links": [
-        {
-          "label": "Project and code",
-          "url": "https://github.com/thomasahle/chainhash"
-        },
-        {
-          "label": "Specification and theorem",
-          "url": "records/chainhash/v2/SPEC.html"
-        },
-        {
-          "label": "Measurements",
-          "url": "records/speeds.json"
-        }
-      ],
-      "sources": [
-        "https://github.com/thomasahle/chainhash",
-        "records/chainhash/v2/SPEC.html",
-        "records/speeds.json"
-      ]
-    },
-    "chain128": {
-      "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "The strided ChainHash-128 is the previous 128-bit version of my ChainHash construction. It processes messages in 512-byte blocks and combines them using secret-key arithmetic. It has been replaced by ChainHash-128 v3, which returns different digests; this version stays in the table and is no longer plotted.",
-      "links": [
-        {
-          "label": "Project and code",
-          "url": "https://github.com/thomasahle/chainhash"
-        },
-        {
-          "label": "Specification and theorem",
-          "url": "records/chainhash/128/SPEC.html"
-        },
-        {
-          "label": "Measurements",
-          "url": "records/speeds.json"
-        }
-      ],
-      "sources": [
-        "https://github.com/thomasahle/chainhash",
-        "records/chainhash/128/SPEC.html",
-        "records/speeds.json"
-      ]
-    },
-    "chain128-v3": {
-      "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash-128 v3 is the shipped 128-bit version of my ChainHash v3 construction: the same three levels with 128-bit words over the GCM field, 512-byte logical blocks and a secret-key polynomial, ending in the existing twist and quintic finalizer. It replaces the earlier strided ChainHash-128, which stays in the table as the previous version; the two return different digests.",
+      "background": "ChainHash-128 is the 128-bit member of my ChainHash construction: the same three levels with 128-bit words over the GCM field, 512-byte logical blocks and a secret-key polynomial, ending in an integer twist and quintic finalizer.",
       "links": [
         {
           "label": "Project and code",
@@ -773,22 +704,22 @@
         },
         {
           "label": "Specification",
-          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3_128.md"
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC-128.md"
         },
         {
           "label": "Theorem and proof",
-          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md"
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM-128.md"
         },
         {
           "label": "Measurements",
-          "url": "records/chainhash/v3-128/speeds_chainhash128_v3.json"
+          "url": "records/chainhash/speeds_chainhash128.json"
         }
       ],
       "sources": [
         "https://github.com/thomasahle/chainhash",
-        "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3_128.md",
-        "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md",
-        "records/chainhash/v3-128/speeds_chainhash128_v3.json"
+        "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC-128.md",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM-128.md",
+        "records/chainhash/speeds_chainhash128.json"
       ]
     },
     "go-maphash": {
@@ -875,9 +806,9 @@
         "records/speeds.json"
       ]
     },
-    "chain-v3": {
+    "chainhash": {
       "authors": "Thomas Dybdahl Ahle · author of this post",
-      "background": "ChainHash v3 (ChainHash-Horner) is my default construction for hashing long messages with a collision guarantee. It combines 256-byte logical blocks with a secret-key polynomial. Its flat product loop follows Orson Peters’s PolymurHash design lineage. The public repository ships chainhash3.h alongside the original paper function, chainhash.h; v3 changes the digests.",
+      "background": "ChainHash is my construction for hashing long messages with a collision guarantee. It combines 256-byte logical blocks with a secret-key polynomial over GF(2^64) and a quintic finalizer. Its flat product loop follows Orson Peters’s PolymurHash design lineage.",
       "links": [
         {
           "label": "Project and code",
@@ -885,22 +816,22 @@
         },
         {
           "label": "Specification",
-          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3.md"
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC.md"
         },
         {
           "label": "Theorem and proof",
-          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM.md"
         },
         {
           "label": "Measurements",
-          "url": "records/chainhash/v3/speeds_chainhash_v3.json"
+          "url": "records/chainhash/speeds_chainhash.json"
         }
       ],
       "sources": [
         "https://github.com/thomasahle/chainhash",
-        "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3.md",
-        "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md",
-        "records/chainhash/v3/speeds_chainhash_v3.json"
+        "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC.md",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM.md",
+        "records/chainhash/speeds_chainhash.json"
       ]
     },
     "muse-v2": {
@@ -923,6 +854,30 @@
       "sources": [
         "https://github.com/eternal-io/museair",
         "verify/museair-v2/README.html",
+        "records/speeds.json"
+      ]
+    },
+    "wyhash": {
+      "authors": "Wang Yi",
+      "background": "Wyhash is a compact, portable 64-bit hash by Wang Yi, designed for fast hashing rather than cryptographic security. It mixes message words by multiplying them and combining the two halves of each product. Its design also influenced rapidhash.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/wangyi-fudan/wyhash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/wyhash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
+        }
+      ],
+      "sources": [
+        "https://github.com/wangyi-fudan/wyhash",
+        "https://github.com/wangyi-fudan/wyhash/commit/2ac9a50",
+        "verify/wyhash/README.html",
         "records/speeds.json"
       ]
     }
@@ -1232,6 +1187,31 @@
           },
           "output_bits": 128,
           "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/a5hash.cpp"
+        },
+        {
+          "id": "wyhash",
+          "name": "wyhash final v4.3",
+          "label": "wyhash final v4.3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 8.75,
+          "bits": 28.497,
+          "score": "≈ 28.50*",
+          "anchor": "appendix-wyhash",
+          "evidence": "about 1088 of every 2^36.58 keys (sampled; 1088 events, pooled)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Seed and all four secret words uniform per key; the default public secret gives the same rate (28.5 [28.1, 28.9]) but additionally admits seed-independent P = 1 pairs (1 bit at L = 2), which this score excludes. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.6] (1088 events in 3x2^35 keys).",
+          "source": "records/speeds.json",
+          "family": "keyed multiply-fold",
+          "key_model": "Uniform 64-bit seed and four uniform 64-bit secret words passed to wyhash(key,len,seed,secret) (caller array or make_secret); 320 key bits; sampled reproducibly",
+          "profile": "wyhash",
+          "summary": "Flipping every bit in two chosen message words can leave a mixed product unchanged, making the two messages collide. This happens even when the secret words are chosen at random: the attacker does not need their values. The experiment limits the collision score to about 28.5 bits. That is an upper limit exposed by one pair, not a guarantee that no worse pair exists.",
+          "reader_notes": {
+            "evidence": "A search harness and an independent verifier found 1,088 collisions in about 103 billion random keys for the same two 32-byte messages. The 95% sampling interval on this pair’s score cap is 28.4–28.6 bits.",
+            "key": "Each trial chooses the 64-bit seed and all four 64-bit secret words independently at random. The two messages are fixed before that choice. Using the public default secret gives a similar rate for this pair, but also allows other pairs that collide for every seed; those are discussed separately in the appendix.",
+            "scope": "The collision experiment uses final v4.3 with ordinary 64-bit multiplication. SMHasher3 calls the same hash function non-strict v4.2: the version change renamed the header guard, and the implementations pass the same reference check. The plotted timings use the benchmark’s fixed secret and do not include generating a new key."
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/wangyi-fudan/wyhash/blob/master/wyhash.h"
         },
         {
           "id": "rapid3",
@@ -1638,18 +1618,18 @@
           "name": "HalftimeHash24 (shipped advanced 24-byte API)",
           "label": "HalftimeHash24 shipped",
           "kind": "witness",
-          "key_free": true,
+          "key_free": false,
           "speed": 1.37,
-          "bits": 0,
-          "score": "≤ 0",
+          "bits": 36.39231742277876,
+          "score": "≤ 36.4",
           "anchor": "appendix-halftime24",
-          "evidence": "every key (unequal lengths; the raw core is fixed-length by design); at equal length, collides for at least 1 of every 2^32 keys (counted); sampled 76/316053236830, 95% interval [2^-32.30, 2^-31.63]",
-          "scope": "Raw core intentionally fixed-length: empty and 00 collide for every key. Equal-length Encode3 witness separately refutes the advertised bound. No matching timing; not plotted.",
+          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 168-byte Encode3 pair); sampled 76/316053236830 ≈ 2^-31.95, 95% interval [2^-32.30, 2^-31.63]",
+          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 168-byte pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
           "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
           "family": "NH trees",
           "key_model": "independent uniform entropy words; raw fixed-length core",
           "profile": "halftime24",
-          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score 0 bits for the full 24-byte value.",
+          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score at most 36.4 bits for the full 24-byte value; the unequal-length identity is a note, since the core is fixed-length by design.",
           "reader_notes": {
             "evidence": "The equal-length counterexample has a counted sufficient key class and sampled confirmation. The unequal-length collision is an exact identity.",
             "key": "The experiment uses the independent random key words assumed by the advanced function’s claim.",
@@ -1959,51 +1939,76 @@
           "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/clhash.cpp"
         },
         {
-          "id": "chain-v3",
-          "name": "ChainHash v3 (ours)",
-          "label": "ChainHash v3 (ours)",
+          "id": "chainhash",
+          "name": "ChainHash (ours)",
+          "label": "ChainHash (ours)",
           "kind": "proof",
           "key_free": false,
           "speed": 26.26,
           "bits": 63.0,
           "score": "≥ 63",
           "anchor": "appendix-chainhash",
-          "evidence": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
-          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the specification; the headline bounds are not yet machine-checked. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
-          "source": "records/chainhash/v3/speeds_chainhash_v3.json",
+          "evidence": "min(1,(p(L)+d(L))/2^64), with p the logical 256-byte comb-block count and d ≤ 32 the level-1 root count; p(1)=d(1)=1",
+          "scope": "Two fixed messages chosen independently of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 64 uniformly random key bytes. The bound, the evaluation independence and the exact 63.0-bit minimum are machine-checked (89 theorems, standard axioms; 464 C/Lean vectors). The benchmark SplitMix64 seed expansion is outside the theorem; no compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/speeds_chainhash.json",
           "family": "CLNH + Horner + quintic",
-          "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
-          "profile": "chain-v3",
-          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/machine-checked.html. Both shipped ChainHash functions pass the complete SMHasher3 suite (200/200, x86 and arm64) and the complete rurban SMHasher suite (All+BIC) with no failures; the untwisted degree-5 finalizer fails 22 of the same 200 tests.",
+          "key_model": "64 uniformly random key bytes, read as eight field words s, y, c0…c4, τ; block keys κ_m = s^(m+1). The resident implementation caches 56 expanded words (448 bytes).",
+          "profile": "chainhash",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee from 64 independently random key bytes. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, against about 29 and 25 for XXH3-64 in the same binaries. The bound, the equality of every evaluation strategy and the exact 63.0-bit minimum are machine-checked in Lean (89 theorems, standard axioms; 464 C/Lean vectors). It passes the complete SMHasher3 suite (200/200, x86 and arm64) and the complete rurban SMHasher suite (All+BIC) with no failures; the untwisted degree-5 finalizer fails 22 of the same 200 tests.",
           "reader_notes": {
-            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the specification. The headline bounds are not yet machine-checked. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
-            "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
-            "scope": "The guarantee covers fixed-length and at-most-length messages, including unequal lengths, under the stated key distribution. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three. Sanity and verification passed, but no complete v3 statistical-suite result or machine-checked implementation proof is claimed."
+            "evidence": "The collision bound is a theorem checked by Lean, a proof-checking program, for exactly the stated key distribution. Squaring is a bijection of the field, so a changed block has fewer keys that cancel it than its formal degree suggests; that is where the 63.0 bits come from. Compiled code is checked only by test vectors, not by the proof.",
+            "key": "Draw 64 independently random bytes. They are read as eight field words: one expands into the block keys as its powers, one keys the polynomial that combines the blocks, and six supply the finalizer and integer twist. The small seed used for benchmarking does not meet this assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, for any two messages fixed before the key. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three."
           },
           "output_bits": 64,
-          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
+          "code_url": "https://github.com/thomasahle/chainhash"
         },
         {
-          "id": "chain128-v3",
-          "name": "ChainHash-128 v3 (ours)",
-          "label": "ChainHash-128 v3 (ours)",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24, repaired encoder (not shipped)",
+          "label": "HalftimeHash24 repaired",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 5.55,
+          "bits": 83.27,
+          "score": "≥ 83.27",
+          "anchor": "appendix-halftime24-fixed",
+          "evidence": "6804·2^-96",
+          "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "source": "records/halftime/speeds_halftime_fixed.json",
+          "family": "NH: keyed pair products summed",
+          "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "profile": "halftime24-fixed",
+          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, shown at about 83.27 bits here. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
+          "reader_notes": {
+            "evidence": "The displayed bound follows from the corrected construction’s proof. Tests also checked the old counterexample, but a clean test run alone would not establish the guarantee.",
+            "key": "The theorem requires independent, uniformly random key words. It does not cover replacing those words with the output of an arbitrary seed expander.",
+            "scope": "The supported V4 implementation has a finite message-length limit stated in its theorem. The Lean result checks the construction, rather than all details of the C++ code or compiler. This repaired function is separate from the four 64-bit styles."
+          },
+          "output_bits": 192,
+          "code_url": "records/halftime/HalftimeHash24-fixed.hpp"
+        },
+        {
+          "id": "chainhash128",
+          "name": "ChainHash-128 (ours)",
+          "label": "ChainHash-128 (ours)",
           "kind": "proof",
           "key_free": false,
           "speed": 10.26,
-          "bits": 122.96,
-          "score": "≥ 122.96",
+          "bits": 127,
+          "score": "≥ 127",
           "anchor": "appendix-chainhash128",
-          "evidence": "Paper model: min(1,(p(L)+1)/2^128); model A: min(1,(p(L)+32)/2^128), with p the logical 512-byte comb-block count (the specification’s short-length refinement replaces 32 by d(L) ≤ 32 with d(1)=1)",
-          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. Paper model (39 independent 128-bit key words, 624 bytes): 127 bits. Model A (128 random bytes): the chart uses the envelope (p+32)/2^128, 122.96 bits at L=1; the specification’s short-length refinement gives 127 bits. The written proof transfers from the 64-bit v3 theorem with the field swapped to GF(2^128); the Lean port is in progress. The benchmark SplitMix64 seed expansion is outside these key models; no full SMHasher3 suite result or compiler/SIMD proof is claimed.",
-          "source": "records/chainhash/v3-128/speeds_chainhash128_v3.json",
+          "evidence": "min(1,(p_B(L)+d_B(L))/2^128), with p_B the logical 512-byte comb-block count and d_B ≤ 32 the level-1 root count; p_B(1)=d_B(1)=1",
+          "scope": "Two fixed messages chosen independently of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 128 uniformly random key bytes. The bound, the evaluation independence and the exact 127-bit minimum are machine-checked (116 theorems, standard axioms; 625 C/Lean vectors). The benchmark SplitMix64 seed expansion is outside the theorem; no full SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/speeds_chainhash128.json",
           "family": "CLNH + Horner + quintic",
-          "key_model": "Model A: eight independent uniform 128-bit field words s, y, c0…c4, τ (128 random bytes); κ_a = s^(a+1). The resident key caches 16(W+24) = 896 bytes. The paper model has W+7 = 39 independent 128-bit words (624 bytes).",
-          "profile": "chain128-v3",
-          "summary": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with at least 123 bits on this post’s collision score when the key contains 128 independently random bytes, and 127 bits with fully independent key words. In the same binaries XXH3-128 runs at 19.82 and 12.53 and the previous strided ChainHash-128 at 8.14 and 10.07. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The written proof transfers from the 64-bit v3 theorem with the field swapped; the Lean port is in progress. Lean: ✓ checked. Machine-checked (116 theorems, standard axioms): paper-model bound (p+1)/2^128 with 39 independent 128-bit words, model A bound with exactly 128 random bytes, evaluation independence for every stride, and the exact score minima 127 (paper and model A) and 128−log₂33 for the coarse envelope; 625 C/Lean vectors. See records/chainhash/v3-128-lean/.",
+          "key_model": "128 uniformly random key bytes, read as eight 128-bit field words s, y, c0…c4, τ; block keys κ_a = s^(a+1). The resident key caches 16(W+24) = 896 bytes.",
+          "profile": "chainhash128",
+          "summary": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with a 127-bit guarantee from 128 independently random key bytes. In the same binaries XXH3-128 runs at 19.82 and 12.53. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The bound, the equality of every evaluation strategy and the exact 127-bit minimum are machine-checked in Lean (116 theorems, standard axioms; 625 C/Lean vectors).",
           "reader_notes": {
-            "evidence": "The bound is a written proof: with p the larger number of 512-byte blocks in two fixed messages, a collision has probability at most (p+1)/2^128 with independent key words and at most (p+32)/2^128 with the 128-byte key. The argument is the 64-bit v3 proof with the field replaced by GF(2^128); its Lean port is not finished, unlike the previous strided version, whose 125-bit result is machine-checked.",
-            "key": "Model A starts with 128 independently random bytes: one 128-bit word expands the block keys as its powers, one independently keys the Horner polynomial, and six supply the finalizer and integer twist. The paper model uses 39 independent 128-bit words (624 bytes). The 64-bit seed used for benchmarking does not meet either assumption.",
-            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, under the stated key distribution. Horner stride, SIMD width, schoolbook or Karatsuba products, lazy or eager reduction, streaming chunks and region-aligned thread splits leave the digest unchanged. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three with no run more than 15% from its median. Sanity and verification passed; no complete statistical-suite result or machine-checked implementation proof is claimed."
+            "evidence": "With p the larger number of 512-byte blocks in two fixed messages, a collision has probability at most (p+d)/2^128, where d is at most 32 and equals 1 for messages up to 128 bytes. The theorem is checked by Lean for exactly the stated key distribution; the compiled code is checked by 625 test vectors, not by the proof.",
+            "key": "Draw 128 independently random bytes. They are read as eight 128-bit field words: one expands into the block keys as its powers, one keys the combining polynomial, and six supply the finalizer and integer twist. The 64-bit seed used for benchmarking does not meet this assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, for any two messages fixed before the key. Horner stride, SIMD width, schoolbook or Karatsuba products, lazy or eager reduction, streaming chunks and region-aligned thread splits leave the digest unchanged. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three with no run more than 15% from its median. Sanity and verification passed; no complete statistical-suite result is claimed."
           },
           "output_bits": 128,
           "code_url": "https://github.com/thomasahle/chainhash"
@@ -2314,6 +2319,31 @@
           },
           "output_bits": 128,
           "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/a5hash.cpp"
+        },
+        {
+          "id": "wyhash",
+          "name": "wyhash final v4.3",
+          "label": "wyhash final v4.3",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 8.47,
+          "bits": 28.497,
+          "score": "≈ 28.50*",
+          "anchor": "appendix-wyhash",
+          "evidence": "about 1088 of every 2^36.58 keys (sampled; 1088 events, pooled)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Seed and all four secret words uniform per key; the default public secret gives the same rate (28.5 [28.1, 28.9]) but additionally admits seed-independent P = 1 pairs (1 bit at L = 2), which this score excludes. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.6] (1088 events in 3x2^35 keys).",
+          "source": "records/speeds.json",
+          "family": "keyed multiply-fold",
+          "key_model": "Uniform 64-bit seed and four uniform 64-bit secret words passed to wyhash(key,len,seed,secret) (caller array or make_secret); 320 key bits; sampled reproducibly",
+          "profile": "wyhash",
+          "summary": "Flipping every bit in two chosen message words can leave a mixed product unchanged, making the two messages collide. This happens even when the secret words are chosen at random: the attacker does not need their values. The experiment limits the collision score to about 28.5 bits. That is an upper limit exposed by one pair, not a guarantee that no worse pair exists.",
+          "reader_notes": {
+            "evidence": "A search harness and an independent verifier found 1,088 collisions in about 103 billion random keys for the same two 32-byte messages. The 95% sampling interval on this pair’s score cap is 28.4–28.6 bits.",
+            "key": "Each trial chooses the 64-bit seed and all four 64-bit secret words independently at random. The two messages are fixed before that choice. Using the public default secret gives a similar rate for this pair, but also allows other pairs that collide for every seed; those are discussed separately in the appendix.",
+            "scope": "The collision experiment uses final v4.3 with ordinary 64-bit multiplication. SMHasher3 calls the same hash function non-strict v4.2: the version change renamed the header guard, and the implementations pass the same reference check. The plotted timings use the benchmark’s fixed secret and do not include generating a new key."
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/wangyi-fudan/wyhash/blob/master/wyhash.h"
         },
         {
           "id": "rapid3",
@@ -2720,18 +2750,18 @@
           "name": "HalftimeHash24 (shipped advanced 24-byte API)",
           "label": "HalftimeHash24 shipped",
           "kind": "witness",
-          "key_free": true,
+          "key_free": false,
           "speed": 12.81,
-          "bits": 0,
-          "score": "≤ 0",
+          "bits": 36.39231742277876,
+          "score": "≤ 36.4",
           "anchor": "appendix-halftime24",
-          "evidence": "every key (unequal lengths; the raw core is fixed-length by design); at equal length, collides for at least 1 of every 2^32 keys (counted); sampled 76/316053236830, 95% interval [2^-32.30, 2^-31.63]",
-          "scope": "Raw core intentionally fixed-length: empty and 00 collide for every key. Equal-length Encode3 witness separately refutes the advertised bound. No matching timing; not plotted.",
+          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 168-byte Encode3 pair); sampled 76/316053236830 ≈ 2^-31.95, 95% interval [2^-32.30, 2^-31.63]",
+          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 168-byte pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
           "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
           "family": "NH trees",
           "key_model": "independent uniform entropy words; raw fixed-length core",
           "profile": "halftime24",
-          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score 0 bits for the full 24-byte value.",
+          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score at most 36.4 bits for the full 24-byte value; the unequal-length identity is a note, since the core is fixed-length by design.",
           "reader_notes": {
             "evidence": "The equal-length counterexample has a counted sufficient key class and sampled confirmation. The unequal-length collision is an exact identity.",
             "key": "The experiment uses the independent random key words assumed by the advanced function’s claim.",
@@ -3066,51 +3096,76 @@
           "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/clhash.cpp"
         },
         {
-          "id": "chain-v3",
-          "name": "ChainHash v3 (ours)",
-          "label": "ChainHash v3 (ours)",
+          "id": "chainhash",
+          "name": "ChainHash (ours)",
+          "label": "ChainHash (ours)",
           "kind": "proof",
           "key_free": false,
           "speed": 28.31,
           "bits": 63.0,
           "score": "≥ 63",
           "anchor": "appendix-chainhash",
-          "evidence": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
-          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the specification; the headline bounds are not yet machine-checked. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
-          "source": "records/chainhash/v3/speeds_chainhash_v3.json",
+          "evidence": "min(1,(p(L)+d(L))/2^64), with p the logical 256-byte comb-block count and d ≤ 32 the level-1 root count; p(1)=d(1)=1",
+          "scope": "Two fixed messages chosen independently of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 64 uniformly random key bytes. The bound, the evaluation independence and the exact 63.0-bit minimum are machine-checked (89 theorems, standard axioms; 464 C/Lean vectors). The benchmark SplitMix64 seed expansion is outside the theorem; no compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/speeds_chainhash.json",
           "family": "CLNH + Horner + quintic",
-          "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
-          "profile": "chain-v3",
-          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/machine-checked.html. Both shipped ChainHash functions pass the complete SMHasher3 suite (200/200, x86 and arm64) and the complete rurban SMHasher suite (All+BIC) with no failures; the untwisted degree-5 finalizer fails 22 of the same 200 tests.",
+          "key_model": "64 uniformly random key bytes, read as eight field words s, y, c0…c4, τ; block keys κ_m = s^(m+1). The resident implementation caches 56 expanded words (448 bytes).",
+          "profile": "chainhash",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee from 64 independently random key bytes. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, against about 29 and 25 for XXH3-64 in the same binaries. The bound, the equality of every evaluation strategy and the exact 63.0-bit minimum are machine-checked in Lean (89 theorems, standard axioms; 464 C/Lean vectors). It passes the complete SMHasher3 suite (200/200, x86 and arm64) and the complete rurban SMHasher suite (All+BIC) with no failures; the untwisted degree-5 finalizer fails 22 of the same 200 tests.",
           "reader_notes": {
-            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the specification. The headline bounds are not yet machine-checked. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
-            "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
-            "scope": "The guarantee covers fixed-length and at-most-length messages, including unequal lengths, under the stated key distribution. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three. Sanity and verification passed, but no complete v3 statistical-suite result or machine-checked implementation proof is claimed."
+            "evidence": "The collision bound is a theorem checked by Lean, a proof-checking program, for exactly the stated key distribution. Squaring is a bijection of the field, so a changed block has fewer keys that cancel it than its formal degree suggests; that is where the 63.0 bits come from. Compiled code is checked only by test vectors, not by the proof.",
+            "key": "Draw 64 independently random bytes. They are read as eight field words: one expands into the block keys as its powers, one keys the polynomial that combines the blocks, and six supply the finalizer and integer twist. The small seed used for benchmarking does not meet this assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, for any two messages fixed before the key. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three."
           },
           "output_bits": 64,
-          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
+          "code_url": "https://github.com/thomasahle/chainhash"
         },
         {
-          "id": "chain128-v3",
-          "name": "ChainHash-128 v3 (ours)",
-          "label": "ChainHash-128 v3 (ours)",
+          "id": "halftime24-fixed",
+          "name": "HalftimeHash24, repaired encoder (not shipped)",
+          "label": "HalftimeHash24 repaired",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 14.12,
+          "bits": 83.27,
+          "score": "≥ 83.27",
+          "anchor": "appendix-halftime24-fixed",
+          "evidence": "6804·2^-96",
+          "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "source": "records/halftime/speeds_halftime_fixed.json",
+          "family": "NH: keyed pair products summed",
+          "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "profile": "halftime24-fixed",
+          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, shown at about 83.27 bits here. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
+          "reader_notes": {
+            "evidence": "The displayed bound follows from the corrected construction’s proof. Tests also checked the old counterexample, but a clean test run alone would not establish the guarantee.",
+            "key": "The theorem requires independent, uniformly random key words. It does not cover replacing those words with the output of an arbitrary seed expander.",
+            "scope": "The supported V4 implementation has a finite message-length limit stated in its theorem. The Lean result checks the construction, rather than all details of the C++ code or compiler. This repaired function is separate from the four 64-bit styles."
+          },
+          "output_bits": 192,
+          "code_url": "records/halftime/HalftimeHash24-fixed.hpp"
+        },
+        {
+          "id": "chainhash128",
+          "name": "ChainHash-128 (ours)",
+          "label": "ChainHash-128 (ours)",
           "kind": "proof",
           "key_free": false,
           "speed": 14.43,
-          "bits": 122.96,
-          "score": "≥ 122.96",
+          "bits": 127,
+          "score": "≥ 127",
           "anchor": "appendix-chainhash128",
-          "evidence": "Paper model: min(1,(p(L)+1)/2^128); model A: min(1,(p(L)+32)/2^128), with p the logical 512-byte comb-block count (the specification’s short-length refinement replaces 32 by d(L) ≤ 32 with d(1)=1)",
-          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. Paper model (39 independent 128-bit key words, 624 bytes): 127 bits. Model A (128 random bytes): the chart uses the envelope (p+32)/2^128, 122.96 bits at L=1; the specification’s short-length refinement gives 127 bits. The written proof transfers from the 64-bit v3 theorem with the field swapped to GF(2^128); the Lean port is in progress. The benchmark SplitMix64 seed expansion is outside these key models; no full SMHasher3 suite result or compiler/SIMD proof is claimed.",
-          "source": "records/chainhash/v3-128/speeds_chainhash128_v3.json",
+          "evidence": "min(1,(p_B(L)+d_B(L))/2^128), with p_B the logical 512-byte comb-block count and d_B ≤ 32 the level-1 root count; p_B(1)=d_B(1)=1",
+          "scope": "Two fixed messages chosen independently of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 128 uniformly random key bytes. The bound, the evaluation independence and the exact 127-bit minimum are machine-checked (116 theorems, standard axioms; 625 C/Lean vectors). The benchmark SplitMix64 seed expansion is outside the theorem; no full SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "source": "records/chainhash/speeds_chainhash128.json",
           "family": "CLNH + Horner + quintic",
-          "key_model": "Model A: eight independent uniform 128-bit field words s, y, c0…c4, τ (128 random bytes); κ_a = s^(a+1). The resident key caches 16(W+24) = 896 bytes. The paper model has W+7 = 39 independent 128-bit words (624 bytes).",
-          "profile": "chain128-v3",
-          "summary": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with at least 123 bits on this post’s collision score when the key contains 128 independently random bytes, and 127 bits with fully independent key words. In the same binaries XXH3-128 runs at 19.82 and 12.53 and the previous strided ChainHash-128 at 8.14 and 10.07. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The written proof transfers from the 64-bit v3 theorem with the field swapped; the Lean port is in progress. Lean: ✓ checked. Machine-checked (116 theorems, standard axioms): paper-model bound (p+1)/2^128 with 39 independent 128-bit words, model A bound with exactly 128 random bytes, evaluation independence for every stride, and the exact score minima 127 (paper and model A) and 128−log₂33 for the coarse envelope; 625 C/Lean vectors. See records/chainhash/v3-128-lean/.",
+          "key_model": "128 uniformly random key bytes, read as eight 128-bit field words s, y, c0…c4, τ; block keys κ_a = s^(a+1). The resident key caches 16(W+24) = 896 bytes.",
+          "profile": "chainhash128",
+          "summary": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with a 127-bit guarantee from 128 independently random key bytes. In the same binaries XXH3-128 runs at 19.82 and 12.53. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The bound, the equality of every evaluation strategy and the exact 127-bit minimum are machine-checked in Lean (116 theorems, standard axioms; 625 C/Lean vectors).",
           "reader_notes": {
-            "evidence": "The bound is a written proof: with p the larger number of 512-byte blocks in two fixed messages, a collision has probability at most (p+1)/2^128 with independent key words and at most (p+32)/2^128 with the 128-byte key. The argument is the 64-bit v3 proof with the field replaced by GF(2^128); its Lean port is not finished, unlike the previous strided version, whose 125-bit result is machine-checked.",
-            "key": "Model A starts with 128 independently random bytes: one 128-bit word expands the block keys as its powers, one independently keys the Horner polynomial, and six supply the finalizer and integer twist. The paper model uses 39 independent 128-bit words (624 bytes). The 64-bit seed used for benchmarking does not meet either assumption.",
-            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, under the stated key distribution. Horner stride, SIMD width, schoolbook or Karatsuba products, lazy or eager reduction, streaming chunks and region-aligned thread splits leave the digest unchanged. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three with no run more than 15% from its median. Sanity and verification passed; no complete statistical-suite result or machine-checked implementation proof is claimed."
+            "evidence": "With p the larger number of 512-byte blocks in two fixed messages, a collision has probability at most (p+d)/2^128, where d is at most 32 and equals 1 for messages up to 128 bytes. The theorem is checked by Lean for exactly the stated key distribution; the compiled code is checked by 625 test vectors, not by the proof.",
+            "key": "Draw 128 independently random bytes. They are read as eight 128-bit field words: one expands into the block keys as its powers, one keys the combining polynomial, and six supply the finalizer and integer twist. The 64-bit seed used for benchmarking does not meet this assumption.",
+            "scope": "The guarantee covers fixed-length and at-most-length messages, including empty, partial-word and unequal-length inputs, for any two messages fixed before the key. Horner stride, SIMD width, schoolbook or Karatsuba products, lazy or eager reduction, streaming chunks and region-aligned thread splits leave the digest unchanged. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three with no run more than 15% from its median. Sanity and verification passed; no complete statistical-suite result is claimed."
           },
           "output_bits": 128,
           "code_url": "https://github.com/thomasahle/chainhash"

@@ -74,7 +74,11 @@
     detail.querySelector('.inspector-evidence').textContent = row.reader_notes.evidence;
     detail.querySelector('.inspector-key').textContent = row.reader_notes.key;
     detail.querySelector('.inspector-scope').textContent = row.reader_notes.scope;
-    detail.querySelector('.inspector-section').href = '#' + row.anchor;
+    const discussion = detail.querySelector('.inspector-section');
+    // Some proof rows have source documents but no individual appendix entry.
+    discussion.hidden = !document.getElementById(row.anchor);
+    if (discussion.hidden) discussion.removeAttribute('href');
+    else discussion.href = '#' + row.anchor;
     // Each profile provides one curated set of public documents. Keep the
     // article navigation below without repeating code and measurement links.
     for (const selector of ['.inspector-code', '.inspector-source']) {

@@ -58,6 +58,13 @@ available through the selector. Hollow markers are unresolved claims; solid teal
 markers are audited lower guarantees, and rust markers are witness upper caps.
 M2 uses the corrected benchmark records. Bounds and key models come from the current scientific data; GHASH timings use an OpenSSL GMAC proxy.
 
+Wyhash final v4.3 uses the `wyhash` timing registration labelled non-strict v4.2.
+The header's version rename did not change the hash function, and the standalone
+verifier and benchmark records match verification value `0x9DAE7DD3`. The
+canonical row records this mapping and its sources; do not drop the timing
+merely because the version labels differ. The benchmark uses the fixed secret,
+while the collision experiment randomizes all four secret words and the seed.
+
 `profiles.json` contains sourced authorship, design background, original project
 links, and short result explanations for every plotted variant. Its `sources`
 paths are relative to the article; upstream links describe the original project,
@@ -82,7 +89,7 @@ Keep their three jobs distinct:
 Do not replace these fields with `qualification`, `key_model`, proof-status
 strings or theorem text from `../data.json`. Do not repeat the background as the
 result. A non-specialist should understand each profile without knowing the
-hash already. Explain terms such as lanes, wrappers or model A when needed;
+hash already. Explain terms such as lanes or wrappers when needed;
 prefer the actual assumption (“160 independently random key bytes”) to an
 internal model name. Keep exact formulas and implementation details in the
 linked appendix/specification. Retain authorship, original project links,
@@ -91,8 +98,13 @@ version limits, proof-versus-code distinctions and key-distribution caveats.
 When scientific records change, update these explanations deliberately and
 rebuild; never synchronize prose by copying audit notes. Check at least one
 proved, claimed and measured profile in the browser, including the expanded
-notes. Keep the main article at four paragraphs before and four after the chart;
-the remaining sections are extra reading with plain-language introductions.
+notes. Keep the author's opening narrative before the chart and the numbered
+takeaways and closing prose after it. The remaining sections form the appendix,
+with plain-language introductions.
+The new narrative replaces the old score, testing, results, mechanisms, proof,
+benchmark and prior-discussion sections; do not restore those sections ahead of
+the appendix. The chart's collapsed data table is kept in Appendix B. Profiles
+without an individual appendix entry link to their source documents only.
 
 The article must load `figure/chart.css` and `figure/chart.js`; root-level
 `chart.css` / `plot.js` belong to a different renderer and must not replace these

@@ -10,18 +10,14 @@
 <p>The earlier 46.52-bit envelope and ENH-only closure are machine-checked. The 53.38-bit refinement, 56.18-bit bound, joint PH+ENH closure and fingerprint headline are verified paper proofs; not yet machine-checked.</p>
 <h2 id="clhash">clhash</h2>
 <p>Ideal Algorithm-4 bound for distinct byte strings shorter than 2^64 bytes, including empty, partial and unequal-length inputs; no implementation or seed-expander theorem.</p>
-<h2 id="chain256">chain256</h2>
-<p>Both model-A reference bounds are proved for the paper’s strided function; 583 axiom audits and the integrated build pass; compiler/SIMD correctness and SplitMix64 expansion are outside scope.</p>
 <h2 id="poly1305">poly1305</h2>
 <p>Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly.</p>
 <h2 id="ghash">ghash</h2>
 <p>Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly.</p>
 <h2 id="halftime24-fixed">halftime24-fixed</h2>
 <p>Independent uniform entropy words; supported V4 byte lengths &lt;168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed. Concrete fixed-header encoder/layout refinement remains partial;</p>
-<h2 id="chain-v2">chain-v2</h2>
-<p>Adjacent pairs, 1024-byte blocks, S=1. Ideal key: 137 independent words, ideal score 62.415 bits; model A: 80 random bytes, conservatively ≥61 bits at most length. Digests differ from the paper function. The theorem transfers verbatim; the v2 indexing is not machine-checked. The timed SplitMix64 expansion is outside either ideal-key model.</p>
-<h2 id="chain128">chain128</h2>
-<p>Strided 512-byte design, W=32, S=1: ideal-key bound (n+2)/2^128 and the model A at-most-length bound are proved for byte strings below 2^128 bytes, including empty and partial words; 378 audited declarations, standard axioms only; C/SIMD correctness outside scope.</p>
-<h2 id="chain-v3">chain-v3</h2>
-<p>Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors.</p>
+<h2 id="chainhash">chainhash</h2>
+<p>ChainHash, 64 uniformly random key bytes: collision bound (p(L)+d(L))/2^64 for distinct byte strings of at most 8L bytes, including empty, partial-word and unequal-length inputs; evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride); exact score minimum 63.0. 89 theorems, standard axioms only; 464 C/Lean vectors. Compiler correctness and the benchmark seed expansion are outside scope.</p>
+<h2 id="chainhash128">chainhash128</h2>
+<p>ChainHash-128, 128 uniformly random key bytes: collision bound (p_B(L)+d_B(L))/2^128 for distinct byte strings of at most 8L bytes, including empty, partial-word and unequal-length inputs; evaluation independence for every stride; exact score minimum 127. 116 theorems, standard axioms only; 625 C/Lean vectors. Compiler correctness and the benchmark seed expansion are outside scope.</p>
 </main></body></html>

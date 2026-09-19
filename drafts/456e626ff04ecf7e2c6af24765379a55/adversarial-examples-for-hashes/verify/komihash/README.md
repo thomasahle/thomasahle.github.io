@@ -126,3 +126,13 @@ Other runs on the same machine:
 The demo code (everything above the verbatim marker) is MIT, Copyright (c)
 2026 Thomas Dybdahl Ahle. The embedded `komihash.h` is MIT, Copyright (c)
 2021-2026 Aleksey Vaneev; its license notice is kept inside the file.
+
+## Extension: arbitrary content and multicollisions
+
+`komihash_ext.c` (with the same 5.34 header as a separate file, `komihash.h`, SHA-256 `1adfc1bc…f44d89`) measures how far the lane-tie family reaches; the write-up with all commands and counts is [EXTENSION.md](EXTENSION.md). In short: only the two tied words are constrained (bytes 8–15 = bytes 0–7 XOR `KOMIHASH_IVAL2`, bytes 40–47 = bytes 32–39 XOR `KOMIHASH_IVAL6`); the other 48 block bytes and up to 63 suffix bytes are arbitrary, and the partner (bit 0 of bytes 0 and 8 flipped) collides for 84–91% of seeds over random content. Because every lane seed is a public XOR of the two secret words, lanes 3 and 4 can be tied the same way, giving 4-way collisions for 58–76% of seeds, 8-way collisions for 39–64% with all four lanes tied, and eight messages of which at least four always share an output. Lengths 64–127 only.
+
+    cc -O2 -std=c11 -o komihash_ext komihash_ext.c -lm
+    ./komihash_ext arb 20 200      # random content in the free bytes, 200 bases
+    ./komihash_ext multi 20        # 4-way sets with both ties
+    ./komihash_ext all8 20         # 8-way sets with all four lanes tied
+    ./komihash_ext low3 20         # eight messages, at least four collide

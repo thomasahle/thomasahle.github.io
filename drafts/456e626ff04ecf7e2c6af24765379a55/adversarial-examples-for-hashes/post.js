@@ -1,7 +1,7 @@
-/* Static contents links work without JS; enhance them from the article headings. */
+/* Static contents links work without JS; enhance them from the article sections and headings. */
 (() => {
   'use strict';
-  const headings = [...document.querySelectorAll('.post h2, .post h3')].filter(heading => !heading.hasAttribute('data-toc-skip'));
+  const headings = [...document.querySelectorAll('.post h2, .post h3, .post [data-toc-entry]')].filter(heading => !heading.hasAttribute('data-toc-skip'));
   if (!headings.length) return;
   document.querySelectorAll('[data-toc-list]').forEach(list => {
     const items = [];
@@ -24,7 +24,7 @@
       }
       const item = document.createElement('li');
       const link = document.createElement('a');
-      item.className = 'toc-level-' + heading.tagName.slice(1);
+      item.className = 'toc-level-' + (heading.tagName === 'H3' ? '3' : '2');
       link.href = '#' + heading.id;
       link.textContent = heading.dataset.tocLabel || heading.textContent;
       item.append(link);
@@ -36,7 +36,7 @@
 
   const nav = document.querySelector('.toc-desktop');
   const links = [...nav.querySelectorAll('a')];
-  const sections = headings.map(heading => heading.closest('.post-section'));
+  const sections = headings.map(heading => heading.closest('figure, .post-section') || heading);
   const desktop = window.matchMedia('(min-width: 1200px)');
   let observer, frame;
   const update = () => {
@@ -45,7 +45,7 @@
       if (i === index) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
-    // The short main article precedes these optional technical sections.
+    // Nothing is active before the introduction reaches the reading position.
     if (index < 0) return;
     // Scroll only the rail; scrollIntoView would also move the article.
     const item = links[index].getBoundingClientRect();
@@ -100,6 +100,60 @@
   };
   window.addEventListener('hashchange', revealTable);
   revealTable();
+})();
+
+// Footnotes remain ordinary links; pointer and keyboard users can preview them in place.
+(() => {
+  const references = [...document.querySelectorAll('.note-ref')];
+  if (!references.length) return;
+  const preview = document.createElement('div');
+  preview.className = 'note-preview';
+  preview.id = 'note-preview';
+  preview.role = 'tooltip';
+  preview.hidden = true;
+  document.body.append(preview);
+  const hover = window.matchMedia('(hover: hover) and (pointer: fine)');
+  let active, timer;
+  const hide = () => {
+    clearTimeout(timer);
+    if (active) active.removeAttribute('aria-describedby');
+    active = null;
+    preview.hidden = true;
+  };
+  const hideSoon = () => { timer = setTimeout(hide, 150); };
+  const show = reference => {
+    const note = document.getElementById(reference.hash.slice(1));
+    if (!note) return;
+    hide();
+    active = reference;
+    preview.textContent = note.querySelector('.note-text').textContent;
+    preview.hidden = false;
+    reference.setAttribute('aria-describedby', preview.id);
+    const bounds = reference.getBoundingClientRect();
+    const box = preview.getBoundingClientRect();
+    const left = Math.max(16, Math.min(bounds.left + bounds.width / 2 - box.width / 2, window.innerWidth - box.width - 16));
+    const top = bounds.top >= box.height + 24 ? bounds.top - box.height - 8 : Math.min(bounds.bottom + 8, window.innerHeight - box.height - 16);
+    preview.style.left = left + 'px';
+    preview.style.top = Math.max(16, top) + 'px';
+  };
+  references.forEach(reference => {
+    reference.addEventListener('mouseenter', () => { if (hover.matches) show(reference); });
+    reference.addEventListener('mouseleave', hideSoon);
+    reference.addEventListener('focus', () => { if (reference.matches(':focus-visible')) show(reference); });
+    reference.addEventListener('blur', hide);
+    reference.addEventListener('click', hide);
+  });
+  preview.addEventListener('mouseenter', () => clearTimeout(timer));
+  preview.addEventListener('mouseleave', hideSoon);
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') hide(); });
+  window.addEventListener('scroll', () => {
+    if (active && active === document.activeElement && active.matches(':focus-visible')) {
+      const bounds = active.getBoundingClientRect();
+      if (bounds.bottom > 0 && bounds.top < window.innerHeight) show(active);
+      else hide();
+    } else hide();
+  }, { passive: true });
+  window.addEventListener('resize', hide);
 })();
 
 // Syntax-highlight the appendix pseudo-code line by line with a small self-contained tokenizer
