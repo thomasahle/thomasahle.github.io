@@ -1,5 +1,5 @@
 {
-  "source_sha256": "6fa12d2e962d443035bb143ee3f75ae1adc2a895a0b9b5b0bc0f1295fd16b389",
+  "source_sha256": "fe6ce3f63e2c47e301256140726add8e850ec2499c78bc17f12ed7c863f27400",
   "profiles_sha256": "040ae7739b3e48e3d611fbfe83e0f392b880955d7f1686616e2f289beb39e0b2",
   "profiles": {
     "city": {
@@ -1397,6 +1397,56 @@
           },
           "output_bits": 192,
           "code_url": "verify/halftime/verify2/run.cpp"
+        },
+        {
+          "id": "abseil-hash",
+          "name": "absl::Hash (abseil-cpp 20260817.0 / HEAD 73d2688)",
+          "label": "absl::Hash",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 14.31,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-abseil-hash",
+          "evidence": "every key",
+          "scope": "Cross-length pair (0 vs 8 bytes; non-empty variants exist at every la <= 8 vs 8). Same-length cap 1 bit at L = 2: every 9..16-byte string whose last 8 bytes are kMul (f58c1edee0f9d579) hashes to 0 for every seed (2^64-way multicollision), e.g. 6162636465666768f58c1edee0f9d579 vs 4142434445464748f58c1edee0f9d579. Key-free pairs exist at every length 0..2048 tested on the scalar default build (swaps of commutatively merged lanes at 32/64/128 bytes, Mix(x,0)=0 zero families) and at every length on the arm64 macOS default build; the x86 AES-NI (-maes) build breaks the >32-byte scalar families but keeps everything at <= 32 bytes and has a 2^-3-per-bit cross-length family at 33..64 bytes. Non-default CRC32C build: key-free same-length pair at 16 bytes (GF(2)-affine per word). Separately, SwissTable has only 32 table seeds: any nonzero collision probability over a uniform table seed is at least 1/32. This limits table-seed randomization to five bits; it does not say every arbitrary pair must collide.",
+          "source": "records/new-hashes-timing/speeds_new_hashes.json",
+          "family": "keyed multiply-fold (mum)",
+          "key_model": "64-bit seed passed through absl::hash_internal::HashWithSeed, the hook raw_hash_set uses; absl::Hash<T>{}(x) == hash_with_seed(x, Seed()). Scored with the 32 SwissTable per-table seeds {0, 64, ..., 1984} (exhaustive) plus 2^28 uniform 64-bit seeds; the result holds for all 2^64 seeds by identity. Real deployments have far less: flat_hash_set/map use a 5-bit per-table seed (32 values); direct absl::Hash uses Seed() = the ASLR-slid address of a global (about 28 bits on Linux PIE, about 12 bits on macOS arm64, 0 bits on a non-PIE Linux build).",
+          "profile": "abseil-hash",
+          "summary": "The empty string and one fixed eight-byte string collide for every seed, giving a zero-bit cap. A pair of 16-byte strings also collides for every seed, giving a one-bit cap after length adjustment. These findings contradict no security promise from Abseil.",
+          "reader_notes": {
+            "evidence": "The short-input formula gives identical inputs to the final multiplication for the headline pair. Real-library checks cover all 32 table seeds and 2^28 additional seeds.",
+            "key": "The headline identity holds for every process and table seed, so neither the ASLR-based process seed nor the five-bit table seed can separate this pair.",
+            "scope": "The short-input result covers the 64-bit scalar, x86 AES and ARM-crypto default paths in 20260817.0. ARM coverage follows the shared source path; the independent verifier did not rerun it on ARM hardware."
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/abseil/abseil-cpp/blob/73d2688300440c8af028eec865ee0dcd85e93025/absl/hash/internal/hash.h"
+        },
+        {
+          "id": "dotnet-marvin",
+          "name": "Marvin32 (.NET 10 string.GetHashCode)",
+          "label": "Marvin32 (.NET)",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 0.64,
+          "bits": 9.907221893728378,
+          "score": "≈ 9.91*",
+          "anchor": "appendix-dotnet-marvin",
+          "evidence": "8945794 / 2^32 (sampled); ε ≈ 2^-8.9072",
+          "scope": "Same-length 6-character strings (all valid non-surrogate BMP code units). Position independent: the same three-word differential embedded anywhere in a longer string collides at the same rate. Not key-free (each message is a bijection of the seed). The output is only 32 bits; the width alone does not assign a collision probability to every individual pair. For L = 1 (<= 4 chars) the best pair found is 'aaaa' vs U+1172 U+1172 U+EF50 U+EF4F at 2^-22.5 (22.5 bits), one-Block cancellation being linearly impossible. Not covered: OrdinalIgnoreCase, System.HashCode (xxHash32; Microsoft disclaims collision resistance), Dictionary's initial keyless NonRandomized comparer (trivially collidable by design, hence the switch).",
+          "source": "records/new-hashes-timing/speeds_new_hashes.json",
+          "family": "ARX (SipHash-like half rounds)",
+          "key_model": "Marvin.DefaultSeed: 64 uniformly random bits drawn once per process from Interop.GetRandomBytes (arc4random_buf on macOS/glibc >= 2.36, BCryptGenRandom on Windows, getrandom() XOR an lrand48 stream elsewhere; uniform in every shipped configuration), entering only as the initial state (p0 = low 32, p1 = high 32). No key material anywhere else. Fresh uniform 64-bit seed per trial. The same pair applies unchanged to StringComparer.Ordinal and to the per-instance 64-bit seed of RandomizedStringEqualityComparer (Dictionary<string,_> / HashSet<string> after the 100-collision switch).",
+          "profile": "dotnet-marvin",
+          "summary": "Two fixed six-character strings collide for about one seed in 480, giving a sampled cap of 9.91 bits. Microsoft documents randomized seeds and disclaims cryptographic strength; it does not promise a numerical collision bound. Randomized dictionaries use independent seeds and each has the same odds.",
+          "reader_notes": {
+            "evidence": "The independent implementation found 8,945,794 collisions in 2^32 seeds. A real-runtime check found 34,855 in 2^24, consistent with the same rate.",
+            "key": "A uniform 64-bit seed is chosen once for the process string hash. A dictionary that switches to the randomized string comparer draws its own seed; these are separate experiments.",
+            "scope": "The pair uses valid UTF-16 code units and applies to ordinal string hashing and randomized string comparers. OrdinalIgnoreCase, the initial nonrandomized comparer and System.HashCode are outside this result."
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs"
         },
         {
           "id": "polymur",

@@ -13395,8 +13395,11 @@
    "speed_note": "Available host-specific measurements are linked in records/new-hashes/speeds_new_hashes.json; missing timings stay blank. The 25-bit score is specific to amd64 AES and is not plotted with ARM64 timing.",
    "speeds": {
     "smh_m2_bulk_Bpc": {
-     "value": null,
-     "source": "Timing not yet available for this host."
+     "value": 15.69,
+     "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle, median of three (scratch registration; Abseil timed on its arm64 default path)",
+     "record": "records/new-hashes-timing/speeds_new_hashes.json",
+     "url": "records/new-hashes-timing/speeds_new_hashes.json",
+     "source_short": "SMHasher3 M2Pro"
     },
     "smh_xeon_bulk_Bpc": {
      "value": 17.66,
@@ -13411,8 +13414,9 @@
      "timing_status": "running"
     },
     "smh_m2_small_cycles": {
-     "value": null,
-     "source": "Timing not yet available for this host."
+     "value": 26.94,
+     "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
+     "record": "records/new-hashes-timing/speeds_new_hashes.json"
     },
     "smh_xeon_small_cycles": {
      "value": 64.32,
@@ -13559,8 +13563,11 @@
    "speed_note": "Available host-specific measurements are linked in records/new-hashes/speeds_new_hashes.json; missing timings stay blank.",
    "speeds": {
     "smh_m2_bulk_Bpc": {
-     "value": null,
-     "source": "Timing not yet available for this host."
+     "value": 14.31,
+     "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle, median of three (scratch registration; Abseil timed on its arm64 default path)",
+     "record": "records/new-hashes-timing/speeds_new_hashes.json",
+     "url": "records/new-hashes-timing/speeds_new_hashes.json",
+     "source_short": "SMHasher3 M2Pro"
     },
     "smh_xeon_bulk_Bpc": {
      "value": 8.22,
@@ -13575,8 +13582,9 @@
      "timing_status": "running"
     },
     "smh_m2_small_cycles": {
-     "value": null,
-     "source": "Timing not yet available for this host."
+     "value": 16.15,
+     "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
+     "record": "records/new-hashes-timing/speeds_new_hashes.json"
     },
     "smh_xeon_small_cycles": {
      "value": 20.67,
@@ -13776,8 +13784,11 @@
    "speed_note": "Available host-specific measurements are linked in records/new-hashes/speeds_new_hashes.json; missing timings stay blank.",
    "speeds": {
     "smh_m2_bulk_Bpc": {
-     "value": null,
-     "source": "Timing not yet available for this host."
+     "value": 0.64,
+     "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle, median of three (scratch registration; Abseil timed on its arm64 default path)",
+     "record": "records/new-hashes-timing/speeds_new_hashes.json",
+     "url": "records/new-hashes-timing/speeds_new_hashes.json",
+     "source_short": "SMHasher3 M2Pro"
     },
     "smh_xeon_bulk_Bpc": {
      "value": 0.95,
@@ -13792,8 +13803,9 @@
      "timing_status": "running"
     },
     "smh_m2_small_cycles": {
-     "value": null,
-     "source": "Timing not yet available for this host."
+     "value": 46.72,
+     "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
+     "record": "records/new-hashes-timing/speeds_new_hashes.json"
     },
     "smh_xeon_small_cycles": {
      "value": 31.07,
