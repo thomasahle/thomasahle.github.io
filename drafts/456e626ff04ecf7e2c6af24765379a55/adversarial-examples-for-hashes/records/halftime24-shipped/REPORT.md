@@ -69,12 +69,12 @@ The key-free conclusion follows from the code, not from counting those seeds: bo
 
 ## Reproduction and provenance
 
-The new source lives alongside the existing fixed registration in `../halftime-fixed/smhasher3-m2/hashes/halftimeshipped.cpp` and Xeon `~/agents/speedbench-hhfixed/source/hashes/halftimeshipped.cpp`. Separate output binaries preserve the earlier binaries. [prepare_m2.py](bench/prepare_m2.py) compiles one new registration object and relinks the prior main/fixed/control/test objects. [prepare_xeon.sh](bench/prepare_xeon.sh) does the equivalent in the Xeon scratch tree. The only initial setup failure was the standalone Xeon verification harness’s static-library link order; `--start-group/--end-group` resolved it before verification or timing.
+The new source lives alongside the existing fixed registration in `../halftime-fixed/smhasher3-m2/hashes/halftimeshipped.cpp` and Xeon `<xeon-work>/speedbench-hhfixed/source/hashes/halftimeshipped.cpp`. Separate output binaries preserve the earlier binaries. [prepare_m2.py](bench/prepare_m2.py) compiles one new registration object and relinks the prior main/fixed/control/test objects. [prepare_xeon.sh](bench/prepare_xeon.sh) does the equivalent in the Xeon scratch tree. The only initial setup failure was the standalone Xeon verification harness’s static-library link order; `--start-group/--end-group` resolved it before verification or timing.
 
 | Host | Timed binary | SHA-256 |
 |---|---|---|
 | Xeon8375C | `/home/thomas-ahle/agents/speedbench-hhfixed/build-shipped24/SMHasher3` | `71c7b7366ab1301e01d13ac17fbe42143f41baf89fb9bdbdd00d6509e4e7120d` |
-| M2Pro | `/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime24-shipped-timing/build-m2/SMHasher3` | `f93b38e394031b0f6bfabffbdfcefee7c8d5f6d43071f50e727cb59b26b6a99d` |
+| M2Pro | `<scratch>/codex/halftime24-shipped-timing/build-m2/SMHasher3` | `f93b38e394031b0f6bfabffbdfcefee7c8d5f6d43071f50e727cb59b26b6a99d` |
 
 M2 compiler: Apple clang 17.0.0; Xeon: GCC 11.5.0. New registration flags include `-O3 -march=native -std=c++17 -fwrapv`; M2 retains the AES target feature used by the earlier build. The unchanged baseline binary hashes match the prior JSON: M2 `97c124f86a1f1e1dac50fecb4a289e9e4ca2744d302a11c38f042d47be296184`, Xeon `f92528649d7ba774e075505518a3e8321980146b8d92f7098b615a0e7f3a3a52`. Build commands, input hashes, load/process gates, raw output, timestamps and per-length timings are retained under `bench/`, `provenance/`, and `evidence/`.
 

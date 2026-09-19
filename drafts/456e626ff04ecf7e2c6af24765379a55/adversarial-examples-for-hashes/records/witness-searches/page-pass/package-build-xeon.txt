@@ -1,0 +1,31 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+UTC Sat Sep 19 00:24:33 UTC 2026
+Linux hardware.normalcomputing.net 5.14.0-687.20.1.el9_8.x86_64 #1 SMP PREEMPT_DYNAMIC Sun Jun 28 21:16:58 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux
+cc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+   Compiling libc v0.2.189
+   Compiling getrandom v0.3.4
+   Compiling version_check v0.9.5
+   Compiling zerocopy v0.8.57
+   Compiling cfg-if v1.0.5
+   Compiling once_cell v1.21.4
+   Compiling ahash v0.8.12
+   Compiling ahash_trail_verify v0.1.0 (/home/thomas-ahle/witness-page-20260919/rust-ahash/native)
+warning: unused import: `std::hash::BuildHasher`
+  --> src/main.rs:11:5
+   |
+11 | use std::hash::BuildHasher;
+   |     ^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `ahash_trail_verify` (bin "ahash_trail_verify") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 4.62s
+    Updating crates.io index
+     Locking 1 package to latest compatible version
+ Downloading crates ...
+  Downloaded museair v0.6.0
+   Compiling museair v0.6.0
+   Compiling museair_v2_verify v0.1.0 (/home/thomas-ahle/witness-page-20260919/museair-v2/native)
+    Finished `release` profile [optimized] target(s) in 1.29s

@@ -2529,7 +2529,7 @@
     "P6"
    ],
    "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp",
-   "name": "MuseAir v0.3 (SMHasher3); current v2 untested",
+   "name": "MuseAir v0.3 (SMHasher3)",
    "claim_id": "museair",
    "output_bits": 64,
    "key_bits": 64,
@@ -2585,12 +2585,12 @@
     "rounding": "upward",
     "derivation": "log2(3) - (0)"
    },
-   "notes": "SMHasher3 ships v0.3 only. The pairs also collide for every seed on upstream v0.4 (crate 0.4.0, 2025-07-24, yanked); on v1 and on the current v2 (crate 0.6.0) they give 0/2^24 on all four APIs. Upstream CHANGELOG deprecates every pre-v2 version as compromised.",
+   "notes": "SMHasher3 ships v0.3 only. The pairs also collide for every seed on upstream v0.4 (crate 0.4.0, 2025-07-24, yanked); on v1 and on the current v2 (crate 0.6.0) they give 0/2^24 on all four APIs. Upstream CHANGELOG deprecates every pre-v2 version as compromised. The v2 algorithm has its own row with a 32-byte pair at about 2^-17.45 per uniform seed.",
    "provenance": [
     "records/review-inputs/pairs_heur.json#/museair/pairs/0",
     "records/review-inputs/claims.json#/result/table/rows/6"
    ],
-   "version": "v0.3 (SMHasher3); current v2 untested",
+   "version": "v0.3 (SMHasher3)",
    "label": "MuseAir",
    "anchor": "appendix-museair",
    "mechanism": "A zero public product erases a changed message word before secret mixing.",
@@ -2897,7 +2897,7 @@
      "verification": {}
     }
    },
-   "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecated earlier versions. Also holds on upstream v0.4; does not transfer to v1/v2 (0/2^24 each). The current v2 has no scored witness here; testing the old pairs is not a v2 search.",
+   "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecates earlier versions. Also holds on upstream v0.4; does not transfer to v1/v2 (0/2^24 each). The current v2 has a separate row (32-byte pair, about 19.45 bits).",
    "hover": {
     "mechanism": "A zero public product erases a changed message word before secret mixing.",
     "quote": "not affected by seed-independent attacks.",
@@ -2914,6 +2914,250 @@
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
    "family_definition": "64×64→128 products of seeded words, folded (mum).",
    "fairness_record": "records/fairness-pass/muse/README.md"
+  },
+  {
+   "id": "muse-v2",
+   "pattern": [
+    "P2"
+   ],
+   "code_url": "https://github.com/eternal-io/museair/blob/crate-0.6.0/src/lib.rs",
+   "name": "MuseAir v2 (crate 0.6.0)",
+   "version": "v2 (crate 0.6.0, algorithm v2)",
+   "label": "MuseAir v2",
+   "anchor": "appendix-museair-v2",
+   "family": "heuristic",
+   "claim_id": "museair",
+   "output_bits": 64,
+   "key_bits": 64,
+   "key_model": "Uniform 64-bit seed, museair::hash(bytes, seed). bfast::hash collides on exactly the same seeds; hash128 / bfast::hash128 (seed_a, seed_b uniform) collide at the same rate on a different seed set (two-seed model).",
+   "status": "NEW",
+   "classification_reason": "First scored witness for algorithm v2; carry-mismatch differential on the 17..32-byte tail products, found by DP search and confirmed against the crates.io tarball.",
+   "official_claim": {
+    "text": "Not vulnerable to blinding multiplication attacks ... passed all SMHasher3 tests",
+    "url": "https://github.com/eternal-io/museair/blob/3f0d8c8/README.md",
+    "context": "Current README (3f0d8c8); line 82: MuseAir relies solely on an initial seed, without any additional secret, and is described as unsuitable for direct use on servers. Same claim_id as the v0.3 row.",
+    "provenance": "records/review-inputs/claims.json#/result/table/rows/6/official_claim_quote"
+   },
+   "smhasher3": {
+    "verdict": "not in SMHasher3 (ships v0.3 only)",
+    "passed": null,
+    "total": null,
+    "url": "https://gitlab.com/fwojcik/smhasher3/-/blob/3b619371/results/README.md",
+    "failed_tests": [],
+    "note": "Upstream README states v2 passes all SMHasher3 tests; not reproduced here."
+   },
+   "pair": {
+    "m_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+    "m_prime_hex": "00000000000000404a048402a910048a00000000000000a80000000000000000",
+    "verifier_confirmed": true,
+    "example_seed_raw": "0x040963434fe5e368 (hash 0xef46cda19c0bbc67; bfast 0x8d303f6a6db80174); seed 0 does not collide",
+    "provenance": [
+     "records/witness-searches/muse-v2/README.md",
+     "records/witness-searches/muse-v2-verify/README.md"
+    ],
+    "implementation_validation": "Searcher: C11 port of crate 0.6.0 src/lib.rs (sha256 123772c6...) validated with 200,000 vectors from a Rust generator linked to the crate worktree, 0 mismatches. Verifier: Rust program linked directly to the crates.io tarball museair-0.6.0.crate (sha256 e07cb15b...7314e), crate's own cargo test stability_v2 passes.",
+    "lengths_bytes": [
+     32,
+     32
+    ],
+    "L_words": 4,
+    "example_key_words_hex": [
+     "040963434fe5e368"
+    ],
+    "example_output_hex": "ef46cda19c0bbc67",
+    "construction": "head word i ^= 0x4000000000000000, head word j ^= 0x8a0410a90284044a, tail word u bits 59/61/63 ^= 0xa8<<56 (m = 21: 21*C5 has carry weight 16)"
+   },
+   "collision": {
+    "display": "about 2^-17.45 of keys (sampled; 36,060 events / 1.5×2^32 keys, upstream crate)",
+    "count": 36060,
+    "trials": 6442450944,
+    "log2_contribution": -17.4469,
+    "exact_contribution": false,
+    "total_equality_proved": false,
+    "interpretation": "Measured rate",
+    "epsilon_95_interval": [
+     5.5396e-06,
+     5.6553e-06
+    ],
+    "interval_method": "central equal-tail exact Poisson (Garwood)",
+    "runs": "verifier fresh 2^32: 23869 (2^-17.457), fresh 2^31: 12191 (2^-17.426); searcher 2^30: 6066, 2^32: 23952, 2^31: 12061 (pooled 2^-17.447); pooled all 78139/(3.25*2^32) = 2^-17.4467"
+   },
+   "score": {
+    "calculated": 19.4469,
+    "display": 19.45,
+    "display_text": "at most 19.45 bits (cap; sampled; 95% interval 19.43–19.46)",
+    "direction": "estimated_upper_bound",
+    "rounding": "nearest",
+    "derivation": "log2(4) - (-17.4469)",
+    "approximate_95_half_width_bits": 0.015,
+    "interval_95_bits": [
+     19.432,
+     19.462
+    ]
+   },
+   "bits": 19.4469,
+   "bits_kind": "measured",
+   "mechanism": "For 17..32 bytes the tail enters as wmul(C4^seed^u, C5); flipping tail bits changes the product by +-m*C5 whose XOR image hits a fixed pattern with probability 2^-16 (carry mismatches), and that pattern XORed into the head cancels.",
+   "hover": {
+    "mechanism": "A signed-digit tail flip shifts a public product by +-21*C5; a fixed head XOR cancels it when the carries agree.",
+    "quote": "Not vulnerable to blinding multiplication attacks",
+    "claim_note": "v2 README (3f0d8c8); single seed, no secret; unsuitable for servers per README"
+   },
+   "notes": "Algorithm v2 (crate 0.6.0). Lengths <= 16 are head-XOR only (2^-64 floor for a fixed pair); the long path (> 32 B) carries 32 seed bits in every state word, and its best exact event is a zero tail multiplicand: a 40-byte pair collides on exactly the 2^32 seeds with seed & 0xAAAA...AAAA = 0 (2^20/2^20 class seeds, 0/2^30 uniform; hash and bfast::hash only, the 128-bit functions' seeding differs), cap 34.3 bits. Runner-up at 19 B (L = 3): 4096/2^30 = 2^-18.00, cap 19.58 (verifier 4019/2^30, 19.61). DP search over odd m < 2^20 (NAF <= 3) and m < 2^12 (NAF <= 4) at all shifts and both words with read_short's overlap constraints; top 135 re-measured at 2^26; model-free byte sweeps at the boundaries confirmed 0xa8; bounded single-bit-flip scan at lengths 1..64 found no exact state collision. Verifier: two-sample z = -0.03 against the searcher's pooled rate. The v0.3 row's every-seed pair gives 0/2^24 on v2.",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Rate quoted for museair::hash with a single uniform 64-bit seed; bfast::hash collides on identical seeds; the 128-bit variants (seed_a, seed_b) collide at the same rate under a two-seed model. Not scored by SMHasher3 (ships v0.3).",
+   "speeds": {
+    "m2_gbps_16k": {
+     "value": null,
+     "source": "No algorithm-v2 timing registered",
+     "source_short": "unavailable",
+     "record": "records/witness-searches/muse-v2/README.md"
+    },
+    "m2_gbps_512": {
+     "value": null,
+     "source": "No algorithm-v2 timing registered",
+     "source_short": "unavailable",
+     "record": "records/witness-searches/muse-v2/README.md"
+    },
+    "smh_m2_bulk_Bpc": {
+     "value": 10.42,
+     "source": "SMHasher3 registered MuseAir-v2 M2Pro, 262144 B bulk, B/cycle",
+     "source_short": "SMHasher3 M2Pro",
+     "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+     "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/M2Pro",
+     "registered_name": "MuseAir-v2",
+     "host": "M2Pro",
+     "backend_token": "scalar-mul128",
+     "backend_note": "scalar 64×64→128 multiplication",
+     "binary_sha256": "b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4",
+     "selected_run": 3,
+     "selection": "median-of-three",
+     "spread_percent": 0.481695568400764,
+     "verification": {
+      "status": "PASS",
+      "implementation": "PASS",
+      "native_value": "7140cabc",
+      "failure_lines": [],
+      "sanity_raw_file": "evidence/M2Pro/MuseAir-v2.sanity.txt",
+      "sanity_raw_sha256": "c709eb6c52ef806eaec148395dab82ba3198752230c12e15916959aca4ace145",
+      "vectors_raw_file": "evidence/M2Pro/verification.txt",
+      "vector_count": 200000,
+      "registered_vector_calls": 600000,
+      "final_object_raw_file": "evidence/M2Pro/verification-final.txt",
+      "pair_examples_reproduced": true
+     },
+     "timing_status": "complete"
+    },
+    "smh_xeon_bulk_Bpc": {
+     "value": 7.53,
+     "source": "SMHasher3 registered MuseAir-v2 Xeon8375C, 262144 B bulk, B/cycle",
+     "source_short": "SMHasher3 Xeon8375C",
+     "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+     "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/Xeon8375C",
+     "registered_name": "MuseAir-v2",
+     "host": "Xeon8375C",
+     "backend_token": "scalar-mul128",
+     "backend_note": "scalar 64×64→128 multiplication",
+     "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
+     "selected_run": 1,
+     "selection": "higher-bulk-lower-small-of-two",
+     "spread_percent": 0.0,
+     "verification": {
+      "status": "PASS",
+      "implementation": "PASS",
+      "native_value": "7140cabc",
+      "failure_lines": [],
+      "sanity_raw_file": "evidence/Xeon8375C/MuseAir-v2.sanity.txt",
+      "sanity_raw_sha256": "b552c4ccdb805be631b12bc96854ffa8242ec835b922581de353f4485ccb3070",
+      "vectors_raw_file": "evidence/Xeon8375C/verification.txt",
+      "vector_count": 200000,
+      "registered_vector_calls": 600000,
+      "final_object_raw_file": "evidence/Xeon8375C/verification-final.txt",
+      "pair_examples_reproduced": true
+     },
+     "timing_status": "complete"
+    },
+    "smh_m2_small_cycles": {
+     "value": 22.32,
+     "source": "SMHasher3 registered MuseAir-v2 M2Pro, 1–31 B, cycles/hash",
+     "source_short": "SMHasher3 M2Pro",
+     "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+     "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/M2Pro",
+     "registered_name": "MuseAir-v2",
+     "host": "M2Pro",
+     "backend_token": "scalar-mul128",
+     "backend_note": "scalar 64×64→128 multiplication",
+     "binary_sha256": "b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4",
+     "selected_run": 2,
+     "selection": "median-of-three",
+     "spread_percent": 3.199268738574035,
+     "verification": {
+      "status": "PASS",
+      "implementation": "PASS",
+      "native_value": "7140cabc",
+      "failure_lines": [],
+      "sanity_raw_file": "evidence/M2Pro/MuseAir-v2.sanity.txt",
+      "sanity_raw_sha256": "c709eb6c52ef806eaec148395dab82ba3198752230c12e15916959aca4ace145",
+      "vectors_raw_file": "evidence/M2Pro/verification.txt",
+      "vector_count": 200000,
+      "registered_vector_calls": 600000,
+      "final_object_raw_file": "evidence/M2Pro/verification-final.txt",
+      "pair_examples_reproduced": true
+     },
+     "timing_status": "complete"
+    },
+    "smh_xeon_small_cycles": {
+     "value": 29.27,
+     "source": "SMHasher3 registered MuseAir-v2 Xeon8375C, 1–31 B, cycles/hash",
+     "source_short": "SMHasher3 Xeon8375C",
+     "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+     "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/Xeon8375C",
+     "registered_name": "MuseAir-v2",
+     "host": "Xeon8375C",
+     "backend_token": "scalar-mul128",
+     "backend_note": "scalar 64×64→128 multiplication",
+     "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
+     "selected_run": 2,
+     "selection": "higher-bulk-lower-small-of-two",
+     "spread_percent": 0.10249402118209794,
+     "verification": {
+      "status": "PASS",
+      "implementation": "PASS",
+      "native_value": "7140cabc",
+      "failure_lines": [],
+      "sanity_raw_file": "evidence/Xeon8375C/MuseAir-v2.sanity.txt",
+      "sanity_raw_sha256": "b552c4ccdb805be631b12bc96854ffa8242ec835b922581de353f4485ccb3070",
+      "vectors_raw_file": "evidence/Xeon8375C/verification.txt",
+      "vector_count": 200000,
+      "registered_vector_calls": 600000,
+      "final_object_raw_file": "evidence/Xeon8375C/verification-final.txt",
+      "pair_examples_reproduced": true
+     },
+     "timing_status": "complete"
+    }
+   },
+   "speed_registration": "MuseAir-v2, scalar-mul128; crate 0.6.0; identity 64-bit seed mapping",
+   "chart_eligible": true,
+   "key_free": false,
+   "mechanism_family": "keyed multiply-fold",
+   "rurban_alias": null,
+   "claim_category": "keyed collision / DoS claim",
+   "input_domain": "Variable-length byte strings; selected witness lengths shown.",
+   "domain_short": "variable-length byte strings; selected witness only",
+   "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
+   "family_definition": "64×64→128 products of seeded words, folded (mum).",
+   "fairness_record": "records/witness-searches/muse-v2/README.md",
+   "provenance": [
+    "records/witness-searches/muse-v2/README.md",
+    "records/witness-searches/muse-v2-verify/README.md",
+    "records/review-inputs/claims.json#/result/table/rows/6",
+    "records/witness-searches/muse-v2-timing/speeds_museair_v2.json"
+   ],
+   "reproduction": {
+    "status": "standalone and upstream checks reproduced; observed Xeon counts recorded",
+    "directory": "verify/museair-v2",
+    "readme": "verify/museair-v2/README.md",
+    "observed": "verify/museair-v2/run_selected_xeon.txt"
+   }
   },
   {
    "id": "komi",
@@ -3361,55 +3605,74 @@
     "failed_tests_provenance": "records/review-inputs/claims.json#/result/table/rows/7/smhasher3_verdict"
    },
    "pair": {
-    "m_hex": "406b68c281a55e00158ed10a0d96f8ff",
-    "m_prime_hex": "d1d86241d24d9f990323e0",
+    "m_hex": "c4c0cc2284cd239ede36a18fa6",
+    "m_prime_hex": "fbc31866049ec02dea0c4e2be580d3cf",
     "verifier_confirmed": true,
-    "example_seed_raw": "3c805cc67a687f30",
+    "example_seed_raw": "4c240c2749cd4915",
     "provenance": [
-     "records/review-inputs/pairs_heur.json#/t1ha2-64/pairs/0"
+     "records/witness-searches/t1ha-digits/README.md",
+     "records/witness-searches/t1ha-digits-verify/README.md"
     ],
-    "implementation_validation": "Own single-file C implementation checked against the 81-entry upstream t1ha selftest table t1ha_refval_2atonce (81/81) and against the SMHasher3 verification value 0x8F16C948 (keys {}, {0}, {0,1}, ... of length 0..255 with seed 256-len, outputs concatenated and hashed with seed 0).",
+    "implementation_validation": "Searcher: own C implementation (t1ha2.h) validated against the 81-entry upstream selftest table and SMHasher3 verification value 0x8F16C948; independent verifier: fresh clone erthink/t1ha HEAD 00eb779 (src/t1ha2.c byte-identical to tag v2.1.4), linked upstream src/t1ha2.c, public t1ha2_atonce API, upstream t1ha_selfcheck__t1ha2_atonce() and 0x8F16C948 pass.",
     "lengths_bytes": [
-     16,
-     11
+     13,
+     16
     ],
     "L_words": 2,
     "example_key_words_hex": [
-     "3c805cc67a687f30"
+     "4c240c2749cd4915"
     ],
-    "example_output_hex": "f2a1196d24fddaab"
+    "example_output_hex": "c35b49165b1a4480",
+    "seed_class": {
+     "mask_hex": "a5845081f808f44a",
+     "value_hex": "2080000118003408",
+     "of": "L = lo(((seed ^ l0) + t) * P1)",
+     "density_log2": -24
+    },
+    "additional_example_seeds": [
+     "a2b08b86e150940c (H = b94c250505cd61c6)",
+     "e486a312cbae8cc1",
+     "091e258d8d7468d1",
+     "881464cd3ea41895"
+    ]
    },
    "collision": {
-    "display": "about 2^-30 of keys (sampled class contribution: 2^-26 × 262144/2^22)",
-    "log2_contribution": -30,
+    "display": "about 2^-28.19 of keys (sampled class contribution: 2^-24 × 58,715,203/2^30)",
+    "log2_contribution": -28.1928,
     "exact_contribution": false,
     "total_equality_proved": false,
     "interpretation": "Measured rate or class-density-weighted measured rate",
-    "conditional_count": 262144,
-    "conditional_trials": 4194304,
-    "class_density_log2": -26
+    "conditional_count": 58715203,
+    "conditional_trials": 1073741824,
+    "class_density_log2": -24,
+    "conditional_log2_95_interval": [
+     -4.1931,
+     -4.1924
+    ],
+    "uniform_checks": "fresh uniform seeds against upstream: 226/2^36 and 258/2^36 (verifier), 217/2^36 (searcher); pooled 701 in 3*2^36 = 2^-28.13 [2^-28.24, 2^-28.02]; every hit inside the stated class"
    },
    "score": {
-    "calculated": 31.0,
-    "display": 31.0,
-    "display_text": "at most 31 bits (cap; sampled)",
+    "calculated": 29.1928,
+    "display": 29.19,
+    "display_text": "at most 29.19 bits (cap; sampled); conditional-rate 95% ≈ ±0.0004 bits",
     "direction": "estimated_upper_bound",
     "rounding": "nearest",
-    "derivation": "log2(2) - (-30)"
+    "derivation": "log2(2) - (-28.1928)",
+    "approximate_95_half_width_bits": 0.0004
    },
-   "notes": "Cross-length 16/11-byte pair. Exact class density 2^-26 multiplied by measured conditional rate about 2^-4. Equal-length best claim not independently re-run; excluded. Direct uniform-seed checks against the upstream library (erthink/t1ha HEAD 00eb779, Xeon 8375C, 2026-09-18): two independent 2^35-seed runs found 44 and 27 collisions (2^-29.5 and 2^-30.25; 32 expected at 2^-30), every hit inside the stated seed class; pooled with the panel's 12@2^34 and 28@2^35 this is 111 collisions in 3.5*2^35 seeds (2^-30.01). Conditional rate 2^-4.000 at 2^27 class samples.",
+   "notes": "Cross-length 13/16-byte pair F60 found by an exhaustive DP over all 224,923,104 5-digit signed-digit routes (dp5.c; the 4-digit search rediscovers the previous pair A at 30.00 as the only realisable 4-digit route at or below 30.5). Mechanism: word-0 difference l* - l = +2^60 +2^54 -2^48 -2^9 -2^1, du = e012803e9bacd40a with u+du and x+d0 wrapping, length offset +3, carry pattern of weight 24 fixing 24 bits of L = lo(((seed ^ l0) + t) * P1) (mask a5845081f808f44a, value 2080000118003408, density exactly 2^-24). The two low digits' sign events are correlated with the fixed low bits of L for this tail word, so the conditional rate is 2^-4.19 rather than the model's median 2^-5.19. Conditional rate against upstream t1ha (erthink/t1ha HEAD 00eb779, src/t1ha2.c byte-identical to v2.1.4; Xeon 8375C, 2026-09-19): 58,715,203/2^30 = 2^-4.1928 (+-0.0004). Fresh uniform-seed runs against upstream: 226 and 258 collisions per 2^36 seeds (224 expected at 2^-28.19; the second is a +2.3 sigma fluctuation), all inside the stated class; searcher's own fresh 2^36: 217. Runner-up F1 (10/16 B): class 2^-24 x 2^-4.93, 153/2^36, cap 29.93. Not searched: 6-digit routes (about 30 CPU-h; extrapolated gain at most 0.5-1 bit).",
    "provenance": [
-    "records/review-inputs/pairs_heur.json#/t1ha2-64/pairs/0",
+    "records/witness-searches/t1ha-digits/README.md",
+    "records/witness-searches/t1ha-digits-verify/README.md",
     "records/review-inputs/claims.json#/result/table/rows/7",
-    "records/review-inputs/heur_panel.json#/result/synthesis/table",
-    "records/review-inputs/review_reports/t1ha2/report.md"
+    "records/review-inputs/heur_panel.json#/result/synthesis/table"
    ],
    "version": "v2.1.4",
    "label": "t1ha2_atonce-64",
    "anchor": "appendix-t1ha2",
    "mechanism": "Cross-length carry patterns cancel for a structured seed class.",
    "family": "heuristic",
-   "bits": 31.0,
+   "bits": 29.1928,
    "bits_kind": "measured",
    "speeds": {
     "m2_gbps_16k": {
@@ -3711,7 +3974,7 @@
      "verification": {}
     }
    },
-   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Cross-length 16/11-byte pair. Exact class density 2^-26 multiplied by measured conditional rate about 2^-4. Equal-length best claim not independently re-run; excluded.",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist (6-digit routes not enumerated). Cross-length 13/16-byte pair. Exact class density 2^-24 multiplied by the conditional rate 2^-4.19 measured at 2^30 class samples against upstream. All 701 uniform-seed hits (3 x 2^36) lie inside the class, so the class contribution is the observed rate at this resolution, but it remains a sampled lower bound on eps, not a proof of total equality.",
    "hover": {
     "mechanism": "Cross-length carry patterns cancel for a structured seed class."
    },
@@ -3725,7 +3988,13 @@
    "domain_short": "variable-length byte strings; selected witness only",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
    "family_definition": "64×64→128 products of seeded words, folded (mum).",
-   "fairness_record": "records/fairness-pass/t1ha/README.md"
+   "fairness_record": "records/fairness-pass/t1ha/README.md",
+   "reproduction": {
+    "status": "standalone and upstream checks reproduced; observed Xeon counts recorded",
+    "directory": "verify/t1ha2-64",
+    "readme": "verify/t1ha2-64/README.md",
+    "observed": "verify/t1ha2-64/run_selected_xeon.txt"
+   }
   },
   {
    "id": "a5",
@@ -8315,8 +8584,8 @@
    "key_bits": 64,
    "output_bits": 64,
    "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
-   "status": "REPRODUCTION",
-   "classification_reason": "Reproduction at 32 bytes, base 1143 with zero tail, two fresh confirmation streams.",
+   "status": "NEW",
+   "classification_reason": "Search result at 32 bytes: NAF-shaped block-1 complement pair, three fresh confirmation streams against upstream v0.8.3. Status NEW (new construction; the base-1143 reproduction remains as a control).",
    "prior_work": [
     {
      "label": "Paper: harness results and fold differential",
@@ -8326,7 +8595,7 @@
    "official_claim": {
     "text": "xxHash is primarily designed for speed. It is labeled non-cryptographic, and is not meant to avoid intentional collisions (same digest for 2 different messages), or to prevent producing a message with a predefined digest.",
     "url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md",
-    "context": "32-byte base-1143 pair: 483 and 535 hits per 2^30 fresh keys; historical pair A is separate.",
+    "context": "32-byte NAF block-1 pair: 755087, 754660 and 754334 hits per 2^30 fresh keys (2^-10.47); the base-1143 zero-tail pair (2^-21.0) and historical pair A are separate.",
     "provenance": "records/claims.json#/result/table/rows/2/official_claim_quote",
     "verbatim_record": "(v0.8.3 comment; replaced on dev 2026-09-17 by PR #1146, refined 2026-09-18 by PR #1150) xxHash is primarily designed for speed. It is labeled non-cryptographic, and is not meant to avoid intentional collisions (same digest for 2 different messages), or to prevent producing a message with a predefined digest. | It's possible to provide any blob of bytes as a \"secret\" to generate the hash. This makes it more difficult for an external actor to prepare an intentional collision. | DISCLAIMER: There are known *seed-dependent* multicollisions here due to multiplication by zero, affecting hashes of lengths 17 to 240. However, they are very unlikely. Keep this in mind when using the unseeded XXH3_64bits() variant: As with all unseeded non-cryptographic hashes, it does not attempt to defend itself against specially crafted inputs, only random inputs. | Finally, xxHash provides its own [massive collision tester](https://github.com/Cyan4973/xxHash/tree/dev/tests/collisions), able to generate and compare billions of hashes to test the limits of 64-bit hash algorithms. On this front too, xxHash features good results, in line with the [birthday paradox].",
     "source_record": "(v0.8.3 comment; replaced on dev 2026-09-17 by PR #1146, refined 2026-09-18 by PR #1150) doc/xxhash_spec.md (v0.8.3) line 40; xxhash.h (v0.8.3) lines 1208-1209 and 4707-4714 (comment prefix stripped; SMHasher3's copy at hashes/xxhash.cpp L591-598 is reflowed and reads 'multiplication by 0'); README.md (v0.8.3) lines 85-88. https://github.com/Cyan4973/xxHash/blob/v0.8.3/",
@@ -8353,51 +8622,59 @@
     ]
    },
    "pair": {
-    "m_hex": "8912a3da9fc464368202a1be238b7d1100000000000000000000000000000000",
-    "m_prime_hex": "76ed5c25603b9bc97dfd5e41dc7482ee00000000000000000000000000000000",
+    "m_hex": "0000000000000000000000000000000051151210404400000000008204000105",
+    "m_prime_hex": "00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa",
     "lengths_bytes": [
      32,
      32
     ],
     "L_words": 4,
-    "pair_id": "base-1143, zero tail",
+    "pair_id": "NAF block-1 complement (P,N of D = K2+K3+1)",
     "verifier_confirmed": true,
+    "example_seed_raw": "2468b3bc26a44073 (= P - K2; both multiplicands of the changed fold become 0 and ~0); seed 0 does NOT collide",
+    "example_key_words_hex": [
+     "2468b3bc26a44073"
+    ],
+    "example_output_hex": "dd686b61e2f6dc69",
+    "construction": "bytes 16..31 = little-endian (P, N) with P = 0x0000444010121551, N = 0x0501000482000000 the +1/-1 digit sums of the non-adjacent form of D = K2+K3+1 = 0xfaff443b8e121551 mod 2^64 (K2, K3 = default-secret words that XXH3_mix16B applies to bytes 16..31 of a 32-byte input); M' complements bytes 16..31; bytes 0..15 zero",
     "provenance": [
-     "records/xxh3_32B_RESULT.md"
+     "records/witness-searches/xxh3-64-pair/README.md",
+     "records/witness-searches/xxh3-64-pair-verify/README.md"
     ]
    },
    "collision": {
-    "display": "about 2^-21.00848 of keys (sampled; 1,018 events / 2^31 keys)",
-    "count": 1018,
-    "trials": 2147483648,
-    "log2_contribution": -21.008478153924305,
+    "display": "about 2^-10.47 of keys (sampled; 2,264,081 events / 3×2^30 keys, upstream v0.8.3)",
+    "count": 2264081,
+    "trials": 3221225472,
+    "log2_contribution": -10.4745,
     "exact_contribution": false,
     "epsilon_95_interval": [
-     4.453666711465765e-07,
-     5.04081714020458e-07
+     0.0007019483,
+     0.0007037791
     ],
-    "interval_method": "central equal-tail exact Poisson (Garwood)"
+    "interval_method": "exact Clopper-Pearson (binomial)",
+    "runs": "three fresh 2^30 streams (salts 0x0be5719ab2026091/92/93): 755087, 754660, 754334; searcher's three fresh 2^30 streams: 754887, 754932, 754106 (pooled 2^-10.4746)"
    },
    "score": {
-    "calculated": 23.008478153924305,
-    "display": 23.01,
-    "display_text": "at most 23.01 bits (cap; 95% interval 22.919839043866432–23.098503065606845)",
+    "calculated": 12.4745,
+    "display": 12.47,
+    "display_text": "at most 12.47 bits (cap; 95% interval 12.473–12.476)",
     "direction": "estimated_upper_bound",
     "rounding": "nearest",
-    "derivation": "log2(4*2^31/1018)",
-    "approximate_95_half_width_bits": 0.09,
+    "derivation": "log2(4*3*2^30/2264081)",
+    "approximate_95_half_width_bits": 0.002,
     "interval_95_bits": [
-     22.919839043866432,
-     23.098503065606845
+     12.4726,
+     12.4763
     ]
    },
-   "bits": 23.008478153924305,
+   "bits": 12.4745,
    "bits_kind": "measured",
-   "mechanism": "The changed first fold agrees; the unchanged second fold cancels. The final avalanche is bijective.",
-   "notes": "The rate depends on the first two words. Changing bytes 16 onward changes the output, not the colliding-seed set. No practical flooding attack is established by this approximately 2^-21 fixed-pair rate. Upstream dev at 6cc7b4b (unreleased 0.8.4) has a byte-identical XXH3 core (2.4M-case differential test, all lengths 0-1200, zero mismatches); the verify program built against that header reproduces 483 and 535 of 2^30 and a fresh stream gives 508 of 2^30.",
-   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. The rate depends on the first two words. Changing bytes 16 onward changes the output, not the colliding-seed set. No practical flooding attack is established by this approximately 2^-21 fixed-pair rate. Approximate 95% sampling half-width: ±0.09 bits. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+   "mechanism": "Complementing one 16-byte block collides when fold(A,B) = fold(~A,~B); a NAF-shaped block makes the seed-shifted carry masks agree at all but the NAF digit positions. The final avalanche is bijective.",
+   "notes": "32-byte pair whose bytes 16..31 are the (P, N) digit sums of the non-adjacent form of D = K2+K3+1 (NAF weight 18 mod 2^64), with M' the complement of that block. For 17..128 B each 16-byte block contributes fold(w0^(K[2i]+s), w1^(K[2i+1]-s)) and the avalanche is bijective, so the pair collides iff fold(A,B) = fold(~A,~B); with w0 = x, w1 = x - D the seed-shifted carry masks of A and ~B differ only at NAF digit positions, and each differing bit costs about log2(3). The base-1143 zero-tail pair (2^-21.0) and the fairness-pass (K0,~K1) pair (2^-15.16, 29132-29507 per 2^30) were re-measured through the same programs as controls. Neighbourhood: block 0 best 2^-11.64; blocks 2-7 need 64/128 B (L >= 8) and are weaker; 24-byte lengths and the 16-byte path give 0/2^30; local optimum under all 192 single moves at 2^28 and all 18,336 two-move neighbours at 2^24. Upstream dev at 6cc7b4b (unreleased 0.8.4) has a byte-identical XXH3 core. The 128-byte analogue (block at bytes 112..127) collides at the same rate with L = 16 (cap 14.47). Search result, not a bound.",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. The rate depends on bytes 16..31 (block 1) and its complement; bytes 0..15 are zero. Approximate 95% sampling half-width: ±0.002 bits. No practical flooding attack is established by this fixed-pair rate. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
    "hover": {
-    "mechanism": "The changed first fold agrees; the unchanged second fold cancels. The final avalanche is bijective."
+    "mechanism": "Complementing one NAF-shaped 16-byte block makes the two fold multiplicands' carry masks agree; the avalanche is bijective."
    },
    "speeds": {
     "m2_gbps_16k": {
@@ -8702,11 +8979,12 @@
    "reproduction": {
     "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
     "directory": "verify/xxh3-64",
-    "source": "verify/xxh3-64/xxh3_64_32B_check.c",
-    "command": "cc -O3 -std=c11 xxh3_64_32B_check.c -lm -o check && ./check 20",
+    "source": "verify/xxh3-64/xxh3_64_pair_check.c",
+    "command": "cc -O3 -std=c11 xxh3_64_pair_check.c -lm -o check && ./check 20",
     "trials": 1048576,
-    "rng": "fixed deterministic pseudorandom smoke stream; see per-hash README",
-    "note": "Completed dependency additions in verify/README.md. The smoke check does not replace historical large counts."
+    "expected_smoke": "725 hits / 2^20",
+    "rng": "two xoshiro256** streams from SplitMix64(salt); default salt deterministic",
+    "note": "xxh3_64_pair_check.c is byte-identical in its header/startup/stream lines to xxh3_64_32B_check.c with the new pair as the literal default; regenerate xxh3_64_32B_check.expected.txt / CHECK_32B.md and mention the 2468b3bc26a44073 -> dd686b61e2f6dc69 witness (seed 0 is not a witness for this pair)."
    },
    "supporting_measurements": {
     "source": "records/xxh3_32B_result.json",
@@ -8743,7 +9021,9 @@
     "zero_16B_trials": 4294967296
    },
    "provenance": [
-    "records/paper_rows.json#/14",
+    "records/witness-searches/xxh3-64-pair/README.md",
+    "records/witness-searches/xxh3-64-pair-verify/README.md",
+    "records/xxh3_32B_RESULT.md",
     "records/claims.json#/result/table/rows/2"
    ],
    "speed_registration": "XXH3-64",
@@ -11857,59 +12137,80 @@
     "failed_tests_provenance": "records/review-inputs/claims.json#/result/table/rows/12/smhasher3_verdict"
    },
    "pair": {
-    "m_hex": "40313233343536373839253b3c3d3e3f408142094445464748494a4b4c4d4e4f8d896d065c5d5e5f606162636465666768696a6b6c6d6e6f",
-    "m_prime_hex": "3e313233343536373839403b3c3d3e3f405e42204445464748494a4b4c4d4e4f727290085c5d5e5f606162636465666768696a6b6c6d6e6f",
+    "m_hex": "22313233343536373839263b3c3d3e3f407b42404445464748494a4b4c4d4e4f0df97e025c5d5e5f606162636465666768696a6b6c6d6e6f",
+    "m_prime_hex": "1f313233343536373839343b3c3d3e3f406d422f4445464748494a4b4c4d4e4fff098d055c5d5e5f606162636465666768696a6b6c6d6e6f",
     "verifier_confirmed": true,
-    "example_seed_raw": "k0..k3 = 711096b41e1b7d99 59af3b7ae3b7d595 d2fb75eb5658a771 5a0f91d8ed1ffe38 (four internal RandomState words; = RandomState::with_seeds(k_i ^ PI2[i]))",
+    "example_seed_raw": "RandomState::with_seeds(0xa9438ebec17194e4, 0x0bb688b615fedc93, 0x499051d9d7fdc675, 0x9b696bdcaa2076a5); internal k_i = argument_i XOR PI2[i]",
     "provenance": [
-     "records/review-inputs/pairs_heur.json#/rust-ahash/pairs/0"
+     "records/witness-searches/ahash-trail/README.md",
+     "records/witness-searches/ahash-trail-verify/RESULTS.md",
+     "records/witness-searches/ahash-trail-verify/records/confirm_33_seed78.log"
     ],
-    "implementation_validation": "SMHasher3 verification values: rust_ahash 0x3BF4383B, rust_ahash__noshuf 0x84CD29E5, rust_ahash_fb 0x53C9F167; native Rust crate v0.8.12/master reproduce the explicit-key collision.",
+    "implementation_validation": "SMHasher3 verification value rust_ahash 0x3BF4383B checked at startup of the C sampler; independent verifier used the upstream crate ahash 0.8.12 (crates.io checksum 5a15f179...), AES path, RandomState::with_seeds with four uniform u64.",
     "lengths_bytes": [
      56,
      56
     ],
     "L_words": 7,
     "example_key_words_hex": [
-     "711096b41e1b7d99",
-     "59af3b7ae3b7d595",
-     "d2fb75eb5658a771",
-     "5a0f91d8ed1ffe38"
+     "ec6baf58f9a18793",
+     "b5e2ee792117d0ff",
+     "893c786e1e8196a8",
+     "a4edbe691f677fb2"
     ],
-    "example_output_hex": "45ef7682d72b19b6"
+    "example_output_hex": "21a01e6ddf40c84a",
+    "pair_id": "A_2 (3-S-box trail {0,10}->{1,3}->bytes 32..35; input diffs 3d/12, block-2 diffs 16/6f, terminal xor f2 f0 f3 07)",
+    "example_with_seeds_arguments_hex": [
+     "a9438ebec17194e4",
+     "0bb688b615fedc93",
+     "499051d9d7fdc675",
+     "9b696bdcaa2076a5"
+    ],
+    "example_key_model": "example_key_words_hex are internal RandomState words; example_with_seeds_arguments_hex are public API arguments"
    },
    "collision": {
-    "display": "about 2^-19.7 of keys (sampled; 19,964 events, native Rust)",
-    "log2_contribution": -19.71488681149851,
+    "display": "about 2^-19.38 of keys (sampled; 12,627 events / 2^33 keys, native Rust crate 0.8.12)",
+    "log2_contribution": -19.3758,
     "exact_contribution": false,
     "total_equality_proved": false,
     "interpretation": "Measured rate or class-density-weighted measured rate",
-    "count": 19964,
-    "trials": 17179869184,
-    "trials_log2": 34
+    "count": 12627,
+    "trials": 8589934592,
+    "trials_log2": 33,
+    "epsilon_95_interval": [
+     1.4444e-06,
+     1.4958e-06
+    ],
+    "interval_method": "central equal-tail exact Poisson (Garwood)",
+    "supporting_runs": "verifier fresh 2^31: 3124 (2^-19.391); searcher (C port) 2^31: 3178 (2^-19.366); pooled all 18929/(1.5*2^33) = 2^-19.377; in-run control (shipped pair): 2501/2^31 and 9895/2^33 = 2^-19.73"
    },
    "score": {
-    "calculated": 22.5222,
-    "display": 22.52,
-    "display_text": "at most 22.52 bits (cap; sampled); 95% ≈ ±0.02 bits",
+    "calculated": 22.1831,
+    "display": 22.18,
+    "display_text": "at most 22.18 bits (cap; sampled); 95% interval 22.16–22.21",
     "direction": "estimated_upper_bound",
     "rounding": "nearest",
-    "derivation": "log2(7) - (-19.7148)",
-    "approximate_95_half_width_bits": 0.02
+    "derivation": "log2(7) - (-19.3758)",
+    "approximate_95_half_width_bits": 0.025,
+    "interval_95_bits": [
+     22.158,
+     22.208
+    ]
    },
-   "notes": "Score uses the native Rust sample 19964/2^34 (crate v0.8.12 and master a9d649d, RandomState::with_seeds with four uniform words, Xeon 2026-09-18). Compatible earlier estimates: verifier 2616/2^31 (about 2.5 sigma high), original 1227/2^30, independent C++ reimplementation 75/2^26, C reproduction pooled 4413/(7x2^29), second native program 19884/2^34.",
+   "notes": "Pair A_2 (56 B, L = 7): the same 3-S-box inverse-AES trail as the earlier pair ({0,10}->{1,3}->bytes 32..35; a truncated enumeration over the four hash_in blocks of the 33..64-byte path finds exactly two 3-S-box active-byte trails and none with fewer; lengths <= 32 B admit none with <= 5 S-boxes), with the additive-lane differences (3,-14,14,17) and a borrow-tolerant word-level cancellation in the terminal 32-bit span chosen to minimise byte-carry loss (2^-0.69 -> 2^-0.38). Score uses the native Rust sample 12627/2^33 = 2^-19.376 (crate v0.8.12, RandomState::with_seeds with four uniform words, Xeon 2026-09-19); a fresh 2^31 native run gave 3124 (2^-19.391) and the searcher's C sampler 3178/2^31 (2^-19.366). The runner-up A_1 is statistically tied (pooled over 2^34 keys A_1 19154 vs A_2 18929, z = 1.15); either gives about 22.17-22.19 bits. The 64-byte mirror trail ({8,15}->{9,11}->column 0) reaches 2^-19.38 but L = 8 puts its cap at 22.38. The all-4/256 third S-box exists (255 instances) but every sum-lane-feasible instance pays > 1.3 bits in carry loss (best 2^-20.03). In-run control: the previous pair measured 9895/2^33 = 2^-19.73, consistent with its row value 2^-19.71.",
    "provenance": [
+    "records/witness-searches/ahash-trail/README.md",
+    "records/witness-searches/ahash-trail-verify/RESULTS.md",
     "records/fairness-pass/ahash/",
     "records/fairness-pass/ahash-verify/",
-    "verify/rust-ahash/README.md",
-    "records/fairness-pass/ahash/README.md"
+    "verify/rust-ahash/README.md"
    ],
    "version": "0.8.12, AES path",
    "label": "aHash AES",
    "anchor": "appendix-ahash",
    "mechanism": "An inverse-AES differential cancels in both the AES and shuffled-addition accumulators.",
    "family": "heuristic",
-   "bits": 22.5222,
+   "bits": 22.1831,
    "bits_kind": "measured",
    "speeds": {
     "m2_gbps_16k": {
@@ -12211,7 +12512,7 @@
      "verification": {}
     }
    },
-   "qualification": "at most 22.52 bits (cap; sampled); 95% ≈ ±0.02 bits. A native Rust run (crate v0.8.12 and master a9d649d, x86-64 with target-feature aes) reproduces the explicit key and measures 19964/2^34 = 2^-19.71; the C reproduction and SMHasher3 consistency agree. Transfer to another key type or write sequence remains conditional on the mapping and AES backend.",
+   "qualification": "at most 22.18 bits (cap; sampled); 95% about ±0.025 bits. Native Rust (crate v0.8.12, x86-64 with target-feature aes) measures 12627/2^33 = 2^-19.38 for pair A_2; the C reproduction agrees. About 22.1 bits is the floor of this 3-S-box trail family; a different family could go lower. Transfer to another key type or write sequence remains conditional on the mapping and AES backend.",
    "hover": {
     "mechanism": "An inverse-AES differential cancels in both the AES and shuffled-addition accumulators.",
     "quote": "prevent an adversary … create hash collisions …"
@@ -12233,7 +12534,13 @@
      "url": "https://github.com/tkaitchuck/aHash/issues/292"
     }
    ],
-   "fairness_record": "records/fairness-pass/ahash/README.md"
+   "fairness_record": "records/fairness-pass/ahash/README.md",
+   "reproduction": {
+    "status": "standalone and upstream checks reproduced; observed Xeon counts recorded",
+    "directory": "verify/rust-ahash",
+    "readme": "verify/rust-ahash/README.md",
+    "observed": "verify/rust-ahash/run_selected_xeon.txt"
+   }
   },
   {
    "id": "siphash-1-3",

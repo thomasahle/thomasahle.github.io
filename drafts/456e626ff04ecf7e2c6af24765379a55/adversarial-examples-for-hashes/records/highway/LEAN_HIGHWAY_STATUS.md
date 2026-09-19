@@ -9,12 +9,12 @@ There are no remaining mathematical obligations and no numerical corrections.
 ## Environment and verification
 
 Authoritative repository:
-`thomas-ahle@hardware.normalcomputing.net:~/agents/lean-highway`.
-Lean project: `~/agents/lean-highway/lean`.
+`<xeon-host>:<xeon-work>/lean-highway`.
+Lean project: `<xeon-work>/lean-highway/lean`.
 
 Lean 4.24.0; Mathlib `v4.24.0`, commit
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`. The original Mathlib cache from
-`~/agents/lean-hash/lean/.lake` was retained. All Lean builds, proof computation,
+`<xeon-work>/lean-hash/lean/.lake` was retained. All Lean builds, proof computation,
 C compilation and execution ran on the Xeon with `taskset -c 80-87`,
 `nice -n 10`, and `LEAN_NUM_THREADS=8`. The Mac handled source edits and transfers.
 The inherited `LEAN_STATUS.md` describes the earlier project; its old CPU/thread
@@ -231,7 +231,7 @@ Round-2 completion commits on the same branch:
 
 ## Reproduction
 
-On the Xeon, run `cd ~/agents/lean-highway/lean && ./build-highway.sh`.
+On the Xeon, run `cd <xeon-work>/lean-highway/lean && ./build-highway.sh`.
 The script verifies the pinned Mathlib commit and frozen reference hashes, builds
 with CPUs 80–87 and eight Lean threads, regenerates the signature/axiom audit,
 and compares the twelve complete C/Lean vector rows. The retained Mathlib cache

@@ -95,15 +95,15 @@ theorem vectorMultiplyAddShift64_score :
 
 ## Reproduction and provenance
 
-Remote workspace: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-multishift`.
-It was created with `cp -a ~/agents/lean-hash ~/agents/lean-multishift`, including
+Remote workspace: `<xeon-host>:<xeon-work>/lean-multishift`.
+It was created with `cp -a <xeon-work>/lean-hash <xeon-work>/lean-multishift`, including
 the `.lake` cache. The parent records its status in `STATUS.md`; the named
 `LEAN_STATUS.md` was not present there.
 
 Run on the Xeon:
 
 ```sh
-cd ~/agents/lean-multishift
+cd <xeon-work>/lean-multishift
 ./reproduce.sh
 ```
 
@@ -112,7 +112,7 @@ copied Lean 4.24.0 / Mathlib cache. It builds the complete project, checks for
 forbidden proof escapes, and runs the axiom audit. It refuses to build on macOS.
 No Lean compilation or mathematical computation was run on the Mac.
 
-Build log: `~/agents/lean-multishift/multishift-build.log`, mirrored locally as
+Build log: `<xeon-work>/lean-multishift/multishift-build.log`, mirrored locally as
 `./multishift-build.log`. Audit log: the corresponding `multishift-axioms.log`.
 Lean sources and project metadata are mirrored in `./lean/` without `.lake`.
 

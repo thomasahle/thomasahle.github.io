@@ -1,12 +1,12 @@
 # BRW and eight-lane recurrence
 
-Run all compilation on the Xeon, inside `~/agents/lean-brw/lean`:
+Run all compilation on the Xeon, inside `<xeon-work>/lean-brw/lean`:
 
 ```sh
 ./reproduce.sh
 ```
 
-The lane was copied with `cp -a` from `~/agents/lean-hash`, including `.lake`.
+The lane was copied with `cp -a` from `<xeon-work>/lean-hash`, including `.lake`.
 No Mathlib rebuild or local Mac compilation is needed. `env.sh` selects Lean
 4.24.0, and the scripts set `LEAN_NUM_THREADS=8`, `nice -n 10`, and CPU set 40-47.
 Mathlib is v4.24.0, commit f897ebcf72cd16f89ab4577d0c826cd14afaafc7.

@@ -18,8 +18,8 @@ compiler, libm or pthreads as documented, and writes nothing but stdout/stderr.
 | `museair` | MuseAir v0.3 (all four SMHasher3 variants) | 17 B; 24 B | Bytes 16..len-1 enter the 17..32-byte path through a public function `P(u, v)` XORed onto the bijectively loaded 16-byte head; replacing the head by `head ^ (P(T) ^ P(T'))` for any two tails gives identical state before the seed touches it. | 1 (2^0) on 2^24 seeds, both pairs, all four variants; key-free | `cd museair && ./museair_verify [log2 N] [rng seed]` (2 s) |
 | `komihash` | komihash 5.34 (`komihash.h` embedded verbatim; SMHasher3 `komihash` value) | 64 B; 15 B | Pair 1: with `m1 = m0 ^ IVAL2`, `m5 = m4 ^ IVAL6` two lanes compute the same product for every seed and cancel in the fold; flipping bit 0 of both words survives unless a carry crosses the half (0.64 + 0.36 * 3/4).  Pair 2: the one seed whose S5 equals the tail word zeroes the final multiply. | 0.9106 (2^-0.135) on 2^24 seeds (panel 0.910588 at 2^32); pair 2: one weak seed, density 2^-64 | `cd komihash && ./komihash_pair [log2 N] [rng seed hex]` (0.5 s) |
 | `spookyhash2-64` | SpookyHash V2 (`SpookyHash2_64`, h1 = h2 = seed) | 275 B selected; 286 B (two supporting pairs) | Add 2^63 to Mix word 11 of the last full block; the step-11 xor and rotate turn it into `s10 += 2^63` and `s11 += ±2^45`, cancelled by End words 10 and 11 of the tail.  The sign is bit 63 of `s11`, so the two full-state collision conditions are complementary; exact balance is unproved. | 0.4999 (2^-1.000) and 0.5001 on 2^24 seeds; at least one pair has a full-state collision for every covered initialization | `cd spookyhash2-64 && ./spookyhash2_64_pair [log2 N] [rng seed] [seed mode 0/1]` (4 s) |
-| `rust-ahash` | aHash 0.8.12 (`rust_ahash` AES path, `rust_ahash_fb` fallback) | 56 B; 16 B | A: a 3-S-box differential trail through `aesdec` plus shuffle-add, byte differences chosen so InvShiftRows/InvMixColumns leave one byte per block to cancel (4/256 * 4/256 * 2/256 * carries).  B: complementing both words of a one-block message makes the halves of the folded 128-bit product move oppositely. | A: 26/2^24 = 2^-19.3 (panel 2^-19.74); B: 7/2^30 = 2^-27.2 in both secret models (panel 2^-26.2; discrepancy noted in the README) | `cd rust-ahash && ./ahash_pairs [log2 N] [rng seed] [A or B]` (2 s; `30 1 B` for pair B) |
-| `t1ha2-64` | t1ha v2.1 `t1ha2_atonce` (`t1ha2_64`) | 16 vs 11 B; 13 vs 16 B | For 9..16 bytes only two words are absorbed; a signed-digit difference on the public word-0 product is cancelled by the tail word's carries through the `P1` multiply when 26 (27) bits of `L` and four carry signs take fixed values.  `L` is a bijection of the seed, so the class is sampled exactly. | class density 2^-26 (2^-27) x conditional rate 2^-4.00 (2^-4.01) on 2^24 class seeds = 2^-30.00 (2^-31.01), a lower bound; 0 uniform hits at 2^24 as expected | `cd t1ha2-64 && ./t1ha2_64_verify [log2 N] [rng seed]` (1.3 s) |
+| `rust-ahash` | aHash 0.8.12 AES | A_2: 56 B; L=7 | Three-S-box trail plus additive cancellation; independent key words | 12,627/2^33 ≈ 2^-19.376; cap 22.18 bits | `cd rust-ahash && ./ahash_pairs 24 1 A_2` |
+| `t1ha2-64` | t1ha2_atonce-64 v2.1.4 | F60: 13/16 B; L=2 | 24-bit seed class plus sampled carries | 2^-24 × 58,715,203/2^30 ≈ 2^-28.19; cap 29.19 bits | `cd t1ha2-64 && ./t1ha2_64_verify 24` |
 | `a5hash` | a5hash v5.21 (`a5hash`, `a5hash_128`) | 23 B; 8 B; 25 B (128-bit) | The seed expansion `umul128` has thousands of preimage seeds for a well-chosen `s1_0`; those seeds zero the first block's operand (pair 1) or the tail multiply (pair 2, both hashes 0).  Pair 3: on the 128-bit 17..32-byte path the last 16 bytes enter only through a product with *public* constants. | 156800/2^64 = 2^-46.74 and 7291/2^64 = 2^-51.17 (classes enumerated exactly, every member collides); pair 3: 1 (2^0) on 2^24 seeds | `cd a5hash && ./a5hash_verify [log2 N] [rng seed]` (0.5 s) |
 | `highwayhash` | HighwayHash, frozen (`c/highwayhash.c` embedded verbatim; `HighwayHash_64/128/256`) | 96 B (three packets) | In the key class `hi32(key[0]) = 0xdbe6d5d5` packet 1's lane-0 multiply is 0, so a +2^8 lane-0 difference survives as one byte; packet 2's -(2^9 + 2^24) collapses it when a 32-bit relation of the packet-2 multiplier holds (event E_2, Pr = 235 * 239 / 2^40) and packet 3's +2^8 cancels it: full 1024-bit state collision at every width. | class density 2^-32 x conditional 2^-24.22 = 2^-56.22 over uniform 256-bit keys; E_2 screen 47/2^30 = 2^-24.45 measured, every hit a full-state collision | `cd highwayhash && ./highwayhash_verify [log2 N] [rng seed] [sm3]` (16 s) |
 | `pengyhash` | pengyhash v0.3 | 32/32 B, 32/1 B | Lines 3–7 compress each block before the seed enters on line 10. | 1 for every sampled seed; structural identity | `cd pengyhash && ./pengyhash_verify 20` |
@@ -32,7 +32,8 @@ compiler, libm or pthreads as documented, and writes nothing but stdout/stderr.
 | `rapidhash-v3` | rapidhash v3, rapidhash v3 micro, rapidhash v3 nano | 32/32 B, 48/48 B | Paper pairs A (32 B) and D (48 B), in standard, micro and nano v3. | See sub-README; 2^20 smoke check is separate from the scored historical rate | `cd rapidhash-v3 && ./rapidhash_v3_verify 20` |
 | `wyhash` | wyhash final v4.3 | A (32 B) | First-product XOR-fold differential; fixed default secret. | Historical 9 / 2^30 = 2^-26.830075; 2^20 is a smoke run only | `cd wyhash && ./wyhash_verify [log2 N] [rng seed]` |
 | `rapidhash-v1` | rapidhash v1.0 | A (32 B) | First-product XOR-fold differential; fixed default secret. | Historical 12 / 2^30 = 2^-26.415037; 2^20 is a smoke run only | `cd rapidhash-v1 && ./rapidhash_v1_verify [log2 N] [rng seed]` |
-| `xxh3-64` | XXH3-64, xxHash 0.8.3 | A (32 B); base-1143 (128 B) | First 16-byte fold collision; fixed default secret. | Historical A: 11 / 2^30 = 2^-26.540568; base-1143: 504 / 2^30 = 2^-21.022720 and 526 / 2^30 = 2^-20.961081; 2^20 is a smoke run only | `cd xxh3-64 && ./xxh3_64_verify [log2 N] [rng seed]` |
+| `xxh3-64` | XXH3-64 0.8.3 | selected 32 B; L=4 | Block-1 complement, NAF carry cancellation | 2,264,081/(3·2^30) ≈ 2^-10.4745; cap 12.47 bits | `cd xxh3-64 && ./xxh3_64_pair_check 20` |
+| `museair-v2` | MuseAir v2, crate 0.6.0 | 32 B; L=4 | Tail-product carry differential | 36,060/(1.5·2^32) ≈ 2^-17.447; cap 19.45 bits | `cd museair-v2 && ./museair_v2_verify 24` |
 | `xxh3-128` | XXH3-128, xxHash 0.8.3 | F (32 B) | Complementary first-word swap; equality of both output halves. | Historical 5 / 2^30 = 2^-27.678072 (full 128-bit collisions); 2^20 is a smoke run only | `cd xxh3-128 && ./xxh3_128_verify [log2 N] [rng seed]` |
 | `go-maphash` | Go runtime map hash / hash/maphash, go1.27.1 (862c888e), amd64 AES path (`memhash_amd64.s`; C port validated on 5766 real-runtime outputs) | 15 vs 16 B | The 16-bit length is repeated into the seed vector and passes through one keyless AES round before the message is XORed in; when the four active S-boxes take their difference-table-4 output (probability (4/256)^4 over the per-process key) the seed-state difference is a constant, cancelled by the 16-byte message.  Depends only on `aeskeysched[8,10,12,14]`: in one process in 2^24 the pair collides in every map and under every `maphash.Seed`. | exactly 2^-24 over the per-process key (a constructed key collides on 65536/65536 seeds); sampled 68 / 2^30 = 2^-23.91 (row: 66 / 2^30); real runtime 13 / 2^28 | `cd go-maphash && ./go_maphash_verify [log2 N] [rng seed]` (3 s with AES-NI) |
 | `dotnet-marvin` | Marvin32, .NET 10.0.12 `string.GetHashCode()` (`Marvin.cs` at tag v10.0.12) | A: 12/12 B (L = 2); B: 8/8 B (L = 1) | The 64-bit seed is only the initial state and every later step is a keyless bijection; one ARX Block between word injections lets a three-word additive differential cancel inside Block 2 (pair A) for one seed in 480. | Historical A: 8945794 / 2^32 = 2^-8.907 (cap 9.91 bits); B: 2^-22.5; 2^20 gives 2274 and 0 (smoke) | `cd dotnet-marvin && ./marvin32_verify [log2 N] [rng seed] [A, B or AB]` (0.2 s; `32 1 A` for the row's sample size) |
@@ -87,9 +88,9 @@ space-separated counts in column 3.
 | `komihash` | `./komihash_pair 20` | `954642 674611 280031 0` |
 | `murmurhash3-128` | `./murmurhash3_128_verify 20` | `1048576 0 1048576 0 1048576` |
 | `museair` | `./museair_verify 20` | `1048576 1048576 1048576 1048576 1048576 1048576 1048576 1048576 0` |
-| `rust-ahash` | `./ahash_pairs 20` | `1 2 0 0` |
+| `rust-ahash` | `./ahash_pairs 20` | `0 2 0 2 1 0 1 2 0 0` |
 | `spookyhash2-64` | `./spookyhash2_64_pair 20` | `524207 524207 524369 524369 1048576 524103 524103 524103` |
-| `t1ha2-64` | `./t1ha2_64_verify 20` | `0 65629 0 65159` |
+| `t1ha2-64` | `./t1ha2_64_verify 20` | `0 57150 0 65785 0 65084` |
 | `pengyhash` | `./pengyhash_verify 20` | `1048576 1048576` |
 | `nmhash32` | `./nmhash32_verify 20` | `262968` |
 | `nmhash32x` | `./nmhash32x_verify 20` | `1048576` |
@@ -100,7 +101,8 @@ space-separated counts in column 3.
 | `rapidhash-v3` | `./rapidhash_v3_verify 20` | `0 0 0 0 0 0` |
 | `wyhash` | `./wyhash_verify 20` | `0` |
 | `rapidhash-v1` | `./rapidhash_v1_verify 20` | `0` |
-| `xxh3-64` | `./xxh3_64_verify 20` | `0 0` |
+| `xxh3-64` | `./xxh3_64_pair_check 20` | `0 725 725` |
+| `museair-v2` | `./museair_v2_verify 20` | `3 3 0 0` |
 | `xxh3-128` | `./xxh3_128_verify 20` | `1` |
 | `go-maphash` | `./go_maphash_verify 20` | `65536 65536 0 0` |
 | `dotnet-marvin` | `./marvin32_verify 20` | `2274 0` |
@@ -122,14 +124,14 @@ What the counts are:
 * `murmurhash3-128`: pair 1, its control, pair 2, its control, the 4-way multicollision.
 * `museair`: the 17-byte pair in the four variants, the 24-byte pair in the four variants, the
   control (0 of 4096).
-* `rust-ahash`: pair A in models rs4 and smh, pair B in rs4 and smh (2^-26 is invisible at 2^20).
+* `rust-ahash`: A_2, A_1, B_0, historical A, fallback B; each in rs4 then correlated smh models.
 * `spookyhash2-64`: pair 1 64-bit and 128-bit, pair 2 64-bit and 128-bit, seeds on which the
   bit-63 predictor was right (all); then selected 275-byte pair at 32, 64 and 128 bits.
-* `t1ha2-64`: pair A uniform (2^-30 is invisible at 2^20), pair A class, pair B uniform, pair
-  B class.
+* `t1ha2-64`: selected F60, historical A, historical B; each uniform then class.
 
 * `wyhash`, `rapidhash-v1`: pair A.
-* `xxh3-64`: 32-byte pair A, then the exact 128-byte base-1143 pair.
+* `xxh3-64`: selected 24/32/128-byte length checks; identical 16-byte prefixes are excluded.
+* `museair-v2`: hash, bfast::hash, hash128, bfast::hash128.
 * `xxh3-128`: pair F, full 128-bit equality (one hit in this fixed smoke stream).
 * `go-maphash`: the constructed key under 65536 random map seeds (all), the same four key bytes with
   the other 124 bytes and the seed random (all), a control key (0), then the random (key, seed)

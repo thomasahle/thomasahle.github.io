@@ -17,8 +17,8 @@
     "m2_hex": "76ed5c25603b9bc97dfd5e41dc7482eea56186f8dc03bd1f78bfbd2ba3386ced7093d3639fc8f076abe3f9a757e5c84290720e6340b2e7820a16a5633b9b0344773006232e3abc7d4727eafba248b46cf2a6516698382bd2fa890528924cd1b618df4aa87d1af4bcec13f92bf8a1163e657fb0885deddf709a0252fbe3ae169d"
   },
   "environment": {
-    "host": "hardware.normalcomputing.net",
-    "directory": "~/agents/xxh3-32B",
+    "host": "<xeon-host>",
+    "directory": "<xeon-work>/xxh3-32B",
     "max_simultaneous_sampling_threads": 4,
     "nice": 10,
     "compiler_flags": "gcc -O3 -std=c11 -Wall -Wextra ... -lm",

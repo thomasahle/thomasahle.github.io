@@ -11,11 +11,11 @@ and each of the 64-, 128-, and 256-bit output collision events. Lean also proves
 [the milestone report](../LEAN_HIGHWAY_STATUS.md).
 
 The authoritative repository is on the Xeon at
-`thomas-ahle@hardware.normalcomputing.net:~/agents/lean-highway`.
+`<xeon-host>:<xeon-work>/lean-highway`.
 Run there:
 
 ```bash
-cd ~/agents/lean-highway/lean
+cd <xeon-work>/lean-highway/lean
 ./build-highway.sh
 ```
 

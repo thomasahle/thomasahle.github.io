@@ -28,7 +28,7 @@ explicit remote scratch tree. Do not rerun finished tests or measurements.
 
 ## Running / waiting
 
-Remote: hardware.normalcomputing.net:~/agents/speedbench-ch128/
+Remote: <xeon-host>:<xeon-work>/speedbench-ch128/
 - work/: delivered sources and scripts; source/: copied SMHasher3;
   build/: combined binary and probe; evidence/: correctness/build logs;
   out/Xeon8375C/: timing results.

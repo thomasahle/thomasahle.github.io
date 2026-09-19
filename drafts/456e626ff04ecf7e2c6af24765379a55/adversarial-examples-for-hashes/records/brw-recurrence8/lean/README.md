@@ -3,14 +3,14 @@
 Lean 4.24.0 and Mathlib `v4.24.0`, commit
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 
-The authoritative work directory is `~/agents/lean-hash/` on
-`thomas-ahle@hardware.normalcomputing.net`. The local copy contains sources and
+The authoritative work directory is `<xeon-work>/lean-hash/` on
+`<xeon-host>`. The local copy contains sources and
 verification reports, without toolchains, dependency checkouts, or build caches.
 
 On that server:
 
 ```bash
-cd ~/agents/lean-hash
+cd <xeon-work>/lean-hash
 source env.sh
 cd lean
 nice -n 10 taskset -c 0-31 lake exe cache get

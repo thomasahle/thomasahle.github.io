@@ -221,7 +221,12 @@ typedef struct {
 } pair_t;
 
 static const pair_t PAIRS[] = {
-    { "A (worst confirmed pair)",
+    { "F60 (selected pair)",
+      "c4c0cc2284cd239ede36a18fa6", "fbc31866049ec02dea0c4e2be580d3cf",
+      "13-byte vs 16-byte messages: 5-digit route +2^60+2^54-2^48-2^9-2^1; 24 fixed bits of L, measured carry cancellation",
+      UINT64_C(0xa5845081f808f44a), UINT64_C(0x2080000118003408),
+      UINT64_C(0x4c240c2749cd4915), -28.1928 },
+    { "A (historical control)",
       "406b68c281a55e00158ed10a0d96f8ff", "d1d86241d24d9f990323e0",
       "16-byte vs 11-byte messages: a signed-digit difference in word 0 (public\n"
       "    (len+w0)*P2 shift) is cancelled by the tail word's carry pattern through P1;\n"

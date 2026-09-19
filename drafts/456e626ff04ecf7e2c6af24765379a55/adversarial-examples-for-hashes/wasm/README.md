@@ -19,3 +19,5 @@ when distributing these binaries.
 Full validation results, API documentation, and limitations are in `DEMOS.md` in
 the handoff directory. rapidhash v1 uses its original reference vector because
 the supplied package has no SMHasher3 registration for v1.
+
+The selected XXH3-64, t1ha2 and aHash modules were refreshed on 2026-09-19 using Emscripten 5.0.1. Rebuild just these modules with `python3 source/rebuild_selected.py`; it resolves the published `../verify/` sources directly. Their literal pair, explicit key, length, rate and t1ha class metadata match the selected rows. Other modules retain the earlier compiler build.

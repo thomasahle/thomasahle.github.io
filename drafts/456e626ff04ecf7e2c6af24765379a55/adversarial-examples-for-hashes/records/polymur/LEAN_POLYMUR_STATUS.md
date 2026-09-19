@@ -1,7 +1,7 @@
 # PolymurHash 2.0: machine-checked ideal collision bound
 
-Verified 2026-09-18 on `thomas-ahle@hardware.normalcomputing.net`, in
-`~/agents/lean-polymur/lean`. The Mac holds the source mirror and reports;
+Verified 2026-09-18 on `<xeon-host>`, in
+`<xeon-work>/lean-polymur/lean`. The Mac holds the source mirror and reports;
 all Lean compilation and proof checking ran on the Xeon with `nice -n 10`,
 `taskset -c 0-31`, and `LEAN_NUM_THREADS=32`. The existing dependency cache was
 retained.

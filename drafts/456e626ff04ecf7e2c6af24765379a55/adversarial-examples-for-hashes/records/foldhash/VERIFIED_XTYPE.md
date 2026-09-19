@@ -1,6 +1,6 @@
 # Cross-key-type every-instance collisions in foldhash 0.2.0 — verified 2026-09-18 with the real crate
 
-Program: Xeon ~/agents/foldhash-xtype (Rust, foldhash = "=0.2.0", foldhash::fast::RandomState::default() per trial,
+Program: Xeon <xeon-work>/foldhash-xtype (Rust, foldhash = "=0.2.0", foldhash::fast::RandomState::default() per trial,
 std Hash impls, 1000 independent RandomState instances).  Results (equal hashes / trials):
 - 1u8 == 1u16 == 1u32 == 1u64 == 1u128: 1000/1000
 - (0x1122334455667788u64, 0x99aabbccddeeff00u64) == the u128 with the same little-endian bytes: 1000/1000

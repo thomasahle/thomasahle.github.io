@@ -1,0 +1,2185 @@
+{
+  "host": "Xeon8375C",
+  "binary": "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+  "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
+  "runs": [
+    {
+      "name": "MuseAir-v2",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "MuseAir-v2",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:24:06.242244+00:00",
+      "before": {
+        "time": "2026-09-19T00:24:06.188096+00:00",
+        "load": [
+          19.54,
+          22.08,
+          26.4
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir-v2.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:24:06.292061+00:00",
+          "load": [
+            19.54,
+            22.08,
+            26.4
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:11.352603+00:00",
+          "load": [
+            18.94,
+            21.92,
+            26.32
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:16.412015+00:00",
+          "load": [
+            18.38,
+            21.75,
+            26.25
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:21.470058+00:00",
+          "load": [
+            18.27,
+            21.67,
+            26.2
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:26.529898+00:00",
+          "load": [
+            17.77,
+            21.51,
+            26.12
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:31.591791+00:00",
+          "load": [
+            17.31,
+            21.35,
+            26.04
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:36.651767+00:00",
+          "load": [
+            16.88,
+            21.2,
+            25.97
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:41.709666+00:00",
+          "load": [
+            16.57,
+            21.06,
+            25.9
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:46.768848+00:00",
+          "load": [
+            16.2,
+            20.91,
+            25.82
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:51.827726+00:00",
+          "load": [
+            15.71,
+            20.73,
+            25.74
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:56.887502+00:00",
+          "load": [
+            15.41,
+            20.58,
+            25.66
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:01.948048+00:00",
+          "load": [
+            15.14,
+            20.44,
+            25.59
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:07.005104+00:00",
+          "load": [
+            15.21,
+            20.37,
+            25.54
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:12.065964+00:00",
+          "load": [
+            15.11,
+            20.26,
+            25.48
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:17.127247+00:00",
+          "load": [
+            15.1,
+            20.17,
+            25.42
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:22.185441+00:00",
+          "load": [
+            14.85,
+            20.04,
+            25.35
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2942436,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 80.95434325898532,
+      "finished": "2026-09-19T00:25:27.196684+00:00",
+      "after": {
+        "time": "2026-09-19T00:25:27.245593+00:00",
+        "load": [
+          14.54,
+          19.89,
+          25.27
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "857eab0ecb270dbe13bcdebb5eb4e81c8778c98fe678563a038493c1ec8088c5"
+    },
+    {
+      "name": "XXH3-64",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "XXH3-64",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:25:27.353356+00:00",
+      "before": {
+        "time": "2026-09-19T00:25:27.297958+00:00",
+        "load": [
+          14.54,
+          19.89,
+          25.27
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "XXH3-64.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:25:27.403154+00:00",
+          "load": [
+            14.54,
+            19.89,
+            25.27
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:32.462090+00:00",
+          "load": [
+            14.26,
+            19.74,
+            25.19
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:37.521810+00:00",
+          "load": [
+            14.0,
+            19.59,
+            25.12
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:42.582082+00:00",
+          "load": [
+            13.76,
+            19.45,
+            25.04
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:47.639189+00:00",
+          "load": [
+            13.54,
+            19.31,
+            24.97
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:52.698008+00:00",
+          "load": [
+            13.33,
+            19.17,
+            24.89
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:57.758279+00:00",
+          "load": [
+            13.15,
+            19.04,
+            24.82
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:02.817128+00:00",
+          "load": [
+            12.97,
+            18.9,
+            24.74
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943318,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 40.47492734703701,
+      "finished": "2026-09-19T00:26:07.828359+00:00",
+      "after": {
+        "time": "2026-09-19T00:26:07.876643+00:00",
+        "load": [
+          12.98,
+          18.8,
+          24.68
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "dcc642569b82b4924ce38b457e6ee9e9296f45d708916317ecdec953ee115927"
+    },
+    {
+      "name": "rapidhash",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:26:07.983413+00:00",
+      "before": {
+        "time": "2026-09-19T00:26:07.928694+00:00",
+        "load": [
+          12.98,
+          18.8,
+          24.68
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:26:08.032983+00:00",
+          "load": [
+            12.98,
+            18.8,
+            24.68
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:13.092968+00:00",
+          "load": [
+            12.9,
+            18.69,
+            24.61
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:18.153245+00:00",
+          "load": [
+            12.75,
+            18.56,
+            24.54
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:23.212929+00:00",
+          "load": [
+            12.53,
+            18.42,
+            24.46
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:28.273074+00:00",
+          "load": [
+            12.4,
+            18.3,
+            24.39
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:33.332202+00:00",
+          "load": [
+            12.21,
+            18.16,
+            24.31
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:38.390394+00:00",
+          "load": [
+            12.03,
+            18.02,
+            24.23
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:43.450146+00:00",
+          "load": [
+            12.03,
+            17.92,
+            24.17
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:48.509207+00:00",
+          "load": [
+            11.87,
+            17.79,
+            24.09
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:53.568020+00:00",
+          "load": [
+            11.96,
+            17.71,
+            24.03
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:58.628558+00:00",
+          "load": [
+            11.96,
+            17.62,
+            23.96
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:03.690876+00:00",
+          "load": [
+            11.88,
+            17.51,
+            23.89
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943438,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:08.750082+00:00",
+          "load": [
+            11.89,
+            17.41,
+            23.83
+          ],
+          "smhasher_processes": []
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 65.7778823459521,
+      "finished": "2026-09-19T00:27:13.761384+00:00",
+      "after": {
+        "time": "2026-09-19T00:27:13.809861+00:00",
+        "load": [
+          11.66,
+          17.27,
+          23.75
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "571d576884c3b4866f0f1190cce7f4883a1481f475d24fdc6ea32061a7ac6214"
+    },
+    {
+      "name": "chainhash-256",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "chainhash-256",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:27:13.915433+00:00",
+      "before": {
+        "time": "2026-09-19T00:27:13.860741+00:00",
+        "load": [
+          11.66,
+          17.27,
+          23.75
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "chainhash-256.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:27:13.964285+00:00",
+          "load": [
+            11.66,
+            17.27,
+            23.75
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:19.023651+00:00",
+          "load": [
+            11.53,
+            17.15,
+            23.68
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:24.082953+00:00",
+          "load": [
+            11.57,
+            17.07,
+            23.61
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:29.138950+00:00",
+          "load": [
+            11.44,
+            16.95,
+            23.54
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:34.198287+00:00",
+          "load": [
+            11.33,
+            16.83,
+            23.47
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:39.256399+00:00",
+          "load": [
+            11.22,
+            16.72,
+            23.39
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:44.317096+00:00",
+          "load": [
+            11.12,
+            16.61,
+            23.32
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:49.374401+00:00",
+          "load": [
+            11.03,
+            16.5,
+            23.25
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:54.434211+00:00",
+          "load": [
+            10.95,
+            16.39,
+            23.18
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:59.489017+00:00",
+          "load": [
+            10.79,
+            16.27,
+            23.1
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:04.550601+00:00",
+          "load": [
+            10.73,
+            16.16,
+            23.03
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:09.607551+00:00",
+          "load": [
+            10.83,
+            16.09,
+            22.97
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2943865,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 60.70332505402621,
+      "finished": "2026-09-19T00:28:14.618832+00:00",
+      "after": {
+        "time": "2026-09-19T00:28:14.667239+00:00",
+        "load": [
+          11.0,
+          16.04,
+          22.92
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "429f30cf9ebaa0072d073f55931e9b5c3d0f9d716ecbcdb512b658a62db5dad7"
+    },
+    {
+      "name": "MuseAir",
+      "run": 1,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "MuseAir",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:28:14.776326+00:00",
+      "before": {
+        "time": "2026-09-19T00:28:14.721209+00:00",
+        "load": [
+          11.0,
+          16.04,
+          22.92
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:28:14.826483+00:00",
+          "load": [
+            11.0,
+            16.04,
+            22.92
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:19.881910+00:00",
+          "load": [
+            11.16,
+            15.99,
+            22.87
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:24.941684+00:00",
+          "load": [
+            11.47,
+            15.97,
+            22.82
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:29.997885+00:00",
+          "load": [
+            11.51,
+            15.91,
+            22.76
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:35.057704+00:00",
+          "load": [
+            11.63,
+            15.86,
+            22.71
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:40.113402+00:00",
+          "load": [
+            11.58,
+            15.78,
+            22.65
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:45.173290+00:00",
+          "load": [
+            11.46,
+            15.68,
+            22.58
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:50.229680+00:00",
+          "load": [
+            11.42,
+            15.6,
+            22.52
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:55.288783+00:00",
+          "load": [
+            11.39,
+            15.53,
+            22.46
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:00.343955+00:00",
+          "load": [
+            11.27,
+            15.44,
+            22.39
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:05.404084+00:00",
+          "load": [
+            11.17,
+            15.35,
+            22.32
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:10.460005+00:00",
+          "load": [
+            11.32,
+            15.31,
+            22.27
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:15.520379+00:00",
+          "load": [
+            11.29,
+            15.24,
+            22.21
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:20.576678+00:00",
+          "load": [
+            11.19,
+            15.15,
+            22.14
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:25.635846+00:00",
+          "load": [
+            11.09,
+            15.06,
+            22.08
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:30.692598+00:00",
+          "load": [
+            11.01,
+            14.98,
+            22.01
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944109,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 80.92739991797134,
+      "finished": "2026-09-19T00:29:35.703811+00:00",
+      "after": {
+        "time": "2026-09-19T00:29:35.752674+00:00",
+        "load": [
+          10.93,
+          14.89,
+          21.95
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "7b8e0d6781df7c00cdf010f7f155088d806ba0aa4b8feb8385f6a06140e3af2c"
+    },
+    {
+      "name": "MuseAir-v2",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "MuseAir-v2",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:29:35.858209+00:00",
+      "before": {
+        "time": "2026-09-19T00:29:35.803963+00:00",
+        "load": [
+          10.93,
+          14.89,
+          21.95
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir-v2.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:29:35.907084+00:00",
+          "load": [
+            10.93,
+            14.89,
+            21.95
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:40.965480+00:00",
+          "load": [
+            10.93,
+            14.83,
+            21.89
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:46.025702+00:00",
+          "load": [
+            10.87,
+            14.69,
+            21.77
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:51.082763+00:00",
+          "load": [
+            10.8,
+            14.61,
+            21.7
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:56.142674+00:00",
+          "load": [
+            10.81,
+            14.55,
+            21.65
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:01.198878+00:00",
+          "load": [
+            11.31,
+            14.59,
+            21.62
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:06.259665+00:00",
+          "load": [
+            11.45,
+            14.56,
+            21.58
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:11.316278+00:00",
+          "load": [
+            11.65,
+            14.55,
+            21.53
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:16.376516+00:00",
+          "load": [
+            11.68,
+            14.51,
+            21.48
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:21.433550+00:00",
+          "load": [
+            11.7,
+            14.47,
+            21.43
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:26.492550+00:00",
+          "load": [
+            11.57,
+            14.39,
+            21.37
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:31.549850+00:00",
+          "load": [
+            11.44,
+            14.32,
+            21.31
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:36.609682+00:00",
+          "load": [
+            11.49,
+            14.28,
+            21.26
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:41.665750+00:00",
+          "load": [
+            11.37,
+            14.21,
+            21.2
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:46.725283+00:00",
+          "load": [
+            11.26,
+            14.14,
+            21.14
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:51.784372+00:00",
+          "load": [
+            11.16,
+            14.07,
+            21.08
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944493,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 80.93736385204829,
+      "finished": "2026-09-19T00:30:56.795651+00:00",
+      "after": {
+        "time": "2026-09-19T00:30:56.843976+00:00",
+        "load": [
+          11.06,
+          14.0,
+          21.02
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "aa80fb622b3131781f2038320306eb93c56f75fdca81605d19615a2fcb2a58e3"
+    },
+    {
+      "name": "XXH3-64",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "XXH3-64",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:30:56.951305+00:00",
+      "before": {
+        "time": "2026-09-19T00:30:56.896489+00:00",
+        "load": [
+          11.06,
+          14.0,
+          21.02
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "XXH3-64.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:30:57.000699+00:00",
+          "load": [
+            11.06,
+            14.0,
+            21.02
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:02.060859+00:00",
+          "load": [
+            11.46,
+            14.04,
+            20.99
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:07.121229+00:00",
+          "load": [
+            11.58,
+            14.02,
+            20.95
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:12.179393+00:00",
+          "load": [
+            12.34,
+            14.14,
+            20.95
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:17.239132+00:00",
+          "load": [
+            12.23,
+            14.08,
+            20.89
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:22.295140+00:00",
+          "load": [
+            12.45,
+            14.1,
+            20.86
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:27.354212+00:00",
+          "load": [
+            12.42,
+            14.06,
+            20.81
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:32.412867+00:00",
+          "load": [
+            12.3,
+            14.01,
+            20.76
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2944957,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 40.47276688797865,
+      "finished": "2026-09-19T00:31:37.424146+00:00",
+      "after": {
+        "time": "2026-09-19T00:31:37.473793+00:00",
+        "load": [
+          12.44,
+          14.01,
+          20.72
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "14805e4104d86e05d2893aefc618850f887cae48c241f2595d6df023cb63fa5b"
+    },
+    {
+      "name": "rapidhash",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:31:37.581783+00:00",
+      "before": {
+        "time": "2026-09-19T00:31:37.526802+00:00",
+        "load": [
+          12.44,
+          14.01,
+          20.72
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:31:37.628130+00:00",
+          "load": [
+            12.44,
+            14.01,
+            20.72
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:42.685419+00:00",
+          "load": [
+            12.32,
+            13.96,
+            20.67
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:47.743977+00:00",
+          "load": [
+            12.22,
+            13.91,
+            20.62
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:52.801683+00:00",
+          "load": [
+            12.36,
+            13.91,
+            20.58
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:31:57.859039+00:00",
+          "load": [
+            12.65,
+            13.95,
+            20.56
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:02.919415+00:00",
+          "load": [
+            12.52,
+            13.9,
+            20.51
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:07.976772+00:00",
+          "load": [
+            12.48,
+            13.87,
+            20.46
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:13.035279+00:00",
+          "load": [
+            12.28,
+            13.8,
+            20.41
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:18.092124+00:00",
+          "load": [
+            12.1,
+            13.74,
+            20.35
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:23.149941+00:00",
+          "load": [
+            11.93,
+            13.68,
+            20.29
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:28.205880+00:00",
+          "load": [
+            11.77,
+            13.62,
+            20.24
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:33.264307+00:00",
+          "load": [
+            11.63,
+            13.56,
+            20.18
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:38.320496+00:00",
+          "load": [
+            11.58,
+            13.51,
+            20.13
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945365,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 65.74993331404403,
+      "finished": "2026-09-19T00:32:43.331804+00:00",
+      "after": {
+        "time": "2026-09-19T00:32:43.379646+00:00",
+        "load": [
+          11.37,
+          13.44,
+          20.07
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "d2dc0dcb83575691ae671248edee98d343887122410cb8c4224d94782b12b358"
+    },
+    {
+      "name": "chainhash-256",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "chainhash-256",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:32:43.487146+00:00",
+      "before": {
+        "time": "2026-09-19T00:32:43.432206+00:00",
+        "load": [
+          11.37,
+          13.44,
+          20.07
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "chainhash-256.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:32:43.535279+00:00",
+          "load": [
+            11.37,
+            13.44,
+            20.07
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:48.591134+00:00",
+          "load": [
+            11.26,
+            13.38,
+            20.02
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:53.650231+00:00",
+          "load": [
+            11.16,
+            13.32,
+            19.96
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:58.709365+00:00",
+          "load": [
+            11.07,
+            13.27,
+            19.91
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:03.765776+00:00",
+          "load": [
+            10.98,
+            13.21,
+            19.86
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:08.826015+00:00",
+          "load": [
+            11.38,
+            13.26,
+            19.84
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:13.886109+00:00",
+          "load": [
+            11.75,
+            13.31,
+            19.82
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:18.941761+00:00",
+          "load": [
+            12.17,
+            13.37,
+            19.8
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:23.996310+00:00",
+          "load": [
+            12.0,
+            13.31,
+            19.75
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:29.052289+00:00",
+          "load": [
+            11.84,
+            13.26,
+            19.69
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:34.104105+00:00",
+          "load": [
+            11.85,
+            13.24,
+            19.65
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:39.162859+00:00",
+          "load": [
+            11.7,
+            13.18,
+            19.6
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945649,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 60.68682003393769,
+      "finished": "2026-09-19T00:33:44.174040+00:00",
+      "after": {
+        "time": "2026-09-19T00:33:44.222470+00:00",
+        "load": [
+          11.49,
+          13.11,
+          19.54
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "c14803fa3b58cba1b9e853a82af26d6cd2ec8f5430abf3340def790809043aca"
+    },
+    {
+      "name": "MuseAir",
+      "run": 2,
+      "command": [
+        "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+        "MuseAir",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:33:44.329593+00:00",
+      "before": {
+        "time": "2026-09-19T00:33:44.274799+00:00",
+        "load": [
+          11.49,
+          13.11,
+          19.54
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:33:44.377737+00:00",
+          "load": [
+            11.49,
+            13.11,
+            19.54
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:49.436716+00:00",
+          "load": [
+            11.37,
+            13.06,
+            19.49
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:54.496267+00:00",
+          "load": [
+            11.26,
+            13.01,
+            19.44
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:59.555926+00:00",
+          "load": [
+            11.16,
+            12.96,
+            19.39
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:04.615067+00:00",
+          "load": [
+            11.06,
+            12.91,
+            19.34
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:09.674606+00:00",
+          "load": [
+            11.14,
+            12.89,
+            19.3
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:14.735542+00:00",
+          "load": [
+            10.49,
+            12.73,
+            19.21
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:19.794164+00:00",
+          "load": [
+            9.89,
+            12.57,
+            19.12
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:24.854680+00:00",
+          "load": [
+            9.26,
+            12.39,
+            19.03
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:29.915575+00:00",
+          "load": [
+            8.67,
+            12.22,
+            18.94
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:34.975149+00:00",
+          "load": [
+            8.14,
+            12.05,
+            18.85
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:40.035935+00:00",
+          "load": [
+            7.73,
+            11.9,
+            18.76
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:45.095555+00:00",
+          "load": [
+            7.27,
+            11.73,
+            18.67
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:50.154435+00:00",
+          "load": [
+            6.93,
+            11.59,
+            18.59
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:55.214776+00:00",
+          "load": [
+            6.77,
+            11.48,
+            18.52
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:35:00.271780+00:00",
+          "load": [
+            6.47,
+            11.34,
+            18.43
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 2945981,
+              "command": "SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 80.95338066411205,
+      "finished": "2026-09-19T00:35:05.283048+00:00",
+      "after": {
+        "time": "2026-09-19T00:35:05.330499+00:00",
+        "load": [
+          6.27,
+          11.22,
+          18.35
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "4716beccac17fdb62a6b7da100e0e9b06134033612973aae95ab21b1ca007153"
+    }
+  ],
+  "excluded_runs": [],
+  "binary_sha256_after": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
+  "finished": "2026-09-19T00:35:05.387129+00:00"
+}

@@ -1,0 +1,8 @@
+[package]
+name = "genvec"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+museair = { path = "/home/thomas-ahle/agents/heuristic-pass/muse-verify/wt/crate-0.6.0" }
+[profile.release]
+opt-level = 3

@@ -1,0 +1,45 @@
+{
+  "word_bits": 64,
+  "q": 18446744073709551616,
+  "p": 2305843009213693951,
+  "mask_count": 852,
+  "small_valuation_enh": [
+    2771,
+    1230,
+    508,
+    24
+  ],
+  "enh_constant": 3125,
+  "ph_small_valuation": [
+    852,
+    852,
+    852
+  ],
+  "ph_constant": 1123,
+  "block_constant": 3125,
+  "identity_bound_at_least_one_long": [
+    625,
+    3689348814741910211
+  ],
+  "envelope_constant": 423,
+  "envelope_unrounded": [
+    3595295882999040440427862954089753083904,
+    8507059173023461316800733107792013239
+  ],
+  "epsilon_at_L2": [
+    1448530578388042537297,
+    8507059173023461316800733107792013239
+  ],
+  "score_ratio": [
+    17014118346046922633601466215584026478,
+    1448530578388042537297
+  ],
+  "score_decimal_display": "53.3829917723480353640687096334447156132667180",
+  "score_exact_interval": [
+    "53.38",
+    "53.39"
+  ],
+  "tested_lengths": 4111,
+  "sharp_primary_projection_proved": false,
+  "published_constant_refuted": false
+}

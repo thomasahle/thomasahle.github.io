@@ -4,7 +4,7 @@ Date: 2026-09-19. Proof under review: `scratchpad/codex/umash-goal/PROOF.md`
 (889 lines, automated prover, maximum effort, not previously human-read).
 Three independent adversarial lenses (logic chain; ENH fibre lemma + scaled/64-bit
 enumeration; constants + Lean-proposition match) each returned `refuted = false`.
-All computation ran on the Xeon under `~/agents/umash-verify/<lens>/`.
+All computation ran on the Xeon under `<xeon-work>/umash-verify/<lens>/`.
 
 ## Decision: HOLDS (no corrections to the bound or its constants)
 
@@ -215,9 +215,9 @@ L in 64-bit words, eps floored at 2^-64 (q = 2^64 convention).
 
 - Lens 1 (logic): `scratchpad/design/umash-verify/logic/verify_constants.py`,
   `constants_out.json` (PASS), `enh_bound_check.c` with enh_w{5,6,8}.json
-  (0 failures); Xeon `~/agents/umash-verify/logic/run.log`.
+  (0 failures); Xeon `<xeon-work>/umash-verify/logic/run.log`.
 - Lens 2 (ENH fibre): masks64.py, enh_scaled.c, brute_check.py, enh_fibre64.c
-  under `~/agents/umash-verify/` on the Xeon; exhaustive_lift rerun sha256
+  under `<xeon-work>/umash-verify/` on the Xeon; exhaustive_lift rerun sha256
   4ec229f0... identical.
 - Lens 3 (constants): `scratchpad/design/umash-verify/constants/` (my_certify.py,
   enh_scaled.c, compare.py, short_check.py, refine.py, README.md, xeon/ with

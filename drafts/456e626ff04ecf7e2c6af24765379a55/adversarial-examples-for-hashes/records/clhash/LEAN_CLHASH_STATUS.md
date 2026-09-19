@@ -158,7 +158,7 @@ performed. All proof builds used `nice -n 10 taskset -c 48-55` and
 - Lean compiler commit:
   `797c613eb9b6d4ec95db23e3e00af9ac6657f24b` (4.24.0).
 - Remote workspace:
-  `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-clhash`.
+  `<xeon-host>:<xeon-work>/lean-clhash`.
 - Final full build, audits, and vector checks:
   [logs/clhash-32-reproduction-audit.log](logs/clhash-32-reproduction-audit.log).
 - Native-byte theorem build:
@@ -178,7 +178,7 @@ hypothesis in the symmetric statement.
 On the Xeon, using the preserved cache:
 
 ```bash
-cd ~/agents/lean-clhash
+cd <xeon-work>/lean-clhash
 CPUSET=48-55 bash lean/build.sh
 ```
 

@@ -5,9 +5,9 @@ This is a partial formalization. The authoritative completion ledger is
 not assume them. Numeric inequalities in `UMASHConstants.lean` are arithmetic
 certificates, not proofs of collision probabilities for the corresponding cases.
 
-The workspace was copied with `cp -a` from `~/agents/lean-classic` to
-`~/agents/lean-umash`, retaining its `.lake` build cache and its existing
-`.lake/packages` symlink into `~/agents/lean-hash/lean/.lake/packages`.
+The workspace was copied with `cp -a` from `<xeon-work>/lean-classic` to
+`<xeon-work>/lean-umash`, retaining its `.lake` build cache and its existing
+`.lake/packages` symlink into `<xeon-work>/lean-hash/lean/.lake/packages`.
 Lean is 4.24.0; Mathlib is pinned by the manifest to
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 

@@ -1,0 +1,244 @@
+{
+  "id": "muse-v2",
+  "pattern": [
+    "P2"
+  ],
+  "code_url": "https://github.com/eternal-io/museair/blob/crate-0.6.0/src/lib.rs",
+  "name": "MuseAir v2 (crate 0.6.0)",
+  "version": "v2 (crate 0.6.0, algorithm v2)",
+  "label": "MuseAir v2",
+  "anchor": "appendix-museair-v2",
+  "family": "heuristic",
+  "claim_id": "museair",
+  "output_bits": 64,
+  "key_bits": 64,
+  "key_model": "Uniform 64-bit seed, museair::hash(bytes, seed). bfast::hash collides on exactly the same seeds; hash128 / bfast::hash128 (seed_a, seed_b uniform) collide at the same rate on a different seed set (two-seed model).",
+  "status": "NEW",
+  "classification_reason": "First scored witness for algorithm v2; carry-mismatch differential on the 17..32-byte tail products, found by DP search and confirmed against the crates.io tarball.",
+  "official_claim": {
+    "text": "Not vulnerable to blinding multiplication attacks ... passed all SMHasher3 tests",
+    "url": "https://github.com/eternal-io/museair/blob/3f0d8c8/README.md",
+    "context": "Current README (3f0d8c8); line 82: MuseAir relies solely on an initial seed, without any additional secret, and is described as unsuitable for direct use on servers. Same claim_id as the v0.3 row.",
+    "provenance": "records/review-inputs/claims.json#/result/table/rows/6/official_claim_quote"
+  },
+  "smhasher3": {
+    "verdict": "not in SMHasher3 (ships v0.3 only)",
+    "passed": null,
+    "total": null,
+    "url": "https://gitlab.com/fwojcik/smhasher3/-/blob/3b619371/results/README.md",
+    "failed_tests": [],
+    "note": "Upstream README states v2 passes all SMHasher3 tests; not reproduced here."
+  },
+  "pair": {
+    "m_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+    "m_prime_hex": "00000000000000404a048402a910048a00000000000000a80000000000000000",
+    "verifier_confirmed": true,
+    "example_seed_raw": "0x040963434fe5e368 (hash 0xef46cda19c0bbc67; bfast 0x8d303f6a6db80174); seed 0 does not collide",
+    "provenance": [
+      "records/witness-searches/muse-v2/README.md",
+      "records/witness-searches/muse-v2-verify/README.md"
+    ],
+    "implementation_validation": "Searcher: C11 port of crate 0.6.0 src/lib.rs (sha256 123772c6...) validated with 200,000 vectors from a Rust generator linked to the crate worktree, 0 mismatches. Verifier: Rust program linked directly to the crates.io tarball museair-0.6.0.crate (sha256 e07cb15b...7314e), crate's own cargo test stability_v2 passes.",
+    "lengths_bytes": [
+      32,
+      32
+    ],
+    "L_words": 4,
+    "example_key_words_hex": [
+      "040963434fe5e368"
+    ],
+    "example_output_hex": "ef46cda19c0bbc67",
+    "construction": "head word i ^= 0x4000000000000000, head word j ^= 0x8a0410a90284044a, tail word u bits 59/61/63 ^= 0xa8<<56 (m = 21: 21*C5 has carry weight 16)"
+  },
+  "collision": {
+    "display": "about 2^-17.45 of keys (sampled; 36,060 events / 1.5×2^32 keys, upstream crate)",
+    "count": 36060,
+    "trials": 6442450944,
+    "log2_contribution": -17.4469,
+    "exact_contribution": false,
+    "total_equality_proved": false,
+    "interpretation": "Measured rate",
+    "epsilon_95_interval": [
+      5.5396e-06,
+      5.6553e-06
+    ],
+    "interval_method": "central equal-tail exact Poisson (Garwood)",
+    "runs": "verifier fresh 2^32: 23869 (2^-17.457), fresh 2^31: 12191 (2^-17.426); searcher 2^30: 6066, 2^32: 23952, 2^31: 12061 (pooled 2^-17.447); pooled all 78139/(3.25*2^32) = 2^-17.4467"
+  },
+  "score": {
+    "calculated": 19.4469,
+    "display": 19.45,
+    "display_text": "at most 19.45 bits (cap; sampled; 95% interval 19.43–19.46)",
+    "direction": "estimated_upper_bound",
+    "rounding": "nearest",
+    "derivation": "log2(4) - (-17.4469)",
+    "approximate_95_half_width_bits": 0.015,
+    "interval_95_bits": [
+      19.432,
+      19.462
+    ]
+  },
+  "bits": 19.4469,
+  "bits_kind": "measured",
+  "mechanism": "For 17..32 bytes the tail enters as wmul(C4^seed^u, C5); flipping tail bits changes the product by +-m*C5 whose XOR image hits a fixed pattern with probability 2^-16 (carry mismatches), and that pattern XORed into the head cancels.",
+  "hover": {
+    "mechanism": "A signed-digit tail flip shifts a public product by +-21*C5; a fixed head XOR cancels it when the carries agree.",
+    "quote": "Not vulnerable to blinding multiplication attacks",
+    "claim_note": "v2 README (3f0d8c8); single seed, no secret; unsuitable for servers per README"
+  },
+  "notes": "Algorithm v2 (crate 0.6.0). Lengths <= 16 are head-XOR only (2^-64 floor for a fixed pair); the long path (> 32 B) carries 32 seed bits in every state word, and its best exact event is a zero tail multiplicand: a 40-byte pair collides on exactly the 2^32 seeds with seed & 0xAAAA...AAAA = 0 (2^20/2^20 class seeds, 0/2^30 uniform; hash and bfast::hash only, the 128-bit functions' seeding differs), cap 34.3 bits. Runner-up at 19 B (L = 3): 4096/2^30 = 2^-18.00, cap 19.58 (verifier 4019/2^30, 19.61). DP search over odd m < 2^20 (NAF <= 3) and m < 2^12 (NAF <= 4) at all shifts and both words with read_short's overlap constraints; top 135 re-measured at 2^26; model-free byte sweeps at the boundaries confirmed 0xa8; bounded single-bit-flip scan at lengths 1..64 found no exact state collision. Verifier: two-sample z = -0.03 against the searcher's pooled rate. The v0.3 row's every-seed pair gives 0/2^24 on v2.",
+  "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Rate quoted for museair::hash with a single uniform 64-bit seed; bfast::hash collides on identical seeds; the 128-bit variants (seed_a, seed_b) collide at the same rate under a two-seed model. Not scored by SMHasher3 (ships v0.3).",
+  "speeds": {
+    "m2_gbps_16k": {
+      "value": null,
+      "source": "No algorithm-v2 timing registered",
+      "source_short": "unavailable",
+      "record": "records/witness-searches/muse-v2/README.md"
+    },
+    "m2_gbps_512": {
+      "value": null,
+      "source": "No algorithm-v2 timing registered",
+      "source_short": "unavailable",
+      "record": "records/witness-searches/muse-v2/README.md"
+    },
+    "smh_m2_bulk_Bpc": {
+      "value": 10.42,
+      "source": "SMHasher3 registered MuseAir-v2 M2Pro, 262144 B bulk, B/cycle",
+      "source_short": "SMHasher3 M2Pro",
+      "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+      "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/M2Pro",
+      "registered_name": "MuseAir-v2",
+      "host": "M2Pro",
+      "backend_token": "scalar-mul128",
+      "backend_note": "scalar 64×64→128 multiplication",
+      "binary_sha256": "b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4",
+      "selected_run": 3,
+      "selection": "median-of-three",
+      "spread_percent": 0.481695568400764,
+      "verification": {
+        "status": "PASS",
+        "implementation": "PASS",
+        "native_value": "7140cabc",
+        "failure_lines": [],
+        "sanity_raw_file": "evidence/M2Pro/MuseAir-v2.sanity.txt",
+        "sanity_raw_sha256": "c709eb6c52ef806eaec148395dab82ba3198752230c12e15916959aca4ace145",
+        "vectors_raw_file": "evidence/M2Pro/verification.txt",
+        "vector_count": 200000,
+        "registered_vector_calls": 600000,
+        "final_object_raw_file": "evidence/M2Pro/verification-final.txt",
+        "pair_examples_reproduced": true
+      },
+      "timing_status": "complete"
+    },
+    "smh_xeon_bulk_Bpc": {
+      "value": 7.53,
+      "source": "SMHasher3 registered MuseAir-v2 Xeon8375C, 262144 B bulk, B/cycle",
+      "source_short": "SMHasher3 Xeon8375C",
+      "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+      "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/Xeon8375C",
+      "registered_name": "MuseAir-v2",
+      "host": "Xeon8375C",
+      "backend_token": "scalar-mul128",
+      "backend_note": "scalar 64×64→128 multiplication",
+      "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
+      "selected_run": 1,
+      "selection": "higher-bulk-lower-small-of-two",
+      "spread_percent": 0.0,
+      "verification": {
+        "status": "PASS",
+        "implementation": "PASS",
+        "native_value": "7140cabc",
+        "failure_lines": [],
+        "sanity_raw_file": "evidence/Xeon8375C/MuseAir-v2.sanity.txt",
+        "sanity_raw_sha256": "b552c4ccdb805be631b12bc96854ffa8242ec835b922581de353f4485ccb3070",
+        "vectors_raw_file": "evidence/Xeon8375C/verification.txt",
+        "vector_count": 200000,
+        "registered_vector_calls": 600000,
+        "final_object_raw_file": "evidence/Xeon8375C/verification-final.txt",
+        "pair_examples_reproduced": true
+      },
+      "timing_status": "complete"
+    },
+    "smh_m2_small_cycles": {
+      "value": 22.32,
+      "source": "SMHasher3 registered MuseAir-v2 M2Pro, 1–31 B, cycles/hash",
+      "source_short": "SMHasher3 M2Pro",
+      "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+      "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/M2Pro",
+      "registered_name": "MuseAir-v2",
+      "host": "M2Pro",
+      "backend_token": "scalar-mul128",
+      "backend_note": "scalar 64×64→128 multiplication",
+      "binary_sha256": "b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4",
+      "selected_run": 2,
+      "selection": "median-of-three",
+      "spread_percent": 3.199268738574035,
+      "verification": {
+        "status": "PASS",
+        "implementation": "PASS",
+        "native_value": "7140cabc",
+        "failure_lines": [],
+        "sanity_raw_file": "evidence/M2Pro/MuseAir-v2.sanity.txt",
+        "sanity_raw_sha256": "c709eb6c52ef806eaec148395dab82ba3198752230c12e15916959aca4ace145",
+        "vectors_raw_file": "evidence/M2Pro/verification.txt",
+        "vector_count": 200000,
+        "registered_vector_calls": 600000,
+        "final_object_raw_file": "evidence/M2Pro/verification-final.txt",
+        "pair_examples_reproduced": true
+      },
+      "timing_status": "complete"
+    },
+    "smh_xeon_small_cycles": {
+      "value": 29.27,
+      "source": "SMHasher3 registered MuseAir-v2 Xeon8375C, 1–31 B, cycles/hash",
+      "source_short": "SMHasher3 Xeon8375C",
+      "url": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
+      "record": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json#/MuseAir-v2/Xeon8375C",
+      "registered_name": "MuseAir-v2",
+      "host": "Xeon8375C",
+      "backend_token": "scalar-mul128",
+      "backend_note": "scalar 64×64→128 multiplication",
+      "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
+      "selected_run": 2,
+      "selection": "higher-bulk-lower-small-of-two",
+      "spread_percent": 0.10249402118209794,
+      "verification": {
+        "status": "PASS",
+        "implementation": "PASS",
+        "native_value": "7140cabc",
+        "failure_lines": [],
+        "sanity_raw_file": "evidence/Xeon8375C/MuseAir-v2.sanity.txt",
+        "sanity_raw_sha256": "b552c4ccdb805be631b12bc96854ffa8242ec835b922581de353f4485ccb3070",
+        "vectors_raw_file": "evidence/Xeon8375C/verification.txt",
+        "vector_count": 200000,
+        "registered_vector_calls": 600000,
+        "final_object_raw_file": "evidence/Xeon8375C/verification-final.txt",
+        "pair_examples_reproduced": true
+      },
+      "timing_status": "complete"
+    }
+  },
+  "speed_registration": "MuseAir-v2, scalar-mul128; crate 0.6.0; identity 64-bit seed mapping",
+  "chart_eligible": true,
+  "key_free": false,
+  "mechanism_family": "keyed multiply-fold",
+  "rurban_alias": null,
+  "claim_category": "keyed collision / DoS claim",
+  "input_domain": "Variable-length byte strings; selected witness lengths shown.",
+  "domain_short": "variable-length byte strings; selected witness only",
+  "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
+  "family_definition": "64×64→128 products of seeded words, folded (mum).",
+  "fairness_record": "records/witness-searches/muse-v2/README.md",
+  "provenance": [
+    "records/witness-searches/muse-v2/README.md",
+    "records/witness-searches/muse-v2-verify/README.md",
+    "records/review-inputs/claims.json#/result/table/rows/6",
+    "records/witness-searches/muse-v2-timing/speeds_museair_v2.json"
+  ],
+  "reproduction": {
+    "status": "standalone and upstream checks reproduced; observed Xeon counts recorded",
+    "directory": "verify/museair-v2",
+    "readme": "verify/museair-v2/README.md",
+    "observed": "verify/museair-v2/run_selected_xeon.txt"
+  }
+}

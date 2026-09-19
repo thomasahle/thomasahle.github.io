@@ -3,14 +3,14 @@
 Lean 4.24.0 and Mathlib `v4.24.0`, commit
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 
-The authoritative work directory is `~/agents/lean-polymur/` on
-`thomas-ahle@hardware.normalcomputing.net`. The local copy contains sources and
+The authoritative work directory is `<xeon-work>/lean-polymur/` on
+`<xeon-host>`. The local copy contains sources and
 verification reports, without toolchains, dependency checkouts, or build caches.
 
 On that server:
 
 ```bash
-cd ~/agents/lean-polymur
+cd <xeon-work>/lean-polymur
 source env.sh
 cd lean
 bash build_polymur.sh

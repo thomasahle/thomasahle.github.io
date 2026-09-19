@@ -13,7 +13,7 @@ two-word refinements. The separate envelope for arbitrary byte lengths at
 most `8*L` is the exact piecewise `E_A(L)` from `THEOREMS.md`.
 
 The authoritative workspace for these additions is
-`thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash-modelA`.
+`<xeon-host>:<xeon-work>/lean-chainhash-modelA`.
 Run `source env.sh && lean/build.sh` from that repository. The build script
 checks every theorem's axioms and creates `ModelAAudit.txt` and `FullAudit.txt`.
 `../LEAN_MODELA_STATUS.md` records the final verification status and commit.
@@ -28,13 +28,13 @@ Lean 4.24.0; Mathlib v4.24.0, commit
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 
 The authoritative build workspace is
-`thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash`.
-It was copied with its toolchain and cache from `~/agents/lean-hash`.
+`<xeon-host>:<xeon-work>/lean-chainhash`.
+It was copied with its toolchain and cache from `<xeon-work>/lean-hash`.
 The local `lean/` directory is a source and audit mirror. All compilation and
 certificate generation ran on the Xeon; no Lean build ran on the Mac.
 
 ```bash
-cd ~/agents/lean-chainhash
+cd <xeon-work>/lean-chainhash
 source env.sh
 cd lean
 ./build.sh

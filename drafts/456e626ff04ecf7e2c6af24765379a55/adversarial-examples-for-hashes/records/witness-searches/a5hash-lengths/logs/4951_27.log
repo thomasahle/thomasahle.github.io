@@ -1,0 +1,20 @@
+len=4951 v=27 m=37 k0=33 beam=65536 zbits=-1 feasible (p,q) pairs: 1
+  (p,q)=(20,7) cost=14 free=18+18 e=50 (below k0: 16+16)  weight 2^-50 per full assignment
+S=50 determined seed bits; Pr[S1_init=W*] = weight/2^50
+level 33 histogram: max weight 124 at residual 0x417abc91 (top-65536 weight tail: threshold 52, 73359 bins >= it)
+selected 72233 level-33 bins for extension
+level 34: 68278 nodes, best expected weight 2^9.954 (W prefix 0x417abc91, 248 assignments)
+level 35: 67496 nodes, best expected weight 2^9.295 (W prefix 0x59bf69fb1, 157 assignments)
+level 36: 68952 nodes, best expected weight 2^8.295 (W prefix 0x59bf69fb1, 314 assignments)
+level 37: 65668 nodes, best expected weight 2^7.577 (W prefix 0x4b1a2bc91, 191 assignments)
+BEAM mode: W* = 0x258d15e488000000  weight 191 (191 assignments)  Pr[S1_init = W*] = 2^-42.423  (second-best in beam 188 = 2^-42.445)
+score log2(L/eps) with L=619 words = 51.70 bits
+class size = weight * 2^(64-50) = 3129344 = 2^21.58 seeds
+EXHAUSTIVE verification: class seeds tested 3129344, full-hash collisions 3129344, S1_init mismatches 0 (must be 0); example seed 0x002824fb6a340424
+  h(m1)=7fc197814e93f287 h(m2)=7fc197814e93f287
+control: 0 collisions in 867319 uniform random seeds (expected 1.47e-07 from this class)
+pair: m1[0..24) = e4158d25000000888877665544332211737a81888f969da4  m2[0..24) = e4158d25000000881122334455667788737a81888f969da4  (rest identical: byte i = (7i+3)&0xff)
+
+real	0m56.017s
+user	3m33.598s
+sys	0m3.706s

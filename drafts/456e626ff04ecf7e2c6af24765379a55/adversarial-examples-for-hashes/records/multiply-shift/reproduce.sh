@@ -2,7 +2,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 if [[ "$(uname -s)" != Linux ]]; then
-  echo 'Run this script on the Xeon in ~/agents/lean-multishift.' >&2
+  echo 'Run this script on the Xeon in <xeon-work>/lean-multishift.' >&2
   exit 1
 fi
 source ./env.sh

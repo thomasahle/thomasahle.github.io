@@ -11,9 +11,9 @@
       "+aes",
       "-DCHAINHASH_X86_BLOCK_BYTES=256",
       "-S",
-      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/tests/audit.cpp",
+      "<scratch>/codex/chainhash-m2-adjacent/tests/audit.cpp",
       "-o",
-      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/evidence/arm256.s"
+      "<scratch>/codex/chainhash-m2-adjacent/evidence/arm256.s"
     ],
     "functions": {
       "_audit_batch1": {
@@ -648,9 +648,9 @@
       "+aes",
       "-DCHAINHASH_X86_BLOCK_BYTES=1024",
       "-S",
-      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/tests/audit.cpp",
+      "<scratch>/codex/chainhash-m2-adjacent/tests/audit.cpp",
       "-o",
-      "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/evidence/arm1024.s"
+      "<scratch>/codex/chainhash-m2-adjacent/evidence/arm1024.s"
     ],
     "functions": {
       "_audit_batch1": {

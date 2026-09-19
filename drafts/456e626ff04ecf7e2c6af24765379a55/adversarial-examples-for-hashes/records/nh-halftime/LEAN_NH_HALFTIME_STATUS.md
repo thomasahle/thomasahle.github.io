@@ -138,13 +138,13 @@ M5. `RefinementObligations.lean` makes that missing equation explicit.
 - `2^-65` is the **length-normalized unpadded value**, not the raw collision
   probability. The latter is sharply `2^-64`. If the intended row meant a raw
   `2^-65` collision bound, the checked witness refutes that interpretation.
-- The supplied `/Users/ahle/repos/fast-polynomials/sections/appendix_adversarial.tex`
+- The supplied `<repos>/fast-polynomials/sections/appendix_adversarial.tex`
   contains no NH or HalftimeHash row in this checkout. A snapshot is in
   `evidence/appendix_adversarial.tex`. We used the explicitly permitted full
   128-bit UMAC NH output. No unspecified 64-bit reduction is certified.
   This agrees with the equal-length `2^-w` bound in the original UMAC paper:
   [UMAC proceedings paper](https://www.cs.ucdavis.edu/~rogaway/umac/umac_proc.pdf) (Theorem 4.2).
-- `/Users/ahle/repos/smhasher3/hashes/halftime_hash.cpp` is absent. The permitted
+- `<repos>/smhasher3/hashes/halftime_hash.cpp` is absent. The permitted
   upstream-header fallback was used: `base-neon.hpp`, checked byte-for-byte
   against `8b03edf:halftime-hash.hpp` from the supplied fork. Its scalarized
   address-level behavior is tested, not assumed to be defined standard C++.
@@ -189,14 +189,14 @@ There are no remaining proof holes in reported theorem declarations.
 All Lean and C++ compilation, probability proof checking, vector execution,
 and rank checks ran on the Xeon with `nice -n 10 taskset -c 88-95` and
 `LEAN_NUM_THREADS=8`. The Mac only edited, read, and transferred files.
-Workspace `~/agents/lean-nh-halftime` was created with `cp -a` from
-`~/agents/lean-halftime`, including its 6.3 GB `.lake` cache. Mathlib was not
+Workspace `<xeon-work>/lean-nh-halftime` was created with `cp -a` from
+`<xeon-work>/lean-halftime`, including its 6.3 GB `.lake` cache. Mathlib was not
 rebuilt. The complete Lean source mirror is `./lean/`.
 
 Run on the Xeon:
 
 ```bash
-cd ~/agents/lean-nh-halftime
+cd <xeon-work>/lean-nh-halftime
 bash reproduce.sh
 ```
 
@@ -217,7 +217,7 @@ Upstream header SHA-256:
 
 Proof/test commit: `6b18383da5f034667a9dc1f0c96e7069109878e5`.
 Final build/audit/vector log: [evidence/reproduction.log](evidence/reproduction.log),
-mirrored from `~/agents/lean-nh-halftime/evidence/reproduction.log`.
+mirrored from `<xeon-work>/lean-nh-halftime/evidence/reproduction.log`.
 Tool and source provenance: [evidence/PROVENANCE.txt](evidence/PROVENANCE.txt).
 Per-theorem elaborated signatures and `#print axioms` results are in
 `lean/HalftimeAudit.txt`, with inherited base proofs in `lean/FullAudit.txt`.

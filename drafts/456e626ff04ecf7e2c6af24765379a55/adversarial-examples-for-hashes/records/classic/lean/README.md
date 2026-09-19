@@ -27,7 +27,7 @@ concrete GCM reduction routine or OpenSSL machine code.
 On the designated Xeon:
 
 ```sh
-cd ~/agents/lean-classic
+cd <xeon-work>/lean-classic
 bash build.sh
 ```
 
@@ -38,7 +38,7 @@ and writes the verification records. All successful reports permit only
 `propext`, `Classical.choice`, and `Quot.sound`.
 
 The remote workspace reuses the already downloaded Mathlib packages through
-`.lake/packages -> ~/agents/lean-hash/lean/.lake/packages`. The local source
+`.lake/packages -> <xeon-work>/lean-hash/lean/.lake/packages`. The local source
 mirror intentionally omits `.lake`, compiled binaries, and that machine-specific
 symlink. For a fresh Linux checkout, install the pinned Lean toolchain, fetch
 dependencies with `lake update`, and obtain Mathlib's matching cache with

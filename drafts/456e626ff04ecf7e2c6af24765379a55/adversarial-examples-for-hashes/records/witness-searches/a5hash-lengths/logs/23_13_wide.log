@@ -1,0 +1,34 @@
+len=23 v=13 m=51 k0=33 beam=524288 zbits=-1 feasible (p,q) pairs: 1
+  (p,q)=(6,7) cost=7 free=25+25 e=57 (below k0: 16+16)  weight 2^-57 per full assignment
+S=57 determined seed bits; Pr[S1_init=W*] = weight/2^57
+level 33 histogram: max weight 196 at residual 0x57b1484f (top-524288 weight tail: threshold 44, 549939 bins >= it)
+selected 547334 level-33 bins for extension
+level 34: 543236 nodes, best expected weight 2^24.615 (W prefix 0x57b1484f, 392 assignments)
+level 35: 544937 nodes, best expected weight 2^23.839 (W prefix 0xdc37d98f, 229 assignments)
+level 36: 535504 nodes, best expected weight 2^22.839 (W prefix 0xdc37d98f, 458 assignments)
+level 37: 525866 nodes, best expected weight 2^22.124 (W prefix 0x761234167, 279 assignments)
+level 38: 535682 nodes, best expected weight 2^21.124 (W prefix 0x761234167, 558 assignments)
+level 39: 534485 nodes, best expected weight 2^20.626 (W prefix 0x4761234167, 395 assignments)
+level 40: 547196 nodes, best expected weight 2^19.626 (W prefix 0x4761234167, 790 assignments)
+level 41: 536511 nodes, best expected weight 2^18.725 (W prefix 0xb87bad4d9f, 423 assignments)
+level 42: 530142 nodes, best expected weight 2^17.725 (W prefix 0xb87bad4d9f, 846 assignments)
+level 43: 535037 nodes, best expected weight 2^17.063 (W prefix 0xa4a82d4167, 535 assignments)
+level 44: 524934 nodes, best expected weight 2^16.063 (W prefix 0xa4a82d4167, 1070 assignments)
+level 45: 525712 nodes, best expected weight 2^15.295 (W prefix 0x8a4a82d4167, 628 assignments)
+level 46: 534172 nodes, best expected weight 2^14.295 (W prefix 0x8a4a82d4167, 1256 assignments)
+level 47: 526669 nodes, best expected weight 2^13.733 (W prefix 0x2e0eb2054d9f, 851 assignments)
+level 48: 526024 nodes, best expected weight 2^12.733 (W prefix 0x2e0eb2054d9f, 1702 assignments)
+level 49: 525989 nodes, best expected weight 2^12.118 (W prefix 0x1bf589d24cc9f, 1111 assignments)
+level 50: 528660 nodes, best expected weight 2^11.118 (W prefix 0x1bf589d24cc9f, 2222 assignments)
+level 51: 527781 nodes, best expected weight 2^10.373 (W prefix 0x297ac73528b9f, 1326 assignments)
+BEAM mode: W* = 0x52f58e6a5173e000  weight 1326 (1326 assignments)  Pr[S1_init = W*] = 2^-46.627  (second-best in beam 1315 = 2^-46.639)
+score log2(L/eps) with L=3 words = 48.21 bits
+class size = weight * 2^(64-57) = 169728 = 2^17.37 seeds
+EXHAUSTIVE verification: class seeds tested 169728, full-hash collisions 169728, S1_init mismatches 0 (must be 0); example seed 0x007d42a24b4ab0e4
+  h(m1)=eade85610224d0ab h(m2)=eade85610224d0ab
+control: 0 collisions in 16777216 uniform random seeds (expected 1.54e-07 from this class)
+pair: m1[0..23) = 6a8ef55200e073518877665544332211737a81888f969d  m2[0..23) = 6a8ef55200e073511122334455667788737a81888f969d
+
+real	1m12.254s
+user	5m30.163s
+sys	0m30.605s

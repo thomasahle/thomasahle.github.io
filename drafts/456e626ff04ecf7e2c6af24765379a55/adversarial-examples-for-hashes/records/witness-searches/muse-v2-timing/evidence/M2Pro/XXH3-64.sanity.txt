@@ -1,0 +1,14 @@
+--- Testing XXH3-64 "xxh3, 64-bit version" [neon]
+
+[[[ Sanity Tests ]]]
+
+Verification value CE 0x1AAEE62C ...... PASS
+Running sanity check 1       .......... PASS
+Running sanity check 2       .......... PASS
+Running append zeroes test   .......... PASS
+Running prepend zeroes test  .......... PASS
+Running thread-safety test 1 .......... PASS
+Running thread-safety test 2 .......... PASS
+
+Verification value is 0x00000001 - Testing took 0.180024 seconds
+

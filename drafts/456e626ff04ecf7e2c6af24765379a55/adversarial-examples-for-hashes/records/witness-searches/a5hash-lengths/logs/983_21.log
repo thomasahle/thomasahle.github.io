@@ -1,0 +1,26 @@
+len=983 v=21 m=43 k0=33 beam=65536 zbits=-1 feasible (p,q) pairs: 1
+  (p,q)=(12,9) cost=11 free=21+21 e=53 (below k0: 16+16)  weight 2^-53 per full assignment
+S=53 determined seed bits; Pr[S1_init=W*] = weight/2^53
+level 33 histogram: max weight 119 at residual 0x36e82237 (top-65536 weight tail: threshold 52, 72831 bins >= it)
+selected 71875 level-33 bins for extension
+level 34: 67190 nodes, best expected weight 2^15.895 (W prefix 0x36e82237, 238 assignments)
+level 35: 65870 nodes, best expected weight 2^15.313 (W prefix 0xd788c20f, 159 assignments)
+level 36: 67914 nodes, best expected weight 2^14.313 (W prefix 0xd788c20f, 318 assignments)
+level 37: 69058 nodes, best expected weight 2^13.524 (W prefix 0xd788c20f, 184 assignments)
+level 38: 65700 nodes, best expected weight 2^12.524 (W prefix 0xd788c20f, 368 assignments)
+level 39: 67988 nodes, best expected weight 2^11.768 (W prefix 0x1e94f7cba7, 218 assignments)
+level 40: 66996 nodes, best expected weight 2^10.768 (W prefix 0x1e94f7cba7, 436 assignments)
+level 41: 67481 nodes, best expected weight 2^10.205 (W prefix 0x1d59470640f, 295 assignments)
+level 42: 67834 nodes, best expected weight 2^9.205 (W prefix 0x1d59470640f, 590 assignments)
+level 43: 66460 nodes, best expected weight 2^8.504 (W prefix 0x360b565b217, 363 assignments)
+BEAM mode: W* = 0x6c16acb642e00000  weight 363 (363 assignments)  Pr[S1_init = W*] = 2^-44.496  (second-best in beam 360 = 2^-44.508)
+score log2(L/eps) with L=123 words = 51.44 bits
+class size = weight * 2^(64-53) = 743424 = 2^19.50 seeds
+EXHAUSTIVE verification: class seeds tested 743424, full-hash collisions 743424, S1_init mismatches 0 (must be 0); example seed 0x002350b666a9e1a4
+  h(m1)=2805ac8934862abd h(m2)=2805ac8934862abd
+control: 0 collisions in 4364804 uniform random seeds (expected 1.76e-07 from this class)
+pair: m1[0..24) = b6ac166c0000e0428877665544332211737a81888f969da4  m2[0..24) = b6ac166c0000e0421122334455667788737a81888f969da4  (rest identical: byte i = (7i+3)&0xff)
+
+real	1m15.431s
+user	3m38.401s
+sys	0m3.755s

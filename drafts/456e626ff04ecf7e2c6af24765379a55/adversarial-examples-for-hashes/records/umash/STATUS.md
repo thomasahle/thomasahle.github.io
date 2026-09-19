@@ -160,7 +160,7 @@ The finalizer and mask certificate are checked by the kernel; no compiler-trust
 axioms are used.
 
 - Build log: [lean/BuildUMASH.txt](lean/BuildUMASH.txt), also
-  `~/agents/lean-umash/BuildUMASH.txt` on the Xeon.
+  `<xeon-work>/lean-umash/BuildUMASH.txt` on the Xeon.
 - Complete signatures/axioms: [lean/AuditAll.txt](lean/AuditAll.txt).
 - Machine-readable audit: [lean/Verification.json](lean/Verification.json).
 - Source/input SHA-256 manifest: [lean/SourceHashes.json](lean/SourceHashes.json).
@@ -174,8 +174,8 @@ axioms are used.
   The subsequent documentation commit is recorded in `lean/ReportCommit.txt`;
   its Lean sources are unchanged from the verified proof commit.
 
-The workspace is `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-umash`,
-copied with its `.lake` cache from `~/agents/lean-classic`. Every Lean build uses
+The workspace is `<xeon-host>:<xeon-work>/lean-umash`,
+copied with its `.lake` cache from `<xeon-work>/lean-classic`. Every Lean build uses
 `nice -n 10 taskset -c 56-63` and `LEAN_NUM_THREADS=8`. Mathlib is never rebuilt;
 the Mac is used only for edits and transfers. Reproduce on the Xeon with
 `bash reproduce.sh`. The local source and audit mirror is [lean/](lean/).

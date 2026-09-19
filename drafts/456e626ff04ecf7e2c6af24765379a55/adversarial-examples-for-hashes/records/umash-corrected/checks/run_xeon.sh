@@ -2,8 +2,8 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 case "$(hostname)" in
-  hardware|hardware.normalcomputing.net) ;;
-  *) echo 'Run this certificate on hardware.normalcomputing.net.' >&2; exit 1 ;;
+  hardware|<xeon-host>) ;;
+  *) echo 'Run this certificate on <xeon-host>.' >&2; exit 1 ;;
 esac
 ulimit -v 31250000  # 32,000,000,000 bytes, including the decimal-GB reading.
 export OMP_NUM_THREADS=8

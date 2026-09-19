@@ -203,7 +203,7 @@ Pre-existing verification defects are distinct from changes caused by this repai
 
 ## Protocol, load and results
 
-Each host runs one timing process at a time, in two full passes through its manifest. Commands are exactly `SMHasher3 NAME --test=Speed`, with default 1–31-byte and bulk settings. M2 uses no affinity or priority adjustment. Build alone uses nice 10. Xeon prefixes both Sanity and Speed with `taskset -c CORE`, selected using a three-second per-CPU `/proc/stat` sample that maximizes the minimum idle fraction across SMT siblings. The Xeon binary is the original `~/agents/speedbench/build-release-20260917/SMHasher3`.
+Each host runs one timing process at a time, in two full passes through its manifest. Commands are exactly `SMHasher3 NAME --test=Speed`, with default 1–31-byte and bulk settings. M2 uses no affinity or priority adjustment. Build alone uses nice 10. Xeon prefixes both Sanity and Speed with `taskset -c CORE`, selected using a three-second per-CPU `/proc/stat` sample that maximizes the minimum idle fraction across SMT siblings. The Xeon binary is the original `<xeon-work>/speedbench/build-release-20260917/SMHasher3`.
 
 The M2 start gate samples `uptime` once per 60 seconds until load1 < 3.0, or for 10,800 seconds before running with a timeout flag. The gate applies once immediately before the two Speed passes, as in `speedbench_REPORT.md`; subsequent load is recorded at every run boundary.
 

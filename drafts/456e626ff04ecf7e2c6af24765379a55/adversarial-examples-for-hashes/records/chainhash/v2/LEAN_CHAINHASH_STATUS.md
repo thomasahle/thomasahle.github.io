@@ -1,7 +1,7 @@
 # Concrete ChainHash collision theorem
 
 **Verdict: PROVED.** Verified on 2026-09-18 in
-`thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash`.
+`<xeon-host>:<xeon-work>/lean-chainhash`.
 There is no remaining stage-bound, encoding, finalizer, or field-irreducibility
 hypothesis in the concrete theorem.
 
@@ -121,7 +121,7 @@ block counts the streams cannot be equal, the recurrence contributes at most
 
 The inspected files were
 `tools/bench/chainhash/chainhash_ref.h` and `tools/bench/chainhash/chainhash.h`
-in `/Users/ahle/repos/fast-polynomials`. Their snapshots are in
+in `<repos>/fast-polynomials`. Their snapshots are in
 [reference/](reference/). The detailed paper statement is
 `thm:ph:collision` in [appendix_chainhash.tex](reference/appendix_chainhash.tex),
 lines 231–236. The implementation and paper use:
@@ -176,12 +176,12 @@ Toolchain: **Lean 4.24.0**, **Mathlib v4.24.0**, Mathlib commit
 All Lean builds and certificate generation ran on the Xeon. The Mac performed
 only source editing, transfer, and lightweight inspection; no builds or
 benchmarks ran there. The fresh remote copy retains the existing toolchain
-and dependency cache, and the original `~/agents/lean-hash` was left intact.
+and dependency cache, and the original `<xeon-work>/lean-hash` was left intact.
 
 Reproduce on the Xeon:
 
 ```bash
-cd ~/agents/lean-chainhash
+cd <xeon-work>/lean-chainhash
 source env.sh
 lean/build.sh
 ```
@@ -207,7 +207,7 @@ result is `lean/BuildVerification.txt`.
 
 ## Remote commits and deliverables
 
-Remote repository: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash`.
+Remote repository: `<xeon-host>:<xeon-work>/lean-chainhash`.
 
 | Commit | Result |
 | --- | --- |

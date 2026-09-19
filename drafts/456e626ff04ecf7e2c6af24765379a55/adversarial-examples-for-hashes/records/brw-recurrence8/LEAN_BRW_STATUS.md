@@ -44,7 +44,7 @@ https://cr.yp.to/antiforgery/pema-20071022.pdf, rather than §2/§3.
 
 ## Milestones
 
-1. Copied `~/agents/lean-hash` to `~/agents/lean-brw` using `cp -a`, including
+1. Copied `<xeon-work>/lean-hash` to `<xeon-work>/lean-brw` using `cp -a`, including
    its full `.lake` cache. No Mathlib rebuild. All compilation ran on the
    Xeon with `LEAN_NUM_THREADS=8`, `nice -n 10`, CPU set 40-47.
 2. Proved Bernstein's four base cases and general power-of-two recursion.
@@ -135,7 +135,7 @@ unproved field, injectivity, degree, or independence hypotheses.
 ## Commits and provenance
 
 - Proofs, audit output, and reproduction scripts:
-  `f5085e4959b4e23e65c8f29e09d09afe9d6d5ced` in `~/agents/lean-brw`.
+  `f5085e4959b4e23e65c8f29e09d09afe9d6d5ced` in `<xeon-work>/lean-brw`.
 - Parent lane: `e70213feed3dac6280fe8d7ecdc35dcfd0cf1cc8`.
 - Mathlib v4.24.0: `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 - Lean 4.24.0: `797c613eb9b6d4ec95db23e3e00af9ac6657f24b`.
@@ -148,7 +148,7 @@ unproved field, injectivity, degree, or independence hypotheses.
 On the Xeon:
 
 ```sh
-cd ~/agents/lean-brw/lean
+cd <xeon-work>/lean-brw/lean
 ./reproduce.sh
 ```
 

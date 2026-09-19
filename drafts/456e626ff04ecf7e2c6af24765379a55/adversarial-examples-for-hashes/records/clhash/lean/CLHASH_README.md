@@ -24,7 +24,7 @@ New files:
 After an available CPU allocation is supplied, on the Xeon:
 
 ```bash
-cd ~/agents/lean-clhash
+cd <xeon-work>/lean-clhash
 # Set CPUSET to the replacement allocation supplied by the lane owner.
 CPUSET="$CPUSET" bash lean/build.sh
 ```

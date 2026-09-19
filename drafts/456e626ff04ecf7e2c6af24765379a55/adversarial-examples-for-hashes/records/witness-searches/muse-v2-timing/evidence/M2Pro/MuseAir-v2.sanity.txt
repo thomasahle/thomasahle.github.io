@@ -1,0 +1,14 @@
+--- Testing MuseAir-v2 "MuseAir v2 (crate 0.6.0), standard hash, direct 64-bit seed" [scalar-mul128]
+
+[[[ Sanity Tests ]]]
+
+Verification value LE 0x7140CABC ...... PASS
+Running sanity check 1       .......... PASS
+Running sanity check 2       .......... PASS
+Running append zeroes test   .......... PASS
+Running prepend zeroes test  .......... PASS
+Running thread-safety test 1 .......... PASS
+Running thread-safety test 2 .......... PASS
+
+Verification value is 0x00000001 - Testing took 0.210535 seconds
+

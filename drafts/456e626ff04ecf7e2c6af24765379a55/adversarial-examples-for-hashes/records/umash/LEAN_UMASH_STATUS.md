@@ -22,7 +22,7 @@ CertifiedAllPairs64 → CertifiedAllPairs128
 been assumed or proved. No open-case breakthrough is claimed. The primary
 projection gap is recorded independently from these joint fingerprint cases.
 
-Reproduction: `bash reproduce.sh` in `~/agents/lean-umash` on the Xeon, using the
+Reproduction: `bash reproduce.sh` in `<xeon-work>/lean-umash` on the Xeon, using the
 copied Mathlib cache, CPU set 56–63 and eight Lean threads. The final build log,
 axiom reports, source hashes and model smoke checks are mirrored under `lean/`.
 Final audit and commit metadata are recorded in STATUS.md.

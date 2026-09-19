@@ -141,7 +141,7 @@ def records():
         if row['id']=='a5':
             row.update(classText='s1_init(6615, seed) = 0x8e5caae000000000; 118 × 2¹⁹ seeds, density 118 × 2⁻⁴⁵.', classLog2=row['log2Rate'], conditionalLog2=0)
         elif row['id']=='t1ha':
-            row.update(classText='L & 0x7f868a5066451822 = 0x16808a1062000020, where L = ((seed XOR l₀) + tail) × P1 mod 2⁶⁴. Density 2⁻²⁶; L is a bijection of the seed.', classLog2=-26, conditionalLog2=-4)
+            row.update(classText='L & 0xa5845081f808f44a = 0x2080000118003408, where L = ((seed XOR l₀) + tail) × P1 mod 2⁶⁴. Density 2⁻²⁴; L is a bijection of the seed.', classLog2=-24, conditionalLog2=-4.1928)
         elif row['id']=='highway':
             row.update(classText='hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2⁻³².', classLog2=-32, conditionalLog2=row['log2Rate']+32)
         result.append(row)

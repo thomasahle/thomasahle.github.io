@@ -83,7 +83,7 @@ M2 load was not quiet throughout: an `uptime` spot check during GHASH pass 2 at 
 
 ## Reproduction
 
-Working directory: `/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench`. M2 source copy: `/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3`. Xeon source copy: `/home/thomas-ahle/agents/speedbench-classic/source`.
+Working directory: `<scratch>/codex/classic-bench`. M2 source copy: `<scratch>/codex/classic-bench/smhasher3`. Xeon source copy: `/home/thomas-ahle/agents/speedbench-classic/source`.
 
 M2 build commands (after the initial load gate):
 
@@ -95,7 +95,7 @@ nice -n 10 cmake --build smhasher3/build-classic --target SMHasher3 -j8
 Xeon build commands:
 
 ```sh
-cd ~/agents/speedbench-classic
+cd <xeon-work>/speedbench-classic
 nice -n 10 cmake -S source -B build-classic -DCMAKE_BUILD_TYPE=Release
 nice -n 10 cmake --build build-classic --target SMHasher3 -j16
 ```

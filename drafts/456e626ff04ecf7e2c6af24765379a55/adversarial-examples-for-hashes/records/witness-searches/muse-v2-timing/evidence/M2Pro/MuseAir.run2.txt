@@ -1,0 +1,65 @@
+--- Testing MuseAir "MuseAir v0.3"
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -    28.04 cycles/hash
+   2-byte keys -    28.04 cycles/hash
+   3-byte keys -    28.04 cycles/hash
+   4-byte keys -    25.37 cycles/hash
+   5-byte keys -    25.37 cycles/hash
+   6-byte keys -    25.60 cycles/hash
+   7-byte keys -    25.60 cycles/hash
+   8-byte keys -    25.15 cycles/hash
+   9-byte keys -    25.15 cycles/hash
+  10-byte keys -    24.93 cycles/hash
+  11-byte keys -    24.93 cycles/hash
+  12-byte keys -    23.59 cycles/hash
+  13-byte keys -    23.37 cycles/hash
+  14-byte keys -    24.48 cycles/hash
+  15-byte keys -    24.48 cycles/hash
+  16-byte keys -    24.48 cycles/hash
+  17-byte keys -    26.71 cycles/hash
+  18-byte keys -    26.71 cycles/hash
+  19-byte keys -    26.04 cycles/hash
+  20-byte keys -    26.49 cycles/hash
+  21-byte keys -    26.49 cycles/hash
+  22-byte keys -    26.49 cycles/hash
+  23-byte keys -    26.49 cycles/hash
+  24-byte keys -    26.49 cycles/hash
+  25-byte keys -    26.49 cycles/hash
+  26-byte keys -    26.49 cycles/hash
+  27-byte keys -    26.49 cycles/hash
+  28-byte keys -    25.37 cycles/hash
+  29-byte keys -    26.49 cycles/hash
+  30-byte keys -    26.49 cycles/hash
+  31-byte keys -    25.37 cycles/hash
+Average        -    25.86 cycles/hash
+ rnd-byte keys -    26.03 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment   6 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment   5 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment   4 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment   3 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment   2 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment   1 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment   0 -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Average       -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+Alignment rnd -  9.82 bytes/cycle - 32.00 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 -  9.81 bytes/cycle - 31.97 GiB/sec @ 3.5 ghz
+Alignment   6 -  9.81 bytes/cycle - 31.99 GiB/sec @ 3.5 ghz
+Alignment   5 -  9.81 bytes/cycle - 31.99 GiB/sec @ 3.5 ghz
+Alignment   4 -  9.80 bytes/cycle - 31.96 GiB/sec @ 3.5 ghz
+Alignment   3 -  9.79 bytes/cycle - 31.91 GiB/sec @ 3.5 ghz
+Alignment   2 -  9.81 bytes/cycle - 31.99 GiB/sec @ 3.5 ghz
+Alignment   1 -  9.79 bytes/cycle - 31.92 GiB/sec @ 3.5 ghz
+Alignment   0 -  9.81 bytes/cycle - 31.99 GiB/sec @ 3.5 ghz
+Average       -  9.81 bytes/cycle - 31.96 GiB/sec @ 3.5 ghz
+Alignment rnd -  9.38 bytes/cycle - 30.58 GiB/sec @ 3.5 ghz
+
+Verification value is 0x00000001 - Testing took 50.218976 seconds
+

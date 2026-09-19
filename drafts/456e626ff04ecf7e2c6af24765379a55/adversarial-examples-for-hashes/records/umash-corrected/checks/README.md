@@ -8,10 +8,10 @@ Dependencies are Python 3 (standard library), a C++17 compiler with OpenMP,
 From the editing workspace, transfer the checks and run on the specified Xeon:
 
 ```bash
-rsync -a ./checks/ thomas-ahle@hardware.normalcomputing.net:agents/umash-projection-goal/checks/
-ssh thomas-ahle@hardware.normalcomputing.net \
-  'cd ~/agents/umash-projection-goal && bash checks/run_xeon.sh > checks/run.log 2>&1'
-rsync -a thomas-ahle@hardware.normalcomputing.net:agents/umash-projection-goal/checks/ ./checks/
+rsync -a ./checks/ <xeon-host>:agents/umash-projection-goal/checks/
+ssh <xeon-host> \
+  'cd <xeon-work>/umash-projection-goal && bash checks/run_xeon.sh > checks/run.log 2>&1'
+rsync -a <xeon-host>:agents/umash-projection-goal/checks/ ./checks/
 ```
 
 `run_xeon.sh` refuses to run on another host. Each computation uses

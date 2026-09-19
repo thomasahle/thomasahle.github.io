@@ -162,7 +162,7 @@
     }
    ],
    "results": {
-    "muse": "In the v0.3 implementation measured by SMHasher3, the two messages cancel before the seed can distinguish them. They collide for every seed, including in the 128-bit variants. This score is version-bound: the same pairs also affect v0.4, but produced no collisions in the tested v1 and v2 samples."
+    "muse": "The v0.3 implementation loses the distinction between two messages before secret mixing. They therefore collide for every seed, giving a 1.59-bit cap. Algorithm v2 has a separate 32-byte witness and a sampled cap of 19.45 bits."
    },
    "sources": [
     "https://github.com/eternal-io/museair",
@@ -171,9 +171,9 @@
    ],
    "reader_notes": {
     "muse": {
-     "evidence": "The algebra shows that this pair collides for every seed. Trying a new seed cannot separate these two messages.",
+     "evidence": "The every-seed algebraic witness applies to v0.3 and v0.4. It does not transfer to v1 or v2; the separate v2 row uses a different, sampled witness.",
      "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-     "scope": "The row scores v0.3 (SMHasher3); current v2 has no scored witness here. The old pairs gave zero collisions in 2²⁴ seeds on each of the four v1/v2 APIs. That sample is not a security bound for those versions."
+     "scope": "This 1.59-bit result is version-bound to v0.3 and v0.4. Current algorithm v2 (crate 0.6.0) has its own 19.45-bit sampled result."
     }
    }
   },
@@ -218,16 +218,18 @@
     }
    ],
    "results": {
-    "t1ha": "A 16-byte message and an 11-byte message collide for an unusually large set of seeds. The construction arranges for carries in the arithmetic to cancel the message difference. The chart’s cap combines an exactly counted seed class with a measured collision rate inside that class."
+    "t1ha": "A 13-byte input and a 16-byte input can reach the same internal state when multiplication carries cancel. An exactly counted seed class and a measured success rate within it give a sampled cap of 29.19 bits. The result permits different message lengths."
    },
    "sources": [
     "https://github.com/erthink/t1ha",
     "sources/t1ha.cpp",
-    "records/fairness-pass/t1ha/README.md"
+    "records/fairness-pass/t1ha/README.md",
+    "records/witness-searches/t1ha-digits/README.md",
+    "records/witness-searches/t1ha-digits-verify/README.md"
    ],
    "reader_notes": {
     "t1ha": {
-     "evidence": "The selected seed class occupies one part in 2²⁶ of the seed space. Sampling within it gives the reported contribution of about one collision in 2³⁰ seeds overall.",
+     "evidence": "The seed class fixes 24 bits. The upstream verifier found 58,715,203 collisions in 2^30 class samples, giving a class-weighted rate of about 2^-28.19. Fresh uniform-seed runs support the result.",
      "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
      "scope": "This result concerns the t1ha2_atonce 64-bit function. Other t1ha versions and the streaming interface are separate cases."
     }
@@ -371,20 +373,22 @@
     }
    ],
    "results": {
-    "xxh3-64": "Carefully chosen changes to two message words can preserve the result of their multiplication and make the full hash collide. The selected 32-byte pair gives a measured score cap of about 23 bits. It shows a fixed-pair weakness, without by itself demonstrating a complete hash-table flooding attack.",
+    "xxh3-64": "The selected 32-byte pair complements its second block. Seed-dependent carries sometimes make the two products fold to the same value. Independent upstream checks found about one collision per 1,423 random seeds, giving a sampled cap of 12.47 bits. This replaces the earlier 23.01-bit pair; it does not assert a flooding attack or a bound for independent custom-secret bytes.",
     "xxh3-128": "The pair preserves both a multiplication result and a sum used by the hash, causing both output halves to collide for some seeds. A larger sample of 165 collisions in 2³⁴ seeds gives a measured score cap of 28.6 bits, with a 95% interval of 28.4–28.9 bits."
    },
    "sources": [
     "https://github.com/Cyan4973/xxHash",
     "sources/xxhash.cpp",
     "records/fairness-pass/xxh3-64/README.md",
-    "records/fairness-pass/xxh3-128/README.md"
+    "records/fairness-pass/xxh3-128/README.md",
+    "records/witness-searches/xxh3-64-pair/README.md",
+    "records/witness-searches/xxh3-64-pair-verify/README.md"
    ],
    "reader_notes": {
     "xxh3-64": {
-     "evidence": "The selected 32-byte pair produced 1,018 collisions in 2³¹ sampled seeds. The appendix distinguishes it from an earlier pair with a different measured rate.",
+     "evidence": "Three fresh upstream-source runs counted 2,264,081 collisions in 3 × 2^30 seeds. The score interval is 12.473–12.476 bits; the central value is displayed as 12.47. Seed 0 does not collide for this pair.",
      "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-     "scope": "The experiment keeps XXH3’s standard public constants fixed and varies its seed. It does not describe the separate interface that accepts a custom random secret."
+     "scope": "The new block-1 pair is a bounded-search result for the public-default-secret seeded API in v0.8.3. The earlier base-1143 pair and historical pair A remain documented as controls."
     },
     "xxh3-128": {
      "evidence": "Sixteen deterministic runs found 165 full-output collisions in 2³⁴ seeds. The earlier five-event sample is retained in the appendix; its wider uncertainty interval contains the new estimate.",
@@ -570,16 +574,18 @@
     }
    ],
    "results": {
-    "ahash": "A chosen difference can cancel through the AES mixing and the subsequent combination of partial results. Native Rust runs against version 0.8.12 and master confirm the pair and a measured score cap of 22.52 bits."
+    "ahash": "The selected 56-byte pair A_2 cancels differences in both the AES operations and a separate addition accumulator. Native crate checks give a sampled cap of 22.18 bits under four independent random key words. A_1 is statistically tied; these samples do not establish which is stronger."
    },
    "sources": [
     "https://github.com/tkaitchuck/aHash",
     "https://github.com/tkaitchuck/aHash/blob/master/Cargo.toml",
-    "records/fairness-pass/ahash/README.md"
+    "records/fairness-pass/ahash/README.md",
+    "records/witness-searches/ahash-trail/README.md",
+    "records/witness-searches/ahash-trail-verify/RESULTS.md"
    ],
    "reader_notes": {
     "ahash": {
-     "evidence": "Two independent native Rust programs found 19,964 and 19,884 collisions in approximately 2³⁴ keys each. The earlier C and C++ estimates remain supporting measurements.",
+     "evidence": "The upstream 0.8.12 crate counted 12,627 collisions in 2^33 keys, about 2^-19.376. The score’s 95% interval is 22.16–22.21 bits. Independent native and C samples agree.",
      "key": "Four RandomState arguments are chosen independently and uniformly. Their fixed XOR with the public constants maps them bijectively to four independent internal key words.",
      "scope": "This covers the AES path and hashing byte slices through the stated constructor. Another key distribution, data type or sequence of write calls needs a separate check."
     }
@@ -1329,6 +1335,36 @@
      "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the design panel. The Lean lane is running. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
      "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
      "scope": "The guarantee covers fixed-length and at-most-length messages, including unequal lengths, under the stated key distribution. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three. Sanity and verification passed, but no complete v3 statistical-suite result or machine-checked implementation proof is claimed."
+    }
+   }
+  },
+  {
+   "ids": [
+    "muse-v2"
+   ],
+   "authors": "K--Aethiax",
+   "background": "MuseAir is a multiply-based non-cryptographic hash. Algorithm v2, released as crate 0.6.0, mixes the seed into tail products and supersedes the deprecated earlier algorithms. Its README warns against direct server use with its single-seed interface.",
+   "links": [
+    {
+     "label": "Original project & code",
+     "url": "https://github.com/eternal-io/museair"
+    }
+   ],
+   "results": {
+    "muse-v2": "A fixed 32-byte change in the tail product can be cancelled by changes in the head when the multiplication carries agree. Upstream crate checks give a sampled cap of 19.45 bits. The v0.3 every-seed witness is a separate result."
+   },
+   "sources": [
+    "records/witness-searches/muse-v2/README.md",
+    "records/witness-searches/muse-v2-verify/README.md",
+    "records/review-inputs/claims.json#/result/table/rows/6",
+    "records/fairness-pass/muse/current-README.md",
+    "records/witness-searches/muse-v2-timing/speeds_museair_v2.json"
+   ],
+   "reader_notes": {
+    "muse-v2": {
+     "evidence": "Two fresh upstream-crate runs found 36,060 collisions in 1.5 × 2^32 seeds, about 2^-17.447. The 95% score interval is 19.43–19.46 bits.",
+     "key": "The scored function draws one uniform 64-bit seed. Both messages are fixed independently of that seed.",
+     "scope": "This is algorithm v2, crate 0.6.0, timed through a separately validated MuseAir-v2 registration with direct seed mapping. The 64-bit bfast function collides on the same seeds; the 128-bit functions use a separate two-seed model."
     }
    }
   }

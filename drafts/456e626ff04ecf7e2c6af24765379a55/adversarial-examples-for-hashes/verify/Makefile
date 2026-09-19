@@ -17,7 +17,7 @@ CFLAGS    ?= -O2 -std=c11
 LDLIBS    ?= -lm
 CHECK_TOL ?= 0
 
-DIRS ?= a5hash cityhash-64 farmhash-64 gxhash-64 highwayhash komihash murmurhash3-128 museair rust-ahash spookyhash2-64 t1ha2-64 pengyhash nmhash32 nmhash32x mx3 mir fasthash mum rapidhash-v3 wyhash rapidhash-v1 xxh3-64 xxh3-128 dotnet-marvin abseil-hash go-maphash
+DIRS ?= a5hash cityhash-64 farmhash-64 gxhash-64 highwayhash komihash murmurhash3-128 museair museair-v2 rust-ahash spookyhash2-64 t1ha2-64 pengyhash nmhash32 nmhash32x mx3 mir fasthash mum rapidhash-v3 wyhash rapidhash-v1 xxh3-64 xxh3-128 dotnet-marvin abseil-hash go-maphash
 
 # Program name per directory; the source is <name>.c in the same directory.
 PROG_a5hash          := a5hash_verify
@@ -43,7 +43,9 @@ PROG_rapidhash-v3 := rapidhash_v3_verify
 
 PROG_wyhash := wyhash_verify
 PROG_rapidhash-v1 := rapidhash_v1_verify
-PROG_xxh3-64 := xxh3_64_verify
+PROG_xxh3-64 := xxh3_64_pair_check
+PROG_museair-v2 := museair_v2_verify
+EXTRA_museair-v2 := -pthread
 PROG_xxh3-128 := xxh3_128_verify
 PROG_go-maphash := go_maphash_verify
 PROG_dotnet-marvin := marvin32_verify
@@ -96,6 +98,8 @@ check: all
 	    komihash)        key='collisions: [0-9]+|\(predicted [^)]*\): [0-9]+' ;; \
 	    murmurhash3-128) key='collisions/N = [0-9]+|agree: [0-9]+' ;; \
 	    museair)         key='collisions [0-9]+' ;; \
+	    museair-v2)      key='(hash|bfast::hash|hash128|bfast::hash128) +[0-9]+' ;; \
+	    xxh3-64)        key='collisions=[0-9]+' ;; \
 	    rust-ahash)      key='collisions/N = [0-9]+' ;; \
 	    spookyhash2-64)  key='32-bit collisions [0-9]+|64-bit collisions [0-9]+|128-bit collisions [0-9]+|right for [0-9]+' ;; \
 	    t1ha2-64)        key='[0-9]+ collisions' ;; \
@@ -124,3 +128,5 @@ check: all
 
 clean:
 	rm -f $(BINS) gxhash-64/gxhash64_verify_portable
+
+museair-v2/museair_v2_verify: museair-v2/measure.c museair-v2/museair2.h

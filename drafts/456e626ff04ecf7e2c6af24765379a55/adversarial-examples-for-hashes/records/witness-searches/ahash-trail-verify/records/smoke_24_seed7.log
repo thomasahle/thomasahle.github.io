@@ -1,0 +1,16 @@
+ahash crate 0.8.12 (crates.io); cfg target_feature aes = true, ssse3 = true; 5 pairs; N = 2^24 keys; rngseed 7; threads 8
+  pair shipped              len 56/56 B  xor 7e00000000000000000065000000000000df0029000000000000000000000000fffbfd0e0000000000000000000000000000000000000000  row-key H(m)=45ef7682d72b19b6 H(m')=45ef7682d72b19b6 COLLIDE
+  pair B_0_STALE56B         len 56/56 B  xor 00000000000000005e000000000000ea000000000000000000790079000000007aebbf6d0000000000000000000000000000000000000000  row-key H(m)=d29c8a9dcd533a2b H(m')=041599a0584d59ee differ
+  pair A_1_pred-19.357      len 56/56 B  xor 7500000000000000000037000000000000f300f7000000000000000000000000fffbfd0e0000000000000000000000000000000000000000  row-key H(m)=dafca25a8f192bb8 H(m')=e1ee6d71724608ba differ
+  pair A_2_pred-19.377      len 56/56 B  xor 3d0000000000000000001200000000000016006f000000000000000000000000f2f0f3070000000000000000000000000000000000000000  row-key H(m)=531a0455cafe9615 H(m')=9a49d29061e35675 differ
+  pair B_0_pred-19.327      len 64/64 B  xor 00000000000000005e000000000000ea000000000000000000790079000000007aebbf6d00000000000000000000000000000000000000000000000000000000  row-key H(m)=41b529da26d26eb0 H(m')=6ca935e5b80f6682 differ
+done: 16777216 keys (2097152 per thread x 8), 0.5 s
+shipped                   13/2^24 = 2^-20.300  95% CI [2^-21.431, 2^-19.673]  cap log2(7)-log2(rate) = 23.107 bits, CI [22.481, 24.239]
+    first colliding with_seeds args cc123d13c13df15d 0f3dbcbcbe073b9c 2fa51afb04842b16 09a4100be2f0083b (internal k_i = arg_i ^ PI2[i]), H = 810d30aa6a2036f4
+B_0_STALE56B               0/2^24 = 2^-inf  95% CI [2^-25.000, 2^-inf]  cap log2(7)-log2(rate) = inf bits, CI [inf, 27.807]
+A_1_pred-19.357           26/2^24 = 2^-19.300  95% CI [2^-19.999, 2^-18.830]  cap log2(7)-log2(rate) = 22.107 bits, CI [21.638, 22.807]
+    first colliding with_seeds args c41bc1b1c24e169a b43f8f32b174ea15 896f778abe7d65a5 2c9ae602ab3837f9 (internal k_i = arg_i ^ PI2[i]), H = 1617529360d366e7
+A_2_pred-19.377           22/2^24 = 2^-19.541  95% CI [2^-20.321, 2^-19.037]  cap log2(7)-log2(rate) = 22.348 bits, CI [21.844, 23.129]
+    first colliding with_seeds args f9e520a0ee0922c1 707ed655ef3fec44 ed2f498d1a1aa3c1 aff72861c4d2b840 (internal k_i = arg_i ^ PI2[i]), H = 8b2298339fba7f46
+B_0_pred-19.327           21/2^24 = 2^-19.608  95% CI [2^-20.413, 2^-19.094]  cap log2(8)-log2(rate) = 22.608 bits, CI [22.094, 23.413]
+    first colliding with_seeds args a09c129aaa77b52f 9b4ea5c76e8a337f b4cddbcd2dc61f90 5b7319c7c6e33d78 (internal k_i = arg_i ^ PI2[i]), H = 5e4e16301a9765fa

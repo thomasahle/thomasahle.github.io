@@ -4,13 +4,13 @@ Lean 4.24.0; Mathlib v4.24.0, commit
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 
 The authoritative build workspace is
-`thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash`.
-It was copied with its toolchain and cache from `~/agents/lean-hash`.
+`<xeon-host>:<xeon-work>/lean-chainhash`.
+It was copied with its toolchain and cache from `<xeon-work>/lean-hash`.
 The local `lean/` directory is a source and audit mirror. All compilation and
 certificate generation ran on the Xeon; no Lean build ran on the Mac.
 
 ```bash
-cd ~/agents/lean-chainhash
+cd <xeon-work>/lean-chainhash
 source env.sh
 cd lean
 ./build.sh

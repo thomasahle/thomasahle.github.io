@@ -237,7 +237,7 @@ The output floor does not change this minimum. The polynomial term has been incl
 
 The original production self-test passed. A baseline compiler build and the inlined sweep build, using the same CSPRNG key, also agreed on batch checksums and collision counts for 1,048,576 parameter sets over all 349 pairs. The source SHA-256 for umash.c is `aad7d50dcca9d8939a67452788fe7028357a76b125ee7f11d50b622269789409`.
 
-The sweep runs on the Xeon Platinum 8375C at `hardware.normalcomputing.net`, in `~/agents/umash-enh`, at nice level 10. It uses 47 sweep threads. Helpers are single-threaded. During one certificate correction, two helper runs overlapped, temporarily allowing 49 task compute threads; subsequent helpers ran sequentially. The Mac did file editing and small orchestration work, not the sweep or proof computations.
+The sweep runs on the Xeon Platinum 8375C at `<xeon-host>`, in `<xeon-work>/umash-enh`, at nice level 10. It uses 47 sweep threads. Helpers are single-threaded. During one certificate correction, two helper runs overlapped, temporarily allowing 49 task compute threads; subsequent helpers ran sequentially. The Mac did file editing and small orchestration work, not the sweep or proof computations.
 
 **9. Completed structured-pair measurement.** All **349 pairs** completed exactly **68,719,476,736 = 2^36** accepted full parameter sets each. There were **0 full 64-bit primary collisions** in **23,983,097,380,864 comparisons**. The worst observed rate was **0/68719476736 = 0**. 349 pairs tied for that maximum. Every batch ID was checked for uniqueness and complete coverage before this report was finalized.
 

@@ -1,13 +1,13 @@
 {
   "host": "M2Pro",
-  "binary": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+  "binary": "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
   "binary_sha256": "97c124f86a1f1e1dac50fecb4a289e9e4ca2744d302a11c38f042d47be296184",
   "runs": [
     {
       "name": "komihash",
       "run": 1,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "komihash",
         "--test=Speed"
       ],
@@ -40,7 +40,7 @@
       "name": "rapidhash",
       "run": 1,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "rapidhash",
         "--test=Speed"
       ],
@@ -73,7 +73,7 @@
       "name": "HalftimeHash-512",
       "run": 1,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash-512",
         "--test=Speed"
       ],
@@ -106,7 +106,7 @@
       "name": "HalftimeHash-512-fixed",
       "run": 1,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash-512-fixed",
         "--test=Speed"
       ],
@@ -139,7 +139,7 @@
       "name": "HalftimeHash24-fixed",
       "run": 1,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash24-fixed",
         "--test=Speed"
       ],
@@ -172,7 +172,7 @@
       "name": "komihash",
       "run": 2,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "komihash",
         "--test=Speed"
       ],
@@ -205,7 +205,7 @@
       "name": "rapidhash",
       "run": 2,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "rapidhash",
         "--test=Speed"
       ],
@@ -238,7 +238,7 @@
       "name": "HalftimeHash-512",
       "run": 2,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash-512",
         "--test=Speed"
       ],
@@ -271,7 +271,7 @@
       "name": "HalftimeHash-512-fixed",
       "run": 2,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash-512-fixed",
         "--test=Speed"
       ],
@@ -304,7 +304,7 @@
       "name": "HalftimeHash24-fixed",
       "run": 2,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash24-fixed",
         "--test=Speed"
       ],
@@ -337,7 +337,7 @@
       "name": "komihash",
       "run": 3,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "komihash",
         "--test=Speed"
       ],
@@ -370,7 +370,7 @@
       "name": "rapidhash",
       "run": 3,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "rapidhash",
         "--test=Speed"
       ],
@@ -403,7 +403,7 @@
       "name": "HalftimeHash-512",
       "run": 3,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash-512",
         "--test=Speed"
       ],
@@ -436,7 +436,7 @@
       "name": "HalftimeHash-512-fixed",
       "run": 3,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash-512-fixed",
         "--test=Speed"
       ],
@@ -469,7 +469,7 @@
       "name": "HalftimeHash24-fixed",
       "run": 3,
       "command": [
-        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/SMHasher3",
+        "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
         "HalftimeHash24-fixed",
         "--test=Speed"
       ],

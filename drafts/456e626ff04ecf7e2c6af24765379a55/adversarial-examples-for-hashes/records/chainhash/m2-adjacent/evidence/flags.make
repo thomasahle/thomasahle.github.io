@@ -5,7 +5,7 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = -DHAVE_THREADS
 
-C_INCLUDES = -I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/build/include -I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/smhasher3/include/hashlib -I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/smhasher3/include/common -isystem /opt/homebrew/opt/openssl@3/include
+C_INCLUDES = -I<scratch>/codex/chainhash-m2-adjacent/build/include -I<scratch>/codex/chainhash-m2-adjacent/smhasher3/include/hashlib -I<scratch>/codex/chainhash-m2-adjacent/smhasher3/include/common -isystem /opt/homebrew/opt/openssl@3/include
 
 C_FLAGSarm64 = -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
 
@@ -13,13 +13,13 @@ C_FLAGS = -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools
 
 CXX_DEFINES = -DHAVE_THREADS
 
-CXX_INCLUDES = -I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/build/include -I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/smhasher3/include/hashlib -I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/smhasher3/include/common -isystem /opt/homebrew/opt/openssl@3/include
+CXX_INCLUDES = -I<scratch>/codex/chainhash-m2-adjacent/build/include -I<scratch>/codex/chainhash-m2-adjacent/smhasher3/include/hashlib -I<scratch>/codex/chainhash-m2-adjacent/smhasher3/include/common -isystem /opt/homebrew/opt/openssl@3/include
 
 CXX_FLAGSarm64 = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
 
 CXX_FLAGS = -Xclang -target-feature -Xclang +aes -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
 
-# Custom include directories: CMakeFiles/SMHasher3Hashlib.dir/lib/Hashinfo.cpp.o_INCLUDE_DIRECTORIES = /private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/chainhash-m2-adjacent/smhasher3/util
+# Custom include directories: CMakeFiles/SMHasher3Hashlib.dir/lib/Hashinfo.cpp.o_INCLUDE_DIRECTORIES = <scratch>/codex/chainhash-m2-adjacent/smhasher3/util
 
 # Custom flags: CMakeFiles/SMHasher3Hashlib.dir/hashes/halftimehash.cpp.o_FLAGS = -flax-vector-conversions -Wno-ignored-attributes
 

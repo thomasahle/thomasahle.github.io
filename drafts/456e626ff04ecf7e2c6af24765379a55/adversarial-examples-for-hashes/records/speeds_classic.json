@@ -10,7 +10,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -58,7 +58,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -110,7 +110,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -142,7 +142,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -203,7 +203,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -251,7 +251,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -303,7 +303,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -335,7 +335,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -396,7 +396,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -444,7 +444,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -496,7 +496,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -528,7 +528,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -581,7 +581,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -629,7 +629,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -681,7 +681,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],
@@ -713,7 +713,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],

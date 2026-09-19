@@ -38,15 +38,15 @@
  *      the 2048 output bytes hashed with seed 0, first four bytes LE.  The
  *      program aborts unless both variants reproduce their registered values;
  *   3. the message pairs, each hashed under N random secrets in two models:
- *      rs4 = four independent uniform 64-bit keys (what RandomState::new()
- *      amounts to), smh = one uniform 64-bit seed with k_j = PI2[j] ^ seed
+ *      rs4 = four independent uniform 64-bit keys (the stated ideal key
+ *      model), smh = one uniform 64-bit seed with k_j = PI2[j] ^ seed
  *      (SMHasher3's convention, == RandomState::with_seeds(s,s,s,s)).
  *
  * Build (choose the line for your CPU; the last one needs no flags at all):
  *   aarch64: cc -O2 -march=armv8-a+crypto -o ahash_pairs ahash_pairs.c -lm
  *   x86-64:  cc -O2 -maes -o ahash_pairs ahash_pairs.c -lm
  *   any:     cc -O2 -o ahash_pairs ahash_pairs.c -lm    (software AES, slower)
- * Run:  ./ahash_pairs [log2 N = 24] [rng seed = 1] [pair tag A|B = all]
+ * Run:  ./ahash_pairs [log2 N = 24] [rng seed = 1] [pair tag A_2|A_1|B_0|A|B = all]
  */
 #include <stdint.h>
 #include <stdio.h>
@@ -258,6 +258,22 @@ static uint64_t xo_next(xoshiro *r) {
 /* ---------------------------------------------------------------- the pairs */
 typedef struct { const char *tag, *variant; hashfn H; const char *m1, *m2; uint64_t keys[4]; const char *mech; } pair_t;
 static const pair_t PAIRS[] = {
+    {"A_2", "rust_ahash (AES path), 56-byte messages", ahash_aes,
+     "22313233343536373839263b3c3d3e3f407b42404445464748494a4b4c4d4e4f0df97e025c5d5e5f606162636465666768696a6b6c6d6e6f",
+     "1f313233343536373839343b3c3d3e3f406d422f4445464748494a4b4c4d4e4fff098d055c5d5e5f606162636465666768696a6b6c6d6e6f",
+     {UINT64_C(0xec6baf58f9a18793), UINT64_C(0xb5e2ee792117d0ff), UINT64_C(0x893c786e1e8196a8), UINT64_C(0xa4edbe691f677fb2)},
+     "3-S-box trail plus shuffled-addition cancellation; selected A_2, rate about 2^-19.376"},
+    {"A_1", "rust_ahash (AES path), 56-byte messages", ahash_aes,
+     "3f313233343536373839283b3c3d3e3f408042804445464748494a4b4c4d4e4f7b79f80c5c5d5e5f606162636465666768696a6b6c6d6e6f",
+     "4a3132333435363738391f3b3c3d3e3f407342774445464748494a4b4c4d4e4f848205025c5d5e5f606162636465666768696a6b6c6d6e6f",
+     {UINT64_C(0x561a2123bb769797), UINT64_C(0x028005bfb096b815), UINT64_C(0x5a613aeef8583eaf), UINT64_C(0x7dfa5de284bf1593)},
+     "3-S-box trail plus shuffled-addition cancellation; documented alternate; see README"},
+    {"B_0", "rust_ahash (AES path), 64-byte messages", ahash_aes,
+     "40313233343536374239253b3c3d3e804081420944454647481f4a4a4c4d4e4faf6a432e5c5d5e5f606162636465666768696a6b6c6d6e6f7071727374757677",
+     "40313233343536371c39253b3c3d3e6a408142094445464748664a334c4d4e4fd581fc435c5d5e5f606162636465666768696a6b6c6d6e6f7071727374757677",
+     {UINT64_C(0xb6c1ee01221b4682), UINT64_C(0x4cc42b390e71451e), UINT64_C(0x1d6e6530e99a4820), UINT64_C(0x01bb5610e64af968)},
+     "3-S-box trail plus shuffled-addition cancellation; documented alternate; see README"},
+
     {"A", "rust_ahash (AES path), 56-byte messages", ahash_aes,
      "40313233343536373839253b3c3d3e3f408142094445464748494a4b4c4d4e4f8d896d065c5d5e5f606162636465666768696a6b6c6d6e6f",
      "3e313233343536373839403b3c3d3e3f405e42204445464748494a4b4c4d4e4f727290085c5d5e5f606162636465666768696a6b6c6d6e6f",
@@ -317,9 +333,9 @@ static void run_model(const pair_t *p, const uint8_t *m1, size_t n1, const uint8
 int main(int argc, char **argv) {
     char *end = NULL;
     int lg = argc > 1 ? (int)strtol(argv[1], &end, 10) : 24;
-    if (argc > 1 && (end == argv[1] || *end)) { fprintf(stderr, "usage: %s [log2 N = 24] [rng seed = 1] [pair tag A|B]\n", argv[0]); return 2; }
+    if (argc > 1 && (end == argv[1] || *end)) { fprintf(stderr, "usage: %s [log2 N = 24] [rng seed = 1] [pair tag A_2|A_1|B_0|A|B]\n", argv[0]); return 2; }
     uint64_t rngseed = argc > 2 ? strtoull(argv[2], &end, 0) : 1;
-    if (argc > 2 && (end == argv[2] || *end)) { fprintf(stderr, "usage: %s [log2 N = 24] [rng seed = 1] [pair tag A|B]\n", argv[0]); return 2; }
+    if (argc > 2 && (end == argv[2] || *end)) { fprintf(stderr, "usage: %s [log2 N = 24] [rng seed = 1] [pair tag A_2|A_1|B_0|A|B]\n", argv[0]); return 2; }
     const char *only = argc > 3 ? argv[3] : NULL;               /* run just this pair */
     if (only) {
         int known = 0;

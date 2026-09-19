@@ -88,7 +88,7 @@ All 76 source/configuration hashes recorded by that run match the committed file
 
 ## Commits and environment
 
-- Target repo: `/Users/ahle/repos/chainhash`.
+- Target repo: `<repos>/chainhash`.
 - Inspected repo base: `8d18348ffc5a18ed284b45c0270089a5b5e63992`.
 - Completed model-A source HEAD: `a3939c01b87d962ae170776b656a154300d5f3ca`.
 - Source-lane documented proof milestone: `408d147c7f0aa7e123c6027b36a26821522e84a6`.
@@ -97,8 +97,8 @@ All 76 source/configuration hashes recorded by that run match the committed file
   Working tree is clean. No push was performed.
 - Lean 4.24.0; Mathlib v4.24.0 at
   `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
-- Remote workspace: `thomas-ahle@hardware.normalcomputing.net:~/agents/chainhash-integrate`,
-  copied with `cp -a` from `~/agents/chainhash-repo-check`, including `.lake`.
+- Remote workspace: `<xeon-host>:<xeon-work>/chainhash-integrate`,
+  copied with `cp -a` from `<xeon-work>/chainhash-repo-check`, including `.lake`.
   Mathlib was not rebuilt. All Lean and C/C++ execution was on the Xeon;
   the Mac performed edits, transfer, and inspection only.
 - Shipped header SHA256:
@@ -106,11 +106,11 @@ All 76 source/configuration hashes recorded by that run match the committed file
 
 ## Build logs and reproduction
 
-- Final log: `~/agents/chainhash-integrate/logs/final-verify.log` on the Xeon;
+- Final log: `<xeon-work>/chainhash-integrate/logs/final-verify.log` on the Xeon;
   audit copy: [lean/VERIFICATION.txt](lean/VERIFICATION.txt).
   The audit records the pre-commit base HEAD plus exact source SHA256s; the
   integration commit above contains those audited sources and the log.
-- Incremental logs: `~/agents/chainhash-integrate/logs/modela-integration/`;
+- Incremental logs: `<xeon-work>/chainhash-integrate/logs/modela-integration/`;
   summary: `lean/MODELA_INTEGRATION_BUILDS.txt`.
 - Test evidence: `lean/VECTOR_AGREEMENT.txt`, `lean/HEADER_TESTS.txt`,
   and `lean/PAIRING_AUDIT.md`.

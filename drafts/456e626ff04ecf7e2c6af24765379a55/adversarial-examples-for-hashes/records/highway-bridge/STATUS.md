@@ -80,7 +80,7 @@ rounded score 59.81 bits are confirmed. The prior count qualification is removed
 
 ## Commits and environment
 
-Authoritative repository: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-highway`,
+Authoritative repository: `<xeon-host>:<xeon-work>/lean-highway`,
 on its existing `master` branch.
 
 - `f2c7f51`: inherited recorded checkpoint, based on `59bb429`.
@@ -105,7 +105,7 @@ under `./lean/`.
 Run on the Xeon:
 
 ```bash
-cd ~/agents/lean-highway/lean
+cd <xeon-work>/lean-highway/lean
 ./build-highway.sh
 ```
 

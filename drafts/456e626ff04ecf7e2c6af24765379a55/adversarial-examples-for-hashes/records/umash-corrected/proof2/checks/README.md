@@ -1,7 +1,7 @@
 # Exact checks for PROOF2.md
 
-Run on `thomas-ahle@hardware.normalcomputing.net`, in
-`~/agents/umash-goal2`, with:
+Run on `<xeon-host>`, in
+`<xeon-work>/umash-goal2`, with:
 
 ```sh
 bash checks/run_xeon.sh

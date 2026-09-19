@@ -49,14 +49,14 @@ the headline sentence could over-read it):
 
 ## 1. Clean rebuild and axiom audit
 
-Remote: `thomas-ahle@hardware.normalcomputing.net:~/agents/verify-chainhash-full`
-(fresh `cp -a` of `~/agents/lean-chainhash`, `.lake/packages` cache kept,
+Remote: `<xeon-host>:<xeon-work>/verify-chainhash-full`
+(fresh `cp -a` of `<xeon-work>/lean-chainhash`, `.lake/packages` cache kept,
 `.lake/build` **deleted**, so every project module was re-elaborated from
 source). Built with `nice -n 10 taskset -c 32-63`, `LEAN_NUM_THREADS=32`.
 
 - `lake build`: `Build completed successfully (7389 jobs)`, `EXIT=0`.
   **Zero** `error`, **zero** `warning`, **zero** `declaration uses 'sorry'`
-  in the whole log (`~/agents/verify-chainhash-full/clean-build.log`).
+  in the whole log (`<xeon-work>/verify-chainhash-full/clean-build.log`).
 - Toolchain as claimed: `leanprover/lean4:v4.24.0`; mathlib at
   `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 - **Dependency checkouts are pristine.** `git status --porcelain` is empty for
@@ -307,9 +307,9 @@ C++↔Lean transcription itself is human-audited rather than machine-checked.
 ## Reproduction
 
 ```bash
-ssh thomas-ahle@hardware.normalcomputing.net
-cp -a ~/agents/lean-chainhash ~/agents/verify-chainhash-full
-cd ~/agents/verify-chainhash-full && sed -i 's|lean-chainhash|verify-chainhash-full|g' env.sh
+ssh <xeon-host>
+cp -a <xeon-work>/lean-chainhash <xeon-work>/verify-chainhash-full
+cd <xeon-work>/verify-chainhash-full && sed -i 's|lean-chainhash|verify-chainhash-full|g' env.sh
 source env.sh && cd lean && rm -rf .lake/build
 LEAN_NUM_THREADS=32 nice -n 10 taskset -c 32-63 lake build
 LEAN_NUM_THREADS=32 nice -n 10 taskset -c 32-63 lake env lean FullAudit.lean
@@ -317,6 +317,6 @@ LEAN_NUM_THREADS=32 nice -n 10 taskset -c 32-63 lake env lean RefereeAudit.lean
 ```
 
 Referee artefacts (this directory):
-`RefereeAudit.lean` (also at `~/agents/verify-chainhash-full/lean/`),
+`RefereeAudit.lean` (also at `<xeon-work>/verify-chainhash-full/lean/`),
 `lean_model.py`, `drive.cpp`, `cmp.py`.
-Remote logs: `~/agents/verify-chainhash-full/{clean-build.log,referee-audit.txt,FullAudit.out,Audit.out,ChainHashAudit.out}`.
+Remote logs: `<xeon-work>/verify-chainhash-full/{clean-build.log,referee-audit.txt,FullAudit.out,Audit.out,ChainHashAudit.out}`.

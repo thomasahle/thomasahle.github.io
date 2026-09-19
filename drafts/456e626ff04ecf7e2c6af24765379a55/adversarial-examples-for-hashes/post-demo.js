@@ -260,8 +260,8 @@ if (typeof document === 'undefined') {
         this.messageArea.append(code);
       });
       this.messageArea.append(create('p','demo-hint','Orange marks differing bytes, including bytes present in only one message.'));
-      this.seedLabel.textContent=p.keyWords===4?'Seed / key (four 64-bit hex words, in API order)':'Seed ('+p.seedBits+'-bit hexadecimal)';
-      this.seedHelp.textContent=p.keyWords===4?'Each random key uses four independent words, matching the published experiment.':
+      this.seedLabel.textContent=p.id==='ahash'?'Internal RandomState key (four 64-bit hex words)':p.keyWords===4?'Seed / key (four 64-bit hex words, in API order)':'Seed ('+p.seedBits+'-bit hexadecimal)';
+      this.seedHelp.textContent=p.id==='ahash'?'Each random key uses four independent internal words. For RandomState::with_seeds arguments, XOR each word with its public PI2 constant; the appendix lists both forms.':p.keyWords===4?'Each random key uses four independent words, matching the published experiment.':
         'Enter up to '+(p.seedBits/4)+' hex digits; an optional 0x prefix is accepted.';
       this.seed.value=p.keys.map(k=>p.seedBits===32?k.slice(-8):k).join(' ');
       this.seed.setCustomValidity(''); this.seed.removeAttribute('aria-invalid');

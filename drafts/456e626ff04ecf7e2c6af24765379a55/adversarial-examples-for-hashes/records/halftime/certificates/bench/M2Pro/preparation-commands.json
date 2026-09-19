@@ -2,11 +2,11 @@
   [
     "/usr/bin/c++",
     "-DHAVE_THREADS",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/include",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/common",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/util",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/tests",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/hashlib",
+    "-I<scratch>/codex/halftime-fixed/build-m2/include",
+    "-I<scratch>/codex/halftime-fixed/smhasher3-m2/include/common",
+    "-I<scratch>/codex/halftime-fixed/smhasher3-m2/util",
+    "-I<scratch>/codex/halftime-fixed/smhasher3-m2/tests",
+    "-I<scratch>/codex/halftime-fixed/smhasher3-m2/include/hashlib",
     "-isystem",
     "/opt/homebrew/opt/openssl@3/include",
     "-Xclang",
@@ -30,16 +30,16 @@
     "-isysroot",
     "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/main.o",
+    "<scratch>/codex/halftime-fixed/build-m2/main.o",
     "-c",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/main.cpp"
+    "<scratch>/codex/halftime-fixed/smhasher3-m2/main.cpp"
   ],
   [
     "/usr/bin/c++",
     "-DHAVE_THREADS",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/include",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/hashlib",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/include/common",
+    "-I<scratch>/codex/halftime-fixed/build-m2/include",
+    "-I<scratch>/codex/halftime-fixed/smhasher3-m2/include/hashlib",
+    "-I<scratch>/codex/halftime-fixed/smhasher3-m2/include/common",
     "-isystem",
     "/opt/homebrew/opt/openssl@3/include",
     "-Xclang",
@@ -65,9 +65,9 @@
     "-flax-vector-conversions",
     "-Wno-ignored-attributes",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/halftimefixed.o",
+    "<scratch>/codex/halftime-fixed/build-m2/halftimefixed.o",
     "-c",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp"
+    "<scratch>/codex/halftime-fixed/smhasher3-m2/hashes/halftimefixed.cpp"
   ],
   [
     "/usr/bin/c++",
@@ -92,10 +92,10 @@
     "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
     "-Wl,-search_paths_first",
     "-Wl,-headerpad_max_install_names",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/main.o",
+    "<scratch>/codex/halftime-fixed/build-m2/main.o",
     "-o",
     "SMHasher3",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/halftimefixed.o",
+    "<scratch>/codex/halftime-fixed/build-m2/halftimefixed.o",
     "libSMHasher3Tests.a",
     "libSMHasher3Hashlib.a",
     "/opt/homebrew/opt/openssl@3/lib/libcrypto.dylib"
@@ -105,13 +105,13 @@
     "-std=c++17",
     "-O2",
     "-flax-vector-conversions",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/certificates/src/verify.cpp",
+    "<scratch>/codex/halftime-fixed/certificates/src/verify.cpp",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/verify-neon"
+    "<scratch>/codex/halftime-fixed/build-m2/verify-neon"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/verify-neon",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/vectors-neon.bin"
+    "<scratch>/codex/halftime-fixed/build-m2/verify-neon",
+    "<scratch>/codex/halftime-fixed/build-m2/vectors-neon.bin"
   ],
   [
     "/usr/bin/clang++",
@@ -121,13 +121,13 @@
     "-DHH_SCALAR",
     "-fno-vectorize",
     "-fno-slp-vectorize",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/certificates/src/verify.cpp",
+    "<scratch>/codex/halftime-fixed/certificates/src/verify.cpp",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/verify-scalar"
+    "<scratch>/codex/halftime-fixed/build-m2/verify-scalar"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/verify-scalar",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/vectors-scalar.bin"
+    "<scratch>/codex/halftime-fixed/build-m2/verify-scalar",
+    "<scratch>/codex/halftime-fixed/build-m2/vectors-scalar.bin"
   ],
   [
     "/usr/bin/clang++",
@@ -136,12 +136,12 @@
     "-flax-vector-conversions",
     "-fsanitize=undefined",
     "-fno-sanitize-recover=all",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/certificates/src/verify.cpp",
+    "<scratch>/codex/halftime-fixed/certificates/src/verify.cpp",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/verify-ubsan"
+    "<scratch>/codex/halftime-fixed/build-m2/verify-ubsan"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/verify-ubsan",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/halftime-fixed/build-m2/vectors-ubsan.bin"
+    "<scratch>/codex/halftime-fixed/build-m2/verify-ubsan",
+    "<scratch>/codex/halftime-fixed/build-m2/vectors-ubsan.bin"
   ]
 ]

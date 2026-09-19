@@ -9,7 +9,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "foldhash-fast",
             "--test=Speed"
           ],
@@ -67,7 +67,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "foldhash-fast",
             "--test=Speed"
           ],
@@ -136,7 +136,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
               "foldhash-fast",
               "--test=Sanity"
             ],
@@ -464,7 +464,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "foldhash-quality",
             "--test=Speed"
           ],
@@ -522,7 +522,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "foldhash-quality",
             "--test=Speed"
           ],
@@ -591,7 +591,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
               "foldhash-quality",
               "--test=Sanity"
             ],
@@ -919,7 +919,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -977,7 +977,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1046,7 +1046,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -1356,7 +1356,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1414,7 +1414,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1483,7 +1483,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/foldhash-port/build-m2/SMHasher3",
+              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],

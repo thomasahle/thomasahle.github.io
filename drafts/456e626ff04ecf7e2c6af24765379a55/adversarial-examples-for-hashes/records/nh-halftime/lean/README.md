@@ -5,14 +5,14 @@ Lean 4.24.0 and Mathlib `v4.24.0`, commit
 
 This page describes the inherited base modules. HalftimeHash milestones are
 documented in `HALFTIME_README.md` and `../LEAN_HALFTIME_STATUS.md`.
-The isolated work directory for this extension is `~/agents/lean-halftime/` on
-`thomas-ahle@hardware.normalcomputing.net`. The local copy contains sources and
+The isolated work directory for this extension is `<xeon-work>/lean-halftime/` on
+`<xeon-host>`. The local copy contains sources and
 verification reports, without toolchains, dependency checkouts, or build caches.
 
 On that server:
 
 ```bash
-cd ~/agents/lean-halftime
+cd <xeon-work>/lean-halftime
 source env.sh
 cd lean
 export LEAN_NUM_THREADS=8

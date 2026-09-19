@@ -67,8 +67,8 @@ seed = c8eae1baae13330b
 
 ## Measurements and intervals
 
-All sampling and compilation ran on `hardware.normalcomputing.net`, under
-`~/agents/xxh3-32B`, Intel Xeon Platinum 8375C. Four single-threaded sampling
+All sampling and compilation ran on `<xeon-host>`, under
+`<xeon-work>/xxh3-32B`, Intel Xeon Platinum 8375C. Four single-threaded sampling
 processes ran at nice 10: at most four sampling threads, below the requested
 32-thread limit. No compilation or sampling ran on the Mac. The compiler,
 machine details, source/binary hashes and SciPy version are recorded in

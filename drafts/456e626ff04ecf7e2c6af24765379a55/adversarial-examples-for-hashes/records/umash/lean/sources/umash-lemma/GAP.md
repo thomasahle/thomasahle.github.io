@@ -345,7 +345,7 @@ This is an upper bound on full UMASH, obtained from an **exact projection probab
 
 ## 7. Verification and reproduction
 
-Heavy work ran on `hardware.normalcomputing.net`, in `~/agents/umash-lemma`, with `nice -n 10` and at most 48 computational threads. The Mac used one computational thread. No web access, package installation, or network operation other than SSH/SCP was used.
+Heavy work ran on `<xeon-host>`, in `<xeon-work>/umash-lemma`, with `nice -n 10` and at most 48 computational threads. The Mac used one computational thread. No web access, package installation, or network operation other than SSH/SCP was used.
 
 [run.sh](toy/run.sh) reproduces the computations on the Xeon. It uses only a C++17/C compiler, OpenMP, x86 carry-less multiplication/BMI2, and Python's standard library. There are no floating-point probability calculations in the enumerators; printed decimals are conveniences alongside exact counts.
 

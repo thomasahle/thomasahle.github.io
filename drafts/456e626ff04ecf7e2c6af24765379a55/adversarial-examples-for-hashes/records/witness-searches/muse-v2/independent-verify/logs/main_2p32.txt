@@ -1,0 +1,14 @@
+Fri Sep 18 23:20:25 UTC 2026
+museair crate 0.6.0 (crates.io tarball) len 32 L 4 N 2^32 master 0x20260919 threads 8
+seed 0x040963434fe5e368: hash ef46cda19c0bbc67 ef46cda19c0bbc67 eq=true  bfast 8d303f6a6db80174 8d303f6a6db80174 eq=true
+seed 0xacac861647d5f7f2: hash b1f37635e72a255f b1f37635e72a255f eq=true  bfast 6f8d42b4ebc47217 6f8d42b4ebc47217 eq=true
+seed 0x0000000000000000: hash b5b9cc9d70e8f847 8f8b1e9c2c5b13f0 eq=false  bfast 178e6e7bf4c8d68f 179cd1b64f18fb76 eq=false
+hash                23869 / 4294967296  rate 2^-17.457 [2^-17.476, 2^-17.439]  bits 19.457 [19.439, 19.476]
+                   first colliding seed 0xed1b9315431cefca (seed_b 0x86d4722b2d713b86) -> low64 36e40617dd748dc9
+bfast::hash         23869 / 4294967296  rate 2^-17.457 [2^-17.476, 2^-17.439]  bits 19.457 [19.439, 19.476]
+                   first colliding seed 0xed1b9315431cefca (seed_b 0x86d4722b2d713b86) -> low64 a342055c0110f7bf
+hash128             24234 / 4294967296  rate 2^-17.435 [2^-17.453, 2^-17.417]  bits 19.435 [19.417, 19.453]
+                   first colliding seed 0xb88ef30a3998c2ac (seed_b 0xb07d640b888e21a7) -> low64 ca520537bf2b587d
+bfast::hash128      24234 / 4294967296  rate 2^-17.435 [2^-17.453, 2^-17.417]  bits 19.435 [19.417, 19.453]
+                   first colliding seed 0xb88ef30a3998c2ac (seed_b 0xb07d640b888e21a7) -> low64 7f4290fa1f604585
+Fri Sep 18 23:21:41 UTC 2026

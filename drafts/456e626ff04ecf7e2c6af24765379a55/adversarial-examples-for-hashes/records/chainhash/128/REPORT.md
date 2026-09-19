@@ -49,8 +49,8 @@ time, so executables must run on CPUs supporting their compilation flags.
 
 All rows for a host come from the **same SMHasher3 binary**. The existing
 harness and control objects are preserved and linked with the new registration
-objects. The remote tree is `~/agents/speedbench-ch128`, copied from
-`~/agents/speedbench`; the Mac uses a copy of `../m2-rerun/smhasher3` and that
+objects. The remote tree is `<xeon-work>/speedbench-ch128`, copied from
+`<xeon-work>/speedbench`; the Mac uses a copy of `../m2-rerun/smhasher3` and that
 scratch job's already built control libraries, including native ARM UMASH.
 No canonical repository is modified. `benchmarks/build_smh.py` records object
 hashes and exact commands, and also updates the scratch source list for a

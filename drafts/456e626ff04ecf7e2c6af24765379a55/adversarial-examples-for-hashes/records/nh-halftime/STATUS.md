@@ -38,7 +38,7 @@ Only `propext`, `Classical.choice`, and `Quot.sound` are allowed.
 
 ## Reproduction and provenance
 
-Xeon: `~/agents/lean-nh-halftime`, copied with `.lake` from `~/agents/lean-halftime`.
+Xeon: `<xeon-work>/lean-nh-halftime`, copied with `.lake` from `<xeon-work>/lean-halftime`.
 All builds/checks use CPUs 88–95, nice 10, eight Lean threads. Mathlib was cached.
 Run [reproduce.sh](reproduce.sh) on the Xeon. Sources are mirrored in `./lean/`.
 Parent commit: `c456cedba8c2a8f639f7ee614f8b01dbd49cb4f4`.
@@ -54,7 +54,7 @@ subsets, and 36,000 seed-expanded words. The upstream table-view UB and broken
 Encode3 witness reproduce as expected diagnostics.
 
 Build/audit/vector log: [evidence/reproduction.log](evidence/reproduction.log),
-also `~/agents/lean-nh-halftime/evidence/reproduction.log` on the Xeon.
+also `<xeon-work>/lean-nh-halftime/evidence/reproduction.log` on the Xeon.
 Tool/source provenance: [evidence/PROVENANCE.txt](evidence/PROVENANCE.txt).
 Per-lemma build logs are retained as `evidence/build-*.log`; failed exploratory
 attempts are superseded by the successful final reproduction.

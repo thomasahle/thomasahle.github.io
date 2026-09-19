@@ -423,6 +423,6 @@ As finite controls, the program checks the two multiplication marginal ranks for
 
 All computation code under [verification](verification/README.md) was written for this verification; it does not import or invoke `prior-toy`, the reviewer's missing program, or GAP.md's recurrence. The supplied reference and production C are executed only for explicit source correspondence checks.
 
-All exhaustive computation and compilation ran on **hardware.normalcomputing.net**, Intel Xeon Platinum 8375C, in `~/agents/umash-subcase-b`, at **nice 10**, with at most **32 computational threads**. No exhaustive suite was run on the Mac. The main suite uses only Python's standard library, GCC/G++, OpenMP, and x86 PCLMUL; it refuses to run on macOS.
+All exhaustive computation and compilation ran on **<xeon-host>**, Intel Xeon Platinum 8375C, in `<xeon-work>/umash-subcase-b`, at **nice 10**, with at most **32 computational threads**. No exhaustive suite was run on the Mac. The main suite uses only Python's standard library, GCC/G++, OpenMP, and x86 PCLMUL; it refuses to run on macOS.
 
 The principal machine-readable entry point is [certificates.json](verification/results/certificates.json). It links exact fractions, all masks with witnesses, all target histograms, rank histograms, product distributions, the full odd/even slice maxima, complete even witness key lists, source checks, and additional-case arithmetic. Reproduction commands, scopes, and SHA-256 verification are in [verification/README.md](verification/README.md).

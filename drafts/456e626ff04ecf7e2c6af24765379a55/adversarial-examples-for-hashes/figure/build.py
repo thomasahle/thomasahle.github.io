@@ -1,12 +1,15 @@
 """Rebuild publication SVGs, PNGs, and inspection data from ../data.json.
 Run: python3 blog/adversarial-examples-for-hashes/figure/build.py
-Requires matplotlib. Does not alter measurements or the article.
+Requires matplotlib. Also refreshes the existing witness-context note from data.json.
+Does not alter measurements or chart controls.
 """
 from pathlib import Path
 import copy
 import hashlib
 import json
 import math
+import html
+import re
 import xml.etree.ElementTree as ET
 
 import matplotlib
@@ -136,7 +139,7 @@ LABELS = {'m2': {'siphash-1-3': (2.05, 20.0, 'left', 'SipHash-1-3', ''),
           'komi': (10.563386085541142, 8.0, 'left', 'komihash', '')}}
 MOBILE_LABELS = {'m2': {'ghash': (3.1296782804570187, 256.0, 'left', 'GHASH', ''),
         'poly1305': (0.57, 168.89701257893051, 'left', 'Poly1305', ''),
-        'chain-v3': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash v3 (ours)', ''),
+        'chain-v3': (45.47443397859695, 17.0, 'right', 'ChainHash v3 (ours)', ''),
         'chain128': (45.47443397859695, 147.0333894396205, 'right', 'ChainHash-128 (ours)', ''),
         'halftime24-fixed': (0.57, 42.22425314473263, 'left', 'HalftimeHash24 (fixed)', ''),
         'highway': (0.57, 84.44850628946526, 'left', 'HighwayHash', ''),
@@ -144,7 +147,7 @@ MOBILE_LABELS = {'m2': {'ghash': (3.1296782804570187, 256.0, 'left', 'GHASH', ''
         'komi': (10.563386085541142, 6.062866266041593, 'left', 'komihash', '')},
  'xeon': {'ghash': (4.508070852474694, 256.0, 'left', 'GHASH', ''),
           'poly1305': (0.57, 222.86094420380775, 'left', 'Poly1305', ''),
-          'chain-v3': (45.47443397859695, 21.112126572366314, 'right', 'ChainHash v3 (ours)', ''),
+          'chain-v3': (45.47443397859695, 17.0, 'right', 'ChainHash v3 (ours)', ''),
           'chain128': (51.35676363205364, 147.0333894396205, 'right', 'ChainHash-128 (ours)', ''),
           'halftime24-fixed': (0.57, 111.43047210190387, 'left', 'HalftimeHash24 (fixed)', ''),
           'highway': (0.57, 42.22425314473263, 'left', 'HighwayHash', ''),
@@ -409,3 +412,23 @@ for key,host in HOSTS.items():
 (ROOT/'feature.svg').write_bytes((OUT/'m2-sqrt.svg').read_bytes())
 (ROOT/'feature.png').write_bytes((OUT/'m2-sqrt.png').read_bytes())
 print('Generated 24 SVGs, 24 PNGs, inspection data, and feature.svg/png from data.json.')
+
+# The existing figure note distinguishes the historical comparison from the
+# currently selected pair. Keep it generated from the same scientific record.
+selected = next(row for row in DATA['heuristics'] if row['id'] == 'xxh3-64')
+context_note = (
+    '<p>The separate historical <a href="verify/xxh3-64/HISTORICAL.md">32-byte pair A</a> '
+    'gave 9, 12, 11 and 11 collisions per 2<sup>30</sup> keys in wyhash, rapidhash v1, '
+    'rapidhash v3 and XXH3-64. The selected XXH3-64 pair has a different measured rate: '
+    + html.escape(selected['collision']['display']) + '. Search effort was unequal; '
+    'these witness caps do not rank hashes. <a href="'
+    + html.escape(selected['pair']['provenance'][-1], quote=True)
+    + '">Current pair and count provenance</a>.</p>'
+)
+article = ROOT / 'index.html'
+page, count = re.subn(
+    r'<p>The (?:separate historical <a href="verify/xxh3-64/[^"\n]+">32-byte pair A</a>|historical 32-byte pair A).*?</p>',
+    lambda match: context_note, article.read_text(), count=1, flags=re.S)
+if count != 1:
+    raise ValueError('Missing existing figure witness-context note')
+article.write_text(page)

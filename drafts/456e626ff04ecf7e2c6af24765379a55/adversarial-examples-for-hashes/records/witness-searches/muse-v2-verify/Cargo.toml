@@ -1,0 +1,9 @@
+[package]
+name = "verify"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+museair = { path = "../upstream/museair-0.6.0", default-features = false }
+[profile.release]
+opt-level = 3
+codegen-units = 1

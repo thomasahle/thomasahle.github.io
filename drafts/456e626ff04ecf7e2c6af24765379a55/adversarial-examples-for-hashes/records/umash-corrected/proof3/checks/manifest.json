@@ -1,0 +1,38 @@
+{
+  "hostname": "<xeon-host>",
+  "platform": "Linux-5.14.0-687.20.1.el9_8.x86_64-x86_64-with-glibc2.34",
+  "python": "3.12.13",
+  "affinity": [
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47
+  ],
+  "niceness": 10,
+  "virtual_memory_limit_bytes": 32000000000,
+  "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)",
+  "sha256": {
+    "PROOF3.md": "26934b3e7deb48bb405b6a58b42f1216a0c3539c3354d5faae1395ed173c135b",
+    "PROGRESS.md": "a38f278ec9f6e47631c76936a2da65dab10428c6a2d2566bc831e9c412416d07",
+    "materials/PROOF.md": "b974b914876631758f7559e04f1e689afae27ba07e682d2300a1d0615a9e70a0",
+    "materials/PROOF2.md": "998c956d8ab9cf050c5db450d3dd357aac0525f7b5dda53979a0805c9b346c14",
+    "materials/UMASHObligations.lean": "e9a375a0bc68f48c7bc559e213d0c23d6767189ee80ea039ba8718d86f066935",
+    "checks/README.md": "f0939d58e1e3a5d31a4ff49db6ed9c732cd1a6a0c8f47cd6b06de367f8003527",
+    "checks/certificate.log": "b08d4437d4ed51cd0bf0d734e8446967c4d7b9d74da58b62b964c97c54e8deb9",
+    "checks/certify_primary.py": "a434b03ba5d20fc07e956aa9777ef830f3acf44561e9099ad681d6abfbff6c22",
+    "checks/independent_verification.json": "131df0811739bc2a16aa641eec37ce30ca60d65e9cb0457497f099cb142a6dc9",
+    "checks/manifest.py": "7c6798e8bcbaec22636c90f5f5bf9baf2e9b5ce66aeec8d4ad9d2bbc72a35749",
+    "checks/prefix_weights.h": "b716956bd17b73235956552e5d6198c3a531500b2ba392414ba36f8482af84f8",
+    "checks/primary_certificate.json": "115dd530e417cb51f13339e657e007d240f78b71e1c15e439765506d09a31f80",
+    "checks/probe_counts.log": "b7bbec56c13627b88486b72a083b12c764ae7db9c27d41c223eb3be930926613",
+    "checks/probe_counts.py": "5b2c6cc7d5b6c7324acdf0952afda85a4865c49511b85f3407abfccd60428051",
+    "checks/run_xeon.sh": "7ae38db29a52cdb33a41e8afc36c90e76653ede12424de0cc9ac6d5a301db7c1",
+    "checks/validate_primary.cpp": "bf70b264dcd9fd578cb87c13c29ea0108b9aeedb9d57c6896c5c8eb93a267841",
+    "checks/validation.json": "78bd501a5f17f6fe3526061b87acdf863de9d6680901773d52ba895a4a1a8380",
+    "checks/verify_certificate.py": "a2569eaee5c3da74759e7e8b8f8fb082a1d3cfb32fbcea626be761346bd6a322"
+  }
+}

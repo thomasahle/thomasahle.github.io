@@ -106,6 +106,6 @@ Everything else (city, farm, murmur, mx3, fasthash, mir, gx, spooky, nmhash, hig
 
 - Change page-wide templates page-wide ("tested at upstream commit", "≤ 0 bits", pair-comment), never one row.
 - Apply the wyhash/rapid1/rapid3 decision in one commit, with the a5hash-128 precedent named in the text.
-- Every number on the page must trace to a shipped file (verify/…, records/…); copy Xeon logs into records/ before citing them; never cite ~/agents paths.
+- Every number on the page must trace to a shipped file (verify/…, records/…); copy Xeon logs into records/ before citing them; never cite <xeon-work> paths.
 - When a new sample replaces a score, keep the original count as a supporting measurement with provenance; say why the sample changed (thread count changes the deterministic stream; larger sample), and never call the old count "lucky".
 - Regenerate verify/MANIFEST.json sha256 entries for every edited verify file.

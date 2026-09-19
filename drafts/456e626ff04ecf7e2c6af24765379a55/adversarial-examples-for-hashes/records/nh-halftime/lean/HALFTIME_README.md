@@ -5,7 +5,7 @@ This extends ProvenHashes using Lean 4.24.0 and Mathlib v4.24.0. Read
 The inherited `README.md`, `Audit.lean`, and `FullAudit.lean` describe the base
 project; they do not establish the HalftimeHash milestones.
 
-All compilation was performed on `hardware.normalcomputing.net` in
+All compilation was performed on `<xeon-host>` in
 `/home/thomas-ahle/agents/lean-halftime/lean`, using the cache copied from
 `/home/thomas-ahle/agents/lean-hash`. The source mirror excludes `.lake`, `.git`,
 the Lean installation, and binary artifacts. The Mac only performs editing,
@@ -14,7 +14,7 @@ small file operations, and SSH/rsync transport.
 Run on the Xeon:
 
 ```bash
-cd ~/agents/lean-halftime
+cd <xeon-work>/lean-halftime
 source env.sh
 bash lean/build-halftime.sh
 ```

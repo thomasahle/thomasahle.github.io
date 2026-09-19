@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run on the Xeon from ~/agents/lean-nh-halftime; never compile on the Mac.
+# Run on the Xeon from <xeon-work>/lean-nh-halftime; never compile on the Mac.
 set -euo pipefail
 cd -- "$(dirname -- "$0")"
 source env.sh

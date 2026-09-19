@@ -1,6 +1,6 @@
 # Machine-checked Poly1305 and GHASH bounds
 
-Verified 2026-09-18 in `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-classic`.
+Verified 2026-09-18 in `<xeon-host>:<xeon-work>/lean-classic`.
 All requested ideal-key bounds are proved for byte-string inputs. **No `sorry`,
 `admit`, custom axiom, or `native_decide` is used.** The Mac was not used for
 Lean compilation, arithmetic checks, or PDF rendering.

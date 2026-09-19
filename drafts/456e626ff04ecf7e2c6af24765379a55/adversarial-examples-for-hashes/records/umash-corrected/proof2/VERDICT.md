@@ -2,7 +2,7 @@
 
 Date: 2026-09-19. Consolidates three independent adversarial review lenses
 (logic / quadratic / constants), each run on the Xeon under
-`~/agents/umash-verify2/<lens>/` with `nice -n 10 taskset -c 56-63`.
+`<xeon-work>/umash-verify2/<lens>/` with `nice -n 10 taskset -c 56-63`.
 Subject: `scratchpad/codex/umash-goal2/PROOF2.md` (702 lines) plus
 `checks/` and `materials/`.
 
@@ -190,4 +190,4 @@ combination.
   (affinity_patch.diff, scaled joint model, term-wise checks).
 - Constants lens: `scratchpad/design/umash-verify2/constants/`
   (verify2_constants.py, scaled_new_lemmas.c).
-- Xeon copies under `~/agents/umash-verify2/{logic,quadratic,constants}/`.
+- Xeon copies under `<xeon-work>/umash-verify2/{logic,quadratic,constants}/`.

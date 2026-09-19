@@ -64,7 +64,7 @@ The Xeon scratch tree is `/home/thomas-ahle/agents/speedbench-newhashes/source`,
 | Host | Binary | SHA-256 |
 |---|---|---|
 | Xeon8375C | `/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3` | `ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f` |
-| M2Pro | `/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/new-hashes-timing/build-m2/SMHasher3` | `566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd` |
+| M2Pro | `<scratch>/codex/new-hashes-timing/build-m2/SMHasher3` | `566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd` |
 
 The first M2 port representation spilled Abseil AES lane state into general registers. It was replaced with native NEON vector state and the upstream prefetch pattern before final timing. Two completed preliminary runs and one interrupted Marvin run are archived under `evidence/M2Pro-portstruct-superseded/` and excluded; every final M2 hash and control is retimed in the new binary.
 

@@ -68,7 +68,7 @@ No reported module contains proof placeholders, custom axioms, unsafe declaratio
 
 ## Commits
 
-Authoritative repository: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-polymur`.
+Authoritative repository: `<xeon-host>:<xeon-work>/lean-polymur`.
 
 | Milestone | Commit |
 |---|---|
@@ -94,7 +94,7 @@ the Xeon with `nice -n 10`, `taskset -c 72-79`, and `LEAN_NUM_THREADS=8`.
 Reproduce on the Xeon without rebuilding Mathlib:
 
 ```bash
-cd ~/agents/lean-polymur
+cd <xeon-work>/lean-polymur
 bash lean/build_polymur.sh
 bash lean/build.sh
 ```

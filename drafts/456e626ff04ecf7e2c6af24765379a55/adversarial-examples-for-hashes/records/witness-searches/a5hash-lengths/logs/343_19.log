@@ -1,0 +1,28 @@
+len=343 v=19 m=45 k0=33 beam=65536 zbits=-1 feasible (p,q) pairs: 1
+  (p,q)=(12,7) cost=10 free=22+22 e=54 (below k0: 16+16)  weight 2^-54 per full assignment
+S=54 determined seed bits; Pr[S1_init=W*] = weight/2^54
+level 33 histogram: max weight 137 at residual 0x1a55b5309 (top-65536 weight tail: threshold 52, 75127 bins >= it)
+selected 73783 level-33 bins for extension
+level 34: 70112 nodes, best expected weight 2^18.098 (W prefix 0x1a55b5309, 274 assignments)
+level 35: 69607 nodes, best expected weight 2^17.229 (W prefix 0x1a55b5309, 150 assignments)
+level 36: 69608 nodes, best expected weight 2^16.229 (W prefix 0x1a55b5309, 300 assignments)
+level 37: 65900 nodes, best expected weight 2^15.607 (W prefix 0x1b381bcb11, 195 assignments)
+level 38: 65674 nodes, best expected weight 2^14.607 (W prefix 0x1b381bcb11, 390 assignments)
+level 39: 67965 nodes, best expected weight 2^13.901 (W prefix 0x1b181bcb11, 239 assignments)
+level 40: 68582 nodes, best expected weight 2^12.901 (W prefix 0x1b181bcb11, 478 assignments)
+level 41: 66691 nodes, best expected weight 2^12.253 (W prefix 0x11792066861, 305 assignments)
+level 42: 66028 nodes, best expected weight 2^11.253 (W prefix 0x11792066861, 610 assignments)
+level 43: 67316 nodes, best expected weight 2^10.531 (W prefix 0xbe82c50c11, 370 assignments)
+level 44: 66450 nodes, best expected weight 2^9.531 (W prefix 0xbe82c50c11, 740 assignments)
+level 45: 65609 nodes, best expected weight 2^9.006 (W prefix 0x1e667c0d6061, 514 assignments)
+BEAM mode: W* = 0xf333e06b03080000  weight 514 (514 assignments)  Pr[S1_init = W*] = 2^-44.994  (second-best in beam 479 = 2^-45.096)
+score log2(L/eps) with L=43 words = 50.42 bits
+class size = weight * 2^(64-54) = 526336 = 2^19.01 seeds
+EXHAUSTIVE verification: class seeds tested 526336, full-hash collisions 526336, S1_init mismatches 0 (must be 0); example seed 0x000015f9acd4c724
+  h(m1)=09a094bef2a068aa h(m2)=09a094bef2a068aa
+control: 0 collisions in 12485370 uniform random seeds (expected 3.56e-07 from this class)
+pair: m1[0..24) = 6be033f3000008038877665544332211737a81888f969da4  m2[0..24) = 6be033f3000008031122334455667788737a81888f969da4  (rest identical: byte i = (7i+3)&0xff)
+
+real	1m41.355s
+user	3m57.708s
+sys	0m4.633s

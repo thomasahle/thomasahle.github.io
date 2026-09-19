@@ -1,0 +1,30 @@
+len=151 v=17 m=47 k0=33 beam=65536 zbits=-1 feasible (p,q) pairs: 1
+  (p,q)=(6,11) cost=9 free=23+23 e=55 (below k0: 16+16)  weight 2^-55 per full assignment
+S=55 determined seed bits; Pr[S1_init=W*] = weight/2^55
+level 33 histogram: max weight 130 at residual 0x32447707 (top-65536 weight tail: threshold 52, 71058 bins >= it)
+selected 70250 level-33 bins for extension
+level 34: 74150 nodes, best expected weight 2^20.022 (W prefix 0x32447707, 260 assignments)
+level 35: 67037 nodes, best expected weight 2^19.140 (W prefix 0x20f56fa07, 141 assignments)
+level 36: 70018 nodes, best expected weight 2^18.140 (W prefix 0x20f56fa07, 282 assignments)
+level 37: 68321 nodes, best expected weight 2^17.451 (W prefix 0x1a416efa07, 175 assignments)
+level 38: 65804 nodes, best expected weight 2^16.451 (W prefix 0x1a416efa07, 350 assignments)
+level 39: 65846 nodes, best expected weight 2^15.801 (W prefix 0x256515b427, 223 assignments)
+level 40: 69018 nodes, best expected weight 2^14.801 (W prefix 0x256515b427, 446 assignments)
+level 41: 67982 nodes, best expected weight 2^14.087 (W prefix 0xee1775b427, 272 assignments)
+level 42: 68624 nodes, best expected weight 2^13.087 (W prefix 0xee1775b427, 544 assignments)
+level 43: 66288 nodes, best expected weight 2^12.405 (W prefix 0x31e24996827, 339 assignments)
+level 44: 65846 nodes, best expected weight 2^11.405 (W prefix 0x31e24996827, 678 assignments)
+level 45: 65686 nodes, best expected weight 2^10.655 (W prefix 0x11fed5a6cad7, 403 assignments)
+level 46: 67362 nodes, best expected weight 2^9.655 (W prefix 0x11fed5a6cad7, 806 assignments)
+level 47: 66439 nodes, best expected weight 2^9.063 (W prefix 0x74ec65f5b427, 535 assignments)
+BEAM mode: W* = 0xe9d8cbeb684e0000  weight 535 (535 assignments)  Pr[S1_init = W*] = 2^-45.937  (second-best in beam 513 = 2^-45.997)
+score log2(L/eps) with L=19 words = 50.18 bits
+class size = weight * 2^(64-55) = 273920 = 2^18.06 seeds
+EXHAUSTIVE verification: class seeds tested 273920, full-hash collisions 273920, S1_init mismatches 0 (must be 0); example seed 0x0119f4b628ea98e4
+  h(m1)=a9ddb02410f41832 h(m2)=a9ddb02410f41832
+control: 0 collisions in 16777216 uniform random seeds (expected 2.49e-07 from this class)
+pair: m1[0..24) = ebcbd8e900004e688877665544332211737a81888f969da4  m2[0..24) = ebcbd8e900004e681122334455667788737a81888f969da4  (rest identical: byte i = (7i+3)&0xff)
+
+real	1m40.449s
+user	3m46.758s
+sys	0m3.701s

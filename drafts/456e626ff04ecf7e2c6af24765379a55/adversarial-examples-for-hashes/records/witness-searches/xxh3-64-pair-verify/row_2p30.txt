@@ -1,0 +1,57 @@
+xxHash library version 803 (XXH_VERSION_NUMBER 803)
+sanity len=0 seed=0000000000000000: 2d06800538d394c2 expected 2d06800538d394c2 PASS
+sanity len=0 seed=9e3779b185ebca8d: a8a6b918b2f0364a expected a8a6b918b2f0364a PASS
+sanity len=1 seed=0000000000000000: c44bdff4074eecdb expected c44bdff4074eecdb PASS
+sanity len=1 seed=9e3779b185ebca8d: 032be332dd766ef8 expected 032be332dd766ef8 PASS
+sanity len=6 seed=0000000000000000: 27b56a84cd2d7325 expected 27b56a84cd2d7325 PASS
+sanity len=6 seed=9e3779b185ebca8d: 84589c116ab59ab9 expected 84589c116ab59ab9 PASS
+sanity len=12 seed=0000000000000000: a713daf0dfbb77e7 expected a713daf0dfbb77e7 PASS
+sanity len=12 seed=9e3779b185ebca8d: e7303e1b2336de0e expected e7303e1b2336de0e PASS
+sanity len=24 seed=0000000000000000: a3fe70bf9d3510eb expected a3fe70bf9d3510eb PASS
+sanity len=24 seed=9e3779b185ebca8d: 850e80fc35bdd690 expected 850e80fc35bdd690 PASS
+sanity len=48 seed=0000000000000000: 397da259ecba1f11 expected 397da259ecba1f11 PASS
+sanity len=48 seed=9e3779b185ebca8d: adc2cbaa44acc616 expected adc2cbaa44acc616 PASS
+sanity len=80 seed=0000000000000000: bcdefbbb2c47c90a expected bcdefbbb2c47c90a PASS
+sanity len=80 seed=9e3779b185ebca8d: c6dd0cb699532e73 expected c6dd0cb699532e73 PASS
+sanity len=195 seed=0000000000000000: cd94217ee362ec3a expected cd94217ee362ec3a PASS
+sanity len=195 seed=9e3779b185ebca8d: ba68003d370cb3d9 expected ba68003d370cb3d9 PASS
+sanity len=403 seed=0000000000000000: cdeb804d65c6dea4 expected cdeb804d65c6dea4 PASS
+sanity len=403 seed=9e3779b185ebca8d: 6259f6ecfd6443fd expected 6259f6ecfd6443fd PASS
+sanity len=512 seed=0000000000000000: 617e49599013cb6b expected 617e49599013cb6b PASS
+sanity len=512 seed=9e3779b185ebca8d: 3ce457de14c27708 expected 3ce457de14c27708 PASS
+sanity len=2048 seed=0000000000000000: dd59e2c3a5f038e0 expected dd59e2c3a5f038e0 PASS
+sanity len=2048 seed=9e3779b185ebca8d: 66f81670669ababc expected 66f81670669ababc PASS
+sanity len=2240 seed=0000000000000000: 6e73a90539cf2948 expected 6e73a90539cf2948 PASS
+sanity len=2240 seed=9e3779b185ebca8d: 757ba8487d1b5247 expected 757ba8487d1b5247 PASS
+sanity len=2367 seed=0000000000000000: cb37aeb9e5d361ed expected cb37aeb9e5d361ed PASS
+sanity len=2367 seed=9e3779b185ebca8d: d2db3415b942b42a expected d2db3415b942b42a PASS
+M  = 8912a3da9fc464368202a1be238b7d1100000000000000000000000000000000
+M' = 76ed5c25603b9bc97dfd5e41dc7482ee00000000000000000000000000000000
+len = 32
+witness seed c8eae1baae13330b: H(M)=00ffe25bba202dfb H(M')=00ffe25bba202dfb expected 00ffe25bba202dfb PASS
+seed 0: H(M)=8a78ab62f4dbe0e6 H(M')=bba85a3418196ece differ
+worker 0: 61 / 134217728
+  colliding seed 0df7a7a2c2bfd445 H=6b5f8fe06a3a5439
+  colliding seed cb7f5c69fb1b08c2 H=02322533288a33c4
+worker 1: 57 / 134217728
+  colliding seed 746c06191960688f H=76feaf3575c4e5c9
+  colliding seed 0cfd7af0f689c213 H=dd7e3b78de1e8f46
+worker 2: 63 / 134217728
+  colliding seed 4328390dfbc52634 H=facd02ddf6ce6eb9
+  colliding seed 12ff5fb72ff47704 H=55feef5b058a93d4
+worker 3: 59 / 134217728
+  colliding seed cc7e1768f3728edf H=517cf2fd654530e8
+  colliding seed 1f5412298b6c62fe H=f13ed2e516e4821f
+worker 4: 64 / 134217728
+  colliding seed 16b0b189b4a05c3c H=161ce65537d9441d
+  colliding seed 9a17190cf4d887b7 H=8477cf93cf6fd8de
+worker 5: 61 / 134217728
+  colliding seed 084020321b3a3d38 H=fb439cfa8e3093e3
+  colliding seed c4058a17ba8546ee H=5e0daa23fbb8a6da
+worker 6: 67 / 134217728
+  colliding seed 4203feeffa22e300 H=d7a81905093d2980
+  colliding seed 06fe0939c5a62b48 H=19b67aecdaa15817
+worker 7: 58 / 134217728
+  colliding seed c3eb161cc0bcb58c H=dac707c3b8b6d77d
+  colliding seed 59d1b56803e6cc88 H=37cf0fda5de2897a
+salt=0be5719ab2026094 N=2^30 workers=8 collisions = 490 / 1073741824; rate = 4.563481e-07; log2(rate) = -21.0634; cap bits (L=4) = 23.0634

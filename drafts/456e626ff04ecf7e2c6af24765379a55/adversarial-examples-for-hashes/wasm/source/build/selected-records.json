@@ -160,22 +160,22 @@
     "bits": 64,
     "keyFree": false,
     "messages": [
-      "40313233343536373839253b3c3d3e3f408142094445464748494a4b4c4d4e4f8d896d065c5d5e5f606162636465666768696a6b6c6d6e6f",
-      "3e313233343536373839403b3c3d3e3f405e42204445464748494a4b4c4d4e4f727290085c5d5e5f606162636465666768696a6b6c6d6e6f"
+      "22313233343536373839263b3c3d3e3f407b42404445464748494a4b4c4d4e4f0df97e025c5d5e5f606162636465666768696a6b6c6d6e6f",
+      "1f313233343536373839343b3c3d3e3f406d422f4445464748494a4b4c4d4e4fff098d055c5d5e5f606162636465666768696a6b6c6d6e6f"
     ],
     "lengths": [
       56,
       56
     ],
     "keys": [
-      "711096b41e1b7d99",
-      "59af3b7ae3b7d595",
-      "d2fb75eb5658a771",
-      "5a0f91d8ed1ffe38"
+      "ec6baf58f9a18793",
+      "b5e2ee792117d0ff",
+      "893c786e1e8196a8",
+      "a4edbe691f677fb2"
     ],
-    "expected": "45ef7682d72b19b6",
-    "rate": "about 2^-19.7 measured",
-    "log2Rate": -19.646853174501917,
+    "expected": "21a01e6ddf40c84a",
+    "rate": "about 2^-19.38 of keys (sampled; 12,627 events / 2^33 keys, native Rust crate 0.8.12)",
+    "log2Rate": -19.3758,
     "rateKind": "Measured rate or class-density-weighted measured rate"
   },
   {
@@ -185,19 +185,19 @@
     "bits": 64,
     "keyFree": false,
     "messages": [
-      "406b68c281a55e00158ed10a0d96f8ff",
-      "d1d86241d24d9f990323e0"
+      "c4c0cc2284cd239ede36a18fa6",
+      "fbc31866049ec02dea0c4e2be580d3cf"
     ],
     "lengths": [
-      16,
-      11
+      13,
+      16
     ],
     "keys": [
-      "3c805cc67a687f30"
+      "4c240c2749cd4915"
     ],
-    "expected": "f2a1196d24fddaab",
-    "rate": "2^-26 \u00d7 (262144/2^22) \u2248 2^-30, estimated class contribution",
-    "log2Rate": -30,
+    "expected": "c35b49165b1a4480",
+    "rate": "about 2^-28.19 of keys (sampled class contribution: 2^-24 × 58,715,203/2^30)",
+    "log2Rate": -28.1928,
     "rateKind": "Measured rate or class-density-weighted measured rate"
   },
   {
@@ -218,7 +218,7 @@
       "bdd730a20c451ba4"
     ],
     "expected": "9cda28706bf2e550",
-    "rate": "\u2265 118 \u00d7 2^-45 \u2248 2^-38.12",
+    "rate": "≥ 118 × 2^-45 ≈ 2^-38.12",
     "log2Rate": -38.11735695063816,
     "rateKind": "Exact sufficient event"
   },
@@ -265,7 +265,7 @@
       "b6c304527caad524"
     ],
     "expected": "f5eba26391be727f",
-    "rate": "class contribution 56165/2^72 \u2248 2^-56.22",
+    "rate": "class contribution 56165/2^72 ≈ 2^-56.22",
     "log2Rate": -56.22261624545425,
     "rateKind": "Exact sufficient event"
   },
@@ -342,19 +342,19 @@
     "bits": 64,
     "keyFree": false,
     "messages": [
-      "8912a3da9fc464368202a1be238b7d11a56186f8dc03bd1f78bfbd2ba3386ced7093d3639fc8f076abe3f9a757e5c84290720e6340b2e7820a16a5633b9b0344773006232e3abc7d4727eafba248b46cf2a6516698382bd2fa890528924cd1b618df4aa87d1af4bcec13f92bf8a1163e657fb0885deddf709a0252fbe3ae169d",
-      "76ed5c25603b9bc97dfd5e41dc7482eea56186f8dc03bd1f78bfbd2ba3386ced7093d3639fc8f076abe3f9a757e5c84290720e6340b2e7820a16a5633b9b0344773006232e3abc7d4727eafba248b46cf2a6516698382bd2fa890528924cd1b618df4aa87d1af4bcec13f92bf8a1163e657fb0885deddf709a0252fbe3ae169d"
+      "0000000000000000000000000000000051151210404400000000008204000105",
+      "00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa"
     ],
     "lengths": [
-      128,
-      128
+      32,
+      32
     ],
     "keys": [
-      "c8eae1baae13330b"
+      "2468b3bc26a44073"
     ],
-    "expected": "448e3716c8effb94",
-    "rate": "1030/2^31 measured (504 + 526 in two fresh 2^30 runs)",
-    "log2Rate": -20.991571377929418,
+    "expected": "dd686b61e2f6dc69",
+    "rate": "about 2^-10.47 of keys (sampled; 2,264,081 events / 3×2^30 keys, upstream v0.8.3)",
+    "log2Rate": -10.4745,
     "rateKind": "Pooled confirmation estimate; excludes screening, refinement and repeated-seed controls."
   },
   {

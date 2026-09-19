@@ -10,7 +10,7 @@ on the verdict and on the reasons. Source material:
 - literature/LITERATURE.md (verbatim quotes) + PDFs/text of AB12, DMS14 (ePrint 2014/722), He-Yu (2019/865),
   Niu et al. (2022/765), Chakraborty et al. (2024/1359); Rust issue #29754 and PR #33940.
 - feasibility/ (sipchar.py CaDiCaL model, sip_pair.c, sip_seg.c, RUNLOG.md; logs on the Xeon under
-  ~/agents/siphash-claim/feasibility/logs).
+  <xeon-work>/siphash-claim/feasibility/logs).
 - experiment/ (sipdiff.c, gendiffs.py, run_phase*.sh, analyze.py, results.json, REPRODUCE.md, raw outputs).
 
 ## 1. The answer
@@ -182,8 +182,8 @@ score.direction); otherwise (a). Either way the sentence in section 2 goes into 
 - Literature note: scratchpad/design/siphash-claim/literature/LITERATURE.md
 - SAT model + run log: scratchpad/design/siphash-claim/feasibility/{sipchar.py,RUNLOG.md}
 - Experiment: scratchpad/design/siphash-claim/experiment/{REPRODUCE.md,results.json,phaseA_summary.txt,
-  phaseB_summary.txt,calib10_summary.txt}; Xeon mirror ~/agents/siphash-claim/experiment/
-- Post rows to edit: /Users/ahle/repos/website/drafts/456e626ff04ecf7e2c6af24765379a55/adversarial-examples-for-hashes/data.json
+  phaseB_summary.txt,calib10_summary.txt}; Xeon mirror <xeon-work>/siphash-claim/experiment/
+- Post rows to edit: <repos>/website/drafts/456e626ff04ecf7e2c6af24765379a55/adversarial-examples-for-hashes/data.json
   (ids siphash-1-3 at line ~12123 and siphash-2-4 at line ~12591: official_claim, qualification, hover,
   score.display_text), index.html #chart-additions-note and #appendix-siphash.
 - No solver or sipdiff processes are left running on the Xeon.

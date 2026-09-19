@@ -1,6 +1,6 @@
 # Lean HalftimeHash status
 
-Worktree: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-halftime`.
+Worktree: `<xeon-host>:<xeon-work>/lean-halftime`.
 Source mirror: [lean/](lean/). All compilation and proof checking ran on the Xeon;
 the Mac performed only editing, file reads, and SSH/rsync transport.
 
@@ -17,7 +17,7 @@ the Mac performed only editing, file reads, and SSH/rsync transport.
 - Lean: `leanprover/lean4:v4.24.0`.
 - Mathlib: `v4.24.0`, commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 - Base ProvenHashes commit: `e70213feed3dac6280fe8d7ecdc35dcfd0cf1cc8`.
-- The new worktree was copied from `~/agents/lean-hash`, including its `.lake`
+- The new worktree was copied from `<xeon-work>/lean-hash`, including its `.lake`
   cache and Lean installation. The original worktree was not edited.
 - All resume-2 builds and Lean checks use `nice -n 10`, `taskset -c 88-95`,
   and `LEAN_NUM_THREADS=8`. Both build scripts and the remote `env.sh` enforce
@@ -27,7 +27,7 @@ the Mac performed only editing, file reads, and SSH/rsync transport.
   independent uniform entries; product key spaces give independent stages.
 
 ```bash
-cd ~/agents/lean-halftime
+cd <xeon-work>/lean-halftime
 source env.sh
 bash lean/build-halftime.sh
 bash lean/build.sh

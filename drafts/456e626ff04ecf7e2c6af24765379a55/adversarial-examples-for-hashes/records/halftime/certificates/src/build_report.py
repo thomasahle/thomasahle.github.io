@@ -142,8 +142,8 @@ and records a `getrandom` seed and disjoint per-thread counters. Unread holes
 are integrated out and independently tested. These are regression experiments;
 zero empirical collisions does not establish the exponent in the theorem.
 
-Heavy work ran on `thomas-ahle@hardware.normalcomputing.net` under
-`~/agents/halftime-fixed`, at nice 10 with at most 24 compute workers.
+Heavy work ran on `<xeon-host>` under
+`<xeon-work>/halftime-fixed`, at nice 10 with at most 24 compute workers.
 Only reported completed work is counted. Widths 1/2/4 combine a conservative
 printed checkpoint with a separately seeded completed continuation. The last
 AVX-512 reduction edit left those three function bodies, relocations, and
@@ -156,7 +156,7 @@ checks and timings.
 
 ## SMHasher3 measurements
 
-The scratch trees are `~/agents/speedbench-hhfixed/source` on the Xeon and
+The scratch trees are `<xeon-work>/speedbench-hhfixed/source` on the Xeon and
 `smhasher3-m2/` in this workspace on the M2. The original trees were not edited.
 The adapter registers a genuine 192-bit result and a 64-bit Style result. The
 192-bit dispatcher supports Speed and Sanity using the unchanged untemplated

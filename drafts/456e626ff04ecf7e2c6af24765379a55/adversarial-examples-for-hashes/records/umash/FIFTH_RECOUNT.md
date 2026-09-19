@@ -2,7 +2,7 @@
 
 All six requested algebra and counting checks are **CONFIRMED**. All numerical constants quoted in the fifth summary are valid. No claimed inequality was refuted. The two-word ENH cases with valuation 1, 2, or 3 admit substantially stronger constants, proved below. The advertised sharp bound for the primary hash for every message pair is still open.
 
-This is an independent derivation and implementation, not a rerun of the reviewer's programs. All enumerations ran on `hardware.normalcomputing.net` (Xeon Platinum 8375C), in `~/agents/umash-enh-verify`, at nice level 10 with at most 32 compute threads for this task. The Mac only edited, read, and transferred files. Certificates use integer counts and rational numbers; decimals are only explanatory. The supplied UMASH sources were not changed.
+This is an independent derivation and implementation, not a rerun of the reviewer's programs. All enumerations ran on `<xeon-host>` (Xeon Platinum 8375C), in `<xeon-work>/umash-enh-verify`, at nice level 10 with at most 32 compute threads for this task. The Mac only edited, read, and transferred files. Certificates use integer counts and rational numbers; decimals are only explanatory. The supplied UMASH sources were not changed.
 
 The full fifth review, including its numbered equations, was not supplied or located. The definition of the pattern weight and the linear bijection corresponding to the description of (13)–(14) are explicitly reconstructed below. They reproduce the reported constants exactly. Background results imported from the third review or GAP are identified separately from the new verification.
 

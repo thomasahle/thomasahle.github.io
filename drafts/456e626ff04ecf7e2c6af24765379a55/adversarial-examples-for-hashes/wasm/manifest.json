@@ -36,14 +36,14 @@
       "sha256": "e6f9bdeaa28dbc8565010d15237189dc072add7459b85fe89dfb03e626f10258"
     },
     "rust-ahash": {
-      "bytes": 11126,
+      "bytes": 11138,
       "source": "verify/rust-ahash/ahash_pairs.c",
-      "sha256": "6b1b7d137a746db56809a753b31350318b3e3cec15b6d7297665315da647dffd"
+      "sha256": "02ce5e267f447bec6133878fdd61e628ae1470638da6f8f4f2c20b03202549d9"
     },
     "t1ha2-64": {
-      "bytes": 12604,
+      "bytes": 12601,
       "source": "verify/t1ha2-64/t1ha2_64_verify.c",
-      "sha256": "4c982dd5d5aa9070d0f1b531319c392f69525257b21bbcb620f40133d5f8b41a"
+      "sha256": "65ecd4d5a5fcd1df00dfedc97eb8826faf3739d6174c09ab96ec573be5376b8e"
     },
     "a5hash": {
       "bytes": 19439,
@@ -71,9 +71,9 @@
       "sha256": "6090f2f0c4cf5ed9287feb05f878d25578e3434c60b6fe2ac77e7c7b37c250c1"
     },
     "xxh3-64": {
-      "bytes": 16195,
-      "source": "verify/xxh3-64/xxh3_64_verify.c",
-      "sha256": "453fc8d9145d89081753be380caa2ee8c70381438f1bc21310479f7c94352c55"
+      "bytes": 16707,
+      "source": "verify/xxh3-64/xxh3_64_pair_check.c",
+      "sha256": "1d5b05ee4f69bda94fb94e30f38adc962c67a07947de6abdf55c3223bfb12e0e"
     },
     "xxh3-128": {
       "bytes": 10948,
@@ -425,8 +425,8 @@
             56,
             56
           ],
-          "rate": "about 2^-19.7 measured",
-          "log2Rate": -19.646853174501917,
+          "rate": "about 2^-19.38 of keys (sampled; 12,627 events / 2^33 keys, native Rust crate 0.8.12)",
+          "log2Rate": -19.3758,
           "module": "rust-ahash",
           "seedBits": 64,
           "keyWords": 4,
@@ -447,20 +447,20 @@
           "bits": 64,
           "keyFree": false,
           "lengths": [
-            16,
-            11
+            13,
+            16
           ],
-          "rate": "2^-26 \u00d7 (262144/2^22) \u2248 2^-30, estimated class contribution",
-          "log2Rate": -30,
+          "rate": "about 2^-28.19 of keys (sampled class contribution: 2^-24 × 58,715,203/2^30)",
+          "log2Rate": -28.1928,
           "module": "t1ha2-64",
           "seedBits": 64,
           "keyWords": 1,
           "variant": 0,
           "batch": 100000,
           "validation": "SMHasher3 verification passed",
-          "classText": "L & 0x7f868a5066451822 = 0x16808a1062000020, where L = ((seed XOR l\u2080) + tail) \u00d7 P1 mod 2\u2076\u2074. Density 2\u207b\u00b2\u2076; L is a bijection of the seed.",
-          "classLog2": -26,
-          "conditionalLog2": -4,
+          "classText": "Lseed & 0xa5845081f808f44a = 0x2080000118003408, where Lseed = ((seed XOR l₀) + tail) × P1 mod 2⁶⁴. Density 2⁻²⁴; Lseed is a bijection of the seed.",
+          "classLog2": -24,
+          "conditionalLog2": -4.1928,
           "pair": 0
         }
       ]
@@ -478,7 +478,7 @@
             6615,
             6615
           ],
-          "rate": "\u2265 118 \u00d7 2^-45 \u2248 2^-38.12",
+          "rate": "≥ 118 × 2^-45 ≈ 2^-38.12",
           "log2Rate": -38.11735695063816,
           "module": "a5hash",
           "seedBits": 64,
@@ -486,7 +486,7 @@
           "variant": 0,
           "batch": 10000,
           "validation": "SMHasher3 verification passed",
-          "classText": "s1_init(6615, seed) = 0x8e5caae000000000; 118 \u00d7 2\u00b9\u2079 seeds, density 118 \u00d7 2\u207b\u2074\u2075.",
+          "classText": "s1_init(6615, seed) = 0x8e5caae000000000; 118 × 2¹⁹ seeds, density 118 × 2⁻⁴⁵.",
           "classLog2": -38.11735695063816,
           "conditionalLog2": 0,
           "pair": 0
@@ -531,7 +531,7 @@
             96,
             96
           ],
-          "rate": "class contribution 56165/2^72 \u2248 2^-56.22",
+          "rate": "class contribution 56165/2^72 ≈ 2^-56.22",
           "log2Rate": -56.22261624545425,
           "module": "highwayhash",
           "seedBits": 64,
@@ -539,7 +539,7 @@
           "variant": 0,
           "batch": 10000,
           "validation": "SMHasher3 verification passed",
-          "classText": "hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2\u207b\u00b3\u00b2.",
+          "classText": "hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2⁻³².",
           "classLog2": -32,
           "conditionalLog2": -24.222616245454248,
           "pair": 0
@@ -554,7 +554,7 @@
             96,
             96
           ],
-          "rate": "class contribution 56165/2^72 \u2248 2^-56.22",
+          "rate": "class contribution 56165/2^72 ≈ 2^-56.22",
           "log2Rate": -56.22261624545425,
           "module": "highwayhash",
           "seedBits": 64,
@@ -562,7 +562,7 @@
           "variant": 1,
           "batch": 10000,
           "validation": "SMHasher3 verification passed",
-          "classText": "hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2\u207b\u00b3\u00b2.",
+          "classText": "hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2⁻³².",
           "classLog2": -32,
           "conditionalLog2": -24.222616245454248,
           "pair": 1
@@ -577,7 +577,7 @@
             96,
             96
           ],
-          "rate": "class contribution 56165/2^72 \u2248 2^-56.22",
+          "rate": "class contribution 56165/2^72 ≈ 2^-56.22",
           "log2Rate": -56.22261624545425,
           "module": "highwayhash",
           "seedBits": 64,
@@ -585,7 +585,7 @@
           "variant": 2,
           "batch": 10000,
           "validation": "SMHasher3 verification passed",
-          "classText": "hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2\u207b\u00b3\u00b2.",
+          "classText": "hi32(key[0]) = 0xdbe6d5d5; the other 224 key bits are uniform. Density 2⁻³².",
           "classLog2": -32,
           "conditionalLog2": -24.222616245454248,
           "pair": 2
@@ -717,11 +717,11 @@
           "bits": 64,
           "keyFree": false,
           "lengths": [
-            128,
-            128
+            32,
+            32
           ],
-          "rate": "1030/2^31 measured (504 + 526 in two fresh 2^30 runs)",
-          "log2Rate": -20.991571377929418,
+          "rate": "about 2^-10.47 of keys (sampled; 2,264,081 events / 3×2^30 keys, upstream v0.8.3)",
+          "log2Rate": -10.4745,
           "module": "xxh3-64",
           "seedBits": 64,
           "keyWords": 1,

@@ -1,0 +1,2328 @@
+{
+  "host": "M2Pro",
+  "binary": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+  "binary_sha256": "b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4",
+  "runs": [
+    {
+      "name": "MuseAir-v2",
+      "run": 1,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "MuseAir-v2",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:24:14.381606+00:00",
+      "before": {
+        "time": "2026-09-19T00:24:14.373502+00:00",
+        "load": [
+          3.34375,
+          3.38916015625,
+          3.728515625
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir-v2.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:24:14.416917+00:00",
+          "load": [
+            3.34375,
+            3.38916015625,
+            3.728515625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:19.456558+00:00",
+          "load": [
+            3.31591796875,
+            3.38232421875,
+            3.72412109375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:24.502116+00:00",
+          "load": [
+            3.77099609375,
+            3.4755859375,
+            3.7548828125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:29.550344+00:00",
+          "load": [
+            4.189453125,
+            3.56689453125,
+            3.78515625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:34.597193+00:00",
+          "load": [
+            4.09375,
+            3.55712890625,
+            3.7802734375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:39.644495+00:00",
+          "load": [
+            4.005859375,
+            3.5478515625,
+            3.775390625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:44.689222+00:00",
+          "load": [
+            3.92529296875,
+            3.53857421875,
+            3.7705078125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:49.730811+00:00",
+          "load": [
+            4.09130859375,
+            3.5791015625,
+            3.783203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:54.780736+00:00",
+          "load": [
+            4.00390625,
+            3.5693359375,
+            3.7783203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:24:59.826899+00:00",
+          "load": [
+            3.92333984375,
+            3.5595703125,
+            3.7734375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 58747,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 50.454010125,
+      "finished": "2026-09-19T00:25:04.835760+00:00",
+      "after": {
+        "time": "2026-09-19T00:25:04.870945+00:00",
+        "load": [
+          3.92919921875,
+          3.56640625,
+          3.7744140625
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "fcce1c5c929fa5d27f43e0d7974aadb2f342ea4e47c962d90a2c5d142051200f"
+    },
+    {
+      "name": "XXH3-64",
+      "run": 1,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "XXH3-64",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:25:04.913391+00:00",
+      "before": {
+        "time": "2026-09-19T00:25:04.905971+00:00",
+        "load": [
+          3.92919921875,
+          3.56640625,
+          3.7744140625
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "XXH3-64.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:25:04.946769+00:00",
+          "load": [
+            3.92919921875,
+            3.56640625,
+            3.7744140625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:09.993340+00:00",
+          "load": [
+            3.9345703125,
+            3.5732421875,
+            3.775390625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:15.037782+00:00",
+          "load": [
+            3.939453125,
+            3.580078125,
+            3.7763671875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:20.086532+00:00",
+          "load": [
+            3.86376953125,
+            3.5703125,
+            3.771484375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:25.129015+00:00",
+          "load": [
+            3.95458984375,
+            3.59375,
+            3.7783203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:30.173737+00:00",
+          "load": [
+            3.9580078125,
+            3.60009765625,
+            3.779296875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:35.222874+00:00",
+          "load": [
+            3.880859375,
+            3.58984375,
+            3.7744140625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:40.270983+00:00",
+          "load": [
+            3.81005859375,
+            3.57958984375,
+            3.76953125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59081,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 40.36361216699999,
+      "finished": "2026-09-19T00:25:45.277188+00:00",
+      "after": {
+        "time": "2026-09-19T00:25:45.351328+00:00",
+        "load": [
+          3.7451171875,
+          3.56982421875,
+          3.7646484375
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "273cb3a77da1cb9ef319028891c8117b3fc163eeb68f930ffa90563bd31b9fac"
+    },
+    {
+      "name": "rapidhash",
+      "run": 1,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:25:45.393838+00:00",
+      "before": {
+        "time": "2026-09-19T00:25:45.386281+00:00",
+        "load": [
+          3.7451171875,
+          3.56982421875,
+          3.7646484375
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:25:45.427117+00:00",
+          "load": [
+            3.7451171875,
+            3.56982421875,
+            3.7646484375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59303,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:50.470711+00:00",
+          "load": [
+            3.76513671875,
+            3.57666015625,
+            3.765625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59303,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:25:55.515872+00:00",
+          "load": [
+            3.70361328125,
+            3.56689453125,
+            3.7607421875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59303,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:00.559859+00:00",
+          "load": [
+            3.72705078125,
+            3.57373046875,
+            3.76171875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59303,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:05.605784+00:00",
+          "load": [
+            3.66845703125,
+            3.56396484375,
+            3.7568359375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59303,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:10.649926+00:00",
+          "load": [
+            3.69482421875,
+            3.57080078125,
+            3.7578125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59303,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:15.694977+00:00",
+          "load": [
+            3.71923828125,
+            3.57763671875,
+            3.7587890625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59303,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 35.311940917,
+      "finished": "2026-09-19T00:26:20.705974+00:00",
+      "after": {
+        "time": "2026-09-19T00:26:20.743176+00:00",
+        "load": [
+          3.82177734375,
+          3.60107421875,
+          3.765625
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "1ce6805d498f9ba1b23bafa1b261250f8242e5b0df8cd32310e6337c7231de74"
+    },
+    {
+      "name": "chainhash-256",
+      "run": 1,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "chainhash-256",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:26:20.784737+00:00",
+      "before": {
+        "time": "2026-09-19T00:26:20.777054+00:00",
+        "load": [
+          3.82177734375,
+          3.60107421875,
+          3.765625
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "chainhash-256.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:26:20.818436+00:00",
+          "load": [
+            3.82177734375,
+            3.60107421875,
+            3.765625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59475,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:25.854713+00:00",
+          "load": [
+            3.755859375,
+            3.5908203125,
+            3.7607421875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59475,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:30.895210+00:00",
+          "load": [
+            3.935546875,
+            3.63037109375,
+            3.7734375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59475,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:35.936361+00:00",
+          "load": [
+            3.8603515625,
+            3.61962890625,
+            3.7685546875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59475,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:40.978409+00:00",
+          "load": [
+            3.791015625,
+            3.60888671875,
+            3.763671875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59475,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:46.024669+00:00",
+          "load": [
+            3.8076171875,
+            3.615234375,
+            3.7646484375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59475,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 30.242856125000017,
+      "finished": "2026-09-19T00:26:51.027752+00:00",
+      "after": {
+        "time": "2026-09-19T00:26:51.069150+00:00",
+        "load": [
+          3.82275390625,
+          3.62158203125,
+          3.765625
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "4285953416e5185f0be1a53472562d86c372988c5101db4197d5eae7bffa7b03"
+    },
+    {
+      "name": "MuseAir",
+      "run": 1,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "MuseAir",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:26:51.117210+00:00",
+      "before": {
+        "time": "2026-09-19T00:26:51.109385+00:00",
+        "load": [
+          3.82275390625,
+          3.62158203125,
+          3.765625
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir.run1.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:26:51.154377+00:00",
+          "load": [
+            3.82275390625,
+            3.62158203125,
+            3.765625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:26:56.193519+00:00",
+          "load": [
+            3.9970703125,
+            3.66064453125,
+            3.7783203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:01.243063+00:00",
+          "load": [
+            3.9169921875,
+            3.6494140625,
+            3.7734375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:06.279781+00:00",
+          "load": [
+            4.08349609375,
+            3.68798828125,
+            3.7861328125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:11.323550+00:00",
+          "load": [
+            3.99658203125,
+            3.67626953125,
+            3.78125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:16.373984+00:00",
+          "load": [
+            3.99658203125,
+            3.681640625,
+            3.7822265625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:21.416121+00:00",
+          "load": [
+            3.99658203125,
+            3.6865234375,
+            3.783203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:26.459601+00:00",
+          "load": [
+            3.99658203125,
+            3.69140625,
+            3.7841796875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:31.501346+00:00",
+          "load": [
+            3.99658203125,
+            3.6962890625,
+            3.78515625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:36.545937+00:00",
+          "load": [
+            3.91650390625,
+            3.6845703125,
+            3.7802734375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:41.598621+00:00",
+          "load": [
+            4.1630859375,
+            3.7392578125,
+            3.798828125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59641,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 55.484439667000004,
+      "finished": "2026-09-19T00:27:46.601881+00:00",
+      "after": {
+        "time": "2026-09-19T00:27:46.635823+00:00",
+        "load": [
+          3.98974609375,
+          3.7099609375,
+          3.7880859375
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "9d1e8160ab4a101406d04a88823301c9e6b4d4f06a01ac3ca0bb1757ef9410db"
+    },
+    {
+      "name": "MuseAir-v2",
+      "run": 2,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "MuseAir-v2",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:27:46.677709+00:00",
+      "before": {
+        "time": "2026-09-19T00:27:46.670121+00:00",
+        "load": [
+          3.98974609375,
+          3.7099609375,
+          3.7880859375
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir-v2.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:27:46.709949+00:00",
+          "load": [
+            3.98974609375,
+            3.7099609375,
+            3.7880859375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:51.756544+00:00",
+          "load": [
+            3.91015625,
+            3.69775390625,
+            3.783203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:27:56.794746+00:00",
+          "load": [
+            3.8369140625,
+            3.68603515625,
+            3.7783203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:01.842268+00:00",
+          "load": [
+            4.08984375,
+            3.74072265625,
+            3.796875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:06.888506+00:00",
+          "load": [
+            4.16259765625,
+            3.76123046875,
+            3.8037109375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:11.932594+00:00",
+          "load": [
+            4.0693359375,
+            3.74853515625,
+            3.798828125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:16.980763+00:00",
+          "load": [
+            4.1435546875,
+            3.76904296875,
+            3.8056640625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:22.021634+00:00",
+          "load": [
+            4.2119140625,
+            3.7890625,
+            3.8125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:27.071561+00:00",
+          "load": [
+            4.19482421875,
+            3.79248046875,
+            3.8134765625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:32.108137+00:00",
+          "load": [
+            4.25927734375,
+            3.8125,
+            3.8203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 59968,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 50.43400195799998,
+      "finished": "2026-09-19T00:28:37.111923+00:00",
+      "after": {
+        "time": "2026-09-19T00:28:37.150096+00:00",
+        "load": [
+          4.3984375,
+          3.8486328125,
+          3.8330078125
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "b3fd89b5ab39565e295e560b97a6eec5fb3cf91e58b7ce3e707889ed12077a80"
+    },
+    {
+      "name": "XXH3-64",
+      "run": 2,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "XXH3-64",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:28:37.194192+00:00",
+      "before": {
+        "time": "2026-09-19T00:28:37.186603+00:00",
+        "load": [
+          4.3984375,
+          3.8486328125,
+          3.8330078125
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "XXH3-64.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:28:37.230478+00:00",
+          "load": [
+            4.3984375,
+            3.8486328125,
+            3.8330078125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:42.268536+00:00",
+          "load": [
+            4.5263671875,
+            3.88427734375,
+            3.845703125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:47.312825+00:00",
+          "load": [
+            4.40380859375,
+            3.869140625,
+            3.84033203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:52.352388+00:00",
+          "load": [
+            4.291015625,
+            3.8544921875,
+            3.8349609375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:28:57.396286+00:00",
+          "load": [
+            4.1875,
+            3.83984375,
+            3.82958984375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:02.437539+00:00",
+          "load": [
+            4.09228515625,
+            3.82568359375,
+            3.82470703125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:07.474260+00:00",
+          "load": [
+            4.00439453125,
+            3.8115234375,
+            3.81982421875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:12.512843+00:00",
+          "load": [
+            3.923828125,
+            3.7978515625,
+            3.81494140625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60283,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 40.32784216699997,
+      "finished": "2026-09-19T00:29:17.522225+00:00",
+      "after": {
+        "time": "2026-09-19T00:29:17.556063+00:00",
+        "load": [
+          3.849609375,
+          3.7841796875,
+          3.81005859375
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "3910fbd23bec6ab503ea6b04eb6bce75ab262c000a8ebc4c2279b0f3a1672ea3"
+    },
+    {
+      "name": "rapidhash",
+      "run": 2,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:29:17.599030+00:00",
+      "before": {
+        "time": "2026-09-19T00:29:17.591283+00:00",
+        "load": [
+          3.849609375,
+          3.7841796875,
+          3.81005859375
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:29:17.637153+00:00",
+          "load": [
+            3.849609375,
+            3.7841796875,
+            3.81005859375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60467,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:22.680294+00:00",
+          "load": [
+            3.78125,
+            3.77099609375,
+            3.80517578125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60467,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:27.724009+00:00",
+          "load": [
+            3.71826171875,
+            3.7578125,
+            3.80029296875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60467,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:32.761059+00:00",
+          "load": [
+            3.66064453125,
+            3.7451171875,
+            3.79541015625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60467,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:37.802734+00:00",
+          "load": [
+            3.84765625,
+            3.7822265625,
+            3.80810546875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60467,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:42.849482+00:00",
+          "load": [
+            3.779296875,
+            3.76904296875,
+            3.80322265625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60467,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:47.894996+00:00",
+          "load": [
+            4.703125,
+            3.97216796875,
+            3.875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60467,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 35.303702042,
+      "finished": "2026-09-19T00:29:52.902899+00:00",
+      "after": {
+        "time": "2026-09-19T00:29:52.935286+00:00",
+        "load": [
+          4.486328125,
+          3.93896484375,
+          3.86376953125
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "9765fa1e88aa5c486c28714079711515dce1190de7f9e47f94df245c79528cea"
+    },
+    {
+      "name": "chainhash-256",
+      "run": 2,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "chainhash-256",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:29:52.977557+00:00",
+      "before": {
+        "time": "2026-09-19T00:29:52.970171+00:00",
+        "load": [
+          4.486328125,
+          3.93896484375,
+          3.86376953125
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "chainhash-256.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:29:53.010211+00:00",
+          "load": [
+            4.486328125,
+            3.93896484375,
+            3.86376953125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60720,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:29:58.054841+00:00",
+          "load": [
+            4.447265625,
+            3.93994140625,
+            3.8642578125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60720,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:03.096480+00:00",
+          "load": [
+            4.3310546875,
+            3.92431640625,
+            3.85888671875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60720,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:08.143308+00:00",
+          "load": [
+            4.22412109375,
+            3.90869140625,
+            3.853515625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60720,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:13.185324+00:00",
+          "load": [
+            4.1259765625,
+            3.8935546875,
+            3.84814453125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60720,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:18.258538+00:00",
+          "load": [
+            7.47900390625,
+            4.59228515625,
+            4.0947265625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60720,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:30:23.320085+00:00",
+          "load": [
+            9.3623046875,
+            5.0302734375,
+            4.251953125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 60720,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 35.35221979199997,
+      "finished": "2026-09-19T00:30:28.329936+00:00",
+      "after": {
+        "time": "2026-09-19T00:30:28.363035+00:00",
+        "load": [
+          9.0126953125,
+          5.029296875,
+          4.255859375
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "80df0bc173aa71ac771edb32faa0dd9a4f3d43d70c89c94534efb13196578803"
+    },
+    {
+      "name": "MuseAir",
+      "run": 2,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "MuseAir",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:32:28.501161+00:00",
+      "before": {
+        "time": "2026-09-19T00:32:28.490635+00:00",
+        "load": [
+          3.9013671875,
+          4.41845703125,
+          4.11181640625
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir.run2.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:32:28.536342+00:00",
+          "load": [
+            3.9013671875,
+            4.41845703125,
+            4.11181640625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:33.579357+00:00",
+          "load": [
+            3.9091796875,
+            4.4111328125,
+            4.11083984375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:38.618779+00:00",
+          "load": [
+            3.99609375,
+            4.4208984375,
+            4.11572265625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:43.658823+00:00",
+          "load": [
+            3.916015625,
+            4.39697265625,
+            4.10888671875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:48.710520+00:00",
+          "load": [
+            4.00244140625,
+            4.40673828125,
+            4.11376953125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:53.751805+00:00",
+          "load": [
+            3.921875,
+            4.38330078125,
+            4.10693359375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:32:58.811196+00:00",
+          "load": [
+            4.0078125,
+            4.39306640625,
+            4.11181640625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:03.853921+00:00",
+          "load": [
+            3.9267578125,
+            4.36962890625,
+            4.10498046875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:08.904870+00:00",
+          "load": [
+            3.9326171875,
+            4.36328125,
+            4.10400390625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:13.958380+00:00",
+          "load": [
+            3.85791015625,
+            4.34033203125,
+            4.09716796875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:19.008153+00:00",
+          "load": [
+            3.7890625,
+            4.31787109375,
+            4.09033203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 63221,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 55.519574499999976,
+      "finished": "2026-09-19T00:33:24.020989+00:00",
+      "after": {
+        "time": "2026-09-19T00:33:24.055642+00:00",
+        "load": [
+          3.8056640625,
+          4.3125,
+          4.08935546875
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "c1c4b7710aeeef533419cb6ae2b9832591a6d50d5606d6b51cd0f7c452d2b3a5"
+    },
+    {
+      "name": "MuseAir-v2",
+      "run": 3,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "MuseAir-v2",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:33:24.102647+00:00",
+      "before": {
+        "time": "2026-09-19T00:33:24.094386+00:00",
+        "load": [
+          3.8056640625,
+          4.3125,
+          4.08935546875
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir-v2.run3.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:33:24.139775+00:00",
+          "load": [
+            3.8056640625,
+            4.3125,
+            4.08935546875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:29.182579+00:00",
+          "load": [
+            3.98095703125,
+            4.34033203125,
+            4.10009765625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:34.230347+00:00",
+          "load": [
+            3.982421875,
+            4.33447265625,
+            4.09912109375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:39.276376+00:00",
+          "load": [
+            3.9033203125,
+            4.31201171875,
+            4.09228515625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:44.323791+00:00",
+          "load": [
+            3.83056640625,
+            4.2900390625,
+            4.08544921875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:49.362653+00:00",
+          "load": [
+            3.763671875,
+            4.2685546875,
+            4.07861328125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:54.403281+00:00",
+          "load": [
+            3.7021484375,
+            4.2470703125,
+            4.072265625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:33:59.452511+00:00",
+          "load": [
+            3.7255859375,
+            4.24267578125,
+            4.07177734375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:04.506798+00:00",
+          "load": [
+            3.74755859375,
+            4.23828125,
+            4.0712890625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:09.556913+00:00",
+          "load": [
+            3.767578125,
+            4.23388671875,
+            4.07080078125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64001,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 50.46291308399998,
+      "finished": "2026-09-19T00:34:14.565782+00:00",
+      "after": {
+        "time": "2026-09-19T00:34:14.601777+00:00",
+        "load": [
+          3.7861328125,
+          4.22998046875,
+          4.0703125
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "c0f27832e574b2639c5ddfb348ab9fd62365cd989c7ed80a2d9873413154ddfa"
+    },
+    {
+      "name": "XXH3-64",
+      "run": 3,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "XXH3-64",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:34:14.646089+00:00",
+      "before": {
+        "time": "2026-09-19T00:34:14.638394+00:00",
+        "load": [
+          3.7861328125,
+          4.22998046875,
+          4.0703125
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "XXH3-64.run3.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:34:14.681472+00:00",
+          "load": [
+            3.7861328125,
+            4.22998046875,
+            4.0703125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:19.724684+00:00",
+          "load": [
+            3.88330078125,
+            4.24267578125,
+            4.07568359375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:24.766589+00:00",
+          "load": [
+            4.29296875,
+            4.3212890625,
+            4.1044921875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:29.809132+00:00",
+          "load": [
+            4.74951171875,
+            4.41552734375,
+            4.138671875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:34.854183+00:00",
+          "load": [
+            4.849609375,
+            4.44140625,
+            4.1494140625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:39.907063+00:00",
+          "load": [
+            4.78125,
+            4.43359375,
+            4.1484375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:44.948088+00:00",
+          "load": [
+            4.87841796875,
+            4.45947265625,
+            4.1591796875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:34:49.996586+00:00",
+          "load": [
+            4.8076171875,
+            4.45166015625,
+            4.158203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 64599,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 40.35619550000001,
+      "finished": "2026-09-19T00:34:55.002476+00:00",
+      "after": {
+        "time": "2026-09-19T00:34:55.041701+00:00",
+        "load": [
+          4.74267578125,
+          4.44384765625,
+          4.1572265625
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "a4bced6571888cb1645888023b0657517bfe8a4c8681c40acaee2bd683c617c8"
+    },
+    {
+      "name": "rapidhash",
+      "run": 3,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "rapidhash",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:35:55.131529+00:00",
+      "before": {
+        "time": "2026-09-19T00:35:55.122074+00:00",
+        "load": [
+          3.56005859375,
+          4.18603515625,
+          4.0810546875
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "rapidhash.run3.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:35:55.168285+00:00",
+          "load": [
+            3.56005859375,
+            4.18603515625,
+            4.0810546875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65133,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:00.210587+00:00",
+          "load": [
+            3.51513671875,
+            4.166015625,
+            4.07470703125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65133,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:05.265424+00:00",
+          "load": [
+            3.4736328125,
+            4.146484375,
+            4.068359375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65133,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:10.305077+00:00",
+          "load": [
+            3.435546875,
+            4.12744140625,
+            4.06201171875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65133,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:15.355178+00:00",
+          "load": [
+            3.400390625,
+            4.1083984375,
+            4.0556640625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65133,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:20.399028+00:00",
+          "load": [
+            3.5283203125,
+            4.123046875,
+            4.06103515625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65133,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:25.442045+00:00",
+          "load": [
+            3.48583984375,
+            4.10400390625,
+            4.0546875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65133,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 35.31637558399996,
+      "finished": "2026-09-19T00:36:30.448172+00:00",
+      "after": {
+        "time": "2026-09-19T00:36:30.482288+00:00",
+        "load": [
+          3.36669921875,
+          4.06884765625,
+          4.04248046875
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "c84df111a744e9bac1f943e61cd620e3cee8dd4d8cc6549260a28a29aa912b78"
+    },
+    {
+      "name": "chainhash-256",
+      "run": 3,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "chainhash-256",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:36:30.531901+00:00",
+      "before": {
+        "time": "2026-09-19T00:36:30.523872+00:00",
+        "load": [
+          3.36669921875,
+          4.06884765625,
+          4.04248046875
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "chainhash-256.run3.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:36:30.567245+00:00",
+          "load": [
+            3.36669921875,
+            4.06884765625,
+            4.04248046875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65323,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:35.614478+00:00",
+          "load": [
+            3.3369140625,
+            4.05078125,
+            4.0361328125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65323,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:40.657946+00:00",
+          "load": [
+            3.3095703125,
+            4.033203125,
+            4.02978515625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65323,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:45.704583+00:00",
+          "load": [
+            3.28466796875,
+            4.015625,
+            4.0234375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65323,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:50.751651+00:00",
+          "load": [
+            3.26171875,
+            3.99853515625,
+            4.01708984375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65323,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:36:55.800861+00:00",
+          "load": [
+            3.24072265625,
+            3.98193359375,
+            4.0107421875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65323,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 30.28171450000002,
+      "finished": "2026-09-19T00:37:00.813778+00:00",
+      "after": {
+        "time": "2026-09-19T00:37:00.847407+00:00",
+        "load": [
+          4.10205078125,
+          4.14794921875,
+          4.06884765625
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "4163cce4020f9b4192b308bc362ea65ae33b159a76066caa65839fa327957bbe"
+    },
+    {
+      "name": "MuseAir",
+      "run": 3,
+      "command": [
+        "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+        "MuseAir",
+        "--test=Speed"
+      ],
+      "started": "2026-09-19T00:37:00.890874+00:00",
+      "before": {
+        "time": "2026-09-19T00:37:00.882980+00:00",
+        "load": [
+          4.10205078125,
+          4.14794921875,
+          4.06884765625
+        ],
+        "smhasher_processes": []
+      },
+      "raw_file": "MuseAir.run3.txt",
+      "overlaps": [],
+      "samples": [
+        {
+          "time": "2026-09-19T00:37:00.926134+00:00",
+          "load": [
+            4.10205078125,
+            4.14794921875,
+            4.06884765625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:05.974862+00:00",
+          "load": [
+            4.013671875,
+            4.12841796875,
+            4.0625
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:11.015252+00:00",
+          "load": [
+            3.93212890625,
+            4.109375,
+            4.05615234375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:16.059442+00:00",
+          "load": [
+            3.857421875,
+            4.0908203125,
+            4.0498046875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:21.107707+00:00",
+          "load": [
+            3.78857421875,
+            4.072265625,
+            4.04345703125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:26.148650+00:00",
+          "load": [
+            3.80517578125,
+            4.07080078125,
+            4.04296875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:31.196265+00:00",
+          "load": [
+            3.900390625,
+            4.0859375,
+            4.04833984375
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:36.249112+00:00",
+          "load": [
+            4.1484375,
+            4.13427734375,
+            4.0654296875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:41.301554+00:00",
+          "load": [
+            4.37646484375,
+            4.181640625,
+            4.08251953125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:46.360332+00:00",
+          "load": [
+            4.34619140625,
+            4.17822265625,
+            4.08203125
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        },
+        {
+          "time": "2026-09-19T00:37:51.409639+00:00",
+          "load": [
+            4.318359375,
+            4.1748046875,
+            4.08154296875
+          ],
+          "smhasher_processes": [
+            {
+              "pid": 65499,
+              "command": "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+            }
+          ]
+        }
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 55.53157970799998,
+      "finished": "2026-09-19T00:37:56.422675+00:00",
+      "after": {
+        "time": "2026-09-19T00:37:56.458089+00:00",
+        "load": [
+          4.61279296875,
+          4.23828125,
+          4.1044921875
+        ],
+        "smhasher_processes": []
+      },
+      "sha256": "3913f6b6690a200833cbc85741ce428f9960f6ee96045006dfa2b0e121c87f31"
+    }
+  ],
+  "excluded_runs": [],
+  "binary_sha256_after": "b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4",
+  "finished": "2026-09-19T00:37:56.468098+00:00"
+}

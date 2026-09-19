@@ -1,7 +1,7 @@
 # SipHash fixed-pair collision experiment (lens: EXPERIMENT)
 
-Host: Intel Xeon Platinum 8375C (hardware.normalcomputing.net), clang 21.1.8, `nice -n 10 taskset -c 24-31`,
-directory `~/agents/siphash-claim/experiment/` (mirror of this directory). Wall time: phase A 9.5 min, phase B ~5 min,
+Host: Intel Xeon Platinum 8375C (<xeon-host>), clang 21.1.8, `nice -n 10 taskset -c 24-31`,
+directory `<xeon-work>/siphash-claim/experiment/` (mirror of this directory). Wall time: phase A 9.5 min, phase B ~5 min,
 calibration ~1 min; all inside the 30-minute budget on 8 cores.
 
 ## Files

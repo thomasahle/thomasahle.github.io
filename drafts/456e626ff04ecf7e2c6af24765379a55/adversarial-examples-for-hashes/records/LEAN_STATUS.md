@@ -3,7 +3,7 @@
 Verified snapshot, 2026-09-18. Items 1–3 and 5 compile with the qualifications
 below. The full multiply-shift bound and concrete ChainHash theorem remain
 unproved. All Lean compilation takes place on the remote server in
-`~/agents/lean-hash/`, with `nice -n 10`, CPU affinity 0–31 and
+`<xeon-work>/lean-hash/`, with `nice -n 10`, CPU affinity 0–31 and
 `LEAN_NUM_THREADS=32`. This local workspace is a source mirror; no local repository
 is modified. Milestone commits are made in the new remote workspace repository.
 

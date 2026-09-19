@@ -149,7 +149,7 @@ executable vector transcription or a compiler-correctness theorem.
 - Parent model-A proof commit: `408d147c7f0aa7e123c6027b36a26821522e84a6`.
 - Mathlib v4.24.0: `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 - Lean 4.24.0: `797c613eb9b6d4ec95db23e3e00af9ac6657f24b`.
-- Workspace: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash128`, branch `chainhash128`.
+- Workspace: `<xeon-host>:<xeon-work>/lean-chainhash128`, branch `chainhash128`.
 - Final build/audit/vector log: [logs/reproduction128.log](logs/reproduction128.log).
 - Incremental history: [logs/incremental128.log](logs/incremental128.log), including resolved development failures.
 - Allocation/toolchain evidence: [logs/allocation128.txt](logs/allocation128.txt).
@@ -163,7 +163,7 @@ The sources, audits, vectors, and logs are mirrored under `./lean/` and `./logs/
 Reproduce on the Xeon with the preserved cache:
 
 ```sh
-cd ~/agents/lean-chainhash128
+cd <xeon-work>/lean-chainhash128
 bash lean/build.sh
 ```
 

@@ -1,0 +1,32 @@
+len=87 v=15 m=49 k0=33 beam=65536 zbits=-1 feasible (p,q) pairs: 1
+  (p,q)=(8,7) cost=8 free=24+24 e=56 (below k0: 16+16)  weight 2^-56 per full assignment
+S=56 determined seed bits; Pr[S1_init=W*] = weight/2^56
+level 33 histogram: max weight 238 at residual 0x2647e1b1 (top-65536 weight tail: threshold 72, 68786 bins >= it)
+selected 68459 level-33 bins for extension
+level 34: 66746 nodes, best expected weight 2^22.895 (W prefix 0x2647e1b1, 476 assignments)
+level 35: 67706 nodes, best expected weight 2^22.124 (W prefix 0x2647e1b1, 279 assignments)
+level 36: 65758 nodes, best expected weight 2^21.124 (W prefix 0x2647e1b1, 558 assignments)
+level 37: 67654 nodes, best expected weight 2^20.512 (W prefix 0x116b3e9b71, 365 assignments)
+level 38: 67594 nodes, best expected weight 2^19.512 (W prefix 0x116b3e9b71, 730 assignments)
+level 39: 65971 nodes, best expected weight 2^18.794 (W prefix 0x116b3e9b71, 444 assignments)
+level 40: 67172 nodes, best expected weight 2^17.794 (W prefix 0x116b3e9b71, 888 assignments)
+level 41: 66287 nodes, best expected weight 2^17.050 (W prefix 0x1d20033d9d9, 530 assignments)
+level 42: 65884 nodes, best expected weight 2^16.050 (W prefix 0x1d20033d9d9, 1060 assignments)
+level 43: 65990 nodes, best expected weight 2^15.399 (W prefix 0x17f7ec11d9, 675 assignments)
+level 44: 66544 nodes, best expected weight 2^14.399 (W prefix 0x17f7ec11d9, 1350 assignments)
+level 45: 66543 nodes, best expected weight 2^13.672 (W prefix 0x15a170197ed9, 816 assignments)
+level 46: 65998 nodes, best expected weight 2^12.672 (W prefix 0x15a170197ed9, 1632 assignments)
+level 47: 65776 nodes, best expected weight 2^11.951 (W prefix 0x650164aa6899, 990 assignments)
+level 48: 65982 nodes, best expected weight 2^10.951 (W prefix 0x650164aa6899, 1980 assignments)
+level 49: 65774 nodes, best expected weight 2^10.191 (W prefix 0x18a565cd92899, 1169 assignments)
+BEAM mode: W* = 0xc52b2e6c944c8000  weight 1169 (1169 assignments)  Pr[S1_init = W*] = 2^-45.809  (second-best in beam 1166 = 2^-45.813)
+score log2(L/eps) with L=11 words = 49.27 bits
+class size = weight * 2^(64-56) = 299264 = 2^18.19 seeds
+EXHAUSTIVE verification: class seeds tested 299264, full-hash collisions 299264, S1_init mismatches 0 (must be 0); example seed 0x00e235f748bafd24
+  h(m1)=0175cf85fe1174bf h(m2)=0175cf85fe1174bf
+control: 0 collisions in 16777216 uniform random seeds (expected 2.72e-07 from this class)
+pair: m1[0..24) = 6c2e2bc500804c948877665544332211737a81888f969da4  m2[0..24) = 6c2e2bc500804c941122334455667788737a81888f969da4  (rest identical: byte i = (7i+3)&0xff)
+
+real	1m48.749s
+user	4m16.094s
+sys	0m6.171s

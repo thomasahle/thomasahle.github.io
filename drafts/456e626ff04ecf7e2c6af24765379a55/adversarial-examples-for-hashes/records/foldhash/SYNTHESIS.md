@@ -1,7 +1,7 @@
 # foldhash 0.2.0 — collision analysis, synthesis for the write-up
 
 Source: workflow `wf_cc37597f-017`, journal
-`/Users/ahle/.claude/projects/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/subagents/workflows/wf_cc37597f-017/journal.jsonl`.
+`<home>/.claude/projects/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/subagents/workflows/wf_cc37597f-017/journal.jsonl`.
 Four lens agents returned (`short-fold`, `long-lanes`, `key-free`, `quality-and-seeds`);
 eight of twelve verifiers returned. **The workflow was stopped before all verifiers
 finished**, so everything below is split into VERIFIED (a verifier result with
@@ -38,7 +38,7 @@ covered, only the row attribution inside a lens shifts.
 | **bits = log2(L/ε)** | **26.5711**, CI [26.5173, 26.6255] |
 | key-free | no |
 | label | **EXTENSION** |
-| verifier program | `/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/vkf1/foldhash_verify.c` (`verify:key-free:1`) |
+| verifier program | `<scratch>/vkf1/foldhash_verify.c` (`verify:key-free:1`) |
 
 Independent confirmations of the same pair (all `reproduced=true`, all with their own
 C11 harness cross-checked bit-exactly against the unmodified crates.io crate
@@ -53,7 +53,7 @@ C11 harness cross-checked bit-exactly against the unmodified crates.io crate
 | quality-and-seeds:1 | 178 / 2^34 | 2^-26.524 | 26.52 | [2^-26.744, 2^-26.312] | `/home/thomas-ahle/agents/foldhash-verify-quality-and-seeds-1/verify_foldhash.c` |
 
 (Local scratchpad prefix elided above is
-`/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd`.)
+`<scratch>
 
 A second VERIFIED pair at the same length, both sides valid UTF-8, so it works as a
 `String`/`&str` key: m1 = `2141214121412141` ("!A!A!A!A"), m2 = `debedebedebedebe`
@@ -109,7 +109,7 @@ Three-sentence mechanism (appendix-ready):
 | **bits = log2(L/ε)** | **26.5571**, CI [26.4499, 26.6663] |
 | key-free | no |
 | label | **EXTENSION** |
-| verifier program | `/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/fh_verify_kf2/foldhash_verify.c` (`verify:key-free:2`) |
+| verifier program | `<scratch>/fh_verify_kf2/foldhash_verify.c` (`verify:key-free:2`) |
 
 That verifier measured `fast_write = quality_write = fast_vec = quality_vec = 696` in
 every run (4 independent chunks of 2^34: 168/198/170/160). Corroboration from the other
@@ -423,7 +423,7 @@ do not:
 **Operational caveat for the missing verifiers.** Two agents reported killing sibling
 processes on the shared Xeon with pattern-matching `pkill` (`key-free:2` ran
 `pkill -f "foldhash_verify measure"` and killed a process in
-`~/agents/foldhash-verify-key-free-0`; the `key-free` lens ran `pkill -x measure` and
+`<xeon-work>/foldhash-verify-key-free-0`; the `key-free` lens ran `pkill -x measure` and
 killed another lane's `measure` job), and `key-free:0` reports its scratchpad source being
 overwritten mid-run by an unrelated concurrent process. The four missing verifier results
 should be assumed lost to that and to the workflow stop, not to a negative finding.

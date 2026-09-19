@@ -100,3 +100,5 @@ references during a content update. After scientific updates, regenerate with
 `figure/build.py` so generated assets, point positions, classifications, and profiles
 stay synchronized. Output-width drop lines and dashed reference lines are not
 part of this design.
+
+The builder also refreshes the existing historical-pair context paragraph from the selected XXH3-64 record, keeping the current rate and its relative provenance link synchronized. The controls, inspector, static fallback, caption and surrounding notes retain their structure.
