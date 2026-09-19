@@ -1,0 +1,36 @@
+{
+  "mask_completeness": true,
+  "low_table_rows": 84,
+  "ph_small_max": [
+    4681,
+    32
+  ],
+  "ph_high_max": [
+    30264189500224700417,
+    1152921504606846976
+  ],
+  "enh_two": [
+    944062127676554878353,
+    4611686018427387904
+  ],
+  "enh_one": [
+    38559820009546236799,
+    288230376151711744
+  ],
+  "tail_max": [
+    1001888787503350020012,
+    2305843009213693949
+  ],
+  "tail_rows": 56,
+  "validation": {
+    "low_operand_visits": 751618560,
+    "point_checks": 199389024,
+    "exact_minimum_valuation_targets": 683426,
+    "dense_checks": 13640,
+    "literal_linearized_rows": 3719641,
+    "selected_rank_checks": 3183932,
+    "wrap_rectangles": 20852,
+    "failures": 0
+  },
+  "failures": 0
+}
