@@ -1,6 +1,6 @@
 {
-  "source_sha256": "7b7699629514d6ac6b4fb3f4a92d3c9b2cd2a8c97b8627348a8974bf366fd01d",
-  "profiles_sha256": "7b02082a90c0a1935a7e5908d836e08acfdddb652a39fe40cccc90af85f13c30",
+  "source_sha256": "2a72feb756c361546f8d52610337c65a7cce8e15c1d96f1008e4983f83a56cce",
+  "profiles_sha256": "5768d4d2aa39dafe7bb9f766a9ce338683ee87cd454fe2af34c3cb7e31970035",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -1781,7 +1781,7 @@
           "family": "CLNH + Horner + quintic",
           "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
           "profile": "chain-v3",
-          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records.",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/chainhash/v3-lean/.",
           "reader_notes": {
             "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the design panel. The Lean lane is running. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
             "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
@@ -2888,7 +2888,7 @@
           "family": "CLNH + Horner + quintic",
           "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
           "profile": "chain-v3",
-          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records.",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/chainhash/v3-lean/.",
           "reader_notes": {
             "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the design panel. The Lean lane is running. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
             "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",

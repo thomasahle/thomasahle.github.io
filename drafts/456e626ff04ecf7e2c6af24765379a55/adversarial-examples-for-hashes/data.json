@@ -18945,9 +18945,9 @@
    ],
    "key_free": false,
    "lean": {
-    "label": "— Lean lane running (paper-model and model A proofs reviewed)",
-    "source": "records/chainhash/v3/THEOREM_v3.md",
-    "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed."
+    "label": "✓ checked",
+    "source": "records/chainhash/v3-lean/STATUS.md",
+    "scope": "Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/chainhash/v3-lean/."
    },
    "smhasher3": {
     "verdict": "Sanity/verification PASS; full suite not supplied",
