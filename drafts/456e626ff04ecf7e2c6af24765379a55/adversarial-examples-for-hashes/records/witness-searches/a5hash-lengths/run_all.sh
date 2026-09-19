@@ -1,6 +1,6 @@
 #!/bin/bash
 # a5hash-64 length search: exact low-33-bit histogram + beam extension per (len, v). 8 cores, nice 10.
-cd ~/agents/witness/a5hash-lengths
+cd <xeon-work>/witness/a5hash-lengths
 run(){ len=$1; v=$2; shift 2; f=logs/${len}_${v}.log; [ -s $f ] && grep -q '^control' $f && { echo "skip $f"; return; }
   echo "=== $(date -u +%FT%TZ) modebeam $len $v $*" | tee -a logs/driver.log
   ( time nice -n 10 taskset -c 24-31 ./modebeam $len $v -t 8 -o logs/pair_${len}_${v}.txt "$@" ) > $f 2>&1

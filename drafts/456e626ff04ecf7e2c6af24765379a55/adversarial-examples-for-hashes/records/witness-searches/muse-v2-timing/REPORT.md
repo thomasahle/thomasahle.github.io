@@ -94,7 +94,7 @@ The scratch trees are `./smhasher3-m2` and `/home/thomas-ahle/agents/speedbench-
 | Host | Binary | SHA-256 |
 |---|---|---|
 | Xeon8375C | `/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3` | `3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886` |
-| M2Pro | `/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3` | `b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4` |
+| M2Pro | `<scratch> | `b20d1938180dbd9ae00b319e3c490ab3f84557a2a6365358e66bda1b4cddeca4` |
 
 `speeds_museair_v2.json` preserves the earlier nested `hash → host → metrics/runs` schema. `evidence/<host>/` contains every raw Speed/Sanity log, complete execution and gate records, verification output, registration constants, compile/link commands, source/object/binary and reused-input hashes, compiler/host details, and disassembly. The supplied port and vectors remain unchanged in `muse-v2/`.
 

@@ -40,12 +40,12 @@ collides on the class, so those lengths are excluded by construction.
    uniform random seeds (2^24, or 2^32/(len+1) for long messages).
 4. Cross-checks: 6615/37 reproduces the record exactly (118 x 2^-45, all 61,865,984 class seeds collide);
    len 23 gives 0x37eb13a49993e000 / 168,320 seeds, identical to the earlier width-32768 beam
-   (`~/agents/a5hash/beam23_w32768.txt`); len 8 gives pair 2 of verify/a5hash (7290 seeds); len 15 and
+   (`<xeon-work>/a5hash/beam23_w32768.txt`); len 8 gives pair 2 of verify/a5hash (7290 seeds); len 15 and
    len 16 give the values of `beam15_w65536.txt` and `a5hash-weakseed/fiber_len16.txt` (26688, 5626).
 5. `s2mode.c`: 2^31 uniform seeds at len 17, 23, 6615, second state word `S2_init = hi64(X*Y)`
    radix-sorted; maximal multiplicity.
 
-Machine: Xeon 8375C (hardware.normalcomputing.net), `nice -n 10 taskset -c 24-31`, 8 threads, 16 GB
+Machine: Xeon 8375C (<xeon-host>), `nice -n 10 taskset -c 24-31`, 8 threads, 16 GB
 per run, 22:44-00:09 UTC 2026-09-18/19 for the 55-point list (log per point in `logs/<len>_<v>.log`,
 `logs/driver.log` is the sequence), plus the wide-beam reruns below (00:09-00:13 UTC). Total Xeon time about 1 h 30 min on 8 cores.
 
@@ -125,8 +125,8 @@ beam finds at m = 51..57; the 8x wider beam on 18 and 23 is the check of that.
 ## Reproduce
 
 ```sh
-ssh thomas-ahle@hardware.normalcomputing.net
-cd ~/agents/witness/a5hash-lengths            # this directory's a5.h verify.c modebeam.c s2mode.c candidates.py run_all.sh
+ssh <xeon-host>
+cd <xeon-work>/witness/a5hash-lengths            # this directory's a5.h verify.c modebeam.c s2mode.c candidates.py run_all.sh
 gcc -O2 -std=gnu11 -pthread -o verify verify.c -lm && ./verify           # three SMHasher3 values OK
 gcc -O3 -march=native -std=gnu11 -pthread -o modebeam modebeam.c -lm
 nice -n 10 taskset -c 24-31 ./modebeam 6615 37 -t 8    # record: 118 x 2^-45, 61865984/61865984 collide, 47.81

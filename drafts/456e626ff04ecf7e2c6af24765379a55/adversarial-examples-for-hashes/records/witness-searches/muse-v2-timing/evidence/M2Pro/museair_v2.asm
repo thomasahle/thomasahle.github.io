@@ -1,4 +1,4 @@
-/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/museair_v2.o:
+<scratch>
 (__TEXT,__text) section
 __ZN8HashInfoD1Ev:
 0000000000000000	stp	x20, x19, [sp, #-0x20]!

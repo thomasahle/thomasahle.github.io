@@ -9,17 +9,17 @@
     "-march=native",
     "-DNDEBUG",
     "-DHAVE_THREADS",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/include",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/hashlib",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/common",
+    "-I<scratch>",
+    "-I<scratch>",
+    "-I<scratch>",
     "-Xclang",
     "-target-feature",
     "-Xclang",
     "+aes",
     "-c",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/hashes/museair_v2.cpp",
+    "<scratch>",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/museair_v2.o"
+    "<scratch>"
   ],
   [
     "nice",
@@ -31,25 +31,25 @@
     "-march=native",
     "-DNDEBUG",
     "-DHAVE_THREADS",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/include",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/hashlib",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/common",
+    "-I<scratch>",
+    "-I<scratch>",
+    "-I<scratch>",
     "-Xclang",
     "-target-feature",
     "-Xclang",
     "+aes",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/hashes/verify.cpp",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/museair_v2.o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Hashlib.a",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Tests.a",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Hashlib.a",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
     "/opt/homebrew/opt/openssl@3/lib/libcrypto.dylib",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/verify"
+    "<scratch>"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/verify",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/vectors.txt"
+    "<scratch>",
+    "<scratch>"
   ],
   [
     "nice",
@@ -61,30 +61,30 @@
     "-march=native",
     "-DNDEBUG",
     "-DHAVE_THREADS",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/include",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/hashlib",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/common",
+    "-I<scratch>",
+    "-I<scratch>",
+    "-I<scratch>",
     "-Xclang",
     "-target-feature",
     "-Xclang",
     "+aes",
     "-c",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/hashes/museair_v2.cpp",
+    "<scratch>",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/museair_v2.o"
+    "<scratch>"
   ],
   [
     "nice",
     "-n",
     "10",
     "c++",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/CMakeFiles/SMHasher3.dir/main.cpp.o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/museair_v2.o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Tests.a",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Hashlib.a",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
     "/opt/homebrew/opt/openssl@3/lib/libcrypto.dylib",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3"
+    "<scratch>"
   ],
   [
     "nice",
@@ -96,55 +96,55 @@
     "-march=native",
     "-DNDEBUG",
     "-DHAVE_THREADS",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/include",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/hashlib",
-    "-I/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/include/common",
+    "-I<scratch>",
+    "-I<scratch>",
+    "-I<scratch>",
     "-Xclang",
     "-target-feature",
     "-Xclang",
     "+aes",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/smhasher3-m2/hashes/verify.cpp",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/museair_v2.o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Hashlib.a",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Tests.a",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/m2-rerun/build-fixed/libSMHasher3Hashlib.a",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
+    "<scratch>",
     "/opt/homebrew/opt/openssl@3/lib/libcrypto.dylib",
     "-o",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/verify"
+    "<scratch>"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/verify",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/vectors.txt"
+    "<scratch>",
+    "<scratch>"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+    "<scratch>",
     "MuseAir-v2",
     "--test=Sanity"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+    "<scratch>",
     "MuseAir",
     "--test=Sanity"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+    "<scratch>",
     "XXH3-64",
     "--test=Sanity"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+    "<scratch>",
     "rapidhash",
     "--test=Sanity"
   ],
   [
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
+    "<scratch>",
     "chainhash-256",
     "--test=Sanity"
   ],
   [
     "otool",
     "-tvV",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/museair_v2.o"
+    "<scratch>"
   ],
   [
     "c++",
@@ -157,10 +157,10 @@
   [
     "/Library/Developer/CommandLineTools/usr/bin/python3",
     "-u",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/bench/run_speed.py",
+    "<scratch>",
     "M2Pro",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/build-m2/SMHasher3",
-    "/private/tmp/claude-501/-Users-ahle-repos-fast-polynomials/624f2aa7-83b9-480b-aeba-96fbb5117dcd/scratchpad/codex/museair-v2-timing/evidence/M2Pro",
+    "<scratch>",
+    "<scratch>",
     "--passes",
     "3"
   ]
