@@ -1,0 +1,4 @@
+fold n=64 dA=ffffffffffffffff dB=ffffffffffffffff : 2724 / 2^38  P = 2^-26.588
+fold n=64 dA=ffffffffffffffff dB=0000000000000000 : 2138 / 2^38  P = 2^-26.938
+Terminated
+(0,M) run skipped: P(0,M) = P(M,0) exactly, fold(u,q)=fold(q,u) with (u,q) uniform

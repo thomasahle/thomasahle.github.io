@@ -104,12 +104,12 @@ header changed. M2: Apple M2 Pro, Apple Clang, `nice -n 10`, binary
 M2 scheduling disclosure. The M2 runner admitted each run only when no
 `SMHasher3` process existed and the 1-minute load was below 4.5, polling
 until then ([m2-gate.jsonl](results/m2-gate.jsonl)). The gate log shows
-another agent's short SMHasher3 runs (a fresh PID at nearly every poll) at
+another timing job's short SMHasher3 runs (a fresh PID at nearly every poll) at
 08:00–08:05 UTC and again at 08:27–08:36 UTC, bracketing our v3 run
-(08:06:06–08:26:32 UTC). The gate only checks at launch, so that agent's
+(08:06:06–08:26:32 UTC). The gate only checks at launch, so that job's
 runs very likely resumed while our 20-minute v3 run was in flight. This
 does not affect the quality verdicts — the suite is deterministic and the M2
-diagnostics equal the Xeon's — but any *timing* the other agent collected on
+diagnostics equal the Xeon's — but any *timing* the other job collected on
 the M2 between 08:06 and 08:27 UTC (and 08:37–08:42 UTC, our paper-function
 run) was taken beside a full SMHasher3 job on eight threads and should be
 treated as suspect. Three earlier M2 launches were aborted (an upstream-only
@@ -234,4 +234,3 @@ the tables above, `scripts/compare_architectures.py` diffs the two hosts'
 diagnostics. Full suite output is in `results/*-all.log` with a JSON file
 beside each (exact command, start/end, binary SHA-256, exit code). Source
 and build trees are in `work/`; the previous version of this report, written
-by the lane that ran the SMHasher3 suites, is `provenance/REPORT-codex-lane-10-51.md`.

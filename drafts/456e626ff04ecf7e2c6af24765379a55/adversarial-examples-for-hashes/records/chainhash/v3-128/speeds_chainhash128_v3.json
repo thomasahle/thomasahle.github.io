@@ -843,26 +843,26 @@
       "chainhash-128",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/chainhash-128.run1.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:08:32.572240+00:00",
+     "raw_file": "evidence/M2-clean/chainhash-128.run1.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:07:20.190538+00:00",
      "load_before": {
-      "load1": 2.60205078125,
-      "load5": 3.37841796875,
-      "load15": 3.6376953125
+      "load1": 2.09912109375,
+      "load5": 2.78271484375,
+      "load15": 2.98291015625
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:09:31.884215+00:00",
-     "elapsed_seconds": 59.29347316600615,
+     "finished": "2026-09-19T10:08:18.856903+00:00",
+     "elapsed_seconds": 58.59257058301591,
      "load_after": {
-      "load1": 3.26171875,
-      "load5": 3.44091796875,
-      "load15": 3.642578125
+      "load1": 2.3251953125,
+      "load5": 2.71484375,
+      "load15": 2.94189453125
      },
-     "raw_sha256": "be297a9edc6c5b8b2b58b3ada1e19dc147d9f44ce4bf10a05a2542587cba4742",
-     "bulk_bytes_per_cycle": 10.09,
-     "bulk_gib_s": 32.88,
-     "small_cycles": 164.86,
+     "raw_sha256": "14433c1a9c2d7167f18b751995a5c38b670d756eb40ec68d0402ee8bb62e0515",
+     "bulk_bytes_per_cycle": 10.03,
+     "bulk_gib_s": 32.7,
+     "small_cycles": 166.02,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -871,24 +871,24 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 10.09,
-       "bulk_gib_s": 32.88,
+       "bulk_bytes_per_cycle": 10.03,
+       "bulk_gib_s": 32.7,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 10.09,
-       "bulk_gib_s": 32.87,
+       "bulk_bytes_per_cycle": 10.03,
+       "bulk_gib_s": 32.69,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": 0.19860973187686426,
+     "deviation_from_median_percent": 0.0,
      "outlier": false,
-     "small_deviation_from_median_percent": -0.3686468846316515,
+     "small_deviation_from_median_percent": 0.030125926372237544,
      "small_outlier": false
     },
     {
@@ -901,26 +901,26 @@
       "chainhash-128",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/chainhash-128.run2.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:18:24.970330+00:00",
+     "raw_file": "evidence/M2-clean/chainhash-128.run2.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:10:27.806497+00:00",
      "load_before": {
-      "load1": 2.44140625,
-      "load5": 3.22265625,
-      "load15": 3.5400390625
+      "load1": 3.71923828125,
+      "load5": 3.13330078125,
+      "load15": 3.07177734375
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:19:24.701330+00:00",
-     "elapsed_seconds": 59.7125726659724,
+     "finished": "2026-09-19T10:11:27.304326+00:00",
+     "elapsed_seconds": 59.42158483300591,
      "load_after": {
-      "load1": 2.3828125,
-      "load5": 3.05859375,
-      "load15": 3.45556640625
+      "load1": 2.7998046875,
+      "load5": 2.97119140625,
+      "load15": 3.013671875
      },
-     "raw_sha256": "b48205bae87b8732cf861196b1ce63b35a7992039f27340a6058662cbd00bcbf",
-     "bulk_bytes_per_cycle": 10.07,
-     "bulk_gib_s": 32.83,
-     "small_cycles": 165.67,
+     "raw_sha256": "c9da1370ca08801a2b8255599d355eee1a41f95c04750b5f6b7faab29086b218",
+     "bulk_bytes_per_cycle": 10.03,
+     "bulk_gib_s": 32.68,
+     "small_cycles": 165.92,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -929,15 +929,15 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 10.07,
-       "bulk_gib_s": 32.83,
+       "bulk_bytes_per_cycle": 10.03,
+       "bulk_gib_s": 32.68,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 10.07,
-       "bulk_gib_s": 32.82,
+       "bulk_bytes_per_cycle": 10.02,
+       "bulk_gib_s": 32.67,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
@@ -946,7 +946,7 @@
      "clock_ghz": 3.5,
      "deviation_from_median_percent": 0.0,
      "outlier": false,
-     "small_deviation_from_median_percent": 0.1208678310267608,
+     "small_deviation_from_median_percent": -0.030125926372237544,
      "small_outlier": false
     },
     {
@@ -959,26 +959,26 @@
       "chainhash-128",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/chainhash-128.run3.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:26:17.645158+00:00",
+     "raw_file": "evidence/M2-clean/chainhash-128.run3.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:13:36.135254+00:00",
      "load_before": {
-      "load1": 3.76611328125,
-      "load5": 2.91796875,
-      "load15": 3.1728515625
+      "load1": 2.62060546875,
+      "load5": 2.8203125,
+      "load15": 2.94189453125
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:27:17.122919+00:00",
-     "elapsed_seconds": 59.45821062498726,
+     "finished": "2026-09-19T10:14:35.760883+00:00",
+     "elapsed_seconds": 59.55116079101572,
      "load_after": {
-      "load1": 2.83349609375,
-      "load5": 2.80810546875,
-      "load15": 3.11376953125
+      "load1": 2.52734375,
+      "load5": 2.7587890625,
+      "load15": 2.908203125
      },
-     "raw_sha256": "3d3d845411384c113eab8bea954fe1bb47ad22ad16d6ec2c35b49a5b24cca18c",
-     "bulk_bytes_per_cycle": 10.05,
-     "bulk_gib_s": 32.77,
-     "small_cycles": 165.47,
+     "raw_sha256": "585f989bd41fc08ecd7211dd11c370b80d967a625ae47853bb68d312334c4010",
+     "bulk_bytes_per_cycle": 10.03,
+     "bulk_gib_s": 32.71,
+     "small_cycles": 165.97,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -987,34 +987,34 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 10.05,
-       "bulk_gib_s": 32.77,
+       "bulk_bytes_per_cycle": 10.03,
+       "bulk_gib_s": 32.71,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 10.05,
-       "bulk_gib_s": 32.76,
+       "bulk_bytes_per_cycle": 9.96,
+       "bulk_gib_s": 32.47,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": -0.19860973187685316,
+     "deviation_from_median_percent": 0.0,
      "outlier": false,
      "small_deviation_from_median_percent": 0.0,
      "small_outlier": false
     }
    ],
-   "bulk_bytes_per_cycle": 10.07,
-   "bulk_gib_s": 32.83,
-   "small_cycles": 165.47,
-   "bulk_selected_run": 2,
+   "bulk_bytes_per_cycle": 10.03,
+   "bulk_gib_s": 32.7,
+   "small_cycles": 165.97,
+   "bulk_selected_run": 1,
    "small_selected_run": 3,
-   "bulk_run_spread_percent": 0.3972194637537155,
-   "small_run_spread_percent": 0.4895147156584117,
+   "bulk_run_spread_percent": 0.0,
+   "small_run_spread_percent": 0.06025185274448559,
    "aggregation": "median of three; >15% deviations flagged, not discarded",
    "flagged_runs": [],
    "verification": {
@@ -1024,7 +1024,199 @@
      "Verification value is 0x00000001 - Testing took 0.204060 seconds"
     ]
    },
-   "build_note": "Final registrations; public default of this binary still dispatched NEON to Karatsuba (superseded runs recorded under chainhash128-v3)"
+   "build_note": "Re-timing in a verified-clean window with the public-default binary: launch gate plus a whole-machine SMHasher3 process scan every 15 s during each run; no other SMHasher3 process at any poll",
+   "superseded": [
+    {
+     "status": "superseded",
+     "runs": [
+      {
+       "host": "M2Pro",
+       "name": "chainhash-128",
+       "test": "Speed",
+       "run": 1,
+       "command": [
+        "SMHasher3",
+        "chainhash-128",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash-128.run1.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:08:32.572240+00:00",
+       "load_before": {
+        "load1": 2.60205078125,
+        "load5": 3.37841796875,
+        "load15": 3.6376953125
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:09:31.884215+00:00",
+       "elapsed_seconds": 59.29347316600615,
+       "load_after": {
+        "load1": 3.26171875,
+        "load5": 3.44091796875,
+        "load15": 3.642578125
+       },
+       "raw_sha256": "be297a9edc6c5b8b2b58b3ada1e19dc147d9f44ce4bf10a05a2542587cba4742",
+       "bulk_bytes_per_cycle": 10.09,
+       "bulk_gib_s": 32.88,
+       "small_cycles": 164.86,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 10.09,
+         "bulk_gib_s": 32.88,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 10.09,
+         "bulk_gib_s": 32.87,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.19860973187686426,
+       "outlier": false,
+       "small_deviation_from_median_percent": -0.3686468846316515,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "chainhash-128",
+       "test": "Speed",
+       "run": 2,
+       "command": [
+        "SMHasher3",
+        "chainhash-128",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash-128.run2.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:18:24.970330+00:00",
+       "load_before": {
+        "load1": 2.44140625,
+        "load5": 3.22265625,
+        "load15": 3.5400390625
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:19:24.701330+00:00",
+       "elapsed_seconds": 59.7125726659724,
+       "load_after": {
+        "load1": 2.3828125,
+        "load5": 3.05859375,
+        "load15": 3.45556640625
+       },
+       "raw_sha256": "b48205bae87b8732cf861196b1ce63b35a7992039f27340a6058662cbd00bcbf",
+       "bulk_bytes_per_cycle": 10.07,
+       "bulk_gib_s": 32.83,
+       "small_cycles": 165.67,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 10.07,
+         "bulk_gib_s": 32.83,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 10.07,
+         "bulk_gib_s": 32.82,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.1208678310267608,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "chainhash-128",
+       "test": "Speed",
+       "run": 3,
+       "command": [
+        "SMHasher3",
+        "chainhash-128",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash-128.run3.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:26:17.645158+00:00",
+       "load_before": {
+        "load1": 3.76611328125,
+        "load5": 2.91796875,
+        "load15": 3.1728515625
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:27:17.122919+00:00",
+       "elapsed_seconds": 59.45821062498726,
+       "load_after": {
+        "load1": 2.83349609375,
+        "load5": 2.80810546875,
+        "load15": 3.11376953125
+       },
+       "raw_sha256": "3d3d845411384c113eab8bea954fe1bb47ad22ad16d6ec2c35b49a5b24cca18c",
+       "bulk_bytes_per_cycle": 10.05,
+       "bulk_gib_s": 32.77,
+       "small_cycles": 165.47,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 10.05,
+         "bulk_gib_s": 32.77,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 10.05,
+         "bulk_gib_s": 32.76,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": -0.19860973187685316,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.0,
+       "small_outlier": false
+      }
+     ],
+     "bulk_bytes_per_cycle": 10.07,
+     "bulk_gib_s": 32.83,
+     "small_cycles": 165.47,
+     "bulk_selected_run": 2,
+     "small_selected_run": 3,
+     "bulk_run_spread_percent": 0.3972194637537155,
+     "small_run_spread_percent": 0.4895147156584117,
+     "aggregation": "median of three; >15% deviations flagged, not discarded",
+     "flagged_runs": [],
+     "note": "Earlier M2 timing whose window was not verified free of a concurrent quality-suite run (launch gate only, no during-run scan); replaced by the M2-clean re-timing, retained as evidence",
+     "evidence_folder": "evidence/M2"
+    }
+   ]
   }
  },
  "chainhash-v3": {
@@ -1185,26 +1377,26 @@
       "chainhash-v3",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/chainhash-v3.run1.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:09:31.889793+00:00",
+     "raw_file": "evidence/M2-clean/chainhash-v3.run1.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:08:18.927107+00:00",
      "load_before": {
-      "load1": 3.26171875,
-      "load5": 3.44091796875,
-      "load15": 3.642578125
+      "load1": 2.3251953125,
+      "load5": 2.71484375,
+      "load15": 2.94189453125
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:09:58.970874+00:00",
-     "elapsed_seconds": 27.060293500020634,
+     "finished": "2026-09-19T10:08:45.913971+00:00",
+     "elapsed_seconds": 26.919678500009468,
      "load_after": {
-      "load1": 3.07958984375,
-      "load5": 3.3876953125,
-      "load15": 3.6171875
+      "load1": 2.212890625,
+      "load5": 2.65625,
+      "load15": 2.91259765625
      },
-     "raw_sha256": "81e2545ab70fd923770801c1be5a4771a8b16f20a101978fd56c28ea85b0c834",
-     "bulk_bytes_per_cycle": 25.1,
-     "bulk_gib_s": 81.83,
-     "small_cycles": 89.24,
+     "raw_sha256": "f96cc75b3c9f74178f604d65636f23c1a8a7c987253ff7b33cbaa0df27235482",
+     "bulk_bytes_per_cycle": 25.15,
+     "bulk_gib_s": 81.98,
+     "small_cycles": 88.93,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -1213,24 +1405,24 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 25.1,
-       "bulk_gib_s": 81.83,
+       "bulk_bytes_per_cycle": 25.15,
+       "bulk_gib_s": 81.98,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 25.1,
-       "bulk_gib_s": 81.81,
+       "bulk_bytes_per_cycle": 25.14,
+       "bulk_gib_s": 81.96,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": 0.0,
+     "deviation_from_median_percent": 0.35913806863527853,
      "outlier": false,
-     "small_deviation_from_median_percent": 0.0,
+     "small_deviation_from_median_percent": -0.6590705987488676,
      "small_outlier": false
     },
     {
@@ -1243,26 +1435,26 @@
       "chainhash-v3",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/chainhash-v3.run2.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:19:24.710849+00:00",
+     "raw_file": "evidence/M2-clean/chainhash-v3.run2.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:11:27.376548+00:00",
      "load_before": {
-      "load1": 2.3828125,
-      "load5": 3.05859375,
-      "load15": 3.45556640625
+      "load1": 2.7998046875,
+      "load5": 2.97119140625,
+      "load15": 3.013671875
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:19:51.804069+00:00",
-     "elapsed_seconds": 27.072066958004143,
+     "finished": "2026-09-19T10:11:54.542404+00:00",
+     "elapsed_seconds": 27.09090587499668,
      "load_after": {
-      "load1": 2.5009765625,
-      "load5": 3.0361328125,
-      "load15": 3.43505859375
+      "load1": 2.4833984375,
+      "load5": 2.876953125,
+      "load15": 2.97705078125
      },
-     "raw_sha256": "2e5b6014a238df8ddc5ee0e2a523dce6fb7e8d7bf8b0e1a937b9e1b0594af2a1",
-     "bulk_bytes_per_cycle": 25.09,
-     "bulk_gib_s": 81.79,
-     "small_cycles": 89.32,
+     "raw_sha256": "1ce71649750e923da9c3cbf43f43de3f159d46e4e8f7707780a10c378e109016",
+     "bulk_bytes_per_cycle": 25.06,
+     "bulk_gib_s": 81.68,
+     "small_cycles": 89.53,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -1271,24 +1463,24 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 25.09,
-       "bulk_gib_s": 81.79,
+       "bulk_bytes_per_cycle": 25.06,
+       "bulk_gib_s": 81.68,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 25.09,
-       "bulk_gib_s": 81.77,
+       "bulk_bytes_per_cycle": 25.05,
+       "bulk_gib_s": 81.66,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": -0.03984063745020583,
+     "deviation_from_median_percent": 0.0,
      "outlier": false,
-     "small_deviation_from_median_percent": 0.08964589870013029,
+     "small_deviation_from_median_percent": 0.011170688114403582,
      "small_outlier": false
     },
     {
@@ -1301,26 +1493,26 @@
       "chainhash-v3",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/chainhash-v3.run3.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:27:17.128805+00:00",
+     "raw_file": "evidence/M2-clean/chainhash-v3.run3.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:14:35.837024+00:00",
      "load_before": {
-      "load1": 2.83349609375,
-      "load5": 2.80810546875,
-      "load15": 3.11376953125
+      "load1": 2.52734375,
+      "load5": 2.7587890625,
+      "load15": 2.908203125
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:27:44.211038+00:00",
-     "elapsed_seconds": 27.062893374997657,
+     "finished": "2026-09-19T10:15:03.032763+00:00",
+     "elapsed_seconds": 27.122800834011286,
      "load_after": {
-      "load1": 2.6728515625,
-      "load5": 2.7734375,
-      "load15": 3.09130859375
+      "load1": 2.56689453125,
+      "load5": 2.74609375,
+      "load15": 2.89892578125
      },
-     "raw_sha256": "9486cf8609661df81e15cd32743f4b02b503fd57048959fb43562b1bd569e461",
-     "bulk_bytes_per_cycle": 25.1,
-     "bulk_gib_s": 81.83,
-     "small_cycles": 89.24,
+     "raw_sha256": "3ffeb594278215830d7d6cd22592b28107f5ace825d30069d889a7eadfcfe986",
+     "bulk_bytes_per_cycle": 25.05,
+     "bulk_gib_s": 81.67,
+     "small_cycles": 89.52,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -1329,34 +1521,34 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 25.1,
-       "bulk_gib_s": 81.83,
+       "bulk_bytes_per_cycle": 25.05,
+       "bulk_gib_s": 81.67,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 25.1,
-       "bulk_gib_s": 81.81,
+       "bulk_bytes_per_cycle": 25.05,
+       "bulk_gib_s": 81.65,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": 0.0,
+     "deviation_from_median_percent": -0.03990422984835318,
      "outlier": false,
      "small_deviation_from_median_percent": 0.0,
      "small_outlier": false
     }
    ],
-   "bulk_bytes_per_cycle": 25.1,
-   "bulk_gib_s": 81.83,
-   "small_cycles": 89.24,
-   "bulk_selected_run": 1,
-   "small_selected_run": 1,
-   "bulk_run_spread_percent": 0.03984063745020543,
-   "small_run_spread_percent": 0.08964589870013256,
+   "bulk_bytes_per_cycle": 25.06,
+   "bulk_gib_s": 81.68,
+   "small_cycles": 89.52,
+   "bulk_selected_run": 2,
+   "small_selected_run": 3,
+   "bulk_run_spread_percent": 0.39904229848363076,
+   "small_run_spread_percent": 0.6702412868632645,
    "aggregation": "median of three; >15% deviations flagged, not discarded",
    "flagged_runs": [],
    "verification": {
@@ -1366,7 +1558,199 @@
      "Verification value is 0x00000001 - Testing took 0.310607 seconds"
     ]
    },
-   "build_note": "Final registrations; public default of this binary still dispatched NEON to Karatsuba (superseded runs recorded under chainhash128-v3)"
+   "build_note": "Re-timing in a verified-clean window with the public-default binary: launch gate plus a whole-machine SMHasher3 process scan every 15 s during each run; no other SMHasher3 process at any poll",
+   "superseded": [
+    {
+     "status": "superseded",
+     "runs": [
+      {
+       "host": "M2Pro",
+       "name": "chainhash-v3",
+       "test": "Speed",
+       "run": 1,
+       "command": [
+        "SMHasher3",
+        "chainhash-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash-v3.run1.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:09:31.889793+00:00",
+       "load_before": {
+        "load1": 3.26171875,
+        "load5": 3.44091796875,
+        "load15": 3.642578125
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:09:58.970874+00:00",
+       "elapsed_seconds": 27.060293500020634,
+       "load_after": {
+        "load1": 3.07958984375,
+        "load5": 3.3876953125,
+        "load15": 3.6171875
+       },
+       "raw_sha256": "81e2545ab70fd923770801c1be5a4771a8b16f20a101978fd56c28ea85b0c834",
+       "bulk_bytes_per_cycle": 25.1,
+       "bulk_gib_s": 81.83,
+       "small_cycles": 89.24,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 25.1,
+         "bulk_gib_s": 81.83,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 25.1,
+         "bulk_gib_s": 81.81,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.0,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "chainhash-v3",
+       "test": "Speed",
+       "run": 2,
+       "command": [
+        "SMHasher3",
+        "chainhash-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash-v3.run2.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:19:24.710849+00:00",
+       "load_before": {
+        "load1": 2.3828125,
+        "load5": 3.05859375,
+        "load15": 3.45556640625
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:19:51.804069+00:00",
+       "elapsed_seconds": 27.072066958004143,
+       "load_after": {
+        "load1": 2.5009765625,
+        "load5": 3.0361328125,
+        "load15": 3.43505859375
+       },
+       "raw_sha256": "2e5b6014a238df8ddc5ee0e2a523dce6fb7e8d7bf8b0e1a937b9e1b0594af2a1",
+       "bulk_bytes_per_cycle": 25.09,
+       "bulk_gib_s": 81.79,
+       "small_cycles": 89.32,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 25.09,
+         "bulk_gib_s": 81.79,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 25.09,
+         "bulk_gib_s": 81.77,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": -0.03984063745020583,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.08964589870013029,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "chainhash-v3",
+       "test": "Speed",
+       "run": 3,
+       "command": [
+        "SMHasher3",
+        "chainhash-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash-v3.run3.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:27:17.128805+00:00",
+       "load_before": {
+        "load1": 2.83349609375,
+        "load5": 2.80810546875,
+        "load15": 3.11376953125
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:27:44.211038+00:00",
+       "elapsed_seconds": 27.062893374997657,
+       "load_after": {
+        "load1": 2.6728515625,
+        "load5": 2.7734375,
+        "load15": 3.09130859375
+       },
+       "raw_sha256": "9486cf8609661df81e15cd32743f4b02b503fd57048959fb43562b1bd569e461",
+       "bulk_bytes_per_cycle": 25.1,
+       "bulk_gib_s": 81.83,
+       "small_cycles": 89.24,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 25.1,
+         "bulk_gib_s": 81.83,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 25.1,
+         "bulk_gib_s": 81.81,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.0,
+       "small_outlier": false
+      }
+     ],
+     "bulk_bytes_per_cycle": 25.1,
+     "bulk_gib_s": 81.83,
+     "small_cycles": 89.24,
+     "bulk_selected_run": 1,
+     "small_selected_run": 1,
+     "bulk_run_spread_percent": 0.03984063745020543,
+     "small_run_spread_percent": 0.08964589870013256,
+     "aggregation": "median of three; >15% deviations flagged, not discarded",
+     "flagged_runs": [],
+     "note": "Earlier M2 timing whose window was not verified free of a concurrent quality-suite run (launch gate only, no during-run scan); replaced by the M2-clean re-timing, retained as evidence",
+     "evidence_folder": "evidence/M2"
+    }
+   ]
   }
  },
  "XXH3-128": {
@@ -1527,26 +1911,26 @@
       "XXH3-128",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/XXH3-128.run1.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:09:58.976380+00:00",
+     "raw_file": "evidence/M2-clean/XXH3-128.run1.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:08:45.986595+00:00",
      "load_before": {
-      "load1": 3.07958984375,
-      "load5": 3.3876953125,
-      "load15": 3.6171875
+      "load1": 2.212890625,
+      "load5": 2.65625,
+      "load15": 2.91259765625
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:10:38.548431+00:00",
-     "elapsed_seconds": 39.5521152089932,
+     "finished": "2026-09-19T10:09:25.743437+00:00",
+     "elapsed_seconds": 39.68646591599099,
      "load_after": {
-      "load1": 2.90283203125,
-      "load5": 3.3173828125,
-      "load15": 3.580078125
+      "load1": 2.9755859375,
+      "load5": 2.81640625,
+      "load15": 2.9599609375
      },
-     "raw_sha256": "65a8caf61941b31bc1dc301fd296ce0c533a4affec2a5802469c524fb04eaf9d",
-     "bulk_bytes_per_cycle": 13.05,
-     "bulk_gib_s": 42.53,
-     "small_cycles": 29.74,
+     "raw_sha256": "2bf76d0c4bfbe327f5ecaf640e3a336b9c86f8b0878589454afadcc0eadf6f79",
+     "bulk_bytes_per_cycle": 12.54,
+     "bulk_gib_s": 40.88,
+     "small_cycles": 30.94,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -1555,24 +1939,24 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 13.05,
-       "bulk_gib_s": 42.53,
+       "bulk_bytes_per_cycle": 12.54,
+       "bulk_gib_s": 40.88,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 13.02,
-       "bulk_gib_s": 42.46,
+       "bulk_bytes_per_cycle": 12.53,
+       "bulk_gib_s": 40.85,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": 4.150039904229863,
+     "deviation_from_median_percent": -0.15923566878981443,
      "outlier": false,
-     "small_deviation_from_median_percent": -3.8784744667097693,
+     "small_deviation_from_median_percent": 0.16186468112657781,
      "small_outlier": false
     },
     {
@@ -1585,26 +1969,26 @@
       "XXH3-128",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/XXH3-128.run2.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:19:51.809790+00:00",
+     "raw_file": "evidence/M2-clean/XXH3-128.run2.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:11:54.617439+00:00",
      "load_before": {
-      "load1": 2.5009765625,
-      "load5": 3.0361328125,
-      "load15": 3.43505859375
+      "load1": 2.4833984375,
+      "load5": 2.876953125,
+      "load15": 2.97705078125
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:20:31.380696+00:00",
-     "elapsed_seconds": 39.55248495901469,
+     "finished": "2026-09-19T10:12:34.265400+00:00",
+     "elapsed_seconds": 39.57455791599932,
      "load_after": {
-      "load1": 2.31787109375,
-      "load5": 2.92041015625,
-      "load15": 3.373046875
+      "load1": 2.6787109375,
+      "load5": 2.8759765625,
+      "load15": 2.97119140625
      },
-     "raw_sha256": "c748c26c3ac362c0c0c8d62652e06ffb57ce520524aaaa1905a3b5a705bb074c",
-     "bulk_bytes_per_cycle": 12.53,
-     "bulk_gib_s": 40.86,
-     "small_cycles": 30.94,
+     "raw_sha256": "2659bc9855c2e8e6f5500f24aa717af8af3571b111dfdd5edf679d844e03fe51",
+     "bulk_bytes_per_cycle": 12.65,
+     "bulk_gib_s": 41.25,
+     "small_cycles": 30.7,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -1613,24 +1997,24 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 12.53,
-       "bulk_gib_s": 40.86,
+       "bulk_bytes_per_cycle": 12.65,
+       "bulk_gib_s": 41.25,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 12.49,
-       "bulk_gib_s": 40.7,
+       "bulk_bytes_per_cycle": 12.64,
+       "bulk_gib_s": 41.21,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": 0.0,
+     "deviation_from_median_percent": 0.7165605095541316,
      "outlier": false,
-     "small_deviation_from_median_percent": 0.0,
+     "small_deviation_from_median_percent": -0.6150857882810001,
      "small_outlier": false
     },
     {
@@ -1643,26 +2027,26 @@
       "XXH3-128",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2/XXH3-128.run3.txt",
-     "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-     "started": "2026-09-19T09:27:44.217092+00:00",
+     "raw_file": "evidence/M2-clean/XXH3-128.run3.txt",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "started": "2026-09-19T10:15:03.103698+00:00",
      "load_before": {
-      "load1": 2.6728515625,
-      "load5": 2.7734375,
-      "load15": 3.09130859375
+      "load1": 2.56689453125,
+      "load5": 2.74609375,
+      "load15": 2.89892578125
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:28:23.816188+00:00",
-     "elapsed_seconds": 39.5805117500131,
+     "finished": "2026-09-19T10:15:42.622896+00:00",
+     "elapsed_seconds": 39.44688854098786,
      "load_after": {
-      "load1": 2.5546875,
-      "load5": 2.72314453125,
-      "load15": 3.05712890625
+      "load1": 2.8603515625,
+      "load5": 2.81787109375,
+      "load15": 2.91748046875
      },
-     "raw_sha256": "1fa5cd35308c0c2f4ea7cab9a6995267e9ff466a92e764ff3e6adffc7ff64d78",
-     "bulk_bytes_per_cycle": 12.53,
-     "bulk_gib_s": 40.85,
-     "small_cycles": 30.96,
+     "raw_sha256": "854b575f584aae2ea8299b069b991aed6e6c1403867500b327c951b63d313158",
+     "bulk_bytes_per_cycle": 12.56,
+     "bulk_gib_s": 40.94,
+     "small_cycles": 30.89,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -1671,15 +2055,15 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 12.53,
-       "bulk_gib_s": 40.85,
+       "bulk_bytes_per_cycle": 12.56,
+       "bulk_gib_s": 40.94,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 12.49,
-       "bulk_gib_s": 40.7,
+       "bulk_bytes_per_cycle": 12.42,
+       "bulk_gib_s": 40.5,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
@@ -1688,20 +2072,212 @@
      "clock_ghz": 3.5,
      "deviation_from_median_percent": 0.0,
      "outlier": false,
-     "small_deviation_from_median_percent": 0.06464124111182912,
+     "small_deviation_from_median_percent": 0.0,
      "small_outlier": false
     }
    ],
-   "bulk_bytes_per_cycle": 12.53,
-   "bulk_gib_s": 40.86,
-   "small_cycles": 30.94,
-   "bulk_selected_run": 2,
-   "small_selected_run": 2,
-   "bulk_run_spread_percent": 4.1500399042298595,
-   "small_run_spread_percent": 3.943115707821598,
+   "bulk_bytes_per_cycle": 12.56,
+   "bulk_gib_s": 40.94,
+   "small_cycles": 30.89,
+   "bulk_selected_run": 3,
+   "small_selected_run": 3,
+   "bulk_run_spread_percent": 0.8757961783439586,
+   "small_run_spread_percent": 0.7769504694075817,
    "aggregation": "median of three; >15% deviations flagged, not discarded",
    "flagged_runs": [],
-   "build_note": "Final registrations; public default of this binary still dispatched NEON to Karatsuba (superseded runs recorded under chainhash128-v3)"
+   "build_note": "Re-timing in a verified-clean window with the public-default binary: launch gate plus a whole-machine SMHasher3 process scan every 15 s during each run; no other SMHasher3 process at any poll",
+   "superseded": [
+    {
+     "status": "superseded",
+     "runs": [
+      {
+       "host": "M2Pro",
+       "name": "XXH3-128",
+       "test": "Speed",
+       "run": 1,
+       "command": [
+        "SMHasher3",
+        "XXH3-128",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/XXH3-128.run1.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:09:58.976380+00:00",
+       "load_before": {
+        "load1": 3.07958984375,
+        "load5": 3.3876953125,
+        "load15": 3.6171875
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:10:38.548431+00:00",
+       "elapsed_seconds": 39.5521152089932,
+       "load_after": {
+        "load1": 2.90283203125,
+        "load5": 3.3173828125,
+        "load15": 3.580078125
+       },
+       "raw_sha256": "65a8caf61941b31bc1dc301fd296ce0c533a4affec2a5802469c524fb04eaf9d",
+       "bulk_bytes_per_cycle": 13.05,
+       "bulk_gib_s": 42.53,
+       "small_cycles": 29.74,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 13.05,
+         "bulk_gib_s": 42.53,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 13.02,
+         "bulk_gib_s": 42.46,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 4.150039904229863,
+       "outlier": false,
+       "small_deviation_from_median_percent": -3.8784744667097693,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "XXH3-128",
+       "test": "Speed",
+       "run": 2,
+       "command": [
+        "SMHasher3",
+        "XXH3-128",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/XXH3-128.run2.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:19:51.809790+00:00",
+       "load_before": {
+        "load1": 2.5009765625,
+        "load5": 3.0361328125,
+        "load15": 3.43505859375
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:20:31.380696+00:00",
+       "elapsed_seconds": 39.55248495901469,
+       "load_after": {
+        "load1": 2.31787109375,
+        "load5": 2.92041015625,
+        "load15": 3.373046875
+       },
+       "raw_sha256": "c748c26c3ac362c0c0c8d62652e06ffb57ce520524aaaa1905a3b5a705bb074c",
+       "bulk_bytes_per_cycle": 12.53,
+       "bulk_gib_s": 40.86,
+       "small_cycles": 30.94,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 12.53,
+         "bulk_gib_s": 40.86,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 12.49,
+         "bulk_gib_s": 40.7,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.0,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "XXH3-128",
+       "test": "Speed",
+       "run": 3,
+       "command": [
+        "SMHasher3",
+        "XXH3-128",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/XXH3-128.run3.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:27:44.217092+00:00",
+       "load_before": {
+        "load1": 2.6728515625,
+        "load5": 2.7734375,
+        "load15": 3.09130859375
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:28:23.816188+00:00",
+       "elapsed_seconds": 39.5805117500131,
+       "load_after": {
+        "load1": 2.5546875,
+        "load5": 2.72314453125,
+        "load15": 3.05712890625
+       },
+       "raw_sha256": "1fa5cd35308c0c2f4ea7cab9a6995267e9ff466a92e764ff3e6adffc7ff64d78",
+       "bulk_bytes_per_cycle": 12.53,
+       "bulk_gib_s": 40.85,
+       "small_cycles": 30.96,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 12.53,
+         "bulk_gib_s": 40.85,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 12.49,
+         "bulk_gib_s": 40.7,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.06464124111182912,
+       "small_outlier": false
+      }
+     ],
+     "bulk_bytes_per_cycle": 12.53,
+     "bulk_gib_s": 40.86,
+     "small_cycles": 30.94,
+     "bulk_selected_run": 2,
+     "small_selected_run": 2,
+     "bulk_run_spread_percent": 4.1500399042298595,
+     "small_run_spread_percent": 3.943115707821598,
+     "aggregation": "median of three; >15% deviations flagged, not discarded",
+     "flagged_runs": [],
+     "note": "Earlier M2 timing whose window was not verified free of a concurrent quality-suite run (launch gate only, no during-run scan); replaced by the M2-clean re-timing, retained as evidence",
+     "evidence_folder": "evidence/M2"
+    }
+   ]
   }
  },
  "UMASH-128": {
@@ -2807,26 +3383,26 @@
       "chainhash128-v3",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2-default/chainhash128-v3.run1.txt",
+     "raw_file": "evidence/M2-clean/chainhash128-v3.run1.txt",
      "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
-     "started": "2026-09-19T09:34:47.667244+00:00",
+     "started": "2026-09-19T10:06:18.389957+00:00",
      "load_before": {
-      "load1": 2.4580078125,
-      "load5": 2.59814453125,
-      "load15": 2.8583984375
+      "load1": 2.27587890625,
+      "load5": 2.9609375,
+      "load15": 3.05810546875
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:35:49.409769+00:00",
-     "elapsed_seconds": 61.71998783401796,
+     "finished": "2026-09-19T10:07:20.115296+00:00",
+     "elapsed_seconds": 61.65418962499825,
      "load_after": {
-      "load1": 2.8525390625,
-      "load5": 2.70849609375,
-      "load15": 2.8818359375
+      "load1": 2.09912109375,
+      "load5": 2.78271484375,
+      "load15": 2.98291015625
      },
-     "raw_sha256": "a6c345386dec13c27484ee7b561451547e27d0871bebe6c004674ed9e2aeaf4a",
-     "bulk_bytes_per_cycle": 10.13,
-     "bulk_gib_s": 33.02,
-     "small_cycles": 169.86,
+     "raw_sha256": "cdd0d2c6d89e800f898e3b1383c018a659d2a6f4397f5ee7909bf96eaa41d3c3",
+     "bulk_bytes_per_cycle": 10.11,
+     "bulk_gib_s": 32.95,
+     "small_cycles": 170.25,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -2835,24 +3411,24 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 10.13,
-       "bulk_gib_s": 33.02,
+       "bulk_bytes_per_cycle": 10.11,
+       "bulk_gib_s": 32.95,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 8.94,
-       "bulk_gib_s": 29.13,
+       "bulk_bytes_per_cycle": 8.92,
+       "bulk_gib_s": 29.07,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": 0.0,
+     "deviation_from_median_percent": -0.09881422924901129,
      "outlier": false,
-     "small_deviation_from_median_percent": -0.02354326074160973,
+     "small_deviation_from_median_percent": 0.0,
      "small_outlier": false
     },
     {
@@ -2865,26 +3441,26 @@
       "chainhash128-v3",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2-default/chainhash128-v3.run2.txt",
+     "raw_file": "evidence/M2-clean/chainhash128-v3.run2.txt",
      "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
-     "started": "2026-09-19T09:35:49.416165+00:00",
+     "started": "2026-09-19T10:09:25.815140+00:00",
      "load_before": {
-      "load1": 2.8525390625,
-      "load5": 2.70849609375,
-      "load15": 2.8818359375
+      "load1": 2.9755859375,
+      "load5": 2.81640625,
+      "load15": 2.9599609375
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:36:51.103964+00:00",
-     "elapsed_seconds": 61.66847920897999,
+     "finished": "2026-09-19T10:10:27.733463+00:00",
+     "elapsed_seconds": 61.846658459020546,
      "load_after": {
-      "load1": 4.45947265625,
-      "load5": 3.10107421875,
-      "load15": 3.0087890625
+      "load1": 3.869140625,
+      "load5": 3.15283203125,
+      "load15": 3.078125
      },
-     "raw_sha256": "84cbab8e165c4598d67b9426a48819832ae76f0f485fd3522645e491d5385706",
-     "bulk_bytes_per_cycle": 10.13,
-     "bulk_gib_s": 33.01,
-     "small_cycles": 170.01,
+     "raw_sha256": "c1badc5b6c62c45127e43ec78fc07a2c449cb7a611835982ac8b3155a5d329bb",
+     "bulk_bytes_per_cycle": 10.39,
+     "bulk_gib_s": 33.87,
+     "small_cycles": 165.66,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -2893,24 +3469,24 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 10.13,
-       "bulk_gib_s": 33.01,
+       "bulk_bytes_per_cycle": 10.39,
+       "bulk_gib_s": 33.87,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 8.93,
-       "bulk_gib_s": 29.12,
+       "bulk_bytes_per_cycle": 9.17,
+       "bulk_gib_s": 29.89,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
      ],
      "small_header": "Small key speed test - [1, 31]-byte keys",
      "clock_ghz": 3.5,
-     "deviation_from_median_percent": 0.0,
+     "deviation_from_median_percent": 2.667984189723338,
      "outlier": false,
-     "small_deviation_from_median_percent": 0.06474396703941565,
+     "small_deviation_from_median_percent": -2.6960352422907508,
      "small_outlier": false
     },
     {
@@ -2923,26 +3499,26 @@
       "chainhash128-v3",
       "--test=Speed"
      ],
-     "raw_file": "evidence/M2-default/chainhash128-v3.run3.txt",
+     "raw_file": "evidence/M2-clean/chainhash128-v3.run3.txt",
      "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
-     "started": "2026-09-19T09:36:51.112454+00:00",
+     "started": "2026-09-19T10:12:34.338978+00:00",
      "load_before": {
-      "load1": 4.45947265625,
-      "load5": 3.10107421875,
-      "load15": 3.0087890625
+      "load1": 2.6787109375,
+      "load5": 2.8759765625,
+      "load15": 2.97119140625
      },
      "returncode": 0,
-     "finished": "2026-09-19T09:37:52.675145+00:00",
-     "elapsed_seconds": 61.542621624976164,
+     "finished": "2026-09-19T10:13:36.057202+00:00",
+     "elapsed_seconds": 61.64641408299212,
      "load_after": {
-      "load1": 2.92236328125,
-      "load5": 2.92431640625,
-      "load15": 2.94775390625
+      "load1": 2.62060546875,
+      "load5": 2.8203125,
+      "load15": 2.94189453125
      },
-     "raw_sha256": "4437b7be229244f5bd6c1f96f7266605872f1e5cf075eda7ec794ae97f9bfd00",
-     "bulk_bytes_per_cycle": 10.13,
-     "bulk_gib_s": 33.03,
-     "small_cycles": 169.9,
+     "raw_sha256": "57e745715f9d9851879f38e0da0a8135f61ea99f7a19c6f0b99c5fa698fdf49b",
+     "bulk_bytes_per_cycle": 10.12,
+     "bulk_gib_s": 32.98,
+     "small_cycles": 170.33,
      "sha256_verified": true,
      "valid": true,
      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
@@ -2951,15 +3527,15 @@
      "bulk_sections": [
       {
        "header": "Bulk speed test - 262144-byte keys",
-       "bulk_bytes_per_cycle": 10.13,
-       "bulk_gib_s": 33.03,
+       "bulk_bytes_per_cycle": 10.12,
+       "bulk_gib_s": 32.98,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       },
       {
        "header": "Bulk speed test - [262017, 262144]-byte keys",
-       "bulk_bytes_per_cycle": 8.94,
-       "bulk_gib_s": 29.14,
+       "bulk_bytes_per_cycle": 8.92,
+       "bulk_gib_s": 29.09,
        "clock_assumption": "3.5 ghz",
        "clock_ghz": 3.5
       }
@@ -2968,17 +3544,17 @@
      "clock_ghz": 3.5,
      "deviation_from_median_percent": 0.0,
      "outlier": false,
-     "small_deviation_from_median_percent": 0.0,
+     "small_deviation_from_median_percent": 0.046989720998547035,
      "small_outlier": false
     }
    ],
-   "bulk_bytes_per_cycle": 10.13,
-   "bulk_gib_s": 33.02,
-   "small_cycles": 169.9,
-   "bulk_selected_run": 1,
-   "small_selected_run": 3,
-   "bulk_run_spread_percent": 0.0,
-   "small_run_spread_percent": 0.08828722778103429,
+   "bulk_bytes_per_cycle": 10.12,
+   "bulk_gib_s": 32.98,
+   "small_cycles": 170.25,
+   "bulk_selected_run": 3,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 2.7667984189723436,
+   "small_run_spread_percent": 2.74302496328929,
    "aggregation": "median of three; >15% deviations flagged, not discarded",
    "flagged_runs": [],
    "verification": {
@@ -2988,196 +3564,389 @@
      "Verification value is 0x00000001 - Testing took 1.109109 seconds"
     ]
    },
-   "build_note": "Public default rebuilt after the selection: NEON dispatches to schoolbook",
-   "superseded": {
-    "status": "superseded",
-    "runs": [
-     {
-      "host": "M2Pro",
-      "name": "chainhash128-v3",
-      "test": "Speed",
-      "run": 1,
-      "command": [
-       "SMHasher3",
-       "chainhash128-v3",
-       "--test=Speed"
-      ],
-      "raw_file": "evidence/M2/chainhash128-v3.run1.txt",
-      "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-      "started": "2026-09-19T09:07:27.295522+00:00",
-      "load_before": {
-       "load1": 3.34765625,
-       "load5": 3.646484375,
-       "load15": 3.74658203125
-      },
-      "returncode": 0,
-      "finished": "2026-09-19T09:08:32.566963+00:00",
-      "elapsed_seconds": 65.25201524997829,
-      "load_after": {
-       "load1": 2.60205078125,
-       "load5": 3.37841796875,
-       "load15": 3.6376953125
-      },
-      "raw_sha256": "43054d5ce297dbcc66638290a9e448e5684303315280b379827424871ac4e426",
-      "bulk_bytes_per_cycle": 9.41,
-      "bulk_gib_s": 30.66,
-      "small_cycles": 170.21,
-      "sha256_verified": true,
-      "valid": true,
-      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
-      "gate_passed_at_launch": true,
-      "smhasher_pids_at_launch": [],
-      "bulk_sections": [
-       {
-        "header": "Bulk speed test - 262144-byte keys",
-        "bulk_bytes_per_cycle": 9.41,
-        "bulk_gib_s": 30.66,
-        "clock_assumption": "3.5 ghz",
-        "clock_ghz": 3.5
+   "build_note": "Re-timing in a verified-clean window with the public-default binary: launch gate plus a whole-machine SMHasher3 process scan every 15 s during each run; no other SMHasher3 process at any poll",
+   "superseded": [
+    {
+     "status": "superseded",
+     "runs": [
+      {
+       "host": "M2Pro",
+       "name": "chainhash128-v3",
+       "test": "Speed",
+       "run": 1,
+       "command": [
+        "SMHasher3",
+        "chainhash128-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash128-v3.run1.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:07:27.295522+00:00",
+       "load_before": {
+        "load1": 3.34765625,
+        "load5": 3.646484375,
+        "load15": 3.74658203125
        },
-       {
-        "header": "Bulk speed test - [262017, 262144]-byte keys",
-        "bulk_bytes_per_cycle": 8.42,
-        "bulk_gib_s": 27.46,
-        "clock_assumption": "3.5 ghz",
-        "clock_ghz": 3.5
-       }
-      ],
-      "small_header": "Small key speed test - [1, 31]-byte keys",
-      "clock_ghz": 3.5,
-      "deviation_from_median_percent": 0.0,
-      "outlier": false,
-      "small_deviation_from_median_percent": 0.07055088482568195,
-      "small_outlier": false
-     },
-     {
-      "host": "M2Pro",
-      "name": "chainhash128-v3",
-      "test": "Speed",
-      "run": 2,
-      "command": [
-       "SMHasher3",
-       "chainhash128-v3",
-       "--test=Speed"
-      ],
-      "raw_file": "evidence/M2/chainhash128-v3.run2.txt",
-      "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-      "started": "2026-09-19T09:17:19.710018+00:00",
-      "load_before": {
-       "load1": 2.84326171875,
-       "load5": 3.466796875,
-       "load15": 3.64697265625
-      },
-      "returncode": 0,
-      "finished": "2026-09-19T09:18:24.961129+00:00",
-      "elapsed_seconds": 65.23301254201215,
-      "load_after": {
-       "load1": 2.44140625,
-       "load5": 3.22265625,
-       "load15": 3.5400390625
-      },
-      "raw_sha256": "790dbeee2c99f1bd608f5d237d4a117aba7001a4428ac6c8d4d42faf8f1e886b",
-      "bulk_bytes_per_cycle": 9.45,
-      "bulk_gib_s": 30.81,
-      "small_cycles": 169.24,
-      "sha256_verified": true,
-      "valid": true,
-      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
-      "gate_passed_at_launch": true,
-      "smhasher_pids_at_launch": [],
-      "bulk_sections": [
-       {
-        "header": "Bulk speed test - 262144-byte keys",
-        "bulk_bytes_per_cycle": 9.45,
-        "bulk_gib_s": 30.81,
-        "clock_assumption": "3.5 ghz",
-        "clock_ghz": 3.5
+       "returncode": 0,
+       "finished": "2026-09-19T09:08:32.566963+00:00",
+       "elapsed_seconds": 65.25201524997829,
+       "load_after": {
+        "load1": 2.60205078125,
+        "load5": 3.37841796875,
+        "load15": 3.6376953125
        },
-       {
-        "header": "Bulk speed test - [262017, 262144]-byte keys",
-        "bulk_bytes_per_cycle": 8.46,
-        "bulk_gib_s": 27.59,
-        "clock_assumption": "3.5 ghz",
-        "clock_ghz": 3.5
-       }
-      ],
-      "small_header": "Small key speed test - [1, 31]-byte keys",
-      "clock_ghz": 3.5,
-      "deviation_from_median_percent": 0.4250797024442088,
-      "outlier": false,
-      "small_deviation_from_median_percent": -0.4997354341819027,
-      "small_outlier": false
-     },
-     {
-      "host": "M2Pro",
-      "name": "chainhash128-v3",
-      "test": "Speed",
-      "run": 3,
-      "command": [
-       "SMHasher3",
-       "chainhash128-v3",
-       "--test=Speed"
-      ],
-      "raw_file": "evidence/M2/chainhash128-v3.run3.txt",
-      "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
-      "started": "2026-09-19T09:25:12.400903+00:00",
-      "load_before": {
-       "load1": 2.36181640625,
-       "load5": 2.60302734375,
-       "load15": 3.09765625
+       "raw_sha256": "43054d5ce297dbcc66638290a9e448e5684303315280b379827424871ac4e426",
+       "bulk_bytes_per_cycle": 9.41,
+       "bulk_gib_s": 30.66,
+       "small_cycles": 170.21,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 9.41,
+         "bulk_gib_s": 30.66,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 8.42,
+         "bulk_gib_s": 27.46,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.07055088482568195,
+       "small_outlier": false
       },
-      "returncode": 0,
-      "finished": "2026-09-19T09:26:17.639015+00:00",
-      "elapsed_seconds": 65.21984016700299,
-      "load_after": {
-       "load1": 3.76611328125,
-       "load5": 2.91796875,
-       "load15": 3.1728515625
-      },
-      "raw_sha256": "bd49d1ae32800fa566f5345b5f420b8541620f36b22c02c6787cc8e37f2a2b98",
-      "bulk_bytes_per_cycle": 9.4,
-      "bulk_gib_s": 30.64,
-      "small_cycles": 170.09,
-      "sha256_verified": true,
-      "valid": true,
-      "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
-      "gate_passed_at_launch": true,
-      "smhasher_pids_at_launch": [],
-      "bulk_sections": [
-       {
-        "header": "Bulk speed test - 262144-byte keys",
-        "bulk_bytes_per_cycle": 9.4,
-        "bulk_gib_s": 30.64,
-        "clock_assumption": "3.5 ghz",
-        "clock_ghz": 3.5
+      {
+       "host": "M2Pro",
+       "name": "chainhash128-v3",
+       "test": "Speed",
+       "run": 2,
+       "command": [
+        "SMHasher3",
+        "chainhash128-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash128-v3.run2.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:17:19.710018+00:00",
+       "load_before": {
+        "load1": 2.84326171875,
+        "load5": 3.466796875,
+        "load15": 3.64697265625
        },
-       {
-        "header": "Bulk speed test - [262017, 262144]-byte keys",
-        "bulk_bytes_per_cycle": 8.42,
-        "bulk_gib_s": 27.44,
-        "clock_assumption": "3.5 ghz",
-        "clock_ghz": 3.5
-       }
-      ],
-      "small_header": "Small key speed test - [1, 31]-byte keys",
-      "clock_ghz": 3.5,
-      "deviation_from_median_percent": -0.10626992561104665,
-      "outlier": false,
-      "small_deviation_from_median_percent": 0.0,
-      "small_outlier": false
-     }
-    ],
-    "bulk_bytes_per_cycle": 9.41,
-    "bulk_gib_s": 30.66,
-    "small_cycles": 170.09,
-    "bulk_selected_run": 1,
-    "small_selected_run": 3,
-    "bulk_run_spread_percent": 0.531349628055249,
-    "small_run_spread_percent": 0.5702863190075835,
-    "aggregation": "median of three; >15% deviations flagged, not discarded",
-    "flagged_runs": [],
-    "note": "Pre-selection public default (NEON dispatched to Karatsuba); replaced by the M2-default runs, retained as evidence"
-   }
+       "returncode": 0,
+       "finished": "2026-09-19T09:18:24.961129+00:00",
+       "elapsed_seconds": 65.23301254201215,
+       "load_after": {
+        "load1": 2.44140625,
+        "load5": 3.22265625,
+        "load15": 3.5400390625
+       },
+       "raw_sha256": "790dbeee2c99f1bd608f5d237d4a117aba7001a4428ac6c8d4d42faf8f1e886b",
+       "bulk_bytes_per_cycle": 9.45,
+       "bulk_gib_s": 30.81,
+       "small_cycles": 169.24,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 9.45,
+         "bulk_gib_s": 30.81,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 8.46,
+         "bulk_gib_s": 27.59,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.4250797024442088,
+       "outlier": false,
+       "small_deviation_from_median_percent": -0.4997354341819027,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "chainhash128-v3",
+       "test": "Speed",
+       "run": 3,
+       "command": [
+        "SMHasher3",
+        "chainhash128-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2/chainhash128-v3.run3.txt",
+       "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+       "started": "2026-09-19T09:25:12.400903+00:00",
+       "load_before": {
+        "load1": 2.36181640625,
+        "load5": 2.60302734375,
+        "load15": 3.09765625
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:26:17.639015+00:00",
+       "elapsed_seconds": 65.21984016700299,
+       "load_after": {
+        "load1": 3.76611328125,
+        "load5": 2.91796875,
+        "load15": 3.1728515625
+       },
+       "raw_sha256": "bd49d1ae32800fa566f5345b5f420b8541620f36b22c02c6787cc8e37f2a2b98",
+       "bulk_bytes_per_cycle": 9.4,
+       "bulk_gib_s": 30.64,
+       "small_cycles": 170.09,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 9.4,
+         "bulk_gib_s": 30.64,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 8.42,
+         "bulk_gib_s": 27.44,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": -0.10626992561104665,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.0,
+       "small_outlier": false
+      }
+     ],
+     "bulk_bytes_per_cycle": 9.41,
+     "bulk_gib_s": 30.66,
+     "small_cycles": 170.09,
+     "bulk_selected_run": 1,
+     "small_selected_run": 3,
+     "bulk_run_spread_percent": 0.531349628055249,
+     "small_run_spread_percent": 0.5702863190075835,
+     "aggregation": "median of three; >15% deviations flagged, not discarded",
+     "flagged_runs": [],
+     "note": "Pre-selection public default (NEON dispatched to Karatsuba); replaced by the M2-default runs, retained as evidence",
+     "evidence_folder": "evidence/M2"
+    },
+    {
+     "status": "superseded",
+     "runs": [
+      {
+       "host": "M2Pro",
+       "name": "chainhash128-v3",
+       "test": "Speed",
+       "run": 1,
+       "command": [
+        "SMHasher3",
+        "chainhash128-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2-default/chainhash128-v3.run1.txt",
+       "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+       "started": "2026-09-19T09:34:47.667244+00:00",
+       "load_before": {
+        "load1": 2.4580078125,
+        "load5": 2.59814453125,
+        "load15": 2.8583984375
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:35:49.409769+00:00",
+       "elapsed_seconds": 61.71998783401796,
+       "load_after": {
+        "load1": 2.8525390625,
+        "load5": 2.70849609375,
+        "load15": 2.8818359375
+       },
+       "raw_sha256": "a6c345386dec13c27484ee7b561451547e27d0871bebe6c004674ed9e2aeaf4a",
+       "bulk_bytes_per_cycle": 10.13,
+       "bulk_gib_s": 33.02,
+       "small_cycles": 169.86,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 10.13,
+         "bulk_gib_s": 33.02,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 8.94,
+         "bulk_gib_s": 29.13,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": -0.02354326074160973,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "chainhash128-v3",
+       "test": "Speed",
+       "run": 2,
+       "command": [
+        "SMHasher3",
+        "chainhash128-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2-default/chainhash128-v3.run2.txt",
+       "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+       "started": "2026-09-19T09:35:49.416165+00:00",
+       "load_before": {
+        "load1": 2.8525390625,
+        "load5": 2.70849609375,
+        "load15": 2.8818359375
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:36:51.103964+00:00",
+       "elapsed_seconds": 61.66847920897999,
+       "load_after": {
+        "load1": 4.45947265625,
+        "load5": 3.10107421875,
+        "load15": 3.0087890625
+       },
+       "raw_sha256": "84cbab8e165c4598d67b9426a48819832ae76f0f485fd3522645e491d5385706",
+       "bulk_bytes_per_cycle": 10.13,
+       "bulk_gib_s": 33.01,
+       "small_cycles": 170.01,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 10.13,
+         "bulk_gib_s": 33.01,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 8.93,
+         "bulk_gib_s": 29.12,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.06474396703941565,
+       "small_outlier": false
+      },
+      {
+       "host": "M2Pro",
+       "name": "chainhash128-v3",
+       "test": "Speed",
+       "run": 3,
+       "command": [
+        "SMHasher3",
+        "chainhash128-v3",
+        "--test=Speed"
+       ],
+       "raw_file": "evidence/M2-default/chainhash128-v3.run3.txt",
+       "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+       "started": "2026-09-19T09:36:51.112454+00:00",
+       "load_before": {
+        "load1": 4.45947265625,
+        "load5": 3.10107421875,
+        "load15": 3.0087890625
+       },
+       "returncode": 0,
+       "finished": "2026-09-19T09:37:52.675145+00:00",
+       "elapsed_seconds": 61.542621624976164,
+       "load_after": {
+        "load1": 2.92236328125,
+        "load5": 2.92431640625,
+        "load15": 2.94775390625
+       },
+       "raw_sha256": "4437b7be229244f5bd6c1f96f7266605872f1e5cf075eda7ec794ae97f9bfd00",
+       "bulk_bytes_per_cycle": 10.13,
+       "bulk_gib_s": 33.03,
+       "small_cycles": 169.9,
+       "sha256_verified": true,
+       "valid": true,
+       "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+       "gate_passed_at_launch": true,
+       "smhasher_pids_at_launch": [],
+       "bulk_sections": [
+        {
+         "header": "Bulk speed test - 262144-byte keys",
+         "bulk_bytes_per_cycle": 10.13,
+         "bulk_gib_s": 33.03,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        },
+        {
+         "header": "Bulk speed test - [262017, 262144]-byte keys",
+         "bulk_bytes_per_cycle": 8.94,
+         "bulk_gib_s": 29.14,
+         "clock_assumption": "3.5 ghz",
+         "clock_ghz": 3.5
+        }
+       ],
+       "small_header": "Small key speed test - [1, 31]-byte keys",
+       "clock_ghz": 3.5,
+       "deviation_from_median_percent": 0.0,
+       "outlier": false,
+       "small_deviation_from_median_percent": 0.0,
+       "small_outlier": false
+      }
+     ],
+     "bulk_bytes_per_cycle": 10.13,
+     "bulk_gib_s": 33.02,
+     "small_cycles": 169.9,
+     "bulk_selected_run": 1,
+     "small_selected_run": 3,
+     "bulk_run_spread_percent": 0.0,
+     "small_run_spread_percent": 0.08828722778103429,
+     "aggregation": "median of three; >15% deviations flagged, not discarded",
+     "flagged_runs": [],
+     "note": "Earlier M2 timing whose window was not verified free of a concurrent quality-suite run (launch gate only, no during-run scan); replaced by the M2-clean re-timing, retained as evidence",
+     "evidence_folder": "evidence/M2-default"
+    }
+   ]
   }
  },
  "meta": {
@@ -3205,7 +3974,14 @@
    "M2Pro": {
     "no_process": "SMHasher3",
     "load1_less_than": 4.5,
-    "poll_seconds": 60
+    "poll_seconds": 60,
+    "during_run": {
+     "evidence_folders": [
+      "evidence/M2-clean"
+     ],
+     "scan_seconds": 15,
+     "rule": "whole-machine scan for any other process named SMHasher3; a hit kills and discards the run, which is then repeated"
+    }
    }
   },
   "protocol": {
@@ -3213,7 +3989,7 @@
    "bulk": "Average of alignments 0..7 at fixed 262144 bytes (SMHasher3 Average line)",
    "small": "Average of the 31 separately measured 1..31-byte costs",
    "xeon": "two complete passes; higher fixed-size bulk and lower small average selected independently",
-   "m2": "three complete passes; median of bulk and median of small, independently; any run deviating more than 15 percent from its median is flagged, never dropped",
+   "m2": "three complete passes; median of bulk and median of small, independently; any run deviating more than 15 percent from its median is flagged, never dropped; the M2-clean rows add a whole-machine SMHasher3 process scan every 15 s during each run",
    "key_setup_timed": false,
    "completed_runs_excluded": 0
   },
@@ -3338,6 +4114,36 @@
      "evidence_folder": "evidence/M2-default",
      "provenance_file": "evidence/m2-default-provenance.json",
      "note": "Public default rebuilt after the selection: NEON dispatches to schoolbook"
+    },
+    {
+     "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)",
+     "flags": [
+      "-O3",
+      "-std=c++11",
+      "-DNDEBUG",
+      "-DHAVE_THREADS",
+      "-march=native+crypto"
+     ],
+     "reused_objects": {
+      "main.cpp.o": "0b557883351f4b54fe180bf393cf75a35c5968889363ef3269bfaf0d152c41d5",
+      "libSMHasher3Tests.a": "3551d62aab1340f4c80cb8aff92ac1a0b04ac51cb3fdcb7b107f1ab552bd9eba",
+      "libSMHasher3Hashlib.a": "11f9daf90decfd4edb08d66245b25f2b1cea84df9826ae707f96e9afeb1e840d"
+     },
+     "registration_sources": {
+      "chainhash128_v3.cpp": "8d93a40152785dc94d0bdd1f2488090a5bc5d792b94dcdd117d82722264a7f72",
+      "chainhash128_v3__256.cpp": "1e364b38217ee730e7c8286dca66ae183cb030278a3ea6c821ee5f90290ebc25",
+      "chainhash128_v3__512.cpp": "5a84bacafd974e196adea54675c251fde8d314ef960233e8078325fb29dc36c0",
+      "chainhash128_v3__512school.cpp": "0f85c660b71a77e604f1e7577ab3d71d44e9b5764df7b14644442d6c8479c81b",
+      "chainhash128_v3__school.cpp": "b873e541a7bddd67f4a18a6a5557853631439020e413d8cfa3c5ea8126972c66",
+      "control64.cpp": "d5f95ea08decb267ddaf247e36ba2efd2782cb9d83f5243acad46d0504abe722",
+      "control128.cpp": "5cea415be9e0569bf28e3960235bf6234f4a7e8c8701d29b27b9550ac9d25b30",
+      "registration.inc": "5826a63fc70a485a285094dc02f18f51ad3abccd1d0b03c78a269a8be30f0afb"
+     },
+     "header_sha256": "6c31b6f3638d545f3d95c95bd4edd7483a8964a429957fb1ab3111d9b107a455",
+     "binary_sha256": "305d1d85bc07c179b46c5420d6f1decbf492d1796daf4e5cd0b15f1c37b2572e",
+     "evidence_folder": "evidence/M2-clean",
+     "provenance_file": "evidence/m2-default-provenance.json",
+     "note": "Re-timing in a verified-clean window with the public-default binary: launch gate plus a whole-machine SMHasher3 process scan every 15 s during each run; no other SMHasher3 process at any poll"
     }
    ]
   },
@@ -3362,13 +4168,41 @@
     "schoolbook_small": 167.89,
     "karatsuba_small": 170.19,
     "faster_bulk": "schoolbook",
-    "public_default_bulk": 10.13,
-    "previous_chainhash128_bulk": 10.07,
-    "xxh3_128_bulk": 12.53
+    "public_default_bulk": 10.12,
+    "previous_chainhash128_bulk": 10.03,
+    "xxh3_128_bulk": 12.56
    },
    "chosen": "schoolbook",
    "rule": "chainhash128_v3() dispatches schoolbook products on XMM, ZMM and NEON; Karatsuba on YMM and portable. Both products give the same digest; the choice only affects speed."
   },
-  "generated_utc": "2026-09-19T09:38:02.321235+00:00"
+  "m2_retiming": {
+   "reason": "the earlier M2 passes were gated at launch only and may have overlapped a quality-suite run on the same machine; the four public rows were re-timed with the same public-default binary in a window verified clean before launch and every 15 s during each run",
+   "evidence_folder": "evidence/M2-clean",
+   "hashes": [
+    "chainhash128-v3",
+    "chainhash-128",
+    "chainhash-v3",
+    "XXH3-128"
+   ],
+   "window_utc": [
+    "2026-09-19T10:06:18.389957+00:00",
+    "2026-09-19T10:15:42.622896+00:00"
+   ],
+   "runs_completed": 12,
+   "runs_discarded": 0,
+   "discarded": [],
+   "max_load1_at_launch": 3.71923828125,
+   "superseded": {
+    "evidence/M2-default": [
+     "chainhash128-v3"
+    ],
+    "evidence/M2": [
+     "chainhash-128",
+     "chainhash-v3",
+     "XXH3-128"
+    ]
+   }
+  },
+  "generated_utc": "2026-09-19T10:17:07.257565+00:00"
  }
 }

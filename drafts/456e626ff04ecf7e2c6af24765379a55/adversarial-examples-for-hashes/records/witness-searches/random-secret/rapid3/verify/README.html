@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>rapidhash v3, random-secret model: independent verification</title><link rel="stylesheet" href="../../../../../post.css"><link rel="stylesheet" href="../../../../../math.css"><link rel="stylesheet" href="../../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../../index.html">Article</a> · <a href="../../../../../records/README.html">Records</a></nav><h1 id="rapidhash-v3-random-secret-model-independent-verification">rapidhash v3, random-secret model: independent verification</h1>
+<p>Independent re-measurement (2026-09-19) of the two rates claimed by the <code>rapid3</code> random-secret study one directory up: the row’s current 32-byte pair A and the proposed 24-byte word-0-complement pair, both with the 64-bit seed and all eight 64-bit secret words uniform (576 bits of key).</p>
+<p>What is independent here:</p>
+<ul>
+<li><strong>Hash body = the unmodified upstream header.</strong> <code>upstream/rapidhash_v3.h</code> is <code>rapidhash.h</code> at tag <code>rapidhash_v3</code> of github.com/Nicoshev/rapidhash (sha256 <code>807874eeb23339eaa4b435fbadd33d46718c88e32f3eb67bab3eb965eecc626e</code>), fetched fresh and included verbatim; the harness calls its header-visible <code>rapidhash_internal(key, len, seed, secret)</code> in the default configuration (<code>RAPIDHASH_COMPACT</code>, <code>RAPIDHASH_FAST</code>, the one the public <code>rapidhash()</code> / <code>rapidhash_withSeed()</code> wrappers use). The study being verified used an SMHasher3-derived port instead.</li>
+<li><strong>Fresh sampler.</strong> <code>verify_rapid3.c</code> was written from scratch: OpenMP static partition of the key index space, counter-mode splitmix64 (word <code>j</code> of key <code>k</code> is <code>sm64(base + (9k + j)·golden)</code>, so every key is reproducible from <code>(rngseed, k)</code>), each key draws the seed and then eight secret words. The study used xoshiro256** streams. A second build (<code>-DRNG_CHACHA</code>) draws the key material from ChaCha20 blocks (counter = key index) as an RNG cross-check at 2^30.</li>
+<li><strong>Self-checks.</strong> <code>selftest</code> re-asserts the page’s recorded witness (seed <code>3187ae8a8617e034</code>, shipped secret: both 32-byte messages hash to <code>a7ee6375a78a86f0</code>, via <code>rapidhash_internal</code> and via the public <code>rapidhash_withSeed</code>). <code>crosscheck</code> compares upstream <code>rapidhash_internal</code> with the study’s port (<code>rapid3_port.h</code>, copied here unchanged) on 2 000 000 random (message, length 0..300, seed, secret) tuples, half with the shipped secret.</li>
+</ul>
+<h2 id="files">Files</h2>
+<table>
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>verify_rapid3.c</code></td>
+<td>sampler (<code>selftest</code>, <code>pair LOG2N RNGSEED HEXM HEXM2 [random\|default]</code>)</td>
+</tr>
+<tr class="even">
+<td><code>crosscheck.c</code>, <code>upstream_driver.c</code>, <code>port_driver.c</code></td>
+<td>upstream-vs-port equality check</td>
+</tr>
+<tr class="odd">
+<td><code>rapid3_port.h</code></td>
+<td>the study’s port, only used by <code>crosscheck</code></td>
+</tr>
+<tr class="even">
+<td><code>ci.py</code></td>
+<td>exact Garwood 95 % Poisson interval, <code>ci.py COUNT LOG2TRIALS L</code></td>
+</tr>
+<tr class="odd">
+<td><code>run_all.sh</code></td>
+<td>matched-size runs (2^30, fresh 2^34, fresh 2^35 per pair; controls)</td>
+</tr>
+<tr class="even">
+<td><code>run_stage2.sh</code></td>
+<td>extra precision: fresh 2^37 per pair, pair D at 2^34</td>
+</tr>
+<tr class="odd">
+<td><code>logs/</code></td>
+<td>one log per run (<code>NN_&lt;what&gt;.txt</code>), with the example colliding key</td>
+</tr>
+<tr class="even">
+<td><code>RESULTS.md</code></td>
+<td>the numbers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reproduce">Reproduce</h2>
+<pre><code>curl -sSL -o upstream/rapidhash_v3.h https://raw.githubusercontent.com/Nicoshev/rapidhash/rapidhash_v3/rapidhash.h
+sha256sum upstream/rapidhash_v3.h      # 807874ee...626e
+./run_all.sh &amp;&amp; ./run_stage2.sh         # 8 threads; about 30 min on a Xeon 8375C with shared cores
+python3 ci.py COUNT LOG2N L             # e.g. ci.py 532 35.585 4</code></pre>
+<p>Single runs: <code>./verify_rapid3 pair 35 3001 $A $A2 random</code> etc., with the hex messages as in <code>run_all.sh</code>. Compute: Xeon 8375C, <code>nice -n 10 taskset -c 24-31</code>, 8 OpenMP threads on cores shared with other jobs.</p>
+</main></body></html>

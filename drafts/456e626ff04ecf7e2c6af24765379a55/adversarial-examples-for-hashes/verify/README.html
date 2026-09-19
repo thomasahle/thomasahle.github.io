@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>verify: reader-runnable reproductions of the collision pairs</title><link href="../post.css" rel="stylesheet"/><link href="../math.css" rel="stylesheet"/><link href="../../../static/vendor/katex-0.18.7/katex.min.css" rel="stylesheet"/><script defer="" src="../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer="" src="../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../index.html">Article</a> · <a href="../records/README.html">Records</a></nav><h1 id="verify-reader-runnable-reproductions-of-the-collision-pairs">verify: reader-runnable reproductions of the collision pairs</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>verify: reader-runnable reproductions of the collision pairs</title><link rel="stylesheet" href="../post.css"><link rel="stylesheet" href="../math.css"><link rel="stylesheet" href="../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../index.html">Article</a> · <a href="../records/README.html">Records</a></nav><h1 id="verify-reader-runnable-reproductions-of-the-collision-pairs">verify: reader-runnable reproductions of the collision pairs</h1>
 <p>26 collision-reproduction directories, one per hash or separately tested output/version, plus the separate HalftimeHash audit directory. Each holds a primary C11 program, a README and (for some) the raw logs of the runs quoted there. A program re-implements or embeds the hash, checks its implementation at startup against the listed verification values and available test vectors (it recomputes the SMHasher3 verification value with SMHasher3’s own procedure or checks a reference vector, and exits non-zero on any mismatch), prints the published message pair(s), hashes both messages under millions of random seeds from a fixed-seed RNG, and prints the collision count, the rate, and explicit colliding seeds with both hash values. The original programs are single-threaded; the two foldhash additions use POSIX threads (one worker in the smoke commands). Programs need a C compiler, libm or pthreads as documented, and writes nothing but stdout/stderr.</p>
 <table style="width:100%;">
 <colgroup>
@@ -42,7 +41,7 @@
 <td>MurmurHash3_x64_128, 2012 final (<code>MurmurHash3_128</code>, seed truncated to 32 bits)</td>
 <td>24 B; 32 B</td>
 <td>A difference of exactly 2^63 in a lane survives xor, add, rotate-into-top-bit and <code>5x + c</code>; chosen word differences park <code>(2^63, 0)</code> in the state after block 1 for every seed and the tail cancels it (Aumasson-Bernstein top-bit trick); the 32-byte pair returns the state to <code>(0, 0)</code>, giving multicollisions.</td>
-<td>1 (2^0) on 2^24 seeds, both pairs (exhaustive check: all 2^32 seeds); key-free</td>
+<td>1 (2^0) on 2^24 seeds, both pairs (panel: all 2^32 seeds); key-free</td>
 <td><code>cd murmurhash3-128 &amp;&amp; ./murmurhash3_128_verify [log2 N] [rng seed] [--exhaustive]</code> (1.2 s)</td>
 </tr>
 <tr class="even">
@@ -169,33 +168,33 @@
 <td><code>rapidhash-v3</code></td>
 <td>rapidhash v3, rapidhash v3 micro, rapidhash v3 nano</td>
 <td>32/32 B, 48/48 B</td>
-<td>Paper pairs A (32 B) and D (48 B), in standard, micro and nano v3.</td>
-<td>See sub-README; 2^20 smoke check is separate from the scored historical rate</td>
-<td><code>cd rapidhash-v3 &amp;&amp; ./rapidhash_v3_verify 20</code></td>
+<td>Paper pairs A (32 B) and D (48 B), in standard, micro and nano v3. Key models: <code>default</code> (seed only, shipped eight-word secret) and <code>random-secret</code> (seed + eight uniform secret words, the scored model).</td>
+<td>Scored (random secret): 2386 / 2^37.83 = 2^-26.61, cap 28.6 bits; see sub-README; 2^20 smoke check is separate from the scored rate</td>
+<td><code>cd rapidhash-v3 &amp;&amp; ./rapidhash_v3_verify 20 [rng seed] [default\|random-secret]</code></td>
 </tr>
 <tr class="even">
 <td><code>wyhash</code></td>
 <td>wyhash final v4.3</td>
 <td>A (32 B)</td>
-<td>First-product XOR-fold differential; fixed default secret.</td>
-<td>Historical 9 / 2^30 = 2^-26.830075; 2^20 is a smoke run only</td>
-<td><code>cd wyhash &amp;&amp; ./wyhash_verify [log2 N] [rng seed]</code></td>
+<td>First-product XOR-fold differential; the rate does not depend on the secret value. Key models: <code>default</code> (seed only, shipped secret) and <code>random-secret</code> (seed + four uniform secret words, the scored model).</td>
+<td>Scored (random secret): 1088 / 3·2^35 = 2^-26.50, cap 28.5 bits; historical default-secret 9 / 2^30; 2^20 is a smoke run only</td>
+<td><code>cd wyhash &amp;&amp; ./wyhash_verify [log2 N] [rng seed] [default\|random-secret]</code></td>
 </tr>
 <tr class="odd">
 <td><code>rapidhash-v1</code></td>
 <td>rapidhash v1.0</td>
 <td>A (32 B)</td>
-<td>First-product XOR-fold differential; fixed default secret.</td>
-<td>Historical 12 / 2^30 = 2^-26.415037; 2^20 is a smoke run only</td>
-<td><code>cd rapidhash-v1 &amp;&amp; ./rapidhash_v1_verify [log2 N] [rng seed]</code></td>
+<td>First-product XOR-fold differential; the rate does not depend on the secret value. Key models: <code>default</code> (seed only, compiled-in secret) and <code>random-secret</code> (seed + three uniform secret words, the scored model).</td>
+<td>Scored (random secret): 160 / 2^34 = 2^-26.68, cap 28.7 bits; historical default-secret 12 / 2^30; 2^20 is a smoke run only</td>
+<td><code>cd rapidhash-v1 &amp;&amp; ./rapidhash_v1_verify [log2 N] [rng seed] [default\|random-secret]</code></td>
 </tr>
 <tr class="even">
 <td><code>xxh3-64</code></td>
 <td>XXH3-64 0.8.3</td>
-<td>selected 32 B; L=4</td>
-<td>Block-1 complement, NAF carry cancellation</td>
-<td>2,264,081/(3·2^30) ≈ 2^-10.4745; cap 12.47 bits</td>
-<td><code>cd xxh3-64 &amp;&amp; ./xxh3_64_pair_check 20</code></td>
+<td>scored 24 B (W0, L=3); default-secret caveat 32 B (NAF, L=4)</td>
+<td>Scored: one keyed word complemented, <code>fold(x,y) = fold(~x,y)</code>, through <code>XXH3_64bits_withSecret</code> with a fresh 192-byte secret (<code>random-secret</code> mode). Caveat: block-1 complement with NAF carry cancellation, needs the default-secret words (<code>withSeed</code>, and <code>withSecretandSeed</code>/streaming at ≤ 240 B).</td>
+<td>Scored (random secret): 527 / 2^36 ≈ 2^-26.96, cap 28.5 bits; default-secret caveat 2,264,081/(3·2^30) ≈ 2^-10.4745, 12.47 bits</td>
+<td><code>cd xxh3-64 &amp;&amp; ./xxh3_64_pair_check 20</code> (default secret) and <code>./xxh3_64_pair_check random-secret 20</code></td>
 </tr>
 <tr class="odd">
 <td><code>museair-v2</code></td>
@@ -209,9 +208,9 @@
 <td><code>xxh3-128</code></td>
 <td>XXH3-128, xxHash 0.8.3</td>
 <td>F (32 B)</td>
-<td>Complementary first-word swap; equality of both output halves.</td>
-<td>Historical 5 / 2^30 = 2^-27.678072 (full 128-bit collisions); 2^20 is a smoke run only</td>
-<td><code>cd xxh3-128 &amp;&amp; ./xxh3_128_verify [log2 N] [rng seed]</code></td>
+<td>Complementary first-word swap; equality of both output halves; the rate does not depend on the secret value. Key models: <code>default</code> (seed only, default secret) and <code>random-secret</code> (fresh 192-byte secret through <code>XXH3_128bits_withSecret</code>, the scored model).</td>
+<td>Scored (random secret): 479 / 2^35.46 = 2^-26.56, cap 28.6 bits (full 128-bit collisions); historical default-secret 5 / 2^30 and 165 / 2^34; 2^20 is a smoke run only</td>
+<td><code>cd xxh3-128 &amp;&amp; ./xxh3_128_verify [log2 N] [rng seed] [default\|random-secret]</code></td>
 </tr>
 <tr class="odd">
 <td><code>go-maphash</code></td>
@@ -446,7 +445,7 @@ make clean      # removes the binaries</code></pre>
 <p>Pengyhash v0.3 code is GPLv3-or-later (the supplied notice is retained), NMHASH is BSD 2-Clause, mx3 is CC0, and the other added algorithm notices are retained in their source files. These are not relicensed by the MIT driver additions. The full supplied pengyhash license is included as <code>pengyhash/COPYING</code>.</p>
 <p>The selected 275-byte SpookyHash pair has L=35 and estimated cap 6.13; it collides at all three output widths at the same measured rate. The earlier 286-byte examples remain in the program. Exact half balance of either predictor class is unproved, even though the older two classes complement one another. Native Hash32’s 32-bit seed domain differs from the scored SMHasher3 duplicated 64-bit seed model.</p>
 <h2 id="completed-dependency-additions">Completed dependency additions</h2>
-<p>The four formerly blocked directories now contain standalone C programs and full EXPECTED output: <a href="wyhash/README.html">wyhash</a>, <a href="rapidhash-v1/README.html">rapidhash-v1</a>, <a href="xxh3-64/README.html">XXH3-64</a>, and <a href="xxh3-128/README.html">XXH3-128</a>. Wyhash and rapidhash-v1 transcribe the supplied harness; both XXH3 files embed xxHash 0.8.3 verbatim with its BSD 2-Clause license. All four default to 2^20 seeds and verify a recorded collision separately. This is only a smoke run; the 2^30 measurements in the index and sub-READMEs remain historical evidence. The full package check output is recorded in <a href="../records/README.html">REPORT.md</a>.</p>
+<p>The four formerly blocked directories now contain standalone C programs and full EXPECTED output: <a href="wyhash/README.html">wyhash</a>, <a href="rapidhash-v1/README.html">rapidhash-v1</a>, <a href="xxh3-64/README.html">XXH3-64</a>, and <a href="xxh3-128/README.html">XXH3-128</a>. Wyhash and rapidhash-v1 transcribe the supplied harness; both XXH3 files embed xxHash 0.8.3 verbatim with its BSD 2-Clause license. All four default to 2^20 seeds and verify a recorded collision separately. This is only a smoke run; the 2^30 measurements in the index and sub-READMEs remain historical evidence. The full package check output is recorded in <a href="../REPORT.md">REPORT.md</a>.</p>
 <h2 id="scope-of-the-polished-package">Scope of the polished package</h2>
 <p>The 23 primary programs reproduce their deterministic README counts. Matching known answers checks consistency; it does not prove full equivalence to upstream on every input. The archive also includes a5hash <code>selected_pairs.c</code>, MuseAir <code>additional_pairs.c</code>, and the exact carry-state class counter <code>count_class.py</code>. Their per-hash READMEs give commands and limits.</p>
 <p>Sampled rates assume the deterministic pseudorandom streams behave like independent uniform draws. A zero count is not a hard population bound. Under that assumption, 0/N gives an approximate one-sided 95% upper limit of 3/N. Historical large runs and exact-count claims are identified separately from the small default checks.</p>

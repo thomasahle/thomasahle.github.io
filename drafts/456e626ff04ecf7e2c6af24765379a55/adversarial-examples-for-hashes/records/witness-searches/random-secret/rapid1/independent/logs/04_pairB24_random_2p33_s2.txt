@@ -1,0 +1,6 @@
+== 4: fresh confirmation, pair B24, 2^33, rngseed 2
+rs_verify pair: len=24 M=9bd4604137366abec688a63706aa4a2188d35499de169df6 M'=642b9fbec8c99541c688a63706aa4a2188d35499de169df6 N=2^33 rngseed=2 mode=random threads=8 rng=mt19937_64
+result: hits=68 N=8589934592 (2^33) rate=7.9162e-09 log2rate=-26.9125 [-27.2774, -26.5703] cap_bits(L=3)=28.497 [28.155, 28.862]
+example: seed=df264ff0dda24238 secret={8e6c23654005611a,4f7f57c4dc54843d,ee076beda9a375ad} out=dab7211385431026
+example: seed=3dfd48521cd7fd39 secret={8952b39e096cc41f,0eaa923dd81db571,92ad3e8c2e1681be} out=8665eba362ff41bb
+example: seed=27d3ad94b18bec19 secret={f128d3d257affd54,20fae773c8c28565,887dbc05dd266d5d} out=f74c5fdba6b1e5dc

@@ -429,9 +429,15 @@ typedef struct {
 } Pair;
 
 #define HAS_STRUCTURE_CHECKS 0
-static Result hash_0(const uint8_t *p, size_t n, uint64_t seed) { return (Result){rapidhash(p,n,seed,rapid_secret),0}; }
-static Result hash_1(const uint8_t *p, size_t n, uint64_t seed) { return (Result){rapidhashMicro(p,n,seed,rapid_secret),0}; }
-static Result hash_2(const uint8_t *p, size_t n, uint64_t seed) { return (Result){rapidhashNano(p,n,seed,rapid_secret),0}; }
+/* Key models.  "default": one uniform 64-bit API seed per trial with the shipped public secret
+ * words (the historical experiment).  "random-secret": one uniform 64-bit seed and 8
+ * independent uniform 64-bit secret words per trial, passed to the hash's secret parameter; this is
+ * the strongest key model the API supports and the model the article scores. */
+#define NSECRET 8
+static const uint64_t *active_secret = rapid_secret;
+static Result hash_0(const uint8_t *p, size_t n, uint64_t seed) { return (Result){rapidhash(p,n,seed,active_secret),0}; }
+static Result hash_1(const uint8_t *p, size_t n, uint64_t seed) { return (Result){rapidhashMicro(p,n,seed,active_secret),0}; }
+static Result hash_2(const uint8_t *p, size_t n, uint64_t seed) { return (Result){rapidhashNano(p,n,seed,active_secret),0}; }
 static const Variant variants[] = {
     {"rapidhash v3",hash_0,64,64,0,0x1FDC65EE},
     {"rapidhash v3 micro",hash_1,64,64,0,0x6F183D61},
@@ -444,6 +450,16 @@ static const Pair pairs[] = {
     {"rapid3_micro_48","9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c48c651edae76208e840fc51f1cccbb02","642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c48c651edae76208e840fc51f1cccbb02",1,0,UINT64_C(0x3187ae8a8617e034),{UINT64_C(0xb52b5b5759f1d08a),UINT64_C(0x0)}},
     {"rapid3_nano_32","9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c","642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c",2,0,UINT64_C(0x3187ae8a8617e034),{UINT64_C(0xa7ee6375a78a86f0),UINT64_C(0x0)}},
     {"rapid3_nano_48","9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c48c651edae76208e840fc51f1cccbb02","642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c48c651edae76208e840fc51f1cccbb02",2,0,UINT64_C(0x3187ae8a8617e034),{UINT64_C(0xb52b5b5759f1d08a),UINT64_C(0x0)}},
+};
+typedef struct { const char *name; int pair; uint64_t seed, secret[NSECRET]; Result expected; } KeyWitness;
+static const uint64_t *const default_secret = rapid_secret;
+/* Random-secret witnesses from the 2026-09-19 measurement (records/witness-searches/random-secret/rapid3/verify/logs/10_pairA_random_2p30.txt):
+ * seed and eight secret words through rapidhash_internal; both 32-byte messages of pair A hash to d832bac31b8fda6c.
+ * Standard, micro and nano share the 17..48-byte path, so the same key is a witness for all three 32-byte cases. */
+static const KeyWitness key_witnesses[] = {
+    {"rapid3_32",0,UINT64_C(0x27d3b5addafed424),{UINT64_C(0x8201394795b91ef9),UINT64_C(0xbc80d672c2c377f6),UINT64_C(0x5afd557e26c19903),UINT64_C(0xa3a9fab4fc0d80e2),UINT64_C(0x5108fe3feb9bd088),UINT64_C(0x6742ee43cec628a4),UINT64_C(0x2267c78c10996237),UINT64_C(0xd96b61ed51f62b33)},{UINT64_C(0xd832bac31b8fda6c),UINT64_C(0x0)}},
+    {"rapid3_micro_32",2,UINT64_C(0x27d3b5addafed424),{UINT64_C(0x8201394795b91ef9),UINT64_C(0xbc80d672c2c377f6),UINT64_C(0x5afd557e26c19903),UINT64_C(0xa3a9fab4fc0d80e2),UINT64_C(0x5108fe3feb9bd088),UINT64_C(0x6742ee43cec628a4),UINT64_C(0x2267c78c10996237),UINT64_C(0xd96b61ed51f62b33)},{UINT64_C(0xd832bac31b8fda6c),UINT64_C(0x0)}},
+    {"rapid3_nano_32",4,UINT64_C(0x27d3b5addafed424),{UINT64_C(0x8201394795b91ef9),UINT64_C(0xbc80d672c2c377f6),UINT64_C(0x5afd557e26c19903),UINT64_C(0xa3a9fab4fc0d80e2),UINT64_C(0x5108fe3feb9bd088),UINT64_C(0x6742ee43cec628a4),UINT64_C(0x2267c78c10996237),UINT64_C(0xd96b61ed51f62b33)},{UINT64_C(0xd832bac31b8fda6c),UINT64_C(0x0)}},
 };
 static int structure_checks(void) { return 1; }
 
@@ -506,9 +522,14 @@ static uint64_t argument(const char *s, uint64_t max) {
 bad: fputs("invalid argument\n",stderr); exit(2);
 }
 int main(int argc, char **argv) {
-    if(argc>3) { fprintf(stderr,"usage: %s [log2 N (0..40), default 20] [rng seed, default 1]\n",argv[0]); return 2; }
+    if(argc>4) { fprintf(stderr,"usage: %s [log2 N (0..40), default 20] [rng seed, default 1] [default|random-secret]\n",argv[0]); return 2; }
     unsigned lg=argc>1?(unsigned)argument(argv[1],40):20;
     uint64_t rseed=argc>2?argument(argv[2],UINT64_MAX):1;
+    int random_secret=0;
+    if(argc>3) {
+        if(!strcmp(argv[3],"random-secret")) random_secret=1;
+        else if(strcmp(argv[3],"default")) { fputs("key model must be default or random-secret\n",stderr); return 2; }
+    }
     uint64_t n=UINT64_C(1)<<lg;
     for(size_t i=0;i<sizeof(variants)/sizeof(*variants);i++) {
         uint32_t got=verification(&variants[i]);
@@ -518,6 +539,7 @@ int main(int argc, char **argv) {
     if(!structure_checks()) { fputs("structural assertion failed\n",stderr); return 1; }
     if(HAS_STRUCTURE_CHECKS) puts("structural checks PASS");
     else puts("SMHasher3 checks complete; recorded output assertions follow");
+    printf("key model: %s\n",random_secret?"uniform 64-bit seed and eight uniform 64-bit secret words per trial (576 bits), rapidhash_internal(key,len,seed,secret)":"uniform 64-bit API seed; shipped public secret words (default)");
     for(size_t i=0;i<sizeof(pairs)/sizeof(*pairs);i++) {
         const Pair *p=&pairs[i]; const Variant *v=&variants[p->variant];
         uint8_t a[512],b[512]; size_t na=decode(p->a,a),nb=decode(p->b,b);
@@ -527,25 +549,41 @@ int main(int argc, char **argv) {
         printf("recorded colliding seed %016" PRIx64 ": H(M)=",p->seed); print_result(ha,v->bits);
         printf(" H(M')="); print_result(hb,v->bits); puts("");
         if(!equal(ha,hb) || !equal(ha,p->expected)) { fputs("recorded output mismatch\n",stderr); return 1; }
-        uint64_t count=0, first_seed=0; Result first={0,0};
+        if(random_secret) for(size_t k=0;k<sizeof(key_witnesses)/sizeof(*key_witnesses);k++) {
+            const KeyWitness *w=&key_witnesses[k]; if(w->pair!=(int)i) continue;
+            active_secret=w->secret;
+            ha=v->hash(a,na,w->seed); hb=v->hash(b,nb,w->seed);
+            active_secret=default_secret;
+            printf("recorded colliding key (random-secret model) seed %016" PRIx64 " secret",w->seed);
+            for(int j=0;j<NSECRET;j++) printf("%c%016" PRIx64,j?',':' ',w->secret[j]);
+            printf(": H(M)="); print_result(ha,v->bits); printf(" H(M')="); print_result(hb,v->bits); puts("");
+            if(!equal(ha,hb) || !equal(ha,w->expected)) { fputs("recorded random-secret output mismatch\n",stderr); return 1; }
+        }
+        uint64_t count=0, first_seed=0, first_secret[NSECRET]={0}, words[NSECRET]; Result first={0,0};
         rng_init(rseed); /* Same stream per pair, deliberately correlated. */
         for(uint64_t t=0;t<n;t++) {
             uint64_t seed=rng_next();
             if(v->seed_bits==32) seed=(uint32_t)seed;
+            if(random_secret) { for(int j=0;j<NSECRET;j++) words[j]=rng_next(); active_secret=words; }
             ha=v->hash(a,na,seed); hb=v->hash(b,nb,seed);
             if(equal(ha,hb)) {
-                if(!count) { first_seed=seed; first=ha; }
+                if(!count) { first_seed=seed; first=ha; memcpy(first_secret,words,sizeof first_secret); }
                 count++;
             } else if(p->every_seed) {
                 fprintf(stderr,"non-colliding seed %016" PRIx64 " violates every-seed claim\n",seed); return 1;
             }
         }
+        active_secret=default_secret;
         double rate=(double)count/(double)n;
         printf("collisions = %" PRIu64 " / %" PRIu64 "; rate = %.12g",count,n,rate);
         if(count) printf("; log2(rate) = %.6f; sampled score = %.6f",log2(rate),log2((double)(((na>nb?na:nb)+7)/8))-log2(rate));
         else printf("; no rate/score estimate from zero hits (resolution 1/N)");
         puts("");
-        if(count) { printf("first sampled colliding seed %016" PRIx64 ": H(M)=H(M')=",first_seed); print_result(first,v->bits); puts(""); }
+        if(count) {
+            printf("first sampled colliding seed %016" PRIx64,first_seed);
+            if(random_secret) { printf(" secret"); for(int j=0;j<NSECRET;j++) printf("%c%016" PRIx64,j?',':' ',first_secret[j]); }
+            printf(": H(M)=H(M')="); print_result(first,v->bits); puts("");
+        }
         else puts("no sampled collision; the recorded witness above was checked separately");
     }
     return 0;

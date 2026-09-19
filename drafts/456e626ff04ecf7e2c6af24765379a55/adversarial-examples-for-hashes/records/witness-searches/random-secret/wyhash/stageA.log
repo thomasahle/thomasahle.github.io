@@ -1,0 +1,13 @@
+== stage A: row pair A under key models (mode1 uniform words, mode2 odd words, mode3 make_secret table 2^17, mode0 default secret)
+verification 9DAE7DD3 PASS
+pair len=32/32 L=4 mode=1 N=2^32 hits=32 log2rate=-27.0000 [-27.5479,-26.5026] bits=29.000 [28.503,29.548] secs=28.7
+  witness seed=95fa6062dcee10b2 secret=e6384066dbd5619b,31057cee64474c49,6ad68f59446de75e,80052e554cdd3c2e out=2abfc2f41469fcfd
+verification 9DAE7DD3 PASS
+pair len=32/32 L=4 mode=2 N=2^31 hits=14 log2rate=-27.1926 [-28.0638,-26.4460] bits=29.193 [28.446,30.064] secs=14.9
+  witness seed=3aa3b6f9e6d2f34d secret=a4d7646808318995,b362bb26b154b4e1,cb9fa12075410e07,4f33e91c37bdf40f out=4e1bd5c60ae72b48
+verification 9DAE7DD3 PASS
+pair len=32/32 L=4 mode=0 N=2^31 hits=28 log2rate=-26.1926 [-26.7823,-25.6613] bits=28.193 [27.661,28.782] secs=9.8
+  witness seed=4bbafee4e06c874d secret=2d358dccaa6c78a5,8bb84b93962eacc9,4b33a62ed433d4a3,4d5a2da51de1aa47 out=e134c8ac66b18d9d
+verification 9DAE7DD3 PASS
+pair len=32/32 L=4 mode=3 N=2^31 hits=21 log2rate=-26.6077 [-27.2996,-25.9955] bits=28.608 [27.995,29.300] secs=34.0
+  witness seed=bed979f29b5dd75f secret=b49cd42db295e471,d2b1f0478e2d6a87,2be28da5b8874e8b,5655cae2a593271b out=d325a6ee8f52f054

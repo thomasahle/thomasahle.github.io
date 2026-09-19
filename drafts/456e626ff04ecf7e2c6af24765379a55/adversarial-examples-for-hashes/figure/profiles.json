@@ -360,7 +360,7 @@
     }
    ],
    "results": {
-    "rapid3": "Flipping every bit in two chosen message words can leave a multiplication’s mixed result unchanged. That produces a fixed pair with more collisions than its output width might suggest. The rate is estimated from samples; the chart is not a ranking of hashes, because search effort was unequal."
+    "rapid3": "Flipping every bit in two chosen message words can leave a multiplication’s mixed result unchanged. That produces a fixed pair with more collisions than its output width might suggest, and the rate is the same whether the secret words are the shipped constants or eight freshly random words, because the cancellation never uses their values. The score is taken under the random-secret model; the shipped constants additionally admit an every-seed pair, noted in the appendix. The rate is estimated from samples; the chart is not a ranking of hashes, because search effort was unequal."
    },
    "sources": [
     "https://github.com/Nicoshev/rapidhash",
@@ -369,9 +369,9 @@
    ],
    "reader_notes": {
     "rapid3": {
-     "evidence": "The recorded sample found 11 collisions in 2³⁰ seeds. That small count makes the plotted cap an estimate.",
-     "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-     "scope": "The experiment uses rapidhash v3’s standard function and its default public constants. Micro, Nano and other releases are not covered by this measurement."
+     "evidence": "Pooled samples found 2,386 collisions in about 2^37.8 keys (a search harness and an independent verifier with different random-number generators). The 95% interval on the cap is 28.5–28.7 bits.",
+     "key": "Each trial chooses a 64-bit seed and all eight 64-bit secret words at random, every value equally likely (576 hidden bits), and passes them to rapidhash_internal. The two messages are chosen first and do not depend on the key. With the shipped secret words the same pair collides at the same rate, but the shipped words also allow a pair that collides for every seed; that weakness is excluded by this score and noted separately.",
+     "scope": "The experiment uses rapidhash v3’s standard function; the same 32-byte path is shared by Micro and Nano. Callers of the public rapidhash() and rapidhash_withSeed() wrappers use the shipped constants and are covered by the appendix’s default-secret note."
     }
    }
   },
@@ -453,7 +453,7 @@
     "xxh3-128"
    ],
    "authors": "Yann Collet and the xxHash contributors",
-   "background": "XXH3 is part of Yann Collet’s xxHash family. It uses different routines for different input lengths and processors to achieve high throughput. These entries study version 0.8.3’s seeded functions with the standard public constants.",
+   "background": "XXH3 is part of Yann Collet’s xxHash family. It uses different routines for different input lengths and processors to achieve high throughput. These entries study version 0.8.3 keyed with a caller-supplied 192-byte secret (withSecret), the strongest key model the API offers; the seeded functions with the standard public constants are discussed as a separate caveat.",
    "links": [
     {
      "label": "Original project & code",
@@ -473,8 +473,8 @@
     }
    ],
    "results": {
-    "xxh3-64": "The selected 32-byte pair complements its second block. Seed-dependent carries sometimes make the two products fold to the same value. Independent upstream checks found about one collision per 1,423 random seeds, giving a sampled cap of 12.47 bits. This replaces the earlier 23.01-bit pair; it does not assert a flooding attack or a bound for independent custom-secret bytes.",
-    "xxh3-128": "The pair preserves both a multiplication result and a sum used by the hash, causing both output halves to collide for some seeds. A larger sample of 165 collisions in 2³⁴ seeds gives a measured score cap of 28.6 bits, with a 95% interval of 28.4–28.9 bits."
+    "xxh3-64": "Complementing one keyed word of a 16-byte block leaves the folded product unchanged for about one key in 2^27, whatever the secret bytes are. Measured through XXH3_64bits_withSecret with a fresh random 192-byte secret per trial, a 24-byte pair gives a sampled cap of 28.5 bits. Callers of the seeded functions (withSeed, and withSecretandSeed or streaming at up to 240 bytes, which use the default secret) face a much weaker case: a 32-byte pair built from the default-secret words collides for one seed in about 1,423, a 12.47-bit cap. That default-secret figure is a caveat, not the score. It does not assert a flooding attack.",
+    "xxh3-128": "The pair preserves both a multiplication result and a sum used by the hash, causing both output halves to collide for some keys. With a fresh random 192-byte secret per trial, 479 full 128-bit collisions in about 2^35.5 keys give a measured score cap of 28.6 bits, with a 95% interval of 28.4–28.7 bits; the default-secret seeded function gives the same rate."
    },
    "sources": [
     "https://github.com/Cyan4973/xxHash",
@@ -484,14 +484,14 @@
    ],
    "reader_notes": {
     "xxh3-64": {
-     "evidence": "Three fresh upstream-source runs counted 2,264,081 collisions in 3 × 2^30 seeds. The score interval is 12.473–12.476 bits; the central value is displayed as 12.47. Seed 0 does not collide for this pair.",
-     "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-     "scope": "The new block-1 pair is a bounded-search result for the public-default-secret seeded API in v0.8.3. The earlier base-1143 pair and historical pair A remain documented as controls."
+     "evidence": "An independent verifier against the upstream 0.8.3 source counted 527 collisions in 2^36 keys for the 24-byte pair (260 through withSecret, 267 with seed and secret both random; the two models give the same rate). The score interval is 28.4–28.7 bits. The default-secret 32-byte pair was measured at 2,264,081 collisions in 3 × 2^30 seeds (12.47 bits).",
+     "key": "Each trial draws 192 secret bytes at random, every value equally likely (1,536 hidden bits), and calls XXH3_64bits_withSecret. The two messages are chosen first and do not depend on the key. With withSeed, and with withSecretandSeed or the streaming interface for inputs of at most 240 bytes, the library uses its built-in secret and only the 64-bit seed is hidden; the default-secret pair applies there.",
+     "scope": "The scored pair is the paper’s fold differential under a uniform secret; the default-secret pair is a bounded-search result for the seeded 0.8.3 functions. The earlier base-1143 pair and historical pair A remain documented as controls."
     },
     "xxh3-128": {
-     "evidence": "Sixteen deterministic runs found 165 full-output collisions in 2³⁴ seeds. The earlier five-event sample is retained in the appendix; its wider uncertainty interval contains the new estimate.",
-     "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-     "scope": "The experiment keeps XXH3’s standard public constants fixed and varies its seed. It does not describe the separate interface that accepts a custom random secret."
+     "evidence": "An independent verifier counted 156 collisions in 2^34 keys through withSecret, 84 in 2^33 with seed and secret both random and 60 in a second 2^32 stream; the search harness counted 179 in 2^34. The default-secret control (165 in 2^34 plus 44 in 2^32) gives the same rate.",
+     "key": "Each trial draws 192 secret bytes at random, every value equally likely (1,536 hidden bits), and calls XXH3_128bits_withSecret; the seed adds nothing at these lengths. The two messages are chosen first and do not depend on the key.",
+     "scope": "The experiment covers XXH3-128 version 0.8.3 at 32 bytes with full 128-bit equality. withSecretandSeed ignores the custom secret for inputs of at most 240 bytes, so callers of that function with short inputs are in the seeded model, where the same pair collides at the same rate."
     }
    }
   },
@@ -1376,13 +1376,13 @@
     "records/chainhash/v3-128/speeds_chainhash128_v3.json"
    ],
    "results": {
-    "chain128-v3": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with at least 123 bits on this post’s collision score when the key contains 128 independently random bytes, and 127 bits with fully independent key words. In the same binaries XXH3-128 runs at 19.82 and 12.53 and the previous strided ChainHash-128 at 8.14 and 10.07. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The written proof transfers from the 64-bit v3 theorem with the field swapped; the Lean port is in progress."
+    "chain128-v3": "One function reaches 14.43 B/cycle on Xeon and 10.26 on M2 Pro, with at least 123 bits on this post’s collision score when the key contains 128 independently random bytes, and 127 bits with fully independent key words. In the same binaries XXH3-128 runs at 19.82 and 12.53 and the previous strided ChainHash-128 at 8.14 and 10.07. Short inputs cost about 176 cycles/hash on Xeon and 168 on M2. The written proof transfers from the 64-bit v3 theorem with the field swapped; the Lean port is in progress. Lean: ✓ checked. Machine-checked (116 theorems, standard axioms): paper-model bound (p+1)/2^128 with 39 independent 128-bit words, model A bound with exactly 128 random bytes, evaluation independence for every stride, and the exact score minima 127 (paper and model A) and 128−log₂33 for the coarse envelope; 625 C/Lean vectors. See records/chainhash/v3-128-lean/."
    },
    "lean": {
     "chain128-v3": {
-     "label": "paper proof by transfer from the 64-bit v3 theorem (field swapped); Lean port in progress",
-     "source": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md",
-     "scope": "Written proof by transfer from the 64-bit v3 theorem with the field swapped to GF(2^128); the Lean port is in progress. The previous strided ChainHash-128 keeps its own machine-checked 125-bit result."
+     "label": "✓ checked",
+     "source": "records/chainhash/v3-128-lean/STATUS.md",
+     "scope": "Machine-checked (116 theorems, standard axioms): paper-model bound (p+1)/2^128 with 39 independent 128-bit words, model A bound with exactly 128 random bytes, evaluation independence for every stride, and the exact score minima 127 (paper and model A) and 128−log₂33 for the coarse envelope; 625 C/Lean vectors. See records/chainhash/v3-128-lean/."
     }
    },
    "reader_notes": {

@@ -10,11 +10,11 @@
   "anchor": "appendix-xxh3-64",
   "family": "heuristic",
   "claim_id": "xxh3",
-  "key_bits": 64,
+  "key_bits": 1536,
   "output_bits": 64,
-  "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+  "key_model": "Uniform 192-byte secret via XXH3_64bits_withSecret (1536 key bits; API minimum 136 B = 1088). XXH3_64bits_withSeed and XXH3_64bits_withSecretandSeed (len <= 240, one-shot and streaming) use the default public secret and stay in the 64-bit-seed model",
   "status": "NEW",
-  "classification_reason": "Search result at 32 bytes: NAF-shaped block-1 complement pair, three fresh confirmation streams against upstream v0.8.3. Status NEW (new construction; the base-1143 reproduction remains as a control).",
+  "classification_reason": "Scored pair W0 (24 B, word 0 complemented) under the random-secret model is the paper's fold differential (M,0), verified against upstream v0.8.3 through XXH3_64bits_withSecret. Status NEW is retained for the row's default-secret construction: the 32-byte NAF block-1 pair (2^-10.47 through withSeed, withSecretandSeed and streaming at <= 240 B), reported in the notes as the default-secret caveat; the base-1143 reproduction remains as a control.",
   "prior_work": [
     {
       "label": "Paper: harness results and fold differential",
@@ -51,59 +51,92 @@
     ]
   },
   "pair": {
-    "m_hex": "0000000000000000000000000000000051151210404400000000008204000105",
-    "m_prime_hex": "00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa",
+    "m_hex": "000000000000000000000000000000000000000000000000",
+    "m_prime_hex": "ffffffffffffffff00000000000000000000000000000000",
     "lengths_bytes": [
-      32,
-      32
+      24,
+      24
     ],
-    "L_words": 4,
-    "pair_id": "NAF block-1 complement (P,N of D = K2+K3+1)",
+    "L_words": 3,
+    "pair_id": "W0 (24 B, word 0 complemented)",
     "verifier_confirmed": true,
-    "example_seed_raw": "2468b3bc26a44073 (= P - K2; both multiplicands of the changed fold become 0 and ~0); seed 0 does NOT collide",
+    "example_seed_raw": "withSecret has no seed (seed 0)",
     "example_key_words_hex": [
-      "2468b3bc26a44073"
+      "c9eb2c4bbc54b9cd6ddfbb86d6dfffae5f96e2b9ba49bafeda316c65e62f6d099798b895b8cfaa0a65497109bd7bb4a11b6e08792a6222604c44afeb83ab8d9fbc49fa6bd7eeb2a8886a0cbf50060b759a7d3f801597002d68fc5fab9f4144e6aaf3c9a2ddac70e35114db1307ef0d0ce23e5a947218d6217f45612f0987f9f59e68c918342362f7e9984e9f4cd86e51ece391ffcb3ac35fa080b04dbb776cfb6f539ca0049bd1d89db1a130daf6a5121292121c90af684d0a9dad3752ee254a"
     ],
-    "example_output_hex": "dd686b61e2f6dc69",
-    "construction": "bytes 16..31 = little-endian (P, N) with P = 0x0000444010121551, N = 0x0501000482000000 the +1/-1 digit sums of the non-adjacent form of D = K2+K3+1 = 0xfaff443b8e121551 mod 2^64 (K2, K3 = default-secret words that XXH3_mix16B applies to bytes 16..31 of a 32-byte input); M' complements bytes 16..31; bytes 0..15 zero",
+    "example_output_hex": "24453ecc9793506c",
+    "outputs": {
+      "m": "0x24453ecc9793506c",
+      "m2": "0x24453ecc9793506c"
+    },
+    "construction": "bytes 0..7 complemented; at 24 B those bytes feed only block 0, so the pair collides iff fold(x,y) = fold(~x,y) for the two uniform keyed words (XOR differential (M,0)); bytes 8..23 zero",
     "provenance": [
-      "verify/xxh3-64/README.html",
+      "records/witness-searches/random-secret/xxh3-64/verify/README.md",
       "verify/xxh3-64/README.html"
-    ]
+    ],
+    "default_secret_caveat_pair": {
+      "m_hex": "0000000000000000000000000000000051151210404400000000008204000105",
+      "m_prime_hex": "00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa",
+      "lengths_bytes": [
+        32,
+        32
+      ],
+      "L_words": 4,
+      "pair_id": "NAF block-1 complement (P,N of D = K2+K3+1)",
+      "apis": "XXH3_64bits_withSeed; XXH3_64bits_withSecretandSeed (len <= 240); streaming reset_withSecretandSeed (default kSecret at these lengths)",
+      "example_seed_raw": "2468b3bc26a44073 (= P - K2); seed 0 does NOT collide",
+      "example_output_hex": "dd686b61e2f6dc69",
+      "rate": "2,264,081 / 3x2^30 = 2^-10.4745 (withSeed); 188643/2^28 (withSecretandSeed); 11864/2^24 (streaming)",
+      "bits": 12.47,
+      "interval_95_bits": [
+        12.473,
+        12.476
+      ],
+      "under_random_secret": "ordinary (M,M) block complement: 764/2^36.17 = 2^-26.59, 28.6 bits [28.5, 28.7]",
+      "provenance": [
+        "verify/xxh3-64/README.html",
+        "records/witness-searches/random-secret/xxh3-64/verify/README.md"
+      ]
+    }
   },
   "collision": {
-    "display": "about 2^-10.47 of keys (sampled; 2,264,081 events / 3×2^30 keys, upstream v0.8.3)",
-    "count": 2264081,
-    "trials": 3221225472,
-    "log2_contribution": -10.4745,
+    "display": "about 527 of every 2^36 keys (sampled; 527 events, pooled)",
+    "count": 527,
+    "trials": 68719476736,
+    "trials_log2": 36,
+    "log2_contribution": -26.958,
     "exact_contribution": false,
-    "epsilon_95_interval": [
-      0.0007019483,
-      0.0007037791
-    ],
-    "interval_method": "exact Clopper-Pearson (binomial)",
-    "runs": "three fresh 2^30 streams (salts 0x0be5719ab2026091/92/93): 755087, 754660, 754334; searcher's three fresh 2^30 streams: 754887, 754932, 754106 (pooled 2^-10.4746)"
+    "total_equality_proved": false,
+    "interpretation": "Measured full-output collision rate with seed and secret uniform per key",
+    "runs": "verifier xxh3_verify.c, upstream xxhash.h v0.8.3 (sha256 17973c0d...): XXH3_64bits_withSecret 260/2^35 (salt 9102), XXH3_64bits_internal seed+secret 267/2^35; Xeon 8375C 2026-09-19. Same-model NAF pair: 349/2^35 + 332/2^35 + 83/2^33 = 2^-26.59"
   },
   "score": {
-    "calculated": 12.4745,
-    "display": 12.47,
-    "display_text": "at most 12.47 bits (cap; 95% interval 12.473–12.476)",
+    "calculated": 28.543,
+    "display": 28.5,
+    "display_text": "at most 28.5 bits (cap; sampled); 95% Poisson interval [28.4, 28.7]",
     "direction": "estimated_upper_bound",
-    "rounding": "nearest",
-    "derivation": "log2(4*3*2^30/2264081)",
-    "approximate_95_half_width_bits": 0.002,
+    "rounding": "nearest tenth; sampling uncertainty",
+    "derivation": "log2(3) - log2(527/2^36)",
+    "poisson_95_interval": [
+      28.4,
+      28.7
+    ],
+    "poisson_count": 527,
+    "poisson_trials": 68719476736,
+    "interval_scope": "Two-sided exact Poisson interval transformed to log2(L/p); uncertainty in this witness-derived quantity, not an interval for the unknown family score.",
     "interval_95_bits": [
-      12.4726,
-      12.4763
-    ]
+      28.4,
+      28.7
+    ],
+    "interval_method": "central 95% exact Poisson (Garwood) on the pooled count; displayed endpoints rounded"
   },
-  "bits": 12.4745,
+  "bits": 28.543,
   "bits_kind": "measured",
-  "mechanism": "Complementing one 16-byte block collides when fold(A,B) = fold(~A,~B); a NAF-shaped block makes the seed-shifted carry masks agree at all but the NAF digit positions. The final avalanche is bijective.",
-  "notes": "32-byte pair whose bytes 16..31 are the (P, N) digit sums of the non-adjacent form of D = K2+K3+1 (NAF weight 18 mod 2^64), with M' the complement of that block. For 17..128 B each 16-byte block contributes fold(w0^(K[2i]+s), w1^(K[2i+1]-s)) and the avalanche is bijective, so the pair collides iff fold(A,B) = fold(~A,~B); with w0 = x, w1 = x - D the seed-shifted carry masks of A and ~B differ only at NAF digit positions, and each differing bit costs about log2(3). The base-1143 zero-tail pair (2^-21.0) and the fairness-pass (K0,~K1) pair (2^-15.16, 29132-29507 per 2^30) were re-measured through the same programs as controls. Neighbourhood: block 0 best 2^-11.64; blocks 2-7 need 64/128 B (L >= 8) and are weaker; 24-byte lengths and the 16-byte path give 0/2^30; local optimum under all 192 single moves at 2^28 and all 18,336 two-move neighbours at 2^24. Upstream dev at 6cc7b4b (unreleased 0.8.4) has a byte-identical XXH3 core. The 128-byte analogue (block at bytes 112..127) collides at the same rate with L = 16 (cap 14.47). Search result, not a bound.",
-  "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. The rate depends on bytes 16..31 (block 1) and its complement; bytes 0..15 are zero. Approximate 95% sampling half-width: ±0.002 bits. No practical flooding attack is established by this fixed-pair rate. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+  "mechanism": "Complementing one keyed word of a 16-byte block collides when fold(x,y) = fold(~x,y) for the block's two uniform multiplicands (the (M,0) differential of lo ^ hi of a 64x64 product, ~2^-26.9); the final avalanche is bijective.",
+  "notes": "Uniform 192-byte secret through XXH3_64bits_withSecret (the seed-and-secret model via XXH3_64bits_internal gives the same rate: 267 vs 260 per 2^35). Under this model every 16-byte block is fold(x,y) with x, y independent uniform words, so only XOR differentials of the fold matter: the 24-byte word-0 complement (M,0) is the shortest pair whose changed word sits in exactly one block (L = 3), and the 32-byte NAF pair becomes an ordinary block complement (M,M): 764/2^36.17 = 2^-26.59, 28.6 bits [28.5, 28.7]. Lengths 1..16 are injective per length under a uniform secret; the > 240 B stripe swap is ~2^-32.6 at L >= 31 (cap ~37.5). DEFAULT-SECRET CAVEAT: with XXH3_64bits_withSeed (default kSecret, uniform 64-bit seed), with XXH3_64bits_withSecretandSeed for len <= 240 (the custom secret is ignored, xxhash.h v0.8.3 lines 6230-6235) and with the streaming reset_withSecretandSeed, the 32-byte NAF pair M = 0^16 || 51151210404400000000008204000105, M' = 0^16 || aeeaedefbfbbffffffffff7dfbfffefa collides at 2^-10.47 (2,264,081 / 3x2^30; 2945/2^22 and 188643/2^28 through withSecretandSeed), cap 12.47 bits [12.473, 12.476]; its bytes 16..31 are the NAF digit sums of D = K2+K3+1 for the default-secret words K2, K3, and it does not transfer to an independently random secret (0/2^32 in the XXH3-128 control; 2^-26.6 class here). Reported upstream as issue #1127 (default secret); PR #1146/#1150 document the complement-pair rate. Upstream dev at 6cc7b4b (unreleased 0.8.4) is byte-identical to 0.8.3 in the XXH3 core.",
+  "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_64bits_withSecret; callers of withSeed or withSecretandSeed (len <= 240) are in the default-secret model, where the NAF pair gives 12.47 bits. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (527 events in 2^36 keys). No practical flooding attack is established by this fixed-pair rate.",
   "hover": {
-    "mechanism": "Complementing one NAF-shaped 16-byte block makes the two fold multiplicands' carry masks agree; the avalanche is bijective."
+    "mechanism": "Complementing one keyed word of a block collides when fold(x,y) = fold(~x,y); the avalanche is bijective."
   },
   "speeds": {
     "m2_gbps_16k": {
@@ -409,11 +442,11 @@
     "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
     "directory": "verify/xxh3-64/README.html",
     "source": "verify/xxh3-64/xxh3_64_pair_check.c",
-    "command": "cc -O3 -std=c11 xxh3_64_pair_check.c -lm -o check && ./check 20",
+    "command": "cc -O3 -std=c11 xxh3_64_pair_check.c -lm -o check && ./check random-secret 20",
     "trials": 1048576,
     "expected_smoke": "725 hits / 2^20",
-    "rng": "two xoshiro256** streams from SplitMix64(salt); default salt deterministic",
-    "note": "xxh3_64_pair_check.c is byte-identical in its header/startup/stream lines to xxh3_64_32B_check.c with the new pair as the literal default; regenerate xxh3_64_32B_check.expected.txt / CHECK_32B.md and mention the 2468b3bc26a44073 -> dd686b61e2f6dc69 witness (seed 0 is not a witness for this pair)."
+    "rng": "one xoshiro256** stream from SplitMix64(salt); seed word then 24 secret words per trial; default salt deterministic",
+    "note": "random-secret mode added 2026-09-19: the 24-byte W0 pair under XXH3_64bits_withSecret with a fresh 192-byte uniform secret per trial (row check, recorded witness asserted at startup), the NAF pair under XXH3_64bits_withSeed (default-secret control) and under XXH3_64bits_withSecretandSeed with the same seed and a fresh secret, asserting output equality trial by trial (the custom secret is ignored at 32 B). The default mode keeps the NAF/withSeed check (725 hits / 2^20 smoke)."
   },
   "supporting_measurements": {
     "source": "verify/xxh3-64/HISTORICAL.html",
@@ -451,7 +484,8 @@
   },
   "provenance": [
     "verify/xxh3-64/README.html",
-    "verify/xxh3-64/README.html",
+    "records/witness-searches/random-secret/xxh3-64/verify/README.md",
+    "records/witness-searches/random-secret/xxh3-64/verify/logs/w0_secret_2p35.txt",
     "verify/xxh3-64/HISTORICAL.html",
     "records/README.html"
   ],
@@ -464,7 +498,7 @@
   "input_domain": "Variable-length byte strings; selected witness lengths shown.",
   "domain_short": "variable-length byte strings; selected witness only",
   "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
-  "api": "XXH3_64bits_withSeed; default secret public; uniform 64-bit seed",
+  "api": "XXH3_64bits_withSecret, 192-byte uniform secret (1536 bits). XXH3_64bits_withSeed, XXH3_64bits_withSecretandSeed (len <= 240) and streaming reset_withSecretandSeed use the default public secret",
   "prior_report_url": "https://github.com/Cyan4973/xxHash/issues/1127",
   "maintainer_reply": {
     "date": "2026-09-17",

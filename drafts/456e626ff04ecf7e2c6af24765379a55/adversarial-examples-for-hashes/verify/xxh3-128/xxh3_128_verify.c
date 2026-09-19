@@ -7284,6 +7284,18 @@ typedef struct {
 } Pair;
 
 static Result hash_0(const uint8_t *p,size_t n,uint64_t seed) { XXH128_hash_t h=XXH3_128bits_withSeed(p,n,seed); return (Result){h.low64,h.high64}; }
+/* Random-secret key model (added 2026-09-19): a fresh uniform 192-byte secret per trial through
+ * XXH3_128bits_withSecret (seed 0 by definition of that API; 1536 key bits), the strongest model the
+ * API supports and the model the article scores.  Control: XXH3_128bits_withSecretandSeed ignores
+ * the custom secret for len <= 240, so its outputs must equal XXH3_128bits_withSeed's. */
+#define SECRET_BYTES 192
+static Result hash_secret(const uint8_t *p,size_t n,const uint8_t *secret) { XXH128_hash_t h=XXH3_128bits_withSecret(p,n,secret,SECRET_BYTES); return (Result){h.low64,h.high64}; }
+static Result hash_secret_seed(const uint8_t *p,size_t n,const uint8_t *secret,uint64_t seed) { XXH128_hash_t h=XXH3_128bits_withSecretandSeed(p,n,secret,SECRET_BYTES,seed); return (Result){h.low64,h.high64}; }
+/* Recorded random-secret witness (records/witness-searches/random-secret/xxh3-128/verify/logs/F_secret_2p34_r1001.txt,
+ * re-checked through the non-inlined library in witness_check_F_2p34.txt): both messages of pair F hash to
+ * high64 ced3d509b74eee89, low64 033e7fcc84653051 under this secret. */
+static const char *f_witness_secret = "f55eeab0159e547f711592ac35d621071d0717aa7711f16dfa734583e3cd2b0bc8858c2486e8ee0602aec0ee2442e84766d18cd32f3848391113dd2f09bd80ae2ae4caf1d6c14c97ec2b84e675d93834168d3521ce6792cb17447baff00d291a8e27646d7b1b34ddccf7e5836819c8009baa94225f7c5f4d8dfad13146531fe00a74042b9f7536a8570de8b36903cc98a3e30e15e0c5cfe797ddab09244f7ff55b6a75163d16f5860bfbea0dd4030c420b3fe642b7358944e8d568313cc9a5e7";
+static const Result f_witness_expected = {UINT64_C(0x033e7fcc84653051),UINT64_C(0xced3d509b74eee89)};
 static const Variant variants[] = { {"XXH3-128 0.8.3",hash_0,128,64,1,0x288DAA94} };
 static const Pair pairs[] = {
     {"paper pair F","9bd4604137366abe642b9fbec8c9954188d35499de169df633e0964e8c04600c","642b9fbec8c995419bd4604137366abe88d35499de169df633e0964e8c04600c",0,0,UINT64_C(0xe130d569418d2efe),{UINT64_C(0xff9994fe21ab989a),UINT64_C(0x77aee7ca6253510c)}},
@@ -7349,9 +7361,14 @@ static uint64_t argument(const char *s, uint64_t max) {
 bad: fputs("invalid argument\n",stderr); exit(2);
 }
 int main(int argc, char **argv) {
-    if(argc>3) { fprintf(stderr,"usage: %s [log2 N (0..40), default 20] [rng seed, default 1]\n",argv[0]); return 2; }
+    if(argc>4) { fprintf(stderr,"usage: %s [log2 N (0..40), default 20] [rng seed, default 1] [default|random-secret]\n",argv[0]); return 2; }
     unsigned lg=argc>1?(unsigned)argument(argv[1],40):20;
     uint64_t rseed=argc>2?argument(argv[2],UINT64_MAX):1;
+    int random_secret=0;
+    if(argc>3) {
+        if(!strcmp(argv[3],"random-secret")) random_secret=1;
+        else if(strcmp(argv[3],"default")) { fputs("key model must be default or random-secret\n",stderr); return 2; }
+    }
     uint64_t n=UINT64_C(1)<<lg;
     for(size_t i=0;i<sizeof(variants)/sizeof(*variants);i++) {
         if (!variants[i].verification) continue; /* Validated by a harness vector below. */
@@ -7369,14 +7386,28 @@ int main(int argc, char **argv) {
         printf("recorded colliding seed %016" PRIx64 ": H(M)=",p->seed); print_result(ha,v->bits);
         printf(" H(M')="); print_result(hb,v->bits); puts("");
         if(!equal(ha,hb) || !equal(ha,p->expected)) { fputs("recorded output mismatch\n",stderr); return 1; }
-        uint64_t count=0, first_seed=0; Result first={0,0};
+        uint8_t secret[SECRET_BYTES], first_secret[SECRET_BYTES]={0};
+        if(random_secret) {
+            if(decode(f_witness_secret,secret)!=SECRET_BYTES) return 1;
+            ha=hash_secret(a,na,secret); hb=hash_secret(b,nb,secret);
+            printf("recorded colliding key (random-secret model) 192-byte secret %.16s...%.16s: H(M)=",f_witness_secret,f_witness_secret+2*SECRET_BYTES-16); print_result(ha,v->bits);
+            printf(" H(M')="); print_result(hb,v->bits); puts("");
+            if(!equal(ha,hb) || !equal(ha,f_witness_expected)) { fputs("recorded random-secret output mismatch\n",stderr); return 1; }
+            puts("key model: uniform 192-byte secret per trial (24 words) through XXH3_128bits_withSecret (1536 bits); withSecretandSeed control with an independent uniform seed");
+        }
+        uint64_t count=0, first_seed=0, ss_mismatch=0, ss_count=0; Result first={0,0};
         rng_init(rseed); /* Same stream per pair, deliberately correlated. */
         for(uint64_t t=0;t<n;t++) {
             uint64_t seed=rng_next();
             if(v->seed_bits==32) seed=(uint32_t)seed;
-            ha=v->hash(a,na,seed); hb=v->hash(b,nb,seed);
+            if(random_secret) {
+                for(int k=0;k<SECRET_BYTES/8;k++) { uint64_t w=rng_next(); memcpy(secret+8*k,&w,8); }
+                ha=hash_secret(a,na,secret); hb=hash_secret(b,nb,secret);
+                { Result xa=hash_secret_seed(a,na,secret,seed), xb=hash_secret_seed(b,nb,secret,seed), da=v->hash(a,na,seed), db=v->hash(b,nb,seed);
+                  ss_mismatch+=!equal(xa,da); ss_mismatch+=!equal(xb,db); ss_count+=equal(xa,xb); }
+            } else { ha=v->hash(a,na,seed); hb=v->hash(b,nb,seed); }
             if(equal(ha,hb)) {
-                if(!count) { first_seed=seed; first=ha; }
+                if(!count) { first_seed=seed; first=ha; memcpy(first_secret,secret,SECRET_BYTES); }
                 count++;
             } else if(p->every_seed) {
                 fprintf(stderr,"non-colliding seed %016" PRIx64 " violates every-seed claim\n",seed); return 1;
@@ -7387,8 +7418,16 @@ int main(int argc, char **argv) {
         if(count) printf("; log2(rate) = %.6f; sampled score = %.6f",log2(rate),log2((double)(((na>nb?na:nb)+7)/8))-log2(rate));
         else printf("; log2(rate) = -inf (zero hits; no population-rate estimate)");
         puts("");
-        if(count) { printf("first sampled colliding seed %016" PRIx64 ": H(M)=",first_seed); print_result(first,v->bits); printf(" H(M')="); print_result(first,v->bits); puts(""); }
+        if(count) {
+            if(random_secret) { printf("first sampled colliding secret "); for(int k=0;k<SECRET_BYTES;k++) printf("%02x",first_secret[k]); }
+            else printf("first sampled colliding seed %016" PRIx64,first_seed);
+            printf(": H(M)="); print_result(first,v->bits); printf(" H(M')="); print_result(first,v->bits); puts("");
+        }
         else puts("no sampled collision; the recorded witness above was checked separately");
+        if(random_secret) {
+            printf("withSecretandSeed control: collisions = %" PRIu64 " / %" PRIu64 " with the default-secret withSeed stream; outputs differing from withSeed: %" PRIu64 " %s\n",ss_count,n,ss_mismatch,ss_mismatch?"FAIL":"PASS (custom secret ignored at len<=240)");
+            if(ss_mismatch) return 1;
+        }
     }
     return 0;
 }

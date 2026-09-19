@@ -214,11 +214,11 @@
      <use xlink:href="#mbed47526d4" x="726.587916" y="585.194788" style="fill: #bd5637; fill-opacity: 0.85; stroke: #bd5637; stroke-opacity: 0.85; stroke-width: 1.6" />
     </g>
    <circle cx="726.5879164718561" cy="585.1947876883746" r="12" fill="transparent" class="point-hit" /><circle cx="726.5879164718561" cy="585.1947876883746" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-rapid3" data-point-id="rapid3" data-speed="15.03" data-bits="28.540568381362704" tabindex="0" role="button" aria-label="rapidhash v3: at most 28.5 bits (cap; sampled); 95% Poisson interval [27.7, 29.5] bits; 15.03 B/cycle. Inspect result.">
+   <g id="point-rapid3" data-point-id="rapid3" data-speed="15.03" data-bits="28.606" tabindex="0" role="button" aria-label="rapidhash v3: at most 28.6 bits (cap; sampled); 95% Poisson interval [28.5, 28.7] bits; 15.03 B/cycle. Inspect result.">
     <g clip-path="url(#pdceb6eaed0)">
-     <use xlink:href="#ma47640ded7" x="768.264046" y="443.54289" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
+     <use xlink:href="#ma47640ded7" x="768.264046" y="443.330575" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
     </g>
-   <circle cx="768.264046106626" cy="443.5428896431215" r="12" fill="transparent" class="point-hit" /><circle cx="768.264046106626" cy="443.5428896431215" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
+   <circle cx="768.264046106626" cy="443.33057507700966" r="12" fill="transparent" class="point-hit" /><circle cx="768.264046106626" cy="443.33057507700966" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
    <g id="point-foldhash-fast" data-point-id="foldhash-fast" data-speed="14.24" data-bits="26.57111644798981" tabindex="0" role="button" aria-label="foldhash-fast 0.2.0: at most 26.5711 bits (cap; sampled); 95% Poisson [26.5173, 26.6255] bits; 14.24 B/cycle. Inspect result.">
     <g clip-path="url(#pdceb6eaed0)">
      <use xlink:href="#ma47640ded7" x="757.392009" y="450.051377" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
@@ -239,16 +239,16 @@
      <use xlink:href="#mbed47526d4" x="347.530094" y="628.867647" style="fill: #bd5637; fill-opacity: 0.85; stroke: #bd5637; stroke-opacity: 0.85; stroke-width: 1.6" />
     </g>
    <circle cx="347.530094434663" cy="628.8676470588235" r="12" fill="transparent" class="point-hit" /><circle cx="347.530094434663" cy="628.8676470588235" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-xxh3-64" data-point-id="xxh3-64" data-speed="13.16" data-bits="12.4745" tabindex="0" role="button" aria-label="XXH3-64 0.8.3: at most 12.47 bits (cap; 95% interval 12.473–12.476) bits; 13.16 B/cycle. Inspect result.">
+   <g id="point-xxh3-64" data-point-id="xxh3-64" data-speed="13.16" data-bits="28.543" tabindex="0" role="button" aria-label="XXH3-64 0.8.3: at most 28.5 bits (cap; sampled); 95% Poisson interval [28.4, 28.7] bits; 13.16 B/cycle. Inspect result.">
     <g clip-path="url(#pdceb6eaed0)">
-     <use xlink:href="#ma47640ded7" x="741.510224" y="506.345752" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
+     <use xlink:href="#ma47640ded7" x="741.510224" y="443.534995" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
     </g>
-   <circle cx="741.5102242184893" cy="506.3457521014542" r="12" fill="transparent" class="point-hit" /><circle cx="741.5102242184893" cy="506.3457521014542" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-xxh3-128" data-point-id="xxh3-128" data-speed="13.37" data-bits="28.634" tabindex="0" role="button" aria-label="XXH3-128 0.8.3: at most 28.6 bits (cap; sampled); 95% Poisson interval [28.4, 28.9] bits; 13.37 B/cycle. Inspect result.">
+   <circle cx="741.5102242184893" cy="443.53499509929173" r="12" fill="transparent" class="point-hit" /><circle cx="741.5102242184893" cy="443.53499509929173" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
+   <g id="point-xxh3-128" data-point-id="xxh3-128" data-speed="13.37" data-bits="28.556" tabindex="0" role="button" aria-label="XXH3-128 0.8.3: at most 28.6 bits (cap; sampled); 95% Poisson interval [28.4, 28.7] bits; 13.37 B/cycle. Inspect result.">
     <g clip-path="url(#pdceb6eaed0)">
-     <use xlink:href="#ma47640ded7" x="744.698032" y="443.239794" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
+     <use xlink:href="#ma47640ded7" x="744.698032" y="443.492795" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
     </g>
-   <circle cx="744.6980323473285" cy="443.23979399277624" r="12" fill="transparent" class="point-hit" /><circle cx="744.6980323473285" cy="443.23979399277624" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
+   <circle cx="744.6980323473285" cy="443.4927947313503" r="12" fill="transparent" class="point-hit" /><circle cx="744.6980323473285" cy="443.4927947313503" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
    <g id="point-highway" data-point-id="highway" data-speed="1.48" data-bits="59.8075787461754" tabindex="0" role="button" aria-label="HighwayHash-64, frozen: at most 59.81 bits (cap) bits; 1.48 B/cycle. Inspect result.">
     <g clip-path="url(#pdceb6eaed0)">
      <use xlink:href="#ma47640ded7" x="301.512634" y="360.592623" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
@@ -448,7 +448,7 @@
     <text style="font-size: 14px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #bd5637" x="232.395768" y="340.475411" transform="rotate(-0 232.395768 340.475411)">HighwayHash</text>
    </g>
    <g id="leader-rapid3" data-leader-for="rapid3">
-    <path d="M 821.415635 431.871635  Q 798.747378 436.849229 776.07912 441.826822  " style="fill: none; opacity: 0.5; stroke: #bd5637; stroke-width: 0.8; stroke-linecap: round" />
+    <path d="M 821.004715 431.861162  Q 798.543898 436.745673 776.083082 441.630184  " style="fill: none; opacity: 0.5; stroke: #bd5637; stroke-width: 0.8; stroke-linecap: round" />
    </g>
    <g id="label-rapid3" data-label-for="rapid3" data-label-key="rapid3">
     <g id="patch_13">
@@ -457,13 +457,13 @@
     <text style="font-size: 14px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #bd5637" x="825.789107" y="425.216756" transform="rotate(-0 825.789107 425.216756)">rapidhash v3*</text>
    </g>
    <g id="leader-xxh3-64" data-leader-for="xxh3-64">
-    <path d="M 846.168491 493.037944  Q 797.807799 499.187242 749.447108 505.336539  " style="fill: none; opacity: 0.5; stroke: #bd5637; stroke-width: 0.8; stroke-linecap: round" />
+    <path d="M 789.196649 461.587434  Q 769.094947 453.977621 748.993244 446.367809  " style="fill: none; opacity: 0.5; stroke: #bd5637; stroke-width: 0.8; stroke-linecap: round" />
    </g>
    <g id="label-xxh3-64" data-label-for="xxh3-64" data-label-key="xxh3-64">
     <g id="patch_14">
-     <path d="M 851.131433 497.294614  L 918.985496 497.294614  L 918.985496 478.891176  L 851.131433 478.891176  z " style="fill: #ffffff; opacity: 0.96" />
+     <path d="M 784.253294 481.761374  L 852.107356 481.761374  L 852.107356 463.357937  L 784.253294 463.357937  z " style="fill: #ffffff; opacity: 0.96" />
     </g>
-    <text style="font-size: 14px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #bd5637" x="853.931433" y="491.712114" transform="rotate(-0 853.931433 491.712114)">XXH3-64*</text>
+    <text style="font-size: 14px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #bd5637" x="787.053294" y="476.178874" transform="rotate(-0 787.053294 476.178874)">XXH3-64*</text>
    </g>
    <g id="leader-komi" data-leader-for="komi">
     <path d="M 675.96165 505.771257  Q 660.121743 533.146803 644.281837 560.522348  " style="fill: none; opacity: 0.5; stroke: #bd5637; stroke-width: 0.8; stroke-linecap: round" />

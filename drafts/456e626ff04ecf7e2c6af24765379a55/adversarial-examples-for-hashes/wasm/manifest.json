@@ -605,7 +605,7 @@
             32,
             32
           ],
-          "rate": "9/2^30 measured",
+          "rate": "9/2^30 measured with the shipped secret and a random seed (this demo samples the seed only; the article scores the random-secret model, 1088/3·2^35, the same rate)",
           "log2Rate": -26.830074998557688,
           "module": "wyhash",
           "seedBits": 64,
@@ -630,7 +630,7 @@
             32,
             32
           ],
-          "rate": "12/2^30 measured",
+          "rate": "12/2^30 measured with the compiled-in secret and a random seed (this demo samples the seed only; the article scores the random-secret model, 160/2^34, the same rate)",
           "log2Rate": -26.415037499278842,
           "module": "rapidhash-v1",
           "seedBits": 64,
@@ -655,7 +655,7 @@
             32,
             32
           ],
-          "rate": "11/2^30 measured",
+          "rate": "11/2^30 measured with the shipped secret and a random seed (this demo samples the seed only; the article scores the random-secret model, 2386/2^37.83, the same rate)",
           "log2Rate": -26.540568381362704,
           "module": "rapidhash-v3",
           "seedBits": 64,
@@ -675,7 +675,7 @@
             32,
             32
           ],
-          "rate": "11/2^30 measured",
+          "rate": "11/2^30 measured with the shipped secret and a random seed (this demo samples the seed only; the article scores the random-secret model, 2386/2^37.83, the same rate)",
           "log2Rate": -26.540568381362704,
           "module": "rapidhash-v3",
           "seedBits": 64,
@@ -695,7 +695,7 @@
             32,
             32
           ],
-          "rate": "11/2^30 measured",
+          "rate": "11/2^30 measured with the shipped secret and a random seed (this demo samples the seed only; the article scores the random-secret model, 2386/2^37.83, the same rate)",
           "log2Rate": -26.540568381362704,
           "module": "rapidhash-v3",
           "seedBits": 64,
@@ -720,7 +720,7 @@
             32,
             32
           ],
-          "rate": "about 2^-10.47 of keys (sampled; 2,264,081 events / 3×2^30 keys, upstream v0.8.3)",
+          "rate": "about 2^-10.47 of seeds with the default secret (XXH3_64bits_withSeed; this demo samples the seed only). The article scores XXH3_64bits_withSecret with a random 192-byte secret on a different 24-byte pair, 527/2^36; this pair is the default-secret caveat",
           "log2Rate": -10.4745,
           "module": "xxh3-64",
           "seedBits": 64,
@@ -745,7 +745,7 @@
             32,
             32
           ],
-          "rate": "5/2^30 measured",
+          "rate": "5/2^30 measured with the default secret and a random seed (this demo samples the seed only; the article scores the random-secret model, 479/2^35.46, the same rate)",
           "log2Rate": -27.67807190511264,
           "module": "xxh3-128",
           "seedBits": 64,

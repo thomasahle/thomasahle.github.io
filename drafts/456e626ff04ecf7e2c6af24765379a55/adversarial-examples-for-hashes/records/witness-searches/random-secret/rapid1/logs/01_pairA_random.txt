@@ -1,0 +1,3 @@
+== stage 1: row pair A, random seed + random secret, 2^32 keys, rngseed 1
+rapidhash v1.0 pair: M=9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c (32 B) M'=642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c (32 B) L=4 model=random seed + 3 uniform secret words rngseed=1 threads=8
+result: hits=38 N=2^32 rate=8.8476e-09 log2rate=-26.7521 [-27.2509, -26.2952] cap_bits(L=4)=28.752 [28.295, 29.251]  example seed=3879cdfddc782ad3 secret={d0d81d65fd961dff,a9132a2f5b5d4f54,d72e7f4d4f7270f5} out=4329ec0defb7f826

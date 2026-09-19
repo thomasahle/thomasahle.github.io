@@ -7372,8 +7372,76 @@ __attribute__((noinline))
 #endif
 static uint64_t full_api(const uint8_t *p, size_t n, uint64_t seed) { return XXH3_64bits_withSeed(p,n,seed); }
 static void print_hex(const uint8_t *p, size_t n) { for(size_t i=0;i<n;i++) printf("%02x",p[i]); }
+/* ---- random-secret mode (added 2026-09-19) ----------------------------------------------------
+ * ./xxh3_64_pair_check random-secret [log2 N (1..40), default 20] [stream salt]
+ * Key model: per trial one uniform 64-bit seed and a fresh uniform 192-byte secret (24 words); the
+ * pair is fixed before any key is drawn.  Three counts from one xoshiro256** stream:
+ *   W0 withSecret        the row pair (24 B: 0^24 vs ff^8 || 0^16, L = 3) through
+ *                        XXH3_64bits_withSecret(m, 24, secret, 192)   -- the scored model;
+ *   NAF withSeed         the 32-byte NAF pair through XXH3_64bits_withSeed(m, 32, seed)
+ *                        (default kSecret) -- the default-secret control;
+ *   NAF withSecretandSeed the same pair and seed through XXH3_64bits_withSecretandSeed(m, 32,
+ *                        secret, 192, seed); for len <= 240 xxhash.h ignores the custom secret, so
+ *                        both outputs must equal the withSeed outputs at every trial (asserted).
+ *   W0 withSeed          the row pair with the default secret (control; the (M,0) fold rate).
+ * Startup asserts the recorded random-secret witness: the 192-byte secret below makes both W0
+ * messages hash to 24453ecc9793506c through XXH3_64bits_withSecret (records/witness-searches/
+ * random-secret/xxh3-64/verify/logs/w0_secret_2p35.txt).
+ */
+#define SECRET_BYTES 192
+static const char *w0_m  = "000000000000000000000000000000000000000000000000";
+static const char *w0_m2 = "ffffffffffffffff00000000000000000000000000000000";
+static const char *w0_witness_secret = "c9eb2c4bbc54b9cd6ddfbb86d6dfffae5f96e2b9ba49bafeda316c65e62f6d099798b895b8cfaa0a65497109bd7bb4a11b6e08792a6222604c44afeb83ab8d9fbc49fa6bd7eeb2a8886a0cbf50060b759a7d3f801597002d68fc5fab9f4144e6aaf3c9a2ddac70e35114db1307ef0d0ce23e5a947218d6217f45612f0987f9f59e68c918342362f7e9984e9f4cd86e51ece391ffcb3ac35fa080b04dbb776cfb6f539ca0049bd1d89db1a130daf6a5121292121c90af684d0a9dad3752ee254a";
+static const uint64_t w0_witness_output = UINT64_C(0x24453ecc9793506c);
+static int random_secret_mode(int argc, char **argv) {
+    unsigned lg=argc>2?(unsigned)argument(argv[2],40):20;
+    if(lg<1) { fputs("log2 N must be at least 1\n",stderr); return 2; }
+    uint64_t salt=argc>3?argument(argv[3],UINT64_MAX):UINT64_C(0x2026091901000477);
+    uint64_t n=UINT64_C(1)<<lg;
+    uint32_t got=verification(&variants[0]);
+    printf("SMHasher3 %s: %08" PRIX32 " expected %08" PRIX32 " %s\n",variants[0].name,got,variants[0].verification,got==variants[0].verification?"PASS":"FAIL");
+    if(got!=variants[0].verification || !additional_validation()) return 1;
+    for(size_t j=0;j<sizeof(pairs)/sizeof(*pairs);j++) {
+        uint8_t a[512],b[512]; size_t na=decode(pairs[j].a,a),nb=decode(pairs[j].b,b);
+        Result ha=hash_0(a,na,pairs[j].seed),hb=hash_0(b,nb,pairs[j].seed);
+        printf("recorded %s seed=%016" PRIx64 " H(M)=%016" PRIx64 " H(M')=%016" PRIx64 " expected %016" PRIx64 " %s\n",pairs[j].name,pairs[j].seed,ha.lo,hb.lo,pairs[j].expected.lo,(equal(ha,hb)&&equal(ha,pairs[j].expected))?"PASS":"FAIL");
+        if(!equal(ha,hb) || !equal(ha,pairs[j].expected)) return 1;
+    }
+    uint8_t m[24],m2[24],naf[32],naf2[32],secret[SECRET_BYTES];
+    if(decode(w0_m,m)!=24 || decode(w0_m2,m2)!=24 || decode(default_m,naf)!=32 || decode(default_m2,naf2)!=32 || decode(w0_witness_secret,secret)!=SECRET_BYTES) return 2;
+    { uint64_t ha=XXH3_64bits_withSecret(m,24,secret,SECRET_BYTES),hb=XXH3_64bits_withSecret(m2,24,secret,SECRET_BYTES);
+      printf("recorded random-secret witness (W0, XXH3_64bits_withSecret, 192-byte secret %.16s...%.16s) H(M)=%016" PRIx64 " H(M')=%016" PRIx64 " expected %016" PRIx64 " %s\n",
+             w0_witness_secret,w0_witness_secret+2*SECRET_BYTES-16,ha,hb,w0_witness_output,(ha==hb&&ha==w0_witness_output)?"PASS":"FAIL");
+      if(ha!=hb || ha!=w0_witness_output) return 1; }
+    printf("key model: uniform 64-bit seed and uniform 192-byte secret per trial (24 words); W0 pair via XXH3_64bits_withSecret (seed unused by that API)\n");
+    printf("W0 M  len=24: %s\nW0 M' len=24: %s\nNAF M  len=32: %s\nNAF M' len=32: %s\n",w0_m,w0_m2,default_m,default_m2);
+    printf("sampling trials=%" PRIu64 " salt=0x%016" PRIx64 " logical_streams=1 execution_threads=1\n",n,salt);
+    rng_init(salt*UINT64_C(0x9e3779b97f4a7c15)+UINT64_C(7919)*2+1);
+    uint64_t c_w0s=0,c_nafseed=0,c_nafss=0,c_w0seed=0,ss_mismatch=0,first_i=0; int have_first=0; uint8_t first_secret[SECRET_BYTES]; uint64_t first_out=0;
+    for(uint64_t i=0;i<n;i++) {
+        uint64_t seed=rng_next();
+        for(int k=0;k<SECRET_BYTES/8;k++) { uint64_t w=rng_next(); memcpy(secret+8*k,&w,8); }
+        uint64_t s1=XXH3_64bits_withSecret(m,24,secret,SECRET_BYTES),s2=XXH3_64bits_withSecret(m2,24,secret,SECRET_BYTES);
+        uint64_t d1=full_api(naf,32,seed),d2=full_api(naf2,32,seed);
+        uint64_t x1=XXH3_64bits_withSecretandSeed(naf,32,secret,SECRET_BYTES,seed),x2=XXH3_64bits_withSecretandSeed(naf2,32,secret,SECRET_BYTES,seed);
+        uint64_t e1=full_api(m,24,seed),e2=full_api(m2,24,seed);
+        if(s1==s2) { c_w0s++; if(!have_first) { have_first=1; first_i=i; memcpy(first_secret,secret,SECRET_BYTES); first_out=s1; } }
+        c_nafseed+=(d1==d2); c_nafss+=(x1==x2); c_w0seed+=(e1==e2);
+        ss_mismatch+=(x1!=d1)+(x2!=d2);
+    }
+    printf("summary W0 withSecret len=24 L=3 collisions=%" PRIu64 " trials=%" PRIu64,c_w0s,n);
+    if(c_w0s) printf(" log2eps=%.6f score=log2(3*%" PRIu64 "/%" PRIu64 ")=%.6f",log2((double)c_w0s/(double)n),n,c_w0s,log2(3.0*(double)n/(double)c_w0s)); else printf(" score=unestimated_zero_hits");
+    puts("");
+    if(have_first) { printf("first W0 withSecret collision index=%" PRIu64 " H(M)=H(M')=%016" PRIx64 " secret=",first_i,first_out); print_hex(first_secret,SECRET_BYTES); puts(""); }
+    printf("summary NAF withSeed len=32 L=4 collisions=%" PRIu64 " trials=%" PRIu64 " (default secret; control)\n",c_nafseed,n);
+    printf("summary NAF withSecretandSeed len=32 L=4 collisions=%" PRIu64 " trials=%" PRIu64 " (custom secret ignored at len<=240; outputs differing from withSeed: %" PRIu64 ")\n",c_nafss,n,ss_mismatch);
+    printf("summary W0 withSeed len=24 L=3 collisions=%" PRIu64 " trials=%" PRIu64 " (default secret; control)\n",c_w0seed,n);
+    printf("checks secret_ignored_withSecretandSeed=%s\n",(ss_mismatch==0 && c_nafss==c_nafseed)?"PASS":"FAIL");
+    return (ss_mismatch==0 && c_nafss==c_nafseed)?0:1;
+}
 int main(int argc, char **argv) {
-    if(argc>5 || argc==4) { fprintf(stderr,"usage: %s [log2 N (1..40), default 20] [stream salt] [M hex] [M' hex]\n",argv[0]); return 2; }
+    if(argc>1 && !strcmp(argv[1],"random-secret")) { if(argc>4) { fprintf(stderr,"usage: %s random-secret [log2 N (1..40), default 20] [stream salt]\n",argv[0]); return 2; } return random_secret_mode(argc,argv); }
+    if(argc>5 || argc==4) { fprintf(stderr,"usage: %s [log2 N (1..40), default 20] [stream salt] [M hex] [M' hex]\n       %s random-secret [log2 N (1..40), default 20] [stream salt]\n",argv[0],argv[0]); return 2; }
     unsigned lg=argc>1?(unsigned)argument(argv[1],40):20;
     if(lg<1) { fputs("log2 N must be at least 1\n",stderr); return 2; }
     uint64_t salt=argc>2?argument(argv[2],UINT64_MAX):UINT64_C(0x2026091901000477);

@@ -1,0 +1,6 @@
+verify_rapid3: upstream rapidhash_v3.h, model uniform seed + 8 uniform secret words (576 bits), RNG splitmix64-counter, rngseed 3001, 2^35 keys, 8 threads
+m  = 9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c (32 B)
+m' = 642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c (32 B)
+count 311 / 2^35 keys  rate 2^-26.719  cap (L=4) 28.719 bits  [181 s wall]
+example (key index 58865060): seed c763b765b787cf81 secret 8dd6d4c3f0768c9e b71ae2245e275774 bd6574933b2aacb2 2f82dae4aaf730be 7e7172a8a8912d87 b5fe475efd9b29b3 56e89a20cd4c5944 ae7604e9d251b617 -> 1eb06b288b2c1d52 1eb06b288b2c1d52
+181.02 s wall, 499.53 s user

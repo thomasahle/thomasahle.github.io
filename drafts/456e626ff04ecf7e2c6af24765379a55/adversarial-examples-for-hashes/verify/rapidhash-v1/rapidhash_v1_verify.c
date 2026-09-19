@@ -99,10 +99,23 @@ typedef struct {
     Result expected;
 } Pair;
 
-static Result hash_0(const uint8_t *p,size_t n,uint64_t seed) { return (Result){rapidhash_ref(p,n,seed,RAPID_SECRET_DEFAULT),0}; }
+/* Key models.  "default": one uniform 64-bit API seed per trial with the shipped public secret
+ * words (the historical experiment).  "random-secret": one uniform 64-bit seed and 3
+ * independent uniform 64-bit secret words per trial, passed to the hash's secret parameter; this is
+ * the strongest key model the API supports and the model the article scores. */
+#define NSECRET 3
+static const uint64_t *active_secret = RAPID_SECRET_DEFAULT;
+static Result hash_0(const uint8_t *p,size_t n,uint64_t seed) { return (Result){rapidhash_ref(p,n,seed,active_secret),0}; }
 static const Variant variants[] = { {"rapidhash v1.0",hash_0,64,64,0,0} };
 static const Pair pairs[] = {
     {"paper pair A","9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c","642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c",0,0,UINT64_C(0x3788f2419a81e2d6),{UINT64_C(0x8f7a71ffebd4a14b),UINT64_C(0x0)}},
+};
+typedef struct { const char *name; int pair; uint64_t seed, secret[NSECRET]; Result expected; } KeyWitness;
+static const uint64_t *const default_secret = RAPID_SECRET_DEFAULT;
+/* Random-secret witness from the 2026-09-19 measurement (records/witness-searches/random-secret/rapid1/):
+ * seed and three secret words, both messages of pair A hash to 4329ec0defb7f826. */
+static const KeyWitness key_witnesses[] = {
+    {"pair A",0,UINT64_C(0x3879cdfddc782ad3),{UINT64_C(0xd0d81d65fd961dff),UINT64_C(0xa9132a2f5b5d4f54),UINT64_C(0xd72e7f4d4f7270f5)},{UINT64_C(0x4329ec0defb7f826),UINT64_C(0x0)}},
 };
 static int additional_validation(void) {
     uint64_t got=hash_0((const uint8_t *)"message digest",14,3).lo;
@@ -170,9 +183,14 @@ static uint64_t argument(const char *s, uint64_t max) {
 bad: fputs("invalid argument\n",stderr); exit(2);
 }
 int main(int argc, char **argv) {
-    if(argc>3) { fprintf(stderr,"usage: %s [log2 N (0..40), default 20] [rng seed, default 1]\n",argv[0]); return 2; }
+    if(argc>4) { fprintf(stderr,"usage: %s [log2 N (0..40), default 20] [rng seed, default 1] [default|random-secret]\n",argv[0]); return 2; }
     unsigned lg=argc>1?(unsigned)argument(argv[1],40):20;
     uint64_t rseed=argc>2?argument(argv[2],UINT64_MAX):1;
+    int random_secret=0;
+    if(argc>3) {
+        if(!strcmp(argv[3],"random-secret")) random_secret=1;
+        else if(strcmp(argv[3],"default")) { fputs("key model must be default or random-secret\n",stderr); return 2; }
+    }
     uint64_t n=UINT64_C(1)<<lg;
     for(size_t i=0;i<sizeof(variants)/sizeof(*variants);i++) {
         if (!variants[i].verification) continue; /* Validated by a harness vector below. */
@@ -181,6 +199,7 @@ int main(int argc, char **argv) {
         if(got!=variants[i].verification) return 1;
     }
     if (!additional_validation()) return 1;
+    printf("key model: %s\n",random_secret?"uniform 64-bit seed and three uniform 64-bit secret words per trial (256 bits), rapidhash_internal(key,len,seed,secret)":"uniform 64-bit API seed; shipped public secret words (default)");
     for(size_t i=0;i<sizeof(pairs)/sizeof(*pairs);i++) {
         const Pair *p=&pairs[i]; const Variant *v=&variants[p->variant];
         uint8_t a[512],b[512]; size_t na=decode(p->a,a),nb=decode(p->b,b);
@@ -190,25 +209,41 @@ int main(int argc, char **argv) {
         printf("recorded colliding seed %016" PRIx64 ": H(M)=",p->seed); print_result(ha,v->bits);
         printf(" H(M')="); print_result(hb,v->bits); puts("");
         if(!equal(ha,hb) || !equal(ha,p->expected)) { fputs("recorded output mismatch\n",stderr); return 1; }
-        uint64_t count=0, first_seed=0; Result first={0,0};
+        if(random_secret) for(size_t k=0;k<sizeof(key_witnesses)/sizeof(*key_witnesses);k++) {
+            const KeyWitness *w=&key_witnesses[k]; if(w->pair!=(int)i) continue;
+            active_secret=w->secret;
+            ha=v->hash(a,na,w->seed); hb=v->hash(b,nb,w->seed);
+            active_secret=default_secret;
+            printf("recorded colliding key (random-secret model) seed %016" PRIx64 " secret",w->seed);
+            for(int j=0;j<NSECRET;j++) printf("%c%016" PRIx64,j?',':' ',w->secret[j]);
+            printf(": H(M)="); print_result(ha,v->bits); printf(" H(M')="); print_result(hb,v->bits); puts("");
+            if(!equal(ha,hb) || !equal(ha,w->expected)) { fputs("recorded random-secret output mismatch\n",stderr); return 1; }
+        }
+        uint64_t count=0, first_seed=0, first_secret[NSECRET]={0}, words[NSECRET]; Result first={0,0};
         rng_init(rseed); /* Same stream per pair, deliberately correlated. */
         for(uint64_t t=0;t<n;t++) {
             uint64_t seed=rng_next();
             if(v->seed_bits==32) seed=(uint32_t)seed;
+            if(random_secret) { for(int j=0;j<NSECRET;j++) words[j]=rng_next(); active_secret=words; }
             ha=v->hash(a,na,seed); hb=v->hash(b,nb,seed);
             if(equal(ha,hb)) {
-                if(!count) { first_seed=seed; first=ha; }
+                if(!count) { first_seed=seed; first=ha; memcpy(first_secret,words,sizeof first_secret); }
                 count++;
             } else if(p->every_seed) {
                 fprintf(stderr,"non-colliding seed %016" PRIx64 " violates every-seed claim\n",seed); return 1;
             }
         }
+        active_secret=default_secret;
         double rate=(double)count/(double)n;
         printf("collisions = %" PRIu64 " / %" PRIu64 "; rate = %.12g",count,n,rate);
         if(count) printf("; log2(rate) = %.6f; sampled score = %.6f",log2(rate),log2((double)(((na>nb?na:nb)+7)/8))-log2(rate));
         else printf("; log2(rate) = -inf (zero hits; no population-rate estimate)");
         puts("");
-        if(count) { printf("first sampled colliding seed %016" PRIx64 ": H(M)=",first_seed); print_result(first,v->bits); printf(" H(M')="); print_result(first,v->bits); puts(""); }
+        if(count) {
+            printf("first sampled colliding seed %016" PRIx64,first_seed);
+            if(random_secret) { printf(" secret"); for(int j=0;j<NSECRET;j++) printf("%c%016" PRIx64,j?',':' ',first_secret[j]); }
+            printf(": H(M)="); print_result(first,v->bits); printf(" H(M')="); print_result(first,v->bits); puts("");
+        }
         else puts("no sampled collision; the recorded witness above was checked separately");
     }
     return 0;

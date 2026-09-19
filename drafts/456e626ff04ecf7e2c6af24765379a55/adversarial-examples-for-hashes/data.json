@@ -4782,9 +4782,9 @@
    "anchor": "appendix-wyhash",
    "family": "heuristic",
    "claim_id": "wyhash",
-   "key_bits": 64,
+   "key_bits": 320,
    "output_bits": 64,
-   "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+   "key_model": "Uniform 64-bit seed and four uniform 64-bit secret words passed to wyhash(key,len,seed,secret) (caller array or make_secret); 320 key bits; sampled reproducibly",
    "status": "REPRODUCTION",
    "classification_reason": "Independent reproduction of the paper’s harness results.",
    "prior_work": [
@@ -4832,54 +4832,64 @@
     "L_words": 4,
     "pair_id": "A",
     "verifier_confirmed": true,
-    "example_seed_raw": "0x131b854bbd1f5b12",
+    "example_seed_raw": "0x6c58e2bbe0b8c2ef",
     "example_key_words_hex": [
-     "131b854bbd1f5b12"
+     "6c58e2bbe0b8c2ef",
+     "2e87eccce404b9e7",
+     "27807013cee858cb",
+     "064c5e57e4a52845",
+     "bda1eaa3841f1235"
     ],
-    "example_output_hex": "a7dd61b404363777",
+    "example_output_hex": "bf0d6eb792755aad",
     "outputs": {
-     "m": "0xa7dd61b404363777",
-     "m2": "0xa7dd61b404363777"
+     "m": "0xbf0d6eb792755aad",
+     "m2": "0xbf0d6eb792755aad"
     },
     "provenance": [
-     "records/README.html"
-    ]
+     "records/README.html",
+     "records/witness-searches/random-secret/wyhash/README.md"
+    ],
+    "default_secret_witness": {
+     "seed": "0x131b854bbd1f5b12",
+     "output_hex": "a7dd61b404363777"
+    }
    },
    "collision": {
-    "display": "about 9 of every 2^30 keys (sampled; 9 events)",
-    "count": 9,
-    "trials": 1073741824,
-    "trials_log2": 30,
-    "log2_contribution": -26.830074998557688,
+    "display": "about 1088 of every 2^36.58 keys (sampled; 1088 events, pooled)",
+    "count": 1088,
+    "trials": 103079215104,
+    "trials_log2": 36.58,
+    "log2_contribution": -26.497,
     "exact_contribution": false,
     "total_equality_proved": false,
-    "interpretation": "Measured full-output collision rate"
+    "interpretation": "Measured full-output collision rate with seed and secret uniform per key",
+    "runs": "searcher wyrs.cpp 357/2^35 (salt 301); verifier wyverify.cpp 388/2^35 (mt19937_64) and 343/2^35 (splitmix64), upstream wyhash.h final v4.3 WYHASH_CONDOM=1, Xeon 8375C 2026-09-19"
    },
    "score": {
-    "calculated": 28.830074998557688,
-    "display": 28.8,
-    "display_text": "at most 28.8 bits (cap; sampled); 95% Poisson interval [27.9, 30.0]",
+    "calculated": 28.497,
+    "display": 28.5,
+    "display_text": "at most 28.5 bits (cap; sampled); 95% Poisson interval [28.4, 28.6]",
     "direction": "estimated_upper_bound",
     "rounding": "nearest tenth; sampling uncertainty",
-    "derivation": "log2(4) - (-26.830074998557688)",
+    "derivation": "log2(4) - log2(1088/2^36.58)",
     "poisson_95_interval": [
-     27.9,
-     30.0
+     28.4,
+     28.6
     ],
-    "poisson_count": 9,
-    "poisson_trials": 1073741824,
+    "poisson_count": 1088,
+    "poisson_trials": 103079215104,
     "interval_scope": "Two-sided exact Poisson interval transformed to log2(L/p); uncertainty in this witness-derived quantity, not an interval for the unknown family score.",
     "interval_95_bits": [
-     27.9,
-     30.0
+     28.4,
+     28.6
     ],
-    "interval_method": "central 95% exact Poisson (Garwood); displayed endpoints rounded"
+    "interval_method": "central 95% exact Poisson (Garwood) on the pooled count of the listed independent samples; displayed endpoints rounded"
    },
-   "bits": 28.830074998557688,
+   "bits": 28.497,
    "bits_kind": "measured",
    "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
-   "notes": "Default public secret and a random 64-bit API seed; no secret-word randomization. The SMHasher3 row is non-strict v4.2: the upstream final v4.3 header reproduces the SMHasher3 v4.2 registration's verification value 0x9DAE7DD3, so the two are the same function.",
-   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Default public secret and a random 64-bit API seed; no secret-word randomization. The SMHasher3 row is non-strict v4.2: the upstream final v4.3 header reproduces the SMHasher3 v4.2 registration's verification value 0x9DAE7DD3, so the two are the same function. Exact Poisson 95% interval for this witness-derived score: [27.9, 30.0].",
+   "notes": "Seed and all four secret words uniform per key (wyhash(key,len,seed,secret); make_secret gives <= 64 bits of entropy and the same rate: 21/2^31). The witness mechanism fold(X,Y) = fold(~X,~Y) never uses the secret value, so the default public secret gives the same class: pair A with the public secret 58/(2^30+2^32) = 2^-26.46, 28.5 bits [28.1, 28.9]. With the default secret wyhash additionally has seed-independent P = 1 collisions (a message word equal to secret[1] annihilates the fold; 12, 16 and 32 B; 1 bit at L = 2) and a P = 1/3 seed-dependent class (w0 = 0x5555555555555555 ^ secret[1], 3.59 bits at L = 4); both are excluded by the random-secret model. The 24-byte word-0 complement (L = 3) is statistically tied: 847/3x2^35 = 2^-26.86, 28.4 [28.3, 28.5]. The SMHasher3 row is non-strict v4.2: the upstream final v4.3 header reproduces the SMHasher3 v4.2 registration's verification value 0x9DAE7DD3, so the two are the same function.",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Seed and all four secret words uniform per key; the default public secret gives the same rate (28.5 [28.1, 28.9]) but additionally admits seed-independent P = 1 pairs (1 bit at L = 2), which this score excludes. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.6] (1088 events in 3x2^35 keys).",
    "hover": {
     "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
     "claim_note": "REPRODUCTION; verbatim excerpt"
@@ -4930,15 +4940,15 @@
     "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
     "directory": "verify/wyhash/README.html",
     "source": "verify/wyhash/wyhash_verify.c",
-    "command": "cc -O2 -std=c11 -o wyhash_verify wyhash_verify.c -lm && ./wyhash_verify 20",
+    "command": "cc -O2 -std=c11 -o wyhash_verify wyhash_verify.c -lm && ./wyhash_verify 20 1 random-secret",
     "trials": 1048576,
-    "rng": "fixed deterministic pseudorandom smoke stream; see per-hash README",
-    "note": "Completed dependency additions in verify/README.html. The smoke check does not replace historical large counts."
+    "rng": "fixed deterministic pseudorandom smoke stream (seed then four secret words per trial); see per-hash README",
+    "note": "random-secret mode added 2026-09-19: seed and four uniform secret words per trial through wyhash(key,len,seed,secret), with the recorded random-model witness asserted at startup; the default mode keeps the historical seed-only check. The smoke check does not replace the large pooled counts."
    },
    "supporting_measurements": [],
    "provenance": [
     "records/README.html",
-    "records/README.html"
+    "records/witness-searches/random-secret/wyhash/README.md"
    ],
    "speed_registration": null,
    "chart_eligible": true,
@@ -4950,7 +4960,8 @@
    "input_domain": "Variable-length byte strings; selected witness lengths shown.",
    "domain_short": "variable-length byte strings; selected witness only",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
-   "family_definition": "64×64→128 products of seeded words, folded (mum)."
+   "family_definition": "64×64→128 products of seeded words, folded (mum).",
+   "api": "wyhash(key,len,seed,secret) with a caller-supplied four-word secret (make_secret or any array); the default _wyp array is the default-secret control"
   },
   {
    "id": "rapid1",
@@ -4964,9 +4975,9 @@
    "anchor": "appendix-rapidhash-v1",
    "family": "heuristic",
    "claim_id": "rapidhash",
-   "key_bits": 64,
+   "key_bits": 256,
    "output_bits": 64,
-   "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+   "key_model": "Uniform 64-bit seed and three uniform 64-bit secret words passed to rapidhash_internal (v1.0 secret triplet); 256 key bits; sampled reproducibly",
    "status": "REPRODUCTION",
    "classification_reason": "Independent reproduction of the paper’s harness results.",
    "prior_work": [
@@ -5009,54 +5020,63 @@
     "L_words": 4,
     "pair_id": "A",
     "verifier_confirmed": true,
-    "example_seed_raw": "0x3788f2419a81e2d6",
+    "example_seed_raw": "0x3879cdfddc782ad3",
     "example_key_words_hex": [
-     "3788f2419a81e2d6"
+     "3879cdfddc782ad3",
+     "d0d81d65fd961dff",
+     "a9132a2f5b5d4f54",
+     "d72e7f4d4f7270f5"
     ],
-    "example_output_hex": "8f7a71ffebd4a14b",
+    "example_output_hex": "4329ec0defb7f826",
     "outputs": {
-     "m": "0x8f7a71ffebd4a14b",
-     "m2": "0x8f7a71ffebd4a14b"
+     "m": "0x4329ec0defb7f826",
+     "m2": "0x4329ec0defb7f826"
     },
     "provenance": [
-     "records/README.html"
-    ]
+     "records/README.html",
+     "records/witness-searches/random-secret/rapid1/README.md"
+    ],
+    "default_secret_witness": {
+     "seed": "0x3788f2419a81e2d6",
+     "output_hex": "8f7a71ffebd4a14b"
+    }
    },
    "collision": {
-    "display": "about 12 of every 2^30 keys (sampled; 12 events)",
-    "count": 12,
-    "trials": 1073741824,
-    "trials_log2": 30,
-    "log2_contribution": -26.415037499278842,
+    "display": "about 160 of every 2^34 keys (sampled; 160 events, pooled)",
+    "count": 160,
+    "trials": 17179869184,
+    "trials_log2": 34,
+    "log2_contribution": -26.678,
     "exact_contribution": false,
     "total_equality_proved": false,
-    "interpretation": "Measured full-output collision rate"
+    "interpretation": "Measured full-output collision rate with seed and secret uniform per key",
+    "runs": "searcher rs_rapid1.cpp 38/2^32 (rngseed 1); verifier (mt19937_64) 40/2^32 and 82/2^33, upstream rapidhash.h tag rapidhash_v1.0, Xeon 8375C 2026-09-19"
    },
    "score": {
-    "calculated": 28.415037499278842,
-    "display": 28.4,
-    "display_text": "at most 28.4 bits (cap; sampled); 95% Poisson interval [27.6, 29.4]",
+    "calculated": 28.678,
+    "display": 28.7,
+    "display_text": "at most 28.7 bits (cap; sampled); 95% Poisson interval [28.5, 28.9]",
     "direction": "estimated_upper_bound",
     "rounding": "nearest tenth; sampling uncertainty",
-    "derivation": "log2(4) - (-26.415037499278842)",
+    "derivation": "log2(4) - log2(160/2^34)",
     "poisson_95_interval": [
-     27.6,
-     29.4
+     28.5,
+     28.9
     ],
-    "poisson_count": 12,
-    "poisson_trials": 1073741824,
+    "poisson_count": 160,
+    "poisson_trials": 17179869184,
     "interval_scope": "Two-sided exact Poisson interval transformed to log2(L/p); uncertainty in this witness-derived quantity, not an interval for the unknown family score.",
     "interval_95_bits": [
-     27.6,
-     29.4
+     28.5,
+     28.9
     ],
-    "interval_method": "central 95% exact Poisson (Garwood); displayed endpoints rounded"
+    "interval_method": "central 95% exact Poisson (Garwood) on the pooled count of the listed independent samples; displayed endpoints rounded"
    },
-   "bits": 28.415037499278842,
+   "bits": 28.678,
    "bits_kind": "measured",
    "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
-   "notes": "SMHasher3 results and speeds in the supplied record apply to v3, not v1. No v1 SMHasher3 speed is supplied. The author quotation is from the v1-era issue #10; the full claim record also contains later v3 wording.",
-   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 results and speeds in the supplied record apply to v3, not v1. No v1 SMHasher3 speed is supplied. The author quotation is from the v1-era issue #10; the full claim record also contains later v3 wording. Exact Poisson 95% interval for this witness-derived score: [27.6, 29.4].",
+   "notes": "Seed and the three secret words uniform per key, passed through rapidhash_internal (the public rapidhash()/rapidhash_withSeed() wrappers use the compiled-in rapid_secret). The witness is a pure fold differential and does not use the secret value: with the compiled-in secret the same pair gives 224/2^34.39 = 2^-26.59, 28.6 bits [28.4, 28.8] (page 12/2^30, two v1.0 reruns 76 and 89 per 2^33, verifier 47/2^32); odd secret words give 49/2^32. With the default secret rapidhash v1 additionally has the seed-independent annihilation of issue #10 (word at len-16 equal to secret[1]; 16 B, 1 bit at L = 2), excluded here. The 24-byte word-0 complement (L = 3) is tied: 125/2^34 = 2^-27.03, 28.6 [28.4, 28.9]. SMHasher3 results and speeds in the supplied record apply to v3, not v1. No v1 SMHasher3 speed is supplied. The author quotation is from the v1-era issue #10; the full claim record also contains later v3 wording.",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Seed and three secret words uniform per key; the compiled-in secret gives the same rate (28.6 [28.4, 28.8]) but additionally admits the issue #10 seed-independent pair (1 bit at L = 2), which this score excludes. Exact Poisson 95% interval for this witness-derived score: [28.5, 28.9] (160 events in 2^34 keys).",
    "hover": {
     "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
     "claim_note": "REPRODUCTION; v1-era author comment"
@@ -5107,10 +5127,10 @@
     "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
     "directory": "verify/rapidhash-v1/README.html",
     "source": "verify/rapidhash-v1/rapidhash_v1_verify.c",
-    "command": "cc -O2 -std=c11 -o rapidhash_v1_verify rapidhash_v1_verify.c -lm && ./rapidhash_v1_verify 20",
+    "command": "cc -O2 -std=c11 -o rapidhash_v1_verify rapidhash_v1_verify.c -lm && ./rapidhash_v1_verify 20 1 random-secret",
     "trials": 1048576,
-    "rng": "fixed deterministic pseudorandom smoke stream; see per-hash README",
-    "note": "Completed dependency additions in verify/README.html. The smoke check does not replace historical large counts."
+    "rng": "fixed deterministic pseudorandom smoke stream (seed then three secret words per trial); see per-hash README",
+    "note": "random-secret mode added 2026-09-19: seed and three uniform secret words per trial through rapidhash_internal, with the recorded random-model witness asserted at startup; the default mode keeps the historical seed-only check. The smoke check does not replace the large pooled counts."
    },
    "supporting_measurements": [
     {
@@ -5128,7 +5148,7 @@
    ],
    "provenance": [
     "records/README.html",
-    "records/README.html"
+    "records/witness-searches/random-secret/rapid1/README.md"
    ],
    "speed_registration": null,
    "chart_eligible": true,
@@ -5139,7 +5159,8 @@
    "input_domain": "Variable-length byte strings; selected witness lengths shown.",
    "domain_short": "variable-length byte strings; selected witness only",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
-   "family_definition": "64×64→128 products of seeded words, folded (mum)."
+   "family_definition": "64×64→128 products of seeded words, folded (mum).",
+   "api": "rapidhash_internal(key,len,seed,secret) with a caller-supplied three-word secret; rapidhash()/rapidhash_withSeed() use the compiled-in rapid_secret (default-secret control)"
   },
   {
    "id": "rapid3",
@@ -5153,9 +5174,9 @@
    "anchor": "appendix-rapidhash-v3",
    "family": "heuristic",
    "claim_id": "rapidhash",
-   "key_bits": 64,
+   "key_bits": 576,
    "output_bits": 64,
-   "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+   "key_model": "Uniform 64-bit seed and uniform 8-word (512-bit) secret passed to rapidhash_internal; 576 key bits; sampled reproducibly",
    "status": "REPRODUCTION",
    "classification_reason": "Independent reproduction of the paper’s harness results.",
    "prior_work": [
@@ -5198,54 +5219,68 @@
     "L_words": 4,
     "pair_id": "A",
     "verifier_confirmed": true,
-    "example_seed_raw": "0x3187ae8a8617e034",
+    "example_seed_raw": "0x27d3b5addafed424",
     "example_key_words_hex": [
-     "3187ae8a8617e034"
+     "27d3b5addafed424",
+     "8201394795b91ef9",
+     "bc80d672c2c377f6",
+     "5afd557e26c19903",
+     "a3a9fab4fc0d80e2",
+     "5108fe3feb9bd088",
+     "6742ee43cec628a4",
+     "2267c78c10996237",
+     "d96b61ed51f62b33"
     ],
-    "example_output_hex": "a7ee6375a78a86f0",
+    "example_output_hex": "d832bac31b8fda6c",
     "outputs": {
-     "m": "0xa7ee6375a78a86f0",
-     "m2": "0xa7ee6375a78a86f0"
+     "m": "0xd832bac31b8fda6c",
+     "m2": "0xd832bac31b8fda6c"
     },
     "provenance": [
-     "records/README.html"
-    ]
+     "records/README.html",
+     "records/witness-searches/random-secret/rapid3/README.md"
+    ],
+    "default_secret_witness": {
+     "seed": "0x3187ae8a8617e034",
+     "output_hex": "a7ee6375a78a86f0"
+    }
    },
    "collision": {
-    "display": "about 11 of every 2^30 keys (sampled; 11 events)",
-    "count": 11,
-    "trials": 1073741824,
-    "trials_log2": 30,
-    "log2_contribution": -26.540568381362704,
+    "display": "about 2386 of every 2^37.83 keys (sampled; 2386 events, pooled)",
+    "count": 2386,
+    "trials": 243739394048,
+    "trials_log2": 37.83,
+    "log2_contribution": -26.606,
     "exact_contribution": false,
     "total_equality_proved": false,
-    "interpretation": "Measured full-output collision rate"
+    "interpretation": "Measured full-output collision rate with seed and secret uniform per key",
+    "runs": "searcher rs_rapid3.c (SMHasher3-validated port) 13/2^30, 161/2^34, 358/2^35; verifier verify_rapid3.c on the unmodified upstream tag rapidhash_v3 (sha256 807874ee...626e) 10/2^30, 5/2^30 ChaCha20, 155/2^34, 311/2^35, 1373/2^37; Xeon 8375C 2026-09-19"
    },
    "score": {
-    "calculated": 28.540568381362704,
-    "display": 28.5,
-    "display_text": "at most 28.5 bits (cap; sampled); 95% Poisson interval [27.7, 29.5]",
+    "calculated": 28.606,
+    "display": 28.6,
+    "display_text": "at most 28.6 bits (cap; sampled); 95% Poisson interval [28.5, 28.7]",
     "direction": "estimated_upper_bound",
     "rounding": "nearest tenth; sampling uncertainty",
-    "derivation": "log2(4) - (-26.540568381362704)",
+    "derivation": "log2(4) - log2(2386/2^37.83)",
     "poisson_95_interval": [
-     27.7,
-     29.5
+     28.5,
+     28.7
     ],
-    "poisson_count": 11,
-    "poisson_trials": 1073741824,
+    "poisson_count": 2386,
+    "poisson_trials": 243739394048,
     "interval_scope": "Two-sided exact Poisson interval transformed to log2(L/p); uncertainty in this witness-derived quantity, not an interval for the unknown family score.",
     "interval_95_bits": [
-     27.7,
-     29.5
+     28.5,
+     28.7
     ],
-    "interval_method": "central 95% exact Poisson (Garwood); displayed endpoints rounded"
+    "interval_method": "central 95% exact Poisson (Garwood) on the pooled count of the listed independent samples; displayed endpoints rounded outward"
    },
-   "bits": 28.540568381362704,
+   "bits": 28.606,
    "bits_kind": "measured",
    "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
-   "notes": "SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/README.html. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
-   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/README.html. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5]. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
+   "notes": "Seed and all eight secret words uniform per key, passed through rapidhash_internal (the header's doc comment still says 'triplet'; the code indexes secret[0..7]; the public wrappers use the shipped array). The witness never uses a secret value: with the shipped secret pair A gives 539/2^35.64 = 2^-26.57, 28.6 bits [28.4, 28.7] (page 11/2^30, fairness pass 174/2^34, study 12/2^30 and 184/2^34, verifier 158/2^34). With the shipped secret rapidhash v3 additionally has the N-R-K every-seed annihilation (word at len-16 equal to secret[1] ^ len; 16 B and 32 B; 1 bit at L = 2), excluded here. The 24-byte word-0 complement (L = 3) is tied: 1906/2^37.83 = 2^-26.93, 28.5 [28.45, 28.6]; pair D (48 B) under the random secret 191/2^34.17 = 2^-26.59, 29.2 [29.0, 29.4] at L = 6. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano. Timings shown are for standard v3. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11).",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Seed and eight secret words uniform per key; the shipped secret gives the same rate (28.6 [28.4, 28.7]) but additionally admits the every-seed annihilation pair (1 bit at L = 2), which this score excludes. Exact Poisson 95% interval for this witness-derived score: [28.5, 28.7] (2386 events in 2^37.83 keys).",
    "hover": {
     "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
     "claim_note": "REPRODUCTION; verbatim excerpt"
@@ -5574,10 +5609,10 @@
     "status": "standalone program supplied",
     "directory": "verify/rapidhash-v3/README.html",
     "source": "verify/rapidhash-v3/rapidhash_v3_verify.c",
-    "command": "cc -O2 -std=c11 -o rapidhash_v3_verify rapidhash_v3_verify.c -lm && ./rapidhash_v3_verify 20",
+    "command": "cc -O2 -std=c11 -o rapidhash_v3_verify rapidhash_v3_verify.c -lm && ./rapidhash_v3_verify 20 1 random-secret",
     "trials": 1048576,
-    "rng": "splitmix64-seeded xoshiro256**, one stream, default seed 1",
-    "note": "Small package checks are separate from the historical large measurements."
+    "rng": "splitmix64-seeded xoshiro256**, one stream, default seed 1 (seed then eight secret words per trial in random-secret mode)",
+    "note": "random-secret mode added 2026-09-19: seed and eight uniform secret words per trial through rapidhash_internal for all six cases, with the recorded random-model witness asserted at startup; the default mode keeps the shipped-secret check as the caveat control. Small package checks are separate from the historical large measurements."
    },
    "supporting_measurements": [
     {
@@ -5585,7 +5620,7 @@
      "version": "3",
      "variant": "standard / 48 B",
      "id": "rapid3_48",
-     "seed_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+     "seed_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants (default-secret control; under seed + 8 uniform secret words pair D gives 191/2^34.17 = 2^-26.59, 29.2 bits [29.0, 29.4])",
      "length_bytes": 48,
      "L_words": 6,
      "m_hex": "9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c48c651edae76208e840fc51f1cccbb02",
@@ -6193,7 +6228,7 @@
    ],
    "provenance": [
     "records/README.html",
-    "records/README.html"
+    "records/witness-searches/random-secret/rapid3/README.md"
    ],
    "speed_registration": "rapidhash",
    "chart_eligible": true,
@@ -6204,7 +6239,8 @@
    "input_domain": "Variable-length byte strings; selected witness lengths shown.",
    "domain_short": "variable-length byte strings; selected witness only",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
-   "family_definition": "64×64→128 products of seeded words, folded (mum)."
+   "family_definition": "64×64→128 products of seeded words, folded (mum).",
+   "api": "rapidhash_internal(key,len,seed,secret) with a caller-supplied eight-word secret; rapidhash()/rapidhash_withSeed() use the shipped rapid_secret (default-secret control)"
   },
   {
    "id": "foldhash-fast",
@@ -8563,11 +8599,11 @@
    "anchor": "appendix-xxh3-64",
    "family": "heuristic",
    "claim_id": "xxh3",
-   "key_bits": 64,
+   "key_bits": 1536,
    "output_bits": 64,
-   "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+   "key_model": "Uniform 192-byte secret via XXH3_64bits_withSecret (1536 key bits; API minimum 136 B = 1088). XXH3_64bits_withSeed and XXH3_64bits_withSecretandSeed (len <= 240, one-shot and streaming) use the default public secret and stay in the 64-bit-seed model",
    "status": "NEW",
-   "classification_reason": "Search result at 32 bytes: NAF-shaped block-1 complement pair, three fresh confirmation streams against upstream v0.8.3. Status NEW (new construction; the base-1143 reproduction remains as a control).",
+   "classification_reason": "Scored pair W0 (24 B, word 0 complemented) under the random-secret model is the paper's fold differential (M,0), verified against upstream v0.8.3 through XXH3_64bits_withSecret. Status NEW is retained for the row's default-secret construction: the 32-byte NAF block-1 pair (2^-10.47 through withSeed, withSecretandSeed and streaming at <= 240 B), reported in the notes as the default-secret caveat; the base-1143 reproduction remains as a control.",
    "prior_work": [
     {
      "label": "Paper: harness results and fold differential",
@@ -8604,59 +8640,92 @@
     ]
    },
    "pair": {
-    "m_hex": "0000000000000000000000000000000051151210404400000000008204000105",
-    "m_prime_hex": "00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa",
+    "m_hex": "000000000000000000000000000000000000000000000000",
+    "m_prime_hex": "ffffffffffffffff00000000000000000000000000000000",
     "lengths_bytes": [
-     32,
-     32
+     24,
+     24
     ],
-    "L_words": 4,
-    "pair_id": "NAF block-1 complement (P,N of D = K2+K3+1)",
+    "L_words": 3,
+    "pair_id": "W0 (24 B, word 0 complemented)",
     "verifier_confirmed": true,
-    "example_seed_raw": "2468b3bc26a44073 (= P - K2; both multiplicands of the changed fold become 0 and ~0); seed 0 does NOT collide",
+    "example_seed_raw": "withSecret has no seed (seed 0)",
     "example_key_words_hex": [
-     "2468b3bc26a44073"
+     "c9eb2c4bbc54b9cd6ddfbb86d6dfffae5f96e2b9ba49bafeda316c65e62f6d099798b895b8cfaa0a65497109bd7bb4a11b6e08792a6222604c44afeb83ab8d9fbc49fa6bd7eeb2a8886a0cbf50060b759a7d3f801597002d68fc5fab9f4144e6aaf3c9a2ddac70e35114db1307ef0d0ce23e5a947218d6217f45612f0987f9f59e68c918342362f7e9984e9f4cd86e51ece391ffcb3ac35fa080b04dbb776cfb6f539ca0049bd1d89db1a130daf6a5121292121c90af684d0a9dad3752ee254a"
     ],
-    "example_output_hex": "dd686b61e2f6dc69",
-    "construction": "bytes 16..31 = little-endian (P, N) with P = 0x0000444010121551, N = 0x0501000482000000 the +1/-1 digit sums of the non-adjacent form of D = K2+K3+1 = 0xfaff443b8e121551 mod 2^64 (K2, K3 = default-secret words that XXH3_mix16B applies to bytes 16..31 of a 32-byte input); M' complements bytes 16..31; bytes 0..15 zero",
+    "example_output_hex": "24453ecc9793506c",
+    "outputs": {
+     "m": "0x24453ecc9793506c",
+     "m2": "0x24453ecc9793506c"
+    },
+    "construction": "bytes 0..7 complemented; at 24 B those bytes feed only block 0, so the pair collides iff fold(x,y) = fold(~x,y) for the two uniform keyed words (XOR differential (M,0)); bytes 8..23 zero",
     "provenance": [
-     "verify/xxh3-64/README.html",
+     "records/witness-searches/random-secret/xxh3-64/verify/README.md",
      "verify/xxh3-64/README.html"
-    ]
+    ],
+    "default_secret_caveat_pair": {
+     "m_hex": "0000000000000000000000000000000051151210404400000000008204000105",
+     "m_prime_hex": "00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa",
+     "lengths_bytes": [
+      32,
+      32
+     ],
+     "L_words": 4,
+     "pair_id": "NAF block-1 complement (P,N of D = K2+K3+1)",
+     "apis": "XXH3_64bits_withSeed; XXH3_64bits_withSecretandSeed (len <= 240); streaming reset_withSecretandSeed (default kSecret at these lengths)",
+     "example_seed_raw": "2468b3bc26a44073 (= P - K2); seed 0 does NOT collide",
+     "example_output_hex": "dd686b61e2f6dc69",
+     "rate": "2,264,081 / 3x2^30 = 2^-10.4745 (withSeed); 188643/2^28 (withSecretandSeed); 11864/2^24 (streaming)",
+     "bits": 12.47,
+     "interval_95_bits": [
+      12.473,
+      12.476
+     ],
+     "under_random_secret": "ordinary (M,M) block complement: 764/2^36.17 = 2^-26.59, 28.6 bits [28.5, 28.7]",
+     "provenance": [
+      "verify/xxh3-64/README.html",
+      "records/witness-searches/random-secret/xxh3-64/verify/README.md"
+     ]
+    }
    },
    "collision": {
-    "display": "about 2^-10.47 of keys (sampled; 2,264,081 events / 3×2^30 keys, upstream v0.8.3)",
-    "count": 2264081,
-    "trials": 3221225472,
-    "log2_contribution": -10.4745,
+    "display": "about 527 of every 2^36 keys (sampled; 527 events, pooled)",
+    "count": 527,
+    "trials": 68719476736,
+    "trials_log2": 36,
+    "log2_contribution": -26.958,
     "exact_contribution": false,
-    "epsilon_95_interval": [
-     0.0007019483,
-     0.0007037791
-    ],
-    "interval_method": "exact Clopper-Pearson (binomial)",
-    "runs": "three fresh 2^30 streams (salts 0x0be5719ab2026091/92/93): 755087, 754660, 754334; searcher's three fresh 2^30 streams: 754887, 754932, 754106 (pooled 2^-10.4746)"
+    "total_equality_proved": false,
+    "interpretation": "Measured full-output collision rate with seed and secret uniform per key",
+    "runs": "verifier xxh3_verify.c, upstream xxhash.h v0.8.3 (sha256 17973c0d...): XXH3_64bits_withSecret 260/2^35 (salt 9102), XXH3_64bits_internal seed+secret 267/2^35; Xeon 8375C 2026-09-19. Same-model NAF pair: 349/2^35 + 332/2^35 + 83/2^33 = 2^-26.59"
    },
    "score": {
-    "calculated": 12.4745,
-    "display": 12.47,
-    "display_text": "at most 12.47 bits (cap; 95% interval 12.473–12.476)",
+    "calculated": 28.543,
+    "display": 28.5,
+    "display_text": "at most 28.5 bits (cap; sampled); 95% Poisson interval [28.4, 28.7]",
     "direction": "estimated_upper_bound",
-    "rounding": "nearest",
-    "derivation": "log2(4*3*2^30/2264081)",
-    "approximate_95_half_width_bits": 0.002,
+    "rounding": "nearest tenth; sampling uncertainty",
+    "derivation": "log2(3) - log2(527/2^36)",
+    "poisson_95_interval": [
+     28.4,
+     28.7
+    ],
+    "poisson_count": 527,
+    "poisson_trials": 68719476736,
+    "interval_scope": "Two-sided exact Poisson interval transformed to log2(L/p); uncertainty in this witness-derived quantity, not an interval for the unknown family score.",
     "interval_95_bits": [
-     12.4726,
-     12.4763
-    ]
+     28.4,
+     28.7
+    ],
+    "interval_method": "central 95% exact Poisson (Garwood) on the pooled count; displayed endpoints rounded"
    },
-   "bits": 12.4745,
+   "bits": 28.543,
    "bits_kind": "measured",
-   "mechanism": "Complementing one 16-byte block collides when fold(A,B) = fold(~A,~B); a NAF-shaped block makes the seed-shifted carry masks agree at all but the NAF digit positions. The final avalanche is bijective.",
-   "notes": "32-byte pair whose bytes 16..31 are the (P, N) digit sums of the non-adjacent form of D = K2+K3+1 (NAF weight 18 mod 2^64), with M' the complement of that block. For 17..128 B each 16-byte block contributes fold(w0^(K[2i]+s), w1^(K[2i+1]-s)) and the avalanche is bijective, so the pair collides iff fold(A,B) = fold(~A,~B); with w0 = x, w1 = x - D the seed-shifted carry masks of A and ~B differ only at NAF digit positions, and each differing bit costs about log2(3). The base-1143 zero-tail pair (2^-21.0) and the fairness-pass (K0,~K1) pair (2^-15.16, 29132-29507 per 2^30) were re-measured through the same programs as controls. Neighbourhood: block 0 best 2^-11.64; blocks 2-7 need 64/128 B (L >= 8) and are weaker; 24-byte lengths and the 16-byte path give 0/2^30; local optimum under all 192 single moves at 2^28 and all 18,336 two-move neighbours at 2^24. Upstream dev at 6cc7b4b (unreleased 0.8.4) has a byte-identical XXH3 core. The 128-byte analogue (block at bytes 112..127) collides at the same rate with L = 16 (cap 14.47). Search result, not a bound.",
-   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. The rate depends on bytes 16..31 (block 1) and its complement; bytes 0..15 are zero. Approximate 95% sampling half-width: ±0.002 bits. No practical flooding attack is established by this fixed-pair rate. This measurement establishes no rate or guarantee for independently randomized custom-secret APIs.",
+   "mechanism": "Complementing one keyed word of a 16-byte block collides when fold(x,y) = fold(~x,y) for the block's two uniform multiplicands (the (M,0) differential of lo ^ hi of a 64x64 product, ~2^-26.9); the final avalanche is bijective.",
+   "notes": "Uniform 192-byte secret through XXH3_64bits_withSecret (the seed-and-secret model via XXH3_64bits_internal gives the same rate: 267 vs 260 per 2^35). Under this model every 16-byte block is fold(x,y) with x, y independent uniform words, so only XOR differentials of the fold matter: the 24-byte word-0 complement (M,0) is the shortest pair whose changed word sits in exactly one block (L = 3), and the 32-byte NAF pair becomes an ordinary block complement (M,M): 764/2^36.17 = 2^-26.59, 28.6 bits [28.5, 28.7]. Lengths 1..16 are injective per length under a uniform secret; the > 240 B stripe swap is ~2^-32.6 at L >= 31 (cap ~37.5). DEFAULT-SECRET CAVEAT: with XXH3_64bits_withSeed (default kSecret, uniform 64-bit seed), with XXH3_64bits_withSecretandSeed for len <= 240 (the custom secret is ignored, xxhash.h v0.8.3 lines 6230-6235) and with the streaming reset_withSecretandSeed, the 32-byte NAF pair M = 0^16 || 51151210404400000000008204000105, M' = 0^16 || aeeaedefbfbbffffffffff7dfbfffefa collides at 2^-10.47 (2,264,081 / 3x2^30; 2945/2^22 and 188643/2^28 through withSecretandSeed), cap 12.47 bits [12.473, 12.476]; its bytes 16..31 are the NAF digit sums of D = K2+K3+1 for the default-secret words K2, K3, and it does not transfer to an independently random secret (0/2^32 in the XXH3-128 control; 2^-26.6 class here). Reported upstream as issue #1127 (default secret); PR #1146/#1150 document the complement-pair rate. Upstream dev at 6cc7b4b (unreleased 0.8.4) is byte-identical to 0.8.3 in the XXH3 core.",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_64bits_withSecret; callers of withSeed or withSecretandSeed (len <= 240) are in the default-secret model, where the NAF pair gives 12.47 bits. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (527 events in 2^36 keys). No practical flooding attack is established by this fixed-pair rate.",
    "hover": {
-    "mechanism": "Complementing one NAF-shaped 16-byte block makes the two fold multiplicands' carry masks agree; the avalanche is bijective."
+    "mechanism": "Complementing one keyed word of a block collides when fold(x,y) = fold(~x,y); the avalanche is bijective."
    },
    "speeds": {
     "m2_gbps_16k": {
@@ -8962,11 +9031,11 @@
     "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
     "directory": "verify/xxh3-64/README.html",
     "source": "verify/xxh3-64/xxh3_64_pair_check.c",
-    "command": "cc -O3 -std=c11 xxh3_64_pair_check.c -lm -o check && ./check 20",
+    "command": "cc -O3 -std=c11 xxh3_64_pair_check.c -lm -o check && ./check random-secret 20",
     "trials": 1048576,
     "expected_smoke": "725 hits / 2^20",
-    "rng": "two xoshiro256** streams from SplitMix64(salt); default salt deterministic",
-    "note": "xxh3_64_pair_check.c is byte-identical in its header/startup/stream lines to xxh3_64_32B_check.c with the new pair as the literal default; regenerate xxh3_64_32B_check.expected.txt / CHECK_32B.md and mention the 2468b3bc26a44073 -> dd686b61e2f6dc69 witness (seed 0 is not a witness for this pair)."
+    "rng": "one xoshiro256** stream from SplitMix64(salt); seed word then 24 secret words per trial; default salt deterministic",
+    "note": "random-secret mode added 2026-09-19: the 24-byte W0 pair under XXH3_64bits_withSecret with a fresh 192-byte uniform secret per trial (row check, recorded witness asserted at startup), the NAF pair under XXH3_64bits_withSeed (default-secret control) and under XXH3_64bits_withSecretandSeed with the same seed and a fresh secret, asserting output equality trial by trial (the custom secret is ignored at 32 B). The default mode keeps the NAF/withSeed check (725 hits / 2^20 smoke)."
    },
    "supporting_measurements": {
     "source": "verify/xxh3-64/HISTORICAL.html",
@@ -9004,7 +9073,8 @@
    },
    "provenance": [
     "verify/xxh3-64/README.html",
-    "verify/xxh3-64/README.html",
+    "records/witness-searches/random-secret/xxh3-64/verify/README.md",
+    "records/witness-searches/random-secret/xxh3-64/verify/logs/w0_secret_2p35.txt",
     "verify/xxh3-64/HISTORICAL.html",
     "records/README.html"
    ],
@@ -9017,7 +9087,7 @@
    "input_domain": "Variable-length byte strings; selected witness lengths shown.",
    "domain_short": "variable-length byte strings; selected witness only",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
-   "api": "XXH3_64bits_withSeed; default secret public; uniform 64-bit seed",
+   "api": "XXH3_64bits_withSecret, 192-byte uniform secret (1536 bits). XXH3_64bits_withSeed, XXH3_64bits_withSecretandSeed (len <= 240) and streaming reset_withSecretandSeed use the default public secret",
    "prior_report_url": "https://github.com/Cyan4973/xxHash/issues/1127",
    "maintainer_reply": {
     "date": "2026-09-17",
@@ -9041,9 +9111,9 @@
    "anchor": "appendix-xxh3-128",
    "family": "heuristic",
    "claim_id": "xxh3",
-   "key_bits": 64,
+   "key_bits": 1536,
    "output_bits": 128,
-   "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
+   "key_model": "Uniform 192-byte secret via XXH3_128bits_withSecret (1536 key bits; API minimum 1088); the seed is redundant for len <= 240 and XXH3_128bits_withSecretandSeed ignores the custom secret for len <= 240",
    "status": "REPRODUCTION",
    "classification_reason": "Independent reproduction of the paper’s harness results.",
    "prior_work": [
@@ -9091,62 +9161,70 @@
     "L_words": 4,
     "pair_id": "F",
     "verifier_confirmed": true,
-    "example_seed_raw": "0xe130d569418d2efe",
+    "example_seed_raw": "withSecret has no seed (seed 0)",
     "example_key_words_hex": [
-     "e130d569418d2efe"
+     "f55eeab0159e547f711592ac35d621071d0717aa7711f16dfa734583e3cd2b0bc8858c2486e8ee0602aec0ee2442e84766d18cd32f3848391113dd2f09bd80ae2ae4caf1d6c14c97ec2b84e675d93834168d3521ce6792cb17447baff00d291a8e27646d7b1b34ddccf7e5836819c8009baa94225f7c5f4d8dfad13146531fe00a74042b9f7536a8570de8b36903cc98a3e30e15e0c5cfe797ddab09244f7ff55b6a75163d16f5860bfbea0dd4030c420b3fe642b7358944e8d568313cc9a5e7"
     ],
-    "example_output_hex": "77aee7ca6253510cff9994fe21ab989a",
+    "example_output_hex": "ced3d509b74eee89033e7fcc84653051",
     "outputs": {
      "m": {
-      "low64": "0xff9994fe21ab989a",
-      "high64": "0x77aee7ca6253510c",
-      "hex_high_low": "0x77aee7ca6253510cff9994fe21ab989a"
+      "low64": "0x033e7fcc84653051",
+      "high64": "0xced3d509b74eee89",
+      "hex_high_low": "0xced3d509b74eee89033e7fcc84653051"
      },
      "m2": {
-      "low64": "0xff9994fe21ab989a",
-      "high64": "0x77aee7ca6253510c",
-      "hex_high_low": "0x77aee7ca6253510cff9994fe21ab989a"
+      "low64": "0x033e7fcc84653051",
+      "high64": "0xced3d509b74eee89",
+      "hex_high_low": "0xced3d509b74eee89033e7fcc84653051"
      }
     },
     "provenance": [
-     "records/README.html"
-    ]
+     "records/README.html",
+     "records/witness-searches/random-secret/xxh3-128/README.md"
+    ],
+    "default_secret_witness": {
+     "seed": "0xe130d569418d2efe",
+     "api": "XXH3_128bits_withSeed (default kSecret)",
+     "hex_high_low": "0x77aee7ca6253510cff9994fe21ab989a"
+    },
+    "construction": "w1 = ~w0 before both words are complemented, preserving w0 + w1 = 2^64 - 1; the tail block is unchanged; both output halves compared"
    },
    "collision": {
-    "display": "about 165 of every 2^34 keys (sampled; 165 events)",
-    "count": 165,
-    "trials": 17179869184,
-    "trials_log2": 34,
-    "log2_contribution": -26.634,
+    "display": "about 479 of every 2^35.46 keys (sampled; 479 events, pooled)",
+    "count": 479,
+    "trials": 47244640256,
+    "trials_log2": 35.46,
+    "log2_contribution": -26.556,
     "exact_contribution": false,
     "total_equality_proved": false,
-    "interpretation": "Measured full-output collision rate; sixteen deterministic xoshiro256** streams of the reproduction program (arguments 30 1..8 on xxHash dev 6cc7b4b, 30 9..16 on the embedded 0.8.3 header; the XXH3 core is functionally identical), Xeon 8375C 2026-09-18"
+    "interpretation": "Measured full-output collision rate with seed and secret uniform per key",
+    "runs": "verifier verify_rs128.c (upstream xxhash.h v0.8.3, witnesses re-checked through the non-inlined xxhash.c): XXH3_128bits_withSecret 156/2^34 (rngseed 1001), XXH3_128bits_internal seed+secret 84/2^33 (1002), withSecret 60/2^32; searcher rs128.c withSecret 179/2^34 (rngseed 11); Xeon 8375C 2026-09-19"
    },
    "score": {
-    "calculated": 28.634,
+    "calculated": 28.556,
     "display": 28.6,
-    "display_text": "at most 28.6 bits (cap; sampled); 95% Poisson interval [28.4, 28.9]",
+    "display_text": "at most 28.6 bits (cap; sampled); 95% Poisson interval [28.4, 28.7]",
     "direction": "estimated_upper_bound",
     "rounding": "nearest tenth; sampling uncertainty",
-    "derivation": "log2(4) - (-26.634)",
+    "derivation": "log2(4) - log2(479/2^35.46)",
     "poisson_95_interval": [
-     28.41,
-     28.86
+     28.4,
+     28.7
     ],
-    "poisson_count": 165,
-    "poisson_trials": 17179869184,
+    "poisson_count": 479,
+    "poisson_trials": 47244640256,
     "interval_scope": "Two-sided exact Poisson interval transformed to log2(L/p); uncertainty in this witness-derived quantity, not an interval for the unknown family score.",
     "interval_95_bits": [
      28.4,
-     28.9
+     28.7
     ],
-    "interval_method": "central 95% exact Poisson (Garwood); displayed endpoints rounded"
+    "interval_method": "central 95% exact Poisson (Garwood) on the pooled count of the listed independent samples; displayed endpoints rounded"
    },
-   "bits": 28.634,
+   "bits": 28.556,
    "bits_kind": "measured",
    "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
-   "notes": "Pair F sets w1=~w0 before complementing both words, preserving their sum. Both low64 and high64 are compared; this is a full 128-bit collision.",
-   "qualification": "Exact Poisson 95% interval for this witness-derived score: [28.4, 28.9] (165 events in 2^34 seeds, 2026-09-18 rerun). The paper harness's earlier 5/2^30 run gave 29.7 with interval [28.5, 31.3]; the new estimate lies inside that interval, so the 5-event count was a low draw.",
+   "notes": "Uniform 192-byte secret through XXH3_128bits_withSecret; the seed is redundant for len <= 240 (S0+seed, S1-seed are uniform whenever S is) and the seed-and-secret model gives the same rate (84/2^33). Pair F sets w1 = ~w0 before complementing both words, preserving their sum, so the collision is the pair-independent event fold(A,B) = fold(~A,~B) on both 64-bit halves (full 128-bit equality); it does not use the secret value, and the default kSecret with a uniform seed gives the same rate: 209/2^34.32 = 2^-26.62, 28.6 bits [28.4, 28.8] (page 165/2^34 + verifier 44/2^32). The rate is block- and length-independent (64 B 43/2^32, 160 B 34/2^32). The xxh3-64 NAF pair does not transfer (0/2^32). XXH3_128bits_withSecretandSeed ignores the custom secret for every length <= 240 (confirmed over 54,400 checks), so callers of that API with short inputs are in the 64-bit-seed model.",
+   "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_128bits_withSecret; withSeed and withSecretandSeed (len <= 240) callers get the same rate with the default secret (28.6 [28.4, 28.8]). Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (479 events in 2^35.46 keys).",
    "hover": {
     "mechanism": "The all-ones difference on both operands of the first message multiply-fold can give the same lo ^ hi, merging the state before the unchanged suffix.",
     "claim_note": "REPRODUCTION; verbatim excerpt"
@@ -9455,30 +9533,31 @@
     "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
     "directory": "verify/xxh3-128/README.html",
     "source": "verify/xxh3-128/xxh3_128_verify.c",
-    "command": "cc -O2 -std=c11 -o xxh3_128_verify xxh3_128_verify.c -lm && ./xxh3_128_verify 20",
+    "command": "cc -O2 -std=c11 -o xxh3_128_verify xxh3_128_verify.c -lm && ./xxh3_128_verify 20 1 random-secret",
     "trials": 1048576,
-    "rng": "fixed deterministic pseudorandom smoke stream; see per-hash README",
-    "note": "Completed dependency additions in verify/README.html. The smoke check does not replace historical large counts."
+    "rng": "fixed deterministic pseudorandom smoke stream (24 secret words then a seed per trial); see per-hash README",
+    "note": "random-secret mode added 2026-09-19: pair F under XXH3_128bits_withSecret with a fresh 192-byte uniform secret per trial (recorded random-model witness asserted at startup) plus a withSecretandSeed control asserting equality with withSeed trial by trial (the custom secret is ignored at 32 B); the default mode keeps the historical seed-only check. The smoke check does not replace historical large counts."
    },
    "supporting_measurements": [
     {
-     "description": "Original smaller sample; retained as supporting evidence. The larger sample reduces uncertainty.",
-     "count": 5,
-     "trials": 1073741824,
-     "score_bits": 29.7,
+     "description": "Default-secret figure (XXH3_128bits_withSeed, kSecret, uniform 64-bit seed): 165/2^34 (page, 2026-09-18) + 44/2^32 (verifier control) = 209/2^34.32 = 2^-26.62, 28.6 bits [28.4, 28.8]; the earlier 5/2^30 (29.7 [28.5, 31.3]) was a low draw.",
+     "count": 209,
+     "trials": 21474836480,
+     "score_bits": 28.6,
      "interval_95_bits": [
-      28.5,
-      31.3
+      28.4,
+      28.8
      ],
      "provenance": [
-      "verify/xxh3-128/README.html"
+      "verify/xxh3-128/README.html",
+      "records/witness-searches/random-secret/xxh3-128/verify/logs/F_seed_2p32_r1003.txt"
      ]
     }
    ],
    "provenance": [
     "records/README.html",
-    "records/README.html",
-    "verify/xxh3-128/README.html"
+    "verify/xxh3-128/README.html",
+    "records/witness-searches/random-secret/xxh3-128/README.md"
    ],
    "speed_registration": "XXH3-128",
    "chart_eligible": true,
@@ -9489,7 +9568,7 @@
    "input_domain": "Variable-length byte strings; selected witness lengths shown.",
    "domain_short": "variable-length byte strings; selected witness only",
    "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
-   "api": "XXH3_128bits_withSeed; default secret public; uniform 64-bit seed",
+   "api": "XXH3_128bits_withSecret, 192-byte uniform secret (1536 bits). XXH3_128bits_withSeed and XXH3_128bits_withSecretandSeed (len <= 240) use the default public secret",
    "prior_report_url": "https://github.com/Cyan4973/xxHash/issues/1127",
    "maintainer_reply": {
     "date": "2026-09-17",
@@ -19913,9 +19992,9 @@
    ],
    "key_free": false,
    "lean": {
-    "label": "paper proof by transfer from the 64-bit v3 theorem (field swapped); Lean port in progress",
-    "source": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3_128.md",
-    "scope": "Written proof by transfer from the 64-bit v3 theorem with the field swapped to GF(2^128); the Lean port is in progress. The previous strided ChainHash-128 keeps its own machine-checked 125-bit result."
+    "label": "✓ checked",
+    "source": "records/chainhash/v3-128-lean/STATUS.md",
+    "scope": "Machine-checked (116 theorems, standard axioms): paper-model bound (p+1)/2^128 with 39 independent 128-bit words, model A bound with exactly 128 random bytes, evaluation independence for every stride, and the exact score minima 127 (paper and model A) and 128−log₂33 for the coarse envelope; 625 C/Lean vectors. See records/chainhash/v3-128-lean/."
    },
    "smhasher3": {
     "verdict": "Sanity/verification PASS (0x1FCA728C); full suite not supplied",

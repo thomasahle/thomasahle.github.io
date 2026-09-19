@@ -1,0 +1,104 @@
+# rapidhash v3 — results under the random-secret key model (2026-09-19)
+
+Key model: 64-bit seed and all eight 64-bit secret words uniform and independent (576 bits).
+Metric: bits = min_L log2(L / eps), eps = collision probability of a fixed pair over the key.
+All intervals are exact central 95 % Poisson (Garwood) intervals on the count; "cap" is the
+score implied by the pair (an upper bound on the family's strength; better pairs may exist).
+Logs: `logs/`.  Hardware: Xeon 8375C, 8 threads on shared cores (`nice -n 10 taskset -c 24-31`).
+
+## 1. The row's current pair under seed AND secret random
+
+Pair A (32 B, words 0 and 1 complemented, L = 4):
+`m  = 9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c`
+`m' = 642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c`
+
+| model | keys | count | rate | cap (bits) | log |
+|---|---|---|---|---|---|
+| seed + secret random | 2^30 | 13 | 2^-26.30 [2^-27.21, 2^-25.53] | 28.30 [27.53, 29.21] | 02 |
+| seed + secret random | 2^34 (fresh) | 161 | 2^-26.67 [2^-26.90, 2^-26.45] | 28.67 [28.45, 28.90] | 12 |
+| seed + secret random | 2^35 (fresh) | 358 | 2^-26.52 [2^-26.67, 2^-26.37] | 28.52 [28.37, 28.67] | 22 |
+| **seed + secret random, pooled** | **2^35.6** | **532** | **2^-26.56 [2^-26.69, 2^-26.44]** | **28.56 [28.44, 28.69]** | |
+| seed random, default secret | 2^30 | 12 | 2^-26.42 | 28.42 [27.61, 29.37] | 01 |
+| seed random, default secret | 2^34 (fresh) | 184 | 2^-26.48 [2^-26.68, 2^-26.27] | 28.48 [28.27, 28.68] | 14 |
+| default secret, pooled with the page's 11/2^30 and the fairness pass's 174/2^34 | 2^35.1 | 381 | 2^-26.51 [2^-26.66, 2^-26.37] | 28.51 [28.37, 28.66] | |
+
+Pair D (48 B, same difference, L = 6): 11 / 2^30 random secret, 2^-26.54, cap 29.13 [28.29, 30.13] (log 03).
+
+The rate is the same under both models: the mechanism is `fold(A,B) = fold(~A,~B)` on the first
+`rapid_mix(w0 ^ secret[2], w1 ^ seed0)`, and it only needs the two operands to be (secret-)uniform.
+Independent measurement of the primitive: P(M,M) = 2724 / 2^38 = 2^-26.588 [2^-26.643, 2^-26.534] (log 10).
+
+## 2. Best fixed pair found under the random-secret model
+
+24-byte pair, word 0 complemented only (L = 3):
+`m  = 9bd4604137366abec688a63706aa4a2188d35499de169df6`
+`m' = 642b9fbec8c99541c688a63706aa4a2188d35499de169df6`
+
+Why 24 bytes: for 17 <= i <= 112 the tail operands are `a = load64(p+i-16) ^ i ^ secret[1]` and
+`b = load64(p+i-8) ^ seed_last`; bytes 0..7 are read only by the first fold exactly when i >= 24, and
+L = 3 needs i <= 24.  With only word 0 changed the first fold sees the differential (M, 0):
+`fold(A, B) = fold(~A, B)`, so the pair collides iff that fold collides.  Word 1 must stay fixed
+because `a` reads it, and word 2 because `b` reads it.  (i = 17..23 would need the difference
+confined to bytes 0..i-17, a partial-word differential, which the exhaustive 10-bit table shows is
+far weaker than full complements.)
+
+| model | keys | count | rate | cap (bits) | log |
+|---|---|---|---|---|---|
+| seed + secret random | 2^30 | 12 | 2^-26.42 | 28.00 [27.20, 28.95] | 04 |
+| seed + secret random | 2^34 (fresh) | 163 | 2^-26.65 [2^-26.88, 2^-26.43] | 28.24 [28.02, 28.47] | 11 |
+| seed + secret random | 2^35 (fresh) | 253 | 2^-27.02 [2^-27.20, 2^-26.84] | 28.60 [28.42, 28.79] | 21 |
+| **seed + secret random, pooled** | **2^35.6** | **428** | **2^-26.87 [2^-27.01, 2^-26.74]** | **28.46 [28.32, 28.60]** | |
+| seed random, default secret | 2^34 | 140 | 2^-26.87 [2^-27.12, 2^-26.63] | 28.46 [28.22, 28.71] | 13 |
+| primitive P(M,0), sample a | 2^38 | 2138 | 2^-26.938 [2^-27.000, 2^-26.877] | 28.52 [28.46, 28.59] | 10 |
+| primitive P(M,0), sample b | 2^38 | 2110 | 2^-26.957 [2^-27.020, 2^-26.896] | 28.54 [28.48, 28.60] | 23 |
+| primitive P(M,0), pooled a+b | 2^39 | 4248 | 2^-26.947 [2^-26.991, 2^-26.904] | 28.53 [28.49, 28.58] | 10, 23 |
+
+The 2^34 sample (163) sits 2.5 sigma above the primitive's prediction (~134); the fresh 2^35 sample
+(253, prediction ~268) does not reproduce the excess, so the pooled figure is used.
+Primitive-based caps: 24 B (M,0) 28.53 [28.49, 28.58] (pooled) versus 32 B (M,M) 28.59 [28.53, 28.64]:
+the two pairs are tied within 0.07 bits; both display as 28.5.
+
+## 3. Search for other mechanisms (all negative)
+
+- **Exhaustive XOR differentials of the 10-bit xor-fold** (log 06): (M,M) 2^-4.11 is the best of all
+  2^20-1 differentials, then (M,0) = (0,M) 2^-4.34, then (M-2, 0) 2^-5.27; every other differential
+  is at least 1.5 bits weaker.  Full complements are the only strong operand differentials.
+- **Hill-climb at 32 bits** (log 07; 2^22 samples per candidate, 3-sigma acceptance): (M,M), (M,0),
+  (0,M) are local optima under all 64 single-bit moves; (M, M-1), (M-1, M-1), (M>>1, M>>1),
+  alternating masks and four random starts give 0 hits (< 2^-22) or climb back to (M,M).
+- **Structural sweep** (log 08; every single and adjacent-pair word complement at lengths 1..64,
+  80, 96, 112, 113, 128, 224, 225, 240, 336, 337; for lengths <= 17 also bit flips, appended bytes
+  and same-byte adjacent-length pairs, which share (a, b) on the short path and differ only in the
+  length XORs; 2^27 keys per candidate up to 40 B, 2^24 for 41..64 B, 2^20 beyond):
+  - lengths 1..16 (L <= 2): 0 hits in every candidate (rate < 2^-27 each; the 95 % floor is
+    2^-25.1, i.e. cap > 26.1 at L = 2).  Every byte is read into a multiply operand before any
+    fold, so no key-free cancellation exists, and the multiply output differential of a
+    complemented operand is not a good differential for the final fold.
+  - lengths 17..23: word-0 complements give 0 hits (the tail operand `a` re-reads those bytes).
+  - lengths 24..40: hits appear exactly for complements of words that feed one fold and are not
+    re-read (cw0 at 24..32, cw0/cw1/cw0+1 at 33..39, cw2 at 40), at 1..2 per 2^27, i.e. the
+    2^-26.6..2^-26.9 primitive rates; the one 4/2^27 reading (31 B cw0) re-measured at 8/2^30
+    with a fresh sample (log 20), i.e. noise.
+  - lengths 41..64 and the block boundaries (112/113, 224/225 lane merges, 336/337): only isolated
+    single hits consistent with the same fold mechanism at 2^24 / 2^20 resolution; nothing
+    key-free and nothing above 2^-20.
+  - bit flips, appended bytes and same-byte adjacent lengths: 0 hits everywhere.
+- Long messages (> 112 B) cannot compete anyway: with L >= 15 even a key-free pair would need
+  P > 2^-24.6 to beat 28.5, and the lane merges are XORs of independent folds.
+
+## 4. Recommendation
+
+- Random-secret model score for the `rapid3` row: **28.5 bits (cap; sampled)**, `bits_kind`
+  "measured".  Best pair: the 24-byte (M,0) pair above, pooled 428 / 2^35.6 = 2^-26.87
+  [2^-27.01, 2^-26.74], cap 28.46 [28.32, 28.60]; the row's present 32-byte pair A is tied at
+  28.56 [28.44, 28.69] (532 / 2^35.6) and may be kept as the witness.  The key_model text should
+  read: 64-bit seed and all eight secret words uniform (`rapidhash_internal(key, len, seed, secret)`,
+  512-bit secret); the score is unchanged because the witness never uses a secret value.
+- Default-secret figure for the notes: pair A 381 / 2^35.09 = 2^-26.51 [2^-26.66, 2^-26.37],
+  cap 28.51 [28.37, 28.66] (this study's 12/2^30 + 184/2^34 pooled with the page's 11/2^30 and
+  the fairness pass's 174/2^34); the 24-byte pair gives 140 / 2^34 = 2^-26.87, cap 28.46
+  [28.22, 28.71] under the default secret as well.
+- Resolution floors: any undiscovered mechanism at L <= 2 has rate < 2^-25.1 (95 %) for every
+  candidate tried; the search space beyond word complements (partial-word and additive
+  differentials) was excluded by the 10-bit exhaustive table and the 32-bit hill-climb, not by
+  64-bit sampling.

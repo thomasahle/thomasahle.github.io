@@ -1,0 +1,4 @@
+# verify_rs128 mode=seed log2N=32 rngseed=1003 threads=8 pairs=row.txt (1 pairs); xxhash 803; SMHasher3 verification 288DAA94 PASS
+# elapsed 240 s, 17.89 Mtrials/s
+pair F_row                            len=32   count=44 N=2^32 rate=1.0245e-08 log2rate=-26.5406
+  witness thread=0 trial=34045085 seed=40415f89d02db0ac digest=c6b80d7068cd0552a8c927122a4ce392 secret=2ee14486327a9f98ea045272e3078c51dd94b7b3ab3fc26c274536062d6f31655a02163326b5f6f99eea5f5ea22c1b1d3a61241fff8e559d7d5662bd05f154dbbbe43aac12cadb369edad19bed15a4ce70261ab43bf4603ad5ede76f4f377c6728585edbaa9a8f4e7e939db5578c3daef63c4ae193823089cef3ba01e1bcb452283f678d788d20837ac569095fd847720889b9b27fa0371ab3ce3d01c09c6fb2250bed68fdac1ae1d04a4273ac7a1bc04d47a84c9f16d99a27d393a72e8961ee
