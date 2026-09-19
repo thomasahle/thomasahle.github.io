@@ -1,4 +1,0 @@
-import ProvenHashes.ClassicCore
-import ProvenHashes.ClassicBytes
-import ProvenHashes.ClassicGHASH
-import ProvenHashes.ClassicPoly1305

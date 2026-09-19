@@ -1326,7 +1326,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "chainhash-x86",
             "--test=Speed"
           ],
@@ -1379,7 +1379,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "chainhash-x86",
             "--test=Speed"
           ],
@@ -1438,7 +1438,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1491,7 +1491,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1554,7 +1554,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1607,7 +1607,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1670,7 +1670,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -1723,7 +1723,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -1786,7 +1786,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -1839,7 +1839,7 @@
             "nice",
             "-n",
             "10",
-            "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -1934,7 +1934,7 @@
     }
   },
   "execution": {
-    "binary": "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+    "binary": "./SMHasher3",
     "binary_sha256": "8a8dc939540a238485aeca79c8e67462aea696527fa5f9156deaada357df025c",
     "header_sha256": "98d6cc3729691ef490c8019d312e76d2b0558bd2159aff741127c68847220698",
     "started": "2026-09-18T17:19:21.907581+00:00",
@@ -1949,7 +1949,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "chainhash-x86",
           "--test=Speed"
         ],
@@ -2002,7 +2002,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "komihash",
           "--test=Speed"
         ],
@@ -2055,7 +2055,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "rapidhash",
           "--test=Speed"
         ],
@@ -2108,7 +2108,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "XXH3-64",
           "--test=Speed"
         ],
@@ -2161,7 +2161,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "HalftimeHash-512",
           "--test=Speed"
         ],
@@ -2214,7 +2214,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "chainhash-x86",
           "--test=Speed"
         ],
@@ -2267,7 +2267,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "komihash",
           "--test=Speed"
         ],
@@ -2320,7 +2320,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "rapidhash",
           "--test=Speed"
         ],
@@ -2373,7 +2373,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "XXH3-64",
           "--test=Speed"
         ],
@@ -2426,7 +2426,7 @@
           "nice",
           "-n",
           "10",
-          "/home/thomas-ahle/agents/chainhash-x86/build/SMHasher3",
+          "./SMHasher3",
           "HalftimeHash-512",
           "--test=Speed"
         ],
@@ -2475,7 +2475,7 @@
   },
   "provenance": {
     "timestamp": "2026-09-18T17:30:32.992862+00:00",
-    "remote_root": "/home/thomas-ahle/agents/chainhash-x86",
+    "remote_root": "./chainhash-x86",
     "platform": "Linux-5.14.0-687.20.1.el9_8.x86_64-x86_64-with-glibc2.34",
     "cpu": {
       "lscpu": [
@@ -2655,7 +2655,7 @@
     },
     "gcc": "gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)",
     "clang": "clang version 21.1.8 (Red Hat, Inc. 21.1.8-2.el9)",
-    "compile_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I/home/thomas-ahle/agents/chainhash-x86/build/include -I/home/thomas-ahle/agents/chainhash-x86/smhasher/include/hashlib -I/home/thomas-ahle/agents/chainhash-x86/smhasher/include/common\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n# Custom include directories: CMakeFiles/SMHasher3Hashlib.dir/lib/Hashinfo.cpp.o_INCLUDE_DIRECTORIES = /home/thomas-ahle/agents/chainhash-x86/smhasher/util\n\n# Custom flags: CMakeFiles/SMHasher3Hashlib.dir/hashes/halftimehash.cpp.o_FLAGS = -flax-vector-conversions -Wno-ignored-attributes\n\n# Custom flags: CMakeFiles/SMHasher3Hashlib.dir/hashes/floppsyhash.cpp.o_FLAGS = -ffp-contract=off\n\n",
+    "compile_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I./include -I./hashlib -I./common\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n# Custom include directories: CMakeFiles/SMHasher3Hashlib.dir/lib/Hashinfo.cpp.o_INCLUDE_DIRECTORIES = ./util\n\n# Custom flags: CMakeFiles/SMHasher3Hashlib.dir/hashes/halftimehash.cpp.o_FLAGS = -flax-vector-conversions -Wno-ignored-attributes\n\n# Custom flags: CMakeFiles/SMHasher3Hashlib.dir/hashes/floppsyhash.cpp.o_FLAGS = -ffp-contract=off\n\n",
     "link_command": "/usr/bin/c++  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG CMakeFiles/SMHasher3.dir/main.cpp.o -o SMHasher3  libSMHasher3Tests.a libSMHasher3Hashlib.a\n",
     "controls": {
       "xxhash": {

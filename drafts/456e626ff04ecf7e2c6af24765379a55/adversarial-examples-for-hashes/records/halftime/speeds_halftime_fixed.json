@@ -13,7 +13,7 @@
   },
   "hosts": {
     "Xeon8375C": {
-      "binary": "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "f92528649d7ba774e075505518a3e8321980146b8d92f7098b615a0e7f3a3a52",
       "started": "2026-09-18T17:41:11.207348+00:00",
       "finished": "2026-09-18T17:55:39.060018+00:00",
@@ -39,7 +39,7 @@
               "name": "komihash",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -123,7 +123,7 @@
               "name": "komihash",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -207,7 +207,7 @@
               "name": "komihash",
               "run": 3,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -321,7 +321,7 @@
               "name": "rapidhash",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -405,7 +405,7 @@
               "name": "rapidhash",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -489,7 +489,7 @@
               "name": "rapidhash",
               "run": 3,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -603,7 +603,7 @@
               "name": "HalftimeHash-512",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512",
                 "--test=Speed"
               ],
@@ -687,7 +687,7 @@
               "name": "HalftimeHash-512",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512",
                 "--test=Speed"
               ],
@@ -771,7 +771,7 @@
               "name": "HalftimeHash-512",
               "run": 3,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512",
                 "--test=Speed"
               ],
@@ -885,7 +885,7 @@
               "name": "HalftimeHash24-fixed",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash24-fixed",
                 "--test=Speed"
               ],
@@ -969,7 +969,7 @@
               "name": "HalftimeHash24-fixed",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash24-fixed",
                 "--test=Speed"
               ],
@@ -1053,7 +1053,7 @@
               "name": "HalftimeHash24-fixed",
               "run": 3,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash24-fixed",
                 "--test=Speed"
               ],
@@ -1175,7 +1175,7 @@
               "name": "HalftimeHash-512-fixed",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512-fixed",
                 "--test=Speed"
               ],
@@ -1259,7 +1259,7 @@
               "name": "HalftimeHash-512-fixed",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512-fixed",
                 "--test=Speed"
               ],
@@ -1343,7 +1343,7 @@
               "name": "HalftimeHash-512-fixed",
               "run": 3,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-hhfixed/build/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512-fixed",
                 "--test=Speed"
               ],
@@ -1456,7 +1456,7 @@
       }
     },
     "M2Pro": {
-      "binary": "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "97c124f86a1f1e1dac50fecb4a289e9e4ca2744d302a11c38f042d47be296184",
       "started": "2026-09-18T16:38:01.056530+00:00",
       "finished": "2026-09-18T16:54:26.764162+00:00",
@@ -1482,7 +1482,7 @@
               "name": "komihash",
               "run": 1,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -1566,7 +1566,7 @@
               "name": "komihash",
               "run": 2,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -1650,7 +1650,7 @@
               "name": "komihash",
               "run": 3,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -1764,7 +1764,7 @@
               "name": "rapidhash",
               "run": 1,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -1848,7 +1848,7 @@
               "name": "rapidhash",
               "run": 2,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -1932,7 +1932,7 @@
               "name": "rapidhash",
               "run": 3,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -2046,7 +2046,7 @@
               "name": "HalftimeHash-512",
               "run": 1,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512",
                 "--test=Speed"
               ],
@@ -2130,7 +2130,7 @@
               "name": "HalftimeHash-512",
               "run": 2,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512",
                 "--test=Speed"
               ],
@@ -2214,7 +2214,7 @@
               "name": "HalftimeHash-512",
               "run": 3,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512",
                 "--test=Speed"
               ],
@@ -2328,7 +2328,7 @@
               "name": "HalftimeHash24-fixed",
               "run": 1,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash24-fixed",
                 "--test=Speed"
               ],
@@ -2412,7 +2412,7 @@
               "name": "HalftimeHash24-fixed",
               "run": 2,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash24-fixed",
                 "--test=Speed"
               ],
@@ -2496,7 +2496,7 @@
               "name": "HalftimeHash24-fixed",
               "run": 3,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash24-fixed",
                 "--test=Speed"
               ],
@@ -2618,7 +2618,7 @@
               "name": "HalftimeHash-512-fixed",
               "run": 1,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512-fixed",
                 "--test=Speed"
               ],
@@ -2702,7 +2702,7 @@
               "name": "HalftimeHash-512-fixed",
               "run": 2,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512-fixed",
                 "--test=Speed"
               ],
@@ -2786,7 +2786,7 @@
               "name": "HalftimeHash-512-fixed",
               "run": 3,
               "command": [
-                "<scratch>/codex/halftime-fixed/build-m2/SMHasher3",
+                "./SMHasher3",
                 "HalftimeHash-512-fixed",
                 "--test=Speed"
               ],

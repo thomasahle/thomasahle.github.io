@@ -1,7 +1,0 @@
-N = 1000000 class keys (seed 7)
-formula mismatches (v0[0],v1[0],v0[1],v1[1],mul0[0],mul1[0],mul0[1],mul1[1] after packet 1): 0
-packet-1 difference pattern (v0[0]+2^40, v1[0]+2^8+2^24, rest equal) violations: 0
-byte 1 of h not in {be,bf}: 0
-cond 2 (D0 == 4d000000): 0;  packet-2 pattern violations among them: 0
-full-state collisions after packet 3: 0;  (collision xor cond2) mismatches: 0
-top byte of D0 histogram (nonzero bins): 4c:393221 4d:564536 4e:42041 4f:202

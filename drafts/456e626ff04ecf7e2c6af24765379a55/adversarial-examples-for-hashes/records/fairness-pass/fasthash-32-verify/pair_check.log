@@ -1,9 +1,0 @@
-seed 0123456789abcdef: fh64(7B)=3f624b9140899669 fh64(8B)=3f624b9140899669 fold=01274ad8/01274ad8 | fh64(16B)=1ac53b33e0d7dd39/1ac53b33e0d7dd39 fold=c612a206/c612a206 | upstream fh32(seed trunc 89abcdef)=1188bc14/1188bc14 16B 5ca19c95/5ca19c95
-seed c05a677850dc981a: fh64(7B)=875005bd11563f7a fh64(8B)=875005bd11563f7a fold=8a0639bd/8a0639bd | fh64(16B)=f1c750f15e01b5a6/f1c750f15e01b5a6 fold=6c3a64b5/6c3a64b5 | upstream fh32(seed trunc 50dc981a)=6560aa72/6560aa72 16B 6886621e/6886621e
-seed 0000000000000000: fh64(7B)=78ef6597ace64ee2 fh64(8B)=78ef6597ace64ee2 fold=33f6e94b/33f6e94b | fh64(16B)=52b6455608a72a7f/52b6455608a72a7f fold=b5f0e529/b5f0e529 | upstream fh32(seed trunc 00000000)=33f6e94b/33f6e94b 16B b5f0e529/b5f0e529
-fh32(7B, seed 0)=33f6e94b fh32(7B, seed 1)=caaf700b (should differ)
-fh64(7B, seed 0)=78ef6597ace64ee2 fh64(00, 1B, seed 0)=adbd19d3220b72e6 (control: 1B vs 7B zero should differ)
-upstream fasthash32 EXHAUSTIVE: 7B vs 8B 4294967296/4294967296; 16B pair 4294967296/4294967296
-fasthash64 splitmix 2^30: 7B vs 8B 1073741824/1073741824 (fold 1073741824); 16B pair 1073741824/1073741824 (fold 1073741824)
-non-colliding events: 0 (last seed 0000000000000000)
-101.07 s wall

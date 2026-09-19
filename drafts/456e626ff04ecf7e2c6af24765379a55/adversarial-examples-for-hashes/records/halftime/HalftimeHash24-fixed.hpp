@@ -271,7 +271,7 @@ inline void Encode3(Block io[9][3]) {
   io[7][z] = io[8][z] = (*iter)[z];
   ++iter;
 
-  // TODO: can't lift these to top-level functions, since that slows things down
+  // Implementation note: can't lift these to top-level functions, since that slows things down
   // considerably. Think about making them macros so they don't need to be repeated?
   auto DistributeRaw = [io, &iter](unsigned slot, unsigned label,
                                   std::initializer_list<unsigned> rest) {
@@ -586,12 +586,12 @@ struct EhcBadger {
                    Block output[encoded_dimension]) {
     for (unsigned i = 0; i < encoded_dimension; ++i) {
       output[i] = MixNone(input[i][0], entropy[i * in_width]);
-      // TODO: should loading take care of this?
+      // Implementation note: should loading take care of this?
     }
     for (unsigned j = 1; j < in_width; ++j) {
       for (unsigned i = 0; i < encoded_dimension; ++i) {
         output[i] = MixOne(output[i], input[i][j], entropy[i * in_width + j]);
-        // TODO: this might be optional; it might not matter which way we iterate over
+        // Implementation note: this might be optional; it might not matter which way we iterate over
         // entropy
       }
     }
@@ -837,7 +837,7 @@ inline void Combine4(const Block input[10], Block output[4]) {
   Badger::template Dot4<1, 1, 1, 8>(output, input[9]);
 }
 
-// TODO:
+// Implementation note:
 // 0   0   0   0   1   x   x   x   x
 // 1   0   0   0   0   1   x   x   x
 // x   1   0   0   0   0   1   x   x

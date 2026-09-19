@@ -25,7 +25,7 @@
     "text": "xxHash is primarily designed for speed. It is labeled non-cryptographic, and is not meant to avoid intentional collisions (same digest for 2 different messages), or to prevent producing a message with a predefined digest.",
     "url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md",
     "context": "32-byte NAF block-1 pair: 755087, 754660 and 754334 hits per 2^30 fresh keys (2^-10.47); the base-1143 zero-tail pair (2^-21.0) and historical pair A are separate.",
-    "provenance": "records/claims.json#/result/table/rows/2/official_claim_quote",
+    "provenance": "records/README.html",
     "verbatim_record": "(v0.8.3 comment; replaced on dev 2026-09-17 by PR #1146, refined 2026-09-18 by PR #1150) xxHash is primarily designed for speed. It is labeled non-cryptographic, and is not meant to avoid intentional collisions (same digest for 2 different messages), or to prevent producing a message with a predefined digest. | It's possible to provide any blob of bytes as a \"secret\" to generate the hash. This makes it more difficult for an external actor to prepare an intentional collision. | DISCLAIMER: There are known *seed-dependent* multicollisions here due to multiplication by zero, affecting hashes of lengths 17 to 240. However, they are very unlikely. Keep this in mind when using the unseeded XXH3_64bits() variant: As with all unseeded non-cryptographic hashes, it does not attempt to defend itself against specially crafted inputs, only random inputs. | Finally, xxHash provides its own [massive collision tester](https://github.com/Cyan4973/xxHash/tree/dev/tests/collisions), able to generate and compare billions of hashes to test the limits of 64-bit hash algorithms. On this front too, xxHash features good results, in line with the [birthday paradox].",
     "source_record": "(v0.8.3 comment; replaced on dev 2026-09-17 by PR #1146, refined 2026-09-18 by PR #1150) doc/xxhash_spec.md (v0.8.3) line 40; xxhash.h (v0.8.3) lines 1208-1209 and 4707-4714 (comment prefix stripped; SMHasher3's copy at hashes/xxhash.cpp L591-598 is reflowed and reads 'multiplication by 0'); README.md (v0.8.3) lines 85-88. https://github.com/Cyan4973/xxHash/blob/v0.8.3/",
     "current_comment_url": "https://github.com/Cyan4973/xxHash/blob/6cc7b4b56f5190f288a58642fd24ba62ec56bb3d/xxhash.h",
@@ -36,8 +36,8 @@
     "verdict": "FAIL",
     "passed": 223,
     "total": 250,
-    "url": "https://gitlab.com/fwojcik/smhasher3/-/blob/5035a923/results/README.md",
-    "provenance": "records/claims.json#/result/table/rows/2",
+    "url": "https://github.com/fwojcik/smhasher3/blob/5035a923/results/README.md",
+    "provenance": "records/README.html",
     "failed_tests": [
       "BIC",
       "Sparse",
@@ -67,8 +67,8 @@
     "example_output_hex": "dd686b61e2f6dc69",
     "construction": "bytes 16..31 = little-endian (P, N) with P = 0x0000444010121551, N = 0x0501000482000000 the +1/-1 digit sums of the non-adjacent form of D = K2+K3+1 = 0xfaff443b8e121551 mod 2^64 (K2, K3 = default-secret words that XXH3_mix16B applies to bytes 16..31 of a 32-byte input); M' complements bytes 16..31; bytes 0..15 zero",
     "provenance": [
-      "records/witness-searches/xxh3-64-pair/README.md",
-      "records/witness-searches/xxh3-64-pair-verify/README.md"
+      "verify/xxh3-64/README.html",
+      "verify/xxh3-64/README.html"
     ]
   },
   "collision": {
@@ -109,13 +109,13 @@
     "m2_gbps_16k": {
       "value": null,
       "source": "Unavailable in supplied records",
-      "record": "records/paper_rows.json#/14",
+      "record": "records/README.html",
       "source_short": "unavailable"
     },
     "m2_gbps_512": {
       "value": null,
       "source": "Unavailable in supplied records",
-      "record": "records/paper_rows.json#/14",
+      "record": "records/README.html",
       "source_short": "unavailable"
     },
     "smh_m2_bulk_Bpc": {
@@ -407,7 +407,7 @@
   },
   "reproduction": {
     "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
-    "directory": "verify/xxh3-64",
+    "directory": "verify/xxh3-64/README.html",
     "source": "verify/xxh3-64/xxh3_64_pair_check.c",
     "command": "cc -O3 -std=c11 xxh3_64_pair_check.c -lm -o check && ./check 20",
     "trials": 1048576,
@@ -416,7 +416,7 @@
     "note": "xxh3_64_pair_check.c is byte-identical in its header/startup/stream lines to xxh3_64_32B_check.c with the new pair as the literal default; regenerate xxh3_64_32B_check.expected.txt / CHECK_32B.md and mention the 2468b3bc26a44073 -> dd686b61e2f6dc69 witness (seed 0 is not a witness for this pair)."
   },
   "supporting_measurements": {
-    "source": "records/xxh3_32B_result.json",
+    "source": "verify/xxh3-64/HISTORICAL.html",
     "historical_pair_128B": {
       "m_hex": "8912a3da9fc464368202a1be238b7d11a56186f8dc03bd1f78bfbd2ba3386ced7093d3639fc8f076abe3f9a757e5c84290720e6340b2e7820a16a5633b9b0344773006232e3abc7d4727eafba248b46cf2a6516698382bd2fa890528924cd1b618df4aa87d1af4bcec13f92bf8a1163e657fb0885deddf709a0252fbe3ae169d",
       "m_prime_hex": "76ed5c25603b9bc97dfd5e41dc7482eea56186f8dc03bd1f78bfbd2ba3386ced7093d3639fc8f076abe3f9a757e5c84290720e6340b2e7820a16a5633b9b0344773006232e3abc7d4727eafba248b46cf2a6516698382bd2fa890528924cd1b618df4aa87d1af4bcec13f92bf8a1163e657fb0885deddf709a0252fbe3ae169d",
@@ -437,8 +437,8 @@
         "m2": "0x448e3716c8effb94"
       },
       "provenance": [
-        "records/xxh3_128b_pairs.json: base 1143, confirm1/confirm2",
-        "verify/xxh3-64/README.md"
+        "records/README.html: base 1143, confirm1/confirm2",
+        "verify/xxh3-64/README.html"
       ]
     },
     "fresh_counts": [
@@ -450,10 +450,10 @@
     "zero_16B_trials": 4294967296
   },
   "provenance": [
-    "records/witness-searches/xxh3-64-pair/README.md",
-    "records/witness-searches/xxh3-64-pair-verify/README.md",
-    "records/xxh3_32B_RESULT.md",
-    "records/claims.json#/result/table/rows/2"
+    "verify/xxh3-64/README.html",
+    "verify/xxh3-64/README.html",
+    "verify/xxh3-64/HISTORICAL.html",
+    "records/README.html"
   ],
   "speed_registration": "XXH3-64",
   "chart_eligible": true,
@@ -475,5 +475,5 @@
     "followup_summary": "PR #1146 (2026-09-17, commit 4c19ec2) replaced the XXH3_mix16B DISCLAIMER, documenting the complement-pair rate and recommending a cryptographic hash or MAC for adversarial collision resistance. PR #1150 (2026-09-18, commit 6cc7b4b) added the measured ~2^-21 fixed-pair rate over random seeds and the v0.8.4 changelog credit for #1127. Issue #1127 is closed."
   },
   "family_definition": "32×32→64 products of secret-xored word halves on the long-input path; the 17–128-byte path is keyed multiply-fold.",
-  "fairness_record": "records/fairness-pass/xxh3-64/README.md"
+  "fairness_record": "verify/xxh3-64/README.html"
 }

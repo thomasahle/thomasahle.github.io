@@ -50,7 +50,7 @@
                 "taskset",
                 "-c",
                 "5",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-256",
                 "--test=Speed"
               ],
@@ -236,7 +236,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-256",
                 "--test=Speed"
               ],
@@ -430,7 +430,7 @@
                 "taskset",
                 "-c",
                 "25",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64-header",
                 "--test=Speed"
               ],
@@ -616,7 +616,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64-header",
                 "--test=Speed"
               ],
@@ -810,7 +810,7 @@
                 "taskset",
                 "-c",
                 "6",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64x2",
                 "--test=Speed"
               ],
@@ -996,7 +996,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64x2",
                 "--test=Speed"
               ],
@@ -1190,7 +1190,7 @@
                 "taskset",
                 "-c",
                 "19",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.scalar",
                 "--test=Speed"
               ],
@@ -1376,7 +1376,7 @@
                 "taskset",
                 "-c",
                 "4",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.scalar",
                 "--test=Speed"
               ],
@@ -1570,7 +1570,7 @@
                 "taskset",
                 "-c",
                 "3",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.256",
                 "--test=Speed"
               ],
@@ -1756,7 +1756,7 @@
                 "taskset",
                 "-c",
                 "2",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.256",
                 "--test=Speed"
               ],
@@ -1950,7 +1950,7 @@
                 "taskset",
                 "-c",
                 "3",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.schoolbook",
                 "--test=Speed"
               ],
@@ -2136,7 +2136,7 @@
                 "taskset",
                 "-c",
                 "0",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.schoolbook",
                 "--test=Speed"
               ],
@@ -2330,7 +2330,7 @@
                 "taskset",
                 "-c",
                 "6",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128",
                 "--test=Speed"
               ],
@@ -2516,7 +2516,7 @@
                 "taskset",
                 "-c",
                 "3",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128",
                 "--test=Speed"
               ],
@@ -2710,7 +2710,7 @@
                 "taskset",
                 "-c",
                 "5",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "UMASH-128",
                 "--test=Speed"
               ],
@@ -2896,7 +2896,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "UMASH-128",
                 "--test=Speed"
               ],
@@ -3090,7 +3090,7 @@
                 "taskset",
                 "-c",
                 "4",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -3276,7 +3276,7 @@
                 "taskset",
                 "-c",
                 "3",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -3470,7 +3470,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -3656,7 +3656,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -3850,7 +3850,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "XXH3-128",
                 "--test=Speed"
               ],
@@ -4036,7 +4036,7 @@
                 "taskset",
                 "-c",
                 "1",
-                "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3",
+                "./SMHasher3",
                 "XXH3-128",
                 "--test=Speed"
               ],
@@ -4227,13 +4227,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128.cpp",
+            "./chainhash_128.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128.o"
+            "./chainhash_128.o"
           ],
           [
             "c++",
@@ -4242,13 +4242,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128__256.cpp",
+            "./chainhash_128__256.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__256.o"
+            "./chainhash_128__256.o"
           ],
           [
             "c++",
@@ -4257,13 +4257,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128__scalar.cpp",
+            "./chainhash_128__scalar.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__scalar.o"
+            "./chainhash_128__scalar.o"
           ],
           [
             "c++",
@@ -4272,13 +4272,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_128__schoolbook.cpp",
+            "./chainhash_128__schoolbook.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__schoolbook.o"
+            "./chainhash_128__schoolbook.o"
           ],
           [
             "c++",
@@ -4287,30 +4287,30 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/build/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128/source/hashes/chainhash_64_header.cpp",
+            "./chainhash_64_header.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_64_header.o"
+            "./chainhash_64_header.o"
           ],
           [
             "c++",
             "-O3",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/main.cpp.o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128.o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__256.o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__scalar.o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_128__schoolbook.o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/chainhash_64_header.o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/libSMHasher3Tests.a",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/libSMHasher3Hashlib.a",
+            "./main.cpp.o",
+            "./chainhash_128.o",
+            "./chainhash_128__256.o",
+            "./chainhash_128__scalar.o",
+            "./chainhash_128__schoolbook.o",
+            "./chainhash_64_header.o",
+            "./libSMHasher3Tests.a",
+            "./libSMHasher3Hashlib.a",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128/build/SMHasher3"
+            "./SMHasher3"
           ]
         ],
-        "baseline": "/home/thomas-ahle/agents/speedbench/build-release-20260917",
+        "baseline": "./build-release-20260917",
         "binary_sha256": "625dc55c32ea060afde4d4ed58f935b285b74186dd5ed58fcd1bed62131b6890",
         "copied_objects": {
           "main.cpp.o": "877a4598076d3c30326b11a352bbc3f8bd9a9a881035657e1af6756521ae8c39",
@@ -4327,7 +4327,7 @@
           "chainhash64.h": "90556e4f4ce55312b9440d9c0c427b8c5ffc9df2398b4b073e8cc5c555d19238"
         }
       },
-      "host_metadata": "Linux <xeon-host> 5.14.0-687.20.1.el9_8.x86_64 #1 SMP PREEMPT_DYNAMIC Sun Jun 28 21:16:58 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux\nArchitecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  96\nOn-line CPU(s) list:                     0-95\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz\nCPU family:                              6\nModel:                                   106\nThread(s) per core:                      2\nCore(s) per socket:                      24\nSocket(s):                               2\nStepping:                                6\nBogoMIPS:                                5799.95\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd ida arat avx512vbmi pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               2.3 MiB (48 instances)\nL1i cache:                               1.5 MiB (48 instances)\nL2 cache:                                60 MiB (48 instances)\nL3 cache:                                108 MiB (2 instances)\nNUMA node(s):                            2\nNUMA node0 CPU(s):                       0-23,48-71\nNUMA node1 CPU(s):                       24-47,72-95\nVulnerability Gather data sampling:      Unknown: Dependent on hypervisor status\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT Host state unknown\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\nc++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nclang version 21.1.8 (Red Hat, Inc. 21.1.8-2.el9)\nTarget: x86_64-redhat-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin\nConfiguration file: /etc/clang/x86_64-redhat-linux-gnu-clang.cfg\n# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I/home/thomas-ahle/agents/speedbench/build-release-20260917/include -I/home/thomas-ahle/agents/speedbench/source/include/common -I/home/thomas-ahle/agents/speedbench/source/util -I/home/thomas-ahle/agents/speedbench/source/tests -I/home/thomas-ahle/agents/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\nfatal: not a git repository (or any of the parent directories): .git\n",
+      "host_metadata": "Linux <xeon-host> 5.14.0-687.20.1.el9_8.x86_64 #1 SMP PREEMPT_DYNAMIC Sun Jun 28 21:16:58 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux\nArchitecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  96\nOn-line CPU(s) list:                     0-95\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz\nCPU family:                              6\nModel:                                   106\nThread(s) per core:                      2\nCore(s) per socket:                      24\nSocket(s):                               2\nStepping:                                6\nBogoMIPS:                                5799.95\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd ida arat avx512vbmi pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               2.3 MiB (48 instances)\nL1i cache:                               1.5 MiB (48 instances)\nL2 cache:                                60 MiB (48 instances)\nL3 cache:                                108 MiB (2 instances)\nNUMA node(s):                            2\nNUMA node0 CPU(s):                       0-23,48-71\nNUMA node1 CPU(s):                       24-47,72-95\nVulnerability Gather data sampling:      Unknown: Dependent on hypervisor status\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT Host state unknown\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\nc++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nclang version 21.1.8 (Red Hat, Inc. 21.1.8-2.el9)\nTarget: x86_64-redhat-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin\nConfiguration file: /etc/clang/x86_64-redhat-linux-gnu-clang.cfg\n# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -I./include -I./common -I./util -I./tests -I./hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\nfatal: not a git repository (or any of the parent directories): .git\n",
       "probe": {
         "timer_mult": 0.0,
         "clmul_latency": 5.010942,
@@ -4343,7 +4343,7 @@
           "taskset",
           "-c",
           "1",
-          "/home/thomas-ahle/agents/speedbench-ch128/build/probe"
+          "./probe"
         ],
         "before": {
           "utc": "2026-09-18T15:19:59.458415+00:00",
@@ -4545,7 +4545,7 @@
               "name": "chainhash-256",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-256",
                 "--test=Speed"
               ],
@@ -4632,7 +4632,7 @@
               "name": "chainhash-256",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-256",
                 "--test=Speed"
               ],
@@ -4719,7 +4719,7 @@
               "name": "chainhash-256",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-256",
                 "--test=Speed"
               ],
@@ -4865,7 +4865,7 @@
               "name": "chainhash-64-header",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64-header",
                 "--test=Speed"
               ],
@@ -4952,7 +4952,7 @@
               "name": "chainhash-64-header",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64-header",
                 "--test=Speed"
               ],
@@ -5039,7 +5039,7 @@
               "name": "chainhash-64-header",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64-header",
                 "--test=Speed"
               ],
@@ -5185,7 +5185,7 @@
               "name": "chainhash-64x2",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64x2",
                 "--test=Speed"
               ],
@@ -5272,7 +5272,7 @@
               "name": "chainhash-64x2",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64x2",
                 "--test=Speed"
               ],
@@ -5359,7 +5359,7 @@
               "name": "chainhash-64x2",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-64x2",
                 "--test=Speed"
               ],
@@ -5505,7 +5505,7 @@
               "name": "chainhash-128.scalar",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.scalar",
                 "--test=Speed"
               ],
@@ -5592,7 +5592,7 @@
               "name": "chainhash-128.scalar",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.scalar",
                 "--test=Speed"
               ],
@@ -5679,7 +5679,7 @@
               "name": "chainhash-128.scalar",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.scalar",
                 "--test=Speed"
               ],
@@ -5825,7 +5825,7 @@
               "name": "chainhash-128.256",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.256",
                 "--test=Speed"
               ],
@@ -5912,7 +5912,7 @@
               "name": "chainhash-128.256",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.256",
                 "--test=Speed"
               ],
@@ -5999,7 +5999,7 @@
               "name": "chainhash-128.256",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.256",
                 "--test=Speed"
               ],
@@ -6145,7 +6145,7 @@
               "name": "chainhash-128.schoolbook",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.schoolbook",
                 "--test=Speed"
               ],
@@ -6232,7 +6232,7 @@
               "name": "chainhash-128.schoolbook",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.schoolbook",
                 "--test=Speed"
               ],
@@ -6319,7 +6319,7 @@
               "name": "chainhash-128.schoolbook",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128.schoolbook",
                 "--test=Speed"
               ],
@@ -6465,7 +6465,7 @@
               "name": "chainhash-128",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128",
                 "--test=Speed"
               ],
@@ -6552,7 +6552,7 @@
               "name": "chainhash-128",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128",
                 "--test=Speed"
               ],
@@ -6639,7 +6639,7 @@
               "name": "chainhash-128",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "chainhash-128",
                 "--test=Speed"
               ],
@@ -6785,7 +6785,7 @@
               "name": "UMASH-128",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "UMASH-128",
                 "--test=Speed"
               ],
@@ -6872,7 +6872,7 @@
               "name": "UMASH-128",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "UMASH-128",
                 "--test=Speed"
               ],
@@ -6959,7 +6959,7 @@
               "name": "UMASH-128",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "UMASH-128",
                 "--test=Speed"
               ],
@@ -7106,7 +7106,7 @@
               "name": "komihash",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -7193,7 +7193,7 @@
               "name": "komihash",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -7280,7 +7280,7 @@
               "name": "komihash",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -7426,7 +7426,7 @@
               "name": "rapidhash",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -7513,7 +7513,7 @@
               "name": "rapidhash",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -7600,7 +7600,7 @@
               "name": "rapidhash",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -7746,7 +7746,7 @@
               "name": "XXH3-128",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "XXH3-128",
                 "--test=Speed"
               ],
@@ -7833,7 +7833,7 @@
               "name": "XXH3-128",
               "run": 2,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "XXH3-128",
                 "--test=Speed"
               ],
@@ -7920,7 +7920,7 @@
               "name": "XXH3-128",
               "run": 3,
               "command": [
-                "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+                "./SMHasher3",
                 "XXH3-128",
                 "--test=Speed"
               ],
@@ -8016,17 +8016,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128/build-mac/include",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128/smhasher3/hashes/chainhash_128.cpp",
+            "./chainhash_128.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128.o"
+            "./chainhash_128.o"
           ],
           [
             "c++",
@@ -8035,17 +8035,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128/build-mac/include",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128/smhasher3/hashes/chainhash_128__256.cpp",
+            "./chainhash_128__256.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128__256.o"
+            "./chainhash_128__256.o"
           ],
           [
             "c++",
@@ -8054,17 +8054,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128/build-mac/include",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128/smhasher3/hashes/chainhash_128__scalar.cpp",
+            "./chainhash_128__scalar.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128__scalar.o"
+            "./chainhash_128__scalar.o"
           ],
           [
             "c++",
@@ -8073,17 +8073,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128/build-mac/include",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128/smhasher3/hashes/chainhash_128__schoolbook.cpp",
+            "./chainhash_128__schoolbook.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128__schoolbook.o"
+            "./chainhash_128__schoolbook.o"
           ],
           [
             "c++",
@@ -8092,35 +8092,35 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128/build-mac/include",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128/smhasher3/hashes/chainhash_64_header.cpp",
+            "./chainhash_64_header.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_64_header.o"
+            "./chainhash_64_header.o"
           ],
           [
             "c++",
             "-O3",
-            "<scratch>/codex/chainhash-128/build-mac/main.cpp.o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128.o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128__256.o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128__scalar.o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_128__schoolbook.o",
-            "<scratch>/codex/chainhash-128/build-mac/chainhash_64_header.o",
-            "<scratch>/codex/chainhash-128/build-mac/libSMHasher3Tests.a",
-            "<scratch>/codex/chainhash-128/build-mac/libSMHasher3Hashlib.a",
+            "./main.cpp.o",
+            "./chainhash_128.o",
+            "./chainhash_128__256.o",
+            "./chainhash_128__scalar.o",
+            "./chainhash_128__schoolbook.o",
+            "./chainhash_64_header.o",
+            "./libSMHasher3Tests.a",
+            "./libSMHasher3Hashlib.a",
             "-o",
-            "<scratch>/codex/chainhash-128/build-mac/SMHasher3",
+            "./SMHasher3",
             "/opt/homebrew/opt/openssl@3/lib/libcrypto.dylib"
           ]
         ],
-        "baseline": "<scratch>/codex/m2-rerun/build-fixed",
+        "baseline": "./build-fixed",
         "binary_sha256": "a9537691d616019935db10fd92bb223762370927403eba60ae6edb71a8468981",
         "copied_objects": {
           "main.cpp.o": "0b557883351f4b54fe180bf393cf75a35c5968889363ef3269bfaf0d152c41d5",
@@ -8529,8 +8529,8 @@
           "command": [
             "python3",
             "benchmarks/build_smh.py",
-            "<scratch>/codex/m2-rerun/build-fixed",
-            "<scratch>/codex/chainhash-128/smhasher3",
+            "./build-fixed",
+            "./smhasher3",
             "build-mac"
           ],
           "before": {

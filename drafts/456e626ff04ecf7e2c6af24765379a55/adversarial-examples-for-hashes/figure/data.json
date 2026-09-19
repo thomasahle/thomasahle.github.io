@@ -1,6 +1,6 @@
 {
-  "source_sha256": "d07a4f81c24a89b4d47fd587e6f80e00b729af6c9ffececcbada8c3e1635ee04",
-  "profiles_sha256": "bcbe28a16ca57f9f06d7e11ec2c32e233ddbf3d74dcb43219c2f086c62a849d0",
+  "source_sha256": "18c609ff979536fdb44ac33f3afa0a7c55b876f1a97227c0fa8195310e645c16",
+  "profiles_sha256": "c46b8b9f176e2c3c45994ab38e763a2794a6cdb2ee9f1d5167616c1d26cf884a",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -9,12 +9,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/google/cityhash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/cityhash-64/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/google/cityhash",
-        "sources/cityhash.cpp",
-        "records/fairness-pass/city/README.md"
+        "verify/cityhash-64/README.html",
+        "records/speeds.json"
       ]
     },
     "farm": {
@@ -24,12 +32,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/google/farmhash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/farmhash-64/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/google/farmhash",
-        "sources/farmhash.cpp",
-        "records/fairness-pass/farm/README.md"
+        "verify/farmhash-64/README.html",
+        "records/speeds.json"
       ]
     },
     "murmur": {
@@ -39,12 +55,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/aappleby/smhasher"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/murmurhash3-128/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/aappleby/smhasher",
-        "sources/murmurhash3.cpp",
-        "records/fairness-pass/murmur/README.md"
+        "verify/murmurhash3-128/README.html",
+        "records/speeds.json"
       ]
     },
     "mx3": {
@@ -54,12 +78,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/jonmaiga/mx3"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/mx3/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/jonmaiga/mx3",
-        "sources/mx3.cpp",
-        "records/fairness-pass/mx3/README.md"
+        "verify/mx3/README.html",
+        "records/speeds.json"
       ]
     },
     "fasthash-64": {
@@ -69,13 +101,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/ztanml/fast-hash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/fasthash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/ztanml/fast-hash",
-        "sources/fasthash.cpp",
-        "records/fairness-pass/fasthash-64/README.md",
-        "records/fairness-pass/fasthash-32/README.md"
+        "verify/fasthash/README.html",
+        "records/speeds.json"
       ]
     },
     "muse": {
@@ -85,12 +124,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/eternal-io/museair"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/museair/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/eternal-io/museair",
-        "sources/museair.cpp",
-        "records/fairness-pass/muse/README.md"
+        "verify/museair/README.html",
+        "records/speeds.json"
       ]
     },
     "komi": {
@@ -100,12 +147,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/avaneev/komihash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/komihash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/avaneev/komihash",
-        "sources/komihash.h",
-        "records/fairness-pass/komi/README.md"
+        "verify/komihash/README.html",
+        "records/speeds.json"
       ]
     },
     "t1ha": {
@@ -115,14 +170,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/erthink/t1ha"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/t1ha2-64/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/erthink/t1ha",
-        "sources/t1ha.cpp",
-        "records/fairness-pass/t1ha/README.md",
-        "records/witness-searches/t1ha-digits/README.md",
-        "records/witness-searches/t1ha-digits-verify/README.md"
+        "verify/t1ha2-64/README.html",
+        "records/speeds.json"
       ]
     },
     "a5": {
@@ -132,13 +193,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/avaneev/a5hash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/a5hash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/avaneev/a5hash",
-        "sources/a5hash.cpp",
-        "records/fairness-pass/a5/README.md",
-        "records/fairness-pass/a5wide/README.md"
+        "verify/a5hash/README.html",
+        "records/speeds.json"
       ]
     },
     "rapid3": {
@@ -148,12 +216,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/Nicoshev/rapidhash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/rapidhash-v3/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/Nicoshev/rapidhash",
-        "sources/rapidhash.cpp",
-        "records/fairness-pass/rapid3/README.md"
+        "verify/rapidhash-v3/README.html",
+        "records/speeds.json"
       ]
     },
     "mum": {
@@ -163,12 +239,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/vnmakarov/mum-hash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/mum/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/vnmakarov/mum-hash",
-        "sources/mum_mir.cpp",
-        "records/fairness-pass/mum/README.md"
+        "verify/mum/README.html",
+        "records/speeds.json"
       ]
     },
     "mir": {
@@ -178,12 +262,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/vnmakarov/mir/blob/master/mir-hash.h"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/mir/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/vnmakarov/mir/blob/master/mir-hash.h",
-        "sources/mum_mir.cpp",
-        "records/fairness-pass/mir/README.md"
+        "verify/mir/README.html",
+        "records/speeds.json"
       ]
     },
     "xxh3-64": {
@@ -197,15 +289,21 @@
         {
           "label": "Algorithm specification",
           "url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/xxh3-64/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/Cyan4973/xxHash",
-        "sources/xxhash.cpp",
-        "records/fairness-pass/xxh3-64/README.md",
-        "records/fairness-pass/xxh3-128/README.md",
-        "records/witness-searches/xxh3-64-pair/README.md",
-        "records/witness-searches/xxh3-64-pair-verify/README.md"
+        "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md",
+        "verify/xxh3-64/README.html",
+        "records/speeds.json"
       ]
     },
     "highway": {
@@ -219,12 +317,21 @@
         {
           "label": "Original paper",
           "url": "https://arxiv.org/abs/1612.06257"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/highwayhash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/google/highwayhash",
         "https://arxiv.org/abs/1612.06257",
-        "records/fairness-pass/highway/README.md"
+        "verify/highwayhash/README.html",
+        "records/speeds.json"
       ]
     },
     "spooky": {
@@ -234,12 +341,20 @@
         {
           "label": "Original project & code",
           "url": "https://burtleburtle.net/bob/hash/spooky.html"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/spookyhash2-64/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://burtleburtle.net/bob/hash/spooky.html",
-        "sources/spookyhash.cpp",
-        "records/fairness-pass/spooky/README.md"
+        "verify/spookyhash2-64/README.html",
+        "records/speeds.json"
       ]
     },
     "pengyhash": {
@@ -249,12 +364,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/tinypeng/pengyhash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/pengyhash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/tinypeng/pengyhash",
-        "sources/pengyhash.cpp",
-        "records/fairness-pass/pengyhash/README.md"
+        "verify/pengyhash/README.html",
+        "records/speeds.json"
       ]
     },
     "nmhash32": {
@@ -264,13 +387,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/gzm55/hash-garage"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/nmhash32/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/gzm55/hash-garage",
-        "sources/nmhash.cpp",
-        "records/fairness-pass/nmhash32/README.md",
-        "records/fairness-pass/nmhash32x/README.md"
+        "verify/nmhash32/README.html",
+        "records/speeds.json"
       ]
     },
     "gx": {
@@ -280,12 +410,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/ogxd/gxhash"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/gxhash-64/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/ogxd/gxhash",
-        "sources/gxhash.cpp",
-        "records/fairness-pass/gx/README.md"
+        "verify/gxhash-64/README.html",
+        "records/speeds.json"
       ]
     },
     "ahash": {
@@ -299,14 +437,21 @@
         {
           "label": "Design & FAQ",
           "url": "https://github.com/tkaitchuck/aHash/blob/master/FAQ.md"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/rust-ahash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/tkaitchuck/aHash",
-        "https://github.com/tkaitchuck/aHash/blob/master/Cargo.toml",
-        "records/fairness-pass/ahash/README.md",
-        "records/witness-searches/ahash-trail/README.md",
-        "records/witness-searches/ahash-trail-verify/RESULTS.md"
+        "https://github.com/tkaitchuck/aHash/blob/master/FAQ.md",
+        "verify/rust-ahash/README.html",
+        "records/speeds.json"
       ]
     },
     "polymur": {
@@ -320,11 +465,16 @@
         {
           "label": "Author’s universality proof",
           "url": "https://github.com/orlp/polymur-hash/blob/master/extras/universality-proof.md"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/orlp/polymur-hash",
-        "https://github.com/orlp/polymur-hash/blob/master/polymur-hash.h"
+        "https://github.com/orlp/polymur-hash/blob/master/extras/universality-proof.md",
+        "records/speeds.json"
       ]
     },
     "halftimehash-64": {
@@ -332,18 +482,27 @@
       "background": "HalftimeHash, introduced by Jim Apple in 2021, was designed to hash long strings quickly without relying on wide integer multiplication. Its 64, 128, 256 and 512 style names describe implementation choices: every style here returns a 64-bit hash.",
       "links": [
         {
-          "label": "Original project & code",
+          "label": "Original project and code",
           "url": "https://github.com/jbapple/HalftimeHash"
         },
         {
-          "label": "Original paper",
-          "url": "https://arxiv.org/abs/2104.08865"
+          "label": "Corrected bounds and repair (PDF)",
+          "url": "records/papers/halftime_repair.pdf"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/halftime/README.html"
         }
       ],
       "sources": [
         "https://github.com/jbapple/HalftimeHash",
-        "https://arxiv.org/abs/2104.08865",
-        "records/halftime/REFEREE.md"
+        "records/papers/halftime_repair.pdf",
+        "records/speeds.json",
+        "verify/halftime/README.html"
       ]
     },
     "umash": {
@@ -351,62 +510,22 @@
       "background": "UMASH was developed at Backtrace to give fast string fingerprints with a mathematical bound on accidental matches. It combines several hashing steps. The 128-bit fingerprint adds a second result to the 64-bit hash.",
       "links": [
         {
-          "label": "Original project & code",
+          "label": "Original project and code",
           "url": "https://github.com/backtrace-labs/umash"
         },
         {
-          "label": "Design history",
-          "url": "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/"
+          "label": "Collision bounds (PDF)",
+          "url": "records/papers/umash_bounds.pdf"
         },
         {
-          "label": "Author’s proof & reference",
-          "url": "https://github.com/backtrace-labs/umash/blob/master/umash.pdf"
-        },
-        {
-          "label": "Corrected primary bound: proof",
-          "url": "records/umash-corrected/proof3/PROOF3.md"
-        },
-        {
-          "label": "PH+ENH and tag-only: proof",
-          "url": "records/umash-corrected/proof2/PROOF2.md"
-        },
-        {
-          "label": "ENH-only joint proof",
-          "url": "records/umash-corrected/PROOF.md"
-        },
-        {
-          "label": "UMASH-64: proof",
-          "url": "records/umash-corrected/proof4/PROOF4.md"
-        },
-        {
-          "label": "UMASH-64: checks",
-          "url": "records/umash-corrected/proof4/checks/README.md"
-        },
-        {
-          "label": "UMASH-128: proof",
-          "url": "records/umash-corrected/proof5/PROOF5.md"
-        },
-        {
-          "label": "UMASH-128: checks",
-          "url": "records/umash-corrected/proof5/checks/README.md"
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/backtrace-labs/umash",
-        "https://engineering.backtrace.io/2020-08-24-umash-fast-enough-almost-universal-fingerprinting/",
-        "records/umash/ENH_RESULT.md",
-        "records/umash/FIFTH_RECOUNT.md",
-        "index.html#appendix-umash",
-        "records/umash-corrected/PROOF.md",
-        "records/umash-corrected/checks/README.md",
-        "records/umash-corrected/proof2/PROOF2.md",
-        "records/umash-corrected/proof2/checks/README.md",
-        "records/umash-corrected/proof3/PROOF3.md",
-        "records/umash-corrected/proof3/checks/README.md",
-        "records/umash-corrected/proof4/PROOF4.md",
-        "records/umash-corrected/proof4/checks/README.md",
-        "records/umash-corrected/proof5/PROOF5.md",
-        "records/umash-corrected/proof5/checks/README.md"
+        "records/papers/umash_bounds.pdf",
+        "records/speeds.json"
       ]
     },
     "clhash": {
@@ -420,11 +539,16 @@
         {
           "label": "Original paper",
           "url": "https://arxiv.org/abs/1503.03465"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/lemire/clhash",
-        "https://arxiv.org/abs/1503.03465"
+        "https://arxiv.org/abs/1503.03465",
+        "records/speeds.json"
       ]
     },
     "chain256": {
@@ -432,18 +556,22 @@
       "background": "ChainHash is my construction for hashing long messages with a provable collision bound. This version processes 256-byte blocks and combines their results with secret-key arithmetic. It is the original design from the paper, retained in Table 2; v3 is now the shipped default and the 64-bit ChainHash point on both hosts.",
       "links": [
         {
-          "label": "ChainHash project & code",
+          "label": "Project and code",
           "url": "https://github.com/thomasahle/chainhash"
         },
         {
-          "label": "Reference implementation",
-          "url": "https://github.com/thomasahle/chainhash/blob/main/include/chainhash.h"
+          "label": "Specification and theorem",
+          "url": "records/chainhash/THEOREMS.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/thomasahle/chainhash",
-        "#proof-audit-notes",
-        "records/chainhash/THEOREMS.md"
+        "records/chainhash/THEOREMS.html",
+        "records/speeds.json"
       ]
     },
     "poly1305": {
@@ -457,11 +585,16 @@
         {
           "label": "OpenSSL implementation",
           "url": "https://github.com/openssl/openssl/tree/master/crypto/poly1305"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://cr.yp.to/mac/poly1305-20050329.pdf",
-        "https://github.com/openssl/openssl/tree/master/crypto/poly1305"
+        "https://github.com/openssl/openssl/tree/master/crypto/poly1305",
+        "records/speeds.json"
       ]
     },
     "ghash": {
@@ -475,11 +608,16 @@
         {
           "label": "OpenSSL implementation",
           "url": "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://eprint.iacr.org/2004/193",
-        "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c"
+        "https://github.com/openssl/openssl/blob/master/crypto/modes/gcm128.c",
+        "records/speeds.json"
       ]
     },
     "foldhash-fast": {
@@ -489,16 +627,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/orlp/foldhash/tree/v0.2.0"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/foldhash-fast/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
-        "records/foldhash/SYNTHESIS.md",
-        "records/foldhash/README.md",
-        "records/foldhash/VERIFIED_XTYPE.md",
-        "verify/foldhash-fast/README.md",
-        "verify/foldhash-quality/README.md",
-        "records/fairness-pass/foldhash-fast/README.md",
-        "records/fairness-pass/foldhash-quality/README.md"
+        "https://github.com/orlp/foldhash/tree/v0.2.0",
+        "verify/foldhash-fast/README.html",
+        "records/speeds.json"
       ]
     },
     "siphash-1-3": {
@@ -508,16 +650,15 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/veorq/SipHash"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
-        "index.html#appendix-siphash",
-        "data.json",
-        "records/speeds.json",
-        "records/siphash/LITERATURE.md",
-        "https://github.com/rust-lang/rust/issues/29754",
-        "records/fairness-pass/siphash-1-3/README.md",
-        "records/fairness-pass/siphash-2-4/README.md"
+        "https://github.com/veorq/SipHash",
+        "records/speeds.json"
       ]
     },
     "halftime24": {
@@ -525,18 +666,27 @@
       "background": "HalftimeHash’s advanced interface can return 24 bytes, or 192 bits, rather than the 64 bits returned by its public wrappers. This entry studies that original internal function. It was intended for fixed-length inputs.",
       "links": [
         {
-          "label": "Original project & code",
+          "label": "Original project and code",
           "url": "https://github.com/jbapple/HalftimeHash"
         },
         {
-          "label": "Original paper",
-          "url": "https://arxiv.org/abs/2104.08865"
+          "label": "Corrected bounds and repair (PDF)",
+          "url": "records/papers/halftime_repair.pdf"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/halftime/README.html"
         }
       ],
       "sources": [
-        "index.html#appendix-halftime24",
-        "verify/halftime/verify2/run.cpp",
-        "records/fairness-pass/halftime24/README.md"
+        "https://github.com/jbapple/HalftimeHash",
+        "records/papers/halftime_repair.pdf",
+        "records/speeds.json",
+        "verify/halftime/README.html"
       ]
     },
     "halftime24-fixed": {
@@ -544,18 +694,27 @@
       "background": "This is a repaired version of HalftimeHash’s advanced 24-byte function. It changes how message blocks are encoded and records the input length explicitly. The repair is studied in the linked branch; it is not presented as an upstream HalftimeHash release. Not plotted: the post repairs the proof, and the encoder only to check it; it does not ship fixed hashes.",
       "links": [
         {
-          "label": "Specification and theorem",
-          "url": "records/halftime/THEOREM.md"
+          "label": "Original project and code",
+          "url": "https://github.com/jbapple/HalftimeHash"
         },
         {
-          "label": "Implementation studied",
-          "url": "records/halftime/HalftimeHash24-fixed.hpp"
+          "label": "Corrected bounds and repair (PDF)",
+          "url": "records/papers/halftime_repair.pdf"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/halftime/speeds_halftime_fixed.json"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/halftime/README.html"
         }
       ],
       "sources": [
-        "records/halftime/THEOREM.md",
+        "https://github.com/jbapple/HalftimeHash",
+        "records/papers/halftime_repair.pdf",
         "records/halftime/speeds_halftime_fixed.json",
-        "records/halftime/speeds_halftime_fixed.json"
+        "verify/halftime/README.html"
       ]
     },
     "chain-v2": {
@@ -563,22 +722,22 @@
       "background": "ChainHash v2 rearranges my original ChainHash design to process neighboring pieces of data together in 1,024-byte blocks. This layout targets faster processing on x86 processors. It produces different hash values from the original paper version.",
       "links": [
         {
-          "label": "ChainHash project",
+          "label": "Project and code",
           "url": "https://github.com/thomasahle/chainhash"
         },
         {
           "label": "Specification and theorem",
-          "url": "records/chainhash/v2/SPEC.md"
+          "url": "records/chainhash/v2/SPEC.html"
         },
         {
-          "label": "Implementation studied",
-          "url": "records/chainhash/v2/chainhash_x86.h"
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
-        "records/chainhash/v2/SPEC.md",
-        "records/chainhash/v2/speeds_chainhash_x86.json",
-        "records/chainhash/m2-adjacent/speeds_m2_adjacent.json"
+        "https://github.com/thomasahle/chainhash",
+        "records/chainhash/v2/SPEC.html",
+        "records/speeds.json"
       ]
     },
     "chain128": {
@@ -586,22 +745,22 @@
       "background": "ChainHash-128 is the 128-bit version of my ChainHash construction. It processes messages in 512-byte blocks and combines them using secret-key arithmetic. Its wider output makes room for a stronger collision guarantee than the 64-bit versions.",
       "links": [
         {
-          "label": "ChainHash project",
+          "label": "Project and code",
           "url": "https://github.com/thomasahle/chainhash"
         },
         {
           "label": "Specification and theorem",
-          "url": "records/chainhash/128/SPEC.md"
+          "url": "records/chainhash/128/SPEC.html"
         },
         {
-          "label": "Implementation studied",
-          "url": "records/chainhash/128/chainhash128.h"
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
-        "records/chainhash/128/SPEC.md",
-        "records/chainhash/128/speeds_chainhash128.json",
-        "records/chainhash/128/speeds_chainhash128.json"
+        "https://github.com/thomasahle/chainhash",
+        "records/chainhash/128/SPEC.html",
+        "records/speeds.json"
       ]
     },
     "go-maphash": {
@@ -617,14 +776,19 @@
           "url": "https://github.com/golang/go/blob/go1.27.1/src/internal/runtime/maps/memhash_amd64.s"
         },
         {
-          "label": "Reproduction package",
-          "url": "verify/go-maphash/README.md"
+          "label": "Verifier package",
+          "url": "verify/go-maphash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://pkg.go.dev/hash/maphash",
         "https://github.com/golang/go/blob/go1.27.1/src/internal/runtime/maps/memhash_amd64.s",
-        "verify/go-maphash/README.md"
+        "verify/go-maphash/README.html",
+        "records/speeds.json"
       ]
     },
     "abseil-hash": {
@@ -640,14 +804,19 @@
           "url": "https://github.com/abseil/abseil-cpp/blob/73d2688300440c8af028eec865ee0dcd85e93025/absl/hash/internal/hash.h"
         },
         {
-          "label": "Reproduction package",
-          "url": "verify/abseil-hash/README.md"
+          "label": "Verifier package",
+          "url": "verify/abseil-hash/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/abseil/abseil-cpp/blob/master/absl/hash/hash.h",
         "https://github.com/abseil/abseil-cpp/blob/73d2688300440c8af028eec865ee0dcd85e93025/absl/hash/internal/hash.h",
-        "verify/abseil-hash/README.md"
+        "verify/abseil-hash/README.html",
+        "records/speeds.json"
       ]
     },
     "dotnet-marvin": {
@@ -663,14 +832,19 @@
           "url": "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs"
         },
         {
-          "label": "Reproduction package",
-          "url": "verify/dotnet-marvin/README.md"
+          "label": "Verifier package",
+          "url": "verify/dotnet-marvin/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
         "https://github.com/dotnet/runtime/blob/main/docs/design/security/System.HashCode.md",
         "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs",
-        "verify/dotnet-marvin/README.md"
+        "verify/dotnet-marvin/README.html",
+        "records/speeds.json"
       ]
     },
     "chain-v3": {
@@ -678,13 +852,26 @@
       "background": "ChainHash v3 (ChainHash-Horner) is my default construction for hashing long messages with a collision guarantee. It combines 256-byte logical blocks with a secret-key polynomial. Its flat product loop follows Orson Peters’s PolymurHash design lineage. The public repository ships chainhash3.h alongside the original paper function, chainhash.h; v3 changes the digests.",
       "links": [
         {
-          "label": "Specification and implementation",
-          "url": "records/chainhash/v3/SPEC_v3.md"
+          "label": "Project and code",
+          "url": "https://github.com/thomasahle/chainhash"
+        },
+        {
+          "label": "Specification",
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3.md"
+        },
+        {
+          "label": "Theorem and proof",
+          "url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/chainhash/v3/speeds_chainhash_v3.json"
         }
       ],
       "sources": [
-        "records/chainhash/v3/SPEC_v3.md",
-        "records/chainhash/v3/THEOREM_v3.md",
+        "https://github.com/thomasahle/chainhash",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/SPEC_v3.md",
+        "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md",
         "records/chainhash/v3/speeds_chainhash_v3.json"
       ]
     },
@@ -695,13 +882,20 @@
         {
           "label": "Original project & code",
           "url": "https://github.com/eternal-io/museair"
+        },
+        {
+          "label": "Verifier package",
+          "url": "verify/museair-v2/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/speeds.json"
         }
       ],
       "sources": [
-        "records/witness-searches/muse-v2/README.md",
-        "records/witness-searches/muse-v2-verify/README.md",
-        "records/fairness-pass/muse/current-README.md",
-        "records/witness-searches/muse-v2-timing/speeds_museair_v2.json"
+        "https://github.com/eternal-io/museair",
+        "verify/museair-v2/README.html",
+        "records/speeds.json"
       ]
     }
   },
@@ -734,7 +928,7 @@
             "scope": "The result covers the studied CityHash64 seeded functions, including the version that accepts two seeds. It extends earlier published attacks; the appendix credits that work and gives the exact inputs."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/cityhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/cityhash.cpp"
         },
         {
           "id": "farm",
@@ -759,7 +953,7 @@
             "scope": "The pair applies to FarmHash64 NA with either one or two seeds. Direct upstream checks also reproduce it through the UO, XO and TE entry points, which use the NA path for these short inputs."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/farmhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/farmhash.cpp"
         },
         {
           "id": "murmur",
@@ -784,7 +978,7 @@
             "scope": "The result concerns MurmurHash3 x64_128. It builds on a previously published method; the appendix explains the extension and credits the original work."
           },
           "output_bits": 128,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/murmurhash3.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/murmurhash3.cpp"
         },
         {
           "id": "mx3",
@@ -809,7 +1003,7 @@
             "scope": "This is an unequal-length collision in mx3 v3’s string-hashing function. It is not a finding about the project’s random-number generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mx3.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/mx3.cpp"
         },
         {
           "id": "fasthash-64",
@@ -834,7 +1028,7 @@
             "scope": "Both fasthash32 and fasthash64 are affected by this pair. The appendix gives the bytes and shows how the length difference is cancelled."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/fasthash.cpp"
         },
         {
           "id": "fasthash-32",
@@ -859,7 +1053,7 @@
             "scope": "Both fasthash32 and fasthash64 are affected by this pair. The appendix gives the bytes and shows how the length difference is cancelled."
           },
           "output_bits": 32,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/fasthash.cpp"
         },
         {
           "id": "muse",
@@ -884,7 +1078,7 @@
             "scope": "This 1.59-bit result is version-bound to v0.3 and v0.4. Current algorithm v2 (crate 0.6.0) has its own 19.45-bit sampled result."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/museair.cpp"
         },
         {
           "id": "muse-v2",
@@ -959,7 +1153,7 @@
             "scope": "This result concerns the t1ha2_atonce 64-bit function. Other t1ha versions and the streaming interface are separate cases."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/t1ha.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/t1ha.cpp"
         },
         {
           "id": "a5",
@@ -984,7 +1178,7 @@
             "scope": "The results apply to the respective 64-bit and 128-bit functions in the studied a5hash version. The appendix gives separate witnesses and derivations."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/a5hash.cpp"
         },
         {
           "id": "a5wide",
@@ -1009,7 +1203,7 @@
             "scope": "The results apply to the respective 64-bit and 128-bit functions in the studied a5hash version. The appendix gives separate witnesses and derivations."
           },
           "output_bits": 128,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/a5hash.cpp"
         },
         {
           "id": "rapid3",
@@ -1022,7 +1216,7 @@
           "score": "≈ 28.54*",
           "anchor": "appendix-rapidhash-v3",
           "evidence": "about 11 of every 2^30 keys (sampled; 11 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/fairness-pass/rapid3/. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5]. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/README.html. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5]. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
@@ -1034,7 +1228,7 @@
             "scope": "The experiment uses rapidhash v3’s standard function and its default public constants. Micro, Nano and other releases are not covered by this measurement."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rapidhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/rapidhash.cpp"
         },
         {
           "id": "foldhash-fast",
@@ -1134,7 +1328,7 @@
             "scope": "The plotted speed is for mir.exact. The collision claim covers both mir.exact and mir.inexact in the studied code."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mum_mir.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/mum_mir.cpp"
         },
         {
           "id": "xxh3-64",
@@ -1234,7 +1428,7 @@
             "scope": "The plotted measurement is for SpookyHash V2’s 64-bit interface. An exact one-half probability is not certified by the sampling."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/spookyhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/spookyhash.cpp"
         },
         {
           "id": "pengyhash",
@@ -1259,7 +1453,7 @@
             "scope": "The result concerns pengyhash v0.3 as retained in SMHasher3. It relies on the seed being introduced only after the colliding full-block calculation."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/pengyhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/pengyhash.cpp"
         },
         {
           "id": "nmhash32",
@@ -1284,7 +1478,7 @@
             "scope": "The entries concern the respective v2 functions. A result for NMHASH32 should not be transferred to NMHASH32X, or vice versa, without its separate argument."
           },
           "output_bits": 32,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/nmhash.cpp"
         },
         {
           "id": "nmhash32x",
@@ -1309,7 +1503,7 @@
             "scope": "The entries concern the respective v2 functions. A result for NMHASH32 should not be transferred to NMHASH32X, or vice versa, without its separate argument."
           },
           "output_bits": 32,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/nmhash.cpp"
         },
         {
           "id": "gx",
@@ -1334,7 +1528,7 @@
             "scope": "This is a short-message encoding collision in the studied version. The appendix credits the earlier report and shows the exact bytes."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/gxhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/gxhash.cpp"
         },
         {
           "id": "ahash",
@@ -1359,7 +1553,7 @@
             "scope": "This covers the AES path and hashing byte slices through the stated constructor. Another key distribution, data type or sequence of write calls needs a separate check."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rust-ahash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/rust-ahash.cpp"
         },
         {
           "id": "siphash-1-3",
@@ -1372,12 +1566,12 @@
           "score": "64 (claimed)",
           "anchor": "appendix-siphash",
           "evidence": "no pair found",
-          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
+          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
           "source": "records/speeds.json",
           "family": "ARX PRF",
           "key_model": "uniform 128-bit key; benchmark wrapper uses its registered seed expansion",
           "profile": "siphash-1-3",
-          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-1-3 is the default hasher in Rust's standard HashMap. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). Note that SipHash-1-3, the Rust default, is outside the designers' stated claim (c ≥ 2, d ≥ 4); its basis is Aumasson's 2015 remark on the Rust issue. Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
+          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-1-3 is the default hasher in Rust's standard HashMap. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). Note that SipHash-1-3, the Rust default, is outside the designers' stated claim (c ≥ 2, d ≥ 4); its basis is Aumasson's 2015 remark on the Rust issue. Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
           "reader_notes": {
             "evidence": "No collision witness or universal-hashing score is supplied in this post. Leaving the score blank is not a finding that the hash is weak or that its output width is a proved guarantee.",
             "key": "SipHash takes a 128-bit secret key. The timing harness uses its registered seed expansion; that setup should be distinguished from choosing the full key uniformly.",
@@ -1397,12 +1591,12 @@
           "score": "64 (claimed)",
           "anchor": "appendix-siphash",
           "evidence": "no pair found",
-          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
+          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
           "source": "records/speeds.json",
           "family": "ARX PRF",
           "key_model": "uniform 128-bit key; benchmark wrapper uses its registered seed expansion",
           "profile": "siphash-1-3",
-          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-2-4 is the designers' conservative reference parameter set. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
+          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-2-4 is the designers' conservative reference parameter set. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
           "reader_notes": {
             "evidence": "No collision witness or universal-hashing score is supplied in this post. Leaving the score blank is not a finding that the hash is weak or that its output width is a proved guarantee.",
             "key": "SipHash takes a 128-bit secret key. The timing harness uses its registered seed expansion; that setup should be distinguished from choosing the full key uniformly.",
@@ -1509,7 +1703,7 @@
             "scope": "The proved result concerns equality of the full 64-bit outputs. The audit does not certify stronger claims about output differences, arbitrary truncation, or correctness of the compiled C implementation."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/polymurhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "poly1305",
@@ -1584,7 +1778,7 @@
             "scope": "This style’s bound applies below 2,761,050,384 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "halftimehash-128",
@@ -1609,7 +1803,7 @@
             "scope": "This style’s bound applies below 5,522,100,768 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "halftimehash-256",
@@ -1634,7 +1828,7 @@
             "scope": "This style’s bound applies below 11,044,201,536 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "halftimehash-512",
@@ -1659,7 +1853,7 @@
             "scope": "This style’s bound applies below 22,088,403,072 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "umash",
@@ -1679,7 +1873,7 @@
           "profile": "umash",
           "summary": "The published 64-bit guarantee now has a complete proof, with a stronger 56.18-bit score. The proof uses three extra accumulator bits that the implementation keeps beyond its prime-field calculation. With ideal random keys and a fixed seed, the bound at 1 GB is 38.000 bits.",
           "reader_notes": {
-            "evidence": "Four adversarial review lenses checked the new paper proof and exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, with the Lean lane running.",
+            "evidence": "The compiled paper establishes the bound using exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, and are not yet machine-checked.",
             "key": "The seed is fixed. All 34 compression-key words are uniformly random without replacement; independent sampling is also covered. One polynomial multiplier is independently uniform. Both reference and C multiplier ranges are covered.",
             "scope": "The 56.18-bit score holds under both fixed-length and at-most-length conventions. The implemented accumulator was checked in the Python reference and C. These are full-output theorems for ideal keys, not Salsa20 key derivation / umash_params_derive or its OH-repair sampler. Per-call seeds and masked outputs are outside the theorems."
           },
@@ -1704,7 +1898,7 @@
           "profile": "umash",
           "summary": "The C fingerprint’s published guarantee is also proved, using two independently random polynomial multipliers. The finer bound scores 83.99 bits (about 84) through 2^46 eight-byte words, 88.63 through 64 MiB and about 69 over the full byte-length domain. At 1 GB the bound is 75.98 bits. The single-multiplier Python fingerprint is refuted.",
           "reader_notes": {
-            "evidence": "Four adversarial review lenses checked the new paper proof and exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, with the Lean lane running.",
+            "evidence": "The compiled paper establishes the bound using exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, and are not yet machine-checked.",
             "key": "The seed is fixed. All 34 compression-key words are uniformly random without replacement; independent sampling is also covered. The two polynomial multipliers are independent of each other and of the shared compression key. Both reference and C multiplier ranges are covered.",
             "scope": "The 84-bit display is rounded and applies only through 2^46 words. The C architecture uses two multipliers; the Python reference reuses one and has a block-swap collision for every compression key at special multiplier values. These are full-output theorems for ideal keys, not Salsa20 key derivation / umash_params_derive or its OH-repair sampler. Per-call seeds and masked outputs are outside the theorems."
           },
@@ -1734,7 +1928,7 @@
             "scope": "The proof covers the mathematical algorithm, not the C implementation or compiler. The paper’s separately bit-mixed variant and its claims about output differences must also be distinguished."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/clhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/clhash.cpp"
         },
         {
           "id": "chain-v3",
@@ -1747,19 +1941,19 @@
           "score": "≥ 63",
           "anchor": "appendix-chainhash",
           "evidence": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
-          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the specification; the headline bounds are not yet machine-checked. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
           "source": "records/chainhash/v3/speeds_chainhash_v3.json",
           "family": "CLNH + Horner + quintic",
           "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
           "profile": "chain-v3",
-          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/chainhash/v3-lean/.",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/machine-checked.html.",
           "reader_notes": {
-            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the design panel. The Lean lane is running. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
+            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the specification. The headline bounds are not yet machine-checked. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
             "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
             "scope": "The guarantee covers fixed-length and at-most-length messages, including unequal lengths, under the stated key distribution. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three. Sanity and verification passed, but no complete v3 statistical-suite result or machine-checked implementation proof is claimed."
           },
           "output_bits": 64,
-          "code_url": "records/chainhash/v3/chainhash3.h"
+          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
         },
         {
           "id": "chain128",
@@ -1784,7 +1978,7 @@
             "scope": "The C interface accepts lengths below 2⁶⁴ bytes. The proof checks the mathematical hash and the required randomness, while the C implementation, processor instructions and compiler remain outside its scope."
           },
           "output_bits": 128,
-          "code_url": "records/chainhash/128/chainhash128.h"
+          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
         }
       ]
     },
@@ -1816,7 +2010,7 @@
             "scope": "The result covers the studied CityHash64 seeded functions, including the version that accepts two seeds. It extends earlier published attacks; the appendix credits that work and gives the exact inputs."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/cityhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/cityhash.cpp"
         },
         {
           "id": "farm",
@@ -1841,7 +2035,7 @@
             "scope": "The pair applies to FarmHash64 NA with either one or two seeds. Direct upstream checks also reproduce it through the UO, XO and TE entry points, which use the NA path for these short inputs."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/farmhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/farmhash.cpp"
         },
         {
           "id": "murmur",
@@ -1866,7 +2060,7 @@
             "scope": "The result concerns MurmurHash3 x64_128. It builds on a previously published method; the appendix explains the extension and credits the original work."
           },
           "output_bits": 128,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/murmurhash3.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/murmurhash3.cpp"
         },
         {
           "id": "mx3",
@@ -1891,7 +2085,7 @@
             "scope": "This is an unequal-length collision in mx3 v3’s string-hashing function. It is not a finding about the project’s random-number generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mx3.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/mx3.cpp"
         },
         {
           "id": "fasthash-64",
@@ -1916,7 +2110,7 @@
             "scope": "Both fasthash32 and fasthash64 are affected by this pair. The appendix gives the bytes and shows how the length difference is cancelled."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/fasthash.cpp"
         },
         {
           "id": "fasthash-32",
@@ -1941,7 +2135,7 @@
             "scope": "Both fasthash32 and fasthash64 are affected by this pair. The appendix gives the bytes and shows how the length difference is cancelled."
           },
           "output_bits": 32,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/fasthash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/fasthash.cpp"
         },
         {
           "id": "muse",
@@ -1966,7 +2160,7 @@
             "scope": "This 1.59-bit result is version-bound to v0.3 and v0.4. Current algorithm v2 (crate 0.6.0) has its own 19.45-bit sampled result."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/museair.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/museair.cpp"
         },
         {
           "id": "muse-v2",
@@ -2041,7 +2235,7 @@
             "scope": "This result concerns the t1ha2_atonce 64-bit function. Other t1ha versions and the streaming interface are separate cases."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/t1ha.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/t1ha.cpp"
         },
         {
           "id": "a5",
@@ -2066,7 +2260,7 @@
             "scope": "The results apply to the respective 64-bit and 128-bit functions in the studied a5hash version. The appendix gives separate witnesses and derivations."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/a5hash.cpp"
         },
         {
           "id": "a5wide",
@@ -2091,7 +2285,7 @@
             "scope": "The results apply to the respective 64-bit and 128-bit functions in the studied a5hash version. The appendix gives separate witnesses and derivations."
           },
           "output_bits": 128,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/a5hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/a5hash.cpp"
         },
         {
           "id": "rapid3",
@@ -2104,7 +2298,7 @@
           "score": "≈ 28.54*",
           "anchor": "appendix-rapidhash-v3",
           "evidence": "about 11 of every 2^30 keys (sampled; 11 events)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/fairness-pass/rapid3/. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5]. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. SMHasher3 tests v3. The first-fold flaw persists in standard, -micro and -nano: each has 11/2^30 at both 32 B and 48 B. The 28.54-bit plotted cap uses L=4 at 32 B; the 48-byte score is 29.125530882083858. Timings shown are for standard v3. A separate upstream-master protected-mode check found no annihilation collisions in 2^26 seeds, while fold pairs A and D each retained 4/2^28 collisions; see records/README.html. Exact Poisson 95% interval for this witness-derived score: [27.7, 29.5]. The annihilation needs the shipped secret array. rapidhash's public API (rapidhash, rapidhash_withSeed, Micro, Nano) exposes only a 64-bit seed; the maintainer keeps the secrets fixed (issue #10, 2024-12-02) and states that random seeds are not recommended and that most users will use seed 0 (issue #10, 2026-01-11). Users who compile their own secret array (secret.h) are outside this witness.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit API seed (sampled reproducibly with xoshiro256**); fixed default public secret/constants",
@@ -2116,7 +2310,7 @@
             "scope": "The experiment uses rapidhash v3’s standard function and its default public constants. Micro, Nano and other releases are not covered by this measurement."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rapidhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/rapidhash.cpp"
         },
         {
           "id": "foldhash-fast",
@@ -2216,7 +2410,7 @@
             "scope": "The plotted speed is for mir.exact. The collision claim covers both mir.exact and mir.inexact in the studied code."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/mum_mir.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/mum_mir.cpp"
         },
         {
           "id": "xxh3-64",
@@ -2316,7 +2510,7 @@
             "scope": "The plotted measurement is for SpookyHash V2’s 64-bit interface. An exact one-half probability is not certified by the sampling."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/spookyhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/spookyhash.cpp"
         },
         {
           "id": "pengyhash",
@@ -2341,7 +2535,7 @@
             "scope": "The result concerns pengyhash v0.3 as retained in SMHasher3. It relies on the seed being introduced only after the colliding full-block calculation."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/pengyhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/pengyhash.cpp"
         },
         {
           "id": "nmhash32",
@@ -2366,7 +2560,7 @@
             "scope": "The entries concern the respective v2 functions. A result for NMHASH32 should not be transferred to NMHASH32X, or vice versa, without its separate argument."
           },
           "output_bits": 32,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/nmhash.cpp"
         },
         {
           "id": "nmhash32x",
@@ -2391,7 +2585,7 @@
             "scope": "The entries concern the respective v2 functions. A result for NMHASH32 should not be transferred to NMHASH32X, or vice versa, without its separate argument."
           },
           "output_bits": 32,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/nmhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/nmhash.cpp"
         },
         {
           "id": "gx",
@@ -2416,7 +2610,7 @@
             "scope": "This is a short-message encoding collision in the studied version. The appendix credits the earlier report and shows the exact bytes."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/gxhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/gxhash.cpp"
         },
         {
           "id": "ahash",
@@ -2441,7 +2635,7 @@
             "scope": "This covers the AES path and hashing byte slices through the stated constructor. Another key distribution, data type or sequence of write calls needs a separate check."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/rust-ahash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/rust-ahash.cpp"
         },
         {
           "id": "siphash-1-3",
@@ -2454,12 +2648,12 @@
           "score": "64 (claimed)",
           "anchor": "appendix-siphash",
           "evidence": "no pair found",
-          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
+          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
           "source": "records/speeds.json",
           "family": "ARX PRF",
           "key_model": "uniform 128-bit key; benchmark wrapper uses its registered seed expansion",
           "profile": "siphash-1-3",
-          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-1-3 is the default hasher in Rust's standard HashMap. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). Note that SipHash-1-3, the Rust default, is outside the designers' stated claim (c ≥ 2, d ≥ 4); its basis is Aumasson's 2015 remark on the Rust issue. Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
+          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-1-3 is the default hasher in Rust's standard HashMap. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). Note that SipHash-1-3, the Rust default, is outside the designers' stated claim (c ≥ 2, d ≥ 4); its basis is Aumasson's 2015 remark on the Rust issue. Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
           "reader_notes": {
             "evidence": "No collision witness or universal-hashing score is supplied in this post. Leaving the score blank is not a finding that the hash is weak or that its output width is a proved guarantee.",
             "key": "SipHash takes a 128-bit secret key. The timing harness uses its registered seed expansion; that setup should be distinguished from choosing the full key uniformly.",
@@ -2479,12 +2673,12 @@
           "score": "64 (claimed)",
           "anchor": "appendix-siphash",
           "evidence": "no pair found",
-          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
+          "scope": "Plotted as an unresolved claim at its 64-bit output width. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). The SMHasher3 wrapper expands a 64-bit seed into the 128-bit key, so the timed function is a 2^64-member subfamily.",
           "source": "records/speeds.json",
           "family": "ARX PRF",
           "key_model": "uniform 128-bit key; benchmark wrapper uses its registered seed expansion",
           "profile": "siphash-1-3",
-          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-2-4 is the designers' conservative reference parameter set. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/siphash/). Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
+          "summary": "Plotted as an unresolved claim at 64 bits: a PRF design with no proof of the fixed-pair collision bound and no known attack, so the honest statement is the output width with a hollow marker, not a proved lower bound or a witnessed cap. SipHash-2-4 is the designers' conservative reference parameter set. No proof of the fixed-pair bound exists for any ARX PRF, and no refutation is known: the best published collision characteristics are 2^-167 for SipHash-1-x and 2^-236.3 for full SipHash-2-4 (Dobraunig, Mendel and Schläffer, SAC 2014), and our own search over 10,517 XOR differences and fixed pairs at up to 2^28 keys per pair saw nothing above the 2^-26.4 resolution floor (records/README.html). Its bulk speed, about 1 B/cycle for 1-3 and 0.5 for 2-4, is the price of the cryptographic option; the SMHasher3 wrapper expands a 64-bit seed into the 128-bit key.",
           "reader_notes": {
             "evidence": "No collision witness or universal-hashing score is supplied in this post. Leaving the score blank is not a finding that the hash is weak or that its output width is a proved guarantee.",
             "key": "SipHash takes a 128-bit secret key. The timing harness uses its registered seed expansion; that setup should be distinguished from choosing the full key uniformly.",
@@ -2616,7 +2810,7 @@
             "scope": "The proved result concerns equality of the full 64-bit outputs. The audit does not certify stronger claims about output differences, arbitrary truncation, or correctness of the compiled C implementation."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/polymurhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "poly1305",
@@ -2691,7 +2885,7 @@
             "scope": "This style’s bound applies below 2,761,050,384 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "halftimehash-128",
@@ -2716,7 +2910,7 @@
             "scope": "This style’s bound applies below 5,522,100,768 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "halftimehash-256",
@@ -2741,7 +2935,7 @@
             "scope": "This style’s bound applies below 11,044,201,536 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "halftimehash-512",
@@ -2766,7 +2960,7 @@
             "scope": "This style’s bound applies below 22,088,403,072 bytes. It assumes the stated memory layout and unsigned arithmetic behavior; it is not a proof of arbitrary C++ execution or of the benchmark’s seed generator."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/halftime_hash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/tree/7ad8939d/hashes"
         },
         {
           "id": "umash",
@@ -2786,7 +2980,7 @@
           "profile": "umash",
           "summary": "The published 64-bit guarantee now has a complete proof, with a stronger 56.18-bit score. The proof uses three extra accumulator bits that the implementation keeps beyond its prime-field calculation. With ideal random keys and a fixed seed, the bound at 1 GB is 38.000 bits.",
           "reader_notes": {
-            "evidence": "Four adversarial review lenses checked the new paper proof and exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, with the Lean lane running.",
+            "evidence": "The compiled paper establishes the bound using exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, and are not yet machine-checked.",
             "key": "The seed is fixed. All 34 compression-key words are uniformly random without replacement; independent sampling is also covered. One polynomial multiplier is independently uniform. Both reference and C multiplier ranges are covered.",
             "scope": "The 56.18-bit score holds under both fixed-length and at-most-length conventions. The implemented accumulator was checked in the Python reference and C. These are full-output theorems for ideal keys, not Salsa20 key derivation / umash_params_derive or its OH-repair sampler. Per-call seeds and masked outputs are outside the theorems."
           },
@@ -2811,7 +3005,7 @@
           "profile": "umash",
           "summary": "The C fingerprint’s published guarantee is also proved, using two independently random polynomial multipliers. The finer bound scores 83.99 bits (about 84) through 2^46 eight-byte words, 88.63 through 64 MiB and about 69 over the full byte-length domain. At 1 GB the bound is 75.98 bits. The single-multiplier Python fingerprint is refuted.",
           "reader_notes": {
-            "evidence": "Four adversarial review lenses checked the new paper proof and exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, with the Lean lane running.",
+            "evidence": "The compiled paper establishes the bound using exact certificates. The original paper’s intermediate projection step remains unvalidated. Lean has checked the earlier 46.52-bit envelope and ENH-only closure; the stronger headlines and PH+ENH closure are verified paper proofs, and are not yet machine-checked.",
             "key": "The seed is fixed. All 34 compression-key words are uniformly random without replacement; independent sampling is also covered. The two polynomial multipliers are independent of each other and of the shared compression key. Both reference and C multiplier ranges are covered.",
             "scope": "The 84-bit display is rounded and applies only through 2^46 words. The C architecture uses two multipliers; the Python reference reuses one and has a block-swap collision for every compression key at special multiplier values. These are full-output theorems for ideal keys, not Salsa20 key derivation / umash_params_derive or its OH-repair sampler. Per-call seeds and masked outputs are outside the theorems."
           },
@@ -2841,7 +3035,7 @@
             "scope": "The proof covers the mathematical algorithm, not the C implementation or compiler. The paper’s separately bit-mixed variant and its claims about output differences must also be distinguished."
           },
           "output_bits": 64,
-          "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/clhash.cpp"
+          "code_url": "https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/clhash.cpp"
         },
         {
           "id": "chain-v3",
@@ -2854,19 +3048,19 @@
           "score": "≥ 63",
           "anchor": "appendix-chainhash",
           "evidence": "Paper model: min(1,(p(L)+1)/2^64); model A: min(1,(d(L)+p(L))/2^64), with p the logical 256-byte comb-block count and d the level-1 root-count envelope",
-          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the design panel; the Lean lane is running. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
+          "scope": "Fixed messages independent of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1. The 63.0-bit model A score uses the Frobenius root-count lemma (squaring is bijective in GF(2^64)); without that refinement the score is 62.68. Natural-language paper-model and model A proofs were adversarially reviewed in the specification; the headline bounds are not yet machine-checked. The benchmark SplitMix64 seed expansion is outside these key models; no full v3 SMHasher3 suite result or compiler/SIMD proof is claimed.",
           "source": "records/chainhash/v3/speeds_chainhash_v3.json",
           "family": "CLNH + Horner + quintic",
           "key_model": "Model A: eight independent uniform 64-bit words s, y, c0…c4, τ (64 random bytes); κ_m = s^(m+1). The resident implementation caches 56 words (448 bytes). The paper model for v3 has 39 independent words (312 bytes).",
           "profile": "chain-v3",
-          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/chainhash/v3-lean/.",
+          "summary": "One function reaches 28.31 B/cycle on Xeon and 26.26 on M2 Pro, with a 63.0-bit guarantee under its 64-byte random key model. Short inputs cost more: about 155 cycles/hash on Xeon and 87 on M2, versus 103 and 73 for the original function in the same benchmark records. Lean: ✓ checked. Machine-checked (89 theorems, standard axioms): paper-model bound (p(L)+1)/2^64 with 39 independent words, model A bound with exactly 64 random bytes, evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride) and the exact score minimum 63.0; 464 C/Lean vectors. See records/machine-checked.html.",
           "reader_notes": {
-            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the design panel. The Lean lane is running. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
+            "evidence": "The paper-model and model A natural-language proofs were adversarially reviewed in the specification. The headline bounds are not yet machine-checked. The 63.0-bit model A score uses the Frobenius root-count lemma: squaring permutes the field, sharpening the count of keys that can cause a collision. Without that refinement the score is 62.68.",
             "key": "Model A starts with 64 independently random bytes: one word expands the block keys, one independently keys Horner, and six supply the finalizer and integer twist. The alternative paper model uses 39 independent words (312 bytes). The small seed used for benchmarking does not meet either assumption.",
             "scope": "The guarantee covers fixed-length and at-most-length messages, including unequal lengths, under the stated key distribution. Horner stride, SIMD width, lazy or eager reduction, streaming chunks and valid thread splits leave the digest unchanged. Bulk timings use 256 KiB messages; M2 is the median of three. Sanity and verification passed, but no complete v3 statistical-suite result or machine-checked implementation proof is claimed."
           },
           "output_bits": 64,
-          "code_url": "records/chainhash/v3/chainhash3.h"
+          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
         },
         {
           "id": "chain128",
@@ -2891,7 +3085,7 @@
             "scope": "The C interface accepts lengths below 2⁶⁴ bytes. The proof checks the mathematical hash and the required randomness, while the C implementation, processor instructions and compiler remain outside its scope."
           },
           "output_bits": 128,
-          "code_url": "records/chainhash/128/chainhash128.h"
+          "code_url": "https://github.com/thomasahle/chainhash/blob/main/docs/THEOREM_v3.md"
         }
       ]
     }

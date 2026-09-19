@@ -14554,7 +14554,7 @@
         "id": "polymur",
         "label": "PolymurHash 2.0",
         "registered_name": "polymurhash",
-        "note": "Conservative global score with n\u22648L retains +14. Paper reports 57 (README approximation gives 57.2); plotted score \u224853.5 is derived from the unsimplified bound. Seed-to-k distribution is an additional assumption."
+        "note": "Conservative global score with n≤8L retains +14. Paper reports 57 (README approximation gives 57.2); plotted score ≈53.5 is derived from the unsimplified bound. Seed-to-k distribution is an additional assumption."
       },
       {
         "table": "proven",
@@ -14575,7 +14575,7 @@
         "id": "clhash",
         "label": "CLHASH",
         "registered_name": "CLhash",
-        "note": "For >1024 B the extra L normalization makes the conservative score \u226564. Reference pseudorandom expansion is not the theorem\u2019s key distribution. Statistical FAIL 64/250; not a claim about ideal-key collision bound."
+        "note": "For >1024 B the extra L normalization makes the conservative score ≥64. Reference pseudorandom expansion is not the theorem’s key distribution. Statistical FAIL 64/250; not a claim about ideal-key collision bound."
       },
       {
         "table": "proven",
@@ -14603,21 +14603,21 @@
         "id": "nh",
         "label": "NH with 64-bit words",
         "registered_name": null,
-        "note": "Conservative score \u226564; minimum message L=2 would allow the sharper \u226565. No CLNH speed assigned to integer NH."
+        "note": "Conservative score ≥64; minimum message L=2 would allow the sharper ≥65. No CLNH speed assigned to integer NH."
       },
       {
         "table": "proven",
         "id": "multiply",
         "label": "Vector multiply-shift",
         "registered_name": null,
-        "note": "Paper\u2019s L+1 counts 128-bit keys despite caption; corrected to 64-bit words. SMHasher3\u2019s wrapped 256-word implementation has bulk speed 1.79 but that is not a speed for this full independent-key family; excluded."
+        "note": "Paper’s L+1 counts 128-bit keys despite caption; corrected to 64-bit words. SMHasher3’s wrapped 256-word implementation has bulk speed 1.79 but that is not a speed for this full independent-key family; excluded."
       },
       {
         "table": "proven",
         "id": "tabulation",
         "label": "Simple tabulation",
         "registered_name": null,
-        "note": "SMHasher3 tabulation-64 at 3.12 B/cycle is a composite string hash, not this theorem\u2019s direct family; excluded. Three-wise independence implies the pair bound."
+        "note": "SMHasher3 tabulation-64 at 3.12 B/cycle is a composite string hash, not this theorem’s direct family; excluded. Three-wise independence implies the pair bound."
       }
     ],
     "aliases": {

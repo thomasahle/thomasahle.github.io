@@ -5,14 +5,14 @@
       "registered_name": "GoMapHash",
       "registration": "GoMapHash                      64  GO_AMD64_AES          Go 1.27.1 runtime memhash; captured random process AES key; direct map seed",
       "backend_token": "GO_AMD64_AES",
-      "binary": "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
       "runs": [
         {
           "name": "GoMapHash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "GoMapHash",
             "--test=Speed"
           ],
@@ -194,7 +194,7 @@
           "name": "GoMapHash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "GoMapHash",
             "--test=Speed"
           ],
@@ -447,10 +447,10 @@
         "output_order": "64-bit integer",
         "construction": "b = pad16(a) XOR Delta*(L), Delta*(15) = a3fe5da3a3fe5da342a3bcfe42a3bcfe = MC(SR(w at bytes 8,10,12,14)) XOR (L^16 at bytes 8,10,12,14) with w the DDT-4 S-box output difference for input difference 0x1f; same construction for every L = 1..15 vs 16 (e.g. L=1: a=00, b=e138d9e1e138d9e1c8e1f038c8e1f038; L=6: a=000000000000, b=246c4824246c48245e24326c5e24326c)",
         "provenance": [
-          "<scratch>/design/new-hashes/go-maphash/search/REPRODUCE.md",
-          "<scratch>/design/new-hashes/go-maphash/verify/verify.log",
-          "<scratch>/design/new-hashes/go-maphash/verify/gomh.c",
-          "<scratch>/design/new-hashes/go-maphash/verify/pair_real.go"
+          "./REPRODUCE.md",
+          "./verify.log",
+          "./gomh.c",
+          "./pair_real.go"
         ]
       },
       "output_bits": 64,
@@ -470,14 +470,14 @@
       "registered_name": "GoMapHash",
       "registration": "GoMapHash                      64  GO_ARM64_AES          Go 1.27.1 runtime memhash; captured random process AES key; direct map seed",
       "backend_token": "GO_ARM64_AES",
-      "binary": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd",
       "runs": [
         {
           "name": "GoMapHash",
           "run": 1,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "GoMapHash",
             "--test=Speed"
           ],
@@ -504,7 +504,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28510,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -518,7 +518,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28510,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -532,7 +532,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28510,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -546,7 +546,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28510,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -560,7 +560,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28510,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -574,7 +574,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28510,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -588,7 +588,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28510,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -631,7 +631,7 @@
           "name": "GoMapHash",
           "run": 2,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "GoMapHash",
             "--test=Speed"
           ],
@@ -658,7 +658,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36363,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -672,7 +672,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36363,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -686,7 +686,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36363,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -700,7 +700,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36363,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -714,7 +714,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36363,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -728,7 +728,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36363,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -742,7 +742,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36363,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -785,7 +785,7 @@
           "name": "GoMapHash",
           "run": 3,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "GoMapHash",
             "--test=Speed"
           ],
@@ -812,7 +812,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44872,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -826,7 +826,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44872,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -840,7 +840,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44872,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -854,7 +854,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44872,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -868,7 +868,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44872,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -882,7 +882,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44872,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -896,7 +896,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44872,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -1005,10 +1005,10 @@
         "output_order": "64-bit integer",
         "construction": "b = pad16(a) XOR Delta*(L), Delta*(15) = a3fe5da3a3fe5da342a3bcfe42a3bcfe = MC(SR(w at bytes 8,10,12,14)) XOR (L^16 at bytes 8,10,12,14) with w the DDT-4 S-box output difference for input difference 0x1f; same construction for every L = 1..15 vs 16 (e.g. L=1: a=00, b=e138d9e1e138d9e1c8e1f038c8e1f038; L=6: a=000000000000, b=246c4824246c48245e24326c5e24326c)",
         "provenance": [
-          "<scratch>/design/new-hashes/go-maphash/search/REPRODUCE.md",
-          "<scratch>/design/new-hashes/go-maphash/verify/verify.log",
-          "<scratch>/design/new-hashes/go-maphash/verify/gomh.c",
-          "<scratch>/design/new-hashes/go-maphash/verify/pair_real.go"
+          "./REPRODUCE.md",
+          "./verify.log",
+          "./gomh.c",
+          "./pair_real.go"
         ]
       },
       "output_bits": 64,
@@ -1030,14 +1030,14 @@
       "registered_name": "AbseilHash-default",
       "registration": "AbseilHash-default             64  scalar-mul128          Abseil 73d2688 byte string hash; host default; direct seed  ",
       "backend_token": "scalar-mul128",
-      "binary": "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
       "runs": [
         {
           "name": "AbseilHash-default",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "AbseilHash-default",
             "--test=Speed"
           ],
@@ -1303,7 +1303,7 @@
           "name": "AbseilHash-default",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "AbseilHash-default",
             "--test=Speed"
           ],
@@ -1630,10 +1630,10 @@
         "output_order": "64-bit integer",
         "construction": "len 0 -> Mix(seed ^ D(0) ^ 0x57, kMul); len 8 -> Mix(seed ^ D(8) ^ v, kMul) with v = load32(b) << 32 | load32(b+4); b = bytes8(D(0) ^ D(8) ^ 0x57) makes the multiplicands identical for every seed. Non-empty alternatives from the same identity: 'a' (61, len 1) vs 44b53d572db1948b (len 8); eee229e46a (len 5) vs b31833d9cc65b02d (len 8).",
         "provenance": [
-          "<scratch>/design/new-hashes/abseil-hash/verify/README.md",
-          "<scratch>/design/new-hashes/abseil-hash/verify/pairs_headline.txt",
-          "<scratch>/design/new-hashes/abseil-hash/search2/README.md",
-          "<scratch>/design/new-hashes/abseil-hash/search/xeon_logs/"
+          "./README.html",
+          "./pairs_headline.txt",
+          "./README.md",
+          "./xeon_logs"
         ]
       },
       "output_bits": 64,
@@ -1652,14 +1652,14 @@
       "registered_name": "AbseilHash-default",
       "registration": "AbseilHash-default             64  arm-crypto          Abseil 73d2688 byte string hash; host default; direct seed  ",
       "backend_token": "arm-crypto",
-      "binary": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd",
       "runs": [
         {
           "name": "AbseilHash-default",
           "run": 1,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "AbseilHash-default",
             "--test=Speed"
           ],
@@ -1686,7 +1686,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1700,7 +1700,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1714,7 +1714,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1728,7 +1728,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1742,7 +1742,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1756,7 +1756,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1770,7 +1770,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1784,7 +1784,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28693,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -1827,7 +1827,7 @@
           "name": "AbseilHash-default",
           "run": 2,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "AbseilHash-default",
             "--test=Speed"
           ],
@@ -1854,7 +1854,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1868,7 +1868,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1882,7 +1882,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1896,7 +1896,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1910,7 +1910,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1924,7 +1924,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1938,7 +1938,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -1952,7 +1952,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36595,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -1995,7 +1995,7 @@
           "name": "AbseilHash-default",
           "run": 3,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "AbseilHash-default",
             "--test=Speed"
           ],
@@ -2022,7 +2022,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -2036,7 +2036,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -2050,7 +2050,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -2064,7 +2064,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -2078,7 +2078,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -2092,7 +2092,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -2106,7 +2106,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -2120,7 +2120,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45061,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -2228,10 +2228,10 @@
         "output_order": "64-bit integer",
         "construction": "len 0 -> Mix(seed ^ D(0) ^ 0x57, kMul); len 8 -> Mix(seed ^ D(8) ^ v, kMul) with v = load32(b) << 32 | load32(b+4); b = bytes8(D(0) ^ D(8) ^ 0x57) makes the multiplicands identical for every seed. Non-empty alternatives from the same identity: 'a' (61, len 1) vs 44b53d572db1948b (len 8); eee229e46a (len 5) vs b31833d9cc65b02d (len 8).",
         "provenance": [
-          "<scratch>/design/new-hashes/abseil-hash/verify/README.md",
-          "<scratch>/design/new-hashes/abseil-hash/verify/pairs_headline.txt",
-          "<scratch>/design/new-hashes/abseil-hash/search2/README.md",
-          "<scratch>/design/new-hashes/abseil-hash/search/xeon_logs/"
+          "./README.html",
+          "./pairs_headline.txt",
+          "./README.md",
+          "./xeon_logs"
         ]
       },
       "output_bits": 64,
@@ -2252,14 +2252,14 @@
       "registered_name": "Marvin32",
       "registration": "Marvin32                       32      scalar          .NET 10.0.12 Marvin32; raw bytes; p0=lo32(seed), p1=hi32(seed)",
       "backend_token": "scalar",
-      "binary": "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
       "runs": [
         {
           "name": "Marvin32",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "Marvin32",
             "--test=Speed"
           ],
@@ -3841,7 +3841,7 @@
           "name": "Marvin32",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "Marvin32",
             "--test=Speed"
           ],
@@ -5491,9 +5491,9 @@
         "output_order": "32-bit integer (int)",
         "construction": "LE words m = 00610061 166d542f 00620062, m' = 80610061 a279952f 0061fc62; additive word differences d0 = 0x80000000, d1 = 0x8c0c4100, d2 = -0x400. After Block 1 the state difference is (84084100, 08040040); adding d1 leaves (08040000, 08040040), whose shared bits {27, 18} cancel in Block 2's first xor, the remaining bit cancels against rotl(p0, 20) in the first add, the second xor clears p1, and d2 removes the single surviving p0 bit.",
         "provenance": [
-          "<scratch>/design/new-hashes/dotnet-marvin/search_struct/README.md",
-          "<scratch>/design/new-hashes/dotnet-marvin/verify/README.md",
-          "<scratch>/design/new-hashes/dotnet-marvin/verify/pairA_2p32_fresh.txt"
+          "./README.md",
+          "./README.html",
+          "./pairA_2p32_fresh.txt"
         ]
       },
       "output_bits": 32,
@@ -5513,14 +5513,14 @@
       "registered_name": "Marvin32",
       "registration": "Marvin32                       32      scalar          .NET 10.0.12 Marvin32; raw bytes; p0=lo32(seed), p1=hi32(seed)",
       "backend_token": "scalar",
-      "binary": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd",
       "runs": [
         {
           "name": "Marvin32",
           "run": 1,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "Marvin32",
             "--test=Speed"
           ],
@@ -5547,7 +5547,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5561,7 +5561,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5575,7 +5575,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5589,7 +5589,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5603,7 +5603,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5617,7 +5617,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5631,7 +5631,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5645,7 +5645,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5659,7 +5659,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5673,7 +5673,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5687,7 +5687,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5701,7 +5701,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5715,7 +5715,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5729,7 +5729,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5743,7 +5743,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5757,7 +5757,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5771,7 +5771,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5785,7 +5785,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5799,7 +5799,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5813,7 +5813,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5827,7 +5827,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5841,7 +5841,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5855,7 +5855,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5869,7 +5869,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5883,7 +5883,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5897,7 +5897,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5911,7 +5911,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5925,7 +5925,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5939,7 +5939,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5953,7 +5953,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5967,7 +5967,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5981,7 +5981,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -5995,7 +5995,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6009,7 +6009,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6023,7 +6023,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6037,7 +6037,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6051,7 +6051,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6065,7 +6065,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6079,7 +6079,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6093,7 +6093,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6107,7 +6107,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6121,7 +6121,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6135,7 +6135,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6149,7 +6149,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6163,7 +6163,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6177,7 +6177,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6191,7 +6191,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6205,7 +6205,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6219,7 +6219,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6233,7 +6233,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6247,7 +6247,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6261,7 +6261,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6275,7 +6275,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6289,7 +6289,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6303,7 +6303,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6317,7 +6317,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6331,7 +6331,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6345,7 +6345,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6359,7 +6359,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6373,7 +6373,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6387,7 +6387,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6401,7 +6401,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6415,7 +6415,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6429,7 +6429,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6443,7 +6443,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6457,7 +6457,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6471,7 +6471,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6485,7 +6485,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6499,7 +6499,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6513,7 +6513,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6527,7 +6527,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6541,7 +6541,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6555,7 +6555,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6569,7 +6569,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6583,7 +6583,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6597,7 +6597,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6611,7 +6611,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6625,7 +6625,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6639,7 +6639,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6653,7 +6653,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6667,7 +6667,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6681,7 +6681,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6695,7 +6695,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6709,7 +6709,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6723,7 +6723,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6737,7 +6737,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6751,7 +6751,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6765,7 +6765,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6779,7 +6779,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6793,7 +6793,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6807,7 +6807,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6821,7 +6821,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6835,7 +6835,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6849,7 +6849,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6863,7 +6863,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6877,7 +6877,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6891,7 +6891,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6905,7 +6905,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6919,7 +6919,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6933,7 +6933,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6947,7 +6947,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6961,7 +6961,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6975,7 +6975,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -6989,7 +6989,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7003,7 +7003,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7017,7 +7017,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7031,7 +7031,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7045,7 +7045,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7059,7 +7059,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7073,7 +7073,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7087,7 +7087,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7101,7 +7101,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7115,7 +7115,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7129,7 +7129,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7143,7 +7143,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7157,7 +7157,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7171,7 +7171,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7185,7 +7185,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7199,7 +7199,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7213,7 +7213,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7227,7 +7227,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7241,7 +7241,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7255,7 +7255,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7269,7 +7269,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7283,7 +7283,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7297,7 +7297,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7311,7 +7311,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7325,7 +7325,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7339,7 +7339,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7353,7 +7353,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7367,7 +7367,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7381,7 +7381,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7395,7 +7395,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7409,7 +7409,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7423,7 +7423,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7437,7 +7437,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7451,7 +7451,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7465,7 +7465,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7479,7 +7479,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7493,7 +7493,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7507,7 +7507,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7521,7 +7521,7 @@
               "smhasher_processes": [
                 {
                   "pid": 28977,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -7564,7 +7564,7 @@
           "name": "Marvin32",
           "run": 2,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "Marvin32",
             "--test=Speed"
           ],
@@ -7591,7 +7591,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7605,7 +7605,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7619,7 +7619,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7633,7 +7633,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7647,7 +7647,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7661,7 +7661,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7675,7 +7675,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7689,7 +7689,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7703,7 +7703,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7717,7 +7717,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7731,7 +7731,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7745,7 +7745,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7759,7 +7759,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7773,7 +7773,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7787,7 +7787,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7801,7 +7801,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7815,7 +7815,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7829,7 +7829,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7843,7 +7843,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7857,7 +7857,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7871,7 +7871,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7885,7 +7885,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7899,7 +7899,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7913,7 +7913,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7927,7 +7927,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7941,7 +7941,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7955,7 +7955,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7969,7 +7969,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7983,7 +7983,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -7997,7 +7997,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8011,7 +8011,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8025,7 +8025,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8039,7 +8039,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8053,7 +8053,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8067,7 +8067,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8081,7 +8081,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8095,7 +8095,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8109,7 +8109,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8123,7 +8123,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8137,7 +8137,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8151,7 +8151,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8165,7 +8165,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8179,7 +8179,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8193,7 +8193,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8207,7 +8207,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8221,7 +8221,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8235,7 +8235,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8249,7 +8249,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8263,7 +8263,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8277,7 +8277,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8291,7 +8291,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8305,7 +8305,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8319,7 +8319,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8333,7 +8333,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8347,7 +8347,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8361,7 +8361,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8375,7 +8375,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8389,7 +8389,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8403,7 +8403,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8417,7 +8417,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8431,7 +8431,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8445,7 +8445,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8459,7 +8459,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8473,7 +8473,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8487,7 +8487,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8501,7 +8501,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8515,7 +8515,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8529,7 +8529,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8543,7 +8543,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8557,7 +8557,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8571,7 +8571,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8585,7 +8585,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8599,7 +8599,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8613,7 +8613,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8627,7 +8627,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8641,7 +8641,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8655,7 +8655,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8669,7 +8669,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8683,7 +8683,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8697,7 +8697,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8711,7 +8711,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8725,7 +8725,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8739,7 +8739,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8753,7 +8753,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8767,7 +8767,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8781,7 +8781,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8795,7 +8795,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8809,7 +8809,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8823,7 +8823,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8837,7 +8837,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8851,7 +8851,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8865,7 +8865,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8879,7 +8879,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8893,7 +8893,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8907,7 +8907,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8921,7 +8921,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8935,7 +8935,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8949,7 +8949,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8963,7 +8963,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8977,7 +8977,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -8991,7 +8991,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9005,7 +9005,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9019,7 +9019,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9033,7 +9033,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9047,7 +9047,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9061,7 +9061,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9075,7 +9075,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9089,7 +9089,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9103,7 +9103,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9117,7 +9117,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9131,7 +9131,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9145,7 +9145,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9159,7 +9159,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9173,7 +9173,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9187,7 +9187,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9201,7 +9201,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9215,7 +9215,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9229,7 +9229,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9243,7 +9243,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9257,7 +9257,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9271,7 +9271,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9285,7 +9285,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9299,7 +9299,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9313,7 +9313,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9327,7 +9327,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9341,7 +9341,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9355,7 +9355,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9369,7 +9369,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9383,7 +9383,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9397,7 +9397,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9411,7 +9411,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9425,7 +9425,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9439,7 +9439,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9453,7 +9453,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9467,7 +9467,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9481,7 +9481,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9495,7 +9495,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9509,7 +9509,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9523,7 +9523,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9537,7 +9537,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9551,7 +9551,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9565,7 +9565,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36876,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -9608,7 +9608,7 @@
           "name": "Marvin32",
           "run": 3,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "Marvin32",
             "--test=Speed"
           ],
@@ -9635,7 +9635,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9649,7 +9649,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9663,7 +9663,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9677,7 +9677,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9691,7 +9691,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9705,7 +9705,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9719,7 +9719,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9733,7 +9733,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9747,7 +9747,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9761,7 +9761,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9775,7 +9775,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9789,7 +9789,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9803,7 +9803,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9817,7 +9817,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9831,7 +9831,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9845,7 +9845,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9859,7 +9859,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9873,7 +9873,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9887,7 +9887,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9901,7 +9901,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9915,7 +9915,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9929,7 +9929,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9943,7 +9943,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9957,7 +9957,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9971,7 +9971,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9985,7 +9985,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -9999,7 +9999,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10013,7 +10013,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10027,7 +10027,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10041,7 +10041,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10055,7 +10055,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10069,7 +10069,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10083,7 +10083,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10097,7 +10097,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10111,7 +10111,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10125,7 +10125,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10139,7 +10139,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10153,7 +10153,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10167,7 +10167,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10181,7 +10181,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10195,7 +10195,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10209,7 +10209,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10223,7 +10223,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10237,7 +10237,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10251,7 +10251,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10265,7 +10265,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10279,7 +10279,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10293,7 +10293,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10307,7 +10307,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10321,7 +10321,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10335,7 +10335,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10349,7 +10349,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10363,7 +10363,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10377,7 +10377,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10391,7 +10391,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10405,7 +10405,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10419,7 +10419,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10433,7 +10433,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10447,7 +10447,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10461,7 +10461,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10475,7 +10475,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10489,7 +10489,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10503,7 +10503,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10517,7 +10517,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10531,7 +10531,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10545,7 +10545,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10559,7 +10559,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10573,7 +10573,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10587,7 +10587,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10601,7 +10601,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10615,7 +10615,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10629,7 +10629,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10643,7 +10643,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10657,7 +10657,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10671,7 +10671,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10685,7 +10685,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10699,7 +10699,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10713,7 +10713,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10727,7 +10727,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10741,7 +10741,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10755,7 +10755,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10769,7 +10769,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10783,7 +10783,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10797,7 +10797,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10811,7 +10811,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10825,7 +10825,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10839,7 +10839,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10853,7 +10853,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10867,7 +10867,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10881,7 +10881,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10895,7 +10895,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10909,7 +10909,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10923,7 +10923,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10937,7 +10937,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10951,7 +10951,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10965,7 +10965,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10979,7 +10979,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -10993,7 +10993,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11007,7 +11007,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11021,7 +11021,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11035,7 +11035,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11049,7 +11049,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11063,7 +11063,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11077,7 +11077,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11091,7 +11091,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11105,7 +11105,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11119,7 +11119,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11133,7 +11133,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11147,7 +11147,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11161,7 +11161,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11175,7 +11175,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11189,7 +11189,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11203,7 +11203,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11217,7 +11217,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11231,7 +11231,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11245,7 +11245,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11259,7 +11259,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11273,7 +11273,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11287,7 +11287,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11301,7 +11301,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11315,7 +11315,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11329,7 +11329,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11343,7 +11343,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11357,7 +11357,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11371,7 +11371,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11385,7 +11385,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11399,7 +11399,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11413,7 +11413,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11427,7 +11427,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11441,7 +11441,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11455,7 +11455,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11469,7 +11469,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11483,7 +11483,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11497,7 +11497,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11511,7 +11511,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11525,7 +11525,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11539,7 +11539,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11553,7 +11553,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11567,7 +11567,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11581,7 +11581,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -11595,7 +11595,7 @@
               "smhasher_processes": [
                 {
                   "pid": 45334,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -11710,9 +11710,9 @@
         "output_order": "32-bit integer (int)",
         "construction": "LE words m = 00610061 166d542f 00620062, m' = 80610061 a279952f 0061fc62; additive word differences d0 = 0x80000000, d1 = 0x8c0c4100, d2 = -0x400. After Block 1 the state difference is (84084100, 08040040); adding d1 leaves (08040000, 08040040), whose shared bits {27, 18} cancel in Block 2's first xor, the remaining bit cancels against rotl(p0, 20) in the first add, the second xor clears p1, and d2 removes the single surviving p0 bit.",
         "provenance": [
-          "<scratch>/design/new-hashes/dotnet-marvin/search_struct/README.md",
-          "<scratch>/design/new-hashes/dotnet-marvin/verify/README.md",
-          "<scratch>/design/new-hashes/dotnet-marvin/verify/pairA_2p32_fresh.txt"
+          "./README.md",
+          "./README.html",
+          "./pairA_2p32_fresh.txt"
         ]
       },
       "output_bits": 32,
@@ -11734,14 +11734,14 @@
       "registered_name": "XXH3-64",
       "registration": "XXH3-64                        64      avx512          xxh3, 64-bit version                                        ",
       "backend_token": "avx512",
-      "binary": "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
       "runs": [
         {
           "name": "XXH3-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -11909,7 +11909,7 @@
           "name": "XXH3-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -12137,14 +12137,14 @@
       "registered_name": "XXH3-64",
       "registration": "XXH3-64                        64        neon          xxh3, 64-bit version                                        ",
       "backend_token": "neon",
-      "binary": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd",
       "runs": [
         {
           "name": "XXH3-64",
           "run": 1,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -12171,7 +12171,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12185,7 +12185,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12199,7 +12199,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12213,7 +12213,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12227,7 +12227,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12241,7 +12241,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12255,7 +12255,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12269,7 +12269,7 @@
               "smhasher_processes": [
                 {
                   "pid": 34899,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -12312,7 +12312,7 @@
           "name": "XXH3-64",
           "run": 2,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -12339,7 +12339,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12353,7 +12353,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12367,7 +12367,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12381,7 +12381,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12395,7 +12395,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12409,7 +12409,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12423,7 +12423,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12437,7 +12437,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43137,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -12480,7 +12480,7 @@
           "name": "XXH3-64",
           "run": 3,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -12507,7 +12507,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12521,7 +12521,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12535,7 +12535,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12549,7 +12549,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12563,7 +12563,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12577,7 +12577,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12591,7 +12591,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -12605,7 +12605,7 @@
               "smhasher_processes": [
                 {
                   "pid": 50906,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -12714,14 +12714,14 @@
       "registered_name": "rapidhash",
       "registration": "rapidhash                      64                      rapidhash v3, 64-bit                                        ",
       "backend_token": null,
-      "binary": "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
       "runs": [
         {
           "name": "rapidhash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -12954,7 +12954,7 @@
           "name": "rapidhash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -13247,14 +13247,14 @@
       "registered_name": "rapidhash",
       "registration": "rapidhash                      64                      rapidhash v3, 64-bit                                        ",
       "backend_token": null,
-      "binary": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd",
       "runs": [
         {
           "name": "rapidhash",
           "run": 1,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -13281,7 +13281,7 @@
               "smhasher_processes": [
                 {
                   "pid": 35855,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13295,7 +13295,7 @@
               "smhasher_processes": [
                 {
                   "pid": 35855,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13309,7 +13309,7 @@
               "smhasher_processes": [
                 {
                   "pid": 35855,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13323,7 +13323,7 @@
               "smhasher_processes": [
                 {
                   "pid": 35855,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13337,7 +13337,7 @@
               "smhasher_processes": [
                 {
                   "pid": 35855,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13351,7 +13351,7 @@
               "smhasher_processes": [
                 {
                   "pid": 35855,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13365,7 +13365,7 @@
               "smhasher_processes": [
                 {
                   "pid": 35855,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -13408,7 +13408,7 @@
           "name": "rapidhash",
           "run": 2,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -13435,7 +13435,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43426,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13449,7 +13449,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43426,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13463,7 +13463,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43426,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13477,7 +13477,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43426,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13491,7 +13491,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43426,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13505,7 +13505,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43426,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13519,7 +13519,7 @@
               "smhasher_processes": [
                 {
                   "pid": 43426,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -13562,7 +13562,7 @@
           "name": "rapidhash",
           "run": 3,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -13589,7 +13589,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51215,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13603,7 +13603,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51215,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13617,7 +13617,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51215,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13631,7 +13631,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51215,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13645,7 +13645,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51215,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13659,7 +13659,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51215,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -13673,7 +13673,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51215,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -13782,14 +13782,14 @@
       "registered_name": "chainhash-256",
       "registration": "chainhash-256                  64     hwclmul          ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
       "backend_token": "hwclmul",
-      "binary": "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
       "runs": [
         {
           "name": "chainhash-256",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -14013,7 +14013,7 @@
           "name": "chainhash-256",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-newhashes/build/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -14297,14 +14297,14 @@
       "registered_name": "chainhash-256",
       "registration": "chainhash-256                  64     hwpmull          ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
       "backend_token": "hwpmull",
-      "binary": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "566fa74a7894b1420e16ae5f5f4463a858a8d00c5f30b6099ed88dc86c8ad0bd",
       "runs": [
         {
           "name": "chainhash-256",
           "run": 1,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -14331,7 +14331,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36123,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14345,7 +14345,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36123,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14359,7 +14359,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36123,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14373,7 +14373,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36123,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14387,7 +14387,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36123,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14401,7 +14401,7 @@
               "smhasher_processes": [
                 {
                   "pid": 36123,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -14444,7 +14444,7 @@
           "name": "chainhash-256",
           "run": 2,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -14471,7 +14471,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44653,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14485,7 +14485,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44653,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14499,7 +14499,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44653,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14513,7 +14513,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44653,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14527,7 +14527,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44653,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14541,7 +14541,7 @@
               "smhasher_processes": [
                 {
                   "pid": 44653,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }
@@ -14584,7 +14584,7 @@
           "name": "chainhash-256",
           "run": 3,
           "command": [
-            "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -14611,7 +14611,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51856,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14625,7 +14625,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51856,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14639,7 +14639,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51856,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14653,7 +14653,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51856,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14667,7 +14667,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51856,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             },
@@ -14681,7 +14681,7 @@
               "smhasher_processes": [
                 {
                   "pid": 51856,
-                  "command": "<scratch>/codex/new-hashes-timing/build-m2/SMHasher3"
+                  "command": "./SMHasher3"
                 }
               ]
             }

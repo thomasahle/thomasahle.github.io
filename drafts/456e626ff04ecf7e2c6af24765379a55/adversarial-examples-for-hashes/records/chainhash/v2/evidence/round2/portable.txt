@@ -1,8 +1,0 @@
-{"cpu": 6, "siblings": [6, 54], "busy_percent": {"6": 0.0, "54": 0.0}, "load": [25.97, 24.57, 18.51], "timestamp": "2026-09-18T17:10:18.655338+00:00", "command": ["taskset", "-c", "6", "nice", "-n", "10", "./tests/test_portable"]}
-PASS cases=16692 random_inputs=12000 backend=0 block_bytes=1024 key_bytes=1096
-KAT seed=0 ascending len=0 hash=2fe3e40dbad007af
-KAT seed=0 ascending len=1 hash=577aa1c39bea29ac
-KAT seed=0 ascending len=8 hash=6da639bb651a2a38
-KAT seed=0 ascending len=16 hash=19196da67c01244d
-KAT seed=0 ascending len=31 hash=20902ab699b55270
-KAT seed=0 ascending len=65 hash=a950a4b9f88b22f2

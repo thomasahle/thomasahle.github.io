@@ -12,7 +12,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "./SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -76,7 +76,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "./SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -166,7 +166,7 @@
               "taskset",
               "-c",
               "6",
-              "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+              "./SMHasher3",
               "SipHash-1-3",
               "--test=Sanity"
             ],
@@ -252,7 +252,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "./SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -316,7 +316,7 @@
             "taskset",
             "-c",
             "6",
-            "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+            "./SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -406,7 +406,7 @@
               "taskset",
               "-c",
               "6",
-              "/home/thomas-ahle/agents/speedbench/build-release-20260917/SMHasher3",
+              "./SMHasher3",
               "SipHash-2-4",
               "--test=Sanity"
             ],

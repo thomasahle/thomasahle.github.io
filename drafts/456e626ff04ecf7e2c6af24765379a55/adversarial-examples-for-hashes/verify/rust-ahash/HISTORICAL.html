@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>rust-ahash: fixed message pairs that collide with probability 2^-19.7 over a random key</title><link href="../../post.css" rel="stylesheet"/><link href="../../math.css" rel="stylesheet"/><link href="../../../../static/vendor/katex-0.18.7/katex.min.css" rel="stylesheet"/><script defer="" src="../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer="" src="../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../index.html">Article</a> · <a href="../../records/README.html">Records</a></nav><h1 id="rust-ahash-fixed-message-pairs-that-collide-with-probability-2-19.7-over-a-random-key">rust-ahash: fixed message pairs that collide with probability 2^-19.7 over a random key</h1>
+<p>Companion package for the blog post. One file, <code>ahash_pairs.c</code>, C11, no dependencies beyond libc/libm; it validates its aHash implementation against SMHasher3 at startup, then hashes the pairs below under millions of random secrets.</p>
+<h2 id="the-hash">The hash</h2>
+<p><a href="https://github.com/tkaitchuck/aHash">aHash</a> (Tom Kaitchuck, MIT/Apache-2.0), crate <code>ahash</code> version 0.8.12, the hasher behind <code>hashbrown</code>-based maps in many Rust programs. Its secret is a <code>RandomState {k0,k1,k2,k3}</code> of four 64-bit words. The crate has two code paths, selected at compile time (<code>src/lib.rs</code>):</p>
+<ul>
+<li><strong>AES path</strong> (<code>src/aes_hash.rs</code>): one inverse AES round (<code>aesdec</code>) plus a byte-shuffle-and-add per 16-byte block. Compiled only when the <code>aes</code> target feature is on (x86-64: <code>-C target-feature=+aes</code> or <code>target-cpu=native</code>; aarch64 additionally needs the crate feature <code>nightly-arm-aes</code>).</li>
+<li><strong>fallback path</strong> (<code>src/fallback_hash.rs</code>): one folded 64x64-&gt;128 multiply per block. These measurements cover the modeled folded-multiply path. Platform-specific alternatives and the ARM nightly AES path are outside the runtime checks.</li>
+</ul>
+<p>The variant reproduced here is exactly what SMHasher3 (<code>hashes/rust-ahash.cpp</code>) tests as <code>rust_ahash</code> (AES path, verification 0x3BF4383B) and <code>rust_ahash_fb</code> (fallback, 0x53C9F167): the 64-bit hash of a byte slice <code>&amp;[u8]</code>, i.e. <code>write_usize(len)</code> followed by <code>write(bytes)</code>, keyed directly by the four RandomState words. SMHasher3 seeds it as <code>k_j = PI2[j] ^ seed</code>, which is <code>RandomState::with_seeds(seed, seed, seed, seed)</code>. The program was written from the crate source (constants <code>PI2</code> and <code>SHUFFLE_MASK</code> are the crate’s) and checked against the SMHasher3 port; it contains no third-party code.</p>
+<p>Two secret models are sampled: <strong>rs4</strong>, four independent uniform words (an ideal key model, not a proof of the initializer’s distribution), and <strong>smh</strong>, one uniform 64-bit seed expanded the SMHasher3 way. The AES rates are consistent; fallback observations differ and remain unresolved.</p>
+<h2 id="the-pairs">The pairs</h2>
+<p><strong>Pair A (AES path, 56 bytes, rate 2^-19.7, verifier-confirmed).</strong> A 56-byte message is absorbed as four blocks v1=[0,16), v2=[16,32), v3=[24,40), v4=[40,56); each <code>hash_in</code> does <code>enc &lt;- aesdec(enc) ^ v</code> and <code>sum &lt;- shuffle(sum) + v</code>. The pair differs in bytes 0 and 10 of v1 (xor 7e, 65), which InvShiftRows places in a single column; the inverse-S-box output differences (probability 4/256 each) are chosen so that InvMixColumns leaves a column that v2 cancels except for one byte, which passes a third S-box (2/256) and is cancelled by four bytes of v3, while the additive <code>sum</code> lane cancels through the shuffle. Total 4/256 * 4/256 * 2/256 * ~2^-0.7 (byte carries) = approximately 2^-19.7 over the sampled keys. The selected historical run counted 2616/2^31 collisions; with L = 7 its score estimate is 22.454208…, displayed as 22.45*. The search scripts and the reported 64-byte-pair experiment are not bundled.</p>
+<p><strong>Pair B (fallback path, 16 bytes, rate ~2^-26.2, panel-measured, not independently confirmed).</strong> A 16-byte message is one block (w0, w1); the only data mixing is <code>fold((w0^k2) * (w1^k3))</code> with <code>fold(p) = lo64(p) ^ hi64(p)</code>. Complementing both words turns a<em>b into (<sub>a)(</sub>b) = a</em>b + (a+b+1) - 2^64 (a+b+2) (mod 2^128), so the low and high halves of the product move by nearly opposite amounts and the xor-fold cancels for about 2^-26 of the keys (exhaustive check: 55/2^32 = 2^-26.22; a second run 12/2^30 = 2^-26.42). These observations concern the modeled folded-multiply path only. It sits below the resolution of the default 2^24 run; <code>./ahash_pairs 30 1 B</code> (about 15 s, fallback only) resolves it, and this binary finds 7/2^30 = 2^-27.19 in both secret models, about half the computation’s figure (see the larger runs below).</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code># aarch64 (Apple silicon, Graviton, ...)
+cc -O2 -march=armv8-a+crypto -o ahash_pairs ahash_pairs.c -lm
+# x86-64
+cc -O2 -maes -o ahash_pairs ahash_pairs.c -lm
+# any CPU: portable software AES, about 10x slower.  With no flags at all the compiler may
+# still pick the hardware path (Apple clang on arm64 defines __ARM_FEATURE_AES by default,
+# and the first line of the output says which backend was chosen); -DAHASH_SOFT_AES forces
+# the software path.
+cc -O2 -DAHASH_SOFT_AES -o ahash_pairs ahash_pairs.c -lm
+
+./ahash_pairs            # 2^24 secrets per model, rng seed 1
+./ahash_pairs 26 7       # 2^26 secrets, rng seed 7
+./ahash_pairs 30 1 B     # pair B only</code></pre>
+<p>The program aborts unless both SMHasher3 verification values are reproduced, prints the pairs, checks the explicit colliding secret from the records, and then samples N secrets per model. The RNG is its own splitmix64-seeded xoshiro256**, so a run is reproducible from (log2 N, seed). Single-threaded; the default run takes ~2 s with hardware AES. An unknown pair tag or a non-numeric argument is rejected with exit status 2.</p>
+<h2 id="expected-output-.ahash_pairs-apple-m2-pro-clang-17-only-the-s-timings-vary">Expected output (<code>./ahash_pairs</code>, Apple M2 Pro, clang 17; only the <code>s</code> timings vary)</h2>
+<pre><code>rust-ahash: aHash 0.8.12 as tested by SMHasher3 (hashes/rust-ahash.cpp); AES backend: ARMv8 AES instructions
+  rust_ahash     SMHasher3 verification 0x3BF4383B (registered 0x3BF4383B) OK
+  rust_ahash_fb  SMHasher3 verification 0x53C9F167 (registered 0x53C9F167) OK
+N = 2^24 random secrets per model, rng seed 1
+
+== pair A: rust_ahash (AES path), 56-byte messages
+  m1 = 40313233343536373839253b3c3d3e3f408142094445464748494a4b4c4d4e4f8d896d065c5d5e5f606162636465666768696a6b6c6d6e6f
+  m2 = 3e313233343536373839403b3c3d3e3f405e42204445464748494a4b4c4d4e4f727290085c5d5e5f606162636465666768696a6b6c6d6e6f
+  xor= 7e00000000000000000065000000000000df0029000000000000000000000000fffbfd0e0000000000000000000000000000000000000000
+  mechanism: 3-S-box differential trail through hash_in: the byte differences in block 1 (bytes 0,10)
+  are chosen so that InvShiftRows puts them in one column and InvMixColumns of the inverse-S-box
+  outputs (DDT 4/256 each) leaves one byte, which block 2 cancels except for one byte (DDT 2/256)
+  that block 3 cancels; the sum lane cancels additively through the shuffle.  Predicted
+  4/256 * 4/256 * 2/256 * (carry factor ~2^-0.7) = 2^-19.7; unconditional over the keys.
+  explicit colliding secret: k0..k3 = 711096b41e1b7d99 59af3b7ae3b7d595 d2fb75eb5658a771 5a0f91d8ed1ffe38
+    H(m1) = 45ef7682d72b19b6  H(m2) = 45ef7682d72b19b6  COLLIDE
+  model rs4 (four uniform keys k0..k3)      : collisions/N = 26/2^24 = 2^-19.30
+    0.8 s;  first colliding secret: k0..k3 = 26f10121bf2cf5bb 3d32a8e232ec9e5e 6a6f9182eaa86b6d 0d8f8a1098f9d71f
+    H(m1) = H(m2) = b06f3670babedffb
+  model smh (one uniform seed, k_j = PI2[j]^seed): collisions/N = 11/2^24 = 2^-20.54
+    0.7 s;  first colliding secret: seed = f04f16d5122a6a3a, k0..k3 = b56737332afa794d 4e1b701a26c36656 30e33f62db563ae7 cfcbc360a76d632d
+    H(m1) = H(m2) = 2dc0adbf4570e056
+
+== pair B: rust_ahash_fb (fallback path), 16-byte messages
+  m1 = 0123456789abcdef0011223344556677
+  m2 = fedcba9876543210ffeeddccbbaa9988
+  xor= ffffffffffffffffffffffffffffffff
+  mechanism: complement both words of a one-block message: the single folded multiply sees (~a)(~b) =
+  a*b + (a+b+1) - 2^64*(a+b+2) mod 2^128 with a = w0^k2, b = w1^k3, so the low and high halves
+  of the product move by nearly opposite amounts and lo^hi cancels for about 2^-26 of the keys
+  (panel: 55/2^32 = 2^-26.2; below the resolution of a 2^24 run, see README).
+  explicit colliding secret: k0..k3 = 64721c4a2c381d36 6b5648524261eaab b59e91f82c7d1e12 94c815ea45f3d238
+    H(m1) = 82d7a0f7495678e3  H(m2) = 82d7a0f7495678e3  COLLIDE
+  model rs4 (four uniform keys k0..k3)      : collisions/N = 0/2^24  (none observed in 2^24 trials; no population bound)
+    0.1 s;  no collision found in this run
+  model smh (one uniform seed, k_j = PI2[j]^seed): collisions/N = 0/2^24  (none observed in 2^24 trials; no population bound)
+    0.1 s;  no collision found in this run</code></pre>
+<p>Poisson noise at these counts is +-20-30%; the computation’s 2^30-trial figures for pair A are 1227/2^30 = 2^-19.74 (rs4) and the verifier’s independent implementation gave 2616/2^31 = 2^-19.65 (rs4) and 1260/2^30 = 2^-19.70 (smh).</p>
+<p>Larger local runs of the same binary (<code>./ahash_pairs 26 &lt;seed&gt;</code>):</p>
+<pre><code>pair A, rng seed 1:  rs4 94/2^26 = 2^-19.45      smh 68/2^26 = 2^-19.91
+pair B, rng seeds 1..4 pooled (4 x 2^26 per model):
+                     rs4  2/2^28 = 2^-27.0       smh  1/2^28 = 2^-28.0
+pair B, ./ahash_pairs 30 1 B (2^30 per model, 13 s):
+                     rs4  7/2^30 = 2^-27.19      smh  7/2^30 = 2^-27.19</code></pre>
+<p>Pooled over those runs this binary sees 17 pair-B collisions in 2^31.3 trials, a rate of about 2^-27.2, where the computation’s 2^-26.22 predicts 34.8 (Poisson P(X &lt;= 17) about 0.0006). The mechanism is not in doubt (the explicit secret collides, and 2^-27 is 2^37 above the 2^-64 of an ideal hash), but the rate of pair B should be read as “between 2^-26 and 2^-27” until the discrepancy between the two samplers is understood.</p>
+<h2 id="license">License</h2>
+<p><code>ahash_pairs.c</code> and this README: MIT, Copyright (c) 2026 Thomas Dybdahl Ahle. aHash itself is (c) Tom Kaitchuck, MIT OR Apache-2.0; the two constants copied from it are listed in the source. Pair data: the computation records (<code>pairs_heur.json</code>) for this hash; the verification procedure follows SMHasher3 <code>lib/Hashinfo.cpp</code>.</p>
+<h2 id="native-rust-check">Native Rust check</h2>
+<p>The <code>native/</code> Cargo program hashes byte slices against aHash 0.8.12. Run on an x86 host:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> native</span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class="va">RUSTFLAGS</span><span class="op">=</span><span class="st">"-C target-feature=+aes"</span> <span class="ex">cargo</span> run <span class="at">--release</span> <span class="at">--</span> 34 3 7</span></code></pre></div>
+<p>To reproduce an explicit internal key k0..k3, call <code>RandomState::with_seeds(k_i ^ PI2[i])</code>; independent uniform arguments give independent uniform internal words. The recorded native run gives 19,964/2^34, cap 22.52 bits. The same stream against master a9d649d agrees; the independent program gives 19,884/2^34, recorded as two 2^33 runs in ../../records/fairness-pass/ahash-verify/. The default C reproduction takes about 2 seconds on Apple M2 Pro and about 6 seconds per model on a loaded Xeon 8375C.</p>
+<p>The 0.8.12 release additionally gates ARM AES on <code>nightly-arm-aes</code>. Master dropped that gate in PR #268 (2025-05-06), before the release, but the 0.8.12 release merge did not carry it.</p>
+<p>The recorded seven-thread run takes floor(2^34 / 7) samples per thread (17,179,869,182 trials); the log rounds this to 2^34. The two-sample difference does not affect the displayed score.</p>
+</main></body></html>

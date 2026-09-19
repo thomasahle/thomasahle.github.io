@@ -1,8 +1,0 @@
-[package]
-name = "fhcheck"
-version = "0.1.0"
-edition = "2021"
-[dependencies]
-foldhash = { path = "../foldhash" }
-[profile.release]
-opt-level = 3

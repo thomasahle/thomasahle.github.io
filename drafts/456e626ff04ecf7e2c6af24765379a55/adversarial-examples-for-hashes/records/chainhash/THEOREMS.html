@@ -1,0 +1,302 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Seeded ChainHash: proved bounds and the single-seed gap</title><link rel="stylesheet" href="../../post.css"><link rel="stylesheet" href="../../math.css"><link rel="stylesheet" href="../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link rel="icon" href="../../../favicon2.png"><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../index.html">Article</a> · <a href="../../records/README.html">Records</a></nav><h1 id="seeded-chainhash-proved-bounds-and-the-single-seed-gap">Seeded ChainHash: proved bounds and the single-seed gap</h1>
+<p>Models A and B below have proved nontrivial collision bounds for the <strong>unchanged raw-product ChainHash</strong>. Model C retains the conditional five-wise finalizer theorem, but the field-power PH argument does not supply a useful collision bound after reusing its seed in the recurrence. Model D has neither that independence theorem nor a useful bound established here. The trivial bounds shown for C/D are certificates, not estimates of their true worst collision probabilities.</p>
+<p>This document and <code>THEOREMS.tex</code> contain the same mathematical text. The reference is the supplied <code>appendix_chainhash.tex</code>, especially <code>lem:ph:stream</code>, <code>lem:ph:injective</code>, <code>lem:ph:twist</code>, and <code>thm:ph:kwise</code>. No pseudorandom-generator assumption is used. Computation is evidence reported in <code>REFEREE.md</code>, not a substitute for the proofs.</p>
+<h2 id="assumptions-schedules-and-interpretation-of-the-numbers">1. Assumptions, schedules, and interpretation of the numbers</h2>
+<p>Put <span class="math" data-tex="q=2^{64}">\(q=2^{64}\)</span> and <span class="math" data-tex="F=\mathbb F_2[X]/(X^{64}+X^4+X^3+X+1)">\(F=\mathbb F_2[X]/(X^{64}+X^4+X^3+X+1)\)</span>. A word is its polynomial-basis representative of degree below 64. Write <span class="math" data-tex="\operatorname{clmul}">\(\operatorname{clmul}\)</span> for the <strong>unreduced</strong> binary-polynomial product, and juxtaposition for multiplication in <span class="math" data-tex="F">\(F\)</span> when the operands are field elements. Reduction sends <span class="math" data-tex="X^{64}">\(X^{64}\)</span> to <span class="math" data-tex="r=27">\(r=27\)</span>; consequently <span class="math" data-tex="1+r=26\ne0">\(1+r=26\ne0\)</span> in <span class="math" data-tex="F">\(F\)</span>.</p>
+<p>Messages are fixed, distinct byte strings chosen independently of the random key. Their lengths satisfy <span class="math" data-tex="0\le\ell&lt;q">\(0\le\ell&lt;q\)</span>. Words are little endian. There are 32 words per 256-byte block and one stream pair per block: <span class="math" data-tex="W=32,S=1">\(W=32,S=1\)</span>, <span class="math" data-tex="n(m)=\max(1,\lceil\ell(m)/256\rceil)">\(n(m)=\max(1,\lceil\ell(m)/256\rceil)\)</span>. Each nonempty last four-word group is padded with zero bytes. Positions <span class="math" data-tex="4j,4j+2">\(4j,4j+2\)</span> form one product, and positions <span class="math" data-tex="4j+1,4j+3">\(4j+1,4j+3\)</span> the other. Each position is XORed with the key at that same position. An empty block has no products. The byte length is XORed into <strong>both</strong> halves of the last raw block result.</p>
+<p>For the resulting stream <span class="math" data-tex="((a_i,b_i))_{i=1}^n">\(((a_i,b_i))_{i=1}^n\)</span>, the unchanged hash is</p>
+<p><span class="math math-display" data-tex="
+ P_0=z,\qquad P_i=a_i+(b_i+y)(P_{i-1}+u),\qquad V=P_n,
+">\[
+ P_0=z,\qquad P_i=a_i+(b_i+y)(P_{i-1}+u),\qquad V=P_n,
+\]</span></p>
+<p><span class="math math-display" data-tex="
+ H(m)=f_c(V\boxplus\tau),\qquad
+ f_c(x)=(x+c_2)\big((x^2+c_0)(x+x^2+c_1)+c_3\big)+c_4.
+">\[
+ H(m)=f_c(V\boxplus\tau),\qquad
+ f_c(x)=(x+c_2)\big((x^2+c_0)(x+x^2+c_1)+c_3\big)+c_4.
+\]</span></p>
+<p>Here <span class="math" data-tex="\boxplus">\(\boxplus\)</span> is integer addition modulo <span class="math" data-tex="2^{64}">\(2^{64}\)</span>, not field addition. No change to these operations is contemplated.</p>
+<p>The symbols <span class="math" data-tex="c_i">\(c_i\)</span> denote the five <strong>circuit parameters</strong> used in the code. Their bijective correspondence with the five ordinary polynomial coefficients is proved below. In A/B/C, <span class="math" data-tex="c=(c_0,\ldots,c_4)">\(c=(c_0,\ldots,c_4)\)</span> is joint uniform on <span class="math" data-tex="F^5">\(F^5\)</span> and independent of all upstream randomness. This requires 320 genuinely random bits for <span class="math" data-tex="c">\(c\)</span> alone; a deterministic 64-bit expander cannot meet that hypothesis. All random words listed below are mutually independent and uniform, including zero.</p>
+<table>
+<colgroup>
+<col style="width: 23%"/>
+<col style="width: 23%"/>
+<col style="width: 23%"/>
+<col style="width: 30%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Independently sampled material</th>
+<th>Expanded schedule</th>
+<th style="text-align: right;">Random input bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td><span class="math" data-tex="s,u,y,z,c_0,\ldots,c_4,\tau">\(s,u,y,z,c_0,\ldots,c_4,\tau\)</span></td>
+<td><span class="math" data-tex="k_i=s^{i+1}">\(k_i=s^{i+1}\)</span>, <span class="math" data-tex="0\le i&lt;32">\(0\le i&lt;32\)</span></td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td><span class="math" data-tex="s,t,c_0,\ldots,c_4">\(s,t,c_0,\ldots,c_4\)</span></td>
+<td><span class="math" data-tex="k_i=s^{i+1}">\(k_i=s^{i+1}\)</span>; <span class="math" data-tex="(u,y,z)=(t^2,t^3,t)">\((u,y,z)=(t^2,t^3,t)\)</span>; <span class="math" data-tex="\tau=s^4">\(\tau=s^4\)</span></td>
+<td style="text-align: right;">56</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td><span class="math" data-tex="s,c_0,\ldots,c_4">\(s,c_0,\ldots,c_4\)</span></td>
+<td><span class="math" data-tex="k_i=s^{i+1}">\(k_i=s^{i+1}\)</span>; <span class="math" data-tex="(u,y,z)=(s^2,s^3,s)">\((u,y,z)=(s^2,s^3,s)\)</span>; <span class="math" data-tex="\tau=s^4">\(\tau=s^4\)</span></td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="even">
+<td>D, reference</td>
+<td><span class="math" data-tex="s">\(s\)</span></td>
+<td>C’s PH/chain keys; <span class="math" data-tex="c_i=s^{33+i}">\(c_i=s^{33+i}\)</span>; <span class="math" data-tex="\tau=s^{38}">\(\tau=s^{38}\)</span></td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+<p>The current repository header still stores <strong>41 expanded words, 328 bytes</strong>, in every model. These are entropy/input-size savings, not resident-state savings. In particular B is not a seven-word resident-key implementation under the paper’s separate cache-line criterion. The legacy SplitMix64 expansion is not any of these models.</p>
+<p>Independence of <span class="math" data-tex="\tau">\(\tau\)</span> from the upstream keys is unnecessary: a fixed <span class="math" data-tex="\tau">\(\tau\)</span>, or any function of <span class="math" data-tex="(s,t,u,y,z)">\((s,t,u,y,z)\)</span>, works in A/B/C. The sufficient condition used by the proof is that, after conditioning on the upstream keys and <span class="math" data-tex="\tau">\(\tau\)</span>, <span class="math" data-tex="c">\(c\)</span> remains uniform on <span class="math" data-tex="F^5">\(F^5\)</span>. Thus <span class="math" data-tex="\tau=s^4">\(\tau=s^4\)</span> costs no new random word. Arbitrary dependence on <span class="math" data-tex="c">\(c\)</span> is not justified by the twist lemma. A retains an independent <span class="math" data-tex="\tau">\(\tau\)</span> as requested; optional independent twists would make B/C 64/56 bytes.</p>
+<p>An <span class="math" data-tex="\varepsilon">\(\varepsilon\)</span> below is an explicitly proved <strong>upper bound</strong>, not a claim that the worst pair attains it. The displayed scores use these published bounds, as the paper’s scoring convention does. Define <span class="math" data-tex="L\ge1">\(L\ge1\)</span> to be an integer number of eight-byte words, with <span class="math" data-tex="8L&lt;q">\(8L&lt;q\)</span>. The fixed-length column means <strong>both</strong> messages have length exactly <span class="math" data-tex="8L">\(8L\)</span>. A separate envelope covers every pair of lengths at most <span class="math" data-tex="8L">\(8L\)</span>, including the empty message. The empty length itself is excluded from the score because <span class="math" data-tex="\log_2(0/\varepsilon)">\(\log_2(0/\varepsilon)\)</span> is undefined. KB and MB here mean 1024 and 1048576 bytes.</p>
+<h2 id="main-bounds-and-scores">2. Main bounds and scores</h2>
+<p>For positive integer <span class="math" data-tex="L">\(L\)</span>, let <span class="math" data-tex="n=\lceil L/32\rceil">\(n=\lceil L/32\rceil\)</span>, <span class="math" data-tex="R=L-32(n-1)">\(R=L-32(n-1)\)</span>, and <span class="math" data-tex="G=\lceil R/4\rceil">\(G=\lceil R/4\rceil\)</span>. Define</p>
+<p><span class="math math-display" data-tex="
+ d(L)=\begin{cases}
+ 1&amp;L=1,\\
+ 2&amp;L=2,\\
+ 4\lfloor(\min(L,32)-1)/4\rfloor+3&amp;L\ge3,\ \min(L,32)\equiv1\pmod4,\\
+ 4\lfloor(\min(L,32)-1)/4\rfloor+4&amp;\text{otherwise}.
+ \end{cases}
+">\[
+ d(L)=\begin{cases}
+ 1&amp;L=1,\\
+ 2&amp;L=2,\\
+ 4\lfloor(\min(L,32)-1)/4\rfloor+3&amp;L\ge3,\ \min(L,32)\equiv1\pmod4,\\
+ 4\lfloor(\min(L,32)-1)/4\rfloor+4&amp;\text{otherwise}.
+ \end{cases}
+\]</span></p>
+<p>The values begin <span class="math" data-tex="1,2,4,4,7,8,8,8,11,12,\ldots,31,32,32,32">\(1,2,4,4,7,8,8,8,11,12,\ldots,31,32,32,32\)</span> and remain 32 after the first block. The improvements at one and two words count distinct roots instead of counting the multiplicity of the root zero.</p>
+<p><strong>Theorem 1 (fixed-length certificates).</strong> For A and B respectively, on messages of length exactly <span class="math" data-tex="8L">\(8L\)</span>,</p>
+<p><span class="math math-display" data-tex="
+ \varepsilon_A^{=}(L)=\min\{1,(d(L)+n+1)/q\},\qquad
+ \varepsilon_B^{=}(L)=\min\{1,(d(L)+3n)/q\}
+">\[
+ \varepsilon_A^{=}(L)=\min\{1,(d(L)+n+1)/q\},\qquad
+ \varepsilon_B^{=}(L)=\min\{1,(d(L)+3n)/q\}
+\]</span></p>
+<p>are collision bounds. C and D always have the trivial certificates <span class="math" data-tex="\varepsilon_C^{=}(L)=\varepsilon_D^{=}(L)=1">\(\varepsilon_C^{=}(L)=\varepsilon_D^{=}(L)=1\)</span>. No nontrivial uniform certificate for C/D is asserted here.</p>
+<p><strong>Theorem 2 (all lengths up to a limit).</strong> Define</p>
+<p><span class="math math-display" data-tex="
+ E_A(L)=\begin{cases}8G&amp;n=1,\\ n+62+\mathbf1_{R\ge29}&amp;n\ge2,\end{cases}
+ \qquad
+ E_B(L)=\begin{cases}8G+1&amp;n=1,\\3n+59+3\mathbf1_{R\ge29}&amp;n\ge2.\end{cases}
+">\[
+ E_A(L)=\begin{cases}8G&amp;n=1,\\ n+62+\mathbf1_{R\ge29}&amp;n\ge2,\end{cases}
+ \qquad
+ E_B(L)=\begin{cases}8G+1&amp;n=1,\\3n+59+3\mathbf1_{R\ge29}&amp;n\ge2.\end{cases}
+\]</span></p>
+<p>Then <span class="math" data-tex="\varepsilon_A^{\le}(L)=\min(1,E_A(L)/q)">\(\varepsilon_A^{\le}(L)=\min(1,E_A(L)/q)\)</span> and <span class="math" data-tex="\varepsilon_B^{\le}(L)=\min(1,E_B(L)/q)">\(\varepsilon_B^{\le}(L)=\min(1,E_B(L)/q)\)</span> bound every pair of distinct byte strings of lengths at most <span class="math" data-tex="8L">\(8L\)</span>. In particular unequal lengths must <strong>not</strong> be silently assigned the fixed-length formulas. The simpler, slightly looser envelopes <span class="math" data-tex="(n+63)/q">\((n+63)/q\)</span> and <span class="math" data-tex="(3n+62)/q">\((3n+62)/q\)</span> hold for every <span class="math" data-tex="L">\(L\)</span>.</p>
+<table>
+<colgroup>
+<col style="width: 15%"/>
+<col style="width: 21%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th style="text-align: right;">Random bytes</th>
+<th>Fixed-length <span class="math" data-tex="\varepsilon^{=}(L)">\(\varepsilon^{=}(L)\)</span></th>
+<th>Fixed-length score; minimizing <span class="math" data-tex="L">\(L\)</span></th>
+<th>At-most score; minimizing <span class="math" data-tex="L">\(L\)</span></th>
+<th>256 B / 1 KB / 1 MB, fixed length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">80</td>
+<td><span class="math" data-tex="(d+n+1)/q">\((d+n+1)/q\)</span></td>
+<td><span class="math" data-tex="62.4150374993">\(62.4150374993\)</span>; 1</td>
+<td><span class="math" data-tex="61">\(61\)</span>; 1</td>
+<td><span class="math" data-tex="34/q">\(34/q\)</span>, <span class="math" data-tex="37/q">\(37/q\)</span>, <span class="math" data-tex="4129/q">\(4129/q\)</span></td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">56</td>
+<td><span class="math" data-tex="(d+3n)/q">\((d+3n)/q\)</span></td>
+<td><span class="math" data-tex="62">\(62\)</span>; 1</td>
+<td><span class="math" data-tex="60.8300749986">\(60.8300749986\)</span>; 1</td>
+<td><span class="math" data-tex="35/q">\(35/q\)</span>, <span class="math" data-tex="44/q">\(44/q\)</span>, <span class="math" data-tex="12320/q">\(12320/q\)</span></td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td style="text-align: right;">48</td>
+<td><span class="math" data-tex="1">\(1\)</span> only established</td>
+<td><span class="math" data-tex="0">\(0\)</span> from trivial certificate; 1</td>
+<td><span class="math" data-tex="0">\(0\)</span> from trivial certificate; 1</td>
+<td><span class="math" data-tex="1">\(1\)</span>, <span class="math" data-tex="1">\(1\)</span>, <span class="math" data-tex="1">\(1\)</span> only established</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td style="text-align: right;">8</td>
+<td><span class="math" data-tex="1">\(1\)</span> only established</td>
+<td><span class="math" data-tex="0">\(0\)</span> from trivial certificate; 1</td>
+<td><span class="math" data-tex="0">\(0\)</span> from trivial certificate; 1</td>
+<td><span class="math" data-tex="1">\(1\)</span>, <span class="math" data-tex="1">\(1\)</span>, <span class="math" data-tex="1">\(1\)</span> only established</td>
+</tr>
+</tbody>
+</table>
+<p>The exact nonintegral scores in the table are <span class="math" data-tex="64-\log_2 3">\(64-\log_2 3\)</span> for fixed-length A and <span class="math" data-tex="64-\log_2 9">\(64-\log_2 9\)</span> for at-most B. The true worst-probability scores of C/D are <strong>undetermined</strong>; the zeros in this table are not attacks proving zero security. The clipping at one in the theorem definitions is understood in the table.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Model and domain</th>
+<th style="text-align: right;">256 B</th>
+<th style="text-align: right;">1 KB</th>
+<th style="text-align: right;">1 MB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A, fixed</td>
+<td style="text-align: right;"><span class="math" data-tex="34/q">\(34/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="37/q">\(37/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="4129/q">\(4129/q\)</span></td>
+</tr>
+<tr class="even">
+<td>B, fixed</td>
+<td style="text-align: right;"><span class="math" data-tex="35/q">\(35/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="44/q">\(44/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="12320/q">\(12320/q\)</span></td>
+</tr>
+<tr class="odd">
+<td>A, at most</td>
+<td style="text-align: right;"><span class="math" data-tex="64/q">\(64/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="67/q">\(67/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="4159/q">\(4159/q\)</span></td>
+</tr>
+<tr class="even">
+<td>B, at most</td>
+<td style="text-align: right;"><span class="math" data-tex="65/q">\(65/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="74/q">\(74/q\)</span></td>
+<td style="text-align: right;"><span class="math" data-tex="12350/q">\(12350/q\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>These probabilities correspond, for example, to fixed-length collision exponents <span class="math" data-tex="58.9125,58.7905,51.9884">\(58.9125,58.7905,51.9884\)</span> bits for A and <span class="math" data-tex="58.8707,58.5406,50.4113">\(58.8707,58.5406,50.4113\)</span> for B. These exponents <span class="math" data-tex="-\log_2\varepsilon">\(-\log_2\varepsilon\)</span> differ from the length-normalized score <span class="math" data-tex="\log_2(L/\varepsilon)">\(\log_2(L/\varepsilon)\)</span>.</p>
+<h2 id="seeded-ph-and-the-stream-lemma">3. Seeded PH and the stream lemma</h2>
+<p><strong>Lemma 3 (the exponents actually touched).</strong> In one group, a difference in positions <span class="math" data-tex="4j,4j+1,4j+2,4j+3">\(4j,4j+1,4j+2,4j+3\)</span> multiplies key powers with exponents</p>
+<p><span class="math math-display" data-tex=" (4j+3,\ 4j+4,\ 4j+1,\ 4j+2), ">\[ (4j+3,\ 4j+4,\ 4j+1,\ 4j+2), \]</span></p>
+<p>respectively. For sub-blocks with the same group count, reduction of their raw PH difference minus any fixed 128-bit target is a polynomial in <span class="math" data-tex="s">\(s\)</span>. Its nonconstant coefficients are exactly the word differences, each in its own exponent. It is nonzero whenever a word differs. Its degree is bounded by the largest touched exponent having a nonzero difference.</p>
+<p>If two sub-blocks have different group counts and the larger count is <span class="math" data-tex="g\ge1">\(g\ge1\)</span>, their reduced difference minus any target is nonzero of degree exactly <span class="math" data-tex="8g-2\le62">\(8g-2\le62\)</span>.</p>
+<p><strong>Proof.</strong> Expand a strided product in characteristic two. The key-only product cancels when the pair is present on both sides, and its two linear terms place the two word differences on their partner keys. All partner exponents are distinct. Data-data products and the target contribute only the constant coefficient, so cannot cancel any nonzero nonconstant coefficient. When a pair is present only on the longer side, its key-only product survives. Group <span class="math" data-tex="j">\(j\)</span> contributes powers <span class="math" data-tex="s^{8j+4}">\(s^{8j+4}\)</span> and <span class="math" data-tex="s^{8j+6}">\(s^{8j+6}\)</span>. These exponents are distinct across all groups. The highest is <span class="math" data-tex="8g-2">\(8g-2\)</span>, has coefficient one, and exceeds every possible linear exponent <span class="math" data-tex="4g">\(4g\)</span>. It therefore cannot cancel. Reduction of raw products is legitimate here because a raw equality implies the corresponding field equality. The converse is not used. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p>In particular, the reduced-PH observation in <code>user_note.md</code> is valid at this stage. It does <strong>not</strong> assert that each separate raw half is a low-degree polynomial in the seed.</p>
+<p><strong>Lemma 4 (stream separation without a factor for the number of blocks).</strong> Suppose <span class="math" data-tex="m\ne m'">\(m\ne m'\)</span>. If their block counts differ, their streams differ for every <span class="math" data-tex="s">\(s\)</span>. If their block counts agree, select one nontrivial component equation required for stream equality, for example the first differing sub-block. For a nonfinal block its target is zero; for the last it is</p>
+<p><span class="math math-display" data-tex=" C=(\ell\mathbin{\mathrm{xor}}\ell')(1+X^{64}). ">\[ C=(\ell\mathbin{\mathrm{xor}}\ell')(1+X^{64}). \]</span></p>
+<p>Its reduction is the constant <span class="math" data-tex="(\ell\mathbin{\mathrm{xor}}\ell')\,26">\((\ell\mathbin{\mathrm{xor}}\ell')\,26\)</span>. Give this equation the following root budget <span class="math" data-tex="\alpha">\(\alpha\)</span>:</p>
+<ol type="1">
+<li>Same padded words and same group count, but different final length: <span class="math" data-tex="\alpha=0">\(\alpha=0\)</span>.</li>
+<li>Same group count and different words: the largest partner-key exponent at a differing position.</li>
+<li>Different group counts, larger count <span class="math" data-tex="g">\(g\)</span>: <span class="math" data-tex="\alpha=8g-2">\(\alpha=8g-2\)</span>.</li>
+</ol>
+<p>For equal one-word messages replace case 2 by <span class="math" data-tex="\alpha=1">\(\alpha=1\)</span>; for equal two-word messages use <span class="math" data-tex="\alpha\le2">\(\alpha\le2\)</span>. Then</p>
+<p><span class="math math-display" data-tex=" \Pr_s[\sigma_s(m)=\sigma_s(m')]\le\min(1,\alpha/q). ">\[ \Pr_s[\sigma_s(m)=\sigma_s(m')]\le\min(1,\alpha/q). \]</span></p>
+<p>Any available component equation may be used; taking the minimum of their individual budgets is valid. In particular the padded-last-block deterministic separation holds even when earlier blocks differ.</p>
+<p><strong>Proof.</strong> Different stream lengths cannot be equal. With the same number of blocks, stream equality implies every component equation, hence implies the selected one. Case 1 is impossible since <span class="math" data-tex="\ell\ne\ell'">\(\ell\ne\ell'\)</span> and <span class="math" data-tex="26\ne0">\(26\ne0\)</span>. Cases 2 and 3 follow from Lemma 3 and the fact that a nonzero degree-<span class="math" data-tex="d">\(d\)</span> polynomial has at most <span class="math" data-tex="d">\(d\)</span> distinct roots in a field. This root fact follows by repeatedly dividing by <span class="math" data-tex="T-a">\(T-a\)</span> for each distinct root; their product divides the polynomial and its degree cannot exceed <span class="math" data-tex="d">\(d\)</span>.</p>
+<p>For equal one-word messages only position zero varies; the raw difference is <span class="math" data-tex="\operatorname{clmul}(\delta,s^3)">\(\operatorname{clmul}(\delta,s^3)\)</span>, <span class="math" data-tex="\delta\ne0">\(\delta\ne0\)</span>. The polynomial ring is an integral domain, so it vanishes exactly at <span class="math" data-tex="s=0">\(s=0\)</span>. For two words the reduced difference has the form <span class="math" data-tex="s^3(\delta_0+\delta_1s)">\(s^3(\delta_0+\delta_1s)\)</span> with at least one nonzero coefficient; there are at most two distinct roots. No data-data constant occurs, since both partner words are zero-padded. These refinements concern equal lengths only. For equal longer lengths a differing block exists; a full block has budget at most 32, while the partner exponents in the last partial block give exactly the upper envelope <span class="math" data-tex="d(L)">\(d(L)\)</span>. Only one necessary equation was used, so there is no union bound over blocks. <span class="math" data-tex="\square">\(\square\)</span></p>
+<h2 id="recurrence-injectivity-and-the-correct-substitution">4. Recurrence injectivity and the correct substitution</h2>
+<p><strong>Lemma 5 (formal recurrence decoder).</strong> For a stream of length <span class="math" data-tex="n\ge1">\(n\ge1\)</span>, in <span class="math" data-tex="F[U,Y,Z]">\(F[U,Y,Z]\)</span> one has</p>
+<p><span class="math math-display" data-tex="
+ P_n=A(Y)+Z B(Y)+U C(Y),\quad
+ g_i=\prod_{j=i}^n(Y+b_j),\quad
+ A=\sum_{i=1}^n a_i g_{i+1},\quad B=g_1,\quad C=\sum_{i=1}^n g_i.
+">\[
+ P_n=A(Y)+Z B(Y)+U C(Y),\quad
+ g_i=\prod_{j=i}^n(Y+b_j),\quad
+ A=\sum_{i=1}^n a_i g_{i+1},\quad B=g_1,\quad C=\sum_{i=1}^n g_i.
+\]</span></p>
+<p>Here <span class="math" data-tex="g_{n+1}=1">\(g_{n+1}=1\)</span>, <span class="math" data-tex="B,C">\(B,C\)</span> are monic of degree <span class="math" data-tex="n">\(n\)</span>, and <span class="math" data-tex="\deg A\le n-1">\(\deg A\le n-1\)</span>. The stream-to-polynomial map is injective. Distinct streams of the same length have a nonzero difference of total degree at most <span class="math" data-tex="n">\(n\)</span>; for different lengths the difference has degree exactly <span class="math" data-tex="\max(n,n')+1">\(\max(n,n')+1\)</span>.</p>
+<p><strong>Proof.</strong> Expanding one recurrence step gives the updates <span class="math" data-tex="A_i=a_i+(Y+b_i)A_{i-1}">\(A_i=a_i+(Y+b_i)A_{i-1}\)</span>, <span class="math" data-tex="B_i=(Y+b_i)B_{i-1}">\(B_i=(Y+b_i)B_{i-1}\)</span>, and <span class="math" data-tex="C_i=(Y+b_i)(C_{i-1}+1)">\(C_i=(Y+b_i)(C_{i-1}+1)\)</span>, initially <span class="math" data-tex="(0,1,0)">\((0,1,0)\)</span>. These prove the displayed formulas.</p>
+<p>To decode a suffix of length <span class="math" data-tex="h">\(h\)</span>, write its product and sum of suffix products as <span class="math" data-tex="(B,C)">\((B,C)\)</span>. The coefficient of <span class="math" data-tex="Y^{h-1}">\(Y^{h-1}\)</span> in <span class="math" data-tex="B">\(B\)</span> is the sum of its <span class="math" data-tex="b">\(b\)</span>’s. The coefficient of <span class="math" data-tex="Y^{h-2}">\(Y^{h-2}\)</span> in <span class="math" data-tex="C+B">\(C+B\)</span> is the sum of all but its first <span class="math" data-tex="b">\(b\)</span>, plus <span class="math" data-tex="\mathbf1_{h\ge3}">\(\mathbf1_{h\ge3}\)</span>. Interpret a negative coefficient index as zero. Therefore its first <span class="math" data-tex="b">\(b\)</span> is</p>
+<p><span class="math math-display" data-tex=" [Y^{h-1}]B+[Y^{h-2}](C+B)+\mathbf1_{h\ge3}. ">\[ [Y^{h-1}]B+[Y^{h-2}](C+B)+\mathbf1_{h\ge3}. \]</span></p>
+<p>Divide <span class="math" data-tex="B">\(B\)</span> by the now known monic factor <span class="math" data-tex="Y+b_1">\(Y+b_1\)</span>, and replace <span class="math" data-tex="C">\(C\)</span> by <span class="math" data-tex="C+B">\(C+B\)</span> using the old <span class="math" data-tex="B">\(B\)</span>. This yields the same two objects for the suffix with the first pair removed. Iterate. Once the <span class="math" data-tex="b_i">\(b_i\)</span> and <span class="math" data-tex="g_i">\(g_i\)</span> are known, read <span class="math" data-tex="a_1">\(a_1\)</span> from degree <span class="math" data-tex="n-1">\(n-1\)</span> of <span class="math" data-tex="A">\(A\)</span>, subtract <span class="math" data-tex="a_1g_2">\(a_1g_2\)</span>, and continue in descending degrees. This reconstructs the whole stream. Finally the total-degree-<span class="math" data-tex="n+1">\(n+1\)</span> part is <span class="math" data-tex="(Z+U)Y^n">\((Z+U)Y^n\)</span>, independent of the data. It cancels for equal lengths; for unequal lengths the longer stream’s leading part survives. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p><strong>Lemma 6 (three independent recurrence keys).</strong> Condition on any fixed PH key for which the streams differ. With independent uniform <span class="math" data-tex="u,y,z">\(u,y,z\)</span>, the conditional collision probability is at most <span class="math" data-tex="n/q">\(n/q\)</span> for streams of common length <span class="math" data-tex="n">\(n\)</span>, and at most <span class="math" data-tex="(N+1)/q">\((N+1)/q\)</span> for different lengths, where <span class="math" data-tex="N=\max(n,n')">\(N=\max(n,n')\)</span>.</p>
+<p><strong>Proof.</strong> Lemma 5 gives a nonzero polynomial of the stated total degree. For completeness, a polynomial of total degree <span class="math" data-tex="D">\(D\)</span> evaluated at independent uniform field elements has zero probability at most <span class="math" data-tex="D/q">\(D/q\)</span>. Induct on the number of variables: write it as <span class="math" data-tex="\sum_{j=0}^h Q_j T^j">\(\sum_{j=0}^h Q_j T^j\)</span> with <span class="math" data-tex="Q_h\ne0">\(Q_h\ne0\)</span>. The leading coefficient vanishes with probability at most <span class="math" data-tex="(D-h)/q">\((D-h)/q\)</span> by induction; otherwise the univariate root bound is <span class="math" data-tex="h/q">\(h/q\)</span>. Their sum is <span class="math" data-tex="D/q">\(D/q\)</span>. This also holds when the sum exceeds one after clipping. Independence of the recurrence keys from <span class="math" data-tex="s">\(s\)</span> permits this conditioning. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p><strong>Lemma 7 (one independent recurrence seed).</strong> Set <span class="math" data-tex="(U,Y,Z)=(T^2,T^3,T)">\((U,Y,Z)=(T^2,T^3,T)\)</span>. The formal map from streams to polynomials in <span class="math" data-tex="T">\(T\)</span> is still injective, including across different stream lengths. Equal-length differences have degree at most <span class="math" data-tex="3n-1">\(3n-1\)</span>; different-length differences have degree exactly <span class="math" data-tex="3N+2">\(3N+2\)</span>.</p>
+<p><strong>Proof.</strong> The three terms become <span class="math" data-tex="A(T^3)">\(A(T^3)\)</span>, <span class="math" data-tex="T B(T^3)">\(T B(T^3)\)</span> and <span class="math" data-tex="T^2 C(T^3)">\(T^2 C(T^3)\)</span>, whose exponents lie respectively in residue classes <span class="math" data-tex="0,1,2">\(0,1,2\)</span> modulo 3. Extracting these classes recovers <span class="math" data-tex="A,B,C">\(A,B,C\)</span> coefficient by coefficient. Lemma 5 therefore still decodes the stream. The leading degree is <span class="math" data-tex="3n+2">\(3n+2\)</span>; the coefficients at degrees <span class="math" data-tex="3n+2,3n+1,3n">\(3n+2,3n+1,3n\)</span> are always <span class="math" data-tex="1,1,0">\(1,1,0\)</span>. Equal-length subtraction cancels them; unequal-length subtraction preserves the longer polynomial’s leading term. Evaluating the independent uniform <span class="math" data-tex="t">\(t\)</span> and applying the univariate root bound proves conditional probabilities at most <span class="math" data-tex="(3n-1)/q">\((3n-1)/q\)</span> and <span class="math" data-tex="(3N+2)/q">\((3N+2)/q\)</span>. No multivariate nonzero claim has been assumed to survive substitution without proof. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p><strong>Exponent choice and scope of optimality.</strong> Among the six assignments that permute exponents <span class="math" data-tex="1,2,3">\(1,2,3\)</span>, precisely the two residue-separated assignments with <span class="math" data-tex="y=T^3">\(y=T^3\)</span> have the above general injectivity guarantee. They tie at degree <span class="math" data-tex="3n-1">\(3n-1\)</span> for equal lengths and <span class="math" data-tex="3n+2">\(3n+2\)</span> otherwise. More generally, in the residue-separated monomial embedding <span class="math" data-tex="Y=T^e">\(Y=T^e\)</span>, the residues of <span class="math" data-tex="1,T^{e_u},T^{e_z}">\(1,T^{e_u},T^{e_z}\)</span> must be distinct modulo <span class="math" data-tex="e">\(e\)</span>. Thus <span class="math" data-tex="e\ge3">\(e\ge3\)</span> and the smallest two positive offsets are 1 and 2. Our assignment minimizes the resulting degree within that construction, uniformly in the stream length. We do not claim a global optimization theorem over every possible large exponent triple and every possible different decoder.</p>
+<p>The apparently better <span class="math" data-tex="(u,y,z)=(T,T^2,T^3)">\((u,y,z)=(T,T^2,T^3)\)</span> is not injective. Let <span class="math" data-tex="\alpha^2+\alpha+1=0">\(\alpha^2+\alpha+1=0\)</span> in the subfield <span class="math" data-tex="\mathrm{GF}(4)\subset F">\(\mathrm{GF}(4)\subset F\)</span>. Take all <span class="math" data-tex="a_i=0">\(a_i=0\)</span> and the length-three <span class="math" data-tex="b">\(b\)</span>-vectors</p>
+<p><span class="math math-display" data-tex=" (\alpha,\alpha,\alpha)\quad\hbox{and}\quad(\alpha+1,1,0). ">\[ (\alpha,\alpha,\alpha)\quad\hbox{and}\quad(\alpha+1,1,0). \]</span></p>
+<p>Their specialized polynomials are identical. To verify it, write <span class="math" data-tex="Y=T^2">\(Y=T^2\)</span> and divide the odd polynomial <span class="math" data-tex="P">\(P\)</span> by <span class="math" data-tex="T">\(T\)</span>. The recurrence becomes <span class="math" data-tex="R_0=Y">\(R_0=Y\)</span>, <span class="math" data-tex="R_i=(Y+b_i)(R_{i-1}+1)">\(R_i=(Y+b_i)(R_{i-1}+1)\)</span>. For the first vector the final polynomial is</p>
+<p><span class="math math-display" data-tex="Y^4+\alpha^2Y^3+\alpha^2Y,">\[Y^4+\alpha^2Y^3+\alpha^2Y,\]</span></p>
+<p>and direct expansion for the second gives the same result. This identity holds in <span class="math" data-tex="F[T]">\(F[T]\)</span>, not merely on a finite sample. One actual field representative of <span class="math" data-tex="\alpha">\(\alpha\)</span> is <code>0x19c9369f278adc02</code>.</p>
+<p>For completeness the other assignments with <span class="math" data-tex="y\ne T^3">\(y\ne T^3\)</span> also fail. For <span class="math" data-tex="(u,y,z)=(T^3,T,T^2)">\((u,y,z)=(T^3,T,T^2)\)</span> and <span class="math" data-tex="(T^3,T^2,T)">\((T^3,T^2,T)\)</span>, all-zero <span class="math" data-tex="a">\(a\)</span> and <span class="math" data-tex="b">\(b\)</span>-vectors <span class="math" data-tex="(0,0,0)">\((0,0,0)\)</span> and <span class="math" data-tex="(1,0,1)">\((1,0,1)\)</span> give identical polynomials. For <span class="math" data-tex="(T^2,T,T^3)">\((T^2,T,T^3)\)</span> use <span class="math" data-tex="b=(0,0,1)">\(b=(0,0,1)\)</span> versus <span class="math" data-tex="b'=(0,1,0)">\(b'=(0,1,0)\)</span>: their all-zero-<span class="math" data-tex="a">\(a\)</span> difference is <span class="math" data-tex="T^2">\(T^2\)</span>; adding <span class="math" data-tex="a'=(1,1,0)">\(a'=(1,1,0)\)</span> cancels it, since its contribution is <span class="math" data-tex="(T+1)T+T=T^2">\((T+1)T+T=T^2\)</span>. These are counterexamples to recurrence injectivity on streams; they are not being advertised as fixed message-pair collisions in full ChainHash under every PH seed.</p>
+<h2 id="finalizer-twist-and-composition">5. Finalizer, twist, and composition</h2>
+<p><strong>Lemma 8 (uniform finalizer and a free twist).</strong> For independent uniform <span class="math" data-tex="c\in F^5">\(c\in F^5\)</span>, the displayed circuit is a uniformly random monic degree-five polynomial. At any two distinct fixed inputs its collision probability is exactly <span class="math" data-tex="1/q">\(1/q\)</span>. At up to five distinct fixed inputs its values are independent uniform. All these conclusions hold after any common bijection of the inputs that is fixed by conditioning while <span class="math" data-tex="c">\(c\)</span> remains uniform.</p>
+<p><strong>Proof.</strong> Put <span class="math" data-tex="b=c_0+c_1">\(b=c_0+c_1\)</span> and <span class="math" data-tex="d=c_0c_1">\(d=c_0c_1\)</span>. Expansion gives <span class="math" data-tex="f_c(x)=x^5+\sum_{i=0}^4e_ix^i">\(f_c(x)=x^5+\sum_{i=0}^4e_ix^i\)</span>, with</p>
+<p><span class="math math-display" data-tex="
+ e_4=1+c_2,\quad e_3=b+c_2,\quad e_2=c_0+c_2b,\quad
+ e_1=d+c_3+c_0c_2,\quad e_0=c_4+c_2(d+c_3).
+">\[
+ e_4=1+c_2,\quad e_3=b+c_2,\quad e_2=c_0+c_2b,\quad
+ e_1=d+c_3+c_0c_2,\quad e_0=c_4+c_2(d+c_3).
+\]</span></p>
+<p>Conversely recover, in this order,</p>
+<p><span class="math math-display" data-tex="
+ c_2=e_4+1,\quad b=e_3+c_2,\quad c_0=e_2+c_2b,\quad c_1=b+c_0,
+">\[
+ c_2=e_4+1,\quad b=e_3+c_2,\quad c_0=e_2+c_2b,\quad c_1=b+c_0,
+\]</span></p>
+<p><span class="math math-display" data-tex=" c_3=e_1+c_0c_1+c_0c_2,\qquad c_4=e_0+c_2(c_0c_1+c_3). ">\[ c_3=e_1+c_0c_1+c_0c_2,\qquad c_4=e_0+c_2(c_0c_1+c_3). \]</span></p>
+<p>This is a two-sided inverse, so <span class="math" data-tex="e">\(e\)</span> is uniform on <span class="math" data-tex="F^5">\(F^5\)</span>. For distinct <span class="math" data-tex="v,v'">\(v,v'\)</span>, the coefficient of <span class="math" data-tex="e_1">\(e_1\)</span> in <span class="math" data-tex="f(v)+f(v')">\(f(v)+f(v')\)</span> is <span class="math" data-tex="v+v'\ne0">\(v+v'\ne0\)</span>; conditioning on all other <span class="math" data-tex="e_i">\(e_i\)</span> leaves exactly one colliding <span class="math" data-tex="e_1">\(e_1\)</span>. For <span class="math" data-tex="j\le5">\(j\le5\)</span> distinct points, the evaluation matrix with columns <span class="math" data-tex="1,v,\ldots,v^4">\(1,v,\ldots,v^4\)</span> has rank <span class="math" data-tex="j">\(j\)</span>, because its first <span class="math" data-tex="j">\(j\)</span> columns form an invertible Vandermonde matrix. Every output vector has exactly <span class="math" data-tex="q^{5-j}">\(q^{5-j}\)</span> coefficient preimages; adding the monic term is a fixed translation. A bijection preserves distinctness. Integer addition by any fixed <span class="math" data-tex="\tau">\(\tau\)</span> is a bijection, with inverse subtraction modulo <span class="math" data-tex="q">\(q\)</span>. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p><strong>Theorem 9 (pair-specific A/B bounds, including unequal lengths).</strong> Let <span class="math" data-tex="p_{12}=\Pr[V(m)=V(m')]">\(p_{12}=\Pr[V(m)=V(m')]\)</span>. If block counts agree, let <span class="math" data-tex="\alpha">\(\alpha\)</span> be any budget from Lemma 4, and put <span class="math" data-tex="b=n">\(b=n\)</span> in A and <span class="math" data-tex="b=3n-1">\(b=3n-1\)</span> in B. Then, writing <span class="math" data-tex="a=\min(1,\alpha/q)">\(a=\min(1,\alpha/q)\)</span> and <span class="math" data-tex="v=\min(1,b/q)">\(v=\min(1,b/q)\)</span>,</p>
+<p><span class="math math-display" data-tex=" p_{12}\le a+(1-a)v,\qquad
+ \Pr[H(m)=H(m')]=q^{-1}+(1-q^{-1})p_{12}.
+">\[ p_{12}\le a+(1-a)v,\qquad
+ \Pr[H(m)=H(m')]=q^{-1}+(1-q^{-1})p_{12}.
+\]</span></p>
+<p>In particular the simpler bound is <span class="math" data-tex="\min(1,(\alpha+b+1)/q)">\(\min(1,(\alpha+b+1)/q)\)</span>. For different block counts use <span class="math" data-tex="a=0">\(a=0\)</span> and <span class="math" data-tex="b=N+1">\(b=N+1\)</span> in A or <span class="math" data-tex="b=3N+2">\(b=3N+2\)</span> in B. These give the simpler bounds <span class="math" data-tex="(N+2)/q">\((N+2)/q\)</span> and <span class="math" data-tex="(3N+3)/q">\((3N+3)/q\)</span>, clipped at one.</p>
+<p><strong>Proof.</strong> Streams coincide with probability at most <span class="math" data-tex="a">\(a\)</span>. Condition on each <span class="math" data-tex="s">\(s\)</span> for which they differ; Lemma 6 or 7 bounds the conditional recurrence collision by <span class="math" data-tex="v">\(v\)</span>. Thus <span class="math" data-tex="p_{12}\le a+(1-a)v">\(p_{12}\le a+(1-a)v\)</span>; monotonicity in the actual stream-collision probability justifies substituting its upper bound. Different block counts make stream equality impossible. Condition now on all upstream words and <span class="math" data-tex="\tau">\(\tau\)</span>. If <span class="math" data-tex="V=V'">\(V=V'\)</span>, the final hash collides certainly; otherwise Lemma 8 gives probability exactly <span class="math" data-tex="1/q">\(1/q\)</span>. Average these disjoint alternatives. This also proves that the finalizer contributes <span class="math" data-tex="1/q">\(1/q\)</span>, rather than multiplying a seed-degree bound by five. The derived twist has disappeared from the argument without assuming it independent of the earlier seed. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p><strong>Proof of Theorems 1 and 2.</strong> For equal length, Lemma 4 supplies <span class="math" data-tex="\alpha\le d(L)">\(\alpha\le d(L)\)</span>. Substitution into Theorem 9 gives Theorem 1.</p>
+<p>For a maximum byte length <span class="math" data-tex="8L">\(8L\)</span>, first fix a common block count <span class="math" data-tex="k">\(k\)</span> and a limit <span class="math" data-tex="r">\(r\)</span> on the number of words in its last block. When <span class="math" data-tex="k=1">\(k=1\)</span>, different group counts (including an empty message) have root budget at most <span class="math" data-tex="8\lceil r/4\rceil-2">\(8\lceil r/4\rceil-2\)</span>, which also dominates the equal-group budget. When <span class="math" data-tex="k\ge2">\(k\ge2\)</span>, an earlier differing full block costs at most 32, so the common-count budget is at most</p>
+<p><span class="math math-display" data-tex=" \max\{32,8\lceil r/4\rceil-2\}. ">\[ \max\{32,8\lceil r/4\rceil-2\}. \]</span></p>
+<p>For <span class="math" data-tex="k&lt;n">\(k&lt;n\)</span>, the largest possible contribution occurs at <span class="math" data-tex="k=n-1">\(k=n-1\)</span>, with a full last block. Its A numerator is <span class="math" data-tex="62+(n-1)+1=n+62">\(62+(n-1)+1=n+62\)</span>; its B numerator is <span class="math" data-tex="62+3(n-1)=3n+59">\(62+3(n-1)=3n+59\)</span>. For <span class="math" data-tex="k=n">\(k=n\)</span>, the numerators are <span class="math" data-tex="n+1+\max(32,8G-2)">\(n+1+\max(32,8G-2)\)</span> and <span class="math" data-tex="3n+\max(32,8G-2)">\(3n+\max(32,8G-2)\)</span>. Taking the maximum yields exactly the piecewise <span class="math" data-tex="E_A,E_B">\(E_A,E_B\)</span> in Theorem 2: <span class="math" data-tex="8G-2\le54">\(8G-2\le54\)</span> for <span class="math" data-tex="R\le28">\(R\le28\)</span>, and equals 62 for <span class="math" data-tex="R\ge29">\(R\ge29\)</span>. The different-count bounds <span class="math" data-tex="n+2">\(n+2\)</span> and <span class="math" data-tex="3n+3">\(3n+3\)</span> are dominated by these common-count envelopes. This maximizes the proved degree bounds over the permitted lengths, not actual collision probabilities. Clipping at one finishes the proof. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p><strong>Proof of the score claims.</strong> At <span class="math" data-tex="L=1">\(L=1\)</span>, the fixed-length numerators are 3 and 4, and the at-most numerators are 8 and 9. For <span class="math" data-tex="2\le L\le32">\(2\le L\le32\)</span>, the partner-exponent formula gives <span class="math" data-tex="d(L)\le L+2">\(d(L)\le L+2\)</span> (with the stated further improvement at <span class="math" data-tex="L=2">\(L=2\)</span>). Consequently <span class="math" data-tex="d+n+1&lt;3L">\(d+n+1&lt;3L\)</span> and <span class="math" data-tex="d+3n&lt;4L">\(d+3n&lt;4L\)</span>. For <span class="math" data-tex="L\ge33">\(L\ge33\)</span>, use <span class="math" data-tex="d=32">\(d=32\)</span> and <span class="math" data-tex="n\le(L+31)/32">\(n\le(L+31)/32\)</span> to obtain the same strict inequalities. The at-most numerators for <span class="math" data-tex="L\le32">\(L\le32\)</span> satisfy <span class="math" data-tex="8\lceil L/4\rceil\le2L+6">\(8\lceil L/4\rceil\le2L+6\)</span> and <span class="math" data-tex="8\lceil L/4\rceil+1\le2L+7">\(8\lceil L/4\rceil+1\le2L+7\)</span>, strictly below <span class="math" data-tex="8L">\(8L\)</span> and <span class="math" data-tex="9L">\(9L\)</span> for <span class="math" data-tex="L&gt;1">\(L&gt;1\)</span>. For <span class="math" data-tex="L\ge33">\(L\ge33\)</span> the bounds <span class="math" data-tex="n+63&lt;8L">\(n+63&lt;8L\)</span> and <span class="math" data-tex="3n+62&lt;9L">\(3n+62&lt;9L\)</span> suffice. Thus every minimum occurs uniquely at <span class="math" data-tex="L=1">\(L=1\)</span>. For the trivial certificate <span class="math" data-tex="\varepsilon=1">\(\varepsilon=1\)</span>, the score is <span class="math" data-tex="\log_2L">\(\log_2L\)</span> and has the same unique minimizer. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p>The slightly stronger multiplicative bounds in Theorem 9 have not been substituted into the published score table; doing so changes tiny lower-order terms. As an additional exact check, for A and two distinct eight-byte messages the worst final collision probability is</p>
+<p><span class="math math-display" data-tex=" \frac{3q^2-6q+4}{q^3}. ">\[ \frac{3q^2-6q+4}{q^3}. \]</span></p>
+<p>Indeed their PH difference is <span class="math" data-tex="\operatorname{clmul}(\delta,s^3)">\(\operatorname{clmul}(\delta,s^3)\)</span>. It is zero exactly at <span class="math" data-tex="s=0">\(s=0\)</span>. If its high half is nonzero, the independent uniform <span class="math" data-tex="z+u">\(z+u\)</span> gives exactly one recurrence collision out of <span class="math" data-tex="q">\(q\)</span>; if the high half is zero and the raw value is nonzero, none. For any <span class="math" data-tex="\delta\ne0">\(\delta\ne0\)</span>, the high half is zero for at least the four seeds with <span class="math" data-tex="s^3\in\{0,1\}">\(s^3\in\{0,1\}\)</span>, since <span class="math" data-tex="3\mid(q-1)">\(3\mid(q-1)\)</span>. For <span class="math" data-tex="\deg_X\delta=63">\(\deg_X\delta=63\)</span> these are exactly all such seeds. Hence the largest pre-final collision probability is <span class="math" data-tex="(2q-4)/q^2">\((2q-4)/q^2\)</span>, and Theorem 9’s exact composition identity gives the stated expression. This is consistent with, and slightly below, the table’s <span class="math" data-tex="3/q">\(3/q\)</span> certificate.</p>
+<h2 id="the-five-wise-statement-that-actually-survives">6. The five-wise statement that actually survives</h2>
+<p><strong>Theorem 10 (conditional independence and distance bound).</strong> In A/B/C let <span class="math" data-tex="m_1,\ldots,m_j">\(m_1,\ldots,m_j\)</span>, <span class="math" data-tex="j\le5">\(j\le5\)</span>, be distinct fixed messages, and let <span class="math" data-tex="\mathcal D">\(\mathcal D\)</span> be the event that their level-two values are pairwise distinct. Conditioned on any upstream key in <span class="math" data-tex="\mathcal D">\(\mathcal D\)</span> and its scheduled twist, their final hashes are independent uniform on <span class="math" data-tex="F^j">\(F^j\)</span>. Unconditionally, their law has total-variation distance from uniform at most</p>
+<p><span class="math math-display" data-tex=" \Pr[\neg\mathcal D]\le\min\left(1,\sum_{i&lt;h}\Pr[V(m_i)=V(m_h)]\right). ">\[ \Pr[\neg\mathcal D]\le\min\left(1,\sum_{i&lt;h}\Pr[V(m_i)=V(m_h)]\right). \]</span></p>
+<p>For A/B, each summand has the bound in Theorem 9. In particular for messages of one fixed length use <span class="math" data-tex="\binom j2(d(L)+n)/q">\(\binom j2(d(L)+n)/q\)</span> in A and <span class="math" data-tex="\binom j2(d(L)+3n-1)/q">\(\binom j2(d(L)+3n-1)/q\)</span> in B; for arbitrary lengths up to <span class="math" data-tex="8L">\(8L\)</span>, use <span class="math" data-tex="\binom j2(E_A(L)-1)/q">\(\binom j2(E_A(L)-1)/q\)</span> and <span class="math" data-tex="\binom j2(E_B(L)-1)/q">\(\binom j2(E_B(L)-1)/q\)</span>, all clipped at one. For C the conditional assertion remains exact, but this work supplies no nontrivial uniform upper bound for <span class="math" data-tex="\Pr[\neg\mathcal D]">\(\Pr[\neg\mathcal D]\)</span>.</p>
+<p><strong>Proof.</strong> A union bound gives the bound on <span class="math" data-tex="\neg\mathcal D">\(\neg\mathcal D\)</span>. On every good conditioned key, Lemma 8 gives the uniform output law. Averaging over good keys still gives uniform. Thus the unconditional law is <span class="math" data-tex="(1-p)U+pR">\((1-p)U+pR\)</span>, where <span class="math" data-tex="p=\Pr[\neg\mathcal D]">\(p=\Pr[\neg\mathcal D]\)</span>, <span class="math" data-tex="U">\(U\)</span> is uniform, and <span class="math" data-tex="R">\(R\)</span> is some probability law; its total-variation distance from <span class="math" data-tex="U">\(U\)</span> is at most <span class="math" data-tex="p">\(p\)</span>. The conditioning fixes the twist but does not alter the uniform finalizer coefficients. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p>This is <strong>not unconditional exact five-wise independence of the message hash</strong>. For example two eight-byte messages containing the words 0 and 1 have the same raw PH value at <span class="math" data-tex="s=0">\(s=0\)</span>. Thus <span class="math" data-tex="p_{12}\ge1/q">\(p_{12}\ge1/q\)</span> in A/B/C, and their final collision probability is strictly greater than <span class="math" data-tex="1/q">\(1/q\)</span>. They are not even unconditionally pairwise independent. The qualification in the original <code>thm:ph:kwise</code> is essential. Conditional uniformity of five outputs needs at least <span class="math" data-tex="q^5">\(q^5\)</span> equally weighted possibilities in the remaining randomness, hence at least 320 random bits, matching the five independent <span class="math" data-tex="c">\(c\)</span> words.</p>
+<h2 id="what-can-and-cannot-be-concluded-for-c-and-d">7. What can and cannot be concluded for C and D</h2>
+<p><strong>Theorem 11 (exact reduction to seed counts; no unsupported degree claim).</strong> For the specified C schedule, define</p>
+<p><span class="math math-display" data-tex=" N_C(m,m')=\#\{s\in F:V_s(m)=V_s(m')\}. ">\[ N_C(m,m')=\#\{s\in F:V_s(m)=V_s(m')\}. \]</span></p>
+<p>For every fixed pair, including unequal lengths,</p>
+<p><span class="math math-display" data-tex=" \Pr_C[H(m)=H(m')]=\frac{q+(q-1)N_C(m,m')}{q^2}. ">\[ \Pr_C[H(m)=H(m')]=\frac{q+(q-1)N_C(m,m')}{q^2}. \]</span></p>
+<p>For D define <span class="math" data-tex="N_D(m,m')=\#\{s:H_s(m)=H_s(m')\}">\(N_D(m,m')=\#\{s:H_s(m)=H_s(m')\}\)</span>. Its collision probability is exactly <span class="math" data-tex="N_D(m,m')/q">\(N_D(m,m')/q\)</span>. These identities and <span class="math" data-tex="0\le N_C,N_D\le q">\(0\le N_C,N_D\le q\)</span> prove the displayed trivial certificates. Determining a useful worst-pair bound for these counts in the 64-bit field is an unresolved part of the requested program, not a consequence of the supplied note.</p>
+<p><strong>Proof.</strong> In C the upstream key is determined by <span class="math" data-tex="s">\(s\)</span> and the finalizer is independent. Apply the exact identity in Theorem 9 and <span class="math" data-tex="p_{12}=N_C/q">\(p_{12}=N_C/q\)</span>. In D all randomness is the one uniformly sampled seed, so count the successful seeds directly. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p><strong>Proposition 12 (a concrete 64-bit lower bound).</strong> For the two eight-byte messages containing the numerical words <span class="math" data-tex="0">\(0\)</span> and <span class="math" data-tex="\delta=2^{63}+3">\(\delta=2^{63}+3\)</span>, both C and D have pre-final collisions at <span class="math" data-tex="s=0">\(s=0\)</span> and <span class="math" data-tex="s=2">\(s=2\)</span>. Consequently the full collision probability is at least <span class="math" data-tex="3/q-2/q^2">\(3/q-2/q^2\)</span> in C and at least <span class="math" data-tex="2/q">\(2/q\)</span> in D.</p>
+<p><strong>Proof.</strong> At <span class="math" data-tex="s=0">\(s=0\)</span> the differing word’s partner key is zero. At <span class="math" data-tex="s=2=X">\(s=2=X\)</span>, the partner key is <span class="math" data-tex="s^3=X^3">\(s^3=X^3\)</span> and the raw difference is</p>
+<p><span class="math math-display" data-tex=" (X^{63}+X+1)X^3=X^{66}+X^4+X^3. ">\[ (X^{63}+X+1)X^3=X^{66}+X^4+X^3. \]</span></p>
+<p>Its low/high halves are 24 and 4, while <span class="math" data-tex="u+z=s^2+s=6">\(u+z=s^2+s=6\)</span>. The one-step recurrence difference is therefore <span class="math" data-tex="24+6\cdot4=0">\(24+6\cdot4=0\)</span> in <span class="math" data-tex="F">\(F\)</span>. Equal lengths cancel their length words and all common terms. Apply Theorem 11 for C; in D the two equal pre-final values certainly stay equal. No claim that these are the only roots is required. <span class="math" data-tex="\square">\(\square\)</span></p>
+<p>There are two separate obstructions to the proposed shortcut for C. First, after conditioning on <span class="math" data-tex="s">\(s\)</span> to make the stream coefficients constant, there is no remaining independent recurrence seed on which to apply Lemma 7. Nonzero multivariate polynomials can vanish identically on a diagonal; injectivity over independent variables does not settle this. Second, the actual hash feeds the raw low and high words to the recurrence. Only their combination <span class="math" data-tex="a+27b">\(a+27b\)</span> is the reduced PH polynomial of small degree. A bit projection of a field element is a linearized field polynomial of degree <span class="math" data-tex="2^{63}">\(2^{63}\)</span>, not generally a degree-one field polynomial.</p>
+<p>Here is a concrete verification of the second obstruction. Take two same-length sub-blocks differing by <span class="math" data-tex="2^{63}">\(2^{63}\)</span> at position 2, with all other message words zero. Their raw PH difference is <span class="math" data-tex="\operatorname{clmul}(2^{63},s)">\(\operatorname{clmul}(2^{63},s)\)</span>, whose low half is <span class="math" data-tex="2^{63}">\(2^{63}\)</span> times the least significant bit of <span class="math" data-tex="s">\(s\)</span>. Every nonzero binary linear functional on <span class="math" data-tex="F">\(F\)</span> is <span class="math" data-tex="s\mapsto\operatorname{Tr}(\beta s)">\(s\mapsto\operatorname{Tr}(\beta s)\)</span> for a nonzero <span class="math" data-tex="\beta">\(\beta\)</span> (the trace pairing is nondegenerate); its unique degree-below-<span class="math" data-tex="q">\(q\)</span> polynomial is</p>
+<p><span class="math math-display" data-tex=" \operatorname{Tr}(\beta s)=\sum_{i=0}^{63}\beta^{2^i}s^{2^i}, ">\[ \operatorname{Tr}(\beta s)=\sum_{i=0}^{63}\beta^{2^i}s^{2^i}, \]</span></p>
+<p>of degree exactly <span class="math" data-tex="2^{63}">\(2^{63}\)</span>. To see nondegeneracy without an assumption, the polynomial <span class="math" data-tex="\sum_{i=0}^{63}T^{2^i}">\(\sum_{i=0}^{63}T^{2^i}\)</span> is nonzero of degree <span class="math" data-tex="2^{63}&lt;q">\(2^{63}&lt;q\)</span>, so its trace map is not identically zero; for nonzero <span class="math" data-tex="\beta">\(\beta\)</span>, multiplication by <span class="math" data-tex="\beta">\(\beta\)</span> is a bijection. The trace pairings give all 64-dimensional binary dual functionals. Polynomial-function uniqueness below degree <span class="math" data-tex="q">\(q\)</span> follows from the root bound. Thus the low-half function in this example cannot have the claimed degree at most 32, although its reduced PH difference has degree one. Cancellation between the two raw halves is crucial to the note’s proof and is lost with a seed-dependent recurrence multiplier.</p>
+<p>The GF(256) referee gives a further explicit warning. With the faithfully scaled C schedule and modulus <span class="math" data-tex="X^8+X^4+X^3+X+1">\(X^8+X^4+X^3+X+1\)</span>, the one-word messages <code>16</code> and <code>61</code> in hexadecimal have pre-final collisions at seeds <code>00 28 3b 41 c3 ee</code>: six of 256. Their full collision probability, integrating the independent finalizer exactly, is <span class="math" data-tex="1786/65536\approx0.0272522">\(1786/65536\approx0.0272522\)</span>, exceeding the unjustified B-style <span class="math" data-tex="4/256">\(4/256\)</span> bound. This disproves that general substitution argument for scaled ChainHash. It does not by itself disprove any particular numerical bound over GF<span class="math" data-tex="(2^{64})">\((2^{64})\)</span>.</p>
+<p>In D there is the additional loss of independent finalizer coefficients. One cannot keep the <span class="math" data-tex="1/q">\(1/q\)</span> finalizer term, use the Vandermonde uniformity argument, or automatically multiply a preceding bound by five. The integer-add twist also introduces carries and is not a small-degree field polynomial in its arguments. Even without those carries, a seed-dependent polynomial finalizer could identify two distinct seed-dependent inputs identically; a nonzero-composition argument would have to be proved. Finally a one-word key has at most <span class="math" data-tex="q">\(q\)</span> possible five-tuples of outputs on five messages, so cannot give the uniform distribution on <span class="math" data-tex="q^5">\(q^5\)</span> tuples. There is no five-wise claim for D.</p>
+<p>These limitations are explicit: the work proves A/B and the conditional finalizer part of C, supplies the constructors for all requested schedules, and leaves a useful 64-bit C/D collision theorem and unrestricted exponent-triple optimality unproved. It does not label either missing result as a conjecture supported merely by passing tests.</p>
+</main></body></html>

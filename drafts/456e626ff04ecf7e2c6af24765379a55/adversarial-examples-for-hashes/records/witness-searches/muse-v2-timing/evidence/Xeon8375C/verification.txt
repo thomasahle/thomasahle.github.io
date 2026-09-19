@@ -1,7 +1,0 @@
-REGISTRATION name=MuseAir-v2 backend=scalar-mul128 bits=64 verify=7140cabc
-VECTORS count=200000 registered_calls=600000 mismatches=0 maxlen=511
-EXAMPLE seed=040963434fe5e368 a=ef46cda19c0bbc67 b=ef46cda19c0bbc67
-EXAMPLE seed=acac861647d5f7f2 a=b1f37635e72a255f b=b1f37635e72a255f
-EXAMPLE seed=0000000000000000 a=b5b9cc9d70e8f847 b=8f8b1e9c2c5b13f0
-PAIR trials=1073741824 collisions=6028 rng=splitmix64 master=0x763220260919 log2_rate=-17.442536298 poisson95_log2=[-17.479191195,-17.406111124]
-PASS

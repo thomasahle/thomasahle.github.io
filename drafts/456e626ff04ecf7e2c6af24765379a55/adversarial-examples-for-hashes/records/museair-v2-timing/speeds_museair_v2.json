@@ -5,14 +5,14 @@
       "registered_name": "MuseAir-v2",
       "registration": "MuseAir-v2                     64  scalar-mul128          MuseAir v2 (crate 0.6.0), standard hash, direct 64-bit seed ",
       "backend_token": "scalar-mul128",
-      "binary": "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
       "runs": [
         {
           "name": "MuseAir-v2",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "MuseAir-v2",
             "--test=Speed"
           ],
@@ -292,7 +292,7 @@
           "name": "MuseAir-v2",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "MuseAir-v2",
             "--test=Speed"
           ],
@@ -1377,14 +1377,14 @@
       "registered_name": "XXH3-64",
       "registration": "XXH3-64                        64      avx512          xxh3, 64-bit version                                        ",
       "backend_token": "avx512",
-      "binary": "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
       "runs": [
         {
           "name": "XXH3-64",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -1552,7 +1552,7 @@
           "name": "XXH3-64",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -2375,14 +2375,14 @@
       "registered_name": "rapidhash",
       "registration": "rapidhash                      64                      rapidhash v3, 64-bit                                        ",
       "backend_token": null,
-      "binary": "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
       "runs": [
         {
           "name": "rapidhash",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -2615,7 +2615,7 @@
           "name": "rapidhash",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -3466,14 +3466,14 @@
       "registered_name": "chainhash-256",
       "registration": "chainhash-256                  64     hwclmul          ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
       "backend_token": "hwclmul",
-      "binary": "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
       "runs": [
         {
           "name": "chainhash-256",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -3697,7 +3697,7 @@
           "name": "chainhash-256",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -4506,14 +4506,14 @@
       "registered_name": "MuseAir",
       "registration": "MuseAir                        64                      MuseAir v0.3                                                ",
       "backend_token": null,
-      "binary": "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+      "binary": "./SMHasher3",
       "binary_sha256": "3346f0ca2bf43422b3ef4f8741eda9968804095022cf368924abeaeafb640886",
       "runs": [
         {
           "name": "MuseAir",
           "run": 1,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],
@@ -4793,7 +4793,7 @@
           "name": "MuseAir",
           "run": 2,
           "command": [
-            "/home/thomas-ahle/agents/speedbench-museair-v2/build/SMHasher3",
+            "./SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],

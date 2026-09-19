@@ -1,7 +1,0 @@
-ref vector: 0031cdc21324150f expected 0031cdc21324150f PASS
-recorded seed 3788f2419a81e2d6: H(A)=8f7a71ffebd4a14b H(B)=8f7a71ffebd4a14b expected 8f7a71ffebd4a14b PASS
-recorded colliding seeds reproduced: 12/12
-pair A sample: rng seed 8: collisions = 6 / 2^30; log2 rate = -27.4150; cap = 29.4150 bits
-key-free w[len-16]=secret[1], len 32 (L=4): 65536 / 65536 random (seed,M,M') collide
-key-free w[len-16]=secret[1], len 24 (L=3): 65536 / 65536 random (seed,M,M') collide
-key-free w[len-16]=secret[1], len 17 (L=3): 65536 / 65536 random (seed,M,M') collide

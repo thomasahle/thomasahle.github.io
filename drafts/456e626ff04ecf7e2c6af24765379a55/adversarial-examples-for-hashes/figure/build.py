@@ -368,6 +368,11 @@ profile_source = OUT / 'profiles.json'
 profiles = json.loads(profile_source.read_text())['profiles']
 profile_for = {}
 for profile in profiles:
+    if not 1 <= len(profile['links']) <= 4:
+        raise ValueError(f'Profiles require one to four public documents: {profile["ids"]}')
+    for link in profile['links']:
+        if not link['url'].startswith(('https://', 'http://')) and re.search(r'\.(md|tex)(?:#|$)', link['url']):
+            raise ValueError(f'Unrendered profile document: {link["url"]}')
     for row_id in profile['ids']:
         if row_id in profile_for:
             raise ValueError(f'Duplicate hash profile: {row_id}')
@@ -417,7 +422,7 @@ print('Generated 24 SVGs, 24 PNGs, inspection data, and feature.svg/png from dat
 # currently selected pair. Keep it generated from the same scientific record.
 selected = next(row for row in DATA['heuristics'] if row['id'] == 'xxh3-64')
 context_note = (
-    '<p>The separate historical <a href="verify/xxh3-64/HISTORICAL.md">32-byte pair A</a> '
+    '<p>The separate historical <a href="verify/xxh3-64/HISTORICAL.html">32-byte pair A</a> '
     'gave 9, 12, 11 and 11 collisions per 2<sup>30</sup> keys in wyhash, rapidhash v1, '
     'rapidhash v3 and XXH3-64. The selected XXH3-64 pair has a different measured rate: '
     + html.escape(selected['collision']['display']) + '. Search effort was unequal; '
@@ -431,4 +436,8 @@ page, count = re.subn(
     lambda match: context_note, article.read_text(), count=1, flags=re.S)
 if count != 1:
     raise ValueError('Missing existing figure witness-context note')
+# Provenance lives in the canonical data; update the existing caption link line.
+reproduction_url = DATA['benchmark']['reproduction_url']
+page = re.sub(r'(<a href="data.json">Data and provenance</a>)(?: · <a href="https://github.com/thomasahle/hash-benchmark-reproduction">Timing reproduction</a>)?',
+              lambda match: match.group(1) + ' · <a href="' + html.escape(reproduction_url, quote=True) + '">Timing reproduction</a>', page, count=1)
 article.write_text(page)

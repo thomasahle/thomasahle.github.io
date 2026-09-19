@@ -1,7 +1,0 @@
-PASS: 608 vectors; bytes 0 through 32647.
-Includes empty input, partial words, block boundaries, and polynomial keys 0, 1, and all ones.
-C++ variant: clhash<false, false>; full keys supplied directly, no seed expansion.
-Source SHA256: 034c3e7fceed98849e50fa3083ff132afcee21f21a79548b9c431596b08633cc
-Harness SHA256: b1383b4aa0b8a257a52b566668d443e8ed2e4255577200b58ddb3a0a8eae8959
-Input corpus SHA256: 9c199bf5bdcb0ffb9b2abdfcf80581780743b03974a6ef3dcafe5cb15fd02206
-Results SHA256: 5754a57fb3197558178ec99519fc0d58f7778005c022fa09baac81855e35509e

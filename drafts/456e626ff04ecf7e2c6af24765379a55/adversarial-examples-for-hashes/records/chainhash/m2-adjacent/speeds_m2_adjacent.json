@@ -1,6 +1,6 @@
 {
   "host": "Apple M2 Pro",
-  "binary": "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+  "binary": "./SMHasher3",
   "binary_sha256": "59f0b173d9d6fbb2e2eb5ccd71540ecd7dbc5159601a3ee25006c6efdf1b60ca",
   "completed": "2026-09-18T19:53:38.985122+00:00",
   "source_tree": "scratch copy of ../m2-rerun/smhasher3",
@@ -730,7 +730,7 @@
       "name": "chainhash-adjacent-1k",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-1k",
         "--test=Speed"
       ],
@@ -838,7 +838,7 @@
       "name": "chainhash-adjacent-256",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256",
         "--test=Speed"
       ],
@@ -946,7 +946,7 @@
       "name": "chainhash-adjacent-256-b2",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b2",
         "--test=Speed"
       ],
@@ -1054,7 +1054,7 @@
       "name": "chainhash-adjacent-256-b4",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b4",
         "--test=Speed"
       ],
@@ -1162,7 +1162,7 @@
       "name": "chainhash-adjacent-256-b8",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b8",
         "--test=Speed"
       ],
@@ -1270,7 +1270,7 @@
       "name": "chainhash-256",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-256",
         "--test=Speed"
       ],
@@ -1348,7 +1348,7 @@
       "name": "chainhash-1k",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-1k",
         "--test=Speed"
       ],
@@ -1432,7 +1432,7 @@
       "name": "komihash",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "komihash",
         "--test=Speed"
       ],
@@ -1546,7 +1546,7 @@
       "name": "rapidhash",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "rapidhash",
         "--test=Speed"
       ],
@@ -1630,7 +1630,7 @@
       "name": "XXH3-64",
       "run": 1,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "XXH3-64",
         "--test=Speed"
       ],
@@ -1720,7 +1720,7 @@
       "name": "chainhash-adjacent-256-b8",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b8",
         "--test=Speed"
       ],
@@ -1828,7 +1828,7 @@
       "name": "chainhash-256",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-256",
         "--test=Speed"
       ],
@@ -1906,7 +1906,7 @@
       "name": "chainhash-1k",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-1k",
         "--test=Speed"
       ],
@@ -1990,7 +1990,7 @@
       "name": "komihash",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "komihash",
         "--test=Speed"
       ],
@@ -2104,7 +2104,7 @@
       "name": "rapidhash",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "rapidhash",
         "--test=Speed"
       ],
@@ -2188,7 +2188,7 @@
       "name": "XXH3-64",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "XXH3-64",
         "--test=Speed"
       ],
@@ -2278,7 +2278,7 @@
       "name": "chainhash-adjacent-1k",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-1k",
         "--test=Speed"
       ],
@@ -2386,7 +2386,7 @@
       "name": "chainhash-adjacent-256",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256",
         "--test=Speed"
       ],
@@ -2494,7 +2494,7 @@
       "name": "chainhash-adjacent-256-b2",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b2",
         "--test=Speed"
       ],
@@ -2602,7 +2602,7 @@
       "name": "chainhash-1k",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-1k",
         "--test=Speed"
       ],
@@ -2686,7 +2686,7 @@
       "name": "komihash",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "komihash",
         "--test=Speed"
       ],
@@ -2806,7 +2806,7 @@
       "name": "rapidhash",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "rapidhash",
         "--test=Speed"
       ],
@@ -2890,7 +2890,7 @@
       "name": "XXH3-64",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "XXH3-64",
         "--test=Speed"
       ],
@@ -2980,7 +2980,7 @@
       "name": "chainhash-adjacent-1k",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-1k",
         "--test=Speed"
       ],
@@ -3088,7 +3088,7 @@
       "name": "chainhash-adjacent-256",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256",
         "--test=Speed"
       ],
@@ -3196,7 +3196,7 @@
       "name": "chainhash-adjacent-256-b2",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b2",
         "--test=Speed"
       ],
@@ -3304,7 +3304,7 @@
       "name": "chainhash-adjacent-256-b4",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b4",
         "--test=Speed"
       ],
@@ -3412,7 +3412,7 @@
       "name": "chainhash-adjacent-256-b8",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b8",
         "--test=Speed"
       ],
@@ -3520,7 +3520,7 @@
       "name": "chainhash-256",
       "run": 3,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-256",
         "--test=Speed"
       ],
@@ -3604,7 +3604,7 @@
       "name": "chainhash-adjacent-256-b4",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b4",
         "--test=Speed"
       ],
@@ -3717,7 +3717,7 @@
       "name": "chainhash-adjacent-256-b4",
       "run": 2,
       "command": [
-        "<scratch>/codex/chainhash-m2-adjacent/build/SMHasher3",
+        "./SMHasher3",
         "chainhash-adjacent-256-b4",
         "--test=Speed"
       ],

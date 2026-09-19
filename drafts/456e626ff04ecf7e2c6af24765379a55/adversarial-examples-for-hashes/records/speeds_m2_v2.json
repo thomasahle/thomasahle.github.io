@@ -9,7 +9,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -70,7 +70,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -157,7 +157,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],
@@ -287,7 +287,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rapidhash.protected",
             "--test=Speed"
           ],
@@ -348,7 +348,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rapidhash.protected",
             "--test=Speed"
           ],
@@ -435,7 +435,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "rapidhash.protected",
               "--test=Sanity"
             ],
@@ -518,7 +518,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -579,7 +579,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "XXH3-64",
             "--test=Speed"
           ],
@@ -666,7 +666,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "XXH3-64",
               "--test=Sanity"
             ],
@@ -786,7 +786,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "XXH3-128",
             "--test=Speed"
           ],
@@ -847,7 +847,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "XXH3-128",
             "--test=Speed"
           ],
@@ -934,7 +934,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "XXH3-128",
               "--test=Sanity"
             ],
@@ -1017,7 +1017,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "wyhash",
             "--test=Speed"
           ],
@@ -1078,7 +1078,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "wyhash",
             "--test=Speed"
           ],
@@ -1165,7 +1165,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "wyhash",
               "--test=Sanity"
             ],
@@ -1248,7 +1248,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1309,7 +1309,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1396,7 +1396,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -1526,7 +1526,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "a5hash",
             "--test=Speed"
           ],
@@ -1587,7 +1587,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "a5hash",
             "--test=Speed"
           ],
@@ -1674,7 +1674,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "a5hash",
               "--test=Sanity"
             ],
@@ -1757,7 +1757,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "a5hash-128",
             "--test=Speed"
           ],
@@ -1818,7 +1818,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "a5hash-128",
             "--test=Speed"
           ],
@@ -1905,7 +1905,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "a5hash-128",
               "--test=Sanity"
             ],
@@ -1988,7 +1988,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],
@@ -2049,7 +2049,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "MuseAir",
             "--test=Speed"
           ],
@@ -2136,7 +2136,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "MuseAir",
               "--test=Sanity"
             ],
@@ -2219,7 +2219,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "MuseAir.bfast",
             "--test=Speed"
           ],
@@ -2280,7 +2280,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "MuseAir.bfast",
             "--test=Speed"
           ],
@@ -2367,7 +2367,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "MuseAir.bfast",
               "--test=Sanity"
             ],
@@ -2450,7 +2450,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "t1ha2-64",
             "--test=Speed"
           ],
@@ -2511,7 +2511,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "t1ha2-64",
             "--test=Speed"
           ],
@@ -2598,7 +2598,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "t1ha2-64",
               "--test=Sanity"
             ],
@@ -2681,7 +2681,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "CityHash-64",
             "--test=Speed"
           ],
@@ -2742,7 +2742,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "CityHash-64",
             "--test=Speed"
           ],
@@ -2829,7 +2829,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "CityHash-64",
               "--test=Sanity"
             ],
@@ -2912,7 +2912,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "FarmHash-64.NA",
             "--test=Speed"
           ],
@@ -2973,7 +2973,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "FarmHash-64.NA",
             "--test=Speed"
           ],
@@ -3060,7 +3060,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "FarmHash-64.NA",
               "--test=Sanity"
             ],
@@ -3143,7 +3143,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "MurmurHash3-128",
             "--test=Speed"
           ],
@@ -3204,7 +3204,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "MurmurHash3-128",
             "--test=Speed"
           ],
@@ -3291,7 +3291,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "MurmurHash3-128",
               "--test=Sanity"
             ],
@@ -3374,7 +3374,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "gxhash-64",
             "--test=Speed"
           ],
@@ -3435,7 +3435,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "gxhash-64",
             "--test=Speed"
           ],
@@ -3522,7 +3522,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "gxhash-64",
               "--test=Sanity"
             ],
@@ -3605,7 +3605,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rust-ahash",
             "--test=Speed"
           ],
@@ -3666,7 +3666,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rust-ahash",
             "--test=Speed"
           ],
@@ -3753,7 +3753,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "rust-ahash",
               "--test=Sanity"
             ],
@@ -3836,7 +3836,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rust-ahash-fb",
             "--test=Speed"
           ],
@@ -3897,7 +3897,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "rust-ahash-fb",
             "--test=Speed"
           ],
@@ -3984,7 +3984,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "rust-ahash-fb",
               "--test=Sanity"
             ],
@@ -4067,7 +4067,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SpookyHash2-64",
             "--test=Speed"
           ],
@@ -4128,7 +4128,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SpookyHash2-64",
             "--test=Speed"
           ],
@@ -4215,7 +4215,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "SpookyHash2-64",
               "--test=Sanity"
             ],
@@ -4298,7 +4298,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SpookyHash2-32",
             "--test=Speed"
           ],
@@ -4359,7 +4359,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SpookyHash2-32",
             "--test=Speed"
           ],
@@ -4446,7 +4446,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "SpookyHash2-32",
               "--test=Sanity"
             ],
@@ -4529,7 +4529,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HighwayHash-64",
             "--test=Speed"
           ],
@@ -4590,7 +4590,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HighwayHash-64",
             "--test=Speed"
           ],
@@ -4677,7 +4677,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "HighwayHash-64",
               "--test=Sanity"
             ],
@@ -4760,7 +4760,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HighwayHash-128",
             "--test=Speed"
           ],
@@ -4821,7 +4821,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HighwayHash-128",
             "--test=Speed"
           ],
@@ -4908,7 +4908,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "HighwayHash-128",
               "--test=Sanity"
             ],
@@ -4991,7 +4991,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "pengyhash",
             "--test=Speed"
           ],
@@ -5052,7 +5052,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "pengyhash",
             "--test=Speed"
           ],
@@ -5139,7 +5139,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "pengyhash",
               "--test=Sanity"
             ],
@@ -5222,7 +5222,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "NMHASH",
             "--test=Speed"
           ],
@@ -5283,7 +5283,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "NMHASH",
             "--test=Speed"
           ],
@@ -5370,7 +5370,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "NMHASH",
               "--test=Sanity"
             ],
@@ -5468,7 +5468,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "NMHASHX",
             "--test=Speed"
           ],
@@ -5529,7 +5529,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "NMHASHX",
             "--test=Speed"
           ],
@@ -5616,7 +5616,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "NMHASHX",
               "--test=Sanity"
             ],
@@ -5714,7 +5714,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "fasthash-32",
             "--test=Speed"
           ],
@@ -5775,7 +5775,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "fasthash-32",
             "--test=Speed"
           ],
@@ -5862,7 +5862,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "fasthash-32",
               "--test=Sanity"
             ],
@@ -5945,7 +5945,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "fasthash-64",
             "--test=Speed"
           ],
@@ -6006,7 +6006,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "fasthash-64",
             "--test=Speed"
           ],
@@ -6093,7 +6093,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "fasthash-64",
               "--test=Sanity"
             ],
@@ -6176,7 +6176,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-64",
             "--test=Speed"
           ],
@@ -6237,7 +6237,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-64",
             "--test=Speed"
           ],
@@ -6324,7 +6324,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "HalftimeHash-64",
               "--test=Sanity"
             ],
@@ -6407,7 +6407,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-128",
             "--test=Speed"
           ],
@@ -6468,7 +6468,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-128",
             "--test=Speed"
           ],
@@ -6555,7 +6555,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "HalftimeHash-128",
               "--test=Sanity"
             ],
@@ -6638,7 +6638,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-256",
             "--test=Speed"
           ],
@@ -6699,7 +6699,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-256",
             "--test=Speed"
           ],
@@ -6786,7 +6786,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "HalftimeHash-256",
               "--test=Sanity"
             ],
@@ -6869,7 +6869,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -6930,7 +6930,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalftimeHash-512",
             "--test=Speed"
           ],
@@ -7017,7 +7017,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "HalftimeHash-512",
               "--test=Sanity"
             ],
@@ -7100,7 +7100,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "polymurhash",
             "--test=Speed"
           ],
@@ -7161,7 +7161,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "polymurhash",
             "--test=Speed"
           ],
@@ -7248,7 +7248,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "polymurhash",
               "--test=Sanity"
             ],
@@ -7331,7 +7331,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "CLhash",
             "--test=Speed"
           ],
@@ -7392,7 +7392,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "CLhash",
             "--test=Speed"
           ],
@@ -7479,7 +7479,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "CLhash",
               "--test=Sanity"
             ],
@@ -7599,7 +7599,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg1",
             "--test=Speed"
           ],
@@ -7660,7 +7660,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg1",
             "--test=Speed"
           ],
@@ -7747,7 +7747,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "poly-mersenne.deg1",
               "--test=Sanity"
             ],
@@ -7832,7 +7832,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg2",
             "--test=Speed"
           ],
@@ -7893,7 +7893,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg2",
             "--test=Speed"
           ],
@@ -7980,7 +7980,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "poly-mersenne.deg2",
               "--test=Sanity"
             ],
@@ -8065,7 +8065,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg3",
             "--test=Speed"
           ],
@@ -8126,7 +8126,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg3",
             "--test=Speed"
           ],
@@ -8213,7 +8213,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "poly-mersenne.deg3",
               "--test=Sanity"
             ],
@@ -8298,7 +8298,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg4",
             "--test=Speed"
           ],
@@ -8359,7 +8359,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly-mersenne.deg4",
             "--test=Speed"
           ],
@@ -8446,7 +8446,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "poly-mersenne.deg4",
               "--test=Sanity"
             ],
@@ -8531,7 +8531,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "multiply-shift",
             "--test=Speed"
           ],
@@ -8592,7 +8592,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "multiply-shift",
             "--test=Speed"
           ],
@@ -8679,7 +8679,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "multiply-shift",
               "--test=Sanity"
             ],
@@ -8762,7 +8762,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "pair-multiply-shift",
             "--test=Speed"
           ],
@@ -8823,7 +8823,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "pair-multiply-shift",
             "--test=Speed"
           ],
@@ -8910,7 +8910,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "pair-multiply-shift",
               "--test=Sanity"
             ],
@@ -8993,7 +8993,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "tabulation-64",
             "--test=Speed"
           ],
@@ -9054,7 +9054,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "tabulation-64",
             "--test=Speed"
           ],
@@ -9141,7 +9141,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "tabulation-64",
               "--test=Sanity"
             ],
@@ -9224,7 +9224,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -9285,7 +9285,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SipHash-2-4",
             "--test=Speed"
           ],
@@ -9372,7 +9372,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "SipHash-2-4",
               "--test=Sanity"
             ],
@@ -9455,7 +9455,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -9516,7 +9516,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "SipHash-1-3",
             "--test=Speed"
           ],
@@ -9603,7 +9603,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "SipHash-1-3",
               "--test=Sanity"
             ],
@@ -9723,7 +9723,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -9784,7 +9784,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "chainhash-256",
             "--test=Speed"
           ],
@@ -9871,7 +9871,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "chainhash-256",
               "--test=Sanity"
             ],
@@ -9991,7 +9991,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "chainhash-1k",
             "--test=Speed"
           ],
@@ -10052,7 +10052,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "chainhash-1k",
             "--test=Speed"
           ],
@@ -10139,7 +10139,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "chainhash-1k",
               "--test=Sanity"
             ],
@@ -10259,7 +10259,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalfSipHash",
             "--test=Speed"
           ],
@@ -10320,7 +10320,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "HalfSipHash",
             "--test=Speed"
           ],
@@ -10407,7 +10407,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "HalfSipHash",
               "--test=Sanity"
             ],
@@ -10490,7 +10490,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mir.exact",
             "--test=Speed"
           ],
@@ -10551,7 +10551,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mir.exact",
             "--test=Speed"
           ],
@@ -10638,7 +10638,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mir.exact",
               "--test=Sanity"
             ],
@@ -10721,7 +10721,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll1",
             "--test=Speed"
           ],
@@ -10782,7 +10782,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll1",
             "--test=Speed"
           ],
@@ -10869,7 +10869,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mum3.exact.unroll1",
               "--test=Sanity"
             ],
@@ -10952,7 +10952,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll2",
             "--test=Speed"
           ],
@@ -11013,7 +11013,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll2",
             "--test=Speed"
           ],
@@ -11100,7 +11100,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mum3.exact.unroll2",
               "--test=Sanity"
             ],
@@ -11183,7 +11183,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll3",
             "--test=Speed"
           ],
@@ -11244,7 +11244,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll3",
             "--test=Speed"
           ],
@@ -11331,7 +11331,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mum3.exact.unroll3",
               "--test=Sanity"
             ],
@@ -11414,7 +11414,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll4",
             "--test=Speed"
           ],
@@ -11475,7 +11475,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mum3.exact.unroll4",
             "--test=Speed"
           ],
@@ -11562,7 +11562,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mum3.exact.unroll4",
               "--test=Sanity"
             ],
@@ -11645,7 +11645,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mx3.v1",
             "--test=Speed"
           ],
@@ -11706,7 +11706,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mx3.v1",
             "--test=Speed"
           ],
@@ -11793,7 +11793,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mx3.v1",
               "--test=Sanity"
             ],
@@ -11876,7 +11876,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mx3.v2",
             "--test=Speed"
           ],
@@ -11937,7 +11937,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mx3.v2",
             "--test=Speed"
           ],
@@ -12024,7 +12024,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mx3.v2",
               "--test=Sanity"
             ],
@@ -12107,7 +12107,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mx3.v3",
             "--test=Speed"
           ],
@@ -12168,7 +12168,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "mx3.v3",
             "--test=Speed"
           ],
@@ -12255,7 +12255,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "mx3.v3",
               "--test=Sanity"
             ],
@@ -12338,7 +12338,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "UMASH-64",
             "--test=Speed"
           ],
@@ -12399,7 +12399,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "UMASH-64",
             "--test=Speed"
           ],
@@ -12486,7 +12486,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "UMASH-64",
               "--test=Sanity"
             ],
@@ -12606,7 +12606,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "UMASH-128",
             "--test=Speed"
           ],
@@ -12667,7 +12667,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "UMASH-128",
             "--test=Speed"
           ],
@@ -12754,7 +12754,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "UMASH-128",
               "--test=Sanity"
             ],
@@ -12837,7 +12837,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "UMASH-64.reseed",
             "--test=Speed"
           ],
@@ -12898,7 +12898,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "UMASH-64.reseed",
             "--test=Speed"
           ],
@@ -12985,7 +12985,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "UMASH-64.reseed",
               "--test=Sanity"
             ],
@@ -13068,7 +13068,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -13129,7 +13129,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -13152,7 +13152,7 @@
             "load15": 5.79443359375
           },
           "raw_sha256": "451ddd3719780ef281b8d40a849a3adbef0055380b84e53d6eaa55ad394093ee",
-          "note": "run by hand after the runner process died with the interrupted Codex job; same binary and command",
+          "note": "run by hand after the runner process died with the interrupted  job; same binary and command",
           "sha256_verified": true,
           "bulk_bytes_per_cycle": 2.2,
           "bulk_gib_s": 7.18,
@@ -13215,7 +13215,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -13288,7 +13288,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -13349,7 +13349,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+            "./SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -13372,7 +13372,7 @@
             "load15": 5.79443359375
           },
           "raw_sha256": "16dcdd75a27fb496ea06963a7aedd8339f244383030f97353121d05fabfc8568",
-          "note": "run by hand after the runner process died with the interrupted Codex job; same binary and command",
+          "note": "run by hand after the runner process died with the interrupted  job; same binary and command",
           "sha256_verified": true,
           "bulk_bytes_per_cycle": 2.48,
           "bulk_gib_s": 8.1,
@@ -13435,7 +13435,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/m2-rerun/build-fixed/SMHasher3",
+              "./SMHasher3",
               "ghash",
               "--test=Sanity"
             ],

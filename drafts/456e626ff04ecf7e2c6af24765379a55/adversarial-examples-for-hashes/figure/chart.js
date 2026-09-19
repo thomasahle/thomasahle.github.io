@@ -75,9 +75,13 @@
     detail.querySelector('.inspector-key').textContent = row.reader_notes.key;
     detail.querySelector('.inspector-scope').textContent = row.reader_notes.scope;
     detail.querySelector('.inspector-section').href = '#' + row.anchor;
-    detail.querySelector('.inspector-code').href = new URL(row.code_url, new URL('../', assetRoot));
-    detail.querySelector('.inspector-code').textContent = row.code_url.endsWith('.pdf') ? 'Paper & construction' : 'Implementation studied';
-    detail.querySelector('.inspector-source').href = new URL(row.source, new URL('../', assetRoot));
+    // Each profile provides one curated set of public documents. Keep the
+    // article navigation below without repeating code and measurement links.
+    for (const selector of ['.inspector-code', '.inspector-source']) {
+      const link = detail.querySelector(selector);
+      link.hidden = true;
+      link.removeAttribute('href');
+    }
     detail.querySelector('.inspector-benchmark-note').textContent = data.hosts[host].provisional
       ? 'M2 timings are provisional; corrected ARM benchmarks are pending. Results concern the named version and API.'
       : 'Results apply to the version and function studied here. Later releases may behave differently.';

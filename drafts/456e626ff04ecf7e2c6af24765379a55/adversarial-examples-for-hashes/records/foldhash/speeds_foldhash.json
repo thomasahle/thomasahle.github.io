@@ -9,7 +9,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "foldhash-fast",
             "--test=Speed"
           ],
@@ -67,7 +67,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "foldhash-fast",
             "--test=Speed"
           ],
@@ -136,7 +136,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+              "./SMHasher3",
               "foldhash-fast",
               "--test=Sanity"
             ],
@@ -234,7 +234,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "foldhash-fast",
             "--test=Speed"
           ],
@@ -295,7 +295,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "foldhash-fast",
             "--test=Speed"
           ],
@@ -367,7 +367,7 @@
               "taskset",
               "-c",
               "4",
-              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "./SMHasher3",
               "foldhash-fast",
               "--test=Sanity"
             ],
@@ -464,7 +464,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "foldhash-quality",
             "--test=Speed"
           ],
@@ -522,7 +522,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "foldhash-quality",
             "--test=Speed"
           ],
@@ -591,7 +591,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+              "./SMHasher3",
               "foldhash-quality",
               "--test=Sanity"
             ],
@@ -689,7 +689,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "foldhash-quality",
             "--test=Speed"
           ],
@@ -750,7 +750,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "foldhash-quality",
             "--test=Speed"
           ],
@@ -822,7 +822,7 @@
               "taskset",
               "-c",
               "4",
-              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "./SMHasher3",
               "foldhash-quality",
               "--test=Sanity"
             ],
@@ -919,7 +919,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -977,7 +977,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1046,7 +1046,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+              "./SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -1135,7 +1135,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1196,7 +1196,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1268,7 +1268,7 @@
               "taskset",
               "-c",
               "4",
-              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "./SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -1356,7 +1356,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1414,7 +1414,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1483,7 +1483,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/foldhash-port/build-m2/SMHasher3",
+              "./SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],
@@ -1572,7 +1572,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1633,7 +1633,7 @@
             "taskset",
             "-c",
             "4",
-            "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1705,7 +1705,7 @@
               "taskset",
               "-c",
               "4",
-              "/home/thomas-ahle/agents/speedbench-foldhash/build-foldhash/SMHasher3",
+              "./SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],

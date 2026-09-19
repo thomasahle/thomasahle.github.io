@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ChainHash-x86 v1</title><link rel="stylesheet" href="../../../post.css"><link rel="stylesheet" href="../../../math.css"><link rel="stylesheet" href="../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link rel="icon" href="../../../../favicon2.png"><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../index.html">Article</a> · <a href="../../../records/README.html">Records</a></nav><h1 id="chainhash-x86-v1">ChainHash-x86 v1</h1>
+<p>ChainHash-x86 returns 64 bits. The selected configuration uses <strong>1024-byte blocks, adjacent pairs of 64-bit words, S=1</strong>, the existing three-key GF(2^64) recurrence, and the existing twisted quintic finalizer. Its ideal-key collision bound is <code>(max(1,ceil(L/128))+2)/2^64</code> for distinct byte strings of at most <code>8L</code> bytes. Its per-word certificate score is <strong>62.4150374993 bits</strong>.</p>
+<p>This is a separate hash family from the strided-pair M2 implementation. Neither its outputs nor its seed verification constants are interchangeable with <code>chainhash-256</code> or the older S=2 <code>chainhash-1k</code>.</p>
+<h2 id="arithmetic-and-representation">Arithmetic and representation</h2>
+<p>Let <code>F = GF(2)[X]/(X^64 + X^4 + X^3 + X + 1)</code>. A numerical <code>uint64_t</code> word <code>w</code> represents <code>sum_i bit_i(w) X^i</code> in F. Field addition is XOR; field multiplication is carry-less multiplication followed by reduction modulo that polynomial. The same 64 bits also represent an ordinary unsigned integer for input decoding and the finalizer’s integer twist.</p>
+<p><code>clmul64(a,b)</code> is the <strong>unreduced</strong> product in GF(2)[X], represented by <code>(lo64,hi64)</code>. Its degree is at most 126. No integer multiplication is used in the hash proper. SplitMix64 in the convenience key constructor does use integer multiplication.</p>
+<p>All input and serialized key words are little endian. The returned C integer is the full 64-bit result; serialize it little endian for a canonical digest. There is no input alignment requirement.</p>
+<h2 id="ideal-key-and-api">Ideal key and API</h2>
+<p>The key consists of <strong>137 independently uniform 64-bit words</strong>, occupying <strong>1096 bytes</strong>. Every bit string is a valid key, including all zeroes.</p>
+<table>
+<colgroup>
+<col style="width: 23%"/>
+<col style="width: 23%"/>
+<col style="width: 30%"/>
+<col style="width: 23%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Word positions</th>
+<th>Name</th>
+<th style="text-align: right;">Bytes</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0–127</td>
+<td><code>k[0..127]</code></td>
+<td style="text-align: right;">1024</td>
+<td>PH key, reused at the same positions in every block</td>
+</tr>
+<tr class="even">
+<td>128, 129, 130</td>
+<td><code>u,y,z</code></td>
+<td style="text-align: right;">24</td>
+<td>Three independent recurrence keys</td>
+</tr>
+<tr class="odd">
+<td>131–135</td>
+<td><code>c0,c1,c2,c3,c4</code></td>
+<td style="text-align: right;">40</td>
+<td>Independent finalizer circuit parameters</td>
+</tr>
+<tr class="even">
+<td>136</td>
+<td><code>tau</code></td>
+<td style="text-align: right;">8</td>
+<td>Integer input twist</td>
+</tr>
+</tbody>
+</table>
+<p>The C structure contains exactly these words, with ordinary <code>uint64_t</code> alignment and no cache or pointer members. Key setup performs no field arithmetic.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>chainhash_x86_key chainhash_x86_key_from_bytes<span class="op">(</span><span class="dt">const</span> <span class="dt">uint8_t</span> bytes<span class="op">[</span><span class="dv">1096</span><span class="op">]);</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>chainhash_x86_key chainhash_x86_key_from_words<span class="op">(</span><span class="dt">const</span> <span class="dt">uint64_t</span> words<span class="op">[</span><span class="dv">137</span><span class="op">]);</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dt">uint64_t</span> chainhash_x86<span class="op">(</span><span class="dt">const</span> chainhash_x86_key <span class="op">*,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*,</span> <span class="dt">size_t</span><span class="op">);</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="dt">uint64_t</span> chainhash_x86_portable<span class="op">(</span><span class="dt">const</span> chainhash_x86_key <span class="op">*,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*,</span> <span class="dt">size_t</span><span class="op">);</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="dt">int</span> chainhash_x86_backend<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="co">/* 0 portable; 1 AVX2; 2 AVX-512 */</span></span></code></pre></div>
+<p><code>chainhash_x86_key_from_seed(uint64_t)</code> expands successive SplitMix64 outputs in the above order. This convenience constructor is used by SMHasher3; its 2^64-member subfamily <strong>does not inherit the ideal-key theorem</strong>. The ideal API consumes all 1096 random bytes. No entropy compression claim is made.</p>
+<p>The header can be compiled with another block size B that is a positive multiple of 256. That selects a different family with <code>B/8+9</code> words and <code>8(B/8+9)</code> key bytes; the same formulas below apply after replacing 1024 by B. The delivered default and SMHasher registration use B=1024.</p>
+<h2 id="level-1-adjacent-carry-less-ph">Level 1: adjacent carry-less PH</h2>
+<p>For a byte string m of length <code>ell &lt; 2^64</code>, set</p>
+<p><code>n = max(1, ceil(ell/1024))</code>.</p>
+<p>Partition it into n consecutive blocks. The empty message has one empty block. In a block containing r bytes, use <code>g=ceil(r/16)</code> adjacent pairs. Zero-pad only the final partial pair to 16 bytes, decode its words as <code>w[0],...,w[2g-1]</code>, and compute in the unreduced polynomial ring</p>
+<p><code>C = XOR_{i=0}^{g-1} clmul64(w[2i] XOR k[2i], w[2i+1] XOR k[2i+1])</code>.</p>
+<p>For r=0 this is the empty sum 0. In particular, 1–8 bytes activate exactly one pair; its second multiplicand is the key word <code>k[1]</code>. There is no second key-only pair as in the previous strided 32-byte grouping.</p>
+<p>Split every block result losslessly as <code>C_j = a_j + X^64 b_j</code>. XOR the <strong>total byte length</strong> into both halves of the <strong>last block only</strong>:</p>
+<p><code>a_n ^= ell; b_n ^= ell</code>.</p>
+<p>No per-block universal reduction is performed. The full 128-bit PH result is the pair of field elements consumed by level 2. Retaining it avoids both extra multiplications and an additional collision term.</p>
+<h2 id="level-2-twist-and-finalizer">Level 2, twist, and finalizer</h2>
+<p>All operations in the following recurrence are in F:</p>
+<p><code>P_0 = z</code>,</p>
+<p><code>P_j = a_j + (b_j + y)(P_{j-1} + u)</code>, for <code>j=1,...,n</code>.</p>
+<p>Interpret <code>P_n</code> as its unsigned word and set</p>
+<p><code>v = (P_n + tau) mod 2^64</code> using <strong>integer addition with carries</strong>.</p>
+<p>Reinterpret v in F and evaluate the same three-multiplication circuit as ChainHash-64:</p>
+<p><code>q = v*v</code>,</p>
+<p><code>r = (q+c0)(v+q+c1)</code>,</p>
+<p><code>H = (v+c2)(r+c3)+c4</code>.</p>
+<p>The five <code>c</code> words are circuit parameters, not literal polynomial coefficients. Their bijection with the five lower coefficients of a monic quintic is the existing proved coefficient-map theorem.</p>
+<h2 id="bounds-and-length-domain">Bounds and length domain</h2>
+<p>For any fixed distinct m,m’, independent of the ideal key, let <code>N=max(n(m),n(m'))</code>. Then</p>
+<p><code>Pr[H_K(m)=H_K(m')] &lt;= min(1,(N+2)/2^64)</code>.</p>
+<p>Equivalently, for integers <code>1 &lt;= L &lt;= 2^61-1</code> and messages of at most <code>8L</code> bytes,</p>
+<p><code>epsilon(L) = (max(1,ceil(L/128))+2)/2^64</code></p>
+<p>is a valid (possibly loose) certificate. On this domain it is below one. The per-word score uses the same 8-byte unit as ChainHash-64:</p>
+<p><code>min_L log2(L/epsilon(L)) = 64-log2(3) = 62.4150374993</code>.</p>
+<p>It is attained by the certificate at L=1: <code>max(1,ceil(L/128))+2 &lt;= 3L</code> for every positive L. This is a score of the upper bound, not a claim that some message pair attains that bound.</p>
+<p>The mathematical byte domain is all lengths below 2^64. The C API also requires a valid object of <code>len</code> bytes, a non-null key, and <code>len</code> representable by <code>size_t</code>. <code>data</code> may be null exactly when <code>len=0</code>. The implementation uses remaining-byte subtraction; it never forms <code>len+B-1</code>, so no additional block-count overflow exclusion is required.</p>
+<h2 id="simd-evaluation-and-dispatch">SIMD evaluation and dispatch</h2>
+<p>The portable reference uses fixed-width C99 unsigned arithmetic and bit-serial polynomial multiplication. It requires no <code>__int128</code> extension.</p>
+<p>The AVX-512 path loads 64 message bytes and 64 key bytes, XORs them, and uses <code>VPCLMULQDQ imm=0x10</code> on that one register. Each of its four 128-bit lanes contains exactly one adjacent message pair. Thus one instruction computes four independent 64x64 products for 64 input bytes, with <strong>no pair-rearranging shuffle</strong>. Four independent accumulation vectors cover each 256-byte group. After a block, XOR folding produces the original 128-bit PH sum.</p>
+<p>The AVX2 fallback uses 256-bit key/input loads and extracts their 128-bit lanes for ordinary PCLMULQDQ. It needs AVX2, PCLMUL and SSSE3; VPCLMUL is not required. Both hardware paths use the existing exact two-fold GF(2^64) reducer, whose second carry-less multiplication is a 16-entry PSHUFB table. Only the low lane of the reduced result is live.</p>
+<p>Runtime dispatch checks CPUID PCLMUL, SSSE3, AVX, OSXSAVE, AVX2, and XGETBV’s XMM/YMM save-state bits. AVX-512 additionally requires AVX512F, VPCLMULQDQ, and the opmask/ZMM save-state bits. It requires no AVX512BW/DQ/VL. The cached decision uses relaxed atomics for race-free C99 and C++11 calls. ISA-specific functions have GCC/Clang target attributes, so compiling a translation unit without ISA flags is supported. An executable globally built with <code>-march=native</code> retains that executable’s native baseline requirement.</p>
+<p><code>CHAINHASH_X86_FORCE_PORTABLE</code> omits hardware code and dispatch. Explicit AVX2/AVX-512 entry points are available in supported x86 builds for testing; call them only after the corresponding backend capability check.</p>
+</main></body></html>

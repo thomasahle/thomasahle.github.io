@@ -1,8 +1,0 @@
-AddressSanitizer could not reach main on macOS 27.0 (26A428), Apple clang 17.0.0.
-Both the full verifier and minimal guarded-memory test spin in ASan startup.
-The sampled stack shows ASan InitializeShadowMemory -> get_dyld_hdr ->
-dyld_shared_cache_iterate_text_swift -> _Block_copy -> ASan malloc ->
-StaticSpinMutex::LockSlow, recursively entering AsanInitFromRtl.
-See memory-startup-sample.txt. These processes were terminated; no ASan pass
-is claimed. Full independent identity verification, guard pages and separate
-UBSan checks are used instead. No benchmark was run during these processes.

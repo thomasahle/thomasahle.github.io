@@ -1,0 +1,184 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The fixed HalftimeHash24 theorem</title><link rel="stylesheet" href="../../post.css"><link rel="stylesheet" href="../../math.css"><link rel="stylesheet" href="../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link rel="icon" href="../../../favicon2.png"><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../index.html">Article</a> · <a href="../../records/README.html">Records</a></nav><h1 id="the-fixed-halftimehash24-theorem">The fixed HalftimeHash24 theorem</h1>
+<p>This statement concerns <code>HalftimeHash-fork/halftime-hash.hpp</code> on the <code>fixed-24byte-core</code> branch, based on <code>fix-neon-dispatch</code> (<code>8b03edf</code>). <code>advanced::V1&lt;3&gt;</code>, <code>V2&lt;3&gt;</code>, <code>V3&lt;3&gt;</code>, and <code>V4&lt;3&gt;</code> return <strong>three 64-bit words</strong>. The benchmark name <code>HalftimeHash24-fixed</code> selects <code>V4&lt;3&gt;</code>. The Style64/128/256/512 wrappers continue to return <strong>one 64-bit word</strong> and continue to use the distance-two core.</p>
+<h2 id="contract-and-domain">Contract and domain</h2>
+<p>Let <code>b ∈ {1,2,4,8}</code> be the number of 64-bit lanes in a block, <code>ε = 2^-32</code>, and <code>C = 8 + 8² + … + 8⁸ = 19,173,960</code>. Keys are independent uniform 64-bit words; messages are fixed independently of the key. The theorem is about this ideal-key family, not a family with a 64-bit seed expanded by the benchmark’s PRNG. Arithmetic is modulo <code>2^64</code>, with 32-bit additions performed modulo <code>2^32</code> before integer multiplication. Bytes are eight bits; <code>uint64_t</code> and <code>size_t</code> are 64 bits; input words are little endian, as on the two tested hosts. Input, key, and output objects must meet the ordinary C++ size/lifetime requirements. The key is a real contiguous <code>uint64_t</code> array of the reported extent; input and key storage remain unchanged during the call, and output storage is disjoint from them.</p>
+<p>The existing nine-entry forest stack is retained. Its finalizer requires a zero sentinel, so the supported domain is:</p>
+<ul>
+<li>24-byte core: <code>0 ≤ |m| &lt; 168 b (C+1)</code> bytes.</li>
+<li>Style wrappers: <code>0 ≤ |m| &lt; 144 b (C+1)</code> bytes.</li>
+</ul>
+<p>The fixed code does not expand this domain or add a runtime length check. At <code>C</code> complete groups the root counts are <code>[8,8,8,8,8,8,8,8,0]</code>. For <code>n ≥ 1</code> groups the exact maximum live height is <code>h(n) = floor(log_8(7n+1)) - 1 ≤ 7</code>; the number of live roots is at most 64. The counts are the bijective-base-eight digits of <code>n</code>, obtained by repeatedly emitting <code>1+(n-1) mod 8</code> and replacing <code>n</code> with <code>(n-1)/8</code>. This is the promotion-before-insertion schedule of <code>DfsTreeHash</code>. No statement is made for calls beyond that stack-safe domain.</p>
+<h2 id="exact-24-byte-statement">Exact 24-byte statement</h2>
+<p>For every fixed distinct pair <code>x,y</code> in this domain and every fixed vector target <code>v ∈ (Z/2^64)^3</code>:</p>
+<ol type="1">
+<li>If <code>|x| ≠ |y|</code>, then <code>Pr[H(x)-H(y)=v] ≤ ε³ = 2^-96</code>.</li>
+<li>If lengths agree and their padded raw tails differ, the same <code>ε³</code> bound holds.</li>
+<li>If lengths agree and there are no complete groups, distinct inputs have differing tails, so the same <code>ε³</code> bound holds.</li>
+<li>Otherwise, with <code>h</code> any common upper bound for the forest heights, <code>Pr[H(x)-H(y)=v] ≤ min(1, (h+2)²(h+5)·2^-96)</code>.</li>
+</ol>
+<p>In particular these statements hold for collision target zero. They do not assert independent output coordinates, uniform 192-bit outputs, or cryptographic security after disclosure of the key.</p>
+<p>At the abstract height <code>h=16</code>, the last expression is <code>6804·2^-96</code>, whose negative logarithm is <strong>83.2678325743 bits</strong>. The unexpanded C++ stack has <code>h≤7</code>, giving the stronger uniform bound <code>972·2^-96</code>, or <strong>86.0751874964 bits</strong>. An <code>h=16</code> tree cannot actually be processed by this header’s retained stack. “Proved 83 bits” is a conservative collision-bound label on the supported domain, not the length-normalized score.</p>
+<h2 id="length-rule-and-its-proof">Length rule and its proof</h2>
+<p>For the three-word core, define these <strong>word offsets relative to the core key</strong>:</p>
+<pre><code>EHC keys                  [0,27)
+reserved tree keys        [27,216)
+forest-finalizer keys     [216,216+192b)
+separate Toeplitz pool    starts at A = 216+192b
+terminal length position q = 21b within that pool</code></pre>
+<p>If the remainder has <code>r &lt; 168b</code> bytes, let <code>t = floor(r/(8b))+1</code>. As before, the finalizer inserts all complete raw blocks and one extra block, zero padded; the extra block is present even for an aligned or empty remainder. There are <code>t≤21</code> such blocks. The pool is <strong>right aligned</strong>: their first key position is <code>A+(21-t)b</code>. Output <code>j</code> shifts its keys by <code>jb</code> whole NH pairs. After these blocks, append exactly <strong>one scalar 64-bit word containing the original total byte length</strong>. Its key word in output <code>j</code> is <code>K[A+q+jb]</code>, for <code>j=0,1,2</code>. There are still only three output words. <code>HashWithLength</code> performs this final scalar NH operation after the horizontal lane sum; modular addition makes that ordering immaterial.</p>
+<p>The forest and tail key sets are disjoint for <strong>both messages</strong>, even when their numbers of roots differ. No length word is broadcast to all lanes. There is no variable-position length tag, extra output word, or probabilistic length compression before this step.</p>
+<p>For unequal lengths, write the difference in output <code>j</code> as</p>
+<p><code>R_j(K) + NH(length(x), K[A+q+jb]) - NH(length(y), K[A+q+jb])</code>.</p>
+<p>Here <code>R_j</code> includes every forest and data-tail term. Every key in the data tail of output <code>i</code> has index at most <code>A+q-1+ib</code>; its length key has index <code>A+q+ib</code>. Thus <code>R_i</code> ignores the length key of output <code>j</code> whenever <code>i≤j</code>, and the whole earlier output ignores it whenever <code>i&lt;j</code>, regardless of the sizes of either tail. Missing leading data words need not be modeled as NH of zero; they simply contribute no term to <code>R_i</code>.</p>
+<p>The two 64-bit lengths differ, so at least one of their 32-bit halves differs. Fixing the key for that half, the integer-NH injectivity lemma permits at most one value of the other 32-bit key half for any prescribed difference. Expose these three other halves in output order. Earlier events ignore the next exposed half, and each conditional event costs at most <code>ε</code>. The joint probability is at most <code>ε³</code>. This argument permits overlapping Toeplitz keys and arbitrary dependence between the residual outputs.</p>
+<p><code>certificates/lean/FixedLength.lean</code> proves this terminal-word statement as <code>terminal_length_three_bound</code>, using the existing integer NH and <code>triangular_adu</code> lemmas. Its residual hypothesis is exactly the key-index inequality just established. Its axiom audit lists only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>; there are no placeholders or new axioms. The proof also applies to every fixed nonzero difference target.</p>
+<p>For equal lengths the appended length contributions cancel. The two tails have the same support and key alignment. If they differ, the existing last-differing-pair Toeplitz argument gives <code>ε³</code> after conditioning on all prefix keys. If they agree, the common tail cancels and the repaired EHC / forest / final-NH theorem applies unchanged.</p>
+<h2 id="encoder-certificate-and-mapping-to-lean">Encoder certificate and mapping to Lean</h2>
+<p>Each XOR encoder is a binary linear map on triples of blocks. The executable <code>certificates/src/matrix.cpp</code> obtains its generator rows from the <strong>actual header</strong>, by placing distinct basis bits in its input blocks. The independent Python checker performs GF(2) Gaussian elimination for <strong>every</strong> subset of surviving packets. A survivor packet contributes all three of its rows.</p>
+<table>
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Encoder</th>
+<th style="text-align: right;">Data packets</th>
+<th style="text-align: right;">Encoded packets</th>
+<th style="text-align: right;">Rank required</th>
+<th style="text-align: right;">Every subset checked</th>
+<th style="text-align: right;">Critical survivor subsets</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Encode2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>Encode3</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">512</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>Encode4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1,024</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>Encode5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">512</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<p>Every set of at least <code>N-k+1</code> surviving packets has full input rank. If a nonzero codeword had at most <code>k-1</code> nonzero packets, erasing them would leave such a full-rank survivor set equal to zero, a contradiction. This proves distance at least <code>k</code>. A basis input attains <code>k</code>, proving equality. Since the source uses only XOR/copy operations, this bit-level proof applies separately to every bit and physical lane, and hence to arbitrary input blocks. The rank matrices, every subset/rank, and attaining flip distances are in <code>certificates/rank-certificate.json</code>. Direct execution additionally checks all 20,160 single-bit flips of an Encode3 group over the four widths.</p>
+<p>The repaired capture references the changing row pointer; increments advance one whole row; the first parity loop stops at the end of the <strong>data</strong> rows. It never feeds parity rows back into the parity calculation.</p>
+<table>
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Checked mathematical hypothesis</th>
+<th>Fixed code / discharge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Distance-three encoder, including on a differing physical lane</td>
+<td><code>Encode3</code>; exhaustive full-rank survivor certificate above.</td>
+</tr>
+<tr class="even">
+<td>Nine independently keyed integer NH symbols</td>
+<td><code>Hash</code> reads the flat key array at <code>3*i+j</code>; 27 distinct 64-bit words.</td>
+</tr>
+<tr class="odd">
+<td>Literal T3 with nonzero 3-column minors and worst valuation 2</td>
+<td>Unchanged <code>Combine3</code>; the T3 entries are exactly those in Lean <code>Matrices.lean</code>; its 84 minors and projection polynomial are already kernel checked.</td>
+</tr>
+<tr class="even">
+<td>Key reuse across leaves and physical lanes is allowed</td>
+<td>EHC <code>LoadOne</code> broadcasts symbol keys; the same 27 words are reused per group. No lane independence is assumed.</td>
+</tr>
+<tr class="odd">
+<td>Fixed, key-independent forest schedule</td>
+<td><code>DfsTreeHash</code> depends only on the number of complete groups. Its bijective-base-eight root heights satisfy <code>lazyHeights_spec</code> in <code>StyleSchedule.lean</code>; <code>lazyShapes</code> embeds shorter roots with <code>TreeShape.skip</code>, preserving the key at each actual height. Leaf ordering is a fixed public bijection.</td>
+</tr>
+<tr class="even">
+<td>Independent tree keys by height and component</td>
+<td>Tree word address <code>27+21*level+7*component+(child-1)</code>; child 0 is the unchanged accumulator, children 1..7 are NH-hashed.</td>
+</tr>
+<tr class="odd">
+<td>Independent final NH by root position, component, and lane</td>
+<td><code>BlockGreedy::Insert(const Block (&amp;)[3])</code> uses <code>216+b*(3*root+component)+lane</code>; the final horizontal sum is NH on the flattened root/lane list.</td>
+</tr>
+<tr class="even">
+<td>Injective word packing and modular lane sum</td>
+<td>Little-endian loads, low/high 32-bit halves, <code>Plus32</code>, <code>Times</code>; scalar horizontal additions now explicitly convert operands to <code>uint64_t</code>.</td>
+</tr>
+<tr class="odd">
+<td>Fresh tail pool, whole-pair shifts, injective equal-length padding</td>
+<td><code>ResetSeeds</code> reserves all 64 possible final roots, right-aligns the tail, and shifts by <code>b</code> pairs; the original bytes occur unchanged in the padding.</td>
+</tr>
+<tr class="even">
+<td>All-length distinction</td>
+<td>The terminal scalar length word and <code>terminal_length_three_bound</code>, as proved above.</td>
+</tr>
+<tr class="odd">
+<td>Uniform independent key coordinates with sufficient storage</td>
+<td>The disjoint word ranges above and exact <code>GetEntropyBytesNeeded</code> extent; unused words integrate out.</td>
+</tr>
+</tbody>
+</table>
+<p>For the equal-tail case, select a lane where a leaf differs and use the T3 subset bounds on that lane. Equality of full output blocks implies equality on that lane. Conditional on the EHC keys, the three tree/final key sets are independent, and each differing coordinate sequence costs at most <code>(h+1)ε</code>. The checked projection polynomial gives <code>((h+1)ε+ε)²((h+1)ε+4ε)</code>, exactly the displayed bound. This is the lane version of Lean <code>scalar_halftime_three_bound</code> / <code>scalar_halftime_6804</code>, using the same conditioning argument formalized for broadcast lanes in the Style lemmas. It assumes no independence of EHC outputs or physical lanes.</p>
+<p>The existing Lean development formalizes the mathematical components and abstract construction; the new Lean file formalizes the length extension. The rank certificate and this source/layout argument discharge the remaining implementation hypotheses. There is <strong>no claim of a machine-checked C++ compiler, instruction semantics, or complete C++-to-Lean refinement</strong>.</p>
+<h2 id="entropy-sizing-and-c-objects">Entropy sizing and C++ objects</h2>
+<p><code>GetEntropyBytesNeeded&lt;W,k&gt;(n)</code> now interprets <code>n</code> in <strong>bytes</strong>. For a valid call it returns eight times the exact exclusive maximum key-word index read, including unused holes in the allocated prefix. It does not claim that every intervening word is read. For an out-of-domain request it returns the maximum over the valid domain, preserving its use for a maximum-size allocation; that return value does not make an out-of-domain hash call valid.</p>
+<p>Let <code>d=(6,7,7,5)</code> and <code>e=(7,9,10,9)</code> for <code>k=(2,3,4,5)</code> respectively, <code>F=3e+63k</code>, <code>R</code> be the sum of the bijective-base-eight root digits, and <code>t=floor((n mod (24db))/(8b))+1</code>. Then the required prefix in words is:</p>
+<ul>
+<li>For <code>k≠3</code>: <code>F + b*(k*R+t+k-1)</code>.</li>
+<li>For <code>k=3</code>: <code>216 + 215b + 1</code>, for every supported byte length.</li>
+</ul>
+<p>The latter values are <strong>432, 647, 1,077, 1,937 words</strong> for the four widths. A one-leaf witness actually reads only <code>[0,27)</code>, <code>[216,216+3b)</code>, and <code>[216+212b,217+215b)</code>, totaling <code>28+6b</code> words. Every unused word can be integrated out of the random-key experiment.</p>
+<p>For the Style512 key allocator the public constant becomes 59,736 bytes; its table reads remain inside the first 6,144 words. <code>MaxEntropyBytesNeeded</code> now returns the maximum raw-core allocation (24,432 bytes at <code>b=8,k=5</code>). The guard-page certificate tests all <code>b</code> and all <code>k</code> at short lengths, group boundaries, and forest promotions: exact extents work, and one word less faults in every tested cell.</p>
+<p>The table extent is <code>8*(1+width)*256</code> words, 6,144 words for a Style wrapper. Both tabulation helpers now index the caller’s real flat <code>uint64_t</code> array; there is no undersized multidimensional view or invented table subarray. EHC key indexing likewise uses the caller’s flat array, and the encoders take actual three-block rows instead of reconstructing them through a cast. The SIMD unsigned-sum repair removes the need for <code>-fwrapv</code>. In particular, the AVX-512 helper explicitly reduces through vector intrinsics and unsigned scalar additions: GCC 11’s convenience reduction intrinsic contains a final signed scalar addition. These are source object/arithmetic repairs, not changes to the intended lookup addresses or Style arithmetic.</p>
+<h2 id="scores-in-the-requested-metric">Scores in the requested metric</h2>
+<p>Let <code>L≥1</code> be an integer cap in <strong>eight-byte words</strong>, with both messages at most <code>8L</code> bytes and individually in the supported domain. Use the output collision floor <code>2^-192</code> for the 24-byte result; it is smaller than every bound below. One valid cap envelope is</p>
+<pre><code>E_b(L) = 2^-96                                      if L &lt; 21b,
+         (h+2)^2(h+5) * 2^-96                       otherwise,
+h = min(7, floor(log_8(floor(L/(21b))))).</code></pre>
+<p>For caps beyond the supported domain it suffices to keep the envelope at its maximum supported value. The unequal-length bound is no larger than this envelope. Below the first leaf the minimum of <code>log2(L/E_b(L))</code> is 96 at <code>L=1</code>. At the first leaf, <code>L/((h+2)^2(h+5)) = 21b/20 ≥ 1</code>. At later height boundaries lengths grow by eight, whereas the coefficient grows by at most <code>54/20 &lt; 8</code>; within a plateau the score increases. Thus <strong>the certified normalized score is 96 bits, for every b</strong>.</p>
+<p>This is sharp for the ideal family: the one-byte messages <code>00</code> and <code>01</code> have equal lengths, so their length terms cancel. Each output’s only data NH difference vanishes exactly when the high 32 bits of its particular key word are zero. Those three word positions are distinct, so the collision probability is exactly <code>2^-96</code>, attaining the score at <code>L=1</code>.</p>
+<h2 id="fixed-style-wrappers">Fixed Style wrappers</h2>
+<p>Their functional outputs are unchanged relative to the previous address-level, modular-sum implementation. They still use Encode2 and do <strong>not</strong> append the new raw-core length word. Their length is still handled by the original length-byte tabulation tables. The table repair changes the C++ representation, not any table index; the unsigned-sum repair preserves modular results. Execution compares 40,000 Style results against the parent header.</p>
+<p>Let <code>δ=2^-64</code>, <code>s=(1-ε)^(h+1)</code>, <code>a=1-s</code>. The existing checked sharp core bound is <code>B₂(h)=(a+sε)(a+2sε) ≤ (h+2)(h+3)δ</code>, or <code>δ</code> with no group. All core keys still lie below absolute word 2,048; the 16 output-byte tables occupy <code>[2048,6144)</code> and are fresh after conditioning on lower words. The overlap with the length tables is retained exactly.</p>
+<p>For equal lengths the wrapper collision probability is <code>δ+(1-δ)Pr[core(x)=core(y)]</code>. For unequal lengths it is at most <code>2δ-δ²</code>, without assuming independence of core and length tables. Lean <code>byteStyleHash_normalized</code> / <code>modeledStyleHash_normalized</code> consequently give, for the exact supported byte domains and all positive word caps,</p>
+<p><code>Pr[Style(x)=Style(y)] ≤ L*(2^-63 - 2^-128)</code>.</p>
+<p>The output floor is <code>2^-64</code>. The short pair <code>00</code> versus <code>01</code> has collision probability exactly <code>2^-63 - 2^-128</code>, so each fixed Style wrapper has exact normalized score <strong><code>64-log2(2-2^-64)</code></strong>, conservatively <strong>63 bits</strong>. The table/object and unsigned-arithmetic fixes permit applying this argument to the supported C++ implementation rather than relying on the old out-of-bounds array view and signed-overflow execution contract.</p>
+<p>The inherited Lean sources, pinned toolchain, and audits are included in <code>certificates/lean/base/</code>; the new length proof imports that snapshot.</p>
+</main></body></html>

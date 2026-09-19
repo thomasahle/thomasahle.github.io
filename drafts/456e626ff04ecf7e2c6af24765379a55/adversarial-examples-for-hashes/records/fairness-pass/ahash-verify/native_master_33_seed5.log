@@ -1,6 +1,0 @@
-cfg aes=true ssse3=true sse4.1=true
-explicit key: H(A)=45ef7682d72b19b6 H(B)=45ef7682d72b19b6 (post says 45ef7682d72b19b6)
-control key (1,2,3,4): H(A)=d8c04a0ae8dab810 H(B)=f2c2d636a159dd2c
-smh seed f04f16d5122a6a3a: H(A)=2dc0adbf4570e056 H(B)=2dc0adbf4570e056 (README says 2dc0adbf4570e056)
-with_seeds(uniform a,b,c,d), rng seed 5: 10040/2^33 = 2^-19.707 [2^-19.735, 2^-19.679]; cap = log2(7)-log2(rate) = 22.514 [22.486,22.542]; 73s 8 threads
-first colliding with_seeds args a1eb9640744f88d2 9b0344f0442ba4fc 133df3eb23640e2e 1ed8ee30bfcea64a H=6a7f9c4a551b68a0

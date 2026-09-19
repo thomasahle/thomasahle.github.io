@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>dotnet-marvin: Marvin32, the hash behind .NET string.GetHashCode()</title><link href="../../post.css" rel="stylesheet"/><link href="../../math.css" rel="stylesheet"/><link href="../../../../static/vendor/katex-0.18.7/katex.min.css" rel="stylesheet"/><script defer="" src="../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer="" src="../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../index.html">Article</a> · <a href="../../records/README.html">Records</a></nav><h1 id="dotnet-marvin-marvin32-the-hash-behind-.net-string.gethashcode">dotnet-marvin: Marvin32, the hash behind .NET <code>string.GetHashCode()</code></h1>
+<p><strong>Hash.</strong> Marvin32 as shipped in .NET: <code>System.Marvin.ComputeHash32</code> in dotnet/runtime <code>src/libraries/System.Private.CoreLib/src/System/Marvin.cs</code>. The pinned upstream source is vendored here verbatim as <code>Marvin.cs</code> from tag <strong>v10.0.12</strong> (commit <code>4271d88e</code>, the runtime executed for the vectors below; sha256 <code>a713890909dc99fe5f57880b6d997a8b26e78b1b75399f0dfad075bd29da4c14</code>). The algorithm has not changed since commit <code>ddb22ef2</code> (2022-02-20); <code>main</code> at <code>aec1470a</code> (2026-09-18) differs from the vendored file only by a <code>[MethodImpl(NoInlining)]</code> attribute line (sha256 <code>dd2aeb3d1df37410a2cc81f6f3a17668c6dabcf7b146ebd8dc4854b5a4f23869</code>). <code>string.GetHashCode()</code>, <code>string.GetHashCode(ReadOnlySpan&lt;char&gt;)</code>, <code>StringComparer.Ordinal.GetHashCode</code> and <code>RandomizedStringEqualityComparer</code> (the comparer <code>Dictionary&lt;string,_&gt;</code> and <code>HashSet&lt;string&gt;</code> switch to after a 100-long bucket chain) all call this function; there is no ISA-specific path.</p>
+<p>The program <code>marvin32_verify.c</code> transcribes <code>ComputeHash32</code> line by line (main 8-byte loop, 4..7-byte tail, overlapping last-4-byte read carrying the <code>0x80</code> pad byte, 0..3-byte path, and <code>Block</code> = xor, rotl 20, add, rotl 9, xor, rotl 27, add, rotl 19; output <code>p1 ^ p0</code>). The transcription is validated at startup against three independent sources, and the run stops with a non-zero status on any mismatch:</p>
+<ul>
+<li>the 30 vectors of dotnet/corefx <code>MarvinTests.cs</code> (64-bit legacy output <code>p1 &lt;&lt; 32 | p0</code>, seeds <code>4fb61a001bdbcc</code>, <code>804fb61a001bdbcc</code>, <code>804fb61a801bdbcc</code>);</li>
+<li>floodyberry’s <code>Marvin32.c</code> vector <code>"Abcdefg"</code> (UTF-16LE), seed <code>5d70d359c498b3f8</code> -&gt; <code>ba627c81</code>;</li>
+<li>64 vectors from the <strong>real .NET 10.0.12 runtime</strong> (<code>dotnet_check.txt</code>, produced by <code>dotnet_check.cs</code> through reflection on <code>System.Marvin.ComputeHash32</code>): four splitmix64 seeds times lengths 0..15, whose seeds and message bytes the C program regenerates from the same stream state <code>4d617276696e3332</code>. The C port was written on x86-64 and checked against the runtime there; the C# is scalar and endian-branched, so arm64 runs the same path.</li>
+</ul>
+<p><strong>Seed protocol, as the ecosystem uses it.</strong> <code>String.Comparison.cs</code>:</p>
+<pre><code>ulong seed = Marvin.DefaultSeed;
+return Marvin.ComputeHash32(ref Unsafe.As&lt;char, byte&gt;(ref _firstChar), (uint)_stringLength * 2, (uint)seed, (uint)(seed &gt;&gt; 32));</code></pre>
+<p><code>Marvin.DefaultSeed</code> is 64 random bits drawn once per process (<code>Interop.GetRandomBytes</code>: <code>arc4random_buf</code> on macOS and glibc &gt;= 2.36, <code>BCryptGenRandom</code> on Windows, <code>getrandom()</code> XOR an <code>lrand48</code> stream elsewhere; uniform in every configuration) and enters only as the initial state, <code>p0</code> = low 32 bits, <code>p1</code> = high 32 bits. <code>RandomizedStringEqualityComparer</code> draws its own 64-bit seed the same way per comparer instance. The message is the string’s UTF-16LE code units. The program therefore draws a uniform 64-bit value per trial from xoshiro256** and splits it exactly as <code>GetHashCode</code> splits <code>DefaultSeed</code>; <code>dotnet_check.cs</code> does the same in the real runtime with operating-system random bytes (<code>RandomNumberGenerator.Fill</code>) and also prints its own process’s <code>DefaultSeed</code> and the public <code>string.GetHashCode()</code> values of the four strings, checking them against <code>ComputeHash32</code>.</p>
+<p><strong>What the pair exploits.</strong> The seed is only the initial 64-bit state and every later step is a keyless bijection, so a fixed pair collides exactly when its word differences cancel in the state. Only one 8-operation <code>Block</code> separates consecutive word injections. Pair A is a three-word additive differential (<code>+0x80000000</code>, <code>+0x8c0c4100</code>, <code>-0x400</code>): after Block 1 the state difference is <code>(84084100, 08040040)</code>; adding the second word difference leaves <code>(08040000, 08040040)</code>, whose shared bits 27 and 18 cancel in Block 2’s first xor, the remaining bit cancels against <code>rotl(p0, 20)</code> in the first add, the second xor clears <code>p1</code>, and the third word difference removes the single surviving <code>p0</code> bit. This happens for about one seed in 480; the 64-bit state then agrees and so does everything downstream (every sampled hash collision below is a full-state collision). Pair B is the one-word (L = 1) witness, <code>(+0x11111111, -0x11111111)</code>, a period-4 pattern fixed by <code>rotl 20</code>, at about 2^-22.5.</p>
+<h2 id="pairs">Pairs</h2>
+<table>
+<colgroup>
+<col style="width: 4%"/>
+<col style="width: 12%"/>
+<col style="width: 18%"/>
+<col style="width: 20%"/>
+<col style="width: 4%"/>
+<col style="width: 41%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>strings</th>
+<th>m (UTF-16LE)</th>
+<th>m’ (UTF-16LE)</th>
+<th>L</th>
+<th>rate over random 64-bit seeds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td><code>"aa" U+542F U+166D "bb"</code> vs <code>"a" U+8061 U+952F U+A279 U+FC62 "a"</code></td>
+<td><code>610061002f546d1662006200</code></td>
+<td><code>610061802f9579a262fc6100</code></td>
+<td>2</td>
+<td>2^-8.91 (scored: cap 9.91 bits)</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td><code>"aaaa"</code> vs <code>U+1172 U+1172 U+EF50 U+EF4F</code></td>
+<td><code>6100610061006100</code></td>
+<td><code>7211721150ef4fef</code></td>
+<td>1</td>
+<td>2^-22.5 (22.5 bits)</td>
+</tr>
+</tbody>
+</table>
+<p>Both are same-length six- and four-character strings of valid BMP code units. Recorded colliding seeds (asserted by both programs, not merely printed): pair A, seed <code>9bcb44c8bff5b6f1</code> -&gt; <code>7eec677c</code> for both strings; pair B, seed <code>c4cec22cffed4464</code> -&gt; <code>22e699d5</code> for both. The two seeds are the first hits of the program’s default stream.</p>
+<p>Deployment meaning of the pair-A rate: about one process in 480 has a <code>DefaultSeed</code> under which the two strings share a hash code in <code>string.GetHashCode()</code>, <code>StringComparer.Ordinal</code>, and every <code>Dictionary&lt;string,_&gt;</code>/<code>HashSet&lt;string&gt;</code> that has switched to randomized hashing (each of those draws its own seed, with the same odds). The 32-bit output caps every pair at 32 bits regardless.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>cc -O2 -std=c11 -o marvin32_verify marvin32_verify.c -lm
+./marvin32_verify              # 2^20 seeds, rng seed 1, both pairs (smoke run, 0.2 s)
+./marvin32_verify 32 1 A       # pair A at the row's sample size, 2^32 seeds (single-threaded)
+./marvin32_verify 34 1 B       # pair B at 2^34 seeds
+./marvin32_verify 24 7         # a different RNG stream</code></pre>
+<p>Arguments: <code>[log2 N (0..40), default 20] [rng seed, default 1] [pairs: A, B or AB, default AB]</code>. Single-threaded, reads no files, writes only stdout/stderr; C11 and libm suffice. The RNG is xoshiro256** seeded from splitmix64 (default seed 1); each pair restarts the same stream. Zero hits for pair B at 2^20 are expected (0.18 expected hits) and say nothing about the population rate; the recorded witness is checked separately. <code>make check</code> compares the deterministic 2^20 counts, in printed order: <strong><code>2274 0</code></strong>.</p>
+<p>Real-runtime check (needs the .NET 10 SDK; the C program does not):</p>
+<pre><code>dotnet build dotnet_check.csproj -c Release -o out
+dotnet out/dotnet_check.dll 24        # 2^24 OS-random seeds per pair; 4 s</code></pre>
+<p><code>dotnet_check.txt</code> is the output of that command on the machine that produced the vectors (.NET 10.0.12, x86-64, RHEL 9.8). Its <code>V</code> lines are the table embedded in the C program.</p>
+<h2 id="expected-output">Expected output</h2>
+<p>Intel Xeon Platinum 8375C, gcc 11.5, <code>cc -O2 -std=c11</code>, default arguments (2^20 seeds, 0.2 s; the file <code>run_2p20.txt</code>):</p>
+<pre><code>Marvin32 (.NET string.GetHashCode) fixed-pair collision check
+hash: dotnet/runtime System/Marvin.cs at tag v10.0.12 (commit 4271d88e), transcribed; runtime executed for the vectors: .NET 10.0.12
+validation: corefx MarvinTests.cs 64-bit vectors (seeds 4fb61a001bdbcc, 804fb61a001bdbcc, 804fb61a801bdbcc): 30/30 PASS
+validation: floodyberry Marvin32.c "Abcdefg" (UTF-16LE) seed 5d70d359c498b3f8: ba627c81 expected ba627c81 PASS
+validation: .NET 10.0.12 runtime vectors from dotnet_check.txt (4 seeds x lengths 0..15): 64/64 PASS
+seed protocol: string.GetHashCode() = Marvin.ComputeHash32(UTF-16LE bytes, 2*Length, (uint)seed, (uint)(seed &gt;&gt; 32)) with seed = Marvin.DefaultSeed,
+  64 random bits drawn once per process (per instance for RandomizedStringEqualityComparer); sampled here as uniform 64-bit values from xoshiro256**.
+
+pair A / Marvin32 .NET 10.0.12 (L = 2 words)
+M  (12 B) = 610061002f546d1662006200   "aa" U+542F U+166D "bb"
+M' (12 B) = 610061802f9579a262fc6100   "a" U+8061 U+952F U+A279 U+FC62 "a"
+  mechanism: LE words m = 00610061 166d542f 00620062, m' = 80610061 a279952f 0061fc62, additive
+  word differences 0x80000000, 0x8c0c4100, -0x400.  After Block 1 the state difference is
+  (84084100, 08040040); adding the second difference leaves (08040000, 08040040), which
+  cancels inside Block 2 for about one seed in 480; the third difference removes the last bit.
+  The 64-bit state then agrees and every later step is keyless, so the hash codes agree.
+recorded colliding seed 9bcb44c8bff5b6f1: H(M)=7eec677c H(M')=7eec677c expected 7eec677c PASS
+random seeds: N = 1048576 (2^20), rng seed 1
+collisions = 2274 / 1048576; rate = 0.00216865539551; log2(rate) = -8.848983; sampled score = log2(L) - log2(rate) = 9.848983
+of which full 64-bit state collisions: 2274
+first sampled colliding seed 9bcb44c8bff5b6f1: H(M)=7eec677c H(M')=7eec677c
+
+pair B / Marvin32 .NET 10.0.12 (L = 1 word)
+M  (8 B) = 6100610061006100   "aaaa"
+M' (8 B) = 7211721150ef4fef   U+1172 U+1172 U+EF50 U+EF4F
+  mechanism: one-word pair, word differences (+0x11111111, -0x11111111), a period-4 pattern
+  fixed by rotl 20; cancels for about one seed in 2^22.5 (the L = 1 witness).
+recorded colliding seed c4cec22cffed4464: H(M)=22e699d5 H(M')=22e699d5 expected 22e699d5 PASS
+random seeds: N = 1048576 (2^20), rng seed 1
+collisions = 0 / 1048576; rate = 0; log2(rate) = -inf (zero hits; no population-rate estimate)
+of which full 64-bit state collisions: 0
+no sampled collision; the recorded witness above was checked separately</code></pre>
+<h2 id="full-size-runs">Full-size runs</h2>
+<p>The page row quotes pair A at 2^32 seeds. Reruns of this program at the row’s sample sizes on the same Xeon (single-threaded, <code>run_2p32_xeon.txt</code> and <code>run_2p34_xeon.txt</code>, timing blocks retained):</p>
+<ul>
+<li>pair A, <code>./marvin32_verify 32 1 A</code>: <strong>collisions = 8,949,129 / 2^32 = 2^-8.9067</strong>, sampled score 9.9067 bits; 8,949,127 of them full 64-bit state collisions (the other two are 32-bit xor collapses); 54 s CPU (5m20s wall on a shared machine). The row’s independent samples: 8,945,794 / 2^32 = 2^-8.907 (95% Poisson [2^-8.908, 2^-8.906]) and 8,947,470 / 2^32 = 2^-8.91 from a different RNG, and 34,855 / 2^24 = 2^-8.91 through the real runtime.</li>
+<li>pair B, <code>./marvin32_verify 34 1 B</code>: <strong>collisions = 2,844 / 2^34 = 2^-22.526</strong>; 2,839 of them full-state; 3 min CPU (16 min wall on a shared machine). The row’s samples: 1398 / 2^33 and 2857 / 2^34 (pooled 2^-22.53).</li>
+<li>real runtime, <code>dotnet out/dotnet_check.dll 24</code> (<code>dotnet_check.txt</code>): pair A <strong>34,923 / 2^24 = 2^-8.908</strong>, pair B 1 / 2^24; both recorded seeds reproduce their hash codes through <code>System.Marvin.ComputeHash32</code>, and <code>string.GetHashCode()</code> equals <code>ComputeHash32(UTF-16LE bytes, DefaultSeed)</code> for all four strings.</li>
+</ul>
+<p>The three C-side estimates and the runtime estimate agree within their Poisson intervals (the standard deviation of a 2^32 count at this rate is about 2990).</p>
+<h2 id="files">Files</h2>
+<ul>
+<li><code>marvin32_verify.c</code> — single-file C11 program (MIT, full text in the header; the transcribed Marvin32 reproduces the .NET Foundation’s MIT notice).</li>
+<li><code>Marvin.cs</code> — the upstream source at tag v10.0.12, verbatim (MIT, .NET Foundation).</li>
+<li><code>dotnet_check.cs</code>, <code>dotnet_check.csproj</code> — the real-runtime check (MIT); <code>dotnet_check.txt</code> is its output on .NET 10.0.12.</li>
+<li><code>run_2p20.txt</code>, <code>run_2p32_xeon.txt</code>, <code>run_2p34_xeon.txt</code> — the runs quoted above, exactly as the program printed them.</li>
+<li><code>README.md</code> — this file.</li>
+</ul>
+</main></body></html>

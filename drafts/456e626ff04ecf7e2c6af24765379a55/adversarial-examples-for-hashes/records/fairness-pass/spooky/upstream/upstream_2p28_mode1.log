@@ -1,6 +1,0 @@
-lengths 275 275, differing bytes: [183] ee->6e [207] 7c->fc [271] dd->5d [274] e3->c3
-SMHasher3 verification SpookyHash2_64: 0x972C4BDC (expect 0x972C4BDC)
-seed 0: H64(M1)=6d1347279ecef355 H64(M2)=6d1347279ecef355
-seed 0 128-bit: 6d1347279ecef355147d4b759d34be02 / 6d1347279ecef355147d4b759d34be02
-seed 3: H64(M1)=18e0b0491d115fbd H64(M2)=eb7bc00caa6a510b (expect differ)
-N=2^28 mode=1 rngseed=1: 32-bit 134214618, 64-bit 134214618, 128-bit 134214618; rate64 0.499988414 = 2^-1.000033; 95% CI [0.499928600, 0.500048229]

@@ -18,9 +18,9 @@
         "implementation": "PASS",
         "native_value": "710289ab",
         "failure_lines": [],
-        "sanity_raw_file": "records/new-hashes/evidence/Xeon8375C/GoMapHash.sanity.txt",
+        "sanity_raw_file": "records/README.html",
         "sanity_raw_sha256": "5b254e322841d40843950ad7425b3adf655ad4edaa32c6f9eaa958146c43cd20",
-        "vectors_raw_file": "records/new-hashes/evidence/Xeon8375C/verification.txt"
+        "vectors_raw_file": "records/README.html"
       },
       "pair_scope": "amd64 AES; audited 25-bit cap does not transfer to ARM64",
       "load1_boundary_range": [
@@ -48,7 +48,7 @@
             "load5": 44.12,
             "load15": 30.14
           },
-          "raw_file": "records/new-hashes/evidence/Xeon8375C/GoMapHash.run1.txt"
+          "raw_file": "records/README.html"
         }
       ]
     }
@@ -72,9 +72,9 @@
         "implementation": "PASS",
         "native_value": "07203cdb",
         "failure_lines": [],
-        "sanity_raw_file": "records/new-hashes/evidence/Xeon8375C/AbseilHash-default.sanity.txt",
+        "sanity_raw_file": "records/README.html",
         "sanity_raw_sha256": "471d6dc94a1bcac77681b7a0e8bc26f0704b6cac75faa1e21f5e181710c7b05f",
-        "vectors_raw_file": "records/new-hashes/evidence/Xeon8375C/verification.txt"
+        "vectors_raw_file": "records/README.html"
       },
       "load1_boundary_range": [
         60.01,
@@ -101,7 +101,7 @@
             "load5": 47.45,
             "load15": 32.39
           },
-          "raw_file": "records/new-hashes/evidence/Xeon8375C/AbseilHash-default.run1.txt"
+          "raw_file": "records/README.html"
         }
       ]
     }
@@ -128,9 +128,9 @@
           "Running prepend zeroes test  . FAIL  !!!!!",
           "SANITY_FAILS unset, but hash failed"
         ],
-        "sanity_raw_file": "records/new-hashes/evidence/Xeon8375C/Marvin32.sanity.txt",
+        "sanity_raw_file": "records/README.html",
         "sanity_raw_sha256": "9b47ae30c441767397d90227e02808720184e07e9d09a0455b9255138446912b",
-        "vectors_raw_file": "records/new-hashes/evidence/Xeon8375C/verification.txt"
+        "vectors_raw_file": "records/README.html"
       },
       "load1_boundary_range": [
         49.98,
@@ -157,7 +157,7 @@
             "load5": 47.3,
             "load15": 38.88
           },
-          "raw_file": "records/new-hashes/evidence/Xeon8375C/Marvin32.run1.txt"
+          "raw_file": "records/README.html"
         }
       ]
     }

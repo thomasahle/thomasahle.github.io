@@ -10,7 +10,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -58,7 +58,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -110,7 +110,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -142,7 +142,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -203,7 +203,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -251,7 +251,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -303,7 +303,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -335,7 +335,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -396,7 +396,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -444,7 +444,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -496,7 +496,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -528,7 +528,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -581,7 +581,7 @@
           "test": "Speed",
           "run": 1,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -629,7 +629,7 @@
           "test": "Speed",
           "run": 2,
           "command": [
-            "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -681,7 +681,7 @@
             "test": "Sanity",
             "run": 1,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],
@@ -713,7 +713,7 @@
             "test": "Sanity",
             "run": 2,
             "command": [
-              "<scratch>/codex/classic-bench/smhasher3/build-classic/SMHasher3",
+              "./SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],
@@ -771,7 +771,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -822,7 +822,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "poly1305-hash",
             "--test=Speed"
           ],
@@ -877,7 +877,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -912,7 +912,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "poly1305-hash",
               "--test=Sanity"
             ],
@@ -976,7 +976,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -1027,7 +1027,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "ghash",
             "--test=Speed"
           ],
@@ -1082,7 +1082,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -1117,7 +1117,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "ghash",
               "--test=Sanity"
             ],
@@ -1181,7 +1181,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1232,7 +1232,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "komihash",
             "--test=Speed"
           ],
@@ -1287,7 +1287,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -1322,7 +1322,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "komihash",
               "--test=Sanity"
             ],
@@ -1378,7 +1378,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1429,7 +1429,7 @@
             "taskset",
             "-c",
             "1",
-            "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+            "./SMHasher3",
             "rapidhash",
             "--test=Speed"
           ],
@@ -1484,7 +1484,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],
@@ -1519,7 +1519,7 @@
               "taskset",
               "-c",
               "1",
-              "/home/thomas-ahle/agents/speedbench-classic/build-classic/SMHasher3",
+              "./SMHasher3",
               "rapidhash",
               "--test=Sanity"
             ],

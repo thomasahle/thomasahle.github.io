@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact arithmetic for PROOF5; run only on the requested Xeon.
+"""Exact arithmetic for PROOF5; exact arithmetic certificate generator.
 
 Earlier probability lemmas are imported, not inferred from numerical tables.
 This file independently recounts the mask and subcase-b tables, checks the

@@ -42,7 +42,7 @@
               "name": "adj-a",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-a",
                 "--test=Speed"
               ],
@@ -121,7 +121,7 @@
               "name": "adj-a",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-a",
                 "--test=Speed"
               ],
@@ -209,7 +209,7 @@
               "name": "adj-a-gather",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-a-gather",
                 "--test=Speed"
               ],
@@ -288,7 +288,7 @@
               "name": "adj-a-gather",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-a-gather",
                 "--test=Speed"
               ],
@@ -376,7 +376,7 @@
               "name": "adj-a-avx2",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-a-avx2",
                 "--test=Speed"
               ],
@@ -455,7 +455,7 @@
               "name": "adj-a-avx2",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-a-avx2",
                 "--test=Speed"
               ],
@@ -543,7 +543,7 @@
               "name": "adj-b",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-b",
                 "--test=Speed"
               ],
@@ -622,7 +622,7 @@
               "name": "adj-b",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-b",
                 "--test=Speed"
               ],
@@ -710,7 +710,7 @@
               "name": "komihash",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -789,7 +789,7 @@
               "name": "komihash",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "komihash",
                 "--test=Speed"
               ],
@@ -877,7 +877,7 @@
               "name": "rapidhash",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -956,7 +956,7 @@
               "name": "rapidhash",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "rapidhash",
                 "--test=Speed"
               ],
@@ -1044,7 +1044,7 @@
               "name": "UMASH-128",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "UMASH-128",
                 "--test=Speed"
               ],
@@ -1123,7 +1123,7 @@
               "name": "UMASH-128",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "UMASH-128",
                 "--test=Speed"
               ],
@@ -1211,7 +1211,7 @@
               "name": "XXH3-128",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "XXH3-128",
                 "--test=Speed"
               ],
@@ -1290,7 +1290,7 @@
               "name": "XXH3-128",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "XXH3-128",
                 "--test=Speed"
               ],
@@ -1378,7 +1378,7 @@
               "name": "adj-x86",
               "run": 1,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-x86",
                 "--test=Speed"
               ],
@@ -1457,7 +1457,7 @@
               "name": "adj-x86",
               "run": 2,
               "command": [
-                "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3",
+                "./SMHasher3",
                 "adj-x86",
                 "--test=Speed"
               ],
@@ -1563,13 +1563,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/hashes/adj_a.cpp",
+            "./adj_a.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a.o"
+            "./adj_a.o"
           ],
           [
             "c++",
@@ -1578,13 +1578,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/hashes/adj_a_avx2.cpp",
+            "./adj_a_avx2.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a_avx2.o"
+            "./adj_a_avx2.o"
           ],
           [
             "c++",
@@ -1593,13 +1593,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/hashes/adj_a_gather.cpp",
+            "./adj_a_gather.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a_gather.o"
+            "./adj_a_gather.o"
           ],
           [
             "c++",
@@ -1608,13 +1608,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/hashes/adj_a_school.cpp",
+            "./adj_a_school.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a_school.o"
+            "./adj_a_school.o"
           ],
           [
             "c++",
@@ -1623,13 +1623,13 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/hashes/adj_b.cpp",
+            "./adj_b.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_b.o"
+            "./adj_b.o"
           ],
           [
             "c++",
@@ -1638,31 +1638,31 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/include",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/hashlib",
-            "-I/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-c",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/source/hashes/adj_x86.cpp",
+            "./adj_x86.cpp",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_x86.o"
+            "./adj_x86.o"
           ],
           [
             "c++",
             "-O3",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/main.cpp.o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a.o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a_avx2.o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a_gather.o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_a_school.o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_b.o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/adj_x86.o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/libSMHasher3Tests.a",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/libSMHasher3Hashlib.a",
+            "./main.cpp.o",
+            "./adj_a.o",
+            "./adj_a_avx2.o",
+            "./adj_a_gather.o",
+            "./adj_a_school.o",
+            "./adj_b.o",
+            "./adj_x86.o",
+            "./libSMHasher3Tests.a",
+            "./libSMHasher3Hashlib.a",
             "-o",
-            "/home/thomas-ahle/agents/speedbench-ch128-adjacent/work/build-xeon/SMHasher3"
+            "./SMHasher3"
           ]
         ],
-        "baseline": "/home/thomas-ahle/agents/speedbench/build-release-20260917",
+        "baseline": "./build-release-20260917",
         "binary_sha256": "79e5bdcd706d6771225af0d15984c06895058215d1737a1e3be17554e3a9c7a3",
         "copied_objects": {
           "main.cpp.o": "877a4598076d3c30326b11a352bbc3f8bd9a9a881035657e1af6756521ae8c39",
@@ -1746,7 +1746,7 @@
               "name": "adj-a",
               "run": 1,
               "command": [
-                "<scratch>/codex/chainhash-128-adjacent/build-mac/SMHasher3",
+                "./SMHasher3",
                 "adj-a",
                 "--test=Speed"
               ],
@@ -1858,17 +1858,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128-adjacent/build-mac/include",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128-adjacent/smhasher3/hashes/adj_a.cpp",
+            "./adj_a.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a.o"
+            "./adj_a.o"
           ],
           [
             "c++",
@@ -1877,17 +1877,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128-adjacent/build-mac/include",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128-adjacent/smhasher3/hashes/adj_a_avx2.cpp",
+            "./adj_a_avx2.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a_avx2.o"
+            "./adj_a_avx2.o"
           ],
           [
             "c++",
@@ -1896,17 +1896,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128-adjacent/build-mac/include",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128-adjacent/smhasher3/hashes/adj_a_gather.cpp",
+            "./adj_a_gather.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a_gather.o"
+            "./adj_a_gather.o"
           ],
           [
             "c++",
@@ -1915,17 +1915,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128-adjacent/build-mac/include",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128-adjacent/smhasher3/hashes/adj_a_school.cpp",
+            "./adj_a_school.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a_school.o"
+            "./adj_a_school.o"
           ],
           [
             "c++",
@@ -1934,17 +1934,17 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128-adjacent/build-mac/include",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128-adjacent/smhasher3/hashes/adj_b.cpp",
+            "./adj_b.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_b.o"
+            "./adj_b.o"
           ],
           [
             "c++",
@@ -1953,36 +1953,36 @@
             "-march=native",
             "-DNDEBUG",
             "-DHAVE_THREADS",
-            "-I<scratch>/codex/chainhash-128-adjacent/build-mac/include",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/hashlib",
-            "-I<scratch>/codex/chainhash-128-adjacent/smhasher3/include/common",
+            "-I./include",
+            "-I./hashlib",
+            "-I./common",
             "-Xclang",
             "-target-feature",
             "-Xclang",
             "+aes",
             "-c",
-            "<scratch>/codex/chainhash-128-adjacent/smhasher3/hashes/adj_x86.cpp",
+            "./adj_x86.cpp",
             "-o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_x86.o"
+            "./adj_x86.o"
           ],
           [
             "c++",
             "-O3",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/main.cpp.o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a.o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a_avx2.o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a_gather.o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_a_school.o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_b.o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/adj_x86.o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/libSMHasher3Tests.a",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/libSMHasher3Hashlib.a",
+            "./main.cpp.o",
+            "./adj_a.o",
+            "./adj_a_avx2.o",
+            "./adj_a_gather.o",
+            "./adj_a_school.o",
+            "./adj_b.o",
+            "./adj_x86.o",
+            "./libSMHasher3Tests.a",
+            "./libSMHasher3Hashlib.a",
             "-o",
-            "<scratch>/codex/chainhash-128-adjacent/build-mac/SMHasher3",
+            "./SMHasher3",
             "/opt/homebrew/opt/openssl@3/lib/libcrypto.dylib"
           ]
         ],
-        "baseline": "<scratch>/codex/m2-rerun/build-fixed",
+        "baseline": "./build-fixed",
         "binary_sha256": "641f56a499d77a406fd1f923ec40cc708344d44a6f67edd1f3310e67a20a7b2d",
         "copied_objects": {
           "main.cpp.o": "0b557883351f4b54fe180bf393cf75a35c5968889363ef3269bfaf0d152c41d5",
