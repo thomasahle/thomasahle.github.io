@@ -87,7 +87,7 @@ Final audit result: **PASS**. All 89 new theorems use only `propext`, `Classical
 
 Each of the 89 new theorems has a successful `lake build` checkpoint with a SHA-256 of the exact source prefix. [audit_v3.py](scripts/audit_v3.py) checks these hashes, rebuilds the complete target, prints every theorem's signature and axioms, and rejects dependencies outside `propext`, `Classical.choice`, and `Quot.sound`. It also reruns the inherited `FullAudit.lean` and `ModelAAudit.lean` in [CombinedV3Audit.lean](lean/CombinedV3Audit.lean).
 
-Remote build logs: `~/agents/lean-chainhash-v3-64/logs/v3/`.
+Remote build logs: `<xeon-work>/lean-chainhash-v3-64/logs/v3/`.
 Final build: [final-build.log](logs/v3/final-build.log).
 Per-theorem logs: `logs/v3/ChainHashV3*-THEOREM.log`, with adjacent `.sha256` stamps.
 Audit summary: [audit-summary.txt](logs/v3/audit-summary.txt).
@@ -114,8 +114,8 @@ From the Mac mirror: `./scripts/reproduce-remote.sh`.
 On the Xeon, in the lane root: `./scripts/reproduce-v3.sh`.
 See [scripts/README.md](scripts/README.md) for cache-preserving setup and generated evidence paths.
 
-- Remote lane: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash-v3-64`.
-- Parent lane: `~/agents/lean-chainhash-modelA`.
+- Remote lane: `<xeon-host>:<xeon-work>/lean-chainhash-v3-64`.
+- Parent lane: `<xeon-work>/lean-chainhash-modelA`.
 - Parent commit: `a3939c01b87d962ae170776b656a154300d5f3ca`.
 - Proof/evidence commit: `54410e433a1d9f79cd4104dc9fc2cdea72164f07`.
 - Lean: `leanprover/lean4:v4.24.0`.

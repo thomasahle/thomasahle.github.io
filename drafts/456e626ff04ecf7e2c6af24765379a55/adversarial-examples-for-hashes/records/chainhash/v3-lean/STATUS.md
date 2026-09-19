@@ -50,10 +50,10 @@ Only `propext`, `Classical.choice`, and `Quot.sound`; no unresolved probabilisti
 ## Commits, builds, and reproduction
 
 - Proof/evidence commit: `54410e433a1d9f79cd4104dc9fc2cdea72164f07`.
-- Parent: `~/agents/lean-chainhash-modelA`, commit `a3939c01b87d962ae170776b656a154300d5f3ca`.
+- Parent: `<xeon-work>/lean-chainhash-modelA`, commit `a3939c01b87d962ae170776b656a154300d5f3ca`.
 - Lean 4.24.0; Mathlib `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
-- Remote lane: `thomas-ahle@hardware.normalcomputing.net:~/agents/lean-chainhash-v3-64`.
-- Build log: `~/agents/lean-chainhash-v3-64/logs/v3/final-build.log`, mirrored at [logs/v3/final-build.log](logs/v3/final-build.log).
+- Remote lane: `<xeon-host>:<xeon-work>/lean-chainhash-v3-64`.
+- Build log: `<xeon-work>/lean-chainhash-v3-64/logs/v3/final-build.log`, mirrored at [logs/v3/final-build.log](logs/v3/final-build.log).
 - Per-theorem logs and exact source-prefix hashes: `logs/v3/ChainHashV3*-THEOREM.{log,sha256}`.
 - Audit summary: [logs/v3/audit-summary.txt](logs/v3/audit-summary.txt).
 - Vector results: [logs/v3/vectors.log](logs/v3/vectors.log); C and Lean output SHA-256 `732b082f59e860e8171016c6919be1d863320cfbafe358ab3f52900de6017103`.
