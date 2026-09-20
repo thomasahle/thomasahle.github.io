@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>aHash 0.8.12 AES: selected pair E</title><link href="../../post.css" rel="stylesheet"/><link href="../../math.css" rel="stylesheet"/><link href="../../../../static/vendor/katex-0.18.7/katex.min.css" rel="stylesheet"/><script defer="" src="../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer="" src="../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../index.html">Article</a> · <a href="../../records/README.html">Records</a></nav><h1 id="ahash-0812-aes-selected-pair-e">aHash 0.8.12 AES: selected pair E</h1>
+<p>E has 424 bytes and L = 53. The upstream crate counted 967,503 / 2^32 collisions, about 2^-12.116, for a sampled cap of 17.84 bits (95% interval 17.84–17.85). The earlier selected pair A_2 (56 bytes, L = 7, three S-boxes, 12,627 / 2^33 = 2^-19.376, 22.18 bits) is kept in the program and below as the historical selected pair; A_1 is statistically tied with it and the 64-byte B_0 mirror gives about 22.38 bits.</p>
+<p>The model draws four independent uniform <code>RandomState</code> words. The byte-slice sequence is <code>write_usize(len)</code> followed by <code>write(bytes)</code>, equivalent to <code>hash_one(&amp;[u8])</code>. A direct <code>write</code> call alone is a different input model. The AES backend is required for these results.</p>
+<p>E is all zero bytes except ten:</p>
+<table>
+<thead>
+<tr class="header">
+<th>byte</th>
+<th>24</th>
+<th>25</th>
+<th>26</th>
+<th>27</th>
+<th>280</th>
+<th>344</th>
+<th>345</th>
+<th>346</th>
+<th>347</th>
+<th>384</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M</td>
+<td>7c</td>
+<td>06</td>
+<td>7e</td>
+<td>7b</td>
+<td>08</td>
+<td>80</td>
+<td>08</td>
+<td>82</td>
+<td>80</td>
+<td>03</td>
+</tr>
+<tr class="even">
+<td>M'</td>
+<td>81</td>
+<td>08</td>
+<td>81</td>
+<td>80</td>
+<td>03</td>
+<td>7d</td>
+<td>06</td>
+<td>7d</td>
+<td>7b</td>
+<td>08</td>
+</tr>
+</tbody>
+</table>
+<pre class="text"><code>M  = 0000000000000000000000000000000000000000000000007c067e7b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008008828000000000000000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000000000000000000
+M&#39; = 00000000000000000000000000000000000000000000000081088180000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007d067d7b00000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000
+key words = 0e17425e994c2579 4e057e193aec29dc 665cc79160d3c675 3d80ed4ec94cfe49
+output = 93ecf09ded4decc5</code></pre>
+<p>The words above are <strong>internal</strong> keys. Public <code>RandomState::with_seeds</code> arguments are <code>4b3f63b8a19c360e f05118d60e0525b0 a6f0ee26a9af96a8 020438fb7c0bf75e</code>: arguments XOR PI2 give the internal words. The explicit output is asserted by both programs before sampling.</p>
+<p>For messages longer than 64 bytes aHash runs four AES lanes and two additive lanes: the last 64 bytes seed them, then each 64-byte block is folded in with one <code>aesdec</code> per lane and one shuffle-and-add per additive lane. E is a two-S-box "lane echo" in lane 1: the tail (byte 384) puts a one-byte difference into the lane when the lanes are seeded, the first loop block (bytes 24–27) cancels it through a single inverse S-box (difference-table entry 4/256; the four bytes are the InvMixColumns column of the S-box output), the fifth block (byte 280) injects a second one-byte difference and the sixth (bytes 344–347) cancels it the same way, and by then the five byte differences the first pair left in the additive lane have been shuffled onto the five bytes of the second, so they cancel additively. Two S-boxes at 4/256 plus small carry terms give 2^-12.12, 0.12 bits under the two-S-box floor. A permissive truncated-trail enumeration with a GF(2^8) feasibility filter finds no one-S-box trail and no two-S-box trail before six iterations; 424 bytes is the shortest message for lane 1 that keeps the tail and the loop blocks from reading a byte in two roles (lanes 0, 2, 3 need 440, 428, 444 and score 17.89–17.92 bits). The pair does <strong>not</strong> collide under SMHasher3's correlated convention <code>with_seeds(s,s,s,s)</code> (0 in 2^24): both S-box transitions need independent lane keys, which the real <code>RandomState</code> supplies. The three-S-box A_2 trail is described in <a href="HISTORICAL.html">HISTORICAL.md</a>; <a href="../../records/witness-searches/ahash-trail/README.md">search and derivation</a>; <a href="../../records/witness-searches/ahash-trail-verify/RESULTS.md">upstream results</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span><span class="co"># x86-64; use -march=armv8-a+crypto on ARM, or -DAHASH_SOFT_AES for portable AES</span></span>
+<span><span class="fu">cc</span> <span class="at">-O2</span> <span class="at">-std</span><span class="op">=</span>c11 <span class="at">-maes</span> ahash_pairs.c <span class="at">-lm</span> <span class="at">-o</span> check</span>
+<span><span class="ex">taskset</span> <span class="at">-c</span> 24-31 nice <span class="at">-n</span> 10 ./check 24</span>
+<span><span class="co"># optional final argument selects E, A_2, A_1, B_0, historical A, or fallback B</span></span>
+<span><span class="bu">cd</span> native</span>
+<span><span class="va">RUSTFLAGS</span><span class="op">=</span><span class="st">&#39;-C target-feature=+aes,+ssse3&#39;</span> <span class="ex">cargo</span> build <span class="at">--release</span> <span class="at">--locked</span></span>
+<span><span class="ex">taskset</span> <span class="at">-c</span> 24-31 nice <span class="at">-n</span> 10 ./target/release/ahash_trail_verify pairs_echo.txt 32 2026 8   <span class="co"># E and the historical pairs; pairs_confirm.txt for A_1/A_2/B_0</span></span></code></pre></div>
+<p>The C program checks SMHasher3 AES 0x3BF4383B and fallback 0x53C9F167 and each explicit collision. Its selected E run observed <strong>3783 / 2^24 = 2^-12.11</strong> under independent words and 0 / 2^24 in the correlated scalar-seed model (see above). Historical A_2 at 2^24: 27 / 25; A_1: 24/28; B_0: 28/22; historical A: 26/11; fallback B: 0/0 (<a href="run_selected_xeon.txt">earlier C run</a>). The <code>20</code> smoke sequence is <code>217 0 0 2 0 2 1 0 1 2 0 0</code>.</p>
+<p>The native crate run for E is <a href="native/run_echo_xeon.txt">run_echo_xeon.txt</a>: 2^32 keys, 8 threads, 76 s, <strong>967,503 collisions for the 424-byte pair</strong> (cap 17.844, 95% interval 17.841–17.847), with A_2 in the same run at 6,250 / 2^32 = 2^-19.39 as control and the 440/428/444/448-byte lane variants at 17.87–17.92 bits. The earlier native run for A_2, A_1, B_0 and the historical pair is <a href="native/run_selected_xeon.txt">run_selected_xeon.txt</a>. The native program asserts the selected example output before sampling.</p>
+<p><code>confirm_pairs.txt</code> line 2 has been relabelled <strong>B_0_STALE56B</strong>: its 56-byte bytes are retained as a negative control. The real 64-byte B_0 is in <code>native/pairs_confirm.txt</code>, along with A_1 and A_2. Older native programs and <a href="HISTORICAL.html">HISTORICAL.md</a> remain historical references. The C implementation is original code; upstream aHash is MIT/Apache-2.0. The crate’s ARM AES path also requires its <code>nightly-arm-aes</code> feature.</p>
+<p>The E measurements were run on the Xeon on 2026-09-19 (native, 8 threads) and 2026-09-20 (C, M2 Pro); the earlier page-pass executions on the Xeon on 2026-09-19 with <code>taskset -c 24-31 nice -n 10</code>. These small reruns validate the package and deterministic counts; the larger independently reproduced records linked below supply the published estimates. Messages are fixed before the key is sampled.</p>
+</main></body></html>

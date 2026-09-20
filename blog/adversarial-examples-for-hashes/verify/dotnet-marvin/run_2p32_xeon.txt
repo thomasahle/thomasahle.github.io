@@ -1,0 +1,25 @@
+Marvin32 (.NET string.GetHashCode) fixed-pair collision check
+hash: dotnet/runtime System/Marvin.cs at tag v10.0.12 (commit 4271d88e), transcribed; runtime executed for the vectors: .NET 10.0.12
+validation: corefx MarvinTests.cs 64-bit vectors (seeds 4fb61a001bdbcc, 804fb61a001bdbcc, 804fb61a801bdbcc): 30/30 PASS
+validation: floodyberry Marvin32.c "Abcdefg" (UTF-16LE) seed 5d70d359c498b3f8: ba627c81 expected ba627c81 PASS
+validation: .NET 10.0.12 runtime vectors from dotnet_check.txt (4 seeds x lengths 0..15): 64/64 PASS
+seed protocol: string.GetHashCode() = Marvin.ComputeHash32(UTF-16LE bytes, 2*Length, (uint)seed, (uint)(seed >> 32)) with seed = Marvin.DefaultSeed,
+  64 random bits drawn once per process (per instance for RandomizedStringEqualityComparer); sampled here as uniform 64-bit values from xoshiro256**.
+
+pair A / Marvin32 .NET 10.0.12 (L = 2 words)
+M  (12 B) = 610061002f546d1662006200   "aa" U+542F U+166D "bb"
+M' (12 B) = 610061802f9579a262fc6100   "a" U+8061 U+952F U+A279 U+FC62 "a"
+  mechanism: LE words m = 00610061 166d542f 00620062, m' = 80610061 a279952f 0061fc62, additive
+  word differences 0x80000000, 0x8c0c4100, -0x400.  After Block 1 the state difference is
+  (84084100, 08040040); adding the second difference leaves (08040000, 08040040), which
+  cancels inside Block 2 for about one seed in 480; the third difference removes the last bit.
+  The 64-bit state then agrees and every later step is keyless, so the hash codes agree.
+recorded colliding seed 9bcb44c8bff5b6f1: H(M)=7eec677c H(M')=7eec677c expected 7eec677c PASS
+random seeds: N = 4294967296 (2^32), rng seed 1
+collisions = 8949129 / 4294967296; rate = 0.00208363146521; log2(rate) = -8.906684; sampled score = log2(L) - log2(rate) = 9.906684
+of which full 64-bit state collisions: 8949127
+first sampled colliding seed 9bcb44c8bff5b6f1: H(M)=7eec677c H(M')=7eec677c
+
+real	5m20.071s
+user	0m53.758s
+sys	0m0.001s

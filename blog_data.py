@@ -18,6 +18,15 @@ class Vars:
 
     posts = [
         Post(
+            tag='hashadv',
+            url="adversarial-examples-for-hashes/",
+            title='Adversarial Examples for Fast Hash Functions',
+            lead='Explicit colliding inputs for komihash, a5hash, MuseAir, t1ha2, HighwayHash and others under random seeds, measured as worst-case collision bits, next to hash functions with proven bounds and their speed.',
+            date=date(2026, 9, 17),
+            img='../feature_imgs/fast_hashes_need_proofs.png',
+            read_time=25,
+        ),
+        Post(
             tag='stirling',
             url="stirling_bounds.html",
             title='Simple Stirling Upper/Lower Bounds',

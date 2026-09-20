@@ -1,0 +1,5 @@
+ahash crate path build; cfg target_feature aes = true, ssse3 = true
+explicit internal key 711096b41e1b7d99 59af3b7ae3b7d595 d2fb75eb5658a771 5a0f91d8ed1ffe38: H(A)=45ef7682d72b19b6 H(B)=45ef7682d72b19b6 COLLIDE (post: 45ef7682d72b19b6)
+smh seed f04f16d5122a6a3a (with_seeds(s,s,s,s)): H(A)=2dc0adbf4570e056 H(B)=2dc0adbf4570e056 COLLIDE (README: 2dc0adbf4570e056)
+native Rust, RandomState::with_seeds(uniform a,b,c,d) [= four independent uniform internal words], rng seed 3: 19964/2^34 = 2^-19.715; 95% CI [2^-19.735, 2^-19.695]; score cap log2(7)-log2(rate) = 22.522 bits, CI [22.502, 22.542]; 93.9 s on 7 threads
+first colliding with_seeds args fc6dff855266b5c3 391d5c64f2d3e29d ab9205bc53189cd5 c78eaee46e3126f1 (internal k_i = arg_i ^ PI2[i]), H = 47bbb387efbfb50c

@@ -1,0 +1,152 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Independent verification: XXH3-64 (xxHash v0.8.3) under the random-secret key model</title><link rel="stylesheet" href="../../../../../post.css"><link rel="stylesheet" href="../../../../../math.css"><link rel="stylesheet" href="../../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../../index.html">Article</a> · <a href="../../../../../records/README.html">Records</a></nav><h1 id="independent-verification-xxh3-64-xxhash-v0.8.3-under-the-random-secret-key-model">Independent verification: XXH3-64 (xxHash v0.8.3) under the random-secret key model</h1>
+<p>Date: 2026-09-19. Verifier harness: <code>xxh3_verify.c</code> (this directory), written from scratch against the upstream header (fresh download of <code>xxhash.h</code> from github.com/Cyan4973/xxHash tag v0.8.3, sha256 <code>17973c0dc49d9854ca26caa191f0e12f7a424b68858d9a78de3860d959d85e4b</code>). It shares no code with the searcher’s <code>xxh3_rs.c</code>: per-thread SplitMix64 streams instead of xoshiro256**, its own fold64, its own key layout, and every witness is re-hashed through the public API in the main thread before it is printed (<code>recheck=ok</code>). Host: Xeon Platinum 8375C, gcc 11.5.0, <code>nice -n 10 taskset -c 24-31</code>, 8 threads (cores shared with sibling jobs). Intervals: Clopper-Pearson 95% (<code>ci.py</code>). Metric: bits = min_L log2(L/eps), L = ceil(len/8).</p>
+<h2 id="facts-checked-in-the-upstream-source-v0.8.3">1. Facts checked in the upstream source (v0.8.3)</h2>
+<ul>
+<li><code>XXH3_64bits_withSecretandSeed</code> (xxhash.h L6204-6210): <code>if (length &lt;= XXH3_MIDSIZE_MAX) return   XXH3_64bits_internal(input, length, seed, XXH3_kSecret, sizeof(XXH3_kSecret), NULL);</code> - the custom secret is ignored for len &lt;= 240. Confirmed empirically: the <code>ss</code> and <code>stream</code> runs below reproduce the default-secret rate of the page’s NAF pair, and at 2^16 keys the streaming digest matched <code>ss</code> hit-for-hit per thread.</li>
+<li>Streaming (<code>XXH3_64bits_reset_withSecretandSeed</code> + <code>digest</code>, L6582-6595): <code>if (state-&gt;useSeed) return   XXH3_64bits_withSeed(buffer, totalLen, seed);</code> for totalLen &lt;= 240 - same behaviour.</li>
+<li><code>XXH3_64bits_withSecret</code> reads only secret bytes 0..135 for len &lt;= 240 (<code>XXH3_SECRET_SIZE_MIN = 136</code>); every 16-byte block of a 17..240-byte input is <code>fold64(w_lo ^ (S[2i] + seed), w_hi ^ (S[2i+1] - seed))</code> (<code>XXH3_mix16B</code>, L4732), so with a uniform secret the pair (S[2i]+seed, S[2i+1]-seed) is uniform whatever the seed: the <code>secret</code> (seed = 0) and <code>both</code> (seed uniform) models have identical fixed-pair rates at these lengths.</li>
+<li>The searcher’s <code>both</code> model uses the internal <code>XXH3_64bits_internal(in, len, seed, S, 192, ...)</code>, which no public one-shot API exposes for len &lt;= 240; I call the same internal function (it is the only way to key the seed and a custom secret together at short lengths).</li>
+</ul>
+<h2 id="results">2. Results</h2>
+<p>All keys fresh per trial; pairs fixed before sampling; every first witness re-hashed through the public API (<code>recheck=ok</code> in every log). Wall times: 2^35 runs 383-594 s on 8 shared threads. Salts 9101-9110 (<code>run_verify.sh</code>).</p>
+<table>
+<colgroup>
+<col style="width: 12%"/>
+<col style="width: 12%"/>
+<col style="width: 12%"/>
+<col style="width: 12%"/>
+<col style="width: 12%"/>
+<col style="width: 12%"/>
+<col style="width: 12%"/>
+<col style="width: 12%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>pair</th>
+<th>API / key model</th>
+<th>keys</th>
+<th>hits</th>
+<th>eps (95% CI)</th>
+<th>L</th>
+<th>cap bits (95% CI)</th>
+<th>log</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NAF 32 B (the row’s current pair)</td>
+<td><code>XXH3_64bits_internal</code>, seed + 192-B secret uniform (<code>both</code>)</td>
+<td>2^35</td>
+<td>332</td>
+<td>2^-26.63 [2^-26.78, 2^-26.47]</td>
+<td>4</td>
+<td>28.63 [28.47, 28.78]</td>
+<td>naf_both_2p35</td>
+</tr>
+<tr class="even">
+<td>NAF 32 B</td>
+<td><code>XXH3_64bits_withSecret</code>, 192-B secret uniform</td>
+<td>2^33</td>
+<td>83</td>
+<td>2^-26.63 [2^-26.95, 2^-26.32]</td>
+<td>4</td>
+<td>28.63 [28.32, 28.95]</td>
+<td>naf_secret_2p33</td>
+</tr>
+<tr class="odd">
+<td>NAF 32 B</td>
+<td><code>withSeed</code>, default kSecret (control)</td>
+<td>2^28</td>
+<td>188388</td>
+<td>2^-10.477 [2^-10.483, 2^-10.470]</td>
+<td>4</td>
+<td>12.477 [12.470, 12.483]</td>
+<td>naf_seed_2p28</td>
+</tr>
+<tr class="even">
+<td>NAF 32 B</td>
+<td><code>withSecretandSeed</code>, 192-B secret uniform + seed (control)</td>
+<td>2^28</td>
+<td>188643</td>
+<td>2^-10.475 [2^-10.481, 2^-10.468]</td>
+<td>4</td>
+<td>12.475 [12.468, 12.481]</td>
+<td>naf_ss_2p28</td>
+</tr>
+<tr class="odd">
+<td>NAF 32 B</td>
+<td>streaming <code>reset_withSecretandSeed</code> (control)</td>
+<td>2^24</td>
+<td>11864</td>
+<td>2^-10.466 [2^-10.492, 2^-10.440]</td>
+<td>4</td>
+<td>12.466</td>
+<td>naf_stream_2p24</td>
+</tr>
+<tr class="even">
+<td>W0 24 B (proposed: 0^24 vs ff^8 0^16)</td>
+<td><code>XXH3_64bits_withSecret</code>, 192-B secret uniform</td>
+<td>2^35</td>
+<td>260</td>
+<td>2^-26.98 [2^-27.16, 2^-26.80]</td>
+<td>3</td>
+<td>28.56 [28.39, 28.74]</td>
+<td>w0_secret_2p35</td>
+</tr>
+<tr class="odd">
+<td>W0 24 B</td>
+<td><code>XXH3_64bits_internal</code>, seed + secret uniform (<code>both</code>)</td>
+<td>2^35</td>
+<td>267</td>
+<td>2^-26.94 [2^-27.12, 2^-26.77]</td>
+<td>3</td>
+<td>28.52 [28.35, 28.70]</td>
+<td>w0_both_2p35</td>
+</tr>
+<tr class="even">
+<td>W0 24 B</td>
+<td><code>withSeed</code>, default kSecret (control)</td>
+<td>2^32</td>
+<td>42</td>
+<td>2^-26.61 [2^-27.08, 2^-26.17]</td>
+<td>3</td>
+<td>28.19 [27.76, 28.67]</td>
+<td>w0_seed_2p32</td>
+</tr>
+<tr class="odd">
+<td>fold (M,M)</td>
+<td>own fold64, x,y uniform</td>
+<td>2^34</td>
+<td>165</td>
+<td>2^-26.63 [2^-26.86, 2^-26.41]</td>
+<td>-</td>
+<td>-</td>
+<td>fold_MM_2p34</td>
+</tr>
+<tr class="even">
+<td>fold (M,0)</td>
+<td>own fold64, x,y uniform</td>
+<td>2^34</td>
+<td>144</td>
+<td>2^-26.83 [2^-27.08, 2^-26.59]</td>
+<td>-</td>
+<td>-</td>
+<td>fold_M0_2p34</td>
+</tr>
+</tbody>
+</table>
+<p>Pooled (this harness only): NAF pair, random secret, 415 / (2^35 + 2^33): eps = 2^-26.63 [2^-26.77, 2^-26.49], cap 28.62 [28.49, 28.77]. W0 pair, 527 / 2^36: eps = 2^-26.96 [2^-27.08, 2^-26.84], cap 28.54 [28.42, 28.67]. Pooled with the searcher’s fold samples (results_fold.md 157 and 147 at 2^34) and the searcher’s own 2^35 <code>both</code> run of the NAF pair (349 hits, 2^-26.55): (M,M) 2^-26.64 [2^-26.75, 2^-26.54] -&gt; NAF cap 28.64 [28.54, 28.75]; (M,0) 2^-26.91 [2^-27.01, 2^-26.81] -&gt; W0 cap 28.49 [28.40, 28.59].</p>
+<p>Verdict. - The row’s current pair does NOT collide at 2^-10.47 under the random-secret model; it collides at 2^-26.6 (the (M,M) fold differential), cap 28.6 bits. The searcher’s statement is confirmed. The 12.47-bit figure is the figure for <code>withSeed</code>, <code>withSecretandSeed</code> and the streaming API at this length (secret ignored), also confirmed. - The proposed W0 pair’s rate is 2^-26.96 [2^-27.08, 2^-26.84] in the full API (2^36 keys over the two equivalent models), slightly below the searcher’s fold-based point estimate 2^-26.80 but inside their interval [2^-27.04, 2^-26.57]. Its cap is 28.5 bits, not 28.4: 28.54 [28.42, 28.67] from this harness alone, 28.49 [28.40, 28.59] pooled with all (M,0) samples. - W0 (L=3) beats the current NAF pair (L=4) by only ~0.1 bits in cap (28.5 vs 28.6) and the 95% intervals overlap, so “best pair” is not statistically separated from the current pair under this model; both give cap ~28.5-28.6 by the same mechanism. Either is fine for the row; I would print 28.5 with the W0 pair (shorter, single changed word, mechanism transparent) and state that the NAF pair scores 28.6 under the same model.</p>
+<h2 id="mechanism-cross-check-analytic-heuristic-only">3. Mechanism cross-check (analytic, heuristic only)</h2>
+<p><code>fold_dp.py</code> is a bit-serial carry DP for the fold differential that treats lo(xy), hi(xy) and the inputs as independent uniform words. It gives 2^-26.69 for (M,M) and 2^-27.15 for (M,0) at 64 bits; against the exact small-width table of the paper’s <code>results_fold.md</code> it is 0.3-0.5 bits pessimistic (w=16: DP 2^-7.23 / 2^-6.77 vs exact 2^-6.96 / 2^-6.65), because the product’s low and high halves are correlated. So the “complementary carry chains, (3/4)^64” story is the right mechanism but not an exact number; the sampled rates stand.</p>
+<h2 id="reproduction">Reproduction</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sSLO</span> https://raw.githubusercontent.com/Cyan4973/xxHash/v0.8.3/xxhash.h   <span class="co"># sha256 17973c0d...</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="fu">cc</span> <span class="at">-O3</span> <span class="at">-std</span><span class="op">=</span>c11 <span class="at">-pthread</span> <span class="at">-march</span><span class="op">=</span>native xxh3_verify.c <span class="at">-lm</span> <span class="at">-o</span> xxh3_verify</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="ex">./run_verify.sh</span>                       <span class="co"># full plan, logs in logs/ (salts 9101-9110 are in the script)</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="co"># single checks</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="ex">./xxh3_verify</span> pair both   35 9101 8 0000000000000000000000000000000051151210404400000000008204000105 00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="ex">./xxh3_verify</span> pair secret 35 9102 8 000000000000000000000000000000000000000000000000 ffffffffffffffff00000000000000000000000000000000</span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="ex">./xxh3_verify</span> fold 34 9110 8 ffffffffffffffff 0000000000000000</span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="ex">python3</span> ci.py HITS LOG2N L</span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="ex">python3</span> fold_dp.py</span></code></pre></div>
+</main></body></html>

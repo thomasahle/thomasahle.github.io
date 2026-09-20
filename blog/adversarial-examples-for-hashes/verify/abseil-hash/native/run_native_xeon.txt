@@ -1,0 +1,80 @@
+== native/absl_check_scalar vectors vs the C program's --vectors
+identical (325 vectors)
+== native/absl_check_scalar seed
+absl_check: real abseil-cpp 73d2688 through hash_internal::HashWithSeed (LowLevelHash backend for len > 32: scalar)
+Seed() = 0x404b90 = &MixingHashState::kSeed (an address: fixed in a non-PIE binary, ASLR-slid in a PIE one)
+  len  0: Hash<string_view>{}(x) = a48bcd522fe90664  Hash<string>{}(x) = a48bcd522fe90664  hash_with_seed(x, Seed()) = a48bcd522fe90664  equal
+  len  1: Hash<string_view>{}(x) = d1dc87d9e0a515b2  Hash<string>{}(x) = d1dc87d9e0a515b2  hash_with_seed(x, Seed()) = d1dc87d9e0a515b2  equal
+  len 11: Hash<string_view>{}(x) = f3ff2fbc4c8dbf0b  Hash<string>{}(x) = f3ff2fbc4c8dbf0b  hash_with_seed(x, Seed()) = f3ff2fbc4c8dbf0b  equal
+  len 20: Hash<string_view>{}(x) = 6809e37a65f205d4  Hash<string>{}(x) = 6809e37a65f205d4  hash_with_seed(x, Seed()) = 6809e37a65f205d4  equal
+  len 82: Hash<string_view>{}(x) = be5873a17f5cfed9  Hash<string>{}(x) = be5873a17f5cfed9  hash_with_seed(x, Seed()) = be5873a17f5cfed9  equal
+  pair 1: '' (0 B) vs a6e02637c07bd386 (8 B) under the process seed: a48bcd522fe90664 a48bcd522fe90664 COLLIDE
+  pair 2: 'a' (1 B) vs 44b53d572db1948b (8 B) under the process seed: d1dc87d9e0a515b2 d1dc87d9e0a515b2 COLLIDE
+  pair 3: abcdefgh||kMul vs ABCDEFGH||kMul (16 B, both hash to 0) under the process seed: 0000000000000000 0000000000000000 COLLIDE
+seed protocol: 0 mismatches; 3 of 3 pairs collide under the process seed
+== native/absl_check_scalar pairs 20
+absl_check: real abseil-cpp 73d2688 through hash_internal::HashWithSeed (LowLevelHash backend for len > 32: scalar)
+N = 2^20 uniform 64-bit seeds per pair (rng seed 1), plus the 32 SwissTable seeds {0, 64, ..., 1984}
+
+pair 1: '' (0 B) vs a6e02637c07bd386 (8 B)
+  seed 0x0: H(m) = 2bda3ac53577c4b7  H(m') = 2bda3ac53577c4b7  COLLIDE
+  seed 0x4055c8: H(m) = 06bb4292e0eae907  H(m') = 06bb4292e0eae907  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 1048576 / 1048576
+  first colliding seed 0xb3f2af6d0fc710c5: H = 216d4614c709b2b6
+
+pair 2: 'a' (1 B) vs 44b53d572db1948b (8 B)
+  seed 0x0: H(m) = a65e8ab2c950c927  H(m') = a65e8ab2c950c927  COLLIDE
+  seed 0x4055c8: H(m) = e3a0eef311f0006a  H(m') = e3a0eef311f0006a  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 1048576 / 1048576
+  first colliding seed 0xb3f2af6d0fc710c5: H = ee7feffd0ea4f277
+
+pair 3: abcdefgh||kMul vs ABCDEFGH||kMul (16 B, both hash to 0)
+  seed 0x0: H(m) = 0000000000000000  H(m') = 0000000000000000  COLLIDE
+  seed 0x4055c8: H(m) = 0000000000000000  H(m') = 0000000000000000  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 1048576 / 1048576
+  first colliding seed 0xb3f2af6d0fc710c5: H = 0000000000000000
+
+ALL PAIRS COLLIDE FOR EVERY SAMPLED SEED (real abseil-cpp 73d2688)
+== native/absl_check_aes vectors vs the C program's --vectors
+identical (325 vectors)
+== native/absl_check_aes seed
+absl_check: real abseil-cpp 73d2688 through hash_internal::HashWithSeed (LowLevelHash backend for len > 32: x86 AES-NI)
+Seed() = 0x404b90 = &MixingHashState::kSeed (an address: fixed in a non-PIE binary, ASLR-slid in a PIE one)
+  len  0: Hash<string_view>{}(x) = a48bcd522fe90664  Hash<string>{}(x) = a48bcd522fe90664  hash_with_seed(x, Seed()) = a48bcd522fe90664  equal
+  len  1: Hash<string_view>{}(x) = d1dc87d9e0a515b2  Hash<string>{}(x) = d1dc87d9e0a515b2  hash_with_seed(x, Seed()) = d1dc87d9e0a515b2  equal
+  len 11: Hash<string_view>{}(x) = f3ff2fbc4c8dbf0b  Hash<string>{}(x) = f3ff2fbc4c8dbf0b  hash_with_seed(x, Seed()) = f3ff2fbc4c8dbf0b  equal
+  len 20: Hash<string_view>{}(x) = 6809e37a65f205d4  Hash<string>{}(x) = 6809e37a65f205d4  hash_with_seed(x, Seed()) = 6809e37a65f205d4  equal
+  len 82: Hash<string_view>{}(x) = ea6766dd41e347d2  Hash<string>{}(x) = ea6766dd41e347d2  hash_with_seed(x, Seed()) = ea6766dd41e347d2  equal
+  pair 1: '' (0 B) vs a6e02637c07bd386 (8 B) under the process seed: a48bcd522fe90664 a48bcd522fe90664 COLLIDE
+  pair 2: 'a' (1 B) vs 44b53d572db1948b (8 B) under the process seed: d1dc87d9e0a515b2 d1dc87d9e0a515b2 COLLIDE
+  pair 3: abcdefgh||kMul vs ABCDEFGH||kMul (16 B, both hash to 0) under the process seed: 0000000000000000 0000000000000000 COLLIDE
+seed protocol: 0 mismatches; 3 of 3 pairs collide under the process seed
+== native/absl_check_aes pairs 20
+absl_check: real abseil-cpp 73d2688 through hash_internal::HashWithSeed (LowLevelHash backend for len > 32: x86 AES-NI)
+N = 2^20 uniform 64-bit seeds per pair (rng seed 1), plus the 32 SwissTable seeds {0, 64, ..., 1984}
+
+pair 1: '' (0 B) vs a6e02637c07bd386 (8 B)
+  seed 0x0: H(m) = 2bda3ac53577c4b7  H(m') = 2bda3ac53577c4b7  COLLIDE
+  seed 0x4055c8: H(m) = 06bb4292e0eae907  H(m') = 06bb4292e0eae907  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 1048576 / 1048576
+  first colliding seed 0xb3f2af6d0fc710c5: H = 216d4614c709b2b6
+
+pair 2: 'a' (1 B) vs 44b53d572db1948b (8 B)
+  seed 0x0: H(m) = a65e8ab2c950c927  H(m') = a65e8ab2c950c927  COLLIDE
+  seed 0x4055c8: H(m) = e3a0eef311f0006a  H(m') = e3a0eef311f0006a  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 1048576 / 1048576
+  first colliding seed 0xb3f2af6d0fc710c5: H = ee7feffd0ea4f277
+
+pair 3: abcdefgh||kMul vs ABCDEFGH||kMul (16 B, both hash to 0)
+  seed 0x0: H(m) = 0000000000000000  H(m') = 0000000000000000  COLLIDE
+  seed 0x4055c8: H(m) = 0000000000000000  H(m') = 0000000000000000  COLLIDE
+  SwissTable seeds: collisions = 32 / 32
+  uniform seeds: collisions = 1048576 / 1048576
+  first colliding seed 0xb3f2af6d0fc710c5: H = 0000000000000000
+
+ALL PAIRS COLLIDE FOR EVERY SAMPLED SEED (real abseil-cpp 73d2688)

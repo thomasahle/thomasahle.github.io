@@ -1,0 +1,2601 @@
+{
+  "protocol": {
+    "command": "SMHasher3 NAME --test=Speed",
+    "bulk": "Average for fixed 262144-byte keys",
+    "small": "Average for 1..31-byte keys",
+    "selection": "Xeon: two passes, higher bulk (GiB/s tiebreak), lower small independently. M2: independent medians of three complete passes.",
+    "variation_flags": "max/min - 1 > 0.15; separately max absolute relative deviation from median > 0.15; historical control changes > 0.15",
+    "M2_gate": "no SMHasher3 process and 1-minute load <4.5 before every run; poll every 60 seconds, no timeout",
+    "timing_priority": "default; no affinity changes",
+    "bulk_ratio": "shipped bytes/cycle divided by control bytes/cycle; above 1 is faster",
+    "small_ratio": "shipped cycles/hash divided by control cycles/hash; above 1 is slower",
+    "cycle_caveat": "Xeon RDTSC/RDTSCP; M2 calibrated monotonic-clock cycle estimate. Printed GiB/s assumes 3.5 GHz, not measured frequency."
+  },
+  "hosts": {
+    "Xeon8375C": {
+      "binary": "./SMHasher3",
+      "binary_sha256": "71c7b7366ab1301e01d13ac17fbe42143f41baf89fb9bdbdd00d6509e4e7120d",
+      "started": "2026-09-18T21:21:26.535125+00:00",
+      "finished": "2026-09-18T21:29:58.333364+00:00",
+      "load1_before_range": [
+        30.22,
+        44.47
+      ],
+      "load1_after_range": [
+        30.22,
+        44.47
+      ],
+      "other_smhasher_processes_seen_after_runs": [],
+      "hashes": {
+        "HalftimeHash24-shipped": {
+          "bits": 64,
+          "backend_token": "avx512f",
+          "bulk_bytes_per_cycle": 12.81,
+          "bulk_selected_run": 2,
+          "bulk_median_run": null,
+          "bulk_gib_per_second_assumed_clock": 41.76,
+          "small_cycles_per_hash": 64.91,
+          "small_selected_run": 1,
+          "small_median_run": null,
+          "runs": [
+            {
+              "name": "HalftimeHash24-shipped",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-shipped",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:21:26.535125+00:00",
+              "before": {
+                "time": "2026-09-18T21:21:26.533747+00:00",
+                "load": [
+                  35.3,
+                  36.13,
+                  22.95
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/HalftimeHash24-shipped.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 56.87309402099345,
+              "finished": "2026-09-18T21:22:23.408289+00:00",
+              "after": {
+                "time": "2026-09-18T21:22:23.459192+00:00",
+                "load": [
+                  36.43,
+                  36.36,
+                  23.79
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "e01a3d06acf205412831c3c74b3a349b8588dfc0745cf92403219eb394b87215",
+              "backend_token": "avx512f",
+              "description": "Shipped HalftimeHash24 advanced V4<3> (first 8 of 24 bytes; full-value score 0)",
+              "small_cycles_per_hash": 64.91,
+              "small_by_length": {
+                "1": 65.17,
+                "2": 65.18,
+                "3": 65.2,
+                "4": 65.8,
+                "5": 66.65,
+                "6": 66.64,
+                "7": 66.65,
+                "8": 65.97,
+                "9": 65.97,
+                "10": 65.97,
+                "11": 65.97,
+                "12": 66.03,
+                "13": 66.01,
+                "14": 66.01,
+                "15": 66.04,
+                "16": 63.23,
+                "17": 65.33,
+                "18": 65.31,
+                "19": 65.16,
+                "20": 63.63,
+                "21": 63.63,
+                "22": 63.64,
+                "23": 63.63,
+                "24": 63.63,
+                "25": 63.63,
+                "26": 63.8,
+                "27": 63.63,
+                "28": 63.64,
+                "29": 63.67,
+                "30": 63.86,
+                "31": 63.63
+              },
+              "bulk_bytes_per_cycle": 12.8,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 12.8,
+                  "gib_per_second_assumed_clock": 41.73,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 12.7,
+                  "gib_per_second_assumed_clock": 41.39,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash24-shipped",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-shipped",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:25:45.168412+00:00",
+              "before": {
+                "time": "2026-09-18T21:25:45.167219+00:00",
+                "load": [
+                  44.47,
+                  39.06,
+                  27.25
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/HalftimeHash24-shipped.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 56.93672706501093,
+              "finished": "2026-09-18T21:26:42.105186+00:00",
+              "after": {
+                "time": "2026-09-18T21:26:42.156534+00:00",
+                "load": [
+                  36.08,
+                  37.73,
+                  27.48
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "4c71fdf633bd3b2f3b2f85d090c61315a4f9eba00165d8285a1cf3538773567c",
+              "backend_token": "avx512f",
+              "description": "Shipped HalftimeHash24 advanced V4<3> (first 8 of 24 bytes; full-value score 0)",
+              "small_cycles_per_hash": 65.05,
+              "small_by_length": {
+                "1": 65.17,
+                "2": 65.2,
+                "3": 65.19,
+                "4": 65.82,
+                "5": 66.65,
+                "6": 66.7,
+                "7": 66.65,
+                "8": 66.02,
+                "9": 65.54,
+                "10": 65.97,
+                "11": 65.97,
+                "12": 66.07,
+                "13": 66.03,
+                "14": 66.01,
+                "15": 66.01,
+                "16": 65.38,
+                "17": 65.35,
+                "18": 65.44,
+                "19": 65.32,
+                "20": 63.87,
+                "21": 63.64,
+                "22": 63.63,
+                "23": 63.83,
+                "24": 63.82,
+                "25": 63.63,
+                "26": 64.05,
+                "27": 63.64,
+                "28": 63.81,
+                "29": 63.64,
+                "30": 64.7,
+                "31": 63.74
+              },
+              "bulk_bytes_per_cycle": 12.81,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 12.81,
+                  "gib_per_second_assumed_clock": 41.76,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 12.68,
+                  "gib_per_second_assumed_clock": 41.34,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.0007812499999999556,
+              "max_deviation_from_median_fraction": 0.0003904724716907726,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.002156832537359321,
+              "max_deviation_from_median_fraction": 0.0010772545398585187,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "full_value_bits": 192,
+          "collision_score_bits": 0,
+          "control_ratios": {
+            "chainhash-256": {
+              "bulk_ratio": 0.8865051903114187,
+              "small_ratio": 0.6300106765019897
+            },
+            "XXH3-64": {
+              "bulk_ratio": 0.6411411411411412,
+              "small_ratio": 2.1966159052453467
+            },
+            "HalftimeHash-512": {
+              "bulk_ratio": 0.6606498194945848,
+              "small_ratio": 0.7713606654783124
+            },
+            "HalftimeHash24-fixed": {
+              "bulk_ratio": 0.9104477611940298,
+              "small_ratio": 0.8273005353046139
+            }
+          }
+        },
+        "chainhash-256": {
+          "bits": 64,
+          "backend_token": "hwclmul",
+          "bulk_bytes_per_cycle": 14.45,
+          "bulk_selected_run": 2,
+          "bulk_median_run": null,
+          "bulk_gib_per_second_assumed_clock": 47.12,
+          "small_cycles_per_hash": 103.03,
+          "small_selected_run": 2,
+          "small_median_run": null,
+          "runs": [
+            {
+              "name": "chainhash-256",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "chainhash-256",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:22:23.510558+00:00",
+              "before": {
+                "time": "2026-09-18T21:22:23.509329+00:00",
+                "load": [
+                  36.43,
+                  36.36,
+                  23.79
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/chainhash-256.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 56.369906838051975,
+              "finished": "2026-09-18T21:23:19.880519+00:00",
+              "after": {
+                "time": "2026-09-18T21:23:19.930991+00:00",
+                "load": [
+                  35.69,
+                  36.17,
+                  24.52
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "0a5f420ea5eba7f619e9ffc12b4324fe88d556e2d36795236c34cbaa61934a5f",
+              "backend_token": "hwclmul",
+              "description": "ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
+              "small_cycles_per_hash": 103.05,
+              "small_by_length": {
+                "1": 99.44,
+                "2": 99.44,
+                "3": 99.92,
+                "4": 99.45,
+                "5": 107.82,
+                "6": 107.73,
+                "7": 107.8,
+                "8": 107.78,
+                "9": 109.69,
+                "10": 109.69,
+                "11": 109.69,
+                "12": 109.59,
+                "13": 109.59,
+                "14": 109.59,
+                "15": 109.59,
+                "16": 92.11,
+                "17": 100.31,
+                "18": 100.83,
+                "19": 100.65,
+                "20": 100.42,
+                "21": 100.42,
+                "22": 100.42,
+                "23": 100.42,
+                "24": 100.27,
+                "25": 100.28,
+                "26": 100.28,
+                "27": 100.29,
+                "28": 100.28,
+                "29": 100.28,
+                "30": 100.28,
+                "31": 100.3
+              },
+              "bulk_bytes_per_cycle": 14.33,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 14.33,
+                  "gib_per_second_assumed_clock": 46.71,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 14.25,
+                  "gib_per_second_assumed_clock": 46.44,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "chainhash-256",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "chainhash-256",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:26:42.209462+00:00",
+              "before": {
+                "time": "2026-09-18T21:26:42.208202+00:00",
+                "load": [
+                  36.08,
+                  37.73,
+                  27.48
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/chainhash-256.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 56.18812745006289,
+              "finished": "2026-09-18T21:27:38.397636+00:00",
+              "after": {
+                "time": "2026-09-18T21:27:38.446192+00:00",
+                "load": [
+                  33.76,
+                  36.74,
+                  27.73
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "30a982409d7c7ffa131cff5a22cf693d854b74f7c6bca79fc85c921a43f4ee84",
+              "backend_token": "hwclmul",
+              "description": "ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
+              "small_cycles_per_hash": 103.03,
+              "small_by_length": {
+                "1": 99.43,
+                "2": 99.43,
+                "3": 99.43,
+                "4": 99.59,
+                "5": 107.77,
+                "6": 107.83,
+                "7": 107.83,
+                "8": 107.78,
+                "9": 109.69,
+                "10": 109.69,
+                "11": 109.69,
+                "12": 109.59,
+                "13": 109.59,
+                "14": 109.59,
+                "15": 109.59,
+                "16": 92.11,
+                "17": 100.27,
+                "18": 100.62,
+                "19": 100.65,
+                "20": 100.42,
+                "21": 100.32,
+                "22": 100.42,
+                "23": 100.33,
+                "24": 100.28,
+                "25": 100.28,
+                "26": 100.3,
+                "27": 100.28,
+                "28": 100.28,
+                "29": 100.28,
+                "30": 100.28,
+                "31": 100.27
+              },
+              "bulk_bytes_per_cycle": 14.45,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 14.45,
+                  "gib_per_second_assumed_clock": 47.12,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 14.32,
+                  "gib_per_second_assumed_clock": 46.68,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.008374040474528943,
+              "max_deviation_from_median_fraction": 0.004169562195969423,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.00019411821799475426,
+              "max_deviation_from_median_fraction": 9.704968944101999e-05,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 14.42,
+            "reference_small": 103.9,
+            "bulk_ratio": 1.0020804438280166,
+            "small_ratio": 0.9916265640038499
+          }
+        },
+        "XXH3-64": {
+          "bits": 64,
+          "backend_token": "avx512",
+          "bulk_bytes_per_cycle": 19.98,
+          "bulk_selected_run": 2,
+          "bulk_median_run": null,
+          "bulk_gib_per_second_assumed_clock": 65.14,
+          "small_cycles_per_hash": 29.55,
+          "small_selected_run": 2,
+          "small_median_run": null,
+          "runs": [
+            {
+              "name": "XXH3-64",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "XXH3-64",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:23:19.984604+00:00",
+              "before": {
+                "time": "2026-09-18T21:23:19.983384+00:00",
+                "load": [
+                  35.69,
+                  36.17,
+                  24.52
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/XXH3-64.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 44.33350818406325,
+              "finished": "2026-09-18T21:24:04.320154+00:00",
+              "after": {
+                "time": "2026-09-18T21:24:04.372202+00:00",
+                "load": [
+                  38.79,
+                  36.88,
+                  25.31
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "18edad6fbce0c1644b30033ba2d81055aa03b9631663a2173a129e247ceba00b",
+              "backend_token": "avx512",
+              "description": "xxh3, 64-bit version",
+              "small_cycles_per_hash": 29.58,
+              "small_by_length": {
+                "1": 20.01,
+                "2": 20.0,
+                "3": 20.03,
+                "4": 21.16,
+                "5": 31.81,
+                "6": 31.81,
+                "7": 31.81,
+                "8": 21.2,
+                "9": 31.82,
+                "10": 31.82,
+                "11": 31.82,
+                "12": 31.74,
+                "13": 31.74,
+                "14": 31.73,
+                "15": 31.74,
+                "16": 31.74,
+                "17": 31.78,
+                "18": 31.78,
+                "19": 31.78,
+                "20": 30.83,
+                "21": 30.83,
+                "22": 30.83,
+                "23": 30.74,
+                "24": 30.83,
+                "25": 30.83,
+                "26": 30.84,
+                "27": 30.83,
+                "28": 30.73,
+                "29": 30.83,
+                "30": 30.75,
+                "31": 30.84
+              },
+              "bulk_bytes_per_cycle": 19.38,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 19.38,
+                  "gib_per_second_assumed_clock": 63.17,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 16.48,
+                  "gib_per_second_assumed_clock": 53.71,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "XXH3-64",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "XXH3-64",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:27:38.494838+00:00",
+              "before": {
+                "time": "2026-09-18T21:27:38.493697+00:00",
+                "load": [
+                  33.76,
+                  36.74,
+                  27.73
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/XXH3-64.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 38.89001722005196,
+              "finished": "2026-09-18T21:28:17.384898+00:00",
+              "after": {
+                "time": "2026-09-18T21:28:17.434375+00:00",
+                "load": [
+                  30.22,
+                  35.41,
+                  27.66
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "d46b35948497a2f29af5078690cf6f58e6f8829294470b8adf82a9e41cc75b9a",
+              "backend_token": "avx512",
+              "description": "xxh3, 64-bit version",
+              "small_cycles_per_hash": 29.55,
+              "small_by_length": {
+                "1": 20.01,
+                "2": 20.01,
+                "3": 20.03,
+                "4": 21.16,
+                "5": 31.81,
+                "6": 31.81,
+                "7": 31.81,
+                "8": 21.2,
+                "9": 31.81,
+                "10": 31.81,
+                "11": 31.81,
+                "12": 31.74,
+                "13": 31.74,
+                "14": 31.74,
+                "15": 31.74,
+                "16": 31.74,
+                "17": 31.77,
+                "18": 31.77,
+                "19": 31.77,
+                "20": 30.73,
+                "21": 30.72,
+                "22": 30.72,
+                "23": 30.72,
+                "24": 30.72,
+                "25": 30.72,
+                "26": 30.72,
+                "27": 30.72,
+                "28": 30.72,
+                "29": 30.75,
+                "30": 30.72,
+                "31": 30.83
+              },
+              "bulk_bytes_per_cycle": 19.98,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 19.98,
+                  "gib_per_second_assumed_clock": 65.14,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 19.99,
+                  "gib_per_second_assumed_clock": 65.15,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.03095975232198156,
+              "max_deviation_from_median_fraction": 0.015243902439024515,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.0010152284263957867,
+              "max_deviation_from_median_fraction": 0.0005073566717401778,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 19.69,
+            "reference_small": 30.16,
+            "bulk_ratio": 1.0147282884713051,
+            "small_ratio": 0.9797745358090186
+          }
+        },
+        "HalftimeHash-512": {
+          "bits": 64,
+          "backend_token": "avx512f",
+          "bulk_bytes_per_cycle": 19.39,
+          "bulk_selected_run": 2,
+          "bulk_median_run": null,
+          "bulk_gib_per_second_assumed_clock": 63.2,
+          "small_cycles_per_hash": 84.15,
+          "small_selected_run": 1,
+          "small_median_run": null,
+          "runs": [
+            {
+              "name": "HalftimeHash-512",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash-512",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:24:04.424382+00:00",
+              "before": {
+                "time": "2026-09-18T21:24:04.423165+00:00",
+                "load": [
+                  38.79,
+                  36.88,
+                  25.31
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/HalftimeHash-512.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 45.72679134795908,
+              "finished": "2026-09-18T21:24:50.151223+00:00",
+              "after": {
+                "time": "2026-09-18T21:24:50.198559+00:00",
+                "load": [
+                  38.53,
+                  37.11,
+                  25.94
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "b8a6f122716b48c6fa3de17abc95ed3764577d4f24cb8e096f2b8236ea79ffa1",
+              "backend_token": "avx512f",
+              "description": "Halftime Hash (512-bit blocks)",
+              "small_cycles_per_hash": 84.15,
+              "small_by_length": {
+                "1": 82.57,
+                "2": 82.49,
+                "3": 83.02,
+                "4": 81.86,
+                "5": 84.35,
+                "6": 84.44,
+                "7": 84.49,
+                "8": 83.93,
+                "9": 84.02,
+                "10": 83.82,
+                "11": 83.92,
+                "12": 84.08,
+                "13": 84.03,
+                "14": 84.01,
+                "15": 83.92,
+                "16": 84.28,
+                "17": 84.67,
+                "18": 84.66,
+                "19": 84.67,
+                "20": 84.67,
+                "21": 84.39,
+                "22": 84.7,
+                "23": 84.7,
+                "24": 84.63,
+                "25": 84.58,
+                "26": 84.59,
+                "27": 84.66,
+                "28": 84.76,
+                "29": 84.59,
+                "30": 84.65,
+                "31": 84.36
+              },
+              "bulk_bytes_per_cycle": 19.18,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 19.18,
+                  "gib_per_second_assumed_clock": 62.53,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 19.2,
+                  "gib_per_second_assumed_clock": 62.57,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash-512",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash-512",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:28:17.482248+00:00",
+              "before": {
+                "time": "2026-09-18T21:28:17.481121+00:00",
+                "load": [
+                  30.22,
+                  35.41,
+                  27.66
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/HalftimeHash-512.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 45.61934450396802,
+              "finished": "2026-09-18T21:29:03.101634+00:00",
+              "after": {
+                "time": "2026-09-18T21:29:03.154628+00:00",
+                "load": [
+                  36.41,
+                  36.27,
+                  28.32
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "e1df0855962be27bc8d1f0d4812b33afc18381bb15ecd910308dfa20dbd4c332",
+              "backend_token": "avx512f",
+              "description": "Halftime Hash (512-bit blocks)",
+              "small_cycles_per_hash": 84.72,
+              "small_by_length": {
+                "1": 83.82,
+                "2": 84.24,
+                "3": 84.41,
+                "4": 82.63,
+                "5": 85.17,
+                "6": 85.32,
+                "7": 85.09,
+                "8": 85.06,
+                "9": 84.78,
+                "10": 84.79,
+                "11": 84.94,
+                "12": 84.83,
+                "13": 84.96,
+                "14": 85.12,
+                "15": 84.93,
+                "16": 84.84,
+                "17": 84.8,
+                "18": 84.97,
+                "19": 84.99,
+                "20": 84.86,
+                "21": 85.07,
+                "22": 84.78,
+                "23": 84.77,
+                "24": 84.95,
+                "25": 84.7,
+                "26": 84.68,
+                "27": 84.48,
+                "28": 84.66,
+                "29": 84.27,
+                "30": 84.65,
+                "31": 84.69
+              },
+              "bulk_bytes_per_cycle": 19.39,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 19.39,
+                  "gib_per_second_assumed_clock": 63.2,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 19.25,
+                  "gib_per_second_assumed_clock": 62.75,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.010948905109489093,
+              "max_deviation_from_median_fraction": 0.005444646098003658,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.006773618538324255,
+              "max_deviation_from_median_fraction": 0.0033753775093267047,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 19.19,
+            "reference_small": 84.53,
+            "bulk_ratio": 1.010422094841063,
+            "small_ratio": 0.9955045545960015
+          }
+        },
+        "HalftimeHash24-fixed": {
+          "bits": 192,
+          "backend_token": "avx512f",
+          "bulk_bytes_per_cycle": 14.07,
+          "bulk_selected_run": 2,
+          "bulk_median_run": null,
+          "bulk_gib_per_second_assumed_clock": 45.87,
+          "small_cycles_per_hash": 78.46,
+          "small_selected_run": 1,
+          "small_median_run": null,
+          "runs": [
+            {
+              "name": "HalftimeHash24-fixed",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-fixed",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:24:50.243964+00:00",
+              "before": {
+                "time": "2026-09-18T21:24:50.242833+00:00",
+                "load": [
+                  38.53,
+                  37.11,
+                  25.94
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/HalftimeHash24-fixed.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 54.82622981304303,
+              "finished": "2026-09-18T21:25:45.070235+00:00",
+              "after": {
+                "time": "2026-09-18T21:25:45.119129+00:00",
+                "load": [
+                  44.47,
+                  39.06,
+                  27.25
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "3fdb7d730d1144e1710f69170d2b9a0ff6f42aef2f70144ab519570763c5131d",
+              "backend_token": "avx512f",
+              "description": "Fixed HalftimeHash24 (192-bit output, 512-bit blocks, length tagged)",
+              "small_cycles_per_hash": 78.46,
+              "small_by_length": {
+                "1": 79.98,
+                "2": 79.53,
+                "3": 79.38,
+                "4": 78.26,
+                "5": 78.26,
+                "6": 78.31,
+                "7": 78.28,
+                "8": 78.55,
+                "9": 78.52,
+                "10": 78.53,
+                "11": 78.53,
+                "12": 78.52,
+                "13": 78.47,
+                "14": 78.54,
+                "15": 78.5,
+                "16": 78.33,
+                "17": 78.4,
+                "18": 78.35,
+                "19": 78.35,
+                "20": 78.24,
+                "21": 78.22,
+                "22": 78.23,
+                "23": 78.25,
+                "24": 78.21,
+                "25": 78.16,
+                "26": 78.2,
+                "27": 78.19,
+                "28": 78.26,
+                "29": 78.25,
+                "30": 78.13,
+                "31": 78.17
+              },
+              "bulk_bytes_per_cycle": 14.02,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 14.02,
+                  "gib_per_second_assumed_clock": 45.71,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 14.06,
+                  "gib_per_second_assumed_clock": 45.84,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash24-fixed",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-fixed",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T21:29:03.209675+00:00",
+              "before": {
+                "time": "2026-09-18T21:29:03.208466+00:00",
+                "load": [
+                  36.41,
+                  36.27,
+                  28.32
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/Xeon8375C/HalftimeHash24-fixed.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 55.019530480960384,
+              "finished": "2026-09-18T21:29:58.229252+00:00",
+              "after": {
+                "time": "2026-09-18T21:29:58.282523+00:00",
+                "load": [
+                  38.9,
+                  37.03,
+                  29.04
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "359b4f39c804a63b5c6fac62b364f6793750f7a9992f183db87ed4ba2b315627",
+              "backend_token": "avx512f",
+              "description": "Fixed HalftimeHash24 (192-bit output, 512-bit blocks, length tagged)",
+              "small_cycles_per_hash": 78.57,
+              "small_by_length": {
+                "1": 79.54,
+                "2": 78.85,
+                "3": 78.81,
+                "4": 78.75,
+                "5": 79.08,
+                "6": 79.1,
+                "7": 78.76,
+                "8": 78.92,
+                "9": 79.06,
+                "10": 78.92,
+                "11": 78.98,
+                "12": 79.13,
+                "13": 79.13,
+                "14": 79.11,
+                "15": 79.1,
+                "16": 78.12,
+                "17": 78.13,
+                "18": 78.14,
+                "19": 78.11,
+                "20": 78.16,
+                "21": 78.11,
+                "22": 78.14,
+                "23": 78.15,
+                "24": 78.2,
+                "25": 78.22,
+                "26": 78.23,
+                "27": 78.16,
+                "28": 78.19,
+                "29": 77.98,
+                "30": 78.15,
+                "31": 78.2
+              },
+              "bulk_bytes_per_cycle": 14.07,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 14.07,
+                  "gib_per_second_assumed_clock": 45.87,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 13.99,
+                  "gib_per_second_assumed_clock": 45.62,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.003566333808844524,
+              "max_deviation_from_median_fraction": 0.0017799928800286136,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.0014019882742799528,
+              "max_deviation_from_median_fraction": 0.0007005030885818275,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 14.12,
+            "reference_small": 79.42,
+            "bulk_ratio": 0.9964589235127479,
+            "small_ratio": 0.9879123646436665
+          }
+        }
+      },
+      "validation": {
+        "sanity": "5 runtime checks pass; append-zeroes fails as expected for the shipped algorithm; verification code unregistered (SKIP)",
+        "sanity_raw_file": "evidence/Xeon8375C/sanity.txt",
+        "pair": "1000 seeds pass registered-prefix and full-24-byte equality, exactly 8 output bytes, identical 9000-word expanded keys to fixed adapter",
+        "pair_raw_file": "evidence/Xeon8375C/pair.txt"
+      }
+    },
+    "M2Pro": {
+      "binary": "./SMHasher3",
+      "binary_sha256": "f93b38e394031b0f6bfabffbdfcefee7c8d5f6d43071f50e727cb59b26b6a99d",
+      "started": "2026-09-18T22:19:01.811903+00:00",
+      "finished": "2026-09-18T23:11:34.881702+00:00",
+      "load1_before_range": [
+        3.326171875,
+        4.3701171875
+      ],
+      "load1_after_range": [
+        3.55419921875,
+        8.5693359375
+      ],
+      "other_smhasher_processes_seen_after_runs": [],
+      "hashes": {
+        "HalftimeHash24-shipped": {
+          "bits": 64,
+          "backend_token": "scalar",
+          "bulk_bytes_per_cycle": 1.37,
+          "bulk_selected_run": 3,
+          "bulk_median_run": 3,
+          "bulk_gib_per_second_assumed_clock": 4.48,
+          "small_cycles_per_hash": 60.69,
+          "small_selected_run": 3,
+          "small_median_run": 3,
+          "runs": [
+            {
+              "name": "HalftimeHash24-shipped",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-shipped",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:19:01.811903+00:00",
+              "before": {
+                "time": "2026-09-18T22:19:01.810238+00:00",
+                "load": [
+                  3.326171875,
+                  4.1435546875,
+                  4.74609375
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash24-shipped.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 342.1442672090002,
+              "finished": "2026-09-18T22:24:43.957852+00:00",
+              "after": {
+                "time": "2026-09-18T22:24:44.001268+00:00",
+                "load": [
+                  3.55419921875,
+                  3.8759765625,
+                  4.41845703125
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "bd38f764f462c021895df5ba952de40d891cdb042421db139edd38e4af42515c",
+              "backend_token": "scalar",
+              "description": "Shipped HalftimeHash24 advanced V4<3> (first 8 of 24 bytes; full-value score 0)",
+              "small_cycles_per_hash": 61.49,
+              "small_by_length": {
+                "1": 58.06,
+                "2": 58.51,
+                "3": 60.07,
+                "4": 60.52,
+                "5": 61.86,
+                "6": 62.31,
+                "7": 62.53,
+                "8": 56.5,
+                "9": 56.5,
+                "10": 59.85,
+                "11": 59.4,
+                "12": 61.19,
+                "13": 62.08,
+                "14": 62.31,
+                "15": 63.2,
+                "16": 59.63,
+                "17": 60.52,
+                "18": 60.74,
+                "19": 61.86,
+                "20": 59.85,
+                "21": 63.42,
+                "22": 64.09,
+                "23": 62.75,
+                "24": 60.3,
+                "25": 57.84,
+                "26": 61.19,
+                "27": 63.87,
+                "28": 64.76,
+                "29": 65.66,
+                "30": 66.77,
+                "31": 67.89
+              },
+              "bulk_bytes_per_cycle": 1.37,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 1.37,
+                  "gib_per_second_assumed_clock": 4.48,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 1.32,
+                  "gib_per_second_assumed_clock": 4.31,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash24-shipped",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-shipped",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:42:31.655435+00:00",
+              "before": {
+                "time": "2026-09-18T22:42:31.654291+00:00",
+                "load": [
+                  4.0244140625,
+                  4.4970703125,
+                  4.5458984375
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash24-shipped.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 345.1432680409998,
+              "finished": "2026-09-18T22:48:16.800122+00:00",
+              "after": {
+                "time": "2026-09-18T22:48:16.836611+00:00",
+                "load": [
+                  5.25244140625,
+                  4.63623046875,
+                  4.5400390625
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "4f7248a85c89459ccc1575edbd13ddb2f6b8767b2b0709c6940cbe4016849d7d",
+              "backend_token": "scalar",
+              "description": "Shipped HalftimeHash24 advanced V4<3> (first 8 of 24 bytes; full-value score 0)",
+              "small_cycles_per_hash": 60.04,
+              "small_by_length": {
+                "1": 54.31,
+                "2": 57.8,
+                "3": 58.89,
+                "4": 60.85,
+                "5": 59.98,
+                "6": 60.63,
+                "7": 59.54,
+                "8": 55.18,
+                "9": 57.14,
+                "10": 60.63,
+                "11": 60.85,
+                "12": 57.14,
+                "13": 59.76,
+                "14": 58.23,
+                "15": 60.85,
+                "16": 56.05,
+                "17": 56.71,
+                "18": 61.29,
+                "19": 57.8,
+                "20": 58.45,
+                "21": 59.11,
+                "22": 59.98,
+                "23": 63.47,
+                "24": 58.23,
+                "25": 61.29,
+                "26": 61.72,
+                "27": 59.76,
+                "28": 65.21,
+                "29": 64.34,
+                "30": 67.61,
+                "31": 68.49
+              },
+              "bulk_bytes_per_cycle": 1.41,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 1.41,
+                  "gib_per_second_assumed_clock": 4.59,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 1.36,
+                  "gib_per_second_assumed_clock": 4.43,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash24-shipped",
+              "run": 3,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-shipped",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:57:05.827023+00:00",
+              "before": {
+                "time": "2026-09-18T22:57:05.826010+00:00",
+                "load": [
+                  3.94482421875,
+                  4.6484375,
+                  4.6650390625
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash24-shipped.run3.txt",
+              "returncode": 0,
+              "elapsed_seconds": 343.37490716700086,
+              "finished": "2026-09-18T23:02:49.203336+00:00",
+              "after": {
+                "time": "2026-09-18T23:02:49.249223+00:00",
+                "load": [
+                  4.29150390625,
+                  4.46435546875,
+                  4.5498046875
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "cb3e259025711667860658ae6dc88a7dfe60933f65927e26fecfa3e2e2dd2bc7",
+              "backend_token": "scalar",
+              "description": "Shipped HalftimeHash24 advanced V4<3> (first 8 of 24 bytes; full-value score 0)",
+              "small_cycles_per_hash": 60.69,
+              "small_by_length": {
+                "1": 55.59,
+                "2": 56.7,
+                "3": 59.16,
+                "4": 60.27,
+                "5": 60.94,
+                "6": 61.17,
+                "7": 61.61,
+                "8": 58.93,
+                "9": 56.7,
+                "10": 57.37,
+                "11": 59.38,
+                "12": 58.49,
+                "13": 59.38,
+                "14": 61.61,
+                "15": 62.28,
+                "16": 59.6,
+                "17": 58.04,
+                "18": 59.83,
+                "19": 61.84,
+                "20": 62.51,
+                "21": 63.18,
+                "22": 64.29,
+                "23": 64.07,
+                "24": 59.38,
+                "25": 60.5,
+                "26": 58.71,
+                "27": 62.95,
+                "28": 62.06,
+                "29": 62.95,
+                "30": 66.75,
+                "31": 65.19
+              },
+              "bulk_bytes_per_cycle": 1.37,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 1.37,
+                  "gib_per_second_assumed_clock": 4.48,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 1.33,
+                  "gib_per_second_assumed_clock": 4.33,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.029197080291970767,
+              "max_deviation_from_median_fraction": 0.029197080291970767,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.024150566289140585,
+              "max_deviation_from_median_fraction": 0.013181743285549663,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "full_value_bits": 192,
+          "collision_score_bits": 0,
+          "control_ratios": {
+            "chainhash-256": {
+              "bulk_ratio": 0.06019332161687171,
+              "small_ratio": 0.8473889974867355
+            },
+            "XXH3-64": {
+              "bulk_ratio": 0.1049808429118774,
+              "small_ratio": 2.420821699242122
+            },
+            "HalftimeHash-512": {
+              "bulk_ratio": 0.18242343541944075,
+              "small_ratio": 0.9497652582159625
+            },
+            "HalftimeHash24-fixed": {
+              "bulk_ratio": 0.2420494699646643,
+              "small_ratio": 1.2497940691927512
+            }
+          }
+        },
+        "chainhash-256": {
+          "bits": 64,
+          "backend_token": "hwpmull",
+          "bulk_bytes_per_cycle": 22.76,
+          "bulk_selected_run": 3,
+          "bulk_median_run": 3,
+          "bulk_gib_per_second_assumed_clock": 74.19,
+          "small_cycles_per_hash": 71.62,
+          "small_selected_run": 2,
+          "small_median_run": 2,
+          "runs": [
+            {
+              "name": "chainhash-256",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "chainhash-256",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:24:44.039761+00:00",
+              "before": {
+                "time": "2026-09-18T22:24:44.038724+00:00",
+                "load": [
+                  3.55419921875,
+                  3.8759765625,
+                  4.41845703125
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/chainhash-256.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 30.152541417000066,
+              "finished": "2026-09-18T22:25:14.192508+00:00",
+              "after": {
+                "time": "2026-09-18T22:25:14.228182+00:00",
+                "load": [
+                  3.94921875,
+                  3.935546875,
+                  4.419921875
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "fd4843610fb381f697d7aebafe6ad01b94f8b879bc62c2574b29a0ef39b43a04",
+              "backend_token": "hwpmull",
+              "description": "ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
+              "small_cycles_per_hash": 73.25,
+              "small_by_length": {
+                "1": 72.78,
+                "2": 73.45,
+                "3": 72.78,
+                "4": 71.0,
+                "5": 74.12,
+                "6": 71.0,
+                "7": 71.0,
+                "8": 69.43,
+                "9": 79.03,
+                "10": 78.81,
+                "11": 75.46,
+                "12": 78.14,
+                "13": 75.01,
+                "14": 78.14,
+                "15": 75.46,
+                "16": 74.57,
+                "17": 72.11,
+                "18": 75.01,
+                "19": 72.34,
+                "20": 72.34,
+                "21": 69.88,
+                "22": 70.1,
+                "23": 70.1,
+                "24": 73.0,
+                "25": 69.88,
+                "26": 73.01,
+                "27": 72.11,
+                "28": 73.0,
+                "29": 72.34,
+                "30": 72.34,
+                "31": 73.01
+              },
+              "bulk_bytes_per_cycle": 22.37,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 22.37,
+                  "gib_per_second_assumed_clock": 72.91,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 21.3,
+                  "gib_per_second_assumed_clock": 69.44,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "chainhash-256",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "chainhash-256",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:49:16.912757+00:00",
+              "before": {
+                "time": "2026-09-18T22:49:16.911248+00:00",
+                "load": [
+                  4.16162109375,
+                  4.45166015625,
+                  4.4765625
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/chainhash-256.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 30.767307000000073,
+              "finished": "2026-09-18T22:49:47.680262+00:00",
+              "after": {
+                "time": "2026-09-18T22:49:47.715822+00:00",
+                "load": [
+                  4.3115234375,
+                  4.44921875,
+                  4.4736328125
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "249836c330703f44f68d833cbbca1168e88b04bc01f656c85e6948d2fb1bf656",
+              "backend_token": "hwpmull",
+              "description": "ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
+              "small_cycles_per_hash": 71.62,
+              "small_by_length": {
+                "1": 71.41,
+                "2": 71.41,
+                "3": 75.57,
+                "4": 70.1,
+                "5": 70.32,
+                "6": 69.88,
+                "7": 73.38,
+                "8": 71.41,
+                "9": 74.26,
+                "10": 74.04,
+                "11": 76.23,
+                "12": 77.33,
+                "13": 76.67,
+                "14": 73.38,
+                "15": 73.38,
+                "16": 70.32,
+                "17": 70.53,
+                "18": 70.53,
+                "19": 73.82,
+                "20": 73.82,
+                "21": 68.78,
+                "22": 71.85,
+                "23": 68.78,
+                "24": 68.56,
+                "25": 72.07,
+                "26": 68.56,
+                "27": 69.0,
+                "28": 68.56,
+                "29": 68.56,
+                "30": 68.78,
+                "31": 68.78
+              },
+              "bulk_bytes_per_cycle": 22.8,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 22.8,
+                  "gib_per_second_assumed_clock": 74.31,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 21.31,
+                  "gib_per_second_assumed_clock": 69.46,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "chainhash-256",
+              "run": 3,
+              "command": [
+                "./SMHasher3",
+                "chainhash-256",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T23:02:49.307626+00:00",
+              "before": {
+                "time": "2026-09-18T23:02:49.306381+00:00",
+                "load": [
+                  4.29150390625,
+                  4.46435546875,
+                  4.5498046875
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/chainhash-256.run3.txt",
+              "returncode": 0,
+              "elapsed_seconds": 30.13050962500074,
+              "finished": "2026-09-18T23:03:19.438315+00:00",
+              "after": {
+                "time": "2026-09-18T23:03:19.473457+00:00",
+                "load": [
+                  5.0380859375,
+                  4.63916015625,
+                  4.609375
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "726044a2203e8453c39c97dc2e15bdc63aea66a990f304f3a20242ccccb219d7",
+              "backend_token": "hwpmull",
+              "description": "ChainHash (GF(2^64) carry-less PH with strided word pairing + three-key injective chain + degree-5 finalizer behind an additive twist), 256-byte blocks",
+              "small_cycles_per_hash": 70.7,
+              "small_by_length": {
+                "1": 71.53,
+                "2": 71.75,
+                "3": 71.53,
+                "4": 69.55,
+                "5": 69.77,
+                "6": 69.55,
+                "7": 69.77,
+                "8": 68.24,
+                "9": 74.6,
+                "10": 76.57,
+                "11": 74.38,
+                "12": 73.5,
+                "13": 73.5,
+                "14": 73.72,
+                "15": 73.5,
+                "16": 69.99,
+                "17": 70.65,
+                "18": 73.72,
+                "19": 70.65,
+                "20": 68.89,
+                "21": 68.67,
+                "22": 68.67,
+                "23": 68.67,
+                "24": 68.67,
+                "25": 68.67,
+                "26": 68.89,
+                "27": 68.67,
+                "28": 69.11,
+                "29": 68.89,
+                "30": 68.67,
+                "31": 68.67
+              },
+              "bulk_bytes_per_cycle": 22.76,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 22.76,
+                  "gib_per_second_assumed_clock": 74.19,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 21.79,
+                  "gib_per_second_assumed_clock": 71.03,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.019222172552525674,
+              "max_deviation_from_median_fraction": 0.017135325131810264,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.036067892503536036,
+              "max_deviation_from_median_fraction": 0.0227590058642837,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 22.8,
+            "reference_small": 70.49,
+            "bulk_ratio": 0.9982456140350877,
+            "small_ratio": 1.0160306426443468
+          }
+        },
+        "XXH3-64": {
+          "bits": 64,
+          "backend_token": "neon",
+          "bulk_bytes_per_cycle": 13.05,
+          "bulk_selected_run": 1,
+          "bulk_median_run": 1,
+          "bulk_gib_per_second_assumed_clock": 42.55,
+          "small_cycles_per_hash": 25.07,
+          "small_selected_run": 1,
+          "small_median_run": 1,
+          "runs": [
+            {
+              "name": "XXH3-64",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "XXH3-64",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:25:14.266578+00:00",
+              "before": {
+                "time": "2026-09-18T22:25:14.265569+00:00",
+                "load": [
+                  3.94921875,
+                  3.935546875,
+                  4.419921875
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/XXH3-64.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 39.93209687499984,
+              "finished": "2026-09-18T22:25:54.198956+00:00",
+              "after": {
+                "time": "2026-09-18T22:25:54.239197+00:00",
+                "load": [
+                  3.93896484375,
+                  3.927734375,
+                  4.39404296875
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "d171dd053c18b99630e05f5ff8d8127f8714eb34a6eb1904c2e943971b7bbba2",
+              "backend_token": "neon",
+              "description": "xxh3, 64-bit version",
+              "small_cycles_per_hash": 25.07,
+              "small_by_length": {
+                "1": 27.67,
+                "2": 28.56,
+                "3": 29.01,
+                "4": 27.89,
+                "5": 28.34,
+                "6": 28.34,
+                "7": 28.34,
+                "8": 28.12,
+                "9": 23.43,
+                "10": 23.65,
+                "11": 23.65,
+                "12": 22.98,
+                "13": 22.98,
+                "14": 22.98,
+                "15": 22.98,
+                "16": 22.76,
+                "17": 24.77,
+                "18": 24.77,
+                "19": 24.77,
+                "20": 23.43,
+                "21": 23.43,
+                "22": 24.55,
+                "23": 24.55,
+                "24": 24.32,
+                "25": 24.55,
+                "26": 24.55,
+                "27": 24.1,
+                "28": 24.1,
+                "29": 24.55,
+                "30": 24.55,
+                "31": 24.32
+              },
+              "bulk_bytes_per_cycle": 13.05,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 13.05,
+                  "gib_per_second_assumed_clock": 42.55,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 12.5,
+                  "gib_per_second_assumed_clock": 40.76,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "XXH3-64",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "XXH3-64",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:49:47.754818+00:00",
+              "before": {
+                "time": "2026-09-18T22:49:47.753887+00:00",
+                "load": [
+                  4.3115234375,
+                  4.44921875,
+                  4.4736328125
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/XXH3-64.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 40.59442995799964,
+              "finished": "2026-09-18T22:50:28.349468+00:00",
+              "after": {
+                "time": "2026-09-18T22:50:28.386384+00:00",
+                "load": [
+                  4.3701171875,
+                  4.4521484375,
+                  4.4736328125
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "5d3fdc46d4a56817f89f425023a9e717ec0f57a59565aeb94bc3eada72ed0f6f",
+              "backend_token": "neon",
+              "description": "xxh3, 64-bit version",
+              "small_cycles_per_hash": 24.73,
+              "small_by_length": {
+                "1": 28.57,
+                "2": 27.26,
+                "3": 28.13,
+                "4": 27.48,
+                "5": 27.48,
+                "6": 27.48,
+                "7": 28.79,
+                "8": 28.57,
+                "9": 22.24,
+                "10": 23.55,
+                "11": 22.46,
+                "12": 22.46,
+                "13": 22.68,
+                "14": 22.68,
+                "15": 23.55,
+                "16": 21.81,
+                "17": 24.21,
+                "18": 23.33,
+                "19": 25.3,
+                "20": 23.12,
+                "21": 24.86,
+                "22": 23.12,
+                "23": 23.77,
+                "24": 23.77,
+                "25": 23.12,
+                "26": 24.21,
+                "27": 25.08,
+                "28": 24.86,
+                "29": 24.86,
+                "30": 23.77,
+                "31": 23.99
+              },
+              "bulk_bytes_per_cycle": 13.36,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 13.36,
+                  "gib_per_second_assumed_clock": 43.54,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 12.78,
+                  "gib_per_second_assumed_clock": 41.65,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "XXH3-64",
+              "run": 3,
+              "command": [
+                "./SMHasher3",
+                "XXH3-64",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T23:07:19.693770+00:00",
+              "before": {
+                "time": "2026-09-18T23:07:19.691958+00:00",
+                "load": [
+                  4.23388671875,
+                  4.98193359375,
+                  4.806640625
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/XXH3-64.run3.txt",
+              "returncode": 0,
+              "elapsed_seconds": 39.67647254199983,
+              "finished": "2026-09-18T23:07:59.370480+00:00",
+              "after": {
+                "time": "2026-09-18T23:07:59.406320+00:00",
+                "load": [
+                  4.27587890625,
+                  4.904296875,
+                  4.7841796875
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "e318c831c2129727d80471415f01ebf293cc2268ae7a23b05a0f9961965cb415",
+              "backend_token": "neon",
+              "description": "xxh3, 64-bit version",
+              "small_cycles_per_hash": 25.11,
+              "small_by_length": {
+                "1": 29.06,
+                "2": 28.61,
+                "3": 29.06,
+                "4": 28.39,
+                "5": 28.39,
+                "6": 28.39,
+                "7": 28.39,
+                "8": 28.16,
+                "9": 23.69,
+                "10": 23.69,
+                "11": 23.69,
+                "12": 23.02,
+                "13": 23.02,
+                "14": 23.02,
+                "15": 22.13,
+                "16": 23.02,
+                "17": 24.81,
+                "18": 24.81,
+                "19": 23.69,
+                "20": 23.47,
+                "21": 24.36,
+                "22": 23.47,
+                "23": 24.36,
+                "24": 24.59,
+                "25": 24.36,
+                "26": 24.36,
+                "27": 24.59,
+                "28": 24.59,
+                "29": 24.59,
+                "30": 24.36,
+                "31": 24.36
+              },
+              "bulk_bytes_per_cycle": 13.03,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 13.03,
+                  "gib_per_second_assumed_clock": 42.48,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 12.61,
+                  "gib_per_second_assumed_clock": 41.11,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.025326170376055224,
+              "max_deviation_from_median_fraction": 0.023754789272030452,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.015365952284674522,
+              "max_deviation_from_median_fraction": 0.013562026326286447,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 13.16,
+            "reference_small": 24.51,
+            "bulk_ratio": 0.9916413373860182,
+            "small_ratio": 1.0228478172174622
+          }
+        },
+        "HalftimeHash-512": {
+          "bits": 64,
+          "backend_token": "neon",
+          "bulk_bytes_per_cycle": 7.51,
+          "bulk_selected_run": 3,
+          "bulk_median_run": 3,
+          "bulk_gib_per_second_assumed_clock": 24.47,
+          "small_cycles_per_hash": 63.9,
+          "small_selected_run": 3,
+          "small_median_run": 3,
+          "runs": [
+            {
+              "name": "HalftimeHash-512",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash-512",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:25:54.277018+00:00",
+              "before": {
+                "time": "2026-09-18T22:25:54.276141+00:00",
+                "load": [
+                  3.93896484375,
+                  3.927734375,
+                  4.39404296875
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash-512.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 68.68812920799974,
+              "finished": "2026-09-18T22:27:02.965532+00:00",
+              "after": {
+                "time": "2026-09-18T22:27:03.002679+00:00",
+                "load": [
+                  7.1171875,
+                  4.7861328125,
+                  4.67529296875
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "d15471bc814263569796c97c83bafc859d35a9840056a108935e61babf49f4c8",
+              "backend_token": "neon",
+              "description": "Halftime Hash (512-bit blocks)",
+              "small_cycles_per_hash": 64.15,
+              "small_by_length": {
+                "1": 59.9,
+                "2": 61.24,
+                "3": 64.14,
+                "4": 62.36,
+                "5": 63.7,
+                "6": 64.81,
+                "7": 64.59,
+                "8": 82.92,
+                "9": 61.24,
+                "10": 60.79,
+                "11": 63.92,
+                "12": 61.24,
+                "13": 62.58,
+                "14": 61.91,
+                "15": 62.13,
+                "16": 75.32,
+                "17": 63.25,
+                "18": 62.36,
+                "19": 63.47,
+                "20": 63.92,
+                "21": 66.6,
+                "22": 62.58,
+                "23": 63.92,
+                "24": 67.94,
+                "25": 62.13,
+                "26": 61.91,
+                "27": 65.93,
+                "28": 65.04,
+                "29": 64.59,
+                "30": 60.57,
+                "31": 61.68
+              },
+              "bulk_bytes_per_cycle": 7.49,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 7.49,
+                  "gib_per_second_assumed_clock": 24.43,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 7.31,
+                  "gib_per_second_assumed_clock": 23.81,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash-512",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash-512",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:50:28.423384+00:00",
+              "before": {
+                "time": "2026-09-18T22:50:28.422298+00:00",
+                "load": [
+                  4.3701171875,
+                  4.4521484375,
+                  4.4736328125
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash-512.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 70.21937824999986,
+              "finished": "2026-09-18T22:51:38.643116+00:00",
+              "after": {
+                "time": "2026-09-18T22:51:38.680915+00:00",
+                "load": [
+                  8.5693359375,
+                  5.509765625,
+                  4.857421875
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "7223ebccd8512c8744b8c05036a801ec8aaf80f442ae8257e023625e3bc0698a",
+              "backend_token": "neon",
+              "description": "Halftime Hash (512-bit blocks)",
+              "small_cycles_per_hash": 62.3,
+              "small_by_length": {
+                "1": 59.59,
+                "2": 59.15,
+                "3": 60.25,
+                "4": 61.34,
+                "5": 62.22,
+                "6": 64.19,
+                "7": 61.12,
+                "8": 79.75,
+                "9": 58.93,
+                "10": 57.18,
+                "11": 60.03,
+                "12": 61.78,
+                "13": 61.12,
+                "14": 60.9,
+                "15": 62.0,
+                "16": 73.17,
+                "17": 59.37,
+                "18": 60.25,
+                "19": 64.41,
+                "20": 64.19,
+                "21": 62.66,
+                "22": 62.0,
+                "23": 60.9,
+                "24": 66.16,
+                "25": 60.69,
+                "26": 58.06,
+                "27": 61.78,
+                "28": 63.31,
+                "29": 64.41,
+                "30": 60.25,
+                "31": 60.03
+              },
+              "bulk_bytes_per_cycle": 7.6,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 7.6,
+                  "gib_per_second_assumed_clock": 24.77,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 7.42,
+                  "gib_per_second_assumed_clock": 24.19,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash-512",
+              "run": 3,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash-512",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T23:07:59.443216+00:00",
+              "before": {
+                "time": "2026-09-18T23:07:59.441972+00:00",
+                "load": [
+                  4.27587890625,
+                  4.904296875,
+                  4.7841796875
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash-512.run3.txt",
+              "returncode": 0,
+              "elapsed_seconds": 68.67386283300038,
+              "finished": "2026-09-18T23:09:08.117410+00:00",
+              "after": {
+                "time": "2026-09-18T23:09:08.154294+00:00",
+                "load": [
+                  4.923828125,
+                  5.00341796875,
+                  4.830078125
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "6b81155c9806a1887d11e8cce55e517cd1aebcaa739931caf5cc9980ec27fcde",
+              "backend_token": "neon",
+              "description": "Halftime Hash (512-bit blocks)",
+              "small_cycles_per_hash": 63.9,
+              "small_by_length": {
+                "1": 59.36,
+                "2": 60.03,
+                "3": 63.15,
+                "4": 63.15,
+                "5": 63.82,
+                "6": 64.94,
+                "7": 63.82,
+                "8": 80.78,
+                "9": 61.14,
+                "10": 60.7,
+                "11": 60.92,
+                "12": 63.82,
+                "13": 62.7,
+                "14": 62.7,
+                "15": 62.93,
+                "16": 73.19,
+                "17": 61.37,
+                "18": 59.8,
+                "19": 65.83,
+                "20": 66.5,
+                "21": 65.38,
+                "22": 63.15,
+                "23": 63.82,
+                "24": 68.06,
+                "25": 62.04,
+                "26": 60.03,
+                "27": 62.93,
+                "28": 65.83,
+                "29": 62.93,
+                "30": 62.26,
+                "31": 63.82
+              },
+              "bulk_bytes_per_cycle": 7.51,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 7.51,
+                  "gib_per_second_assumed_clock": 24.47,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 7.28,
+                  "gib_per_second_assumed_clock": 23.73,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.014686248331108098,
+              "max_deviation_from_median_fraction": 0.011984021304926706,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.029695024077046606,
+              "max_deviation_from_median_fraction": 0.025039123630672955,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 7.46,
+            "reference_small": 63.18,
+            "bulk_ratio": 1.0067024128686326,
+            "small_ratio": 1.0113960113960114
+          }
+        },
+        "HalftimeHash24-fixed": {
+          "bits": 192,
+          "backend_token": "neon",
+          "bulk_bytes_per_cycle": 5.66,
+          "bulk_selected_run": 3,
+          "bulk_median_run": 3,
+          "bulk_gib_per_second_assumed_clock": 18.43,
+          "small_cycles_per_hash": 48.56,
+          "small_selected_run": 2,
+          "small_median_run": 2,
+          "runs": [
+            {
+              "name": "HalftimeHash24-fixed",
+              "run": 1,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-fixed",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:40:03.630239+00:00",
+              "before": {
+                "time": "2026-09-18T22:40:03.628995+00:00",
+                "load": [
+                  4.29833984375,
+                  4.5771484375,
+                  4.572265625
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash24-fixed.run1.txt",
+              "returncode": 0,
+              "elapsed_seconds": 87.90940604200023,
+              "finished": "2026-09-18T22:41:31.540088+00:00",
+              "after": {
+                "time": "2026-09-18T22:41:31.575164+00:00",
+                "load": [
+                  4.92333984375,
+                  4.72265625,
+                  4.62548828125
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "91ace8cdb3643d97baf0bfc6f87076fcd85a2a28a44f9bcc618380d387e882ce",
+              "backend_token": "neon",
+              "description": "Fixed HalftimeHash24 (192-bit output, 512-bit blocks, length tagged)",
+              "small_cycles_per_hash": 47.79,
+              "small_by_length": {
+                "1": 45.92,
+                "2": 45.7,
+                "3": 50.7,
+                "4": 49.18,
+                "5": 50.7,
+                "6": 49.18,
+                "7": 51.36,
+                "8": 46.35,
+                "9": 44.61,
+                "10": 47.44,
+                "11": 47.22,
+                "12": 46.35,
+                "13": 48.96,
+                "14": 50.27,
+                "15": 50.05,
+                "16": 45.05,
+                "17": 47.01,
+                "18": 47.66,
+                "19": 47.66,
+                "20": 49.4,
+                "21": 48.09,
+                "22": 47.44,
+                "23": 48.31,
+                "24": 46.79,
+                "25": 47.22,
+                "26": 46.13,
+                "27": 46.57,
+                "28": 46.35,
+                "29": 48.09,
+                "30": 48.09,
+                "31": 47.66
+              },
+              "bulk_bytes_per_cycle": 5.76,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 5.76,
+                  "gib_per_second_assumed_clock": 18.79,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 5.7,
+                  "gib_per_second_assumed_clock": 18.57,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash24-fixed",
+              "run": 2,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-fixed",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T22:55:38.915491+00:00",
+              "before": {
+                "time": "2026-09-18T22:55:38.914193+00:00",
+                "load": [
+                  4.30908203125,
+                  4.87939453125,
+                  4.73974609375
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash24-fixed.run2.txt",
+              "returncode": 0,
+              "elapsed_seconds": 86.84065850000025,
+              "finished": "2026-09-18T22:57:05.756570+00:00",
+              "after": {
+                "time": "2026-09-18T22:57:05.790861+00:00",
+                "load": [
+                  3.94482421875,
+                  4.6484375,
+                  4.6650390625
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "091f71041d98fae12cb33d2d904f24bd87c757465c9139dd6f3595ee46d5a3db",
+              "backend_token": "neon",
+              "description": "Fixed HalftimeHash24 (192-bit output, 512-bit blocks, length tagged)",
+              "small_cycles_per_hash": 48.56,
+              "small_by_length": {
+                "1": 46.57,
+                "2": 47.68,
+                "3": 49.68,
+                "4": 49.68,
+                "5": 50.35,
+                "6": 49.24,
+                "7": 49.02,
+                "8": 46.57,
+                "9": 46.79,
+                "10": 47.23,
+                "11": 48.13,
+                "12": 48.79,
+                "13": 47.9,
+                "14": 50.8,
+                "15": 47.01,
+                "16": 48.13,
+                "17": 48.57,
+                "18": 49.02,
+                "19": 49.02,
+                "20": 48.35,
+                "21": 49.91,
+                "22": 49.46,
+                "23": 49.68,
+                "24": 48.57,
+                "25": 48.57,
+                "26": 47.23,
+                "27": 49.02,
+                "28": 48.79,
+                "29": 47.68,
+                "30": 47.9,
+                "31": 50.13
+              },
+              "bulk_bytes_per_cycle": 5.65,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 5.65,
+                  "gib_per_second_assumed_clock": 18.43,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 5.55,
+                  "gib_per_second_assumed_clock": 18.08,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            },
+            {
+              "name": "HalftimeHash24-fixed",
+              "run": 3,
+              "command": [
+                "./SMHasher3",
+                "HalftimeHash24-fixed",
+                "--test=Speed"
+              ],
+              "started": "2026-09-18T23:10:08.233392+00:00",
+              "before": {
+                "time": "2026-09-18T23:10:08.232396+00:00",
+                "load": [
+                  4.255859375,
+                  4.80078125,
+                  4.765625
+                ],
+                "smhasher_processes": []
+              },
+              "raw_file": "evidence/M2Pro/HalftimeHash24-fixed.run3.txt",
+              "returncode": 0,
+              "elapsed_seconds": 86.6025771249997,
+              "finished": "2026-09-18T23:11:34.836389+00:00",
+              "after": {
+                "time": "2026-09-18T23:11:34.873248+00:00",
+                "load": [
+                  4.33984375,
+                  4.755859375,
+                  4.7529296875
+                ],
+                "smhasher_processes": []
+              },
+              "sha256": "5dfc75852ad00cad753b4acdcb52207cd8f2371ed1bf02e0be3e944d5fc896b4",
+              "backend_token": "neon",
+              "description": "Fixed HalftimeHash24 (192-bit output, 512-bit blocks, length tagged)",
+              "small_cycles_per_hash": 49.11,
+              "small_by_length": {
+                "1": 47.23,
+                "2": 47.9,
+                "3": 49.24,
+                "4": 50.57,
+                "5": 51.02,
+                "6": 51.46,
+                "7": 51.46,
+                "8": 47.23,
+                "9": 47.23,
+                "10": 46.12,
+                "11": 46.34,
+                "12": 49.9,
+                "13": 48.34,
+                "14": 49.68,
+                "15": 49.46,
+                "16": 47.23,
+                "17": 48.57,
+                "18": 51.02,
+                "19": 49.01,
+                "20": 49.9,
+                "21": 50.13,
+                "22": 49.68,
+                "23": 49.9,
+                "24": 48.79,
+                "25": 46.78,
+                "26": 49.24,
+                "27": 49.9,
+                "28": 49.68,
+                "29": 49.46,
+                "30": 50.13,
+                "31": 49.68
+              },
+              "bulk_bytes_per_cycle": 5.66,
+              "bulk_sections": [
+                {
+                  "header": "262144-byte keys",
+                  "bytes_per_cycle": 5.66,
+                  "gib_per_second_assumed_clock": 18.43,
+                  "clock_label": "3.5 ghz"
+                },
+                {
+                  "header": "[262017, 262144]-byte keys",
+                  "bytes_per_cycle": 5.5,
+                  "gib_per_second_assumed_clock": 17.93,
+                  "clock_label": "3.5 ghz"
+                }
+              ]
+            }
+          ],
+          "variability": {
+            "bulk_bytes_per_cycle": {
+              "range_spread_fraction": 0.019469026548672552,
+              "max_deviation_from_median_fraction": 0.0176678445229681,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            },
+            "small_cycles_per_hash": {
+              "range_spread_fraction": 0.02762084118016328,
+              "max_deviation_from_median_fraction": 0.015856672158154894,
+              "range_exceeds_15pct": false,
+              "median_deviation_exceeds_15pct": false
+            }
+          },
+          "reference_control_ratios": {
+            "reference_bulk": 5.55,
+            "reference_small": 48.63,
+            "bulk_ratio": 1.0198198198198198,
+            "small_ratio": 0.9985605593255192
+          }
+        }
+      },
+      "validation": {
+        "sanity": "5 runtime checks pass; append-zeroes fails as expected for the shipped algorithm; verification code unregistered (SKIP)",
+        "sanity_raw_file": "evidence/M2Pro/sanity.txt",
+        "pair": "1000 seeds pass registered-prefix and full-24-byte equality, exactly 8 output bytes, identical 9000-word expanded keys to fixed adapter",
+        "pair_raw_file": "evidence/M2Pro/pair.txt"
+      }
+    }
+  },
+  "flags": [],
+  "reference_controls": {
+    "M2Pro": {
+      "chainhash-256": {
+        "bulk_bytes_per_cycle": 22.8,
+        "small_cycles_per_hash": 70.49,
+        "source": "../m2-rerun/speeds_m2_v2_final.json"
+      },
+      "XXH3-64": {
+        "bulk_bytes_per_cycle": 13.16,
+        "small_cycles_per_hash": 24.51,
+        "source": "../m2-rerun/speeds_m2_v2_final.json"
+      },
+      "HalftimeHash-512": {
+        "bulk_bytes_per_cycle": 7.46,
+        "small_cycles_per_hash": 63.18,
+        "source": "speeds_halftime_fixed.json"
+      },
+      "HalftimeHash24-fixed": {
+        "bulk_bytes_per_cycle": 5.55,
+        "small_cycles_per_hash": 48.63,
+        "source": "speeds_halftime_fixed.json"
+      }
+    },
+    "Xeon8375C": {
+      "chainhash-256": {
+        "bulk_bytes_per_cycle": 14.42,
+        "small_cycles_per_hash": 103.9,
+        "source": "../speedbench/speeds.json"
+      },
+      "XXH3-64": {
+        "bulk_bytes_per_cycle": 19.69,
+        "small_cycles_per_hash": 30.16,
+        "source": "../speedbench/speeds.json"
+      },
+      "HalftimeHash-512": {
+        "bulk_bytes_per_cycle": 19.19,
+        "small_cycles_per_hash": 84.53,
+        "source": "speeds_halftime_fixed.json"
+      },
+      "HalftimeHash24-fixed": {
+        "bulk_bytes_per_cycle": 14.12,
+        "small_cycles_per_hash": 79.42,
+        "source": "speeds_halftime_fixed.json"
+      }
+    }
+  },
+  "shipped_header_sha256": "7ef5dd48f54537b430f85bc1867b23a93551ab1c56415cfcef362d1651956cc3",
+  "fixed_header_sha256": "77d30baf4c6dc12e270236400e5323ccd4ef7a17e0aac877b3cbe4bc325ecbad",
+  "api_bindings": {
+    "HalftimeHash24-shipped": "unmodified advanced::V4<3>; first 8 bytes copied to SMHasher3; full value is 24 bytes",
+    "HalftimeHash24-fixed": "existing repaired advanced::V4<3>; all 24 bytes copied, unchanged registration",
+    "HalftimeHash-512": "existing SMHasher3 64-bit Style wrapper port"
+  },
+  "collision_score": {
+    "name": "HalftimeHash24-shipped",
+    "bits": 0,
+    "scope": "full 24-byte advanced value, not merely 64-bit projection",
+    "witness": "empty string versus one zero byte; equal for every key; tail zero-pads without encoding length"
+  },
+  "key_expansion": "Exact fixed registration adapter: four SplitMix64 initial words, Romu-style w/x/y/z generator, 10 discarded rounds, 9000 uint64 words in aligned thread_local storage; excluded from hash timing by SMHasher3 seedfn.",
+  "chart_points": [
+    {
+      "host": "Xeon8375C",
+      "name": "HalftimeHash24-shipped",
+      "bulk_bytes_per_cycle": 12.81,
+      "collision_score_bits": 0,
+      "full_value_bits": 192,
+      "smhasher_output_bits": 64,
+      "backend_token": "avx512f"
+    },
+    {
+      "host": "M2Pro",
+      "name": "HalftimeHash24-shipped",
+      "bulk_bytes_per_cycle": 1.37,
+      "collision_score_bits": 0,
+      "full_value_bits": 192,
+      "smhasher_output_bits": 64,
+      "backend_token": "scalar"
+    }
+  ]
+}

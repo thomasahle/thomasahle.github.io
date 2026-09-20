@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Exact counting and constant optimisation of the HighwayHash byte-1 trail</title><link href="../post.css" rel="stylesheet"/><link href="../math.css" rel="stylesheet"/><link href="../../../static/vendor/katex-0.18.7/katex.min.css" rel="stylesheet"/><script defer="" src="../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer="" src="../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link rel="icon" href="../../favicon2.png"><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../index.html">Article</a> · <a href="../records/README.html">Records</a></nav><h1 id="exact-counting-and-constant-optimisation-of-the-highwayhash-byte-1-trail">Exact counting and constant optimisation of the HighwayHash byte-1 trail</h1>
+<p>The retuned packet word has exact conditional trail probability</p>
+<p>[ p_{}= =2^{-24.100241072819}. ]</p>
+<p>The exact maximum in the lane-0 constant family defined below is</p>
+<p>[ , ]</p>
+<p>attained by packet words <strong><code>p1 = 0x241a0d29f0cb31d1</code></strong>, <strong><code>p2 = 0x24192a2ac586b59d</code></strong>. This includes a small, nonzero correction to the usual one-byte-pad argument. With packet 1 held at the original value, the exact best packet 2 is <code>0x24192a2ab49eb59d</code> and its conditional probability is <code>(1027353388893 * 2^32 + 51510) / 2^96</code>. The joint gain over the retuned pair is only 0.002332123228 bits; optimising p1 after p2 contributes 0.000021386669 bits of that gain.</p>
+<p>The requested 2^30-class-key confirmation, implemented as 16 sequential experiments of 2^26 keys each, found <strong>56 verified full-state collisions</strong>, all also full 64-, 128-, and 256-bit output collisions. The exact expectation is <strong>59.8007241849</strong>. The measured log2 rate is <strong>−24.192645077942</strong>, with approximate one-standard-error uncertainty 0.1928 bits. This confirms consistency, not the tiny improvement over the retuned pair; the optimisation follows from exact counting.</p>
+<p><strong>The 72-byte qualification matters.</strong> The 8-byte remainder conversion is not automatic: it occasionally fails because <code>Rotate32By(8, ...)</code> does not preserve an additive difference across the relevant byte boundary. I exhibit an actual counterexample below. The exact 96-byte trail probability therefore cannot simply be assigned to the 72-byte pair. I give a proved 72-byte lower bound and a measured estimate; its exact probability remains open.</p>
+<p><strong>Threat model and scope.</strong> The source’s seed API is <code>const uint64_t key[4]</code>: the hidden seed is uniformly random in 256 bits. The attacker fixes both messages before that seed is sampled. The construction uses the public fixed <code>init0</code>/<code>init1</code> constants in <code>HighwayHashReset</code>; there is no additional secret or default-secret buffer in these supplied sources. This is not a claim about a different wrapper that expands a 64-bit seed into the four key words. Such a wrapper is not supplied.</p>
+<p>Let <code>C</code> be <code>hi32(key[0]) = 0xdbe6d5d5</code>. Its exact probability is 2^-32. Given C, the relevant random inputs are <code>lo32(key[0])</code> and all of <code>key[1]</code> (96 bits). <code>key[2]</code> and <code>key[3]</code> are irrelevant to this absorption trail because the zipper keeps lane pairs {0,1} and {2,3} separate until finalisation.</p>
+<p>The optimisation is exhaustive over <strong>both 64-bit lane-0 packet constants</strong>, with the other words of the first two packets zero, and the fixed additive difference pattern</p>
+<pre class="text"><code>packet 1, lane 0:  +0x0000000000000100
+packet 2, lane 0:  -0x0000000001000200
+packet 3, lane 0:  +0x0000000000000100</code></pre>
+<p>It concerns the carry-free byte-1, unchanged-multiplier trail of the prior lemma, including the necessary carry restrictions. It is not a proof of optimality among other differences, arbitrary common words in other lanes, other trail shapes, or other message lengths. The published exact probability is for this sufficient collision event. <strong>Full-output collision probability can be larger</strong>, through other events; an equality for the total collision probability is not proved.</p>
+<p><strong>Resulting epsilon and score.</strong> Put</p>
+<pre class="text"><code>N*     = 4412514617845172193590
+N72_lb = 4378109172422319339830</code></pre>
+<p>The following bounds apply simultaneously to HighwayHash64, HighwayHash128, and HighwayHash256:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 21%"/>
+<col style="width: 21%"/>
+<col style="width: 28%"/>
+<col style="width: 28%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Realisation</th>
+<th>Guaranteed full-output collision probability over uniform 256-bit seeds</th>
+<th style="text-align: right;">log2 of that lower bound</th>
+<th style="text-align: right;">Upper bound on log2(L / eps)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>96 bytes, L = 12</td>
+<td><code>N* / 2^128</code></td>
+<td style="text-align: right;">−56.097908949592</td>
+<td style="text-align: right;"><strong>59.682871450313</strong></td>
+</tr>
+<tr class="even">
+<td>72 bytes, L = 9</td>
+<td><code>N72_lb / 2^128</code></td>
+<td style="text-align: right;">−56.109202077390</td>
+<td style="text-align: right;"><strong>59.279127078832</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The 96-byte row is the exact contribution of the optimised trail. The 72-byte row is a certified lower bound on its surviving contribution, not an exact count. Among 979,935 constructed E2 keys, 20 failed the remainder conversion: estimated loss <code>20/979935 = 2^-15.580398436647</code>, estimated retention 0.999979590483. Combining this estimate with the exact E2 probability gives a <strong>72-byte trail-score estimate 59.267863396043 bits</strong>. Ignoring the remainder loss would give 59.267833951034 bits, which is not a proved attainable value for this pair. In particular, the task’s minimum over all lengths is at most 59.279127078832 from the certified L = 9 construction; its global minimum is not determined here.</p>
+<p><strong>Reference and implementation validation.</strong> work/hh_own.h is a new transcription of the supplied C implementation, with the zipper implemented as explicit byte-index maps. I copied <code>ref/*.c</code> and <code>ref/*.h</code> unchanged into ref/c/ as requested. The original reference and the independent implementation pass all 65 length-0..64 published 64-bit vectors plus the separate 33-byte vector. Thus validation uses the allowed published-vector route, not an invented 64-bit seed expansion for the SMHasher procedure.</p>
+<p>work/check.txt records 100,000 additional random messages of lengths 0..255 with identical pre-finalisation states and identical 64-, 128-, and 256-bit outputs between the new implementation and reference. work/validate_bytes.txt records 3,145,728 packet-1 formula/reference comparisons on 1,048,576 class keys across the known, retuned, and joint-optimum constants, with zero mismatches. The same run evaluated both full 96-byte HighwayHash64 outputs on all 1,048,576 keys: zero collisions, including zero outside E2. That last check has only 2^20 resolution and cannot rule out other collision events.</p>
+<p>The confirmation sampler evaluates the exact E2 predicate on every sampled key, then runs both complete messages through the independent and reference implementations on every hit, checking complete states and all three output widths. It counts verified trail collisions; it does not pretend to have evaluated the full hash on rejected keys. The pseudorandom generator and stream identifiers are recorded in the source and logs; the probability proofs do not rely on that generator.</p>
+<p><strong>Mechanism from the source.</strong> Write <code>I00 = 0xdbe6d5d5fe4cce2f</code>, <code>I10 = 0x3bd39e10cb0ef593</code>; their lane-1 counterparts are <code>I01 = 0xa4093822299f31d0</code>, <code>I11 = 0xc0acf169b5f18a8c</code>. <code>HighwayHashReset</code> gives <code>hi32(v0[0]) = 0</code> on C. In <code>Update</code>, the first operation is <code>v1 += mul0 + packet</code>, followed by <code>mul0 ^= lo32(v1) * hi32(v0)</code>. Thus packet 1’s <code>+2^8</code> difference meets a zero multiplier operand. It does not change the second multiplication because it remains in byte 1 of <code>v1[0]</code>.</p>
+<p><code>ZipperMergeAndAdd</code> sends that byte-1 difference to byte 5 of <code>v0[0]</code>, and its second invocation sends byte 5 to byte 3 of <code>v1[0]</code>. After packet 1, the only differences are <code>dv0[0] = +2^40</code> and <code>dv1[0] = +2^8 + 2^24</code>; both multiplier arrays and the other lanes are equal.</p>
+<p>The packet-2 message difference changes the latter to <code>−2^8</code>. If <code>x = lo32(v1[0])</code> at the packet-2 <code>mul0</code> multiplication and <code>h = hi32(v0[0])</code>, its two products are <code>xh</code> and <code>(x−256)(h+256)</code>. On the counted event <strong>E2: <code>x−h = 256 mod 2^32</code></strong>, the relevant operands do not wrap and these products agree as exact 64-bit products. The second multiplier also agrees. The first zipper cancels <code>+2^40</code> with <code>−2^40</code>; the second zipper adds identical words. The only remaining difference is <code>dv1[0] = −256</code>.</p>
+<p>A third full packet with lane-0 difference <code>+256</code> cancels this before any further multiplication. The entire 1024-bit state is then identical, so <code>HighwayHashFinalize64</code>, <code>HighwayHashFinalize128</code>, and <code>HighwayHashFinalize256</code> necessarily produce identical full outputs. Equal subsequent input processing also preserves equality. For the constants attaining the maximum below, the successful branch has <code>v1[0]</code> byte 1 after the first add equal to 0x20 and <code>h</code> byte 1 equal to 0xbe, so all the required zipper and multiplication carry conditions hold.</p>
+<p><strong>Notation avoids the prior constant ambiguity.</strong> Here <code>p1,p2</code> mean actual little-endian packet words. Set <code>c2 = I00 + p2</code>, and let <code>s</code> be the low 32 bits of packet 1’s <code>v1[0]</code> immediately after its add. For the original packet 1, <code>s = 0x10e82046</code>. The retuned word <code>p2 = 0x24192a2ab49e8900</code> therefore means <code>c2 = 0x00000000b2eb572f</code>, not that same 64-bit packet word reused as an additive offset. The target for the byte system is</p>
+<p>[ R=256-c_2-s. ]</p>
+<table>
+<colgroup>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pair family</th>
+<th>p1</th>
+<th>p2</th>
+<th>s</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Known</td>
+<td><code>24192a2a01b331d1</code></td>
+<td><code>24192a2ab4b332d1</code></td>
+<td><code>10e82046</code></td>
+<td><code>3c17dfba</code></td>
+</tr>
+<tr class="even">
+<td>Retuned</td>
+<td><code>24192a2a01b331d1</code></td>
+<td><code>24192a2ab49e8900</code></td>
+<td><code>10e82046</code></td>
+<td><code>3c2c898b</code></td>
+</tr>
+<tr class="odd">
+<td>Exact best p2, original p1</td>
+<td><code>24192a2a01b331d1</code></td>
+<td><code>24192a2ab49eb59d</code></td>
+<td><code>10e82046</code></td>
+<td><code>3c2c5cee</code></td>
+</tr>
+<tr class="even">
+<td>Exact joint optimum</td>
+<td><code>241a0d29f0cb31d1</code></td>
+<td><code>24192a2ac586b59d</code></td>
+<td><code>00002046</code></td>
+<td><code>3c2c5cee</code></td>
+</tr>
+</tbody>
+</table>
+<p>All entries in this table are hex integers, without the <code>0x</code> prefix. Packet-word high halves of p2 do not affect E2 or its 96-byte probability; the table chooses <code>hi32(c2)=0</code>.</p>
+<p><strong>Exact byte count.</strong> Byte indices start at zero at the least significant byte. Put</p>
+<p>[ a=(K_0), B=(a)+d. ]</p>
+<p>For any p1, its first added <code>v1[0]</code> is <code>(B,s)</code>, for unique constants s,d. Original p1 gives d = 0; the joint optimum gives d = 0x0000e300. Write <code>w_j = W1[j]</code> for</p>
+<p>[ W_1=(I_{11}(K_1))+I_{01}. ]</p>
+<p>Let U0,U1 be v0 lanes 0,1 after packet 1’s first zipper, and let <code>u2 = U0[2]</code>, <code>u3 = U0[3]</code>. The first zipper’s low word in lane 0 has bytes <code>(s3,w4,s2,B1)</code>. Therefore</p>
+<p>[ n=, D=14+s_2+n, u_2=(a_2+D), ]</p>
+<p>[ q=203+B_1+(a_2+D)/256, u_3=(a_3+q), =(a_3+q)/256{0,1,2}. ]</p>
+<p>Here <code>s_j</code> denotes a byte, whereas D in this display is an integer byte offset, not the earlier notes’ word difference. The high word h of U0 has bytes obtained by adding</p>
+<pre class="text"><code>0x3bd39e10 + (s0 &lt;&lt; 24) + (s1 &lt;&lt; 8) + (w7 &lt;&lt; 16) + w6 + gamma.</code></pre>
+<p>In particular <code>h0 = (16+w6+gamma) mod 256</code>, with <code>e0 = [16+w6+gamma &gt;= 256]</code>. The second zipper contributes low-word bytes <code>(u3, U1[4], u2, h1)</code>. The four exact equations for E2, with subtraction borrows g0,g1,g2, are</p>
+<p>[ u_3=(h_0+R_0),g_0=(h_0+R_0)/256, ] [ U_1[4]=(h_1+R_1+g_0),g_1=(h_1+R_1+g_0)/256, ] [ u_2=(h_2+R_2+g_1),g_2=(h_2+R_2+g_1)/256, R_3=(h_1-h_3-g_2). ]</p>
+<p>For fixed a0,a1,w4,u2, the 256 choices of a3 give every u3 once, with <code>gamma = floor(q/256) + [u3 &lt; q mod 256]</code>. The first equation fixes w6 uniquely. The exact count with e0 = 0 is</p>
+<p>[ F(q,R_0)=240-- [((R_0+16+))&lt;q],=q/256. ]</p>
+<p>This is the carry dependency that prevents a universal exact factor 239/256.</p>
+<p>For the retuned target, R = 0x3c2c898b. Its successful branch is exactly e0 = 0, g1 = 1, and u2 = w7, for every w7. The other branch cannot satisfy the top-byte equation. With R0 = 0x8b,</p>
+<p>[ F(q,)=239-[B_1+_2]. ]</p>
+<p>For the original p1, <code>D = 246+n</code>, so the carry into byte 3 is 0 or 1. B1 is a permutation of a1. There are 46 always-rejected B1 values; the boundary value B1 = 209 corresponds to a1 = 0x81. The useful identity</p>
+<p>[ _{w_4=0}^{255} =a_1+ ]</p>
+<p>gives the exact reduced count</p>
+<p>[ M_r=239,2<sup>{32}-46,2</sup>{24}-246,2^{16} ---256, =1025709214045. ]</p>
+<p>For this target the remaining byte equation costs exactly 2^-8, including its exceptional carry case (below), so <code>Pr[E2|C] = Mr/2^64</code>. work/opt.c and the separately written Python integer counter work/exact.py agree exactly; see work/python_count_retuned.txt. The same C counter reproduces the prior count <code>M = 942292336640 = 235*239*2^24</code> for the known target.</p>
+<p><strong>Why the optimisation is exhaustive in the stated family.</strong> The ordinary pad model gives <code>M/2^64</code>; the exact correction will be less than one unit of M, so first maximise this integer M. I retain the full split of F by e0 and g0, not just its e0 marginal.</p>
+<p>For any packet-1 constants and any fixed a0,w4, B1 runs through all 256 byte values as a1 varies. The carry into byte 3 is always in {0,1,2}. Allowing it to be chosen independently for each B1,u2 gives an upper bound. After translating the irrelevant top-byte constant, there are only three distinct patterns for g1 on the four groups <code>(e0,g0)</code>:</p>
+<pre class="text"><code>all equal; only group (1,1) increased by one;
+all groups except (0,0) increased by one.</code></pre>
+<p>Each top-byte equation selects an interval of u2 in each group. work/bound.c exhausts all 256 R0 values, all three carry patterns, all 256 interval boundaries, and all possible resulting top-byte values. It maximises over the relaxed {0,1,2} carry separately before summing over B1. No probabilistic assumption enters this upper bound. Removing invalid h1=0xff branches can only reduce it; the s1=0xff case is outside this carry-free difference shape.</p>
+<p>The largest bound for any R0 other than 0xee is <strong>1027352821760</strong>, at R0 = 0xed. For R0 = 0xee, every pattern except the family selecting all e0 = 0 and u2 = w7 has bound at most <strong>1027349413888</strong>. Both are below even the attainable optimum with original p1. The two equivalent winning carry patterns have bound 1027369598976. See work/bound.txt and work/bound_detail.txt. Thus the only family still needing exact optimisation is R0 = 0xee, e0 = 0, u2 = w7.</p>
+<p>In this family</p>
+<p>[ F(q,)=239+[q] =239+[B_1+_2]. ]</p>
+<p>Its count is maximised by minimising the carry at the boundary B1 = 51. Since s2,s3,a1 are nonnegative, the minimum occurs at s2 = s3 = 0 and a1 = 0 at that boundary for every a0. This is achieved, and equality forces, <code>d mod 65536 = 0xe300</code>. For each fixed a0,w4 there are at most 52 eligible B1 values; a larger s2 or s3 cannot restore a lost one. The identity above gives</p>
+<p>[ M_* =239,2<sup>{32}+52,2</sup>{24}-14,2^{16}- =1027368618605. ]</p>
+<p>With original p1 instead, the same formula includes s2=232, s3=16, and boundary a1=0x63:</p>
+<p>[ M_{}=239,2<sup>{32}+52,2</sup>{24}-246,2^{16} ---256, =1027353388893. ]</p>
+<p>The unused upper 16 bits of d and allowed choices of s0,s1 do not change these counts. I choose d=0xe300 and s=0x00002046. They give <code>I00+p1 = 0x0000e2ffef180000</code>, hence the advertised p1. The full fixed-p1 and joint reduced searches are also logged in work/opt_original.txt and work/opt_joint.txt.</p>
+<p><strong>The exact pad correction, not an independence assumption.</strong> Let <code>z = (h1+R1+g0) mod 256</code>. For fixed a and the high word W of W1, inversion of the key-1 addition has branch carry <code>beta = [lo32(W1) &lt; 0x299f31d0]</code>. All pairs <code>(w3,w2)</code> except <code>(0x29,0x9f)</code> give a uniform pad after summing w0,w1. On that exceptional pair define</p>
+<p>[ H(t)=#{(w_0,w_1):256w_1+w_0&lt;,<br/>
+((w_0-))+w_1t}, ]</p>
+<p>where the XOR expression is evaluated before adding w1. Exact enumeration of the 65,536 byte pairs gives H = 49 on inclusive intervals <code>[0xb1,0xc0]</code> and <code>[0xd1,0xf0]</code>, and H = 50 elsewhere.</p>
+<p>For branch b in {0,1}, write</p>
+<p>[ c_b=, ]</p>
+<p>again performing the XOR before the following additions. The exact number of low words W1 satisfying the byte-1 equation is</p>
+<p>[ 2^{24}+H(z--c_1)-H(z--c_0). ]</p>
+<p>This formula explicitly includes the key-1 carries; the correction is not assumed zero. For the retuned target, all possible H arguments are in 0xdc..0xdf, a constant part of H, so its correction is exactly zero.</p>
+<p>work/pad_edges.py generates every <code>(B0,W)</code> with <code>c0 != c1</code>: <strong>5,104</strong> possibilities. It obtains them by decomposing an XOR-threshold preimage into dyadic intervals, including the special decrement across the low-24-bit boundary. For each such entry, B0 fixes a0; for each of 256 a1 values, at most the three gamma values need testing, and a2,a3 are then fixed by the byte equations. Thus for <em>any</em> constants the absolute correction to the 96-bit assignment count is at most</p>
+<p>[ 5104=3919872&lt;2^{32}. ]</p>
+<p>Consequently it cannot overturn even a one-unit gap in M. This makes the preceding integer optimisation valid for the actual correlated key distribution as well.</p>
+<p>For all packet-1 constants attaining M*, work/pad_count.c computes the correction as a function of <code>z0 = (h1+R1) mod 256</code>:</p>
+<p>[ (z_0)=51510,[H(z_0+)-2H(z_0+)+H(z_0+)]. ]</p>
+<p>The maximum is <strong>51510</strong>, attained at z0 in <code>{0x1a,0x29,0x3a,0x59}</code>. The same correction holds for the original-p1 optimum. Choosing z0=0x1a and h1=0xbe gives R1=0x5c, g1=1, R2=0x2c, R3=0x3c. Therefore the exact maximum is <code>(M* * 2^32 + 51510)/2^96</code>, as reported. This last integer count and the universal bound are computer-assisted proofs over explicitly enumerated small byte systems, not seed-rate estimates. Their complete sources and logs are included. work/check_edges.txt independently checks the edge generator against all 2^24 low words for each of B0 = 0x00, 0x7f, 0xff, with exact agreement. Independently, 16 selected exceptional entries were checked through the reference on all 65,536 low-word assignments each; every one of the 4,096 resulting histogram entries matches this H formula.</p>
+<p><strong>Why the 72-byte pair sometimes fails, and its certified bound.</strong> <code>HighwayHashUpdateRemainder</code> adds the same length-dependent word to both v0 arrays, then calls <code>Rotate32By</code> on v1 before absorbing the padded tail. Let V be message A’s v1[0] after packet 2. On E2, message B has V−256. The rotation transforms this into precisely a −65536 difference when</p>
+<p>[ V^{24}  256. ]</p>
+<p>Then tail byte 2 equal to 0x01 in B cancels it. If the inequality fails, the subtraction borrows through the byte moved by the rotation; the advertised cancellation no longer holds.</p>
+<p>A concrete failure for the joint-optimum pair has seed</p>
+<pre class="text"><code>dbe6d5d5779174a6 33d9b96989b484fd 059924621dc8a750 10d7daccb4ae88b5</code></pre>
+<p>and post-packet-2 <code>V = 0x828697155d000024</code>. Both 96-byte HighwayHash64 outputs are <code>1a294093e955e314</code>, whereas the 72-byte outputs are <strong><code>04f737caa7fc4bac</code></strong> and <strong><code>7f90607073576435</code></strong>. The 128-/256-bit outputs differ too; work/constructed.txt records them and two more examples. Reference states independently confirm these failures.</p>
+<p>A rigorous lower bound does not require assuming that V is uniform. In packet 2’s first zipper, the low word added to v0[0] has bytes <code>(h3, lane1_v1_byte4, h2, lane0_v1_byte5)</code>. Let m be the low word of mul1[0] after packet 1. Since u2=w7, a failure’s byte-1 equation in the final v1 addition forces carry 1 into byte 2. Its byte-2 equation then requires</p>
+<p>[ -w_7-m[2]-2h_2-1, ]</p>
+<p>where kappa is the carry into byte 2 of the first zipper addition. With <code>t = lo16(U0)+lo16(m)+h3</code>, and allowing the unknown lane-1 byte to be any value 0..255, this requires</p>
+<p>[ 0,t&lt;(+1)65536,t+65280. ]</p>
+<p>work/remainder_bound.c counts this necessary condition, retaining the exact byte-1 event count over a3. It sums a0,a1,n,w7 and counts eligible w4 by integer interval intersection, rather than enumerating seeds. The result is <code>Mbad_upper = 8010642003</code>. Allowing the worst possible pad correction above proves</p>
+<p>[ #{E_2} (1027368618605-8010642003)2^{32}+51510-3919872 =4378109172422319339830 ]</p>
+<p>among the 2^96 relevant class assignments. This certifies retention at least 0.9922027577464084 and the L=9 row of the score table. The bound deliberately discards further packet-2 byte dependencies; the observed retention is much higher. The constructed-key experiment checked the necessary condition on every observed failure.</p>
+<p><strong>Experiments and resolution.</strong> All counts below are new runs in this directory. The 16 confirmation streams are 20261001 through 20261016. The individual hit counts were</p>
+<pre class="text"><code>5, 1, 3, 7, 5, 5, 1, 2, 2, 8, 3, 3, 4, 3, 3, 1</code></pre>
+<p>Each count has denominator 2^26; their sum is 56 with denominator 2^30. All 56 also survived at 72 bytes. That small set cannot resolve a remainder loss around 2^-16. Logs are work/confirm_00.txt through work/confirm_15.txt, summarised in work/confirm_summary.txt.</p>
+<table>
+<colgroup>
+<col style="width: 15%"/>
+<col style="width: 21%"/>
+<col style="width: 21%"/>
+<col style="width: 21%"/>
+<col style="width: 21%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pair / experiment</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Verified 96-byte trail collisions</th>
+<th style="text-align: right;">log2 measured conditional rate</th>
+<th style="text-align: right;">Also verified at 72 bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Known, stream 20260919</td>
+<td style="text-align: right;">2^26</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">−23.415037499</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td>Retuned, stream 20260918</td>
+<td style="text-align: right;">2^26</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">−24.000000000</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td>Original-p1 optimum, stream 20260920</td>
+<td style="text-align: right;">2^26</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">−24.415037499</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>Joint optimum, 16 streams</td>
+<td style="text-align: right;">2^30 total</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">−24.192645078</td>
+<td style="text-align: right;">56</td>
+</tr>
+</tbody>
+</table>
+<p>The controls are far too small to distinguish these close probabilities. Their noisy ordering is not evidence against the exact optimisation. Log2 rates over all uniform seeds for the counted event are the conditional rates minus 32; e.g. the joint confirmation estimates −56.192645078. No direct unconditioned seed brute force at that resolution was attempted.</p>
+<p>The constructive experiment used 2^20 proposals, resulting in 979,935 E2 keys and 20 failures at 72 bytes. It chooses the free bytes uniformly, solves the other equations, and enumerates every valid exceptional-pad branch, rather than rejecting roughly 2^24 seeds per success. Every E2 assignment has a unique free-byte proposal; the sampling estimates the distribution within E2. Its 65,536 initial accepted states and every failure were compared to the reference. It is distinct from the unconditioned-within-C confirmation and is not counted toward the latter’s 2^30 denominator.</p>
+<p>Sampling experiments use at most two workers and at most 2^26 keys per invocation. The 2^30 request was interpreted as the aggregate of 16 such experiments. Exact counters are single-threaded. One early pilot overlapped the single-thread Python counter briefly; all confirmation batches and subsequent experiments ran serially. An earlier three-hit pilot using arbitrary irrelevant lanes 2,3 is retained as <code>work/sample_opt_00.txt</code> but is excluded from all confirmation totals above.</p>
+<p><strong>What failed and what remains open.</strong> The known and retuned constants both fail to maximise the exact count; the exhaustive byte search resolves every target byte, not just a 12-bit histogram bucket. The prior 239/256 ceiling and a universally independent byte pad both miss small effects: the boundary a1 carry changes the former, and the 5,104 exceptional-pad entries change the latter. These are exact arithmetic discrepancies, although too small to establish by the allowed seed-rate experiment. The claim that the 72-byte conversion always preserves E2 is false; the constructive search finds explicit full-output noncollisions at 2^20 proposals. No new SAT/SMT search or broader trail-shape search was run, and heuristic exclusions in the prior notes are not promoted to proofs here.</p>
+<p>Still open are the exact remainder-survival count, optimisation specifically for 72 bytes, possible improvements from common words in other lanes or other difference shapes, and collisions outside C or outside this trail. In particular neither full-output epsilon nor the minimum score over all lengths is claimed to be exactly determined. The exact retuned count and exact lane-0 constant optimisation for the 96-byte trail are complete; the 72-byte result is deliberately stated as a bound plus a measured estimate because of the exhibited counterexample.</p>
+<p><strong>Reproduction and artifacts.</strong> Run <code>bash work/reproduce.sh</code> from this directory. It copies the references, builds the independent implementation and counters, checks the vectors, repeats the exact counts and validation, then runs the capped sampling experiments sequentially. No network, downloaded dependency, or external data is used. work/pairs.json contains all eight explicitly instantiated pairs below. Output words below use the API’s lane order; each word is printed as a hex integer. All arithmetic in packet words is modulo 2^64.</p>
+<p><strong>known.</strong> Seed as four API <code>uint64_t</code> words:</p>
+<pre class="text"><code>dbe6d5d5d80c98b5 061951046889ce9c f2c82434aaa4cd89 99683129bbc586d7</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Length</th>
+<th>HighwayHash64(A)</th>
+<th>HighwayHash64(B)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">72</td>
+<td><code>8eb9979158f14e9a</code></td>
+<td><code>8eb9979158f14e9a</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">96</td>
+<td><code>93938103d4f099db</code></td>
+<td><code>93938103d4f099db</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>retuned.</strong> Seed as four API <code>uint64_t</code> words:</p>
+<pre class="text"><code>dbe6d5d5052eed5f 4230e71d7538ad31 293fb5be5ccb0a97 851d6fe16b1bf604</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Length</th>
+<th>HighwayHash64(A)</th>
+<th>HighwayHash64(B)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">72</td>
+<td><code>caaeaf4f8379ac8b</code></td>
+<td><code>caaeaf4f8379ac8b</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">96</td>
+<td><code>f0741e0129fcfd89</code></td>
+<td><code>f0741e0129fcfd89</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>fixed-p1 optimum.</strong> Seed as four API <code>uint64_t</code> words:</p>
+<pre class="text"><code>dbe6d5d5d7f4947f 89ff68becb5b04f8 9f647cd205514249 ab23f3611204d1bc</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Length</th>
+<th>HighwayHash64(A)</th>
+<th>HighwayHash64(B)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">72</td>
+<td><code>cf50c921a12bdb93</code></td>
+<td><code>cf50c921a12bdb93</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">96</td>
+<td><code>7e6b998471fb1ab0</code></td>
+<td><code>7e6b998471fb1ab0</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>joint optimum.</strong> Seed as four API <code>uint64_t</code> words:</p>
+<pre class="text"><code>dbe6d5d5e725652c ea5870a41516d3be 375bfc01a4e18b68 a4cdf15614eb572f</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Length</th>
+<th>HighwayHash64(A)</th>
+<th>HighwayHash64(B)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">72</td>
+<td><code>2f10e0b88041d399</code></td>
+<td><code>2f10e0b88041d399</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">96</td>
+<td><code>7405786fe7218742</code></td>
+<td><code>7405786fe7218742</code></td>
+</tr>
+</tbody>
+</table>
+<p>For the joint-optimum witness above, both complete larger outputs are also identical, as follows (words in API order):</p>
+<pre class="text"><code>72-byte HighwayHash128(A) = 6aaf5d7975f7978a 402cd8465a03fd4f
+72-byte HighwayHash128(B) = 6aaf5d7975f7978a 402cd8465a03fd4f
+72-byte HighwayHash256(A) = 0f82fb124b9e8aa6 150dd46d887e09fa 68d71eb75e40a343 40034fcf94697f00
+72-byte HighwayHash256(B) = 0f82fb124b9e8aa6 150dd46d887e09fa 68d71eb75e40a343 40034fcf94697f00
+96-byte HighwayHash128(A) = 8a725c3132dc9129 6780df5e9f826ff7
+96-byte HighwayHash128(B) = 8a725c3132dc9129 6780df5e9f826ff7
+96-byte HighwayHash256(A) = e068fb3ff0f3d9f3 056d2ebaec337a66 3982c5d5a1bcbe38 8b0a5ea40afbbb84
+96-byte HighwayHash256(B) = e068fb3ff0f3d9f3 056d2ebaec337a66 3982c5d5a1bcbe38 8b0a5ea40afbbb84</code></pre>
+<p>Every explicitly instantiated pair follows as exact byte hex. The labels “optimum” refer to the proved 96-byte lane-0 trail optimisation, not an optimisation of the remainder-survival probability. The constant-family equations above specify the larger set considered in the exhaustive arithmetic search.</p>
+<p><strong>known, 72 bytes (L = 9).</strong></p>
+<pre class="text"><code>A = d131b3012a2a1924000000000000000000000000000000000000000000000000d132b3b42a2a19240000000000000000000000000000000000000000000000000000000000000000
+B = d132b3012a2a1924000000000000000000000000000000000000000000000000d130b3b32a2a19240000000000000000000000000000000000000000000000000000010000000000</code></pre>
+<p><strong>known, 96 bytes (L = 12).</strong></p>
+<pre class="text"><code>A = d131b3012a2a1924000000000000000000000000000000000000000000000000d132b3b42a2a19240000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+B = d132b3012a2a1924000000000000000000000000000000000000000000000000d130b3b32a2a19240000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000</code></pre>
+<p><strong>retuned, 72 bytes (L = 9).</strong></p>
+<pre class="text"><code>A = d131b3012a2a192400000000000000000000000000000000000000000000000000899eb42a2a19240000000000000000000000000000000000000000000000000000000000000000
+B = d132b3012a2a192400000000000000000000000000000000000000000000000000879eb32a2a19240000000000000000000000000000000000000000000000000000010000000000</code></pre>
+<p><strong>retuned, 96 bytes (L = 12).</strong></p>
+<pre class="text"><code>A = d131b3012a2a192400000000000000000000000000000000000000000000000000899eb42a2a19240000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+B = d132b3012a2a192400000000000000000000000000000000000000000000000000879eb32a2a19240000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000</code></pre>
+<p><strong>fixed-p1 optimum, 72 bytes (L = 9).</strong></p>
+<pre class="text"><code>A = d131b3012a2a19240000000000000000000000000000000000000000000000009db59eb42a2a19240000000000000000000000000000000000000000000000000000000000000000
+B = d132b3012a2a19240000000000000000000000000000000000000000000000009db39eb32a2a19240000000000000000000000000000000000000000000000000000010000000000</code></pre>
+<p><strong>fixed-p1 optimum, 96 bytes (L = 12).</strong></p>
+<pre class="text"><code>A = d131b3012a2a19240000000000000000000000000000000000000000000000009db59eb42a2a19240000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+B = d132b3012a2a19240000000000000000000000000000000000000000000000009db39eb32a2a19240000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000</code></pre>
+<p><strong>joint optimum, 72 bytes (L = 9).</strong></p>
+<pre class="text"><code>A = d131cbf0290d1a240000000000000000000000000000000000000000000000009db586c52a2a19240000000000000000000000000000000000000000000000000000000000000000
+B = d132cbf0290d1a240000000000000000000000000000000000000000000000009db386c42a2a19240000000000000000000000000000000000000000000000000000010000000000</code></pre>
+<p><strong>joint optimum, 96 bytes (L = 12).</strong></p>
+<pre class="text"><code>A = d131cbf0290d1a240000000000000000000000000000000000000000000000009db586c52a2a19240000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+B = d132cbf0290d1a240000000000000000000000000000000000000000000000009db386c42a2a19240000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000</code></pre>
+</main></body></html>

@@ -1,0 +1,31 @@
+SMHasher3 mir.exact: 00A393C8 expected 00A393C8 PASS
+SMHasher3 mir.inexact: 422A66FC expected 422A66FC PASS
+structural checks PASS
+
+8-byte p1 pair / mir.exact
+M (8 B) = 0000000000000000
+M' (8 B) = 0b152b092b2ac03c
+recorded colliding seed 910a2dec89025cc1: H(M)=5e900c9f273619d2 H(M')=5e900c9f273619d2
+collisions = 1048576 / 1048576; rate = 1; log2(rate) = 0.000000; sampled score = 0.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=044d95a6bb73224d
+
+8-byte p1 pair / mir.inexact
+M (8 B) = 0000000000000000
+M' (8 B) = 0b152b092b2ac03c
+recorded colliding seed 910a2dec89025cc1: H(M)=5e900c9f273619d2 H(M')=5e900c9f273619d2
+collisions = 1048576 / 1048576; rate = 1; log2(rate) = 0.000000; sampled score = 0.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=044d95a6bb73224d
+
+16-byte p2 pair / mir.exact
+M (16 B) = 00000000000000005555555555555555
+M' (16 B) = 0000000000000000aaaaaaaaaaaaaaaa
+recorded colliding seed 22118258a9d111a0: H(M)=4d337930c595fdd0 H(M')=4d337930c595fdd0
+collisions = 1048576 / 1048576; rate = 1; log2(rate) = 0.000000; sampled score = 1.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=e8b1651bb48f268a
+
+16-byte p2 pair / mir.inexact
+M (16 B) = 00000000000000005555555555555555
+M' (16 B) = 0000000000000000aaaaaaaaaaaaaaaa
+recorded colliding seed 22118258a9d111a0: H(M)=66c4631e3e47d736 H(M')=66c4631e3e47d736
+collisions = 1048576 / 1048576; rate = 1; log2(rate) = 0.000000; sampled score = 1.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=2f3484b13a2ca6fc

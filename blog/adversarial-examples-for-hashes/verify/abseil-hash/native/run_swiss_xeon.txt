@@ -1,0 +1,8 @@
+cmake -S native -B native/build -DCMAKE_BUILD_TYPE=Release > native/build_cmake.log 2>&1 || { tail -20 native/build_cmake.log; exit 1; }
+cmake --build native/build --target swiss_check -j 4 >> native/build_cmake.log 2>&1 || { tail -20 native/build_cmake.log; exit 1; }
+./native/build/swiss_check
+real flat_hash_set/flat_hash_map<std::string> tables: 800; distinct per-table seeds: 32; seeds outside {0, 64, ..., 1984}: 0
+hash_of(k) != HashWithSeed().hash(Hash<string>{}, k, seed): 0 of 1200
+pair checks inside real tables: 2400; collided: 2400
+seeds seen: 0 64 128 192 256 320 384 448 512 576 640 704 768 832 896 960 1024 1088 1152 1216 1280 1344 1408 1472 1536 1600 1664 1728 1792 1856 1920 1984
+OK: every pair collides in every real table

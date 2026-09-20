@@ -1,0 +1,18 @@
+{
+  "low_xor_widths": [4,5,6,7,8],
+  "low_increment_pairs": 14322,
+  "low_operand_pair_visits": 751618560,
+  "low_point_inequalities": 996650,
+  "convolution_inequalities": 14322,
+  "small_width_convolution_cases": 84,
+  "small_width_convolution_pair_visits": 4368,
+  "nh_additive_slice_widths": [3,4,5],
+  "nh_additive_slices": 36032,
+  "nh_additive_pair_visits": 1080832,
+  "grouped_lift_widths": [5,6,7,8,9],
+  "grouped_lift_increment_profile_cases": 2718,
+  "low_equal_operand_pair_profile_visits": 27712512,
+  "projected_collision_visits": 554746,
+  "zero_mask_collision_visits": 140444,
+  "failures": 0
+}

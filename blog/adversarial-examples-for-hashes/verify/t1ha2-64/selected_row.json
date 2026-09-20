@@ -1,0 +1,422 @@
+{
+  "id": "t1ha",
+  "pattern": [
+    "P7"
+  ],
+  "code_url": "https://gitlab.com/fwojcik/smhasher3/-/blob/7ad8939d/hashes/t1ha.cpp",
+  "name": "t1ha2_atonce-64 v2.1.4",
+  "claim_id": "t1ha2",
+  "output_bits": 64,
+  "key_bits": 64,
+  "key_model": "Uniform 64-bit one-shot API seed.",
+  "status": "NEW",
+  "classification_reason": "New carry-pattern construction in supplied panel.",
+  "official_claim": {
+    "text": "Great quality of hashing",
+    "url": "https://raw.githubusercontent.com/erthink/t1ha/master/t1ha.h",
+    "context": "The project explicitly says it is not suitable for cryptography.",
+    "provenance": "records/review-inputs/claims.json#/result/table/rows/7/official_claim_quote"
+  },
+  "smhasher3": {
+    "verdict": "FAIL",
+    "passed": 247,
+    "total": 250,
+    "url": "https://gitlab.com/fwojcik/smhasher3/-/blob/3b619371/results/README.md",
+    "provenance": "records/review-inputs/claims.json#/result/table/rows/7",
+    "failed_tests": [
+      "SeedBlockOffset"
+    ],
+    "failed_tests_provenance": "records/review-inputs/claims.json#/result/table/rows/7/smhasher3_verdict"
+  },
+  "pair": {
+    "m_hex": "c4c0cc2284cd239ede36a18fa6",
+    "m_prime_hex": "fbc31866049ec02dea0c4e2be580d3cf",
+    "verifier_confirmed": true,
+    "example_seed_raw": "4c240c2749cd4915",
+    "provenance": [
+      "records/witness-searches/t1ha-digits/README.md",
+      "records/witness-searches/t1ha-digits-verify/README.md"
+    ],
+    "implementation_validation": "Searcher: own C implementation (t1ha2.h) validated against the 81-entry upstream selftest table and SMHasher3 verification value 0x8F16C948; independent verifier: fresh clone erthink/t1ha HEAD 00eb779 (src/t1ha2.c byte-identical to tag v2.1.4), linked upstream src/t1ha2.c, public t1ha2_atonce API, upstream t1ha_selfcheck__t1ha2_atonce() and 0x8F16C948 pass.",
+    "lengths_bytes": [
+      13,
+      16
+    ],
+    "L_words": 2,
+    "example_key_words_hex": [
+      "4c240c2749cd4915"
+    ],
+    "example_output_hex": "c35b49165b1a4480",
+    "seed_class": {
+      "mask_hex": "a5845081f808f44a",
+      "value_hex": "2080000118003408",
+      "of": "L = lo(((seed ^ l0) + t) * P1)",
+      "density_log2": -24
+    },
+    "additional_example_seeds": [
+      "a2b08b86e150940c (H = b94c250505cd61c6)",
+      "e486a312cbae8cc1",
+      "091e258d8d7468d1",
+      "881464cd3ea41895"
+    ]
+  },
+  "collision": {
+    "display": "about 2^-28.19 of keys (sampled class contribution: 2^-24 × 58,715,203/2^30)",
+    "log2_contribution": -28.1928,
+    "exact_contribution": false,
+    "total_equality_proved": false,
+    "interpretation": "Measured rate or class-density-weighted measured rate",
+    "conditional_count": 58715203,
+    "conditional_trials": 1073741824,
+    "class_density_log2": -24,
+    "conditional_log2_95_interval": [
+      -4.1931,
+      -4.1924
+    ],
+    "uniform_checks": "fresh uniform seeds against upstream: 226/2^36 and 258/2^36 (verifier), 217/2^36 (searcher); pooled 701 in 3*2^36 = 2^-28.13 [2^-28.24, 2^-28.02]; every hit inside the stated class"
+  },
+  "score": {
+    "calculated": 29.1928,
+    "display": 29.19,
+    "display_text": "at most 29.19 bits (cap; sampled); conditional-rate 95% ≈ ±0.0004 bits",
+    "direction": "estimated_upper_bound",
+    "rounding": "nearest",
+    "derivation": "log2(2) - (-28.1928)",
+    "approximate_95_half_width_bits": 0.0004
+  },
+  "notes": "Cross-length 13/16-byte pair F60 found by an exhaustive DP over all 224,923,104 5-digit signed-digit routes (dp5.c; the 4-digit search rediscovers the previous pair A at 30.00 as the only realisable 4-digit route at or below 30.5). Mechanism: word-0 difference l* - l = +2^60 +2^54 -2^48 -2^9 -2^1, du = e012803e9bacd40a with u+du and x+d0 wrapping, length offset +3, carry pattern of weight 24 fixing 24 bits of L = lo(((seed ^ l0) + t) * P1) (mask a5845081f808f44a, value 2080000118003408, density exactly 2^-24). The two low digits' sign events are correlated with the fixed low bits of L for this tail word, so the conditional rate is 2^-4.19 rather than the model's median 2^-5.19. Conditional rate against upstream t1ha (erthink/t1ha HEAD 00eb779, src/t1ha2.c byte-identical to v2.1.4; Xeon 8375C, 2026-09-19): 58,715,203/2^30 = 2^-4.1928 (+-0.0004). Fresh uniform-seed runs against upstream: 226 and 258 collisions per 2^36 seeds (224 expected at 2^-28.19; the second is a +2.3 sigma fluctuation), all inside the stated class; searcher's own fresh 2^36: 217. Runner-up F1 (10/16 B): class 2^-24 x 2^-4.93, 153/2^36, cap 29.93. Not searched: 6-digit routes (about 30 CPU-h; extrapolated gain at most 0.5-1 bit).",
+  "provenance": [
+    "records/witness-searches/t1ha-digits/README.md",
+    "records/witness-searches/t1ha-digits-verify/README.md",
+    "records/review-inputs/claims.json#/result/table/rows/7",
+    "records/review-inputs/heur_panel.json#/result/synthesis/table"
+  ],
+  "version": "v2.1.4",
+  "label": "t1ha2_atonce-64",
+  "anchor": "appendix-t1ha2",
+  "mechanism": "Cross-length carry patterns cancel for a structured seed class.",
+  "family": "heuristic",
+  "bits": 29.1928,
+  "bits_kind": "measured",
+  "speeds": {
+    "m2_gbps_16k": {
+      "value": null,
+      "source": "Unavailable in supplied records",
+      "record": "data.json#/heuristics",
+      "source_short": "unavailable"
+    },
+    "m2_gbps_512": {
+      "value": null,
+      "source": "Unavailable in supplied records",
+      "record": "data.json#/heuristics",
+      "source_short": "unavailable"
+    },
+    "smh_m2_bulk_Bpc": {
+      "value": 6.19,
+      "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle",
+      "source_short": "SMHasher3 M2Pro",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/t1ha2-64/M2Pro",
+      "registered_name": "t1ha2-64",
+      "host": "M2Pro",
+      "backend_token": "1Y+a0",
+      "backend_note": "1Y+a0",
+      "no_dedicated_arm_backend": true,
+      "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+      "selected_run": 2,
+      "selection": "best of two, independently per metric",
+      "spread_percent": 0.16181229773464256,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "LE",
+          "value": "0x8F16C948",
+          "result": "PASS"
+        },
+        "computed_values": {
+          "LE": {
+            "value": "0x8F16C948",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0x061CB08C",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0x8F16C948",
+          "BE": "0x061CB08C"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "t1ha2-64",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
+              "t1ha2-64",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/t1ha2-64.sanity.txt",
+            "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+            "started": "2026-09-18T09:49:26.198857+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T09:49:26.203503+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.40 3.17 3.23",
+              "load1": 3.4,
+              "load5": 3.17,
+              "load15": 3.23
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T09:49:26.705812+00:00",
+            "elapsed_seconds": 0.5022804580000004,
+            "load_after": {
+              "timestamp": "2026-09-18T09:49:26.711100+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.40 3.17 3.23",
+              "load1": 3.4,
+              "load5": 3.17,
+              "load15": 3.23
+            },
+            "raw_sha256": "23a58da0ddaa375e31fcd272d57f8c145418e7cd138520ead7bb13c62e3df7c4",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0x8F16C948",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "reference_values": {
+          "existing_M2": {
+            "LE": {
+              "value": "0x8F16C948",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0x061CB08C",
+              "result": "PASS"
+            }
+          },
+          "existing_Xeon": {
+            "LE": {
+              "value": "0x8F16C948",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0x061CB08C",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      }
+    },
+    "smh_xeon_bulk_Bpc": {
+      "value": 5.82,
+      "source": "SMHasher3 Xeon8375C, 262144 B bulk, B/cycle",
+      "source_short": "SMHasher3 Xeon8375C",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/t1ha2-64/Xeon8375C",
+      "registered_name": "t1ha2-64",
+      "host": "Xeon8375C",
+      "backend_token": "1Y+a2",
+      "backend_note": "1Y+a2",
+      "no_dedicated_arm_backend": false,
+      "binary_sha256": {
+        "binary": "experiment/speedbench/build-release-20260917/SMHasher3",
+        "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "binary_sha256_after": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "build_directory": "experiment/speedbench/build-release-20260917",
+        "source_directory": "experiment/speedbench/source",
+        "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
+        "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+        "source_manifest": "provenance/source-sha256.json",
+        "compiler": "c++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+        "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Iexperiment/speedbench/build-release-20260917/include -Iexperiment/speedbench/source/include/common -Iexperiment/speedbench/source/util -Iexperiment/speedbench/source/tests -Iexperiment/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
+        "build_type": "Release",
+        "remote_recheck": {
+          "timestamp": "2026-09-18T00:28:51.045516+00:00",
+          "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+          "binary_matches_execution": true,
+          "execution_sha256": "8fde36ba3be86d737daf71d40b2ce3d2432bce22775db3ea0986399c0524fcaf",
+          "completed_runs": 110,
+          "source_mismatches": [],
+          "raw_mismatches": [],
+          "list_matches_saved": true
+        }
+      },
+      "selected_run": 1,
+      "selection": "best of two, independently per metric",
+      "spread_percent": 0.0,
+      "verification": {}
+    },
+    "smh_m2_small_cycles": {
+      "value": 39.3,
+      "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
+      "source_short": "SMHasher3 M2Pro",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/t1ha2-64/M2Pro",
+      "registered_name": "t1ha2-64",
+      "host": "M2Pro",
+      "backend_token": "1Y+a0",
+      "backend_note": "1Y+a0",
+      "no_dedicated_arm_backend": true,
+      "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+      "selected_run": 2,
+      "selection": "best of two, independently per metric",
+      "spread_percent": 0.2544529262086481,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "LE",
+          "value": "0x8F16C948",
+          "result": "PASS"
+        },
+        "computed_values": {
+          "LE": {
+            "value": "0x8F16C948",
+            "result": "PASS"
+          },
+          "BE": {
+            "value": "0x061CB08C",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "LE": "0x8F16C948",
+          "BE": "0x061CB08C"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "t1ha2-64",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
+              "t1ha2-64",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/t1ha2-64.sanity.txt",
+            "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+            "started": "2026-09-18T09:49:26.198857+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T09:49:26.203503+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.40 3.17 3.23",
+              "load1": 3.4,
+              "load5": 3.17,
+              "load15": 3.23
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T09:49:26.705812+00:00",
+            "elapsed_seconds": 0.5022804580000004,
+            "load_after": {
+              "timestamp": "2026-09-18T09:49:26.711100+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.40 3.17 3.23",
+              "load1": 3.4,
+              "load5": 3.17,
+              "load15": 3.23
+            },
+            "raw_sha256": "23a58da0ddaa375e31fcd272d57f8c145418e7cd138520ead7bb13c62e3df7c4",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "LE",
+              "value": "0x8F16C948",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "reference_values": {
+          "existing_M2": {
+            "LE": {
+              "value": "0x8F16C948",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0x061CB08C",
+              "result": "PASS"
+            }
+          },
+          "existing_Xeon": {
+            "LE": {
+              "value": "0x8F16C948",
+              "result": "PASS"
+            },
+            "BE": {
+              "value": "0x061CB08C",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      }
+    },
+    "smh_xeon_small_cycles": {
+      "value": 39.16,
+      "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
+      "source_short": "SMHasher3 Xeon8375C",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/t1ha2-64/Xeon8375C",
+      "registered_name": "t1ha2-64",
+      "host": "Xeon8375C",
+      "backend_token": "1Y+a2",
+      "backend_note": "1Y+a2",
+      "no_dedicated_arm_backend": false,
+      "binary_sha256": {
+        "binary": "experiment/speedbench/build-release-20260917/SMHasher3",
+        "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "binary_sha256_after": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "build_directory": "experiment/speedbench/build-release-20260917",
+        "source_directory": "experiment/speedbench/source",
+        "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
+        "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+        "source_manifest": "provenance/source-sha256.json",
+        "compiler": "c++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+        "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Iexperiment/speedbench/build-release-20260917/include -Iexperiment/speedbench/source/include/common -Iexperiment/speedbench/source/util -Iexperiment/speedbench/source/tests -Iexperiment/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
+        "build_type": "Release",
+        "remote_recheck": {
+          "timestamp": "2026-09-18T00:28:51.045516+00:00",
+          "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+          "binary_matches_execution": true,
+          "execution_sha256": "8fde36ba3be86d737daf71d40b2ce3d2432bce22775db3ea0986399c0524fcaf",
+          "completed_runs": 110,
+          "source_mismatches": [],
+          "raw_mismatches": [],
+          "list_matches_saved": true
+        }
+      },
+      "selected_run": 1,
+      "selection": "best of two, independently per metric",
+      "spread_percent": 0.0,
+      "verification": {}
+    }
+  },
+  "qualification": "Measured score cap with sampling uncertainty; better pairs may exist (6-digit routes not enumerated). Cross-length 13/16-byte pair. Exact class density 2^-24 multiplied by the conditional rate 2^-4.19 measured at 2^30 class samples against upstream. All 701 uniform-seed hits (3 x 2^36) lie inside the class, so the class contribution is the observed rate at this resolution, but it remains a sampled lower bound on eps, not a proof of total equality.",
+  "hover": {
+    "mechanism": "Cross-length carry patterns cancel for a structured seed class."
+  },
+  "speed_registration": "t1ha2-64",
+  "chart_eligible": true,
+  "key_free": false,
+  "mechanism_family": "keyed multiply-fold",
+  "rurban_alias": "t1ha2_atonce",
+  "claim_category": "statistical quality only",
+  "input_domain": "Variable-length byte strings; selected witness lengths shown.",
+  "domain_short": "variable-length byte strings; selected witness only",
+  "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
+  "family_definition": "64×64→128 products of seeded words, folded (mum).",
+  "fairness_record": "records/fairness-pass/t1ha/README.md",
+  "reproduction": {
+    "status": "standalone and upstream checks reproduced; observed Xeon counts recorded",
+    "directory": "verify/t1ha2-64",
+    "readme": "verify/t1ha2-64/README.md",
+    "observed": "verify/t1ha2-64/run_selected_xeon.txt"
+  }
+}

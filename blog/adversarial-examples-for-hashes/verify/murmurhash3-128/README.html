@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>MurmurHash3_x64_128: key-free collisions</title><link href="../../post.css" rel="stylesheet"/><link href="../../math.css" rel="stylesheet"/><link href="../../../../static/vendor/katex-0.18.7/katex.min.css" rel="stylesheet"/><script defer="" src="../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer="" src="../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../index.html">Article</a> · <a href="../../records/README.html">Records</a></nav><h1 id="murmurhash3_x64_128-key-free-collisions">MurmurHash3_x64_128: key-free collisions</h1>
+<p>Reader-runnable reproduction of two message pairs that collide in MurmurHash3_x64_128 under <strong>every</strong> seed.</p>
+<h2 id="the-hash">The hash</h2>
+<p>MurmurHash3 by Austin Appleby (final version, 2012; public domain), <code>MurmurHash3_x64_128</code> in <a class="uri" href="https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp">https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp</a>. The program implements the exact SMHasher3 variant <code>MurmurHash3_128</code> (<a class="uri" href="https://gitlab.com/fwojcik/smhasher3">https://gitlab.com/fwojcik/smhasher3</a>, <code>hashes/murmurhash3.cpp</code>): two 64-bit lanes seeded as <code>h1 = h2 = (uint32_t)seed</code>. The reference API takes a <code>uint32_t</code> seed and SMHasher3 truncates its 64-bit <code>seed_t</code> to 32 bits, so the secret is 32 bits and “a uniformly random seed” means uniform over 2^32 values.</p>
+<p>Validation at startup: the program recomputes SMHasher3’s verification value with SMHasher3’s own procedure (<code>lib/Hashinfo.cpp</code>, <code>_ComputedVerifyImpl</code>: hash the keys <code>{}</code>, <code>{0}</code>, <code>{0,1}</code>, …, <code>{0..254}</code> with seed <code>256-i</code>, concatenate the 256 outputs, hash that with seed 0, first 4 bytes little-endian) and aborts unless it equals <code>0x6384BA69</code>, the value SMHasher3 registers for <code>MurmurHash3_128</code> (the original SMHasher lists the same value for “Murmur3F”).</p>
+<h2 id="what-the-pairs-exploit">What the pairs exploit</h2>
+<p>The seed only sets the initial state <code>(h1, h2)</code>; every message word enters through a public, seed-independent bijection (<code>g1(k) = rotl(k*c1,31)*c2</code>, <code>g2(k) = rotl(k*c2,33)*c1</code>) that is XORed into a lane, after which the lane is rotated, added to the other lane and mapped by <code>x -&gt; 5x + c</code>. Because <code>x ^ 2^63 == x + 2^63</code>, a difference of exactly <code>2^63</code> in a lane is preserved by every one of those operations, and the rotations <code>rotl 27</code> / <code>rotl 31</code> carry a chosen low bit (<code>2^36</code> in <code>h1</code>, <code>2^32</code> in <code>h2</code>) into bit 63. So the attacker picks word differences (four multiplications by the inverse constants) that put <code>(2^63, 0)</code> into the state after block 1 for every seed and cancel it with the 8-byte tail; the lengths are equal, so the finalization sees identical input. This is the top-bit trick of Aumasson, Bernstein and Bosslet (29C3, 2012) for MurmurHash2/3; the 24-byte pair is one block plus a tail, <code>L = 3</code> words, hence <code>bits = log2(L / eps) = log2(3 / 1) = 1.585</code>. The 32-byte pair is the two-block form, and because its state difference returns to <code>(0, 0)</code>, any concatenation of such block pairs collides too (2^n messages from n block pairs, the hash-flooding multicollision).</p>
+<p>Pairs (hex bytes, same length in each pair; the base words are arbitrary):</p>
+<pre><code>24 bytes  m  = 000000000000000000000000000000000000000000000000
+          m' = 60a0fd219e0ef2cd42e098d38ee8728d000000007d4dce82
+32 bytes  m  = 0000000000000000000000000000000000000000000000000000000000000000
+          m' = 60a0fd219e0ef2cd000000000000000060a0fd2121c1234b000000c01f8b7776</code></pre>
+<p>Both were confirmed by an independent implementation over all 2^32 seeds (4294967296 / 4294967296 collisions each). The program samples 2^24 random seeds by default; <code>--exhaustive</code> re-runs the full 2^32 enumeration (one to a few minutes per pair, single-threaded and machine-dependent).</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>cc -std=c11 -O2 -o murmurhash3_128_verify murmurhash3_128_verify.c -lm
+./murmurhash3_128_verify                 # 2^24 random seeds, rng seed 1
+./murmurhash3_128_verify 26 7            # 2^26 seeds, rng seed 7
+./murmurhash3_128_verify --exhaustive    # additionally all 2^32 seeds</code></pre>
+<p>Single C11 file, no dependencies (<code>-lm</code> for <code>log2</code>), about 1.2 s for the default run. For each pair it prints the hex messages, a trace of the state XOR-difference after each block and the tail at two seeds, the collision rate over N random seeds next to a control pair (<code>m'</code> with its last bit flipped, which must not collide), the published example seed 0 with both hash values, and the first sampled colliding seed with both hash values; finally the 4-way multicollision from pair 2, sampled on min(N, 2^20) seeds (which is why the default run reports 1048576/1048576 there). Hash values are printed as the 16 output bytes in SMHasher3 order (<code>h1</code> little-endian, then <code>h2</code>). A non-numeric argument or a misspelled flag is rejected with exit status 2.</p>
+<h2 id="expected-output">Expected output</h2>
+<pre><code>$ ./murmurhash3_128_verify
+MurmurHash3_x64_128 (SMHasher3 "MurmurHash3_128", seed truncated to 32 bits)
+SMHasher3 verification value: computed 0x6384BA69, expected 0x6384BA69 -&gt; OK
+Sampling N = 2^24 uniformly random 32-bit seeds (xoshiro256**, rng seed 1)
+
+== Pair 1: 24-byte pair (one block + 8-byte tail): confirmed worst pair, L = 3 words, bits = log2(3/1) = 1.585 ==
+  length 24 bytes each, condition on the seed: none (key-free)
+  m  = 000000000000000000000000000000000000000000000000
+  m' = 60a0fd219e0ef2cd42e098d38ee8728d000000007d4dce82
+  mechanism: block 1: g1(k1') = g1(k1) ^ 2^36 and g2(k2') = g2(k2) ^ 2^32 give state difference (2^63, 0) deterministically (rotl 27 / rotl 31 move the bits to the top; += and *5+c preserve 2^63); 8-byte tail k3 with g1(k3') = g1(k3) ^ 2^63 cancels h1; no k2 tail so h2 untouched
+  trace at seed 0x00000000 (state difference h1^h1', h2^h2'):
+    block 1: g1 diff 0000001000000000  g2 diff 0000000100000000  -&gt; state diff (8000000000000000, 0000000000000000)
+    tail   : g1 diff 8000000000000000                            -&gt; state diff (0000000000000000, 0000000000000000)
+    same length, same state -&gt; same finalization -&gt; same hash
+  trace at seed 0x9e3779b9 (state difference h1^h1', h2^h2'):
+    block 1: g1 diff 0000001000000000  g2 diff 0000000100000000  -&gt; state diff (8000000000000000, 0000000000000000)
+    tail   : g1 diff 8000000000000000                            -&gt; state diff (0000000000000000, 0000000000000000)
+    same length, same state -&gt; same finalization -&gt; same hash
+  random seeds : collisions/N = 16777216/16777216 = 1.000000, rate 2^0.0000
+  control pair : collisions/N = 0/16777216, rate unestimated (zero observed in 2^24 trials)  (m' with last bit flipped)
+  published example seed 0x00000000:
+    H(m)  = 46328447a2022b04964f2f614c774125
+    H(m') = 46328447a2022b04964f2f614c774125
+    equal
+  first sampled colliding seed 0xb3f2af6d:
+    H(m)  = bd2dcb051acc710a23874cecfe4f47df
+    H(m') = bd2dcb051acc710a23874cecfe4f47df
+    equal
+
+== Pair 2: 32-byte pair (two blocks): the 2012-style two-block universal collision, L = 4 words, bits = 2 ==
+  length 32 bytes each, condition on the seed: none (key-free)
+  m  = 0000000000000000000000000000000000000000000000000000000000000000
+  m' = 60a0fd219e0ef2cd000000000000000060a0fd2121c1234b000000c01f8b7776
+  mechanism: block 1: g1 diff 2^36 -&gt; (2^63, 2^63); block 2: g1 diff 2^63|2^36, g2 diff 2^63 -&gt; (0, 0); n such block pairs give 2^n messages colliding for every seed (hash-flooding multicollision)
+  trace at seed 0x00000000 (state difference h1^h1', h2^h2'):
+    block 1: g1 diff 0000001000000000  g2 diff 0000000000000000  -&gt; state diff (8000000000000000, 8000000000000000)
+    block 2: g1 diff 8000001000000000  g2 diff 8000000000000000  -&gt; state diff (0000000000000000, 0000000000000000)
+    same length, same state -&gt; same finalization -&gt; same hash
+  trace at seed 0x9e3779b9 (state difference h1^h1', h2^h2'):
+    block 1: g1 diff 0000001000000000  g2 diff 0000000000000000  -&gt; state diff (8000000000000000, 8000000000000000)
+    block 2: g1 diff 8000001000000000  g2 diff 8000000000000000  -&gt; state diff (0000000000000000, 0000000000000000)
+    same length, same state -&gt; same finalization -&gt; same hash
+  random seeds : collisions/N = 16777216/16777216 = 1.000000, rate 2^0.0000
+  control pair : collisions/N = 0/16777216, rate unestimated (zero observed in 2^24 trials)  (m' with last bit flipped)
+  published example seed 0x00000000:
+    H(m)  = d05cde4a283c72313c2d34b31b1dc010
+    H(m') = d05cde4a283c72313c2d34b31b1dc010
+    equal
+  first sampled colliding seed 0x1a28690d:
+    H(m)  = 8a7b010b8bed1073e911a028f82cd0c2
+    H(m') = 8a7b010b8bed1073e911a028f82cd0c2
+    equal
+
+== Multicollision: the four 64-byte messages {m,m'} x {m,m'} of pair 2 ==
+  seeds where all four hashes agree: 1048576/1048576
+  example seed 0x0afee077:
+    H(AA) = 43ff2fce6ca96bd127f1381812f90117
+    H(AB) = 43ff2fce6ca96bd127f1381812f90117
+    H(BA) = 43ff2fce6ca96bd127f1381812f90117
+    H(BB) = 43ff2fce6ca96bd127f1381812f90117
+
+Done.</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The x86_32 and x86_128 variants of MurmurHash3 fall to the same trick with 8-byte and 32-byte pairs respectively (different SMHasher3 hashes, <code>MurmurHash3_32</code> and <code>MurmurHash3_128__int32</code>); they are not included here.</li>
+<li>Different <code>rng_seed</code> values change only the “first sampled colliding seed” lines; the rates are 1 for both pairs and 0 for the controls regardless.</li>
+</ul>
+<h2 id="license">License</h2>
+<p>The program is MIT-licensed (Copyright (c) 2026 Thomas Dybdahl Ahle). MurmurHash3 is public domain (Austin Appleby); the implementation here is written from the reference source.</p>
+</main></body></html>

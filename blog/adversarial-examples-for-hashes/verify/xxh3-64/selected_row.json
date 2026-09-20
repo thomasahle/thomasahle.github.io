@@ -1,0 +1,513 @@
+{
+  "id": "xxh3-64",
+  "pattern": [
+    "P1"
+  ],
+  "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h",
+  "name": "XXH3-64 0.8.3",
+  "version": "0.8.3",
+  "label": "XXH3-64 0.8.3",
+  "anchor": "appendix-xxh3-64",
+  "family": "heuristic",
+  "claim_id": "xxh3",
+  "key_bits": 1536,
+  "output_bits": 64,
+  "key_model": "Uniform 192-byte secret via XXH3_64bits_withSecret (1536 key bits; API minimum 136 B = 1088). XXH3_64bits_withSeed and XXH3_64bits_withSecretandSeed (len <= 240, one-shot and streaming) use the default public secret and stay in the 64-bit-seed model",
+  "status": "NEW",
+  "classification_reason": "Scored pair W0 (24 B, word 0 complemented) under the random-secret model is the paper's fold differential (M,0), verified against upstream v0.8.3 through XXH3_64bits_withSecret. Status NEW is retained for the row's default-secret construction: the 32-byte NAF block-1 pair (2^-10.47 through withSeed, withSecretandSeed and streaming at <= 240 B), reported in the notes as the default-secret caveat; the base-1143 reproduction remains as a control.",
+  "prior_work": [
+    {
+      "label": "Paper: harness results and fold differential",
+      "url": "https://github.com/thomasahle/fast-polynomials"
+    }
+  ],
+  "official_claim": {
+    "text": "xxHash is primarily designed for speed. It is labeled non-cryptographic, and is not meant to avoid intentional collisions (same digest for 2 different messages), or to prevent producing a message with a predefined digest.",
+    "url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md",
+    "context": "32-byte NAF block-1 pair: 755087, 754660 and 754334 hits per 2^30 fresh keys (2^-10.47); the base-1143 zero-tail pair (2^-21.0) and historical pair A are separate.",
+    "provenance": "records/README.html",
+    "verbatim_record": "(v0.8.3 comment; replaced on dev 2026-09-17 by PR #1146, refined 2026-09-18 by PR #1150) xxHash is primarily designed for speed. It is labeled non-cryptographic, and is not meant to avoid intentional collisions (same digest for 2 different messages), or to prevent producing a message with a predefined digest. | It's possible to provide any blob of bytes as a \"secret\" to generate the hash. This makes it more difficult for an external actor to prepare an intentional collision. | DISCLAIMER: There are known *seed-dependent* multicollisions here due to multiplication by zero, affecting hashes of lengths 17 to 240. However, they are very unlikely. Keep this in mind when using the unseeded XXH3_64bits() variant: As with all unseeded non-cryptographic hashes, it does not attempt to defend itself against specially crafted inputs, only random inputs. | Finally, xxHash provides its own [massive collision tester](https://github.com/Cyan4973/xxHash/tree/dev/tests/collisions), able to generate and compare billions of hashes to test the limits of 64-bit hash algorithms. On this front too, xxHash features good results, in line with the [birthday paradox].",
+    "source_record": "(v0.8.3 comment; replaced on dev 2026-09-17 by PR #1146, refined 2026-09-18 by PR #1150) doc/xxhash_spec.md (v0.8.3) line 40; xxhash.h (v0.8.3) lines 1208-1209 and 4707-4714 (comment prefix stripped; SMHasher3's copy at hashes/xxhash.cpp L591-598 is reflowed and reads 'multiplication by 0'); README.md (v0.8.3) lines 85-88. https://github.com/Cyan4973/xxHash/blob/v0.8.3/",
+    "current_comment_url": "https://github.com/Cyan4973/xxHash/blob/6cc7b4b56f5190f288a58642fd24ba62ec56bb3d/xxhash.h",
+    "current_comment_excerpt": "The _withSeed variant is also affected, but its collision probability depends on the chosen pair because the 64-bit seed produces a structured secret. A fixed pair has been measured to collide with probability ~2^-21 over random seeds. This is an observed result, not a known upper bound.",
+    "current_header_note": "https://github.com/Cyan4973/xxHash/blob/6cc7b4b56f5190f288a58642fd24ba62ec56bb3d/xxhash.h#L4752-L4804; the 128-bit variant is not immune; the core is functionally identical to v0.8.3."
+  },
+  "smhasher3": {
+    "verdict": "FAIL",
+    "passed": 223,
+    "total": 250,
+    "url": "https://github.com/fwojcik/smhasher3/blob/5035a923/results/README.md",
+    "provenance": "records/README.html",
+    "failed_tests": [
+      "BIC",
+      "Sparse",
+      "PerlinNoise",
+      "Bitflip",
+      "SeedZeroes",
+      "SeedSparse",
+      "SeedBlockLen",
+      "SeedBlockOffset",
+      "SeedBIC"
+    ]
+  },
+  "pair": {
+    "m_hex": "000000000000000000000000000000000000000000000000",
+    "m_prime_hex": "ffffffffffffffff00000000000000000000000000000000",
+    "lengths_bytes": [
+      24,
+      24
+    ],
+    "L_words": 3,
+    "pair_id": "W0 (24 B, word 0 complemented)",
+    "verifier_confirmed": true,
+    "example_seed_raw": "withSecret has no seed (seed 0)",
+    "example_key_words_hex": [
+      "c9eb2c4bbc54b9cd6ddfbb86d6dfffae5f96e2b9ba49bafeda316c65e62f6d099798b895b8cfaa0a65497109bd7bb4a11b6e08792a6222604c44afeb83ab8d9fbc49fa6bd7eeb2a8886a0cbf50060b759a7d3f801597002d68fc5fab9f4144e6aaf3c9a2ddac70e35114db1307ef0d0ce23e5a947218d6217f45612f0987f9f59e68c918342362f7e9984e9f4cd86e51ece391ffcb3ac35fa080b04dbb776cfb6f539ca0049bd1d89db1a130daf6a5121292121c90af684d0a9dad3752ee254a"
+    ],
+    "example_output_hex": "24453ecc9793506c",
+    "outputs": {
+      "m": "0x24453ecc9793506c",
+      "m2": "0x24453ecc9793506c"
+    },
+    "construction": "bytes 0..7 complemented; at 24 B those bytes feed only block 0, so the pair collides iff fold(x,y) = fold(~x,y) for the two uniform keyed words (XOR differential (M,0)); bytes 8..23 zero",
+    "provenance": [
+      "records/witness-searches/random-secret/xxh3-64/verify/README.md",
+      "verify/xxh3-64/README.html"
+    ],
+    "default_secret_caveat_pair": {
+      "m_hex": "0000000000000000000000000000000051151210404400000000008204000105",
+      "m_prime_hex": "00000000000000000000000000000000aeeaedefbfbbffffffffff7dfbfffefa",
+      "lengths_bytes": [
+        32,
+        32
+      ],
+      "L_words": 4,
+      "pair_id": "NAF block-1 complement (P,N of D = K2+K3+1)",
+      "apis": "XXH3_64bits_withSeed; XXH3_64bits_withSecretandSeed (len <= 240); streaming reset_withSecretandSeed (default kSecret at these lengths)",
+      "example_seed_raw": "2468b3bc26a44073 (= P - K2); seed 0 does NOT collide",
+      "example_output_hex": "dd686b61e2f6dc69",
+      "rate": "2,264,081 / 3x2^30 = 2^-10.4745 (withSeed); 188643/2^28 (withSecretandSeed); 11864/2^24 (streaming)",
+      "bits": 12.47,
+      "interval_95_bits": [
+        12.473,
+        12.476
+      ],
+      "under_random_secret": "ordinary (M,M) block complement: 764/2^36.17 = 2^-26.59, 28.6 bits [28.5, 28.7]",
+      "provenance": [
+        "verify/xxh3-64/README.html",
+        "records/witness-searches/random-secret/xxh3-64/verify/README.md"
+      ]
+    }
+  },
+  "collision": {
+    "display": "about 527 of every 2^36 keys (sampled; 527 events, pooled)",
+    "count": 527,
+    "trials": 68719476736,
+    "trials_log2": 36,
+    "log2_contribution": -26.958,
+    "exact_contribution": false,
+    "total_equality_proved": false,
+    "interpretation": "Measured full-output collision rate with seed and secret uniform per key",
+    "runs": "verifier xxh3_verify.c, upstream xxhash.h v0.8.3 (sha256 17973c0d...): XXH3_64bits_withSecret 260/2^35 (salt 9102), XXH3_64bits_internal seed+secret 267/2^35; Xeon 8375C 2026-09-19. Same-model NAF pair: 349/2^35 + 332/2^35 + 83/2^33 = 2^-26.59"
+  },
+  "score": {
+    "calculated": 28.543,
+    "display": 28.5,
+    "display_text": "at most 28.5 bits (cap; sampled); 95% Poisson interval [28.4, 28.7]",
+    "direction": "estimated_upper_bound",
+    "rounding": "nearest tenth; sampling uncertainty",
+    "derivation": "log2(3) - log2(527/2^36)",
+    "poisson_95_interval": [
+      28.4,
+      28.7
+    ],
+    "poisson_count": 527,
+    "poisson_trials": 68719476736,
+    "interval_scope": "Two-sided exact Poisson interval transformed to log2(L/p); uncertainty in this witness-derived quantity, not an interval for the unknown family score.",
+    "interval_95_bits": [
+      28.4,
+      28.7
+    ],
+    "interval_method": "central 95% exact Poisson (Garwood) on the pooled count; displayed endpoints rounded"
+  },
+  "bits": 28.543,
+  "bits_kind": "measured",
+  "mechanism": "Complementing one keyed word of a 16-byte block collides when fold(x,y) = fold(~x,y) for the block's two uniform multiplicands (the (M,0) differential of lo ^ hi of a 64x64 product, ~2^-26.9); the final avalanche is bijective.",
+  "notes": "Uniform 192-byte secret through XXH3_64bits_withSecret (the seed-and-secret model via XXH3_64bits_internal gives the same rate: 267 vs 260 per 2^35). Under this model every 16-byte block is fold(x,y) with x, y independent uniform words, so only XOR differentials of the fold matter: the 24-byte word-0 complement (M,0) is the shortest pair whose changed word sits in exactly one block (L = 3), and the 32-byte NAF pair becomes an ordinary block complement (M,M): 764/2^36.17 = 2^-26.59, 28.6 bits [28.5, 28.7]. Lengths 1..16 are injective per length under a uniform secret; the > 240 B stripe swap is ~2^-32.6 at L >= 31 (cap ~37.5). DEFAULT-SECRET CAVEAT: with XXH3_64bits_withSeed (default kSecret, uniform 64-bit seed), with XXH3_64bits_withSecretandSeed for len <= 240 (the custom secret is ignored, xxhash.h v0.8.3 lines 6230-6235) and with the streaming reset_withSecretandSeed, the 32-byte NAF pair M = 0^16 || 51151210404400000000008204000105, M' = 0^16 || aeeaedefbfbbffffffffff7dfbfffefa collides at 2^-10.47 (2,264,081 / 3x2^30; 2945/2^22 and 188643/2^28 through withSecretandSeed), cap 12.47 bits [12.473, 12.476]; its bytes 16..31 are the NAF digit sums of D = K2+K3+1 for the default-secret words K2, K3, and it does not transfer to an independently random secret (0/2^32 in the XXH3-128 control; 2^-26.6 class here). Reported upstream as issue #1127 (default secret); PR #1146/#1150 document the complement-pair rate. Upstream dev at 6cc7b4b (unreleased 0.8.4) is byte-identical to 0.8.3 in the XXH3 core.",
+  "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_64bits_withSecret; callers of withSeed or withSecretandSeed (len <= 240) are in the default-secret model, where the NAF pair gives 12.47 bits. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (527 events in 2^36 keys). No practical flooding attack is established by this fixed-pair rate.",
+  "hover": {
+    "mechanism": "Complementing one keyed word of a block collides when fold(x,y) = fold(~x,y); the avalanche is bijective."
+  },
+  "speeds": {
+    "m2_gbps_16k": {
+      "value": null,
+      "source": "Unavailable in supplied records",
+      "record": "records/README.html",
+      "source_short": "unavailable"
+    },
+    "m2_gbps_512": {
+      "value": null,
+      "source": "Unavailable in supplied records",
+      "record": "records/README.html",
+      "source_short": "unavailable"
+    },
+    "smh_m2_bulk_Bpc": {
+      "value": 13.16,
+      "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle",
+      "source_short": "SMHasher3 M2Pro",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/XXH3-64/M2Pro",
+      "registered_name": "XXH3-64",
+      "host": "M2Pro",
+      "backend_token": "neon",
+      "backend_note": "neon",
+      "no_dedicated_arm_backend": false,
+      "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+      "selected_run": "median(all 5)",
+      "selection": "median of all runs",
+      "spread_percent": 13.057324840764316,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "CE",
+          "value": "0x1AAEE62C",
+          "result": "PASS"
+        },
+        "computed_values": {
+          "CE": {
+            "value": "0x1AAEE62C",
+            "result": "PASS"
+          },
+          "NE": {
+            "value": "0xF8DBB4DD",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "CE": "0x1AAEE62C",
+          "NE": "0xF8DBB4DD"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "XXH3-64",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
+              "XXH3-64",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/XXH3-64.sanity.txt",
+            "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+            "started": "2026-09-18T09:49:22.228720+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T09:49:22.233352+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.27 3.13 3.22",
+              "load1": 3.27,
+              "load5": 3.13,
+              "load15": 3.22
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T09:49:22.705772+00:00",
+            "elapsed_seconds": 0.47237962499999986,
+            "load_after": {
+              "timestamp": "2026-09-18T09:49:22.711140+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.27 3.13 3.22",
+              "load1": 3.27,
+              "load5": 3.13,
+              "load15": 3.22
+            },
+            "raw_sha256": "3c084a805149555fd895d6371e7dca3310edfb8ed53e4c0cac1db274ec9f0083",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "CE",
+              "value": "0x1AAEE62C",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "reference_values": {
+          "existing_M2": {
+            "CE": {
+              "value": "0x1AAEE62C",
+              "result": "PASS"
+            },
+            "NE": {
+              "value": "0xF8DBB4DD",
+              "result": "PASS"
+            }
+          },
+          "existing_Xeon": {
+            "CE": {
+              "value": "0x1AAEE62C",
+              "result": "PASS"
+            },
+            "NE": {
+              "value": "0xF8DBB4DD",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      }
+    },
+    "smh_xeon_bulk_Bpc": {
+      "value": 19.69,
+      "source": "SMHasher3 Xeon8375C, 262144 B bulk, B/cycle",
+      "source_short": "SMHasher3 Xeon8375C",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/XXH3-64/Xeon8375C",
+      "registered_name": "XXH3-64",
+      "host": "Xeon8375C",
+      "backend_token": "avx512",
+      "backend_note": "avx512",
+      "no_dedicated_arm_backend": false,
+      "binary_sha256": {
+        "binary": "experiment/speedbench/build-release-20260917/SMHasher3",
+        "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "binary_sha256_after": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "build_directory": "experiment/speedbench/build-release-20260917",
+        "source_directory": "experiment/speedbench/source",
+        "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
+        "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+        "source_manifest": "provenance/source-sha256.json",
+        "compiler": "c++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+        "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Iexperiment/speedbench/build-release-20260917/include -Iexperiment/speedbench/source/include/common -Iexperiment/speedbench/source/util -Iexperiment/speedbench/source/tests -Iexperiment/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
+        "build_type": "Release",
+        "remote_recheck": {
+          "timestamp": "2026-09-18T00:28:51.045516+00:00",
+          "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+          "binary_matches_execution": true,
+          "execution_sha256": "8fde36ba3be86d737daf71d40b2ce3d2432bce22775db3ea0986399c0524fcaf",
+          "completed_runs": 110,
+          "source_mismatches": [],
+          "raw_mismatches": [],
+          "list_matches_saved": true
+        }
+      },
+      "selected_run": 1,
+      "selection": "best of two, independently per metric",
+      "spread_percent": 1.8623900672529947,
+      "verification": {}
+    },
+    "smh_m2_small_cycles": {
+      "value": 24.51,
+      "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
+      "source_short": "SMHasher3 M2Pro",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/XXH3-64/M2Pro",
+      "registered_name": "XXH3-64",
+      "host": "M2Pro",
+      "backend_token": "neon",
+      "backend_note": "neon",
+      "no_dedicated_arm_backend": false,
+      "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+      "selected_run": "median(all 5)",
+      "selection": "median of all runs",
+      "spread_percent": 10.341805433829965,
+      "verification": {
+        "status": "PASS",
+        "observed": {
+          "mode": "CE",
+          "value": "0x1AAEE62C",
+          "result": "PASS"
+        },
+        "computed_values": {
+          "CE": {
+            "value": "0x1AAEE62C",
+            "result": "PASS"
+          },
+          "NE": {
+            "value": "0xF8DBB4DD",
+            "result": "PASS"
+          }
+        },
+        "registered_expected_values": {
+          "CE": "0x1AAEE62C",
+          "NE": "0xF8DBB4DD"
+        },
+        "sanity_runs": [
+          {
+            "host": "M2Pro",
+            "name": "XXH3-64",
+            "test": "Sanity",
+            "run": 1,
+            "command": [
+              "experiment/review/m2-rerun/build-fixed/SMHasher3",
+              "XXH3-64",
+              "--test=Sanity"
+            ],
+            "raw_file": "out/M2Pro/XXH3-64.sanity.txt",
+            "binary_sha256": "fb2f75fb2f170a6956441e7db8ae2ae95e3944ef44eecbb0aeeb46d4115b025a",
+            "started": "2026-09-18T09:49:22.228720+00:00",
+            "load_before": {
+              "timestamp": "2026-09-18T09:49:22.233352+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.27 3.13 3.22",
+              "load1": 3.27,
+              "load5": 3.13,
+              "load15": 3.22
+            },
+            "returncode": 0,
+            "finished": "2026-09-18T09:49:22.705772+00:00",
+            "elapsed_seconds": 0.47237962499999986,
+            "load_after": {
+              "timestamp": "2026-09-18T09:49:22.711140+00:00",
+              "uptime": "11:49  up 23:40, 1 user, load averages: 3.27 3.13 3.22",
+              "load1": 3.27,
+              "load5": 3.13,
+              "load15": 3.22
+            },
+            "raw_sha256": "3c084a805149555fd895d6371e7dca3310edfb8ed53e4c0cac1db274ec9f0083",
+            "sha256_verified": true,
+            "implementation_verification": {
+              "mode": "CE",
+              "value": "0x1AAEE62C",
+              "result": "PASS"
+            },
+            "pass_checks": 7,
+            "failure_lines": [],
+            "status": "PASS"
+          }
+        ],
+        "reference_values": {
+          "existing_M2": {
+            "CE": {
+              "value": "0x1AAEE62C",
+              "result": "PASS"
+            },
+            "NE": {
+              "value": "0xF8DBB4DD",
+              "result": "PASS"
+            }
+          },
+          "existing_Xeon": {
+            "CE": {
+              "value": "0x1AAEE62C",
+              "result": "PASS"
+            },
+            "NE": {
+              "value": "0xF8DBB4DD",
+              "result": "PASS"
+            }
+          }
+        },
+        "mismatches": []
+      }
+    },
+    "smh_xeon_small_cycles": {
+      "value": 30.16,
+      "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
+      "source_short": "SMHasher3 Xeon8375C",
+      "url": "records/speeds.json",
+      "record": "records/speeds.json#/XXH3-64/Xeon8375C",
+      "registered_name": "XXH3-64",
+      "host": "Xeon8375C",
+      "backend_token": "avx512",
+      "backend_note": "avx512",
+      "no_dedicated_arm_backend": false,
+      "binary_sha256": {
+        "binary": "experiment/speedbench/build-release-20260917/SMHasher3",
+        "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "binary_sha256_after": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+        "build_directory": "experiment/speedbench/build-release-20260917",
+        "source_directory": "experiment/speedbench/source",
+        "tree_commit": "3de870c7ab449ad11cf450848d9270e3f54102d1",
+        "tree_status": " M CMakeLists.txt\n M hashes/Hashsrc.cmake\n M main.cpp\n M util/Random.cpp\n?? REVIEW.md\n?? doc/\n?? hashes/chainhash.cpp\n?? hashes/chainhash_goldi_exp.cpp\n?? hashes/injective_hash.cpp\n?? misc/a5hash64_constrained_sat_search.py\n?? misc/a5hash64_eval.cpp\n?? misc/a5hash64_family_coverage.cpp\n?? misc/a5hash64_family_smhasher_eval.cpp\n?? misc/a5hash64_seed_collision.cpp\n?? misc/a5hash_b_len2_template_scan.cpp\n?? misc/a5hash_b_neighbor_family.cpp\n?? misc/a5hash_b_pair_scan.cpp\n?? misc/a5hash_b_ref.py\n?? misc/find_a5hash64_trunc_collisions.cpp\n?? misc/find_a5hash64_trunc_collisions.py\n?? misc/find_a5hash_b_colliding_family.cpp\n?? misc/find_a5hash_b_collisions.cpp\n?? misc/find_a5hash_b_collisions.py\n?? misc/fold_commute_sweep.cpp\n?? misc/gen_a5hash64_len16_collision.py\n?? misc/key32_collision.cpp\n?? misc/mum_colliding_family_search.cpp\n?? misc/mum_collision_search.cpp\n?? misc/odd_even_family_collision.cpp\n?? misc/rapid_bbit_reference.cpp\n?? misc/rapid_mix_commute.cpp\n?? misc/rapid_mix_mapstats.cpp\n?? misc/rapidhash_adversarial.cpp\n?? misc/rapidhash_collision_test.cpp\n?? misc/rapidhash_permutation_test\n?? misc/rapidhash_permutation_test.cpp\n?? misc/rapidhash_random_secret_collision.cpp\n?? results/a5hash64_attack1_algebraic_notes.txt\n?? results/a5hash64_constrained_bruteforce_results.txt\n?? results/a5hash64_constrained_sat_results.txt\n?? results/a5hash64_family_search_round2.txt\n?? results/a5hash64_family_smhasher_ranking.txt\n?? results/a5hash64_len2_template_probe_add_D58_seed20_out20.txt\n?? results/a5hash64_len2_template_probe_xor_D58_seed20_out20.txt\n?? results/a5hash_b12_len1_family32.txt\n?? results/a5hash_b12_len1_family64.txt\n?? results/a5hash_b_candidate_scoreboard.tsv\n?? results/a5hash_b_family_b17_24_probe.tsv\n?? results/a5hash_b_len1_mix_best_b11.txt\n?? results/a5hash_b_len1_mix_best_b12.txt\n?? results/a5hash_b_len1_mix_ratio_sweep.tsv\n?? results/a5hash_b_len1_parametric_eval.tsv\n?? results/a5hash_b_len2_b14_16_quick.tsv\n?? results/a5hash_b_len2_best_b12_add_40_40.txt\n?? results/a5hash_b_len2_best_b13_xor_80_80.txt\n?? results/a5hash_b_len2_dxpow2_top_restarts.tsv\n?? results/a5hash_b_len2_dy_sweep_dxpow2.tsv\n?? results/a5hash_b_len2_template_round4_notes.txt\n?? results/a5hash_b_len2_template_sweep_b10_12.tsv\n?? results/a5hash_b_len2_template_top_restarts.tsv\n?? results/a5hash_b_len4_sweep.txt\n?? results/a5hash_b_new_candidates_collisions.txt\n?? results/a5hash_b_pair_delta_scan.tsv\n?? results/a5hash_b_small_family_round2_notes.txt\n?? results/a5hash_b_small_family_round3_notes.txt\n?? results/a5hash_b_small_sweep_round2.tsv\n?? results/a5hash_b_small_top_restarts.tsv\n?? results/a5hash_notes_so_far.md\n?? results/mum_collision_comp_suffix_xempty_bits8-16_len2-32_pow2_exact_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_bits8-20_len2-32_pow2_sample16384_s5_top5_seed1.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-10_exact_top5.txt\n?? results/mum_collision_comp_suffix_xempty_m8-20_len2-20_exact_top1_s1.txt\n?? results/mum_collision_eval_zero_prefix_last_comp_sample_m16-64_len2-1024_q0-1-3.txt\n?? results/mum_collision_family_zero_prefix_last_comp_q0-1-3_m8-20_len2-32.txt\n?? results/mum_collision_heuristic_any_xor_horner_x_m1-10_len2-5_top3.txt\n?? results/mum_collision_heuristic_comp_suffix_k1_xor_horner_x_m16-24_len2-5_top3.txt\n?? results/mum_collision_notes.md\n?? results/mum_collision_search_bits20_len128_comp_suffix_k1_sample8192_s10_top5_seed1_final_exact.txt\n?? results/mum_collision_search_xor_horner_m1-10_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_m1-20_len1-5_exact.txt\n?? results/mum_collision_search_xor_horner_xempty_m1-10_len1-5_exact.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-10_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m1-12_len2-5_top10.txt\n?? results/mum_collision_sweep_q_xor_horner_x_m11-12_len2-5_top10.txt\n?? results/passers_adversarial_analysis.md\n?? results/passers_adversarial_scan.tsv\n?? tests/LargeKeysetTest.cpp\n?? tests/LargeKeysetTest.h\n?? tests/SeedDifferentialTest.cpp\n?? tests/SeedDifferentialTest.h\n",
+        "source_manifest": "provenance/source-sha256.json",
+        "compiler": "c++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+        "compiler_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.31\n\n# compile CXX with /usr/bin/c++\nCXX_DEFINES = -DHAVE_THREADS\n\nCXX_INCLUDES = -Iexperiment/speedbench/build-release-20260917/include -Iexperiment/speedbench/source/include/common -Iexperiment/speedbench/source/util -Iexperiment/speedbench/source/tests -Iexperiment/speedbench/source/include/hashlib\n\nCXX_FLAGS =  -O3 -march=native -g -ggdb3 -Wall -Wextra -Wvla -Wpedantic       -Wno-unused-function -Wno-unknown-pragmas -DNDEBUG -std=c++11\n\n",
+        "build_type": "Release",
+        "remote_recheck": {
+          "timestamp": "2026-09-18T00:28:51.045516+00:00",
+          "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
+          "binary_matches_execution": true,
+          "execution_sha256": "8fde36ba3be86d737daf71d40b2ce3d2432bce22775db3ea0986399c0524fcaf",
+          "completed_runs": 110,
+          "source_mismatches": [],
+          "raw_mismatches": [],
+          "list_matches_saved": true
+        }
+      },
+      "selected_run": 2,
+      "selection": "best of two, independently per metric",
+      "spread_percent": 0.03315649867374759,
+      "verification": {}
+    }
+  },
+  "reproduction": {
+    "status": "standalone program supplied; startup witness and deterministic smoke check recorded",
+    "directory": "verify/xxh3-64/README.html",
+    "source": "verify/xxh3-64/xxh3_64_pair_check.c",
+    "command": "cc -O3 -std=c11 xxh3_64_pair_check.c -lm -o check && ./check random-secret 20",
+    "trials": 1048576,
+    "expected_smoke": "725 hits / 2^20",
+    "rng": "one xoshiro256** stream from SplitMix64(salt); seed word then 24 secret words per trial; default salt deterministic",
+    "note": "random-secret mode added 2026-09-19: the 24-byte W0 pair under XXH3_64bits_withSecret with a fresh 192-byte uniform secret per trial (row check, recorded witness asserted at startup), the NAF pair under XXH3_64bits_withSeed (default-secret control) and under XXH3_64bits_withSecretandSeed with the same seed and a fresh secret, asserting output equality trial by trial (the custom secret is ignored at 32 B). The default mode keeps the NAF/withSeed check (725 hits / 2^20 smoke)."
+  },
+  "supporting_measurements": {
+    "source": "verify/xxh3-64/HISTORICAL.html",
+    "historical_pair_128B": {
+      "m_hex": "8912a3da9fc464368202a1be238b7d11a56186f8dc03bd1f78bfbd2ba3386ced7093d3639fc8f076abe3f9a757e5c84290720e6340b2e7820a16a5633b9b0344773006232e3abc7d4727eafba248b46cf2a6516698382bd2fa890528924cd1b618df4aa87d1af4bcec13f92bf8a1163e657fb0885deddf709a0252fbe3ae169d",
+      "m_prime_hex": "76ed5c25603b9bc97dfd5e41dc7482eea56186f8dc03bd1f78bfbd2ba3386ced7093d3639fc8f076abe3f9a757e5c84290720e6340b2e7820a16a5633b9b0344773006232e3abc7d4727eafba248b46cf2a6516698382bd2fa890528924cd1b618df4aa87d1af4bcec13f92bf8a1163e657fb0885deddf709a0252fbe3ae169d",
+      "lengths_bytes": [
+        128,
+        128
+      ],
+      "L_words": 16,
+      "pair_id": "base-1143",
+      "verifier_confirmed": true,
+      "example_seed_raw": "0xc8eae1baae13330b",
+      "example_key_words_hex": [
+        "c8eae1baae13330b"
+      ],
+      "example_output_hex": "448e3716c8effb94",
+      "outputs": {
+        "m": "0x448e3716c8effb94",
+        "m2": "0x448e3716c8effb94"
+      },
+      "provenance": [
+        "records/README.html: base 1143, confirm1/confirm2",
+        "verify/xxh3-64/README.html"
+      ]
+    },
+    "fresh_counts": [
+      483,
+      535
+    ],
+    "fresh_trials_each": 1073741824,
+    "zero_16B_hits": 0,
+    "zero_16B_trials": 4294967296
+  },
+  "provenance": [
+    "verify/xxh3-64/README.html",
+    "records/witness-searches/random-secret/xxh3-64/verify/README.md",
+    "records/witness-searches/random-secret/xxh3-64/verify/logs/w0_secret_2p35.txt",
+    "verify/xxh3-64/HISTORICAL.html",
+    "records/README.html"
+  ],
+  "speed_registration": "XXH3-64",
+  "chart_eligible": true,
+  "key_free": false,
+  "mechanism_family": "NH-like accumulators",
+  "rurban_alias": "xxh3low",
+  "claim_category": "statistical quality only",
+  "input_domain": "Variable-length byte strings; selected witness lengths shown.",
+  "domain_short": "variable-length byte strings; selected witness only",
+  "key_free_definition": "A fixed seed-independent pair that collides for every API seed, with the stated public constants.",
+  "api": "XXH3_64bits_withSecret, 192-byte uniform secret (1536 bits). XXH3_64bits_withSeed, XXH3_64bits_withSecretandSeed (len <= 240) and streaming reset_withSecretandSeed use the default public secret",
+  "prior_report_url": "https://github.com/Cyan4973/xxHash/issues/1127",
+  "maintainer_reply": {
+    "date": "2026-09-17",
+    "url": "https://github.com/Cyan4973/xxHash/issues/1127#issuecomment-5720905442",
+    "summary": "Yann Collet thanked the reporter for the report and reproduction, described an approximately one-in-100-million carefully crafted-pair rate over 32–240 bytes, stated that collision resistance is outside noncryptographic XXH3’s guarantees, and said the XXH3_mix16B comment would be updated. PR #1146 (2026-09-17, commit 4c19ec2) replaced the XXH3_mix16B DISCLAIMER, documenting the complement-pair rate and recommending a cryptographic hash or MAC for adversarial collision resistance. PR #1150 (2026-09-18, commit 6cc7b4b) added the measured ~2^-21 fixed-pair rate over random seeds and the v0.8.4 changelog credit for #1127. Issue #1127 is closed.",
+    "followup_date": "2026-09-18",
+    "followup_url": "https://github.com/Cyan4973/xxHash/issues/1127#issuecomment-5735250557",
+    "followup_summary": "PR #1146 (2026-09-17, commit 4c19ec2) replaced the XXH3_mix16B DISCLAIMER, documenting the complement-pair rate and recommending a cryptographic hash or MAC for adversarial collision resistance. PR #1150 (2026-09-18, commit 6cc7b4b) added the measured ~2^-21 fixed-pair rate over random seeds and the v0.8.4 changelog credit for #1127. Issue #1127 is closed."
+  },
+  "family_definition": "32×32→64 products of secret-xored word halves on the long-input path; the 17–128-byte path is keyed multiply-fold.",
+  "fairness_record": "verify/xxh3-64/README.html"
+}

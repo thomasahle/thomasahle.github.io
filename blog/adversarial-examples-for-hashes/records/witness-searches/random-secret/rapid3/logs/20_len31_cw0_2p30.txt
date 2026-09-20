@@ -1,0 +1,10 @@
+# len 31 cw0 (sweep outlier), random seed + secret, 2^30, fresh rngseed
+model: seed + 8 secret words uniform; rngseed 301; 2^30 keys
+m  = 5078240cb91d71b8ee43202f439f4d1b8cad4a4df924c2bdc79914c4133095
+m' = af87dbf346e28e47ee43202f439f4d1b8cad4a4df924c2bdc79914c4133095
+cw0                          len  31/ 31 L=4 : 8 / 1073741824  rate 2^-27.000  cap 29.000 bits
+    example key: seed 01d58d820455096d secret d2865bafaef0707b 6ad50ba078f7d2ba 45aeeb9b338e44ce c03b7a6d87a5ae68 f7d55c1c2f58800b 3a6eb07fc3b39647 946712ffe7b0c56f c09eb4f52ba04069 -> 562f70a1b4987220
+
+real	0m8.555s
+user	0m31.042s
+sys	0m0.000s

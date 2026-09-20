@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>nmhash32: standalone fixed-pair reproduction</title><link href="../../post.css" rel="stylesheet"/><link href="../../math.css" rel="stylesheet"/><link href="../../../../static/vendor/katex-0.18.7/katex.min.css" rel="stylesheet"/><script defer="" src="../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer="" src="../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../index.html">Article</a> · <a href="../../records/README.html">Records</a></nav><h1 id="nmhash32-standalone-fixed-pair-reproduction">nmhash32: standalone fixed-pair reproduction</h1>
+<p>NMHASH32 v2 uses a 32-bit seed and returns 32 bits. Verification is 0x12A30553. The last algorithmic change was commit 8dbdc6f9 (2021-06-08 UTC); commit bb223145 (2021-06-09 UTC) changed only the version label, and the December 2024 undefined-behaviour fix (7712708e, merged e022156c) preserves the verification values 0x12A30553/0xA8580227, re-checked against the header at e022156c in scalar and AVX-512 builds. The post’s SMHasher3 timings are the scalar code path on M2 Pro and the AVX-512 code path on Xeon (data.json backend tokens); the reproduction is scalar.</p>
+<p>NEW: no prior literature is identified in the supplied checked record. Statistical failures in SMHasher3 and rurban are recorded separately from this fixed same-seed pair.</p>
+<h2 id="build-and-run">Build and run</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="fu">cc</span> <span class="at">-O2</span> <span class="at">-std</span><span class="op">=</span>c11 <span class="at">-o</span> nmhash32_verify nmhash32_verify.c <span class="at">-lm</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="ex">./nmhash32_verify</span> 20</span></code></pre></div>
+<p>Arguments: <code>[log2 N (0..40), default 20] [RNG seed, default 1]</code>. The program samples exactly N = 2^log2N seeds <strong>per pair and variant</strong>. Everything is single-threaded. It requires a C11 compiler; exact 128-bit products use the GCC/Clang <code>__uint128_t</code> extension where applicable. It reads no external files and writes only stdout/stderr.</p>
+<h2 id="implementation-and-validation">Implementation and validation</h2>
+<p>Own re-implementation written from SMHasher3 hashes/nmhash.cpp. Loads are explicit little-endian and work on either host byte order. Algorithm notices are retained. NMHASH’s 16-bit products use unsigned 32-bit intermediates to avoid signed integer-promotion overflow.</p>
+<table>
+<colgroup>
+<col style="width: 17%"/>
+<col style="width: 23%"/>
+<col style="width: 23%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>variant</th>
+<th style="text-align: right;">output bits</th>
+<th style="text-align: right;">sampled seed bits</th>
+<th>SMHasher3 verification</th>
+<th>output encoding for verification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nmhash32 v2</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">32</td>
+<td><code>0x12A30553</code></td>
+<td>little-endian</td>
+</tr>
+</tbody>
+</table>
+<p>The SMHasher3 <code>_ComputedVerifyImpl</code> procedure hashes byte prefixes of lengths 0..255 with seeds 256..1, concatenates their encoded outputs, hashes that array with seed 0, and reads the first four output bytes little-endian. Thus the check exercises the complete long-input path as well as short inputs. No seed fixup is applied.</p>
+<p>Every recorded witness below is <strong>asserted against its expected output</strong> before sampling. A validation mismatch, wrong output, identical built-in messages, or any counterexample to an every-seed claim makes the program fail.</p>
+<h2 id="pairs-and-mechanism">Pairs and mechanism</h2>
+<table>
+<colgroup>
+<col style="width: 30%"/>
+<col style="width: 40%"/>
+<col style="width: 30%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>case (output order)</th>
+<th style="text-align: right;">input lengths, bytes</th>
+<th>claim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>selected pair / nmhash32 v2</td>
+<td style="text-align: right;">64/64</td>
+<td>sampled rate; recorded witness asserted</td>
+</tr>
+</tbody>
+</table>
+<p>The changed lane is j = 0. XORing 0x80400000 into both words on lines 13–14 leaves the addition on line 7 unchanged precisely when bit 22 of seed + 64 is set. The difference passes through the lane multiplications and XOR shifts on lines 8–10; the low 16-bit C3 multiplication additionally requires no carry across bit 13. The resulting x difference is 0x80202808 and the retained y difference is 0x80400000. The fresh words on line 16 cancel them, leaving the entire final round and fold equal.</p>
+<p>The claimant and an independent scalar verifier each enumerated all 2^32 seeds and counted 1,078,944,392 collisions. Thus ε for this fixed pair is exactly 1078944392/2^32 ≈ 0.251211; L = 8 gives score ≤ log2(8·2^32/1078944392) ≈ 4.993. The verifier’s separate sampled run found 269,753,620/1,073,741,823. The package’s smaller sample is reported separately and does not replace that exhaustive count.</p>
+<ul>
+<li>Not verified (search program only): the proposed exclusion of L ≤ 7, the 8-byte fold histogram, the 24-byte null search (0/2^32; resolution 2^-32), and the 1,251-cell generic scan at 2^26 seeds per cell (resolution about 2^-26). No optimality claim is made.</li>
+</ul>
+<h2 id="sampling-and-expected-output">Sampling and expected output</h2>
+<p>The RNG is xoshiro256**, initialized from four splitmix64 outputs with default seed 1. Each case restarts the same stream, so counts across cases are deliberately correlated. Seeds are truncated only for 32-bit APIs. These are reproducible samples of the specified seed domain, not a fresh exhaustive enumeration. Historical larger measurements remain in the article and supplied records; this run does not replace them.</p>
+<p>For rare paper fold differentials, zero at 2^20 is expected: the program still verifies and prints a known colliding seed, explicitly outside the sample count. It reports no probability/score estimate from a zero-hit run. For every-seed cases it checks every trial. The sampled score uses L = ceil(max(input lengths)/8).</p>
+<p>The following output was built and run locally, with no network access; <code>run_2p20.txt</code> contains the same output. Reference counts, in order: <code>262968</code>.</p>
+<pre class="text"><code>SMHasher3 nmhash32 v2: 12A30553 expected 12A30553 PASS
+SMHasher3 checks complete; recorded output assertions follow
+
+selected pair / nmhash32 v2
+M (64 B) = 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+M' (64 B) = 00004080000000000000000000000000000040800000000000000000000000000828208000000000000000000000000000004080000000000000000000000000
+recorded colliding seed 00000000b54cda26: H(M)=e00f99e0 H(M')=e00f99e0
+collisions = 262968 / 1048576; rate = 0.250785827637; log2(rate) = -1.995472; sampled score = 4.995472
+first sampled colliding seed 00000000c266a3a7: H(M)=H(M')=750a4444</code></pre>
+<h2 id="attribution-and-licensing">Attribution and licensing</h2>
+<p>The supplied claimant/verifier authors and paper driver are credited by path above and in the source header. Algorithm authors and license notices are preserved in the C file. Driver additions are Copyright (c) 2026 Thomas Dybdahl Ahle, MIT; this does not relicense embedded algorithm code. NMHASH carries a BSD 2-Clause notice.</p>
+<p>The search program’s scalar transcription, an independent scalar verifier, and the upstream nmhash.h itself (hash-garage e022156ca8, AVX-512 and NMH_SCALAR builds) each enumerated all 2^32 seeds and counted 1,078,944,392 collisions.</p>
+<p>The M2 Pro SMHasher3 binary fails NMHASH’s built-in verification (0x4B575DFB, expected 0x12A30553; speed-table footnote ‡), so its M2 figures time a mis-built variant and are indicative only; the shipped reproduction and a scalar build of the upstream header both reproduce 0x12A30553, so the pair result is unaffected.</p>
+</main></body></html>

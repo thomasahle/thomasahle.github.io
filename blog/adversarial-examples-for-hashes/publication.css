@@ -1,0 +1,178 @@
+/* Presentation refinements kept separate from the generated article assets. */
+:root {
+  --text: #242b29;
+  --muted: #58635f;
+  --hairline: #dce3df;
+  --link: #265f66;
+  --link-rule: #a0b9b8;
+  --code-surface: #f4f6f5;
+  --gutter: 24px;
+}
+
+body { font-size: 18px; line-height: 1.75; }
+a { color: var(--link); text-decoration-thickness: 1px; }
+a:hover { color: var(--text); text-decoration-color: currentColor; }
+:focus-visible { outline-color: var(--link); }
+.skip-link {
+  position: absolute; top: 12px; left: 24px; z-index: 10;
+  padding: 10px 16px; background: var(--background); transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+h1, h2, h3 { text-wrap: balance; }
+h1 { font-size: clamp(36px, 5.2vw, 54px); line-height: 1.08; letter-spacing: -.035em; }
+h2 { font-size: 30px; font-weight: 650; letter-spacing: -.02em; }
+h3 { font-size: 22px; font-weight: 650; letter-spacing: -.01em; }
+.site-nav a { color: var(--muted); }
+.site-nav a:hover { color: var(--link); text-decoration: underline; }
+.front-matter { padding-top: 56px; }
+.description { font-weight: 400; text-wrap: pretty; }
+.byline-strip { grid-template-columns: 1.1fr 1fr 1.6fr .7fr; }
+.byline-strip .author-affiliation { display: block; margin-top: 4px; color: var(--muted); font-size: 14px; font-weight: 400; }
+.byline-strip dt, .toc-label, thead th { letter-spacing: .045em; }
+
+/* A complete short read around the lead figure, then a clear optional section. */
+.story-lead > p:last-child, .story-takeaways > p:last-child { margin-bottom: 0; }
+.story-lead > p:first-child strong { font-weight: 650; }
+.story-takeaways { margin-top: 36px; }
+.note-ref { display: inline-block; min-width: 1.2em; margin-inline: 1px; text-align: center; font-weight: 600; line-height: 1.2; scroll-margin-top: 32px; }
+.article-notes { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--hairline); color: var(--muted); font-size: 15px; line-height: 1.65; }
+.notes-label { margin: 0 0 12px; font-weight: 600; color: var(--text); }
+.article-notes ol { margin: 0; padding-left: 24px; }
+.article-notes li { padding-left: 4px; margin-bottom: 16px; scroll-margin-top: 32px; }
+.article-notes li:target { color: var(--text); }
+.note-backlink { padding-inline: 4px; text-decoration: none; }
+.note-text ul { margin: 8px 0 0; padding-left: 18px; }
+.note-text li { margin: 0 0 6px; padding-left: 0; }
+.note-preview .math-display { margin: 8px 0; padding: 8px 0; border-block: none; }
+.note-preview { position: fixed; z-index: 100; width: min(380px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow-y: auto; padding: 16px 18px; border: 1px solid var(--hairline); border-radius: 6px; background: var(--background); color: var(--text); box-shadow: 0 8px 28px #242b291c; font-size: 15px; line-height: 1.6; }
+.extra-reading { position: relative; margin-top: 64px; }
+.extra-reading-intro { padding-top: 36px; border-top: 2px solid var(--hairline); }
+.extra-reading-intro h2 { margin-top: 0; margin-bottom: 12px; }
+.extra-reading-intro > p { color: var(--muted); margin-bottom: 16px; }
+.extra-reading-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+.extra-reading-links a { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--hairline); font-size: 16px; line-height: 1.45; text-decoration: none; }
+.extra-reading-links a:hover { border-color: var(--link); }
+.extra-reading-links span { color: var(--muted); }
+@media (max-width: 600px) {
+  .story-takeaways { margin-top: 28px; }
+  .extra-reading { margin-top: 44px; }
+  .extra-reading-intro { padding-top: 28px; }
+  .extra-reading-links { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Figures and supporting records retain a common, quiet visual hierarchy. */
+.feature-chart { padding-top: 20px; border-top: 2px solid var(--text); }
+.chart-label-toggle { display: none; }
+.chart-tooltip { font-size: 14px; line-height: 1.5; max-height: min(680px, 80vh); overflow-y: auto; }
+.chart-tooltip dl { grid-template-columns: 90px minmax(0, 1fr); }
+.tooltip-family, .tooltip-alias, .claim-badge { font-size: 14px; }
+#chart-table-details { padding-block: 4px; border-block: 1px solid var(--hairline); }
+.mechanism-figure { padding-block: 24px; border-block: 1px solid var(--hairline); }
+.robustness-figure { margin: 16px 0 32px; }
+.robustness-graphic { display: none; width: 100%; height: auto; }
+.robustness-graphic--desktop { display: block; }
+.robustness-graphic text { -webkit-user-select: text; user-select: text; cursor: text; }
+@media (max-width: 959px), (min-width: 1200px) and (max-width: 1439px) {
+  .robustness-graphic--desktop { display: none; }
+  .robustness-graphic--compact { display: block; }
+}
+@media (max-width: 600px) {
+  .robustness-graphic--compact { display: none; }
+  .robustness-graphic--mobile { display: block; }
+}
+.robustness-figure > figcaption { max-width: 100%; margin-top: 12px; }
+.robustness-sources { display: block; margin-top: 8px; }
+.author-note, .temporary-note { padding: 16px 20px; border-left: 3px solid var(--link-rule); }
+[data-score-id] { border-color: var(--link-rule); }
+
+/* Keep wide technical tables readable without widening the whole page. */
+.table-scroll { scrollbar-color: var(--muted) var(--code-surface); }
+thead { border-bottom: 2px solid var(--hairline); background: var(--code-surface); }
+th, td { padding: 12px; }
+tbody tr { --row-background: var(--background); background: var(--row-background); }
+tbody tr:nth-child(even) { --row-background: #f8faf9; }
+tbody tr:hover { --row-background: #eef4f2; }
+tbody td:first-child > a:first-child { font-weight: 600; text-decoration: none; }
+tbody td:first-child > a:first-child:hover { text-decoration: underline; }
+.table-scroll.is-scrollable :is(th, td):first-child {
+  background: var(--row-background, var(--code-surface));
+}
+/* The current article adds a family column to both result tables. */
+#heuristic-table { min-width: 1621px; }
+#heuristic-table :is(th, td):nth-child(1) { width: 176px; }
+#heuristic-table :is(th, td):nth-child(2) { width: 190px; text-align: left; }
+#heuristic-table :is(th, td):nth-child(3) { width: 300px; text-align: left; }
+#heuristic-table :is(th, td):nth-child(4) { width: 105px; }
+#heuristic-table :is(th, td):nth-child(5) { width: 195px; text-align: left; white-space: normal; }
+#heuristic-table :is(th, td):nth-child(6) { width: 110px; }
+#heuristic-table :is(th, td):nth-child(7) { width: 110px; text-align: right; }
+#heuristic-table :is(th, td):nth-child(8) { width: 260px; }
+#heuristic-table :is(th, td):nth-child(9) { width: 175px; }
+#proof-table { min-width: 2000px; table-layout: fixed; }
+#proof-table :is(th, td) { white-space: normal; overflow-wrap: anywhere; }
+#proof-table :is(th, td):nth-child(1) { width: 175px; }
+#proof-table :is(th, td):nth-child(2) { width: 240px; text-align: left; }
+#proof-table :is(th, td):nth-child(3) { width: 260px; text-align: left; }
+#proof-table :is(th, td):nth-child(4) { width: 150px; }
+#proof-table :is(th, td):nth-child(5) { width: 220px; }
+#proof-table :is(th, td):nth-child(6) { width: 190px; text-align: left; }
+#proof-table :is(th, td):nth-child(7) { width: 190px; text-align: left; }
+#proof-table :is(th, td):nth-child(8), #proof-table :is(th, td):nth-child(9) { width: 105px; }
+#proof-table :is(th, td):nth-child(10) { width: 115px; }
+#proof-table :is(th, td):nth-child(11) { width: 250px; text-align: left; }
+/* Code follows the reading column, including snippets inside disclosures. */
+.post pre {
+  width: 100%; max-width: var(--body-width); margin-inline: auto;
+  border: 1px solid var(--hairline); line-height: 1.65; tab-size: 4;
+}
+.toc-mobile > summary { color: var(--text); font-weight: 600; }
+.toc-mobile[open] > nav { max-height: 65vh; overflow-y: auto; overscroll-behavior-y: contain; margin-bottom: 12px; }
+[data-toc-list] a[aria-current="location"] {
+  border-left-color: var(--link); color: var(--link); background: var(--code-surface);
+}
+
+@media (max-width: 899px) {
+  .byline-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  :root { --gutter: 20px; }
+  body { font-size: 17px; }
+  h2 { font-size: 27px; }
+  .front-matter { padding-top: 24px; }
+  .description { font-size: 20px; }
+  .chart-tooltip { max-height: none; }
+  .axis-buttons button { flex-basis: 100%; }
+  .chart-label-toggle { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding-block: 12px; font-size: 14px; }
+  .chart-label-toggle input { width: 18px; height: 18px; accent-color: var(--link); }
+  .chart-label-toggle span { flex-basis: 100%; color: var(--muted); }
+  .feature-chart:has(.chart-label-toggle input:not(:checked)) #bits-vs-speed :is(.hash-labels, .hash-labels-bold, .label-guides) { visibility: hidden; }
+}
+
+/* Print every table column; never clip the scientific record to the screen. */
+@media print {
+  @page { margin: 16mm; }
+  :root { --body-width: 100%; --page-width: 100%; --middle-width: 100%; }
+  body { font-size: 11pt; line-height: 1.5; color: #000; }
+  .skip-link, .axis-control, .chart-label-toggle, .chart-tools, .chart-tooltip, .scroll-hint, .note-preview { display: none !important; }
+  .feature-chart #bits-vs-speed :is(.hash-labels, .hash-labels-bold, .label-guides) { visibility: visible !important; }
+  .front-matter { padding-top: 0; }
+  h1 { font-size: 30pt; }
+  h2 { font-size: 19pt; }
+  h3 { font-size: 15pt; }
+  h1, h2, h3 { break-after: avoid; }
+  p { orphans: 3; widows: 3; }
+  a { color: inherit; }
+  .table-scroll { overflow: visible; }
+  #heuristic-table, #proof-table, #chart-data-table { min-width: 0; width: 100%; table-layout: fixed; }
+  #heuristic-table :is(th, td), #proof-table :is(th, td), #chart-data-table :is(th, td) {
+    width: auto !important; min-width: 0 !important; max-width: none; padding: 5px;
+    font-size: 8pt; line-height: 1.4; overflow-wrap: anywhere; white-space: normal;
+  }
+  table :is(code, small) { font-size: inherit; }
+  .table-scroll.is-scrollable :is(th, td):first-child { position: static; box-shadow: none; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 9pt; }
+  figure { break-inside: avoid; }
+  .byline-strip { grid-template-columns: 1.1fr 1fr 1.6fr .7fr; }
+}

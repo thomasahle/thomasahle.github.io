@@ -1,0 +1,8 @@
+# row pair D (48 B), random seed + secret, 2^30
+model: seed + 8 secret words uniform; rngseed 13; 2^30 keys; threads 8
+pair                         len  48/ 48 L=6 : 11 / 1073741824  rate 2^-26.541  cap 29.126 bits
+    example key: seed 2821bbdaba500b97 secret f7814decc6077d57 f1065a69109344bc 5630ac07ed328664 4e1299778f6374f7 1f3323dffa533107 16f412f143179a75 8d85f2a5f201e80d c77cf4391de4cacb -> caa8a55e298e6b32
+
+real	0m13.772s
+user	0m36.911s
+sys	0m0.001s

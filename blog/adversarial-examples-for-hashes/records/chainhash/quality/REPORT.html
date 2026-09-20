@@ -1,0 +1,170 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ChainHash test-suite results</title><link rel="stylesheet" href="../../../post.css"><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem;overflow-wrap:anywhere}pre,table{display:block;overflow:auto}h1{font-size:2rem}</style></head><body><main><nav><a href="../../../index.html#appendix-chainhash">Article</a> · <a href="../../README.html">Records</a></nav><h1 id="chainhash-complete-smhasher3-and-rurbansmhasher-suites">ChainHash: complete SMHasher3 and rurban/smhasher suites</h1>
+<p>Run date: 2026-09-19. All full-suite runs finished.</p>
+<p>The 64-bit ChainHash function (<code>include/chainhash.h</code> in <a href="https://github.com/thomasahle/chainhash">thomasahle/chainhash</a>; comb PH, Horner chain, twisted quintic finalizer; the Lean-proved function) was put through the complete SMHasher3 suite on two hosts and through the complete rurban/smhasher suite on one host, registered as <code>chainhash</code>. The 128-bit function also passes the full SMHasher3 suite on Xeon: 188 of 188 tests. Its run and log are recorded in the ChainHash-128 section below; no rurban full-suite result is supplied for that function here.</p>
+<h2 id="header-and-verification-constants">Header and verification constants</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Registration</th>
+<th>SMHasher3 LE</th>
+<th>SMHasher3 BE</th>
+<th>rurban (LE)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chainhash</code></td>
+<td><code>66672BD6</code></td>
+<td><code>FA8A8D3B</code></td>
+<td><code>66672BD6</code></td>
+</tr>
+</tbody>
+</table>
+<p>The standalone evaluator reproduces the constants independently of either suite, on both the portable and the PMULL path. The BE registration swaps only the digest serialization; message words stay canonical little-endian.</p>
+<h2 id="smhasher3-full-suite---testall">SMHasher3 full suite (<code>--test=All</code>)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Host</th>
+<th>Registration</th>
+<th style="text-align: right;">Passed</th>
+<th style="text-align: right;">Failed</th>
+<th style="text-align: right;">Wall minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>xeon</td>
+<td><code>chainhash</code></td>
+<td style="text-align: right;">200/200</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22.92</td>
+</tr>
+<tr class="even">
+<td>m2</td>
+<td><code>chainhash</code></td>
+<td style="text-align: right;">200/200</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">20.43</td>
+</tr>
+</tbody>
+</table>
+<p>The hash passes every test on both hosts, and the two hosts print identical diagnostics (all 1863 collision/distribution rows and the p-value histograms agree line for line). The suite is deterministic given the hash, so this is expected; it also rules out an ISA-specific backend bug, since the Xeon binary exercises the PCLMUL/VPCLMUL paths and the M2 binary the NEON PMULL paths.</p>
+<p>Suite composition. Upstream SMHasher3 at the pinned commit <code>3de870c7ab449ad11cf450848d9270e3f54102d1</code> reports 188 cases for <code>--test=All</code>. The test tree adds one family, SeedDifferential (fixed message pairs, 2^24 random seeds per pair, 12 message lengths 16–1024 bytes), which brings the reported total to 200. This is the same 200-case suite the paper’s measurements table reports against, so the counts are directly comparable. The 22 sections run are Sanity, Speed, Hashmap speed, Avalanche, BIC, Keyset Zeroes / Cyclic / Sparse / Permutation / Text / TwoBytes / PerlinNoise / Bitflip, Seed Zeroes, SeedSparse, Seed BlockLength / BlockOffset, Keyset Seed, Seed Avalanche, Seed BIC, Seed Bitflip, and Seed Differential. <code>BadSeeds</code> is not part of <code>All</code> at this revision. This is upstream’s standard <code>All</code>, not the separate <code>--extra</code> torture mode. Every run used <code>--test=All --ncpu=8 --noexit-on-failure --exit-code-on-failure</code>, so a failure would have been printed and counted rather than aborting the run.</p>
+<p>The <code>-log2(p-value)</code> histogram over the 6883 individual statistics (identical on both hosts):</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+<th style="text-align: right;">7</th>
+<th style="text-align: right;">8</th>
+<th style="text-align: right;">9</th>
+<th style="text-align: right;">10</th>
+<th style="text-align: right;">11</th>
+<th style="text-align: right;">12+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4405</td>
+<td style="text-align: right;">1280</td>
+<td style="text-align: right;">592</td>
+<td style="text-align: right;">289</td>
+<td style="text-align: right;">162</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>The worst statistic has p ≈ 2^-11; nothing reaches the failure region.</p>
+<p>Hosts. Xeon: Intel Xeon Platinum 8375C, Clang 21.1.8, CMake 3.31.8, each invocation <code>taskset -c 8-15 nice -n 10 …</code>, runs sequential. Other users’ jobs ran on the host throughout (1-minute load 37–50 on 64 cores), so the Speed sections embedded in these logs are not a benchmark and must not be cited as one. M2: Apple M2 Pro, Apple Clang, <code>nice -n 10</code>. The M2 runner admitted each run only when no <code>SMHasher3</code> process existed and the 1-minute load was below 4.5; the gate only checks at launch, and another short timing job very likely resumed while the 20-minute run was in flight. This does not affect the quality verdicts, because the suite is deterministic and the M2 diagnostics equal the Xeon’s.</p>
+<h2 id="rurbansmhasher-full-suite---testallbic">rurban/smhasher full suite (<code>--test=All,BIC</code>)</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 22%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Host</th>
+<th>Registration</th>
+<th style="text-align: right;">Quality sections passed</th>
+<th style="text-align: right;">Failed sections</th>
+<th style="text-align: right;">Wall minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>xeon</td>
+<td><code>chainhash</code></td>
+<td style="text-align: right;">17/17</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">40.03</td>
+</tr>
+</tbody>
+</table>
+<p>Pinned to commit <code>2688c165595ad68a0543f96940617adc5e22d87e</code>; Clang 21.1.8. Each invocation is <code>taskset -c 8-15 nice -n 10 SMHasher --test=All,BIC chainhash</code>. At this revision <code>All</code> runs Sanity, Speed, Hashmap, Avalanche, Sparse, Permutation, Window, Cyclic, TwoBytes, Text, Zeroes, Seed, PerlinNoise, Diff, DiffDist, MomentChi2, Prng and BadSeeds; it adds BIC only for hashes wider than 64 bits under <code>--extra</code>, so BIC is selected explicitly. LongNeighbors is compiled out upstream. <code>--extra</code> (the exhaustive 32-bit bad-seed scan) is not the standard suite and was not used.</p>
+<p>The 17 quality sections (Avalanche, Sparse, Permutation, Window, Cyclic, TwoBytes, Text, Zeroes, Seed, PerlinNoise, Diff, DiffDist, MomentChi2, Prng, BIC, BadSeeds, plus the Sanity checks) print no failure mark; the Sanity section confirms the verification value <code>66672BD6</code>. Worst statistics: Avalanche worst bias 0.84% over 24–1024-bit keys; BIC max bias 0.0088; MomentChi2 1.61 / 0.93 (bits 1/0), rated “Great”; Prng 2^25 values with no 64-bit collision and 32-bit collision ratio 1.00×; BadSeeds seed 0 PASS. The suite’s own timer reports 2520 s. As with SMHasher3, the embedded Speed sections are not a benchmark: rurban’s small-key loop changes the seed after every call, so its cycle counts include a full key setup, and the host was shared.</p>
+<p>This fork prints no aggregate counter. A failing statistic is marked <code>!!!!!</code> and a failing test <code>*********FAIL*********</code>; the summary counts both, and the table reports sections (excluding the two timing sections) with and without such marks. Exit status is not used as evidence of a pass, because this fork can exit zero after a reported failure. The <code>pfHash</code> API carries a 32-bit seed, zero-extended into the same SplitMix64 mapping as SMHasher3 (below), so rurban’s seed tests cover 32-bit seeds. With no bad seeds registered, its standard BadSeeds section tests seed zero.</p>
+<h2 id="seed-model-outside-the-theorem">Seed model (outside the theorem)</h2>
+<p>SMHasher3 hands the hash a 64-bit seed. The adapter expands it with SplitMix64 starting from that seed, takes eight outputs as <code>s, y, c0..c4, tau</code> and calls the header’s <code>chainhash_key_from_seed</code>, which sets the block keys to powers of <code>s</code> in GF(2^64). Keys live in thread-local storage returned by the suite’s seed callback.</p>
+<p>This expansion is outside the collision theorem: a 64-bit (or, for rurban, 32-bit) seed does not supply eight independent uniform words. The suites therefore test a deterministic seeded adapter; they neither prove the theorem’s assumptions nor establish cryptographic strength.</p>
+<h2 id="the-twist-and-what-a-failure-would-have-meant">The twist, and what a failure would have meant</h2>
+<p>The header keeps the integer addition <code>v = P ⊞ tau</code> before the degree-5 GF(2^64) circuit. The paper’s twist section explains why it is there: over GF(2^64), <code>v ↦ v^e</code> has F2-degree equal to the popcount of <code>e</code>, so a polynomial of degree ≤ 6 is at most quadratic in the input bits, with affine second derivatives, and SMHasher3’s fixed-seed keysets (Zeroes, Sparse, Permutation, TwoBytes, Bitflip) detect exactly that structure. The paper’s measurements on the same 200-case suite:</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Finalizer</th>
+<th>Twist</th>
+<th style="text-align: right;">Tests passed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>degree 7 (4 mult.)</td>
+<td>none</td>
+<td style="text-align: right;">200/200</td>
+</tr>
+<tr class="even">
+<td>degree 5 (3 mult.)</td>
+<td>none</td>
+<td style="text-align: right;">178/200 (22 failures: Zeroes, Sparse, Permutation, TwoBytes, Bitflip)</td>
+</tr>
+<tr class="odd">
+<td>degree 5 (3 mult.)</td>
+<td>input, <code>v ⊞ tau</code></td>
+<td style="text-align: right;">200/200</td>
+</tr>
+<tr class="even">
+<td>degree 3 (2 mult.)</td>
+<td>input</td>
+<td style="text-align: right;">183/200</td>
+</tr>
+</tbody>
+</table>
+<p>ChainHash is the third row; an SMHasher3 failure here would have contradicted the paper. There was none. No untwisted control was rerun in this lane. The paper is explicit that the twist’s sufficiency for a given suite is empirical, not a theorem, and the exact seeded adapter is documented above so the result can be reproduced.</p>
+<h2 id="files">Files</h2>
+<p><code>summary.json</code> beside this report lists each run (suite, host, start, end, exit code, verdict and section counts). No upstream pull request has been filed for either suite.</p>
+<h2 id="chainhash-128-registration-chainhash-128-0x1fca728c">ChainHash-128 (registration <code>chainhash-128</code>, 0x1FCA728C)</h2>
+<p>SMHasher3 <code>--test=All --ncpu=8</code> on the Xeon 8375C (suite commit 3de870c7, GCC 11.5): <strong>pass, 188 of 188 tests</strong> (the suite runs 188 tests for a 128-bit output); log <a href="smh-xeon-chainhash-128-all.log">smh-xeon-chainhash-128-all.log</a>, run on 2026-09-19 against the header of ChainHash commit d268351.</p>
+</main></body></html>

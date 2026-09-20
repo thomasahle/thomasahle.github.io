@@ -1,0 +1,7 @@
+explicit seed 040963434fe5e368 -> ef46cda19c0bbc67 PASS; seed 0 differs
+len 32, N = 1048576 (2^20), rng 0x1, 1 threads
+  hash            3 / 1048576  rate 2^-18.415  [2^-20.730, 2^-16.868]
+  bfast::hash     3 / 1048576  rate 2^-18.415  [2^-20.730, 2^-16.868]
+  hash128         0 / 1048576  rate 2^-inf  [2^-inf, 2^-18.125]
+  bfast::hash128  0 / 1048576  rate 2^-inf  [2^-inf, 2^-18.125]
+  first colliding seed (hash): 0xae20b9f6deb2703d -> 0xc37fb9a1ea851aca

@@ -1,0 +1,9 @@
+[package]
+name = "museair_v2_verify"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+museair = { version = "=0.6.0", default-features = false }
+[profile.release]
+opt-level = 3
+codegen-units = 1

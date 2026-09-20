@@ -1,0 +1,17 @@
+SMHasher3 MUM v3 exact unroll3: 8BD72B8C expected 8BD72B8C PASS
+SMHasher3 MUM v3 exact unroll4: 0AD998DF expected 0AD998DF PASS
+structural checks PASS
+
+paper pair G / MUM v3 exact unroll3
+M (8 B) = 7954a998719b89b0
+M' (8 B) = 2d69169b259feb08
+recorded colliding seed 0000000000000000: H(M)=b341726e9ea37186 H(M')=b341726e9ea37186
+collisions = 1048576 / 1048576; rate = 1; log2(rate) = 0.000000; sampled score = 0.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=022285467e5c10ca
+
+paper pair G / MUM v3 exact unroll4
+M (8 B) = 7954a998719b89b0
+M' (8 B) = 2d69169b259feb08
+recorded colliding seed 0000000000000000: H(M)=b341726e9ea37186 H(M')=b341726e9ea37186
+collisions = 1048576 / 1048576; rate = 1; log2(rate) = 0.000000; sampled score = 0.000000
+first sampled colliding seed b3f2af6d0fc710c5: H(M)=H(M')=022285467e5c10ca

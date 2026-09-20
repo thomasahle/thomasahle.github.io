@@ -1,0 +1,188 @@
+{
+  "status": "PASS",
+  "mask_counts_per_positive_multiple": [
+    1,
+    184,
+    123,
+    361,
+    62,
+    355,
+    121,
+    178,
+    1
+  ],
+  "mask_pattern_histogram": {
+    "1": 1,
+    "2": 435,
+    "4": 357,
+    "8": 59
+  },
+  "mask_divisibility_counts": [
+    852,
+    248,
+    64,
+    2,
+    1
+  ],
+  "small_mask_cross_checks": [
+    {
+      "w": 4,
+      "p": 1,
+      "mask_count": 16,
+      "all_pairs_and_patterns": true
+    },
+    {
+      "w": 5,
+      "p": 3,
+      "mask_count": 27,
+      "all_pairs_and_patterns": true
+    },
+    {
+      "w": 6,
+      "p": 7,
+      "mask_count": 40,
+      "all_pairs_and_patterns": true
+    },
+    {
+      "w": 8,
+      "p": 31,
+      "mask_count": 68,
+      "all_pairs_and_patterns": true
+    },
+    {
+      "w": 10,
+      "p": 127,
+      "mask_count": 96,
+      "all_pairs_and_patterns": true
+    },
+    {
+      "w": 12,
+      "p": 509,
+      "mask_count": 231,
+      "all_pairs_and_patterns": true
+    }
+  ],
+  "primality": {
+    "p": 2305843009213693951,
+    "witness": 37,
+    "fermat_residue": 1,
+    "factors": [
+      {
+        "prime": 2,
+        "power": 1,
+        "residue": 2305843009213693950,
+        "gcd": 1
+      },
+      {
+        "prime": 3,
+        "power": 2,
+        "residue": 1669582390241348315,
+        "gcd": 1
+      },
+      {
+        "prime": 5,
+        "power": 2,
+        "residue": 725554454131936870,
+        "gcd": 1
+      },
+      {
+        "prime": 7,
+        "power": 1,
+        "residue": 1165310750493918737,
+        "gcd": 1
+      },
+      {
+        "prime": 11,
+        "power": 1,
+        "residue": 2266698407988980144,
+        "gcd": 1
+      },
+      {
+        "prime": 13,
+        "power": 1,
+        "residue": 1032504562576723207,
+        "gcd": 1
+      },
+      {
+        "prime": 31,
+        "power": 1,
+        "residue": 484083891529811867,
+        "gcd": 1
+      },
+      {
+        "prime": 41,
+        "power": 1,
+        "residue": 1562651311446036838,
+        "gcd": 1
+      },
+      {
+        "prime": 61,
+        "power": 1,
+        "residue": 35184372088832,
+        "gcd": 1
+      },
+      {
+        "prime": 151,
+        "power": 1,
+        "residue": 1433721343585656393,
+        "gcd": 1
+      },
+      {
+        "prime": 331,
+        "power": 1,
+        "residue": 185945230422323302,
+        "gcd": 1
+      },
+      {
+        "prime": 1321,
+        "power": 1,
+        "residue": 30210013857155493,
+        "gcd": 1
+      }
+    ]
+  },
+  "block_primary_numerator": 364816,
+  "iid_block_primary": {
+    "numerator": 22801,
+    "denominator": 1152921504606846976
+  },
+  "distinct_block_primary": {
+    "numerator": 364816,
+    "denominator": 18446744073709551055
+  },
+  "low_equal_enh_primary": {
+    "numerator": 2771,
+    "denominator": 9223372036854775808
+  },
+  "enh_only_joint": {
+    "numerator": 590223,
+    "denominator": 42535295865117307932921825928971026432
+  },
+  "enh_only_joint_after_distinctness": {
+    "numerator": 590223,
+    "denominator": 42535295865117306639343897760088719360
+  },
+  "enh_only_joint_small_r_numerators": [
+    2360892,
+    610080,
+    130048,
+    384
+  ],
+  "full_constant_unrounded": {
+    "numerator": 1941055691508763227645934840993350667993088,
+    "denominator": 42535295865117306584003665538960066195
+  },
+  "full_constant_ceiling": 45635,
+  "slack_below_ceiling": {
+    "numerator": 42535295865058315072435877091952815737,
+    "denominator": 42535295865117306584003665538960066195
+  },
+  "corrected_vs_published_envelope_factor": {
+    "numerator": 45635,
+    "denominator": 64
+  },
+  "old_over_new_block_numerator": {
+    "numerator": 718333281557,
+    "denominator": 364816
+  }
+}

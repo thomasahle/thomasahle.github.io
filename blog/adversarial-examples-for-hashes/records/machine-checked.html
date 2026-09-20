@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Machine-checked statements</title><link rel="stylesheet" href="../post.css"><link rel="stylesheet" href="../math.css"><link rel="stylesheet" href="../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link rel="icon" href="../../favicon2.png"><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../index.html">Article</a> · <a href="../records/README.html">Records</a></nav><h1 id="machine-checked-statements">Machine-checked statements</h1>
+<p>Snapshot: 19 September 2026. The statements below describe the mathematical models checked in Lean. Execution tests and compiler correctness are separate claims.</p>
+<h2 id="highway">highway</h2>
+<p>exact full-key trail count 56165·2^184, unconditional state and all three output collision bounds, and score enclosure 59.807–59.808; C/Lean vectors are execution evidence, not compiler correctness.</p>
+<h2 id="polymur">polymur</h2>
+<p>The exact restricted-key cardinality lower bound and numerical idealHash collision/score theorems are unconditional; the shipped seed distribution and C arithmetic refinement remain outside scope.</p>
+<h2 id="halftimehash-64-halftimehash-128-halftimehash-256-halftimehash-512">halftimehash-64, halftimehash-128, halftimehash-256, halftimehash-512</h2>
+<p>The abstract Style construction is checked; the implementation correspondence remains partial because the universal executable/Style connection and fixed-header premises are not discharged in Lean.</p>
+<h2 id="umash-umash128">umash, umash128</h2>
+<p>The earlier 46.52-bit envelope and ENH-only closure are machine-checked. The 53.38-bit refinement, 56.18-bit bound, joint PH+ENH closure and fingerprint headline are verified paper proofs; not yet machine-checked.</p>
+<h2 id="clhash">clhash</h2>
+<p>Ideal Algorithm-4 bound for distinct byte strings shorter than 2^64 bytes, including empty, partial and unequal-length inputs; no implementation or seed-expander theorem.</p>
+<h2 id="poly1305">poly1305</h2>
+<p>Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly.</p>
+<h2 id="ghash">ghash</h2>
+<p>Ideal byte-string families: explicit clamped Poly1305 keys and single-stream GHASH with uniform field key; excludes seeded samplers, AES and OpenSSL C/assembly.</p>
+<h2 id="halftime24-fixed">halftime24-fixed</h2>
+<p>Independent uniform entropy words; supported V4 byte lengths &lt;168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed. Concrete fixed-header encoder/layout refinement remains partial;</p>
+<h2 id="chainhash">chainhash</h2>
+<p>ChainHash, 64 uniformly random key bytes: collision bound (p(L)+d(L))/2^64 for distinct byte strings of at most 8L bytes, including empty, partial-word and unequal-length inputs; evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride); exact score minimum 63.0. 89 theorems, standard axioms only; 464 C/Lean vectors. Compiler correctness and the benchmark seed expansion are outside scope.</p>
+<h2 id="chainhash128">chainhash128</h2>
+<p>ChainHash-128, 128 uniformly random key bytes: collision bound (p_B(L)+d_B(L))/2^128 for distinct byte strings of at most 8L bytes, including empty, partial-word and unequal-length inputs; evaluation independence for every stride; exact score minimum 127. 116 theorems, standard axioms only; 625 C/Lean vectors. Compiler correctness and the benchmark seed expansion are outside scope.</p>
+</main></body></html>

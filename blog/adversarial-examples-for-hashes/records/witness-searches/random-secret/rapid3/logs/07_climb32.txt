@@ -1,0 +1,29 @@
+start 0: dA=ffffffff dB=ffffffff cnt=408 P=2^-13.328
+  local optimum after 1 sweeps
+start 1: dA=ffffffff dB=00000000 cnt=324 P=2^-13.660
+  local optimum after 1 sweeps
+start 2: dA=00000000 dB=ffffffff cnt=349 P=2^-13.553
+  local optimum after 1 sweeps
+start 3: dA=ffffffff dB=fffffffe cnt=0 P=2^-99.000
+  it 0: move -> dA=ffffffff dB=ffffffff cnt=418 P=2^-13.293
+  local optimum after 2 sweeps
+start 4: dA=fffffffe dB=fffffffe cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+start 5: dA=7fffffff dB=7fffffff cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+start 6: dA=55555555 dB=55555555 cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+start 7: dA=aaaaaaaa dB=aaaaaaaa cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+start 8: dA=2318eb66 dB=58aaacb4 cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+start 9: dA=bfffadb4 dB=2d1eef0d cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+start 10: dA=2703ef6b dB=7493681a cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+start 11: dA=732e219c dB=a37a2913 cnt=0 P=2^-99.000
+  local optimum after 1 sweeps
+
+real	0m32.319s
+user	0m43.786s
+sys	0m0.000s
