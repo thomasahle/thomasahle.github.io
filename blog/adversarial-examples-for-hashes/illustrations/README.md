@@ -10,11 +10,11 @@ The page deliberately embeds SVG, rather than using an image element, so
 readers can select and copy the text. Each layout has unique IDs; responsive
 visibility is controlled by the `.robustness-graphic` rules in `publication.css`.
 
-The figure is a matrix: rows distinguish a fixed pair from a large fixed set;
-columns distinguish a fraction of keys from every key. The inputs in every
-cell are chosen without knowing the key. Few-way collisions are a note between
-the rows. Desktop and tablet show a 2×2 grid; mobile keeps the row groups and
-repeats the column labels above stacked cells. Color emphasizes the two
-dimensions together, with the same color for the two off-diagonal cells.
-Do not restore a single severity arrow or describe a pair that works for a
-fraction of keys as requiring knowledge of the key.
+All four categories, including few-way collisions, appear in one row. The
+three SVG assets use the same layout; narrow screens scroll horizontally
+within the figure so its text remains readable. Keep the headings top-aligned,
+with a short gap before each definition and a normal-weight “Use for:” paragraph.
+There are no internal divider lines. The cards progress from gold to red, with
+matching light backgrounds. There is no severity arrow: set size and the
+fraction of affected keys are separate properties, explained in each definition.
+All inputs are chosen without knowing the key.

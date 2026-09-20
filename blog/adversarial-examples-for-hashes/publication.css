@@ -69,7 +69,8 @@ h3 { font-size: 22px; font-weight: 650; letter-spacing: -.01em; }
 #chart-table-details { padding-block: 4px; border-block: 1px solid var(--hairline); }
 .mechanism-figure { padding-block: 24px; border-block: 1px solid var(--hairline); }
 .robustness-figure { margin: 16px 0 32px; }
-.robustness-graphic { display: none; width: 100%; height: auto; }
+.robustness-scroll { overflow-x: auto; scrollbar-color: var(--link-rule) var(--code-surface); }
+.robustness-graphic { display: none; width: 100%; min-width: 960px; height: auto; }
 .robustness-graphic--desktop { display: block; }
 .robustness-graphic text { -webkit-user-select: text; user-select: text; cursor: text; }
 @media (max-width: 959px), (min-width: 1200px) and (max-width: 1439px) {

@@ -237,9 +237,9 @@ def render(key, mobile=False, compact=False, scale='linear'):
         text(22, 134, 'Provisional timings' if host['provisional'] else ('Score: log above 1 · linear 0–1' if logarithmic else 'B/cycle · logarithmic speed axis'), 11, MUTED).set_gid('host-note')
         top, bottom, left, right = 333, 726, 49, 372
         legends = [
-            (22,173,BLUE,'●','Proved lower bound ↑'),
-            (22,199,ORANGE,'◆','Limit from a colliding pair ↓'),
-            (22,225,CLAIM,'○','Unresolved claim'),
+            (22,173,BLUE,'▲','Proved bound: score at least this high'),
+            (22,199,ORANGE,'▼','Colliding pair found: score at most this high'),
+            (22,225,CLAIM,'○','Unresolved claim: no bound established'),
             (22,251,RED,'×',f'Arbitrarily many inputs collide\nfor every key · {key_free} variants'),
         ]
     else:
@@ -250,17 +250,17 @@ def render(key, mobile=False, compact=False, scale='linear'):
         top, bottom, left, right = (238 if compact else 218), (713 if compact else 679), 68 if compact else 83, width-40
         legend_y = 174 if compact else 142
         legends = [
-            (40,legend_y,BLUE,'●','Proved bound ↑' if compact else 'Proved lower bound ↑'),
-            (210 if compact else 275,legend_y,ORANGE,'◆','Collision cap ↓' if compact else 'Limit from a colliding pair ↓'),
-            (353 if compact else 557,legend_y,CLAIM,'○','Unresolved claim'),
-            (508 if compact else 757,legend_y,RED,'×',
+            (40,legend_y,BLUE,'▲','Proved (at least)' if compact else 'Proved: score at least this high'),
+            (200 if compact else 320,legend_y,ORANGE,'▼','Pair found (at most)' if compact else 'Pair found: score at most this high'),
+            (370 if compact else 620,legend_y,CLAIM,'○','Unresolved' if compact else 'Unresolved claim'),
+            (508 if compact else 770,legend_y,RED,'×',
              f'Every-key multicollisions ({key_free})' if compact else f'Multicollisions for every key ({key_free})'),
         ]
     # Keep the four marker explanations together; sampling notes live in the article.
     for x,y,c,glyph,label in legends:
-        marker = 'D' if glyph == '◆' else 'x' if glyph == '×' else 'o'
+        marker = '^' if glyph == '▲' else 'v' if glyph == '▼' else 'x' if glyph == '×' else 'o'
         fig.add_artist(Line2D([x/width+6/width],[1-(y+11)/height],transform=fig.transFigure,
-            marker=marker,markersize=7,markerfacecolor='white' if glyph == '○' else c,
+            marker=marker,markersize=8,markerfacecolor='white' if glyph == '○' else c,
             markeredgecolor=c,markeredgewidth=1.6 if glyph == '×' else 1.3,linestyle='none'))
         text(x+25,y+2,label,12 if compact else 13 if mobile else 14,INK,linespacing=1.45)
     ax = fig.add_axes([left/width, (height-bottom)/height, (right-left)/width, (bottom-top)/height])
@@ -298,8 +298,8 @@ def render(key, mobile=False, compact=False, scale='linear'):
         if not (.5 <= x <= 64 and 0 <= y <= max_y):
             raise ValueError(f"Update the figure limits before plotting {row['id']}: ({x}, {y})")
         color=BLUE if row['kind']=='proof' else CLAIM if row['kind']=='claim' else RED if row.get('key_free') else ORANGE
-        marker='o' if row['kind'] in ('proof','claim') else 'x' if row.get('key_free') else 'D'
-        artist=ax.scatter([x],[y],s=66 if row['kind']=='proof' else 45,marker=marker,
+        marker='^' if row['kind']=='proof' else 'o' if row['kind']=='claim' else 'x' if row.get('key_free') else 'v'
+        artist=ax.scatter([x],[y],s=78 if row['kind']=='proof' else 45 if row['kind']=='claim' else 60,marker=marker,
                           facecolors='white' if row['kind']=='claim' else color,
                           **({} if marker == 'x' else {'edgecolors':color}),linewidths=1.6 if row['kind']=='claim' or row.get('key_free') else .7,
                           zorder=4,alpha=.85 if row.get('key_free') else 1)

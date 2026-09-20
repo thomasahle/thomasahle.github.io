@@ -1,70 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="680" height="689" viewBox="0 0 680 689" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="186" viewBox="0 0 1000 186" role="img" aria-labelledby="title desc">
 <title id="title">Hash robustness: colliding inputs and affected keys</title>
-<desc id="desc">Hash robustness has two dimensions: how many inputs collide, and which keys make them collide. Rows are one fixed pair and a large fixed set. Columns are a fraction of keys and every key. The four cells show pair-wise collisions, seed-independent pairs, weak-key multicollisions, and seed-independent multicollisions. Few-way collisions sit between the rows. All inputs discussed here are chosen without knowing the secret key.</desc>
-<rect width="680" height="689" fill="white"/>
+<desc id="desc">Four categories of hash robustness issues, shown side by side: seed-independent pairs, few-way collisions, weak-key multicollisions, and seed-independent multicollisions. Each category has a short definition and its most directly relevant applications. All inputs discussed here are chosen without knowing the secret key.</desc>
+<rect width="1000" height="186" fill="white"/>
 <g font-family="Arial, Helvetica, sans-serif">
-<text font-size="14" fill="#626e69" font-weight="400" text-anchor="middle"><tspan x="387.0" y="18">Which keys make the inputs collide?</tspan></text>
-<text font-size="14" fill="#626e69" font-weight="400" text-anchor="start"><tspan x="0" y="51">Colliding</tspan>
-<tspan x="0" y="71">inputs ↓</tspan></text>
-<text font-size="17" fill="#263330" font-weight="700" text-anchor="start"><tspan x="112.0" y="51">For a fraction of keys</tspan></text>
-<text font-size="17" fill="#263330" font-weight="700" text-anchor="start"><tspan x="413.0" y="51">For every key</tspan></text>
-<text font-size="17" fill="#263330" font-weight="700" text-anchor="start"><tspan x="0" y="104">One fixed</tspan>
-<tspan x="0" y="127">pair</tspan></text>
-<g class="robustness-cell" data-category="Pair-wise collision">
-<rect x="94.0" y="76" width="285.0" height="206" rx="7" fill="#faf7ef"/>
-<path d="M 112.0 76 H 361.0" stroke="#866528" stroke-width="3"/>
-<text font-size="18" fill="#866528" font-weight="700" text-anchor="start"><tspan x="112.0" y="104">Pair-wise collision</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="112.0" y="131">The same two inputs collide for</tspan>
-<tspan x="112.0" y="152">some keys.</tspan></text>
-<path d="M 112.0 174 H 361.0" stroke="#866528" stroke-opacity=".2"/>
-<text font-size="13" fill="#626e69" font-weight="700" text-anchor="start"><tspan x="112.0" y="193">Applications</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="112.0" y="218">Fingerprinting, hash-based</tspan>
-<tspan x="112.0" y="239">equality, deduplication,</tspan>
-<tspan x="112.0" y="260">approximate membership filters.</tspan></text>
-</g>
 <g class="robustness-cell" data-category="Seed-independent pair">
-<rect x="395.0" y="76" width="285.0" height="206" rx="7" fill="#fbf4ef"/>
-<path d="M 413.0 76 H 662.0" stroke="#a45d37" stroke-width="3"/>
-<text font-size="18" fill="#a45d37" font-weight="700" text-anchor="start"><tspan x="413.0" y="104">Seed-independent pair</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="413.0" y="131">The same two distinct inputs</tspan>
-<tspan x="413.0" y="152">collide for every key.</tspan></text>
-<path d="M 413.0 174 H 662.0" stroke="#a45d37" stroke-opacity=".2"/>
-<text font-size="13" fill="#626e69" font-weight="700" text-anchor="start"><tspan x="413.0" y="193">Applications</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="413.0" y="218">Fingerprinting, hash-based</tspan>
-<tspan x="413.0" y="239">equality, deduplication,</tspan>
-<tspan x="413.0" y="260">approximate membership filters.</tspan></text>
+<rect x="0.0" y="0" width="241.0" height="186" rx="5" fill="#faf7f0"/>
+<text font-size="18" fill="#866528" font-weight="700" text-anchor="start"><tspan x="12.0" y="28">Seed-independent pair</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="12.0" y="51">The same two distinct inputs</tspan>
+<tspan x="12.0" y="72">collide for every key.</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="12.0" y="101">Use for: Fingerprinting,</tspan>
+<tspan x="12.0" y="122">hash-based equality,</tspan>
+<tspan x="12.0" y="143">deduplication, approximate</tspan>
+<tspan x="12.0" y="164">membership filters.</tspan></text>
 </g>
-<text font-size="16" fill="#263330" font-weight="700" text-anchor="start"><tspan x="112" y="312">Few-way collisions</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="112" y="337">A small set collides for some keys.</tspan></text>
-<text font-size="13" fill="#626e69" font-weight="700" text-anchor="start"><tspan x="112" y="370">Applications</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="112" y="395">Cuckoo hashing, bounded-capacity buckets, hash-indexed caches and</tspan>
-<tspan x="112" y="416">hardware tables.</tspan></text>
-<text font-size="17" fill="#263330" font-weight="700" text-anchor="start"><tspan x="0" y="481">A large</tspan>
-<tspan x="0" y="504">fixed set</tspan></text>
+<g class="robustness-cell" data-category="Few-way collisions">
+<rect x="253.0" y="0" width="241.0" height="186" rx="5" fill="#fcf6ee"/>
+<text font-size="18" fill="#9a612f" font-weight="700" text-anchor="start"><tspan x="265.0" y="28">Few-way collisions</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="265.0" y="51">A small set collides for</tspan>
+<tspan x="265.0" y="72">some keys.</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="265.0" y="101">Use for: Cuckoo hashing,</tspan>
+<tspan x="265.0" y="122">bounded-capacity buckets,</tspan>
+<tspan x="265.0" y="143">hash-indexed caches and</tspan>
+<tspan x="265.0" y="164">hardware tables.</tspan></text>
+</g>
 <g class="robustness-cell" data-category="Weak-key multicollision">
-<rect x="94.0" y="453" width="285.0" height="228" rx="7" fill="#fbf4ef"/>
-<path d="M 112.0 453 H 361.0" stroke="#a45d37" stroke-width="3"/>
-<text font-size="18" fill="#a45d37" font-weight="700" text-anchor="start"><tspan x="112.0" y="481">Weak-key multicollision</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="112.0" y="508">A large fixed set collides for a</tspan>
-<tspan x="112.0" y="529">fraction of keys.</tspan></text>
-<path d="M 112.0 573 H 361.0" stroke="#a45d37" stroke-opacity=".2"/>
-<text font-size="13" fill="#626e69" font-weight="700" text-anchor="start"><tspan x="112.0" y="592">Applications</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="112.0" y="617">Randomized dictionaries,</tspan>
-<tspan x="112.0" y="638">long-lived caches, hash-based</tspan>
-<tspan x="112.0" y="659">partitioning.</tspan></text>
+<rect x="506.0" y="0" width="241.0" height="186" rx="5" fill="#fcf4ef"/>
+<text font-size="18" fill="#b34d33" font-weight="700" text-anchor="start"><tspan x="518.0" y="28">Weak-key multicollision</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="518.0" y="51">A large fixed set collides</tspan>
+<tspan x="518.0" y="72">for a fraction of keys.</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="518.0" y="101">Use for: Randomized</tspan>
+<tspan x="518.0" y="122">dictionaries, long-lived</tspan>
+<tspan x="518.0" y="143">caches, hash-based</tspan>
+<tspan x="518.0" y="164">partitioning.</tspan></text>
 </g>
-<g class="robustness-cell" data-category="Seed-independent multicollisions">
-<rect x="395.0" y="453" width="285.0" height="228" rx="7" fill="#fcf0f1"/>
-<path d="M 413.0 453 H 662.0" stroke="#ad3640" stroke-width="3"/>
-<text font-size="18" fill="#ad3640" font-weight="700" text-anchor="start"><tspan x="413.0" y="481">Seed-independent</tspan>
-<tspan x="413.0" y="503">multicollisions</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="413.0" y="530">A large fixed set collides for</tspan>
-<tspan x="413.0" y="551">every key.</tspan></text>
-<path d="M 413.0 573 H 662.0" stroke="#ad3640" stroke-opacity=".2"/>
-<text font-size="13" fill="#626e69" font-weight="700" text-anchor="start"><tspan x="413.0" y="592">Applications</tspan></text>
-<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="413.0" y="617">Maps and sets, hash-based</tspan>
-<tspan x="413.0" y="638">database operations, sharding,</tspan>
-<tspan x="413.0" y="659">distinct-count sketches.</tspan></text>
+<g class="robustness-cell" data-category="Multicollisions">
+<rect x="759.0" y="0" width="241.0" height="186" rx="5" fill="#fcf1f2"/>
+<text font-size="18" fill="#ad3640" font-weight="700" text-anchor="start"><tspan x="771.0" y="28">Multicollisions</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="771.0" y="51">A large fixed set collides</tspan>
+<tspan x="771.0" y="72">for every key.</tspan></text>
+<text font-size="15" fill="#263330" font-weight="400" text-anchor="start"><tspan x="771.0" y="101">Use for: Maps and sets,</tspan>
+<tspan x="771.0" y="122">hash-based database</tspan>
+<tspan x="771.0" y="143">operations, sharding,</tspan>
+<tspan x="771.0" y="164">distinct-count sketches.</tspan></text>
 </g>
 </g>
 </svg>
