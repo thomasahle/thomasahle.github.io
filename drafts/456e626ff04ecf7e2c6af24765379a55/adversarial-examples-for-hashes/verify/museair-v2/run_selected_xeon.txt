@@ -1,7 +1,0 @@
-explicit seed 040963434fe5e368 -> ef46cda19c0bbc67 PASS; seed 0 differs
-len 32, N = 16777216 (2^24), rng 0x1, 1 threads
-  hash            84 / 16777216  rate 2^-17.608  [2^-17.934, 2^-17.300]
-  bfast::hash     84 / 16777216  rate 2^-17.608  [2^-17.934, 2^-17.300]
-  hash128         81 / 16777216  rate 2^-17.660  [2^-17.993, 2^-17.346]
-  bfast::hash128  81 / 16777216  rate 2^-17.660  [2^-17.993, 2^-17.346]
-  first colliding seed (hash): 0xae20b9f6deb2703d -> 0xc37fb9a1ea851aca

@@ -1,9 +1,0 @@
-/* The added comparison follows the existing table and evidence-card layout. */
-.pinned-bound-column { min-width: 170px; }
-.pinned-bound-value { cursor: help; text-decoration: underline dotted; text-underline-offset: 3px; }
-.pinned-bound-details > summary { min-height: 0; padding: 0; }
-.pinned-bound-details p { max-width: 280px; margin: 8px 0; overflow-wrap: anywhere; }
-#pinned-length-table { min-width: 720px; }
-#pinned-length-table td { min-width: 155px; }
-.tooltip-pinned-formula { font-size: 14px; line-height: 1.45; margin: 0 0 12px; }
-.tooltip-metrics [data-pinned-metric] { grid-column: 1 / -1; grid-row: 2; }

@@ -1,9 +1,0 @@
-rapidhash_internal("message digest", 14, seed 3, default secret) = 0031cdc21324150f expected 0031cdc21324150f PASS
-row witness seed 3788f2419a81e2d6: 8f7a71ffebd4a14b 8f7a71ffebd4a14b expected 8f7a71ffebd4a14b PASS
-== stage 1: row pair A, random seed + random secret, 2^32 keys, rngseed 1
-rapidhash v1.0 pair: M=9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c (32 B) M'=642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c (32 B) L=4 model=random seed + 3 uniform secret words rngseed=1 threads=8
-result: hits=38 N=2^32 rate=8.8476e-09 log2rate=-26.7521 [-27.2509, -26.2952] cap_bits(L=4)=28.752 [28.295, 29.251]  example seed=3879cdfddc782ad3 secret={d0d81d65fd961dff,a9132a2f5b5d4f54,d72e7f4d4f7270f5} out=4329ec0defb7f826
-== stage 2: 24-byte pair B (word 0 complemented), random model, 2^32 keys, rngseed 1
-rapidhash v1.0 pair: M=9bd4604137366abec688a63706aa4a2188d35499de169df6 (24 B) M'=642b9fbec8c99541c688a63706aa4a2188d35499de169df6 (24 B) L=3 model=random seed + 3 uniform secret words rngseed=1 threads=8
-result: hits=32 N=2^32 rate=7.4506e-09 log2rate=-27.0000 [-27.5479, -26.5026] cap_bits(L=3)=28.585 [28.088, 29.133]  example seed=8f934f0d969d8c38 secret={b928485235f145d4,e19da6ded88cdbd0,64eacf717f4fb9ce} out=e69e5ea677632e22
-== stage 3: fold-level differentials, uniform operands, 2^38 samples

@@ -1,8 +1,0 @@
-# row pair A, DEFAULT secret, 2^34, fresh rngseed
-model: seed uniform, DEFAULT secret; rngseed 204; 2^34 keys; threads 8
-pair                         len  32/ 32 L=4 : 184 / 17179869184  rate 2^-26.476  cap 28.476 bits
-    example key: seed 7cde84a591a0c3d2 secret 2d358dccaa6c78a5 8bb84b93962eacc9 4b33a62ed433d4a3 4d5a2da51de1aa47 a0761d6478bd642f e7037ed1a0b428db 90ed1765281c388c aaaaaaaaaaaaaaaa -> fc2693638507d063
-
-real	1m26.524s
-user	5m51.612s
-sys	0m0.001s

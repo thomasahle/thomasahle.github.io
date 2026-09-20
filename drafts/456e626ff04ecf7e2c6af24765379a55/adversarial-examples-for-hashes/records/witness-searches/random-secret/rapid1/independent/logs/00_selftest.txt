@@ -1,6 +1,0 @@
-selftest 1: rapidhash_internal("message digest",14,seed=3,default) = 0031cdc21324150f expected 0031cdc21324150f PASS
-selftest 2: row witness seed 3788f2419a81e2d6: 8f7a71ffebd4a14b 8f7a71ffebd4a14b expected 8f7a71ffebd4a14b PASS
-selftest 3: pair A example key: 4329ec0defb7f826 4329ec0defb7f826 expected 4329ec0defb7f826 PASS
-selftest 4: pair B24 example key: e69e5ea677632e22 e69e5ea677632e22 expected e69e5ea677632e22 PASS
-selftest 5: rapidhash_withSeed matches internal(default secret): PASS
-selftest: 0 failures

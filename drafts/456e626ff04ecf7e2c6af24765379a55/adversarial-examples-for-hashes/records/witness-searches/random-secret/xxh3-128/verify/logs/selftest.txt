@@ -1,5 +1,0 @@
-XXH_versionNumber = 803 (expect 803)
-SMHasher3 verification = 288DAA94 (expect 288DAA94) PASS
-row witness seed e130d569418d2efe: H(m)=77aee7ca6253510cff9994fe21ab989a H(m')=77aee7ca6253510cff9994fe21ab989a PASS
-API dispatch: withSecretandSeed==withSeed for len<=240 and ==withSecret (=internal) for len>240: 54400 checks, short mismatches 0, long mismatches 0 PASS
-fold complement event: 8 / 2^30 = 2^-27.000  (heuristic (3/4)^64 = 2^-26.56); exact-twin(2^63) 2

@@ -1,8 +1,0 @@
-# 24 B (M,0) candidate, random seed + secret, 2^35, second fresh rngseed
-model: seed + 8 secret words uniform; rngseed 205; 2^35 keys; threads 8
-pair                         len  24/ 24 L=3 : 253 / 34359738368  rate 2^-27.017  cap 28.602 bits
-    example key: seed f41e575b1b53c8d4 secret 87e33234edaad0e5 ac0ca7caf0fca01a b854df7c9bbc10ab 78c9d90100b5fe55 05a1a6161c407b5c a06f9eac930b1bc8 004f9be25cd35512 6dba8e9e34a0efdd -> c56da06059bb84d1
-
-real	3m33.275s
-user	15m48.076s
-sys	0m0.007s

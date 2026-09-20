@@ -1,7 +1,0 @@
-xxh3_verify pair mode=seed len=24/24 keys=2^32 (4294967296) salt=9108 threads=8 wall=23s
-m  = 000000000000000000000000000000000000000000000000
-m' = ffffffffffffffff00000000000000000000000000000000
-per-thread hits: 6 4 3 4 8 5 6 6
-hits = 42 / 2^32  rate = 2^-26.6077
-first witness (thread 0): H(m)=e79ec6eead5ad60e H(m')=e79ec6eead5ad60e recheck=ok
-  seed   = 806a1ead4e43217d

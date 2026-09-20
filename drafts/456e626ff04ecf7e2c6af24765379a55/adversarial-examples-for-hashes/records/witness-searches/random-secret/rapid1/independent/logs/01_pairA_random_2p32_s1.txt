@@ -1,6 +1,0 @@
-== 1: pair A, random seed + 3 uniform secret words, 2^32, rngseed 1
-rs_verify pair: len=32 M=9bd4604137366abec688a63706aa4a2188d35499de169df633e0964e8c04600c M'=642b9fbec8c99541397759c8f955b5de88d35499de169df633e0964e8c04600c N=2^32 rngseed=1 mode=random threads=8 rng=mt19937_64
-result: hits=40 N=4294967296 (2^32) rate=9.3132e-09 log2rate=-26.6781 [-27.1632, -26.2326] cap_bits(L=4)=28.678 [28.233, 29.163]
-example: seed=425c7b271ec046a1 secret={c4a15a6813d3e593,258531f2680f4bf7,cf0b8843d67496f9} out=5613180444cb3113
-example: seed=1a7bbfcff8678a47 secret={0c5d74779b899ad6,2e6774652f829c87,f42822b5422f4561} out=5039dd6b554ce739
-example: seed=8bc3945ede133870 secret={6685cc4c507bb180,c3e3e60ffc8299b0,fd4c6c71c43b4093} out=75693248577d45d1

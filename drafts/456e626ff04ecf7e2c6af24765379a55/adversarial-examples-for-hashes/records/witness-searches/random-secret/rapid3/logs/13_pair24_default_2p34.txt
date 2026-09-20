@@ -1,8 +1,0 @@
-# 24 B (M,0) candidate, DEFAULT secret, 2^34
-model: seed uniform, DEFAULT secret; rngseed 203; 2^34 keys; threads 8
-pair                         len  24/ 24 L=3 : 140 / 17179869184  rate 2^-26.871  cap 28.456 bits
-    example key: seed b1b98da1312b3919 secret 2d358dccaa6c78a5 8bb84b93962eacc9 4b33a62ed433d4a3 4d5a2da51de1aa47 a0761d6478bd642f e7037ed1a0b428db 90ed1765281c388c aaaaaaaaaaaaaaaa -> bb0136ccbf70322e
-
-real	1m26.057s
-user	5m51.582s
-sys	0m0.001s
