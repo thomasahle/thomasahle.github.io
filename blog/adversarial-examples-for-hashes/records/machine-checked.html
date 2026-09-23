@@ -20,4 +20,19 @@
 <p>ChainHash, 64 uniformly random key bytes: collision bound (p(L)+d(L))/2^64 for distinct byte strings of at most 8L bytes, including empty, partial-word and unequal-length inputs; evaluation independence (serial = k-lane exact-count schedule = lazy state for every stride); exact score minimum 63.0. 89 theorems, standard axioms only; 464 C/Lean vectors. Compiler correctness and the benchmark seed expansion are outside scope.</p>
 <h2 id="chainhash128">chainhash128</h2>
 <p>ChainHash-128, 128 uniformly random key bytes: collision bound (p_B(L)+d_B(L))/2^128 for distinct byte strings of at most 8L bytes, including empty, partial-word and unequal-length inputs; evaluation independence for every stride; exact score minimum 127. 116 theorems, standard axioms only; 625 C/Lean vectors. Compiler correctness and the benchmark seed expansion are outside scope.</p>
+<h2 id="horner">horner</h2>
+<p>Horner / unrolled polynomial over GF(2^64): collision probability at most (L-1)/2^64 for distinct fixed-length word vectors (<code>polynomial_collision_gf64</code>). Sources, build and axiom audit: <a href="lean-textbook/README.md">lean-textbook/</a>. Standard axioms only.</p>
+<h2 id="brw">brw</h2>
+<p>BRW polynomial of degree at most 2L-1 over GF(2^64); finite-domain score minimum strictly between 63 and 64, whole-bit floor 63 (<code>BRW.collision_bound_gf64</code>, <code>ChartScores.brw_whole_bits</code>). Sources, build and axiom audit: <a href="lean-textbook/README.md">lean-textbook/</a>. Standard axioms only.</p>
+<h2 id="recurrence">recurrence</h2>
+<p>Injective recurrence, one chain, three independent keys: ceil(L/2)/2^64 (<code>Recurrence.collision_bound_gf64</code>). Sources, build and axiom audit: <a href="lean-textbook/README.md">lean-textbook/</a>. Standard axioms only.</p>
+<h2 id="lanes">lanes</h2>
+<p>Injective recurrence, eight lanes: (rounds(L)+J-1)/2^64 with J = min(8, ceil(L/2)) nonempty lanes, at most L/2^64, so the score is at least 64 (<code>LanesRefined.word_collision_bound_refined_gf64</code>, <code>LanesRefined.refined_ratio</code>); lanes empty at the common length cancel, which the earlier envelope (rounds(L)+7)/2^64 (61 bits) did not use. Sources, build and axiom audit: <a href="lean-textbook/README.md">lean-textbook/</a>. Standard axioms only.</p>
+<h2 id="nh">nh</h2>
+<p>NH over GF(2^64): 2^-64 (<code>nh_collision_bound</code>). The integer NH row relies on the UMAC theorem; this file covers the field version only. Sources, build and axiom audit: <a href="lean-textbook/README.md">lean-textbook/</a>. Standard axioms only.</p>
+<h2 id="tabulation">tabulation</h2>
+<p>Simple tabulation on single words: exactly 2^-64 (<code>tabulation_collision_exact</code>). Sources, build and axiom audit: <a href="lean-textbook/README.md">lean-textbook/</a>. Standard axioms only.</p>
+<h2 id="multiply">multiply</h2>
+<p>Vector multiply-add-shift with independent uniform 128-bit coefficients and additive key, high 64-bit output, fixed-length vectors: exactly 2^-64 (<code>vectorMultiplyAddShift_collision_exact</code>, <code>vectorMultiplyAddShift64_formula_bound</code>). The scalar multiply-shift proposition in MultiplyShift.lean is recorded, not proved. Sources, build and axiom audit: <a href="lean-textbook/README.md">lean-textbook/</a>. Standard axioms only.</p>
+<p>ChainHash and ChainHash-128 attain their L = 1 certificates: the one-byte pair <code>"\x00"</code> / <code>"\x01"</code> collides with probability exactly (2q-1)/q^2, so the scores 63 and 127 are exact.</p>
 </main></body></html>

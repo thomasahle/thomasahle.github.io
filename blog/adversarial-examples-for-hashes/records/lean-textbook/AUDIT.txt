@@ -1,0 +1,18 @@
+lake build:
+✔ [7363/7365] Built ProvenHashes.LanesRefined (5.0s)
+✔ [7364/7365] Built ProvenHashes (3.7s)
+Build completed successfully (7365 jobs).
+
+axiom audit:
+'ProvenHashes.polynomial_collision_gf64' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.BRW.collision_bound_gf64' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.ChartScores.brw_whole_bits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.Recurrence.collision_bound_gf64' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.EightLanes.word_collision_bound_gf64' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.LanesRefined.word_collision_bound_refined_gf64' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.LanesRefined.refined_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.nh_collision_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.tabulation_collision_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.vectorMultiplyAddShift_collision_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvenHashes.vectorMultiplyAddShift64_formula_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

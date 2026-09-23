@@ -15551,8 +15551,8 @@
       "family_definition": "Polynomial evaluation or recurrence over GF(2^k).",
       "lean": {
         "label": "✓ checked",
-        "source": "records/",
-        "scope": "Fixed-length BRW and eight-lane recurrence bounds are proved; BRW’s finite-domain minimum lies strictly between 63 and 64 and its whole-bit floor is 63; the eight-lane minimum is 61."
+        "source": "records/lean-textbook/",
+        "scope": "Fixed-length BRW bound (degree <= 2L-1) is proved; its finite-domain minimum lies strictly between 63 and 64 and its whole-bit floor is 63."
       }
     },
     {
@@ -15673,8 +15673,8 @@
       "pattern": [],
       "code_url": "https://github.com/thomasahle/fast-polynomials",
       "name": "Injective recurrence, eight lanes",
-      "bound": "(ceil(ceil(L/2)/8)+7)/q",
-      "score_lower_guarantee": 61,
+      "bound": "(ceil(ceil(L/2)/8)+min(8,ceil(L/2))-1)/q",
+      "score_lower_guarantee": 64,
       "key_words_64bit": "4",
       "output_bits": 64,
       "domain": "The explicitly defined eight-lane field construction, with independent lane-combining key; fixed padded length.",
@@ -15694,7 +15694,7 @@
       "anchor": "proofs",
       "mechanism": "(ceil(ceil(L/2)/8)+7)/q",
       "family": "proven",
-      "bits": 61,
+      "bits": 64,
       "bits_kind": "audited lower guarantee",
       "speeds": {
         "m2_gbps_16k": {
@@ -15757,14 +15757,14 @@
       "score_derivation": "min_L log2(L/max(2^-64,min(1,epsilon(L)))); minimizing L=1",
       "proof_status": "proved (audited)",
       "proof_source": "records/README.html",
-      "score_display": "≥ 61",
+      "score_display": "≥ 64",
       "score": {
-        "calculated": 61,
-        "display": 61,
-        "display_text": "≥ 61 bits (proved)",
+        "calculated": 64,
+        "display": 64,
+        "display_text": "≥ 64 bits (proved)",
         "direction": "lower_bound",
         "minimizer_L": 1,
-        "formula": "(ceil(ceil(L/2)/8)+7)/q"
+        "formula": "(ceil(ceil(L/2)/8)+min(8,ceil(L/2))-1)/q"
       },
       "mechanism_family": "GF(2^k) polynomial",
       "rurban_alias": null,
@@ -15778,8 +15778,8 @@
       "family_definition": "Polynomial evaluation or recurrence over GF(2^k).",
       "lean": {
         "label": "✓ checked",
-        "source": "records/",
-        "scope": "Fixed-length BRW and eight-lane recurrence bounds are proved; BRW’s finite-domain minimum lies strictly between 63 and 64 and its whole-bit floor is 63; the eight-lane minimum is 61."
+        "source": "records/lean-textbook/",
+        "scope": "The eight-lane recurrence bound is proved in the refined form (rounds(L)+J-1)/q with J=min(8,ceil(L/2)) nonempty lanes: lanes that are empty at the common length hold the same value in both messages and cancel, so the combining polynomial has degree J-1, not 7. That is at most L/q for every L >= 1, a score of at least 64 (the earlier envelope (rounds(L)+7)/q gave 61)."
       }
     },
     {
@@ -19663,7 +19663,7 @@
       "family_definition": "Wide keyed multiplication followed by selection of high bits.",
       "lean": {
         "label": "✓ checked",
-        "source": "records/",
+        "source": "records/lean-textbook/",
         "scope": "Fixed-length vectors with independent uniform 128-bit coefficients and additive key, high 64-bit output; no variable-length or short-seed claim."
       }
     },
