@@ -1,0 +1,2656 @@
+{
+ "polyxor-128": {
+  "Xeon8375C": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 15.82,
+   "bulk_gib_s": 51.56,
+   "small_cycles": 173.01,
+   "bulk_selected_run": 1,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 0.12658227848101333,
+   "small_run_spread_percent": 0.06358013987630695,
+   "aggregation": "higher bulk of two passes; independently lower small average",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "Xeon8375C",
+     "name": "polyxor-128",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "polyxor-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/polyxor-128.run1.txt",
+     "raw_sha256": "cccf61a0d4d1ad6142be0a0d66067b7d27fd571729f1e52b97ac1c8f5a94838e",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:37:01.096250+00:00",
+     "load_before": {
+      "uptime": "11:37:01 up 16 days, 20:21,  0 users,  load average: 29.28, 36.36, 38.62",
+      "load1": 29.28,
+      "load5": 36.36,
+      "load15": 38.62
+     },
+     "cpu_busy_percent_before": {
+      "16": 17.0,
+      "17": 14.1,
+      "18": 14.5,
+      "19": 29.0,
+      "20": 21.5,
+      "21": 25.4,
+      "22": 26.5,
+      "23": 28.4
+     },
+     "finished": "2026-09-28T11:38:04.868323+00:00",
+     "load_after": {
+      "uptime": "11:38:04 up 16 days, 20:22,  0 users,  load average: 26.55, 34.26, 37.75",
+      "load1": 26.55,
+      "load5": 34.26,
+      "load15": 37.75
+     },
+     "cpu_busy_percent_after": {
+      "16": 42.8,
+      "17": 6.5,
+      "18": 20.0,
+      "19": 3.0,
+      "20": 1.5,
+      "21": 8.1,
+      "22": 9.5,
+      "23": 11.5
+     },
+     "elapsed_seconds": 63.76850975607522,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 15.82,
+     "bulk_gib_s": 51.56,
+     "small_cycles": 173.01,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 15.82,
+       "bulk_gib_s": 51.56,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.82 bytes/cycle - 51.56 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.5,
+       "bulk_gib_s": 50.51,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.50 bytes/cycle - 50.51 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.06325110689437974,
+     "outlier": false,
+     "small_deviation_from_median_percent": -0.03177996706440478,
+     "small_outlier": false
+    },
+    {
+     "host": "Xeon8375C",
+     "name": "polyxor-128",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "polyxor-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/polyxor-128.run2.txt",
+     "raw_sha256": "b7c02aea0ee97bc1777cf3ee6d1926af642871b5a2031614452699ee74c5b4b4",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:44:07.725837+00:00",
+     "load_before": {
+      "uptime": "11:44:07 up 16 days, 20:28,  0 users,  load average: 23.94, 27.08, 33.35",
+      "load1": 23.94,
+      "load5": 27.08,
+      "load15": 33.35
+     },
+     "cpu_busy_percent_before": {
+      "16": 1.0,
+      "17": 1.0,
+      "18": 0.5,
+      "19": 1.0,
+      "20": 91.9,
+      "21": 1.0,
+      "22": 1.0,
+      "23": 2.0
+     },
+     "finished": "2026-09-28T11:45:11.121791+00:00",
+     "load_after": {
+      "uptime": "11:45:11 up 16 days, 20:29,  0 users,  load average: 30.88, 27.96, 33.20",
+      "load1": 30.88,
+      "load5": 27.96,
+      "load15": 33.2
+     },
+     "cpu_busy_percent_after": {
+      "16": 6.5,
+      "17": 0.5,
+      "18": 9.5,
+      "19": 9.5,
+      "20": 16.5,
+      "21": 8.5,
+      "22": 19.5,
+      "23": 16.6
+     },
+     "elapsed_seconds": 63.391530356835574,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 15.8,
+     "bulk_gib_s": 51.51,
+     "small_cycles": 173.12,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 15.8,
+       "bulk_gib_s": 51.51,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.80 bytes/cycle - 51.51 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.47,
+       "bulk_gib_s": 50.43,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.47 bytes/cycle - 50.43 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -0.06325110689436864,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.03177996706440478,
+     "small_outlier": false
+    }
+   ],
+   "verification": {
+    "raw_file": "evidence/Xeon/polyxor-128.sanity.txt",
+    "raw_sha256": "a3d49cc5f672688e33646d67a304c273f9da6f7943f5ef44da7791ea05fc18ad",
+    "lines": [
+     "Verification value CE 0xA9574CA8 ...... PASS",
+     "Running sanity check 1       .......... PASS",
+     "Running sanity check 2       .......... PASS",
+     "Running append zeroes test   .......... PASS",
+     "Running prepend zeroes test  .......... PASS",
+     "Running thread-safety test 1 .......... PASS",
+     "Running thread-safety test 2 .......... PASS",
+     "Verification value is 0x00000001 - Testing took 0.387439 seconds"
+    ]
+   }
+  },
+  "M2Pro": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 17.93,
+   "bulk_gib_s": 58.46,
+   "small_cycles": 132.86,
+   "bulk_selected_run": 1,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 8.685306365258771,
+   "small_run_spread_percent": 8.231334149326797,
+   "aggregation": "median of three; >15% deviations flagged, not discarded",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "M2Pro",
+     "name": "polyxor-128",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "polyxor-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/polyxor-128.run1.txt",
+     "raw_sha256": "098660029b3ca0eb448e9d1e3fa679ff9d93d91eec6ea3f6d5ec85f40306b538",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:37:08.034455+00:00",
+     "load_before": {
+      "uptime": "13:37  up 11 days,  1:28, 1 user, load averages: 3.71 4.81 4.48",
+      "load1": 3.708984375,
+      "load5": 4.8056640625,
+      "load15": 4.484375
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:37:51.812559+00:00",
+     "load_after": {
+      "uptime": "13:37  up 11 days,  1:29, 1 user, load averages: 3.80 4.66 4.45",
+      "load1": 3.80126953125,
+      "load5": 4.6630859375,
+      "load15": 4.4462890625
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 43.84085283300374,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 17.93,
+     "bulk_gib_s": 58.46,
+     "small_cycles": 132.86,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 17.93,
+       "bulk_gib_s": 58.46,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 17.93 bytes/cycle - 58.46 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 16.37,
+       "bulk_gib_s": 53.37,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.37 bytes/cycle - 53.37 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.0,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "polyxor-128",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "polyxor-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/polyxor-128.run2.txt",
+     "raw_sha256": "d7b0a2806598e9623d90ecf56f2a085805f634be42a37e1e69a1a2f66d71eae0",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:45:58.822401+00:00",
+     "load_before": {
+      "uptime": "13:45  up 11 days,  1:37, 1 user, load averages: 4.40 6.13 5.57",
+      "load1": 4.4033203125,
+      "load5": 6.12548828125,
+      "load15": 5.5654296875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:46:42.725439+00:00",
+     "load_after": {
+      "uptime": "13:46  up 11 days,  1:38, 1 user, load averages: 3.08 5.53 5.37",
+      "load1": 3.0771484375,
+      "load5": 5.53125,
+      "load15": 5.3740234375
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 43.91505045793019,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 18.27,
+     "bulk_gib_s": 59.57,
+     "small_cycles": 130.72,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 18.27,
+       "bulk_gib_s": 59.57,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 18.27 bytes/cycle - 59.57 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 16.76,
+       "bulk_gib_s": 54.63,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.76 bytes/cycle - 54.63 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 1.8962632459564865,
+     "outlier": false,
+     "small_deviation_from_median_percent": -1.6107180490742223,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "polyxor-128",
+     "test": "Speed",
+     "run": 3,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "polyxor-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/polyxor-128.run3.txt",
+     "raw_sha256": "c7f90aad56f67ffbf7b6cc860bb69ae4b76c09435123f35ce2325aa0096dfb40",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:50:46.234264+00:00",
+     "load_before": {
+      "uptime": "13:50  up 11 days,  1:42, 1 user, load averages: 3.38 4.20 4.79",
+      "load1": 3.37646484375,
+      "load5": 4.19921875,
+      "load15": 4.79248046875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:51:27.695977+00:00",
+     "load_after": {
+      "uptime": "13:51  up 11 days,  1:42, 1 user, load averages: 2.93 3.98 4.68",
+      "load1": 2.9296875,
+      "load5": 3.97900390625,
+      "load15": 4.6796875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 41.4619774579769,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 16.81,
+     "bulk_gib_s": 54.79,
+     "small_cycles": 141.48,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 16.81,
+       "bulk_gib_s": 54.79,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.81 bytes/cycle - 54.79 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.55,
+       "bulk_gib_s": 50.67,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.55 bytes/cycle - 50.67 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -6.246514221974353,
+     "outlier": false,
+     "small_deviation_from_median_percent": 6.488032515429754,
+     "small_outlier": false
+    }
+   ],
+   "verification": {
+    "raw_file": "evidence/M2/polyxor-128.sanity.txt",
+    "raw_sha256": "6c4abfb709b347465a41d360e936797ad8a790d5bdecf5fe1aa9fd65916b2583",
+    "lines": [
+     "Verification value CE 0xA9574CA8 ...... PASS",
+     "Running sanity check 1       .......... PASS",
+     "Running sanity check 2       .......... PASS",
+     "Running append zeroes test   .......... PASS",
+     "Running prepend zeroes test  .......... PASS",
+     "Running thread-safety test 1 .......... PASS",
+     "Running thread-safety test 2 .......... PASS",
+     "Verification value is 0x00000001 - Testing took 0.348925 seconds"
+    ]
+   }
+  }
+ },
+ "polyxor-128.raw": {
+  "Xeon8375C": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 15.85,
+   "bulk_gib_s": 51.66,
+   "small_cycles": 130.3,
+   "bulk_selected_run": 1,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 0.12634238787112562,
+   "small_run_spread_percent": 0.5679201841903181,
+   "aggregation": "higher bulk of two passes; independently lower small average",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "Xeon8375C",
+     "name": "polyxor-128.raw",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "polyxor-128.raw",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/polyxor-128.raw.run1.txt",
+     "raw_sha256": "af9bc5689f538a822e75935fb8664e6d76022a4dc8191b3a862fda0035ce61e3",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:38:06.943417+00:00",
+     "load_before": {
+      "uptime": "11:38:06 up 16 days, 20:22,  0 users,  load average: 26.55, 34.26, 37.75",
+      "load1": 26.55,
+      "load5": 34.26,
+      "load15": 37.75
+     },
+     "cpu_busy_percent_before": {
+      "16": 18.5,
+      "17": 19.5,
+      "18": 10.0,
+      "19": 29.1,
+      "20": 5.0,
+      "21": 4.5,
+      "22": 4.5,
+      "23": 24.4
+     },
+     "finished": "2026-09-28T11:39:05.949657+00:00",
+     "load_after": {
+      "uptime": "11:39:05 up 16 days, 20:23,  0 users,  load average: 26.26, 32.84, 37.05",
+      "load1": 26.26,
+      "load5": 32.84,
+      "load15": 37.05
+     },
+     "cpu_busy_percent_after": {
+      "16": 2.0,
+      "17": 1.0,
+      "18": 3.0,
+      "19": 3.0,
+      "20": 7.0,
+      "21": 15.1,
+      "22": 100.0,
+      "23": 4.0
+     },
+     "elapsed_seconds": 59.0099245258607,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 15.85,
+     "bulk_gib_s": 51.66,
+     "small_cycles": 130.3,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 15.85,
+       "bulk_gib_s": 51.66,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.85 bytes/cycle - 51.66 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.53,
+       "bulk_gib_s": 50.62,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.53 bytes/cycle - 50.62 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.06313131313131493,
+     "outlier": false,
+     "small_deviation_from_median_percent": -0.2831560419377044,
+     "small_outlier": false
+    },
+    {
+     "host": "Xeon8375C",
+     "name": "polyxor-128.raw",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "polyxor-128.raw",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/polyxor-128.raw.run2.txt",
+     "raw_sha256": "cff44e602bf77ec2a43f01117b55e9d7e17987aa75ed998099ca6a6aa25b8690",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:45:13.195617+00:00",
+     "load_before": {
+      "uptime": "11:45:13 up 16 days, 20:29,  0 users,  load average: 30.88, 27.96, 33.20",
+      "load1": 30.88,
+      "load5": 27.96,
+      "load15": 33.2
+     },
+     "cpu_busy_percent_before": {
+      "16": 1.5,
+      "17": 3.0,
+      "18": 10.6,
+      "19": 62.0,
+      "20": 22.1,
+      "21": 12.5,
+      "22": 9.0,
+      "23": 41.0
+     },
+     "finished": "2026-09-28T11:46:13.152547+00:00",
+     "load_after": {
+      "uptime": "11:46:13 up 16 days, 20:30,  0 users,  load average: 47.46, 33.32, 34.73",
+      "load1": 47.46,
+      "load5": 33.32,
+      "load15": 34.73
+     },
+     "cpu_busy_percent_after": {
+      "16": 13.1,
+      "17": 100.0,
+      "18": 17.5,
+      "19": 14.1,
+      "20": 7.1,
+      "21": 100.0,
+      "22": 43.8,
+      "23": 8.0
+     },
+     "elapsed_seconds": 59.95771207008511,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 15.83,
+     "bulk_gib_s": 51.61,
+     "small_cycles": 131.04,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 15.83,
+       "bulk_gib_s": 51.61,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.83 bytes/cycle - 51.61 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.48,
+       "bulk_gib_s": 50.46,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.48 bytes/cycle - 50.46 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -0.06313131313131493,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.2831560419376933,
+     "small_outlier": false
+    }
+   ],
+   "verification": {
+    "raw_file": "evidence/Xeon/polyxor-128.raw.sanity.txt",
+    "raw_sha256": "cd42591841d9e7d407ef7713c6cedb86ae672b3381f3b0a72882175a914f4d4a",
+    "lines": [
+     "Verification value CE 0x23A6E8BB ...... PASS",
+     "Running sanity check 1       .......... PASS",
+     "Running sanity check 2       .......... PASS",
+     "Running append zeroes test   .......... PASS",
+     "Running prepend zeroes test  .......... PASS",
+     "Running thread-safety test 1 .......... PASS",
+     "Running thread-safety test 2 .......... PASS",
+     "Verification value is 0x00000001 - Testing took 0.374747 seconds"
+    ]
+   }
+  },
+  "M2Pro": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 17.82,
+   "bulk_gib_s": 58.09,
+   "small_cycles": 91.51,
+   "bulk_selected_run": 1,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 7.2061429415239076,
+   "small_run_spread_percent": 6.917746982565931,
+   "aggregation": "median of three; >15% deviations flagged, not discarded",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "M2Pro",
+     "name": "polyxor-128.raw",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "polyxor-128.raw",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/polyxor-128.raw.run1.txt",
+     "raw_sha256": "04cfc78821d9bc1487f769d9dd5d556b9deb79b40cadd61cb1ae384d81ccecba",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:37:51.916577+00:00",
+     "load_before": {
+      "uptime": "13:37  up 11 days,  1:29, 1 user, load averages: 3.80 4.66 4.45",
+      "load1": 3.80126953125,
+      "load5": 4.6630859375,
+      "load15": 4.4462890625
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:38:31.547851+00:00",
+     "load_after": {
+      "uptime": "13:38  up 11 days,  1:29, 1 user, load averages: 3.47 4.48 4.39",
+      "load1": 3.46533203125,
+      "load5": 4.478515625,
+      "load15": 4.38623046875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 39.63767608301714,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 17.82,
+     "bulk_gib_s": 58.09,
+     "small_cycles": 91.51,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 17.82,
+       "bulk_gib_s": 58.09,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 17.82 bytes/cycle - 58.09 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 16.37,
+       "bulk_gib_s": 53.36,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.37 bytes/cycle - 53.36 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.0,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "polyxor-128.raw",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "polyxor-128.raw",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/polyxor-128.raw.run2.txt",
+     "raw_sha256": "cc682e75c5246e1ae6ba0936938a4424d5df1c612727bfbd6efd7cddb1be3103",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:46:42.767785+00:00",
+     "load_before": {
+      "uptime": "13:46  up 11 days,  1:38, 1 user, load averages: 3.08 5.53 5.37",
+      "load1": 3.0771484375,
+      "load5": 5.53125,
+      "load15": 5.3740234375
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:47:21.549357+00:00",
+     "load_after": {
+      "uptime": "13:47  up 11 days,  1:38, 1 user, load averages: 2.63 5.15 5.24",
+      "load1": 2.62939453125,
+      "load5": 5.15283203125,
+      "load15": 5.24169921875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 38.78432412492111,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 18.15,
+     "bulk_gib_s": 59.17,
+     "small_cycles": 89.48,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 18.15,
+       "bulk_gib_s": 59.17,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 18.15 bytes/cycle - 59.17 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 16.79,
+       "bulk_gib_s": 54.73,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.79 bytes/cycle - 54.73 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 1.8518518518518379,
+     "outlier": false,
+     "small_deviation_from_median_percent": -2.21833679379303,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "polyxor-128.raw",
+     "test": "Speed",
+     "run": 3,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "polyxor-128.raw",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/polyxor-128.raw.run3.txt",
+     "raw_sha256": "1cd4e5feb9462a342ca95a2213345aea163ed842f33aed18044219341011a7ce",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:51:27.723224+00:00",
+     "load_before": {
+      "uptime": "13:51  up 11 days,  1:42, 1 user, load averages: 2.93 3.98 4.68",
+      "load1": 2.9296875,
+      "load5": 3.97900390625,
+      "load15": 4.6796875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:52:05.372585+00:00",
+     "load_after": {
+      "uptime": "13:52  up 11 days,  1:43, 1 user, load averages: 2.26 3.70 4.55",
+      "load1": 2.2626953125,
+      "load5": 3.6953125,
+      "load15": 4.546875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 37.652824916061945,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 16.93,
+     "bulk_gib_s": 55.17,
+     "small_cycles": 95.67,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 16.93,
+       "bulk_gib_s": 55.17,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.93 bytes/cycle - 55.17 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.69,
+       "bulk_gib_s": 51.13,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.69 bytes/cycle - 51.13 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -4.994388327721666,
+     "outlier": false,
+     "small_deviation_from_median_percent": 4.545951262157133,
+     "small_outlier": false
+    }
+   ],
+   "verification": {
+    "raw_file": "evidence/M2/polyxor-128.raw.sanity.txt",
+    "raw_sha256": "0e1920eb77c2d034088cb2311fed8371e19d88fe77b2093a0c3bbb80701e5a63",
+    "lines": [
+     "Verification value CE 0x23A6E8BB ...... PASS",
+     "Running sanity check 1       .......... PASS",
+     "Running sanity check 2       .......... PASS",
+     "Running append zeroes test   .......... PASS",
+     "Running prepend zeroes test  .......... PASS",
+     "Running thread-safety test 1 .......... PASS",
+     "Running thread-safety test 2 .......... PASS",
+     "Verification value is 0x00000001 - Testing took 0.305481 seconds"
+    ]
+   }
+  }
+ },
+ "XXH3-128": {
+  "Xeon8375C": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 20.03,
+   "bulk_gib_s": 65.29,
+   "small_cycles": 34.91,
+   "bulk_selected_run": 2,
+   "small_selected_run": 2,
+   "bulk_run_spread_percent": 1.6751269035533145,
+   "small_run_spread_percent": 0.05729017473503628,
+   "aggregation": "higher bulk of two passes; independently lower small average",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "Xeon8375C",
+     "name": "XXH3-128",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "XXH3-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/XXH3-128.run1.txt",
+     "raw_sha256": "76e66f12a743c0ec5295edf1cbbef44a9f7f7baa127487eeebfbd574132a12e8",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:39:08.029131+00:00",
+     "load_before": {
+      "uptime": "11:39:08 up 16 days, 20:23,  0 users,  load average: 26.26, 32.84, 37.05",
+      "load1": 26.26,
+      "load5": 32.84,
+      "load15": 37.05
+     },
+     "cpu_busy_percent_before": {
+      "16": 6.0,
+      "17": 1.0,
+      "18": 4.5,
+      "19": 3.5,
+      "20": 13.5,
+      "21": 5.5,
+      "22": 100.0,
+      "23": 3.5
+     },
+     "finished": "2026-09-28T11:39:49.831586+00:00",
+     "load_after": {
+      "uptime": "11:39:49 up 16 days, 20:23,  0 users,  load average: 25.57, 31.70, 36.46",
+      "load1": 25.57,
+      "load5": 31.7,
+      "load15": 36.46
+     },
+     "cpu_busy_percent_after": {
+      "16": 10.5,
+      "17": 98.5,
+      "18": 13.0,
+      "19": 3.0,
+      "20": 8.5,
+      "21": 16.0,
+      "22": 97.5,
+      "23": 11.5
+     },
+     "elapsed_seconds": 41.80274959700182,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 19.7,
+     "bulk_gib_s": 64.2,
+     "small_cycles": 34.93,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 19.7,
+       "bulk_gib_s": 64.2,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 19.70 bytes/cycle - 64.20 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 19.73,
+       "bulk_gib_s": 64.3,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 19.73 bytes/cycle - 64.30 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -0.8306065945129726,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.028636884306987298,
+     "small_outlier": false
+    },
+    {
+     "host": "Xeon8375C",
+     "name": "XXH3-128",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "XXH3-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/XXH3-128.run2.txt",
+     "raw_sha256": "a03be8f22c9c77943bae013824ea203394d62e3d2cac811f55a3c6814869c016",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:46:15.232875+00:00",
+     "load_before": {
+      "uptime": "11:46:15 up 16 days, 20:30,  0 users,  load average: 46.46, 33.35, 34.73",
+      "load1": 46.46,
+      "load5": 33.35,
+      "load15": 34.73
+     },
+     "cpu_busy_percent_before": {
+      "16": 17.5,
+      "17": 100.0,
+      "18": 97.5,
+      "19": 20.6,
+      "20": 11.6,
+      "21": 100.0,
+      "22": 18.9,
+      "23": 8.1
+     },
+     "finished": "2026-09-28T11:46:57.374654+00:00",
+     "load_after": {
+      "uptime": "11:46:57 up 16 days, 20:31,  0 users,  load average: 42.63, 34.07, 34.92",
+      "load1": 42.63,
+      "load5": 34.07,
+      "load15": 34.92
+     },
+     "cpu_busy_percent_after": {
+      "16": 56.7,
+      "17": 79.4,
+      "18": 12.0,
+      "19": 21.1,
+      "20": 20.5,
+      "21": 100.0,
+      "22": 57.2,
+      "23": 10.1
+     },
+     "elapsed_seconds": 42.144860291155055,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 20.03,
+     "bulk_gib_s": 65.29,
+     "small_cycles": 34.91,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 20.03,
+       "bulk_gib_s": 65.29,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 20.03 bytes/cycle - 65.29 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 19.93,
+       "bulk_gib_s": 64.97,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 19.93 bytes/cycle - 64.97 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.8306065945129504,
+     "outlier": false,
+     "small_deviation_from_median_percent": -0.0286368843069984,
+     "small_outlier": false
+    }
+   ]
+  },
+  "M2Pro": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 13.4,
+   "bulk_gib_s": 43.69,
+   "small_cycles": 29.04,
+   "bulk_selected_run": 2,
+   "small_selected_run": 2,
+   "bulk_run_spread_percent": 7.261247040252572,
+   "small_run_spread_percent": 6.76193795747646,
+   "aggregation": "median of three; >15% deviations flagged, not discarded",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "M2Pro",
+     "name": "XXH3-128",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "XXH3-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/XXH3-128.run1.txt",
+     "raw_sha256": "54eaf45b4278bf0932d01110c6c8ffc4716bcf6796e567e629b2eb71d91a5f67",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:38:31.588611+00:00",
+     "load_before": {
+      "uptime": "13:38  up 11 days,  1:29, 1 user, load averages: 3.47 4.48 4.39",
+      "load1": 3.46533203125,
+      "load5": 4.478515625,
+      "load15": 4.38623046875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:39:13.465963+00:00",
+     "load_after": {
+      "uptime": "13:39  up 11 days,  1:30, 1 user, load averages: 3.52 4.32 4.33",
+      "load1": 3.52001953125,
+      "load5": 4.3232421875,
+      "load15": 4.3310546875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 41.8828386249952,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 13.59,
+     "bulk_gib_s": 44.31,
+     "small_cycles": 28.69,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 13.59,
+       "bulk_gib_s": 44.31,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 13.59 bytes/cycle - 44.31 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 13.11,
+       "bulk_gib_s": 42.75,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 13.11 bytes/cycle - 42.75 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 1.4179104477611837,
+     "outlier": false,
+     "small_deviation_from_median_percent": -1.2052341597796112,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "XXH3-128",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "XXH3-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/XXH3-128.run2.txt",
+     "raw_sha256": "4bbdc92bf74f5be8885a7a08c3c827ca09ca942fe05c761f75e5673b51b5ebf2",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:47:21.579929+00:00",
+     "load_before": {
+      "uptime": "13:47  up 11 days,  1:38, 1 user, load averages: 2.63 5.15 5.24",
+      "load1": 2.62939453125,
+      "load5": 5.15283203125,
+      "load15": 5.24169921875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:48:03.539799+00:00",
+     "load_after": {
+      "uptime": "13:48  up 11 days,  1:39, 1 user, load averages: 2.38 4.73 5.08",
+      "load1": 2.38134765625,
+      "load5": 4.72705078125,
+      "load15": 5.07861328125
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 41.97800729202572,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 13.4,
+     "bulk_gib_s": 43.69,
+     "small_cycles": 29.04,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 13.4,
+       "bulk_gib_s": 43.69,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 13.40 bytes/cycle - 43.69 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 13.11,
+       "bulk_gib_s": 42.74,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 13.11 bytes/cycle - 42.74 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.0,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "XXH3-128",
+     "test": "Speed",
+     "run": 3,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "XXH3-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/XXH3-128.run3.txt",
+     "raw_sha256": "8f86cf1da613f13ac44f6a6bee9c01238ea0fb75eb2189460d1799883cd809bc",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:52:05.399068+00:00",
+     "load_before": {
+      "uptime": "13:52  up 11 days,  1:43, 1 user, load averages: 2.26 3.70 4.55",
+      "load1": 2.2626953125,
+      "load5": 3.6953125,
+      "load15": 4.546875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:52:45.087700+00:00",
+     "load_after": {
+      "uptime": "13:52  up 11 days,  1:44, 1 user, load averages: 1.97 3.43 4.41",
+      "load1": 1.96826171875,
+      "load5": 3.4345703125,
+      "load15": 4.41064453125
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 39.68911399994977,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 12.67,
+     "bulk_gib_s": 41.3,
+     "small_cycles": 30.63,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 12.67,
+       "bulk_gib_s": 41.3,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 12.67 bytes/cycle - 41.30 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 12.63,
+       "bulk_gib_s": 41.16,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 12.63 bytes/cycle - 41.16 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -5.447761194029854,
+     "outlier": false,
+     "small_deviation_from_median_percent": 5.475206611570238,
+     "small_outlier": false
+    }
+   ]
+  }
+ },
+ "UMASH-128": {
+  "Xeon8375C": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 6.02,
+   "bulk_gib_s": 19.62,
+   "small_cycles": 38.08,
+   "bulk_selected_run": 2,
+   "small_selected_run": 2,
+   "bulk_run_spread_percent": 0.16638935108153063,
+   "small_run_spread_percent": 5.75105042016808,
+   "aggregation": "higher bulk of two passes; independently lower small average",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "Xeon8375C",
+     "name": "UMASH-128",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "UMASH-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/UMASH-128.run1.txt",
+     "raw_sha256": "c0be4c85ad1641944e35bd438611058d63d0a2891e58343ec0e782f0693f5d93",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:39:51.906820+00:00",
+     "load_before": {
+      "uptime": "11:39:51 up 16 days, 20:23,  0 users,  load average: 25.57, 31.70, 36.46",
+      "load1": 25.57,
+      "load5": 31.7,
+      "load15": 36.46
+     },
+     "cpu_busy_percent_before": {
+      "16": 3.5,
+      "17": 100.0,
+      "18": 8.0,
+      "19": 2.5,
+      "20": 7.0,
+      "21": 1.0,
+      "22": 3.0,
+      "23": 0.5
+     },
+     "finished": "2026-09-28T11:41:33.190886+00:00",
+     "load_after": {
+      "uptime": "11:41:33 up 16 days, 20:25,  0 users,  load average: 23.28, 29.17, 35.06",
+      "load1": 23.28,
+      "load5": 29.17,
+      "load15": 35.06
+     },
+     "cpu_busy_percent_after": {
+      "16": 3.5,
+      "17": 4.0,
+      "18": 3.5,
+      "19": 56.0,
+      "20": 2.5,
+      "21": 97.5,
+      "22": 2.0,
+      "23": 59.8
+     },
+     "elapsed_seconds": 101.28995463903993,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 6.01,
+     "bulk_gib_s": 19.6,
+     "small_cycles": 40.27,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 6.01,
+       "bulk_gib_s": 19.6,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  6.01 bytes/cycle - 19.60 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 6.0,
+       "bulk_gib_s": 19.55,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  6.00 bytes/cycle - 19.55 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -0.08312551953449931,
+     "outlier": false,
+     "small_deviation_from_median_percent": 2.7951499680919145,
+     "small_outlier": false
+    },
+    {
+     "host": "Xeon8375C",
+     "name": "UMASH-128",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "UMASH-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/UMASH-128.run2.txt",
+     "raw_sha256": "8efdd1bae5c8b3f0cc71b63ca6fa591c0c64d33b1fd161010368202b3a2d51f9",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:46:59.453983+00:00",
+     "load_before": {
+      "uptime": "11:46:59 up 16 days, 20:31,  0 users,  load average: 42.63, 34.07, 34.92",
+      "load1": 42.63,
+      "load5": 34.07,
+      "load15": 34.92
+     },
+     "cpu_busy_percent_before": {
+      "16": 14.9,
+      "17": 100.0,
+      "18": 15.7,
+      "19": 17.5,
+      "20": 21.6,
+      "21": 100.0,
+      "22": 58.8,
+      "23": 18.0
+     },
+     "finished": "2026-09-28T11:48:41.869281+00:00",
+     "load_after": {
+      "uptime": "11:48:41 up 16 days, 20:32,  0 users,  load average: 50.83, 38.77, 36.47",
+      "load1": 50.83,
+      "load5": 38.77,
+      "load15": 36.47
+     },
+     "cpu_busy_percent_after": {
+      "16": 100.0,
+      "17": 99.0,
+      "18": 58.2,
+      "19": 10.5,
+      "20": 100.0,
+      "21": 14.0,
+      "22": 100.0,
+      "23": 5.5
+     },
+     "elapsed_seconds": 102.41241966700181,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 6.02,
+     "bulk_gib_s": 19.62,
+     "small_cycles": 38.08,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 6.02,
+       "bulk_gib_s": 19.62,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  6.02 bytes/cycle - 19.62 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 6.01,
+       "bulk_gib_s": 19.58,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  6.01 bytes/cycle - 19.58 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.08312551953448821,
+     "outlier": false,
+     "small_deviation_from_median_percent": -2.7951499680918923,
+     "small_outlier": false
+    }
+   ]
+  },
+  "M2Pro": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 8.05,
+   "bulk_gib_s": 26.23,
+   "small_cycles": 40.75,
+   "bulk_selected_run": 1,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 8.71862615587846,
+   "small_run_spread_percent": 7.130347760820621,
+   "aggregation": "median of three; >15% deviations flagged, not discarded",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "M2Pro",
+     "name": "UMASH-128",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "UMASH-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/UMASH-128.run1.txt",
+     "raw_sha256": "d1399fe8965ed635aaad41b71c06335cfc5e7a79c11514da46ea863b53c103b9",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:39:13.500324+00:00",
+     "load_before": {
+      "uptime": "13:39  up 11 days,  1:30, 1 user, load averages: 3.52 4.32 4.33",
+      "load1": 3.52001953125,
+      "load5": 4.3232421875,
+      "load15": 4.3310546875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:40:20.662783+00:00",
+     "load_after": {
+      "uptime": "13:40  up 11 days,  1:31, 1 user, load averages: 3.23 4.09 4.24",
+      "load1": 3.23095703125,
+      "load5": 4.0888671875,
+      "load15": 4.24169921875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 67.1739048329182,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 8.05,
+     "bulk_gib_s": 26.23,
+     "small_cycles": 40.75,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 8.05,
+       "bulk_gib_s": 26.23,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.05 bytes/cycle - 26.23 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 8.0,
+       "bulk_gib_s": 26.07,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.00 bytes/cycle - 26.07 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.0,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "UMASH-128",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "UMASH-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/UMASH-128.run2.txt",
+     "raw_sha256": "2d6c96cb9ec18177f51a49d00e780f4b7524439da03098698f7e76853f939750",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:48:03.582832+00:00",
+     "load_before": {
+      "uptime": "13:48  up 11 days,  1:39, 1 user, load averages: 2.38 4.73 5.08",
+      "load1": 2.38134765625,
+      "load5": 4.72705078125,
+      "load15": 5.07861328125
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:49:10.380192+00:00",
+     "load_after": {
+      "uptime": "13:49  up 11 days,  1:40, 1 user, load averages: 2.87 4.39 4.92",
+      "load1": 2.8740234375,
+      "load5": 4.39111328125,
+      "load15": 4.923828125
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 66.80744650005363,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 8.23,
+     "bulk_gib_s": 26.82,
+     "small_cycles": 39.97,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 8.23,
+       "bulk_gib_s": 26.82,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.23 bytes/cycle - 26.82 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 8.13,
+       "bulk_gib_s": 26.52,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.13 bytes/cycle - 26.52 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 2.2360248447204967,
+     "outlier": false,
+     "small_deviation_from_median_percent": -1.9141104294478573,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "UMASH-128",
+     "test": "Speed",
+     "run": 3,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "UMASH-128",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/UMASH-128.run3.txt",
+     "raw_sha256": "0945b5af45751417b8e126a4d33c113a919d2ccb85857dcd675a078713b31516",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:52:45.113006+00:00",
+     "load_before": {
+      "uptime": "13:52  up 11 days,  1:44, 1 user, load averages: 1.97 3.43 4.41",
+      "load1": 1.96826171875,
+      "load5": 3.4345703125,
+      "load15": 4.41064453125
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:53:49.098377+00:00",
+     "load_after": {
+      "uptime": "13:53  up 11 days,  1:45, 1 user, load averages: 2.25 3.19 4.24",
+      "load1": 2.25048828125,
+      "load5": 3.19091796875,
+      "load15": 4.24267578125
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 63.99375108291861,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 7.57,
+     "bulk_gib_s": 24.66,
+     "small_cycles": 42.82,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 7.57,
+       "bulk_gib_s": 24.66,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  7.57 bytes/cycle - 24.66 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 7.51,
+       "bulk_gib_s": 24.48,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  7.51 bytes/cycle - 24.48 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -5.962732919254665,
+     "outlier": false,
+     "small_deviation_from_median_percent": 5.0797546012270045,
+     "small_outlier": false
+    }
+   ]
+  }
+ },
+ "rapidhash": {
+  "Xeon8375C": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 10.7,
+   "bulk_gib_s": 34.87,
+   "small_cycles": 27.59,
+   "bulk_selected_run": 2,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 0.0,
+   "small_run_spread_percent": 0.43494019572309917,
+   "aggregation": "higher bulk of two passes; independently lower small average",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "Xeon8375C",
+     "name": "rapidhash",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "rapidhash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/rapidhash.run1.txt",
+     "raw_sha256": "e55a75afb1838959e6e7d48a3eb95faa1c99689961c95bd080cecce62ff1e2b2",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:41:35.270145+00:00",
+     "load_before": {
+      "uptime": "11:41:35 up 16 days, 20:25,  0 users,  load average: 23.18, 29.05, 34.99",
+      "load1": 23.18,
+      "load5": 29.05,
+      "load15": 34.99
+     },
+     "cpu_busy_percent_before": {
+      "16": 14.5,
+      "17": 10.5,
+      "18": 3.0,
+      "19": 100.0,
+      "20": 2.5,
+      "21": 100.0,
+      "22": 1.0,
+      "23": 32.8
+     },
+     "finished": "2026-09-28T11:42:38.761156+00:00",
+     "load_after": {
+      "uptime": "11:42:38 up 16 days, 20:26,  0 users,  load average: 23.16, 27.98, 34.25",
+      "load1": 23.16,
+      "load5": 27.98,
+      "load15": 34.25
+     },
+     "cpu_busy_percent_after": {
+      "16": 4.0,
+      "17": 8.0,
+      "18": 3.5,
+      "19": 6.0,
+      "20": 9.5,
+      "21": 100.0,
+      "22": 100.0,
+      "23": 5.0
+     },
+     "elapsed_seconds": 63.48811454791576,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 10.7,
+     "bulk_gib_s": 34.86,
+     "small_cycles": 27.59,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 10.7,
+       "bulk_gib_s": 34.86,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 10.70 bytes/cycle - 34.86 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 10.54,
+       "bulk_gib_s": 34.35,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 10.54 bytes/cycle - 34.35 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": -0.21699819168172763,
+     "small_outlier": false
+    },
+    {
+     "host": "Xeon8375C",
+     "name": "rapidhash",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "rapidhash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/rapidhash.run2.txt",
+     "raw_sha256": "6f9d31ed41b6ec80fdd5bfe69e445b34fb01677a70880eacdf27c13316dd9420",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:48:43.948020+00:00",
+     "load_before": {
+      "uptime": "11:48:43 up 16 days, 20:32,  0 users,  load average: 50.83, 38.77, 36.47",
+      "load1": 50.83,
+      "load5": 38.77,
+      "load15": 36.47
+     },
+     "cpu_busy_percent_before": {
+      "16": 100.0,
+      "17": 100.0,
+      "18": 0.5,
+      "19": 11.0,
+      "20": 100.0,
+      "21": 8.0,
+      "22": 100.0,
+      "23": 16.1
+     },
+     "finished": "2026-09-28T11:49:48.101936+00:00",
+     "load_after": {
+      "uptime": "11:49:48 up 16 days, 20:33,  0 users,  load average: 47.51, 40.04, 37.06",
+      "load1": 47.51,
+      "load5": 40.04,
+      "load15": 37.06
+     },
+     "cpu_busy_percent_after": {
+      "16": 2.5,
+      "17": 22.3,
+      "18": 3.5,
+      "19": 91.0,
+      "20": 1.0,
+      "21": 1.0,
+      "22": 22.5,
+      "23": 99.5
+     },
+     "elapsed_seconds": 64.15297618997283,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 10.7,
+     "bulk_gib_s": 34.87,
+     "small_cycles": 27.71,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 10.7,
+       "bulk_gib_s": 34.87,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 10.70 bytes/cycle - 34.87 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 10.54,
+       "bulk_gib_s": 34.35,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 10.54 bytes/cycle - 34.35 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.21699819168174983,
+     "small_outlier": false
+    }
+   ]
+  },
+  "M2Pro": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 16.03,
+   "bulk_gib_s": 52.27,
+   "small_cycles": 19.88,
+   "bulk_selected_run": 1,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 5.924479166666674,
+   "small_run_spread_percent": 5.247070809984722,
+   "aggregation": "median of three; >15% deviations flagged, not discarded",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "M2Pro",
+     "name": "rapidhash",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "rapidhash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/rapidhash.run1.txt",
+     "raw_sha256": "f72c695819961d0b0b6b89e8d91893c1480d7069b0af2dad47fc4c9cb42d754b",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:40:20.699064+00:00",
+     "load_before": {
+      "uptime": "13:40  up 11 days,  1:31, 1 user, load averages: 3.23 4.09 4.24",
+      "load1": 3.23095703125,
+      "load5": 4.0888671875,
+      "load15": 4.24169921875
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:40:55.859670+00:00",
+     "load_after": {
+      "uptime": "13:40  up 11 days,  1:32, 1 user, load averages: 13.82 6.58 5.14",
+      "load1": 13.81591796875,
+      "load5": 6.5751953125,
+      "load15": 5.13720703125
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 35.17968399997335,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 16.03,
+     "bulk_gib_s": 52.27,
+     "small_cycles": 19.88,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 16.03,
+       "bulk_gib_s": 52.27,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.03 bytes/cycle - 52.27 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.55,
+       "bulk_gib_s": 50.67,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.55 bytes/cycle - 50.67 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.0,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "rapidhash",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "rapidhash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/rapidhash.run2.txt",
+     "raw_sha256": "86305f7b39927e063b590737bbf8842a079b33c706d8ce10aea48d0a3f025168",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:49:10.421901+00:00",
+     "load_before": {
+      "uptime": "13:49  up 11 days,  1:40, 1 user, load averages: 2.87 4.39 4.92",
+      "load1": 2.8740234375,
+      "load5": 4.39111328125,
+      "load15": 4.923828125
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:49:45.175002+00:00",
+     "load_after": {
+      "uptime": "13:49  up 11 days,  1:41, 1 user, load averages: 3.42 4.35 4.89",
+      "load1": 3.41845703125,
+      "load5": 4.3486328125,
+      "load15": 4.88525390625
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 34.76542441698257,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 16.27,
+     "bulk_gib_s": 53.02,
+     "small_cycles": 19.63,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 16.27,
+       "bulk_gib_s": 53.02,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 16.27 bytes/cycle - 53.02 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.83,
+       "bulk_gib_s": 51.61,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.83 bytes/cycle - 51.61 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 1.4971927635683002,
+     "outlier": false,
+     "small_deviation_from_median_percent": -1.2575452716297786,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "rapidhash",
+     "test": "Speed",
+     "run": 3,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "rapidhash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/rapidhash.run3.txt",
+     "raw_sha256": "dbcaf1006276ba82e33f410123b019408554c330ecb6f29d2b8df9d94aad5ced",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:53:49.130713+00:00",
+     "load_before": {
+      "uptime": "13:53  up 11 days,  1:45, 1 user, load averages: 2.25 3.19 4.24",
+      "load1": 2.25048828125,
+      "load5": 3.19091796875,
+      "load15": 4.24267578125
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:54:22.871791+00:00",
+     "load_after": {
+      "uptime": "13:54  up 11 days,  1:45, 1 user, load averages: 2.87 3.22 4.21",
+      "load1": 2.86572265625,
+      "load5": 3.22021484375,
+      "load15": 4.208984375
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 33.742211542092264,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 15.36,
+     "bulk_gib_s": 50.05,
+     "small_cycles": 20.66,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 15.36,
+       "bulk_gib_s": 50.05,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.36 bytes/cycle - 50.05 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 15.07,
+       "bulk_gib_s": 49.11,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       - 15.07 bytes/cycle - 49.11 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -4.1796631316282085,
+     "outlier": false,
+     "small_deviation_from_median_percent": 3.9235412474849074,
+     "small_outlier": false
+    }
+   ]
+  }
+ },
+ "komihash": {
+  "Xeon8375C": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 7.35,
+   "bulk_gib_s": 23.97,
+   "small_cycles": 27.67,
+   "bulk_selected_run": 1,
+   "small_selected_run": 1,
+   "bulk_run_spread_percent": 0.0,
+   "small_run_spread_percent": 0.03614022406939199,
+   "aggregation": "higher bulk of two passes; independently lower small average",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "Xeon8375C",
+     "name": "komihash",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "komihash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/komihash.run1.txt",
+     "raw_sha256": "8044263231ecab2f980be825700eb430d38c882b69fdc2884f78a2ed6f913777",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:42:40.836693+00:00",
+     "load_before": {
+      "uptime": "11:42:40 up 16 days, 20:26,  0 users,  load average: 23.31, 27.93, 34.20",
+      "load1": 23.31,
+      "load5": 27.93,
+      "load15": 34.2
+     },
+     "cpu_busy_percent_before": {
+      "16": 4.5,
+      "17": 14.0,
+      "18": 7.9,
+      "19": 40.9,
+      "20": 15.0,
+      "21": 100.0,
+      "22": 64.5,
+      "23": 4.0
+     },
+     "finished": "2026-09-28T11:44:05.647660+00:00",
+     "load_after": {
+      "uptime": "11:44:05 up 16 days, 20:28,  0 users,  load average: 23.94, 27.08, 33.35",
+      "load1": 23.94,
+      "load5": 27.08,
+      "load15": 33.35
+     },
+     "cpu_busy_percent_after": {
+      "16": 12.5,
+      "17": 4.0,
+      "18": 1.5,
+      "19": 2.0,
+      "20": 1.0,
+      "21": 5.0,
+      "22": 0.5,
+      "23": 2.0
+     },
+     "elapsed_seconds": 84.81416317890398,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 7.35,
+     "bulk_gib_s": 23.97,
+     "small_cycles": 27.67,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 7.35,
+       "bulk_gib_s": 23.97,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  7.35 bytes/cycle - 23.97 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 7.32,
+       "bulk_gib_s": 23.86,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  7.32 bytes/cycle - 23.86 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": -0.018066847335140857,
+     "small_outlier": false
+    },
+    {
+     "host": "Xeon8375C",
+     "name": "komihash",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "taskset",
+      "-c",
+      "16-23",
+      "SMHasher3",
+      "komihash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/Xeon/komihash.run2.txt",
+     "raw_sha256": "fc2d681094eea865cc576858955b5470a8f048f11be52e8d112b7deba86b2a56",
+     "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+     "started": "2026-09-28T11:49:50.180478+00:00",
+     "load_before": {
+      "uptime": "11:49:50 up 16 days, 20:33,  0 users,  load average: 48.59, 40.39, 37.19",
+      "load1": 48.59,
+      "load5": 40.39,
+      "load15": 37.19
+     },
+     "cpu_busy_percent_before": {
+      "16": 6.0,
+      "17": 44.6,
+      "18": 65.8,
+      "19": 98.0,
+      "20": 9.5,
+      "21": 58.8,
+      "22": 7.5,
+      "23": 91.5
+     },
+     "finished": "2026-09-28T11:51:16.423569+00:00",
+     "load_after": {
+      "uptime": "11:51:16 up 16 days, 20:35,  0 users,  load average: 55.08, 44.13, 38.78",
+      "load1": 55.08,
+      "load5": 44.13,
+      "load15": 38.78
+     },
+     "cpu_busy_percent_after": {
+      "16": 12.1,
+      "17": 7.5,
+      "18": 96.0,
+      "19": 21.7,
+      "20": 73.5,
+      "21": 13.5,
+      "22": 97.5,
+      "23": 40.7
+     },
+     "elapsed_seconds": 86.23272193106823,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 7.35,
+     "bulk_gib_s": 23.97,
+     "small_cycles": 27.68,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 7.35,
+       "bulk_gib_s": 23.97,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  7.35 bytes/cycle - 23.97 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 7.32,
+       "bulk_gib_s": 23.86,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  7.32 bytes/cycle - 23.86 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; TSC ticks",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.018066847335140857,
+     "small_outlier": false
+    }
+   ]
+  },
+  "M2Pro": {
+   "status": "complete",
+   "bulk_bytes_per_cycle": 8.53,
+   "bulk_gib_s": 27.81,
+   "small_cycles": 23.53,
+   "bulk_selected_run": 1,
+   "small_selected_run": 2,
+   "bulk_run_spread_percent": 2.3952095808383422,
+   "small_run_spread_percent": 3.1037414965986443,
+   "aggregation": "median of three; >15% deviations flagged, not discarded",
+   "flagged_runs": [],
+   "runs": [
+    {
+     "host": "M2Pro",
+     "name": "komihash",
+     "test": "Speed",
+     "run": 1,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "komihash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/komihash.run1.txt",
+     "raw_sha256": "e6d23451348277d0e0639c9716c4729bbdc376b2246dfeb6625d2cec798055b9",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:44:56.089225+00:00",
+     "load_before": {
+      "uptime": "13:44  up 11 days,  1:36, 1 user, load averages: 3.30 6.39 5.61",
+      "load1": 3.3037109375,
+      "load5": 6.38916015625,
+      "load15": 5.6083984375
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:45:58.777779+00:00",
+     "load_after": {
+      "uptime": "13:45  up 11 days,  1:37, 1 user, load averages: 4.40 6.13 5.57",
+      "load1": 4.4033203125,
+      "load5": 6.12548828125,
+      "load15": 5.5654296875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 62.6924355418887,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 8.53,
+     "bulk_gib_s": 27.81,
+     "small_cycles": 23.52,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 8.53,
+       "bulk_gib_s": 27.81,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.53 bytes/cycle - 27.81 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 8.4,
+       "bulk_gib_s": 27.39,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.40 bytes/cycle - 27.39 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.0,
+     "outlier": false,
+     "small_deviation_from_median_percent": -0.042498937526569414,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "komihash",
+     "test": "Speed",
+     "run": 2,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "komihash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/komihash.run2.txt",
+     "raw_sha256": "2ddbfd02d72f162fe4f61f6491d91ee156361faf7557b9c21addcdef5f7aa3e5",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:49:45.215134+00:00",
+     "load_before": {
+      "uptime": "13:49  up 11 days,  1:41, 1 user, load averages: 3.42 4.35 4.89",
+      "load1": 3.41845703125,
+      "load5": 4.3486328125,
+      "load15": 4.88525390625
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:50:46.203133+00:00",
+     "load_after": {
+      "uptime": "13:50  up 11 days,  1:42, 1 user, load averages: 3.38 4.20 4.79",
+      "load1": 3.37646484375,
+      "load5": 4.19921875,
+      "load15": 4.79248046875
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 60.99252204201184,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 8.55,
+     "bulk_gib_s": 27.86,
+     "small_cycles": 23.53,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 8.55,
+       "bulk_gib_s": 27.86,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.55 bytes/cycle - 27.86 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 8.52,
+       "bulk_gib_s": 27.79,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.52 bytes/cycle - 27.79 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": 0.23446658851116187,
+     "outlier": false,
+     "small_deviation_from_median_percent": 0.0,
+     "small_outlier": false
+    },
+    {
+     "host": "M2Pro",
+     "name": "komihash",
+     "test": "Speed",
+     "run": 3,
+     "command": [
+      "nice",
+      "-n",
+      "10",
+      "SMHasher3",
+      "komihash",
+      "--test=Speed"
+     ],
+     "raw_file": "evidence/M2/komihash.run3.txt",
+     "raw_sha256": "33e009a3784c3fe9d3b46cd5b74de33499bd05ba4d481452d4945eaa0ab48cb3",
+     "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+     "started": "2026-09-28T11:54:22.900607+00:00",
+     "load_before": {
+      "uptime": "13:54  up 11 days,  1:45, 1 user, load averages: 2.87 3.22 4.21",
+      "load1": 2.86572265625,
+      "load5": 3.22021484375,
+      "load15": 4.208984375
+     },
+     "cpu_busy_percent_before": null,
+     "finished": "2026-09-28T11:55:24.127336+00:00",
+     "load_after": {
+      "uptime": "13:55  up 11 days,  1:46, 1 user, load averages: 3.17 3.24 4.15",
+      "load1": 3.17236328125,
+      "load5": 3.2392578125,
+      "load15": 4.146484375
+     },
+     "cpu_busy_percent_after": null,
+     "elapsed_seconds": 61.225623167003505,
+     "returncode": 0,
+     "gate_passed_at_launch": true,
+     "smhasher_pids_at_launch": [],
+     "bulk_bytes_per_cycle": 8.35,
+     "bulk_gib_s": 27.21,
+     "small_cycles": 24.25,
+     "bulk_sections": [
+      {
+       "header": "Bulk speed test - 262144-byte keys",
+       "bulk_bytes_per_cycle": 8.35,
+       "bulk_gib_s": 27.21,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.35 bytes/cycle - 27.21 GiB/sec @ 3.5 ghz"
+      },
+      {
+       "header": "Bulk speed test - [262017, 262144]-byte keys",
+       "bulk_bytes_per_cycle": 8.05,
+       "bulk_gib_s": 26.26,
+       "clock_assumption": "3.5 ghz",
+       "clock_ghz": 3.5,
+       "average_line": "Average       -  8.05 bytes/cycle - 26.26 GiB/sec @ 3.5 ghz"
+      }
+     ],
+     "small_header": "Small key speed test - [1, 31]-byte keys",
+     "clock_assumption": "3.5 GHz printed GiB/s; calibrated monotonic estimate",
+     "clock_ghz": 3.5,
+     "sha256_verified": true,
+     "valid": true,
+     "deviation_from_median_percent": -2.1101992966002348,
+     "outlier": false,
+     "small_deviation_from_median_percent": 3.0599235019124427,
+     "small_outlier": false
+    }
+   ]
+  }
+ },
+ "meta": {
+  "definition": "PolyXOR128 (Orson Peters), crate polyxor 0.1.0 (commit 3123eb6, zlib license), https://github.com/orlp/polyxor; 128-bit output",
+  "registrations": {
+   "polyxor-128": "hasher(); update(bytes); finalize_avalanche() (the crate's documented default output, a bijection of finalize_raw), 16 little-endian bytes; the table row",
+   "polyxor-128.raw": "hasher(); update(bytes); finalize_raw(), 16 little-endian bytes",
+   "XXH3-128": "same-binary control (base build registration)",
+   "UMASH-128": "same-binary control (base build registration)",
+   "rapidhash": "same-binary control (base build registration)",
+   "komihash": "same-binary control (base build registration)"
+  },
+  "key_model": "PolyXor128::from_entropy of 4160 uniformly random bytes; the harness expands the 64-bit SMHasher3 seed with SplitMix64 into those 4160 bytes in seedfn, outside the timed calls (as for ChainHash-128); key setup is not timed",
+  "verification_values": {
+   "polyxor-128": "0xA9574CA8",
+   "polyxor-128.raw": "0x23A6E8BB",
+   "note": "SMHasher3 CE verification codes of this registration (identical on x86-64 and arm64); computed by SMHasher3 with the value set to 0, then fixed; Sanity PASS on both hosts"
+  },
+  "backend": {
+   "Xeon8375C": "arch=x86_64 backend=hash_blocks_avx512 (compile-time) compile_time=[(\"avx512f\", true), (\"avx512vl\", true), (\"vpclmulqdq\", true), (\"avx2\", true), (\"pclmulqdq\", true)] runtime=[(\"avx512f\", true), (\"avx512vl\", true), (\"vpclmulqdq\", true), (\"avx2\", true), (\"pclmulqdq\", true)]",
+   "M2Pro": "arch=aarch64 backend=neon::hash_blocks (compile-time) compile_time=[(\"neon\", true), (\"aes\", true)] runtime=[(\"neon\", true), (\"aes\", true)]",
+   "note": "with RUSTFLAGS=-C target-cpu=native the crate selects its backend at compile time: hash_blocks_avx512 (AVX-512F/VL + VPCLMULQDQ) on the Xeon, neon::hash_blocks (NEON + AES/PMULL) on the M2"
+  },
+  "affinity": {
+   "Xeon8375C": "nice -n 10 taskset -c 16-23 (the post's range; per-CPU busy samples of 16-23 in each run record)",
+   "M2Pro": "nice -n 10, no affinity"
+  },
+  "load_gate": {
+   "M2Pro": {
+    "no_process": "SMHasher3",
+    "load1_less_than": 4.5,
+    "poll_seconds": 60
+   },
+   "Xeon8375C": {
+    "no_process": "SMHasher3",
+    "load1_less_than": 80.0,
+    "poll_seconds": 60,
+    "note": "shared host (~40/96 load from other users' unpinned jobs); one timing job at a time"
+   }
+  },
+  "protocol": {
+   "command": "SMHasher3 NAME --test=Speed (unmodified harness, no overrides)",
+   "bulk": "Average of alignments 0..7 at fixed 262144 bytes (SMHasher3 Average line)",
+   "small": "Average of the 31 separately measured 1..31-byte costs",
+   "xeon": "two complete passes; higher fixed-size bulk (ties: higher GiB/s, then earlier) and lower small average (ties: earlier) selected independently",
+   "m2": "three complete passes; median of bulk and median of small, independently; any run deviating more than 15 percent from its median is flagged, never dropped",
+   "key_setup_timed": false,
+   "completed_runs_excluded": 0
+  },
+  "builds": {
+   "Xeon8375C": {
+    "compiler": "c++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)",
+    "flags": [
+     "-O3",
+     "-std=c++11",
+     "-DNDEBUG",
+     "-DHAVE_THREADS",
+     "-march=native",
+     "-DPOLYXOR_VERIFY=0xA9574CA8",
+     "-DPOLYXOR_RAW_VERIFY=0x23A6E8BB"
+    ],
+    "link_extra": [
+     "-lpthread",
+     "-ldl",
+     "-lm"
+    ],
+    "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)",
+    "rustflags": "-C target-cpu=native",
+    "rust_profile": "release, lto=true, codegen-units=1, panic=abort; polyxor default features (aes, std, runtime_detection)",
+    "polyxor": {
+     "version": "0.1.0",
+     "commit": "3123eb6",
+     "src_lib_rs_sha256": "568e027ee77b5a2cf4594e3c09ab7ea8454cacec10d1b31232237b5e5a4fbcbd",
+     "src_dispatch_rs_sha256": "03d1974523971618f7c1e69dc240e0f682d669f861a59d202f22984ff14c4c36",
+     "src_x86_64_rs_sha256": "5fdb5ac85fb85b9744e39329d8056c5e0d0a5fecad40383bec077c765ec01a1b",
+     "src_neon_rs_sha256": "49578f09bf1f8993bb1706b2bf84b585be91a2894c892e8ab032fbcad9159c18"
+    },
+    "reused_objects": {
+     "main.cpp.o": "877a4598076d3c30326b11a352bbc3f8bd9a9a881035657e1af6756521ae8c39",
+     "libSMHasher3Tests.a": "677e878c7e4a41add883cff0d1fd1b3f7bdfef01fe9d279d2c6ba3cbaa60d55b",
+     "libSMHasher3Hashlib.a": "81dee0aff7103f2a98e520bcc18c139f2cb3b90ad31895775c43dc085301fc00"
+    },
+    "registration_sources": {
+     "polyxor.cpp": "d15e066f24a541b29651a4b9ad2238daa3316e1e7e7be3978e1524f45e988c20",
+     "lib.rs": "af5d46bad728393bb6c54f87ee67cb60664777103b1c4845862e60e61a6a15db",
+     "Cargo.toml": "000477e14afcb7c7069f7e6dc01e405837dbfdd48b5a791189f1b6abb292b11e",
+     "Cargo.lock": "d9e2fa1a18c20a8d02601e3f4a9cebcece2f4a8d9ced12f51cdb6cbbca58cf08"
+    },
+    "staticlib_sha256": "7bca9cd56b5f6c67fcbc4f5e00d774f9782643bfa2c169096edaf89f897c23a1",
+    "registration_object_sha256": "db99c1b11c841164a5dfad4b8fcb5e8777508ec81080773bd15baa00d038e672",
+    "backend_probe": "arch=x86_64 backend=hash_blocks_avx512 (compile-time) compile_time=[(\"avx512f\", true), (\"avx512vl\", true), (\"vpclmulqdq\", true), (\"avx2\", true), (\"pclmulqdq\", true)] runtime=[(\"avx512f\", true), (\"avx512vl\", true), (\"vpclmulqdq\", true), (\"avx2\", true), (\"pclmulqdq\", true)]",
+    "verification_macros": {
+     "POLYXOR_VERIFY": "0xA9574CA8",
+     "POLYXOR_RAW_VERIFY": "0x23A6E8BB"
+    },
+    "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13",
+    "base": "the post's Xeon SMHasher3 Release build (build-release-20260917, binary sha256 03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99); main.cpp.o and both libraries are the same objects the ChainHash-128 lane reused",
+    "evidence_folder": "evidence/Xeon",
+    "provenance_file": "evidence/Xeon/provenance.json"
+   },
+   "M2Pro": {
+    "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)",
+    "flags": [
+     "-O3",
+     "-std=c++11",
+     "-DNDEBUG",
+     "-DHAVE_THREADS",
+     "-march=native+crypto",
+     "-DPOLYXOR_VERIFY=0xA9574CA8",
+     "-DPOLYXOR_RAW_VERIFY=0x23A6E8BB"
+    ],
+    "link_extra": [
+     "-L<libcrypto dir>",
+     "-lcrypto"
+    ],
+    "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+    "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)",
+    "rustflags": "-C target-cpu=native",
+    "rust_profile": "release, lto=true, codegen-units=1, panic=abort; polyxor default features (aes, std, runtime_detection)",
+    "polyxor": {
+     "version": "0.1.0",
+     "commit": "3123eb6",
+     "src_lib_rs_sha256": "568e027ee77b5a2cf4594e3c09ab7ea8454cacec10d1b31232237b5e5a4fbcbd",
+     "src_dispatch_rs_sha256": "03d1974523971618f7c1e69dc240e0f682d669f861a59d202f22984ff14c4c36",
+     "src_x86_64_rs_sha256": "5fdb5ac85fb85b9744e39329d8056c5e0d0a5fecad40383bec077c765ec01a1b",
+     "src_neon_rs_sha256": "49578f09bf1f8993bb1706b2bf84b585be91a2894c892e8ab032fbcad9159c18"
+    },
+    "reused_objects": {
+     "main.cpp.o": "5851b8d94d393e09a68215c2deee8891f7a433ed506d371efb7969b0719702ba",
+     "libSMHasher3Tests.a": "29fdf203986808dc910c64fda427826798d118e9f2dffd68cccdf05fbaf3881d",
+     "libSMHasher3Hashlib.a": "4eae18d42d35e75036676c356bde9d16a0c508e380b9598eccc49c295d13e38b"
+    },
+    "registration_sources": {
+     "polyxor.cpp": "d15e066f24a541b29651a4b9ad2238daa3316e1e7e7be3978e1524f45e988c20",
+     "lib.rs": "af5d46bad728393bb6c54f87ee67cb60664777103b1c4845862e60e61a6a15db",
+     "Cargo.toml": "000477e14afcb7c7069f7e6dc01e405837dbfdd48b5a791189f1b6abb292b11e",
+     "Cargo.lock": "d9e2fa1a18c20a8d02601e3f4a9cebcece2f4a8d9ced12f51cdb6cbbca58cf08"
+    },
+    "staticlib_sha256": "5c613ee29778a8dc4c2c63f8f165a871c19b9d3446682b1212a0897aea5c3c77",
+    "registration_object_sha256": "e9ab3e05318a20a85cc0d9c0a6fcb1406f16f80ef3f7002f1b785a0a18ec729f",
+    "backend_probe": "arch=aarch64 backend=neon::hash_blocks (compile-time) compile_time=[(\"neon\", true), (\"aes\", true)] runtime=[(\"neon\", true), (\"aes\", true)]",
+    "verification_macros": {
+     "POLYXOR_VERIFY": "0xA9574CA8",
+     "POLYXOR_RAW_VERIFY": "0x23A6E8BB"
+    },
+    "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e",
+    "base": "the public timing reproduction's arm64 build (pin 3de870c7 + patch series incl. the arm64 family.cmake fix; binary sha256 52c54407205727175eb0034f030a7956f187f99dd98131fe9dae45f237947391). The post's M2 base (m2-rerun/build-fixed, binary fb2f75fb...) no longer exists on disk; controls here are same-binary, so polyxor is compared against them rather than against the chart's older M2 cells",
+    "evidence_folder": "evidence/M2",
+    "provenance_file": "evidence/M2/provenance.json"
+   }
+  },
+  "units": {
+   "Xeon8375C": "TSC ticks",
+   "M2Pro": "SMHasher3 calibrated cycles (per-process monotonic-clock estimate)",
+   "gib_s": "printed GiB/s assumes 3.5 GHz on both hosts; a conversion of B/cycle"
+  }
+ }
+}

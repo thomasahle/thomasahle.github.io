@@ -1,0 +1,34 @@
+--- ../polyxor/src/dispatch.rs	2026-09-28 13:24:24
++++ polyxor-forced/src/dispatch.rs	2026-09-28 13:32:53
+@@ -10,6 +10,21 @@
+ #[cfg(feature = "runtime_detection")]
+ #[allow(dead_code)]
+ fn get_hash_blocks_fn() -> HashBlocksFn {
++    // TEST-ONLY override (difftest copy): POLYXOR_FORCE=reference|avx|avx2|avx512|neon
++    if let Ok(v) = std::env::var("POLYXOR_FORCE") {
++        match v.as_str() {
++            "reference" => return crate::reference::hash_blocks,
++            #[cfg(target_arch = "x86_64")]
++            "avx" => return crate::x86_64::hash_blocks_avx,
++            #[cfg(target_arch = "x86_64")]
++            "avx2" => return crate::x86_64::hash_blocks_avx2,
++            #[cfg(target_arch = "x86_64")]
++            "avx512" => return crate::x86_64::hash_blocks_avx512,
++            #[cfg(target_arch = "aarch64")]
++            "neon" => return crate::neon::hash_blocks,
++            _ => panic!("unknown POLYXOR_FORCE"),
++        }
++    }
+     cfg_select! {
+         target_arch = "x86_64" => {
+             use std::arch::is_x86_feature_detected as has_feat;
+@@ -42,6 +57,9 @@
+ #[cfg(feature = "runtime_detection")]
+ #[allow(dead_code)]
+ fn get_gf128mul_fn() -> Gf128MulFn {
++    if std::env::var("POLYXOR_FORCE").as_deref() == Ok("reference") {
++        return crate::reference::gf128mul;
++    }
+     cfg_select! {
+         target_arch = "x86_64" => {
+             use std::arch::is_x86_feature_detected as has_feat;

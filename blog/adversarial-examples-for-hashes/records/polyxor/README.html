@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PolyXOR128 audit record</title><link rel="stylesheet" href="../../post.css"><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem;overflow-wrap:anywhere}pre,table{display:block;overflow:auto}h1{font-size:2rem}</style></head><body><main><nav><a href="../../index.html#appendix-polyxor">Article</a> · <a href="../README.html">Records</a></nav>
+<h1 id="polyxor128-audit-record">PolyXOR128: audit record</h1>
+<p>PolyXOR128 is Orson Peters's 128-bit universal hash (<a href="https://github.com/orlp/polyxor">github.com/orlp/polyxor</a>, crate 0.1.0, commit <a href="https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd">3123eb6</a>). The construction, the Lean development and the collision theorem are Peters's; this directory records our independent checks of them for the post.</p>
+<p><strong>Result.</strong> The Lean proof rebuilds with the standard axioms only. The shipped code computes the function the theorem is about on every backend tested. The bound is attained to within 0.001 bits. Score: <strong>≥ 126.41 bits (proved)</strong> from 4160 uniformly random key bytes.</p>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="THEOREM.html">THEOREM.md</a></td>
+<td>The exact Lean statement, its model of the hash, and how it maps onto the post's score</td>
+</tr>
+<tr class="even">
+<td><a href="lean/AUDIT.txt">lean/AUDIT.txt</a></td>
+<td>Rebuild transcript, source hashes, <code>#print axioms</code></td>
+</tr>
+<tr class="odd">
+<td><a href="lean/AuditSanity.lean">lean/AuditSanity.lean</a></td>
+<td>Our non-vacuity lemmas: key-space and block-space sizes, and a field of size 2^128 exists</td>
+</tr>
+<tr class="even">
+<td><a href="difftest/DIFFTEST.txt">difftest/DIFFTEST.txt</a></td>
+<td>Differential test of the crate against an independent model of the Lean definitions: 1,658 cases, 11 builds, two hosts</td>
+</tr>
+<tr class="odd">
+<td><a href="difftest/model.py">difftest/model.py</a></td>
+<td>Executable transcription of <code>PolyXORCompress.lean</code> and <code>PolyXORFull.lean</code></td>
+</tr>
+<tr class="even">
+<td><a href="difftest/tightness.py">difftest/tightness.py</a>, <a href="difftest/witness.log">difftest/witness.log</a></td>
+<td>Exact collision probability of the pair 00/01, and three keys on which the shipped crate collides</td>
+</tr>
+<tr class="odd">
+<td><a href="speeds_polyxor.json">speeds_polyxor.json</a>, <a href="evidence/Xeon/provenance.json">Xeon</a> and <a href="evidence/M2/provenance.json">M2</a> build provenance, <a href="bench/polyxor.cpp">registration</a>, <a href="bench/polyxor_ffi/src/lib.rs">Rust shim</a>, <a href="evidence/Xeon/polyxor-128.sanity.txt">Xeon sanity log</a></td>
+<td>SMHasher3 <code>--test=Speed</code> timings in the post's harness, with same-binary controls; raw run logs as <code>evidence/{Xeon,M2}/NAME.runN.txt</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-model">Key model</h2>
+<p>The theorem draws the 4096-byte block key and three field words z, u, y uniformly and independently. <code>PolyXor128::from_entropy</code> takes exactly these bytes: z, u, y from bytes 0–47, an avalanche multiplier from 48–63 and the block key from 64–4159. So the proved family is the one the public API constructs. <code>from_key(u128)</code> instead expands a 128-bit key with AES-128 in counter mode. That expansion is outside the theorem: it inherits the bound only up to AES's distinguishing advantage. The timing registration seeds through SplitMix64 and is likewise outside the theorem.</p>
+<h2 id="checks">Checks</h2>
+<ol type="1">
+<li><p><strong>Proof.</strong> <code>lake build</code> at the pinned toolchain (Lean 4.34.0, Mathlib v4.34.0) succeeds. Both theorems depend only on <code>propext</code>, <code>Classical.choice</code> and <code>Quot.sound</code>. The sources contain no <code>sorry</code>, extra axioms, <code>implemented_by</code>, <code>native_decide</code> or kernel options.</p></li>
+<li><p><strong>Non-vacuity.</strong> Probabilities are ratios of <code>Nat.card</code>, and <code>Nat.card</code> of an infinite type is 0, which would make a bound trivially true. <code>AuditSanity.lean</code> proves the denominators are the real key-space sizes (2^33152 keys, 2^512 compression keys), and that a field of cardinality 2^128 exists.</p></li>
+<li><p><strong>Implementation = model.</strong> <code>model.py</code> is written from the Lean definitions, not from the Rust reference. The theorem holds for every field of size 2^128, every F4-module structure and every bit embedding ι. The model fixes the ones the code uses:</p>
+<ul>
+<li>the field is POLYVAL's Montgomery product a·b·x⁻¹²⁸ modulo x¹²⁸+x¹²⁷+x¹²⁶+x¹²¹+1. This is a field isomorphic to GF(2¹²⁸) via a ↦ a·x⁻¹²⁸, checked against the RFC 8452 vector;</li>
+<li>ι is the bit layout;</li>
+<li>w acts on 32-bit subwords as (lo, hi) ↦ (hi, lo+hi).</li>
+</ul>
+<p>The model reproduces all nine of the crate's test vectors. It then agrees with the crate on 1,658 generated cases:</p>
+<ul>
+<li>every length 0–640, the first four 4 KiB chunk boundaries (±1, ±7–9, ±127–129, ±257 bytes), random lengths up to 19,954 bytes;</li>
+<li>random, all-zero and all-0xFF keys;</li>
+<li>random streaming splits, <code>finalize_raw</code> between updates, and reuse after <code>reset()</code>.</li>
+</ul>
+<p>The same holds for the portable, AVX, AVX2, AVX-512 and NEON backends. The outputs of all 11 builds are byte-identical.</p></li>
+<li><p><strong>Tightness.</strong> For the one-byte pair 00/01 the collision events are disjoint key conditions: y = 1; key word 12 = 0 with a zero parity word; and z+u equal to a quotient fixed by the other key words. Their exact probability is 2⁻¹²⁸·(3 − 2⁻⁶⁴ − 2⁻¹²⁷ + 2⁻¹⁹²), or 126.4150 bits, against the proved 126.4141. The shipped crate collides on a key from each event, in both <code>finalize_raw</code> and <code>finalize_avalanche</code>, and not on a random control key.</p></li>
+<li><p><strong>Other API surfaces.</strong></p>
+<ul>
+<li><code>finalize_avalanche</code> is a bijection of <code>finalize_raw</code>: 64-bit xorshift and odd-multiply steps, then multiplication by a nonzero field element. It therefore has the same collisions.</li>
+<li><code>finalize_mac</code> is a MAC with a nonce and is not scored here. Its AES input drops the top two bits of <code>raw ^ nonce</code>, so for one nonce two tags agree when the raw hashes agree on 126 bits (at most 4·ε).</li>
+</ul></li>
+</ol>
+<h2 id="timing">Timing</h2>
+<p>SMHasher3 <code>--test=Speed</code>, with the crate (Rust 1.98.1, <code>-C target-cpu=native</code>, default features) linked into the post's SMHasher3 build next to the control hashes. The Xeon binary reuses the post's <code>build-release-20260917</code> objects and runs pinned to CPUs 16–23. The post's original M2 base binary is no longer available, so the M2 binary links the public reproduction's arm64 build (arm64 <code>family.cmake</code> fix included). Read the M2 figures against the same-binary controls below.</p>
+<ul>
+<li>Xeon selection: the higher of two bulk passes and, independently, the lower small average.</li>
+<li>M2 selection: medians of three passes. No run is more than 15% from its median.</li>
+<li>Units: Xeon B/TSC tick; M2 B per calibrated cycle.</li>
+<li>Dispatch: AVX-512 VPCLMULQDQ on the Xeon, NEON PMULL on the M2.</li>
+<li>Verification value: <code>0xA9574CA8</code> (<code>polyxor-128</code>) on both hosts.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Registration</th>
+<th style="text-align: right;">Xeon bulk</th>
+<th style="text-align: right;">Xeon 1–31 B</th>
+<th style="text-align: right;">M2 bulk</th>
+<th style="text-align: right;">M2 1–31 B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>polyxor-128</strong> (<code>finalize_avalanche</code>)</td>
+<td style="text-align: right;"><strong>15.82</strong></td>
+<td style="text-align: right;"><strong>173.01</strong></td>
+<td style="text-align: right;"><strong>17.93</strong></td>
+<td style="text-align: right;"><strong>132.86</strong></td>
+</tr>
+<tr class="even">
+<td>polyxor-128.raw (<code>finalize_raw</code>)</td>
+<td style="text-align: right;">15.85</td>
+<td style="text-align: right;">130.30</td>
+<td style="text-align: right;">17.82</td>
+<td style="text-align: right;">91.51</td>
+</tr>
+<tr class="odd">
+<td>XXH3-128</td>
+<td style="text-align: right;">20.03</td>
+<td style="text-align: right;">34.91</td>
+<td style="text-align: right;">13.40</td>
+<td style="text-align: right;">29.04</td>
+</tr>
+<tr class="even">
+<td>UMASH-128</td>
+<td style="text-align: right;">6.02</td>
+<td style="text-align: right;">38.08</td>
+<td style="text-align: right;">8.05</td>
+<td style="text-align: right;">40.75</td>
+</tr>
+<tr class="odd">
+<td>rapidhash</td>
+<td style="text-align: right;">10.70</td>
+<td style="text-align: right;">27.59</td>
+<td style="text-align: right;">16.03</td>
+<td style="text-align: right;">19.88</td>
+</tr>
+<tr class="even">
+<td>komihash</td>
+<td style="text-align: right;">7.35</td>
+<td style="text-align: right;">27.67</td>
+<td style="text-align: right;">8.53</td>
+<td style="text-align: right;">23.53</td>
+</tr>
+</tbody>
+</table>
+<p>Every input, however short, is padded to one 128-byte block and goes through the streaming hasher. Short inputs therefore cost 130–175 cycles; the avalanche step accounts for about 40 of them.</p>
+<h2 id="attribution">Attribution</h2>
+<ul>
+<li>Construction, Lean proofs and theorem: Orson Peters. The README says the proofs are AI-generated, and that he checked the definitions and statements against the code, not the proof.</li>
+<li>Components, as the design write-up credits them:
+<ul>
+<li>carry-less NH (as in CLHASH);</li>
+<li>Nandi's encode–hash–combine, as used by HalftimeHash;</li>
+<li>key-before-encoding, inspired by Multimixer-128;</li>
+<li>the chunk recurrence p ← (p+u)(h₁+y)+h₀, credited to Ahle and Knudsen, <em>Fast Evaluation of Polynomials with Rational Preprocessing</em>;</li>
+<li>PolymurHash's length finalization.</li>
+</ul></li>
+<li>REPRODUCTION: the rebuild and axiom audit.</li>
+<li>NEW here: the non-vacuity lemmas, the independent Lean-definition model and cross-backend differential test, the exact L = 1 tightness computation with witnesses, and the timings.</li>
+</ul>
+</main></body></html>

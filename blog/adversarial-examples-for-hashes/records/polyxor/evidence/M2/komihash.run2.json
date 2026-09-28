@@ -1,0 +1,40 @@
+{
+  "name": "komihash",
+  "run": 2,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "SMHasher3",
+    "komihash",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T11:49:45.215134+00:00",
+    "uptime": "13:49  up 11 days,  1:41, 1 user, load averages: 3.42 4.35 4.89",
+    "load": [
+      3.41845703125,
+      4.3486328125,
+      4.88525390625
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null,
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T11:50:46.203133+00:00",
+    "uptime": "13:50  up 11 days,  1:42, 1 user, load averages: 3.38 4.20 4.79",
+    "load": [
+      3.37646484375,
+      4.19921875,
+      4.79248046875
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null
+  },
+  "elapsed_seconds": 60.99252204201184,
+  "returncode": 0,
+  "raw_file": "komihash.run2.txt",
+  "raw_sha256": "2ddbfd02d72f162fe4f61f6491d91ee156361faf7557b9c21addcdef5f7aa3e5",
+  "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e"
+}

@@ -1,0 +1,71 @@
+PolyXOR128 Lean rebuild and axiom audit
+Upstream: https://github.com/orlp/polyxor, commit 3123eb6 (crate 0.1.0), directory proofs/
+Toolchain: leanprover/lean4:v4.34.0; Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0); Mathlib rev 5ed2965256430c3649e86755f9576b54eca72435 (v4.34.0)
+Rebuilt 2026-09-28 on an Apple M2 Pro: lake exe cache get; lake build (polyxor's own 12 files compiled from source).
+
+SHA-256 of the upstream Lean sources checked:
+  cbb088a6d0480f6368026b231461d8822a7096e1591588fb1ec0da7be9d4d395  PolyXORCheck.lean
+  2d25556fd0fb83e741e89e852d006a8a30fbc0ee482a30a044c917dae5233008  PolyXORCompress.lean
+  5a39a8350943e076d4b739670f44ae3729e9bc28b7181164ef3c954f43061fc1  PolyXORFull.lean
+  f394decb1c6d590dbd9ff5f70812ace941162112b2209e429b94bb7d79f9b410  PolyXOR/CompressProof/Core.lean
+  75467b002d70c781076017dbfc94dec444589dfad1dacbc14017e4d264114878  PolyXOR/CompressProof/Descent.lean
+  9854cff0bedf8b841e37e65f0d2e39f19668b8ae893f36fd1550a1d6b4783185  PolyXOR/CompressProof/Main.lean
+  fe1d429b4a255b348f97e86ad362593d9fd080da5044ddae38720cb7cbff57bc  PolyXOR/FullProof/Bytes.lean
+  d1a16206b9f502520bd8096d6d22a277f45b669ed5e80045e8196b7608fb641d  PolyXOR/FullProof/Count.lean
+  7cdc22279938931c1041dd8c620d22005fae6debea8f831170b71735d0351b13  PolyXOR/FullProof/Digest.lean
+  9dfad8a97e7c1fcf73fc248470a69337d204aebfdc6bcc6ecc98d0ce952f00a4  PolyXOR/FullProof/Main.lean
+  53691c61bc7ee1c52ae14a88f3175d6f87fad919c195491d0cce96b1dce6e614  PolyXOR/FullProof/Poly.lean
+  455c9393e18787b8f59911a8ce7990cee15381ccba06d037bf4b76aeca69132b  PolyXOR/FullProof/Recurrence.lean
+  bbeab3dbb5e2ba7eb3a8788480a38e17a4ea3f0d06d3aa167b4184db4a1b9f86  lakefile.toml
+  8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632  lean-toolchain
+  6dbeaad0caace6f8f5e70505c82f6254d1427490cdffe031249b27c208c65cd1  lake-manifest.json
+
+== lake build (tail) ==
+✔ [8924/8936] Built PolyXORCompress (176s)
+✔ [8925/8936] Built PolyXOR.FullProof.Count (181s)
+✔ [8926/8936] Built PolyXOR.CompressProof.Descent (181s)
+✔ [8927/8936] Built PolyXOR.FullProof.Recurrence (181s)
+✔ [8928/8936] Built PolyXORFull (110s)
+✔ [8929/8936] Built PolyXOR.FullProof.Poly (109s)
+✔ [8930/8936] Built PolyXOR.CompressProof.Core (109s)
+✔ [8931/8936] Built PolyXOR.CompressProof.Main (95s)
+✔ [8932/8936] Built PolyXOR.FullProof.Bytes (100s)
+✔ [8933/8936] Built PolyXOR.FullProof.Digest (86s)
+✔ [8934/8936] Built PolyXOR.FullProof.Main (88s)
+ℹ [8935/8936] Built PolyXORCheck (116s)
+info: PolyXORCheck.lean:48:0: 'PolyXOR.compress_axu128_is_axu' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PolyXORCheck.lean:49:0: 'PolyXOR.polyxor128_axu' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8936 jobs).
+EXIT 0
+
+Source scan (grep over proofs/**/*.lean): no sorry, admit, axiom declarations, unsafe, implemented_by, extern, opaque, native_decide or kernel options.
+One custom tactic macro (linear_combination₂ in CompressProof/Descent.lean) wraps Mathlib's linear_combination; the kernel re-checks its output.
+
+== lake env lean AuditSanity.lean (independent non-vacuity checks, this audit) ==
+PolyXOR.polyxor128_axu : ∀ (F : Type) [inst : Field F] [inst_1 : Fintype F] [inst_2 : Module PolyXOR.F4 F],
+  Fintype.card F = 2 ^ 128 →
+    ∀ (ι : Polynomial (ZMod 2) →+ F),
+      (∀ (x : Polynomial (ZMod 2)), x.degree < 128 → ι x = 0 → x = 0) →
+        ∀ (L : ℕ) (m m' : List PolyXOR.Byte),
+          m ≠ m' →
+            m.length ≤ L →
+              m'.length ≤ L →
+                L < 2 ^ 64 →
+                  ∀ (γ : F),
+                    ↑(Nat.card { k // PolyXOR.polyxor128 ι k m + PolyXOR.polyxor128 ι k m' = γ }) /
+                        ↑(Nat.card (PolyXOR.Key F)) ≤
+                      (↑L / 4096 + 3) / 2 ^ 128
+PolyXOR.compress_axu128_is_axu : ∀ (V : Type) [inst : AddCommGroup V] [inst_1 : Module PolyXOR.F4 V]
+  (ι : Polynomial (ZMod 2) →+ V),
+  (∀ (x : Polynomial (ZMod 2)), x.degree < 128 → ι x = 0 → x = 0) →
+    ∀ (m m' : PolyXOR.Block),
+      m ≠ m' →
+        ∀ (γ : V × V),
+          ↑(Nat.card { k // PolyXOR.compress ι (m + k) + PolyXOR.compress ι (m' + k) = γ }) /
+              ↑(Nat.card PolyXOR.Block) ≤
+            1 / 2 ^ 128
+'PolyXOR.polyxor128_axu' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PolyXOR.compress_axu128_is_axu' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PolyXOR.Audit.card_key_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PolyXOR.Audit.card_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PolyXOR.Audit.galois_card' depends on axioms: [propext, Classical.choice, Quot.sound]

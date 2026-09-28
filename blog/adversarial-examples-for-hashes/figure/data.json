@@ -1,6 +1,6 @@
 {
-  "source_sha256": "f05ddba316697c8ebfa0407d9cec59c504485f6cbcd83f58c867e09521fb2a05",
-  "profiles_sha256": "ca2b611f3ebc9af4910136f71723a3618f725887210f51ad2b6de2487e9249bc",
+  "source_sha256": "06e19581f9bc1d2019108c5ed4476b17a042507236ed6d1e023c867c2e8210c3",
+  "profiles_sha256": "a9da978cccd2f17afaa91f5209521fda97f8aa8fe410dd369f38b42b26c0e518",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -879,6 +879,35 @@
         "https://github.com/wangyi-fudan/wyhash/commit/2ac9a50",
         "verify/wyhash/README.html",
         "records/speeds.json"
+      ]
+    },
+    "polyxor": {
+      "authors": "Orson Peters",
+      "background": "PolyXOR128 is Orson Peters’s 128-bit universal hash (crate 0.1.0), which moves from his PolymurHash’s prime field to carry-less arithmetic. It hashes 4 KiB chunks with carry-less NH and a parity code combined over GF(4), then chains the chunk digests in GF(2^128). Peters published a Lean proof of its collision bound.",
+      "links": [
+        {
+          "label": "Project and code",
+          "url": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd"
+        },
+        {
+          "label": "Lean proofs",
+          "url": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs"
+        },
+        {
+          "label": "Audit record",
+          "url": "records/polyxor/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/polyxor/speeds_polyxor.json"
+        }
+      ],
+      "sources": [
+        "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd",
+        "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/design.md",
+        "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs/PolyXORCheck.lean",
+        "records/polyxor/README.html",
+        "records/polyxor/speeds_polyxor.json"
       ]
     }
   },
@@ -2237,6 +2266,36 @@
           },
           "output_bits": 128,
           "code_url": "https://github.com/thomasahle/chainhash"
+        },
+        {
+          "id": "polyxor",
+          "name": "PolyXOR128 0.1.0",
+          "label": "PolyXOR128",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 17.93,
+          "bits": 126.41,
+          "score": "≥ 126.41",
+          "anchor": "appendix-polyxor",
+          "evidence": "min(1,(8L/4096+3)/2^128): Pr[collision] ≤ (n/4096+3)/2^128 for messages of at most n < 2^64 bytes",
+          "scope": "Two fixed messages chosen independently of the key, each at most 8L bytes, including empty, partial-block and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 4160 uniformly random key bytes (from_entropy). The bound is machine-checked in Lean by Peters (standard axioms; rebuilt here); an independent model of the Lean definitions agrees with the crate on 1,658 cases across the portable, AVX, AVX2, AVX-512 and NEON backends, and the L = 1 score is attained to 0.001 bits. The AES-128 from_key expander and the benchmark SplitMix64 seeding are outside the theorem.",
+          "source": "records/polyxor/speeds_polyxor.json",
+          "family": "CLNH + EHC + GF(2^128) chain",
+          "key_model": "4160 uniformly random bytes via from_entropy: z, u, y (bytes 0–47), an avalanche multiplier (48–63, outside the collision argument) and the 4096-byte block key (64–4159). from_key(u128) derives them with AES-128 in counter mode, outside the theorem.",
+          "profile": "polyxor",
+          "summary": "Reaches 15.82 B/cycle on Xeon and 17.93 on M2 Pro with a 126.41-bit guarantee from 4160 random key bytes; in the same binaries XXH3-128 runs at 20.03 and 13.40. Short inputs cost about 173 cycles/hash on Xeon and 133 on M2. The Lean proof rebuilds on standard axioms, the crate matches an independent model of the Lean definitions on every backend tested, and the bound is attained to 0.001 bits.",
+          "reader_notes": {
+            "evidence": "For two fixed messages of at most n bytes, a collision has probability at most (n/4096+3)/2^128. Peters proved this in Lean; we rebuilt it (standard axioms only) and checked the compiled crate against an independent model of the Lean definitions on 1,658 cases and every SIMD backend. The pair 00/01 collides with probability just under 3/2^128, so the bound is attained.",
+            "key": "Draw 4160 independently random bytes and pass them to from_entropy: three 128-bit field words, an avalanche multiplier and a 4096-byte block key. from_key(u128) expands a 128-bit key with AES instead, which the theorem does not cover; the 64-bit seed used for benchmarking does not meet the assumption either.",
+            "scope": "The guarantee covers the full 128-bit output of finalize_raw and finalize_avalanche (a bijection of it), including empty, partial-block and unequal-length inputs, for any two messages fixed before the key. The MAC mode is not scored. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three. No full SMHasher3 suite result is claimed."
+          },
+          "smhasher": {
+            "url": "https://thomasahle.com/blog/adversarial-examples-for-hashes/records/polyxor/evidence/Xeon/polyxor-128.sanity.txt",
+            "label": "SMHasher3 Sanity (Xeon)",
+            "scope": "sanity"
+          },
+          "output_bits": 128,
+          "code_url": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd"
         }
       ]
     },
@@ -3624,6 +3683,36 @@
           },
           "output_bits": 128,
           "code_url": "https://github.com/thomasahle/chainhash"
+        },
+        {
+          "id": "polyxor",
+          "name": "PolyXOR128 0.1.0",
+          "label": "PolyXOR128",
+          "kind": "proof",
+          "key_free": false,
+          "speed": 15.82,
+          "bits": 126.41,
+          "score": "≥ 126.41",
+          "anchor": "appendix-polyxor",
+          "evidence": "min(1,(8L/4096+3)/2^128): Pr[collision] ≤ (n/4096+3)/2^128 for messages of at most n < 2^64 bytes",
+          "scope": "Two fixed messages chosen independently of the key, each at most 8L bytes, including empty, partial-block and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 4160 uniformly random key bytes (from_entropy). The bound is machine-checked in Lean by Peters (standard axioms; rebuilt here); an independent model of the Lean definitions agrees with the crate on 1,658 cases across the portable, AVX, AVX2, AVX-512 and NEON backends, and the L = 1 score is attained to 0.001 bits. The AES-128 from_key expander and the benchmark SplitMix64 seeding are outside the theorem.",
+          "source": "records/polyxor/speeds_polyxor.json",
+          "family": "CLNH + EHC + GF(2^128) chain",
+          "key_model": "4160 uniformly random bytes via from_entropy: z, u, y (bytes 0–47), an avalanche multiplier (48–63, outside the collision argument) and the 4096-byte block key (64–4159). from_key(u128) derives them with AES-128 in counter mode, outside the theorem.",
+          "profile": "polyxor",
+          "summary": "Reaches 15.82 B/cycle on Xeon and 17.93 on M2 Pro with a 126.41-bit guarantee from 4160 random key bytes; in the same binaries XXH3-128 runs at 20.03 and 13.40. Short inputs cost about 173 cycles/hash on Xeon and 133 on M2. The Lean proof rebuilds on standard axioms, the crate matches an independent model of the Lean definitions on every backend tested, and the bound is attained to 0.001 bits.",
+          "reader_notes": {
+            "evidence": "For two fixed messages of at most n bytes, a collision has probability at most (n/4096+3)/2^128. Peters proved this in Lean; we rebuilt it (standard axioms only) and checked the compiled crate against an independent model of the Lean definitions on 1,658 cases and every SIMD backend. The pair 00/01 collides with probability just under 3/2^128, so the bound is attained.",
+            "key": "Draw 4160 independently random bytes and pass them to from_entropy: three 128-bit field words, an avalanche multiplier and a 4096-byte block key. from_key(u128) expands a 128-bit key with AES instead, which the theorem does not cover; the 64-bit seed used for benchmarking does not meet the assumption either.",
+            "scope": "The guarantee covers the full 128-bit output of finalize_raw and finalize_avalanche (a bijection of it), including empty, partial-block and unequal-length inputs, for any two messages fixed before the key. The MAC mode is not scored. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three. No full SMHasher3 suite result is claimed."
+          },
+          "smhasher": {
+            "url": "https://thomasahle.com/blog/adversarial-examples-for-hashes/records/polyxor/evidence/Xeon/polyxor-128.sanity.txt",
+            "label": "SMHasher3 Sanity (Xeon)",
+            "scope": "sanity"
+          },
+          "output_bits": 128,
+          "code_url": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd"
         }
       ]
     }

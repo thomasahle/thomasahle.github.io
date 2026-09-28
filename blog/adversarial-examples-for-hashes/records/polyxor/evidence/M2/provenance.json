@@ -1,0 +1,47 @@
+{
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)",
+  "flags": [
+    "-O3",
+    "-std=c++11",
+    "-DNDEBUG",
+    "-DHAVE_THREADS",
+    "-march=native+crypto",
+    "-DPOLYXOR_VERIFY=0xA9574CA8",
+    "-DPOLYXOR_RAW_VERIFY=0x23A6E8BB"
+  ],
+  "link_extra": [
+    "-L<libcrypto dir>",
+    "-lcrypto"
+  ],
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)",
+  "rustflags": "-C target-cpu=native",
+  "rust_profile": "release, lto=true, codegen-units=1, panic=abort; polyxor default features (aes, std, runtime_detection)",
+  "polyxor": {
+    "version": "0.1.0",
+    "commit": "3123eb6",
+    "src_lib_rs_sha256": "568e027ee77b5a2cf4594e3c09ab7ea8454cacec10d1b31232237b5e5a4fbcbd",
+    "src_dispatch_rs_sha256": "03d1974523971618f7c1e69dc240e0f682d669f861a59d202f22984ff14c4c36",
+    "src_x86_64_rs_sha256": "5fdb5ac85fb85b9744e39329d8056c5e0d0a5fecad40383bec077c765ec01a1b",
+    "src_neon_rs_sha256": "49578f09bf1f8993bb1706b2bf84b585be91a2894c892e8ab032fbcad9159c18"
+  },
+  "reused_objects": {
+    "main.cpp.o": "5851b8d94d393e09a68215c2deee8891f7a433ed506d371efb7969b0719702ba",
+    "libSMHasher3Tests.a": "29fdf203986808dc910c64fda427826798d118e9f2dffd68cccdf05fbaf3881d",
+    "libSMHasher3Hashlib.a": "4eae18d42d35e75036676c356bde9d16a0c508e380b9598eccc49c295d13e38b"
+  },
+  "registration_sources": {
+    "polyxor.cpp": "d15e066f24a541b29651a4b9ad2238daa3316e1e7e7be3978e1524f45e988c20",
+    "lib.rs": "af5d46bad728393bb6c54f87ee67cb60664777103b1c4845862e60e61a6a15db",
+    "Cargo.toml": "000477e14afcb7c7069f7e6dc01e405837dbfdd48b5a791189f1b6abb292b11e",
+    "Cargo.lock": "d9e2fa1a18c20a8d02601e3f4a9cebcece2f4a8d9ced12f51cdb6cbbca58cf08"
+  },
+  "staticlib_sha256": "5c613ee29778a8dc4c2c63f8f165a871c19b9d3446682b1212a0897aea5c3c77",
+  "registration_object_sha256": "e9ab3e05318a20a85cc0d9c0a6fcb1406f16f80ef3f7002f1b785a0a18ec729f",
+  "backend_probe": "arch=aarch64 backend=neon::hash_blocks (compile-time) compile_time=[(\"neon\", true), (\"aes\", true)] runtime=[(\"neon\", true), (\"aes\", true)]",
+  "verification_macros": {
+    "POLYXOR_VERIFY": "0xA9574CA8",
+    "POLYXOR_RAW_VERIFY": "0x23A6E8BB"
+  },
+  "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e"
+}

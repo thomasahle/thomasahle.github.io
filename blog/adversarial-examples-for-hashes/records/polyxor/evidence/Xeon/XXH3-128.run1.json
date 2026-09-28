@@ -1,0 +1,61 @@
+{
+  "name": "XXH3-128",
+  "run": 1,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "16-23",
+    "SMHasher3",
+    "XXH3-128",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T11:39:08.029131+00:00",
+    "uptime": "11:39:08 up 16 days, 20:23,  0 users,  load average: 26.26, 32.84, 37.05",
+    "load": [
+      26.26,
+      32.84,
+      37.05
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 6.0,
+      "17": 1.0,
+      "18": 4.5,
+      "19": 3.5,
+      "20": 13.5,
+      "21": 5.5,
+      "22": 100.0,
+      "23": 3.5
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T11:39:49.831586+00:00",
+    "uptime": "11:39:49 up 16 days, 20:23,  0 users,  load average: 25.57, 31.70, 36.46",
+    "load": [
+      25.57,
+      31.7,
+      36.46
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 10.5,
+      "17": 98.5,
+      "18": 13.0,
+      "19": 3.0,
+      "20": 8.5,
+      "21": 16.0,
+      "22": 97.5,
+      "23": 11.5
+    }
+  },
+  "elapsed_seconds": 41.80274959700182,
+  "returncode": 0,
+  "raw_file": "XXH3-128.run1.txt",
+  "raw_sha256": "76e66f12a743c0ec5295edf1cbbef44a9f7f7baa127487eeebfbd574132a12e8",
+  "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13"
+}

@@ -1809,6 +1809,62 @@
           "scope": "full"
         }
       }
+    },
+    {
+      "ids": [
+        "polyxor"
+      ],
+      "authors": "Orson Peters",
+      "background": "PolyXOR128 is Orson Peters’s 128-bit universal hash (crate 0.1.0), which moves from his PolymurHash’s prime field to carry-less arithmetic. It hashes 4 KiB chunks with carry-less NH and a parity code combined over GF(4), then chains the chunk digests in GF(2^128). Peters published a Lean proof of its collision bound.",
+      "links": [
+        {
+          "label": "Project and code",
+          "url": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd"
+        },
+        {
+          "label": "Lean proofs",
+          "url": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs"
+        },
+        {
+          "label": "Audit record",
+          "url": "records/polyxor/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/polyxor/speeds_polyxor.json"
+        }
+      ],
+      "sources": [
+        "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd",
+        "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/design.md",
+        "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs/PolyXORCheck.lean",
+        "records/polyxor/README.html",
+        "records/polyxor/speeds_polyxor.json"
+      ],
+      "results": {
+        "polyxor": "Reaches 15.82 B/cycle on Xeon and 17.93 on M2 Pro with a 126.41-bit guarantee from 4160 random key bytes; in the same binaries XXH3-128 runs at 20.03 and 13.40. Short inputs cost about 173 cycles/hash on Xeon and 133 on M2. The Lean proof rebuilds on standard axioms, the crate matches an independent model of the Lean definitions on every backend tested, and the bound is attained to 0.001 bits."
+      },
+      "lean": {
+        "polyxor": {
+          "label": "✓ checked",
+          "source": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs",
+          "scope": "Peters's Lean proof, rebuilt here (Lean 4.34.0, Mathlib v4.34.0): the (n/4096+3)/2^128 collision bound for 4160 uniformly random key bytes and the 2^-128 compression lemma, standard axioms only; our non-vacuity lemmas and a 1,658-case model/crate differential test."
+        }
+      },
+      "reader_notes": {
+        "polyxor": {
+          "evidence": "For two fixed messages of at most n bytes, a collision has probability at most (n/4096+3)/2^128. Peters proved this in Lean; we rebuilt it (standard axioms only) and checked the compiled crate against an independent model of the Lean definitions on 1,658 cases and every SIMD backend. The pair 00/01 collides with probability just under 3/2^128, so the bound is attained.",
+          "key": "Draw 4160 independently random bytes and pass them to from_entropy: three 128-bit field words, an avalanche multiplier and a 4096-byte block key. from_key(u128) expands a 128-bit key with AES instead, which the theorem does not cover; the 64-bit seed used for benchmarking does not meet the assumption either.",
+          "scope": "The guarantee covers the full 128-bit output of finalize_raw and finalize_avalanche (a bijection of it), including empty, partial-block and unequal-length inputs, for any two messages fixed before the key. The MAC mode is not scored. Bulk timings use 256 KiB messages: Xeon is the higher of two passes, M2 the median of three. No full SMHasher3 suite result is claimed."
+        }
+      },
+      "smhasher": {
+        "polyxor": {
+          "url": "https://thomasahle.com/blog/adversarial-examples-for-hashes/records/polyxor/evidence/Xeon/polyxor-128.sanity.txt",
+          "label": "SMHasher3 Sanity (Xeon)",
+          "scope": "sanity"
+        }
+      }
     }
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "name": "UMASH-128",
+  "run": 1,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "SMHasher3",
+    "UMASH-128",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T11:39:13.500324+00:00",
+    "uptime": "13:39  up 11 days,  1:30, 1 user, load averages: 3.52 4.32 4.33",
+    "load": [
+      3.52001953125,
+      4.3232421875,
+      4.3310546875
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null,
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T11:40:20.662783+00:00",
+    "uptime": "13:40  up 11 days,  1:31, 1 user, load averages: 3.23 4.09 4.24",
+    "load": [
+      3.23095703125,
+      4.0888671875,
+      4.24169921875
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null
+  },
+  "elapsed_seconds": 67.1739048329182,
+  "returncode": 0,
+  "raw_file": "UMASH-128.run1.txt",
+  "raw_sha256": "d1399fe8965ed635aaad41b71c06335cfc5e7a79c11514da46ea863b53c103b9",
+  "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e"
+}

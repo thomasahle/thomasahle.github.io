@@ -376,6 +376,11 @@
      <use xlink:href="#m63c7f8ab11" x="474.005879" y="265.91389" style="fill: #176f83; stroke: #176f83; stroke-width: 0.7" />
     </g>
    <circle cx="474.005879206097" cy="265.9138901654412" r="12" fill="transparent" class="point-hit" /><circle cx="474.005879206097" cy="265.9138901654412" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
+   <g id="point-polyxor" data-point-id="polyxor" data-speed="17.93" data-bits="126.41" tabindex="0" role="button" aria-label="PolyXOR128 0.1.0: ≥ 126.41 bits (proved); 17.93 B/cycle. Inspect result.">
+    <g clip-path="url(#p4659789879)">
+     <use xlink:href="#m63c7f8ab11" x="549.017991" y="269.993517" style="fill: #176f83; stroke: #176f83; stroke-width: 0.7" />
+    </g>
+   <circle cx="549.0179908824371" cy="269.99351749195773" r="12" fill="transparent" class="point-hit" /><circle cx="549.0179908824371" cy="269.99351749195773" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
    <g id="leader-wyhash" data-leader-for="wyhash">
     <path d="M 385.185388 676.77633  Q 414.921703 679.898563 444.658018 683.020796  " style="fill: none; opacity: 0.5; stroke: #bd5637; stroke-width: 0.8; stroke-linecap: round" />
    </g>
@@ -457,11 +462,20 @@
     </g>
     <text style="font-weight: 700; font-size: 14px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #176f83" x="692.098099" y="349.041746" transform="rotate(-0 692.098099 349.041746)">ChainHash-128 (ours)</text>
    </g>
+   <g id="leader-polyxor" data-leader-for="polyxor">
+    <path d="M 568.720247 268.699179  Q 562.859114 269.084226 556.997982 269.469272  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
+   </g>
+   <g id="label-polyxor" data-label-for="polyxor" data-label-key="polyxor">
+    <g id="patch_13">
+     <path d="M 573.707059 274.902757  L 660.235809 274.902757  L 660.235809 256.155882  L 573.707059 256.155882  z " style="fill: #ffffff; opacity: 0.96" />
+    </g>
+    <text style="font-size: 14px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #176f83" x="576.507059" y="269.156195" transform="rotate(-0 576.507059 269.156195)">PolyXOR128</text>
+   </g>
    <g id="leader-halftime24-fixed" data-leader-for="halftime24-fixed">
     <path d="M 236.190935 496.639728  Q 309.84632 506.211425 383.501706 515.783121  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
    </g>
    <g id="label-halftime24-fixed" data-label-for="halftime24-fixed" data-label-key="halftime24-fixed">
-    <g id="patch_13">
+    <g id="patch_14">
      <path d="M 85.144196 495.994938  L 233.122009 495.994938  L 233.122009 477.256813  L 85.144196 477.256813  z " style="fill: #ffffff; opacity: 0.96" />
     </g>
     <text style="font-size: 14px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #176f83" x="87.944196" y="490.248375" transform="rotate(-0 87.944196 490.248375)">HalftimeHash24 (fixed)</text>

@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PolyXOR128: the checked statement</title><link rel="stylesheet" href="../../post.css"><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem;overflow-wrap:anywhere}pre,table{display:block;overflow:auto}h1{font-size:2rem}</style></head><body><main><nav><a href="../../index.html#appendix-polyxor">Article</a> · <a href="../README.html">Records</a></nav>
+<h1 id="polyxor128-the-checked-statement">PolyXOR128: the checked statement</h1>
+<p>Source: <code>proofs/PolyXORCheck.lean</code> at <a href="https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs/PolyXORCheck.lean">orlp/polyxor@3123eb6</a>. The printed signature below is copied verbatim from <code>lake env lean</code> (see <a href="lean/AUDIT.txt">lean/AUDIT.txt</a>).</p>
+<pre><code>PolyXOR.polyxor128_axu : ∀ (F : Type) [inst : Field F] [inst_1 : Fintype F] [inst_2 : Module PolyXOR.F4 F],
+  Fintype.card F = 2 ^ 128 →
+    ∀ (ι : Polynomial (ZMod 2) →+ F),
+      (∀ (x : Polynomial (ZMod 2)), x.degree &lt; 128 → ι x = 0 → x = 0) →
+        ∀ (L : ℕ) (m m&#39; : List PolyXOR.Byte),
+          m ≠ m&#39; →
+            m.length ≤ L →
+              m&#39;.length ≤ L →
+                L &lt; 2 ^ 64 →
+                  ∀ (γ : F),
+                    ↑(Nat.card { k // PolyXOR.polyxor128 ι k m + PolyXOR.polyxor128 ι k m&#39; = γ }) /
+                        ↑(Nat.card (PolyXOR.Key F)) ≤
+                      (↑L / 4096 + 3) / 2 ^ 128</code></pre>
+<p><code>Key F = (Fin 32 → Fin 16 → Word) × F × F × F</code>: the 4096-byte block key and z, u, y. <code>polyxor128</code> (in <code>PolyXORFull.lean</code>) is <code>finalize_raw</code>:</p>
+<ul>
+<li>zero-pad to 128-byte blocks;</li>
+<li>XOR each block with its block-key bytes and apply <code>hashBlock</code> (two <code>compress_axu128</code> calls);</li>
+<li>sum each 4096-byte chunk's block digests into (h₀, h₁);</li>
+<li>chain acc ← (acc+u)(h₁+y)+h₀ starting from z;</li>
+<li>output (acc+u)(len+y), with len the 64-bit byte count.</li>
+</ul>
+<p>The companion <code>PolyXOR.compress_axu128_is_axu</code> states that the keyed compression function is 2⁻¹²⁸-almost-XOR-universal over a uniform 64-byte key.</p>
+<h2 id="reading-it-in-the-posts-model">Reading it in the post's model</h2>
+<ul>
+<li>Fixed messages, uniform key, no adaptivity. γ = 0 is equality of the full 128-bit output.</li>
+<li>All lengths up to L &lt; 2⁶⁴ bytes are covered, including the empty message, partial blocks and unequal lengths.</li>
+<li>With L = ⌈max bytes/8⌉ words, n = 8L bytes and ε(L) = (8L/4096 + 3)/2¹²⁸. The ratio L/ε(L) increases with L, so the score is attained at L = 1: 128 − log₂(3 + 1/512) = <strong>126.414099 bits</strong>.
+<ul>
+<li>L = 2 gives 127.41 bits; L = 512 gives 135.0; long inputs tend to 137.</li>
+<li>At 1 GiB, ε ≈ 2⁻¹¹⁰.</li>
+<li>Domain: 1 ≤ L ≤ 2⁶¹ − 1.</li>
+</ul></li>
+<li>Tightness: for 00/01 the exact probability is 2⁻¹²⁸·(3 − 2⁻⁶⁴ − 2⁻¹²⁷ + 2⁻¹⁹²), i.e. 126.415037 bits. The certified score is therefore exact to 0.001 bits.</li>
+</ul>
+<p>The statement quantifies over every field of size 2¹²⁸, every F4-module structure and every ι injective below degree 128. It therefore covers the instantiation the code uses, which <a href="difftest/model.py">difftest/model.py</a> spells out: POLYVAL's Montgomery product, the bit layout, and w acting as (lo, hi) ↦ (hi, lo+hi) on 32-bit subwords.</p>
+</main></body></html>

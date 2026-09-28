@@ -1,0 +1,61 @@
+{
+  "name": "polyxor-128",
+  "run": 1,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "16-23",
+    "SMHasher3",
+    "polyxor-128",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T11:37:01.096250+00:00",
+    "uptime": "11:37:01 up 16 days, 20:21,  0 users,  load average: 29.28, 36.36, 38.62",
+    "load": [
+      29.28,
+      36.36,
+      38.62
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 17.0,
+      "17": 14.1,
+      "18": 14.5,
+      "19": 29.0,
+      "20": 21.5,
+      "21": 25.4,
+      "22": 26.5,
+      "23": 28.4
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T11:38:04.868323+00:00",
+    "uptime": "11:38:04 up 16 days, 20:22,  0 users,  load average: 26.55, 34.26, 37.75",
+    "load": [
+      26.55,
+      34.26,
+      37.75
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 42.8,
+      "17": 6.5,
+      "18": 20.0,
+      "19": 3.0,
+      "20": 1.5,
+      "21": 8.1,
+      "22": 9.5,
+      "23": 11.5
+    }
+  },
+  "elapsed_seconds": 63.76850975607522,
+  "returncode": 0,
+  "raw_file": "polyxor-128.run1.txt",
+  "raw_sha256": "cccf61a0d4d1ad6142be0a0d66067b7d27fd571729f1e52b97ac1c8f5a94838e",
+  "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13"
+}

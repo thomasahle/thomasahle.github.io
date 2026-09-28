@@ -19945,6 +19945,122 @@
           "binary_sha256": "d8df2fbcf18e4e56ec2c6a96242ef47b10935cd20d05f0b249e6fdecae92846a"
         }
       }
+    },
+    {
+      "id": "polyxor",
+      "name": "PolyXOR128 0.1.0",
+      "label": "PolyXOR128",
+      "pattern": [],
+      "family": "proven",
+      "bits": 126.41,
+      "bits_kind": "proved",
+      "output_bits": 128,
+      "bound": "min(1,(8L/4096+3)/2^128): Pr[collision] ≤ (n/4096+3)/2^128 for messages of at most n < 2^64 bytes",
+      "source_bound": "(L/4096 + 3)/2^128 for messages of at most L bytes (PolyXORCheck.lean, polyxor128_axu)",
+      "score_lower_guarantee": 126.41,
+      "score_display": "≥ 126.41 bits",
+      "score": {
+        "calculated": 126.41409855030923,
+        "display": 126.41,
+        "display_text": "≥ 126.41 bits (proved)",
+        "direction": "lower_bound",
+        "formula": "min(1,(8L/4096+3)/2^128): Pr[collision] ≤ (n/4096+3)/2^128 for messages of at most n < 2^64 bytes",
+        "minimizer_L": 1
+      },
+      "score_minimizer_L": 1,
+      "score_derivation": "L/ε(L) = L·2^128/(8L/4096+3) increases in L, so the minimum is at L = 1: 128 − log2(3 + 1/512) = 126.4141. The one-byte pair 00/01 collides with probability exactly 2^-128(3 − 2^-64 − 2^-127 + 2^-192), 126.4150 bits, so the score is exact to 0.001 bits.",
+      "key_words_64bit": "520 random (4160 bytes)",
+      "random_key_bytes": 4160,
+      "domain": "Two fixed messages chosen independently of the key, each at most 8L bytes, including empty, partial-block and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 4160 uniformly random key bytes (from_entropy). The bound is machine-checked in Lean by Peters (standard axioms; rebuilt here); an independent model of the Lean definitions agrees with the crate on 1,658 cases across the portable, AVX, AVX2, AVX-512 and NEON backends, and the L = 1 score is attained to 0.001 bits. The AES-128 from_key expander and the benchmark SplitMix64 seeding are outside the theorem.",
+      "qualification": "Two fixed messages chosen independently of the key, each at most 8L bytes, including empty, partial-block and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 4160 uniformly random key bytes (from_entropy). The bound is machine-checked in Lean by Peters (standard axioms; rebuilt here); an independent model of the Lean definitions agrees with the crate on 1,658 cases across the portable, AVX, AVX2, AVX-512 and NEON backends, and the L = 1 score is attained to 0.001 bits. The AES-128 from_key expander and the benchmark SplitMix64 seeding are outside the theorem.",
+      "key_model": "4160 uniformly random bytes via from_entropy: z, u, y (bytes 0–47), an avalanche multiplier (48–63, outside the collision argument) and the 4096-byte block key (64–4159). from_key(u128) derives them with AES-128 in counter mode, outside the theorem.",
+      "domain_short": "4160 uniformly random key bytes",
+      "hover": {
+        "scope": "Two fixed messages chosen independently of the key, each at most 8L bytes, including empty, partial-block and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 4160 uniformly random key bytes (from_entropy). The bound is machine-checked in Lean by Peters (standard axioms; rebuilt here); an independent model of the Lean definitions agrees with the crate on 1,658 cases across the portable, AVX, AVX2, AVX-512 and NEON backends, and the L = 1 score is attained to 0.001 bits. The AES-128 from_key expander and the benchmark SplitMix64 seeding are outside the theorem."
+      },
+      "mechanism": "Key-XORed 128-byte blocks, each two parity-extended groups of carry-less NH combined over GF(4)^64 (encode–hash–combine with the key before the encoding); per 4 KiB chunk the chain p ← (p+u)(h1+y)+h0 in the POLYVAL field; output (p+u)(len+y)",
+      "mechanism_family": "CLNH + EHC + GF(2^128) chain",
+      "family_definition": "Carry-less NH with a parity code and GF(4) combination, chained per 4 KiB by p ← (p+u)(h1+y)+h0 over GF(2^128) with a length-keyed final product",
+      "anchor": "appendix-polyxor",
+      "proof_status": "proved (machine-checked)",
+      "proof_source": "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs/PolyXORCheck.lean",
+      "code_url": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd",
+      "reference_url": "https://github.com/orlp/polyxor",
+      "version": "crate 0.1.0, commit 3123eb6; 128-bit output (finalize_raw / finalize_avalanche)",
+      "chart_eligible": true,
+      "chart_hosts": [
+        "M2Pro",
+        "Xeon8375C"
+      ],
+      "key_free": false,
+      "lean": {
+        "label": "✓ checked",
+        "source": "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs",
+        "scope": "Peters's Lean proof, rebuilt here (Lean 4.34.0, Mathlib v4.34.0): the (n/4096+3)/2^128 collision bound for 4160 uniformly random key bytes and the 2^-128 compression lemma, standard axioms only; our non-vacuity lemmas and a 1,658-case model/crate differential test."
+      },
+      "speed_registration": "polyxor-128",
+      "provenance": [
+        "https://github.com/orlp/polyxor/tree/3123eb6c0ac95b879a46b490ecda1de0184b14bd",
+        "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/design.md",
+        "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs/PolyXORCheck.lean",
+        "records/polyxor/README.html",
+        "records/polyxor/speeds_polyxor.json"
+      ],
+      "notes": "Bulk: Xeon 15.82 B/cycle (higher of two passes), M2 Pro 17.93 (median of three). Same-binary controls: XXH3-128 20.03, UMASH-128 6.02 (Xeon); XXH3-128 13.40, UMASH-128 8.05 (M2). Short 1–31 B inputs cost 173.01 cycles/hash on Xeon and 132.86 on M2: every input is padded to a 128-byte block. Two fixed messages chosen independently of the key, each at most 8L bytes, including empty, partial-block and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 4160 uniformly random key bytes (from_entropy). The bound is machine-checked in Lean by Peters (standard axioms; rebuilt here); an independent model of the Lean definitions agrees with the crate on 1,658 cases across the portable, AVX, AVX2, AVX-512 and NEON backends, and the L = 1 score is attained to 0.001 bits. The AES-128 from_key expander and the benchmark SplitMix64 seeding are outside the theorem.",
+      "speeds": {
+        "smh_m2_bulk_Bpc": {
+          "value": 17.93,
+          "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle",
+          "source_short": "SMHasher3 M2Pro",
+          "url": "records/polyxor/speeds_polyxor.json",
+          "record": "records/polyxor/speeds_polyxor.json#/polyxor-128/M2Pro",
+          "registered_name": "polyxor-128",
+          "note": "Rust crate 0.1.0 (finalize_avalanche) linked into the post's SMHasher3 build; runtime dispatch to NEON PMULL; linked against the public reproduction's arm64 build (the post's original M2 base binary is no longer available), so compare with the same-binary controls",
+          "host": "M2Pro",
+          "selection": "median of three; >15% deviations flagged, not discarded",
+          "selected_run": 1,
+          "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e"
+        },
+        "smh_m2_small_cycles": {
+          "value": 132.86,
+          "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
+          "source_short": "SMHasher3 M2Pro",
+          "url": "records/polyxor/speeds_polyxor.json",
+          "record": "records/polyxor/speeds_polyxor.json#/polyxor-128/M2Pro",
+          "registered_name": "polyxor-128",
+          "note": "Rust crate 0.1.0 (finalize_avalanche) linked into the post's SMHasher3 build; runtime dispatch to NEON PMULL; linked against the public reproduction's arm64 build (the post's original M2 base binary is no longer available), so compare with the same-binary controls",
+          "host": "M2Pro",
+          "selection": "median of three; >15% deviations flagged, not discarded",
+          "selected_run": 1,
+          "binary_sha256": "0d6d797b4c52075a5d533b874cb133dac5011f5e3790d3400bc663ac1d7f805e"
+        },
+        "smh_xeon_bulk_Bpc": {
+          "value": 15.82,
+          "source": "SMHasher3 Xeon8375C, 262144 B bulk, B/cycle",
+          "source_short": "SMHasher3 Xeon8375C",
+          "url": "records/polyxor/speeds_polyxor.json",
+          "record": "records/polyxor/speeds_polyxor.json#/polyxor-128/Xeon8375C",
+          "registered_name": "polyxor-128",
+          "note": "Rust crate 0.1.0 (finalize_avalanche) linked into the post's SMHasher3 build; runtime dispatch to AVX-512 VPCLMULQDQ; base objects of the post's build-release-20260917, CPUs 16–23",
+          "host": "Xeon8375C",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13"
+        },
+        "smh_xeon_small_cycles": {
+          "value": 173.01,
+          "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
+          "source_short": "SMHasher3 Xeon8375C",
+          "url": "records/polyxor/speeds_polyxor.json",
+          "record": "records/polyxor/speeds_polyxor.json#/polyxor-128/Xeon8375C",
+          "registered_name": "polyxor-128",
+          "note": "Rust crate 0.1.0 (finalize_avalanche) linked into the post's SMHasher3 build; runtime dispatch to AVX-512 VPCLMULQDQ; base objects of the post's build-release-20260917, CPUs 16–23",
+          "host": "Xeon8375C",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13"
+        }
+      }
     }
   ],
   "source_excerpts": [

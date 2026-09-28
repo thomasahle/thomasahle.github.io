@@ -1,0 +1,59 @@
+PolyXOR128 differential test: shipped crate vs an independent executable model of the Lean definitions
+polyxor commit 3123eb6 (crate 0.1.0); rustc 1.98.1; model.py transcribes proofs/PolyXORCompress.lean + PolyXORFull.lean
+Run date: 2026-09-28
+
+model self-check (RFC 8452 POLYVAL vector; Montgomery field axioms; w^2 = w + 1 on the F4 module):
+self_check True
+
+crate's own from_entropy test vectors reproduced by the model (raw, avalanche, tweaked): 9/9
+
+Case sets: gen_cases.py seed 2026 and seed 7, 829 cases each: every length 0..640, 4096k + {-257,-129,-128,-127,-9,-8,-7,-1,0,1,7,8,9,127,128,129,257} for k=1..4, 120 random lengths < 20000;
+entropy random / all-zero / all-0xff; messages random / zero / 0xff; random streaming split points incl. chunk boundaries.
+Per case the driver checks five values: one-shot finalize_raw, finalize_avalanche, streamed updates, streamed updates with finalize_raw between them (in-place padding), reuse after reset().
+
+Output digests (identical output files = identical 5-value results on all 829 cases):
+  seed 2026: 0db48c2f7809c1d2595dad929cc337e5    seed 7: 435e968ea3b13487c373b3dfd31b2784
+Apple M2 Pro (aarch64):
+  0db48c2f7809c1d2595dad929cc337e5  seed2026 out.target.txt
+  0db48c2f7809c1d2595dad929cc337e5  seed2026 out.target-native.txt
+  0db48c2f7809c1d2595dad929cc337e5  seed2026 out.forced-reference.txt
+  0db48c2f7809c1d2595dad929cc337e5  seed2026 out.forced-neon.txt
+  435e968ea3b13487c373b3dfd31b2784  seed7 out7.polyxor-difftest-public.txt
+  435e968ea3b13487c373b3dfd31b2784  seed7 out7.polyxor-difftest-nodefault.txt
+  435e968ea3b13487c373b3dfd31b2784  seed7 out7.ref.txt
+  (target = default features, runtime dispatch -> NEON; target-native = -C target-cpu=native, compile-time NEON; nodefault = --no-default-features; forced-* = POLYXOR_FORCE via forced-backend.patch)
+Intel Xeon Platinum 8375C (x86_64, avx512f + vpclmulqdq):
+  0db48c2f7809c1d2595dad929cc337e5  x.cases.forced-avx.txt
+  0db48c2f7809c1d2595dad929cc337e5  x.cases.forced-avx2.txt
+  0db48c2f7809c1d2595dad929cc337e5  x.cases.forced-avx512.txt
+  0db48c2f7809c1d2595dad929cc337e5  x.cases.forced-reference.txt
+  0db48c2f7809c1d2595dad929cc337e5  x.cases.native.txt
+  0db48c2f7809c1d2595dad929cc337e5  x.cases.nodefault.txt
+  0db48c2f7809c1d2595dad929cc337e5  x.cases.public.txt
+  435e968ea3b13487c373b3dfd31b2784  x.cases7.forced-avx.txt
+  435e968ea3b13487c373b3dfd31b2784  x.cases7.forced-avx2.txt
+  435e968ea3b13487c373b3dfd31b2784  x.cases7.forced-avx512.txt
+  435e968ea3b13487c373b3dfd31b2784  x.cases7.forced-reference.txt
+  435e968ea3b13487c373b3dfd31b2784  x.cases7.native.txt
+  435e968ea3b13487c373b3dfd31b2784  x.cases7.nodefault.txt
+  435e968ea3b13487c373b3dfd31b2784  x.cases7.public.txt
+
+Model comparison:
+M2 default runtime dispatch (NEON), seed 2026: 829 cases, 0 mismatches, lengths 0..19694, total bytes 2307576
+M2 no-default-features, seed 7: 829 cases, 0 mismatches, lengths 0..19954, total bytes 2148344
+Xeon forced AVX-512, seed 2026: 829 cases, 0 mismatches, lengths 0..19694, total bytes 2307576
+Xeon forced AVX2, seed 7: 829 cases, 0 mismatches, lengths 0..19954, total bytes 2148344
+(all other configurations are byte-identical to these files, see digests above)
+
+Negative control: flipping one bit of one output is reported as 1 mismatch (checked).
+
+Tightness witnesses (shipped crate, public API from_entropy + hasher; pair 00 / 01):
+A_y_eq_len             raw 00000000000000000000000000000000 00000000000000000000000000000000 collide=true  avalanche collide=true
+B_x12_zero_s_zero      raw f55cb5fa1db06f6c837f6f7071750023 f55cb5fa1db06f6c837f6f7071750023 collide=true  avalanche collide=true
+C_zu_eq_x12_over_s     raw 475acb5129fb6b8f2006f768303c8400 475acb5129fb6b8f2006f768303c8400 collide=true  avalanche collide=true
+control_random         raw d506c0face45df40b3086990d6e37a50 268109faa59c6080ffdc2839d08dcaf4 collide=false  avalanche collide=false
+
+exact Pr[collision] for this pair = 2^-128 * (3 - 2^-64 - 2^-127 + 2^-192)
+pair score  log2(1/eps) = 126.415037  (L = 1 word)
+proven lower bound 128 - log2(3 + 8/4096) = 126.414099
+gap = 0.000939 bits

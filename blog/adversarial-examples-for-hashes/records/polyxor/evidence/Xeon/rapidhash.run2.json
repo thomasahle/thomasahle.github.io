@@ -1,0 +1,61 @@
+{
+  "name": "rapidhash",
+  "run": 2,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "16-23",
+    "SMHasher3",
+    "rapidhash",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T11:48:43.948020+00:00",
+    "uptime": "11:48:43 up 16 days, 20:32,  0 users,  load average: 50.83, 38.77, 36.47",
+    "load": [
+      50.83,
+      38.77,
+      36.47
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 100.0,
+      "17": 100.0,
+      "18": 0.5,
+      "19": 11.0,
+      "20": 100.0,
+      "21": 8.0,
+      "22": 100.0,
+      "23": 16.1
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T11:49:48.101936+00:00",
+    "uptime": "11:49:48 up 16 days, 20:33,  0 users,  load average: 47.51, 40.04, 37.06",
+    "load": [
+      47.51,
+      40.04,
+      37.06
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 2.5,
+      "17": 22.3,
+      "18": 3.5,
+      "19": 91.0,
+      "20": 1.0,
+      "21": 1.0,
+      "22": 22.5,
+      "23": 99.5
+    }
+  },
+  "elapsed_seconds": 64.15297618997283,
+  "returncode": 0,
+  "raw_file": "rapidhash.run2.txt",
+  "raw_sha256": "6f9d31ed41b6ec80fdd5bfe69e445b34fb01677a70880eacdf27c13316dd9420",
+  "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13"
+}

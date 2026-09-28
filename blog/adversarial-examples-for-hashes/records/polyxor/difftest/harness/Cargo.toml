@@ -1,0 +1,9 @@
+[package]
+name = "polyxor-difftest-public"
+version = "0.0.0"
+edition = "2024"
+[dependencies]
+polyxor = { path = "polyxor"  # github.com/orlp/polyxor at 3123eb6 }
+[profile.release]
+debug-assertions = true
+overflow-checks = true
