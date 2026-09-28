@@ -1,0 +1,17 @@
+verification a5hash_128               computed 89406B11 expected 89406B11 registered 89406B11 OK
+verification a5hash_128__64           computed 14AD402C expected 14AD402C registered 14AD402C OK
+a5hash-128 18-byte family (every 2-byte tail): family of 65536 messages, 65536 distinct, max length 18 bytes (L=3)
+  keys where ALL 65536 members share the full 128-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 58334fe873c7bc25 -> common output 906ed89d9ffc781ca3b02157dcbeb9a2
+  member[0] = 5e74ddc7f65b30ce60d68503aceb37f20000
+  member[1] = 5e74ddc7f65b30ce60d68503aceb37f20100
+  member[2] = 5e74ddc7f65b30ce60d68503aceb37f20200
+  member[65535] = 5e74ddc7f65b30ce60d68503aceb37f2ffff
+a5hash-128 17-byte family (256 members): family of 256 messages, 256 distinct, max length 17 bytes (L=3)
+  keys where ALL 256 members share the full 128-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 256
+  example key b621e680da90f3ee -> common output 9e3ec352e77fceffb1191ffb900dc28d
+  member[0] = 98ddc7f65b30ce60d67facf0c12dbc5400
+  member[1] = 98ddc7f65b30ce60d67facf0c12dbc5401
+  member[2] = 98ddc7f65b30ce60d67facf0c12dbc5402
+  member[255] = 98ddc7f65b30ce60d67facf0c12dbc54ff
+RESULT: PASS

@@ -1,0 +1,65 @@
+--- Testing MurmurHash2-64 "MurmurHash v2, 64-bit version"
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -     8.80 cycles/hash
+   2-byte keys -    12.46 cycles/hash
+   3-byte keys -    17.47 cycles/hash
+   4-byte keys -    18.51 cycles/hash
+   5-byte keys -    17.95 cycles/hash
+   6-byte keys -    14.44 cycles/hash
+   7-byte keys -    15.83 cycles/hash
+   8-byte keys -    31.68 cycles/hash
+   9-byte keys -    34.71 cycles/hash
+  10-byte keys -    33.62 cycles/hash
+  11-byte keys -    36.46 cycles/hash
+  12-byte keys -    38.54 cycles/hash
+  13-byte keys -    41.28 cycles/hash
+  14-byte keys -    36.83 cycles/hash
+  15-byte keys -    41.58 cycles/hash
+  16-byte keys -    34.95 cycles/hash
+  17-byte keys -    38.38 cycles/hash
+  18-byte keys -    41.28 cycles/hash
+  19-byte keys -    39.81 cycles/hash
+  20-byte keys -    43.05 cycles/hash
+  21-byte keys -    43.91 cycles/hash
+  22-byte keys -    42.33 cycles/hash
+  23-byte keys -    45.45 cycles/hash
+  24-byte keys -    36.66 cycles/hash
+  25-byte keys -    40.60 cycles/hash
+  26-byte keys -    40.77 cycles/hash
+  27-byte keys -    42.45 cycles/hash
+  28-byte keys -    46.27 cycles/hash
+  29-byte keys -    47.45 cycles/hash
+  30-byte keys -    48.08 cycles/hash
+  31-byte keys -    48.90 cycles/hash
+Average        -    34.86 cycles/hash
+ rnd-byte keys -    34.84 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 -  2.33 bytes/cycle -  7.59 GiB/sec @ 3.5 ghz
+Alignment   6 -  2.33 bytes/cycle -  7.60 GiB/sec @ 3.5 ghz
+Alignment   5 -  2.33 bytes/cycle -  7.60 GiB/sec @ 3.5 ghz
+Alignment   4 -  2.33 bytes/cycle -  7.60 GiB/sec @ 3.5 ghz
+Alignment   3 -  2.33 bytes/cycle -  7.60 GiB/sec @ 3.5 ghz
+Alignment   2 -  2.33 bytes/cycle -  7.59 GiB/sec @ 3.5 ghz
+Alignment   1 -  2.33 bytes/cycle -  7.60 GiB/sec @ 3.5 ghz
+Alignment   0 -  2.33 bytes/cycle -  7.60 GiB/sec @ 3.5 ghz
+Average       -  2.33 bytes/cycle -  7.60 GiB/sec @ 3.5 ghz
+Alignment rnd -  2.32 bytes/cycle -  7.58 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 -  2.31 bytes/cycle -  7.52 GiB/sec @ 3.5 ghz
+Alignment   6 -  2.31 bytes/cycle -  7.52 GiB/sec @ 3.5 ghz
+Alignment   5 -  2.31 bytes/cycle -  7.52 GiB/sec @ 3.5 ghz
+Alignment   4 -  2.31 bytes/cycle -  7.53 GiB/sec @ 3.5 ghz
+Alignment   3 -  2.31 bytes/cycle -  7.54 GiB/sec @ 3.5 ghz
+Alignment   2 -  2.31 bytes/cycle -  7.52 GiB/sec @ 3.5 ghz
+Alignment   1 -  2.31 bytes/cycle -  7.52 GiB/sec @ 3.5 ghz
+Alignment   0 -  2.31 bytes/cycle -  7.52 GiB/sec @ 3.5 ghz
+Average       -  2.31 bytes/cycle -  7.53 GiB/sec @ 3.5 ghz
+Alignment rnd -  2.30 bytes/cycle -  7.49 GiB/sec @ 3.5 ghz
+
+Verification value is 0x00000001 - Testing took 236.137114 seconds
+

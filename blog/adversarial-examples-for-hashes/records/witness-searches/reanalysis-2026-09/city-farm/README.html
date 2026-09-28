@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CityHash64
+v1.1.1 and FarmHash64 NA: a 16-byte every-seed family, and a long-input
+differential</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="cityhash64-v111-and-farmhash64-na-a-16-byte-every-seed-family-and-a-long-input-differential">CityHash64
+v1.1.1 and FarmHash64 NA: a 16-byte every-seed family, and a long-input
+differential</h1>
+<h2
+id="1-shortest-flooding-family-65536-sixteen-byte-inputs-one-unseeded-value">1.
+Shortest flooding family: 65,536 sixteen-byte inputs, one unseeded
+value</h2>
+<p><code>CityHash64WithSeed(m, s) = HashLen16(CityHash64(m) - k2, s)</code>
+and
+<code>CityHash64WithSeeds(m, s0, s1) = HashLen16(CityHash64(m) - s0, s1)</code>;
+FarmHash64 NA has the same wrapper and the same 9..16-byte path. So
+inputs with one unseeded value collide for every seed and both seed
+interfaces.</p>
+<p>On the 9..16-byte path, with a = w0 + k2, b = w1, mul = k2 + 2·len: c
+= ror(b, 37)·mul + a, d = (ror(a, 25) + b)·mul, out = HashLen16(c, d,
+mul). <code>HashLen16</code> inverts in closed form: for a fixed target
+H and any 64-bit z there is exactly one (c, d). The remaining single
+64-bit equation in a is solved with z3 (<code>city16_solve.py</code>).
+About 2^64 sixteen-byte inputs share each value; 65,602 were produced
+for H = 0x0f55c17e5eed1616, and the first 65,536 distinct ones are in
+<code>city16_members.txt.gz</code> (hex, memory order, one per line).
+Examples:</p>
+<pre><code>d73194b9d3f216a51455b33a85eb5311
+40bde31d7e9d2b39e2ff5d30bb368ee9</code></pre>
+<p>Checks:</p>
+<table>
+<thead>
+<tr class="header">
+<th>program</th>
+<th>implementation</th>
+<th>result</th>
+<th>log</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mc_city.cpp</code>, <code>mc_farm.cpp</code> (x86-64)</td>
+<td>SMHasher3 <code>cityhash.cpp</code>, <code>farmhash.cpp</code>
+(verification values 5FABC5C5, EBC4A679, 5438EF2C)</td>
+<td>all 65,536 share the full 64-bit output: City WithSeed 65,536/65,536
+seeds, WithSeeds 1024/1024; Farm NA WithSeed 65,536/65,536, NA WithSeeds
+1024/1024, UO WithSeed 1024/1024</td>
+<td><code>logs/mc_city16_xeon_s16.txt</code>,
+<code>logs/mc_farm16_xeon_s16.txt</code></td>
+</tr>
+<tr class="even">
+<td><code>indep_city_farm.cc</code> (M2)</td>
+<td>upstream google/cityhash <code>city.cc</code> and google/farmhash
+<code>farmhash.cc</code>, unmodified</td>
+<td>unseeded value shared 65,536/65,536 (City and farmhashna); all
+members equal for 4096/4096 seeds in each of City WithSeed, City
+WithSeeds, farmhashna WithSeed, farmhashna WithSeeds</td>
+<td><code>logs/indep_city_farm_m2.txt</code></td>
+</tr>
+</tbody>
+</table>
+<p>Build and run:</p>
+<pre><code>python3 -m pip install z3-solver          # only for regenerating members
+python3 city16_solve.py 0f55c17e5eed1616 1000 8200 part0.txt
+c++ -O2 -std=c++17 mc_city.cpp -o mc_city &amp;&amp; ./mc_city city16_members.txt 16
+c++ -O2 -std=c++17 mc_farm.cpp -o mc_farm &amp;&amp; ./mc_farm city16_members.txt 16
+# independent check (fetch city.cc, city.h, citycrc.h, farmhash.cc, farmhash.h; see ../SOURCES.md)
+c++ -O2 -std=c++17 -I. indep_city_farm.cc city.cc farmhash.cc -o indep_city_farm
+gunzip -k city16_members.txt.gz &amp;&amp; ./indep_city_farm city16_members.txt 12</code></pre>
+<p>Expected: <code>RESULT: PASS</code> / <code>PASS</code> with the
+counts above.</p>
+<h2 id="2-long-inputs-a-rotation-differential-in-weakhashlen32">2. Long
+inputs: a rotation differential in WeakHashLen32</h2>
+<p>In a 64-byte loop chunk, add d = 0x0f0f0f0f0f0f0f0f to word 0 and
+subtract it from word 3 (or words 4 and 7). The only surviving term
+cancels when rotr(A + d, 44) - rotr(A, 44) = -d, where A is the public
+running sum; this holds for 0.886 of random A. The condition is public,
+so for known content a slot is used only when it holds, and then the
+pair collides for every seed. Works in any loop block except block 0 and
+the last 64 bytes, from 192 bytes up.</p>
+<table>
+<thead>
+<tr class="header">
+<th>check</th>
+<th>CityHash64</th>
+<th>FarmHash64 NA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>random content, one slot (words 0/3), 256 B / 1 KiB / 64 KiB / 1
+MiB</td>
+<td>0.8841 / 0.8851 / 0.8854 / 0.880</td>
+<td>0.8848 / 0.8842 / 0.8834 / 0.898</td>
+</tr>
+<tr class="even">
+<td>explicit 1024-byte pair</td>
+<td>65,536/65,536 seeds</td>
+<td>65,536/65,536 seeds</td>
+</tr>
+<tr class="odd">
+<td>2^16 cube at 1064 bytes (16 slots whose public condition holds)</td>
+<td>all members equal for 256/256 seeds</td>
+<td>256/256 seeds</td>
+</tr>
+</tbody>
+</table>
+<p>Program <code>city_long.cpp</code>, <code>farm_long.cpp</code>
+(single files, SMHasher3 source verbatim):
+<code>c++ -O2 -std=c++17 city_long.cpp -o city_long &amp;&amp; ./city_long</code>.
+Logs: <code>logs/city_long_xeon.txt</code>,
+<code>logs/farm_long_xeon.txt</code>.</p>
+</main></body></html>

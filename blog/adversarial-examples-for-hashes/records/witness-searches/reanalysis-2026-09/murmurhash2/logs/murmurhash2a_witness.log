@@ -1,0 +1,14 @@
+SMHasher3 verification MurmurHash2a: 0x7FBD4396 (expected 0x7FBD4396)
+
+[pair] 8 bytes (L = 1), key-free
+  M1 (8 bytes) = 6d6d6832612d3862
+  M2 (8 bytes) = ed4bf57fe10bc5af
+  collisions 16777216 / 16777216 random 32-bit seeds
+  EXHAUSTIVE: 4294967296 of 2^32 seeds collide
+  (next cube) distinct messages: 65536 of 65536
+
+[cube] 2^16 messages of 68 bytes (L = 9), key-free; generator cube(base,17,idx)
+  X[65535] (68 bytes) = cd96e51f7572486173683241206b65792d6672656520325e31362d776179206d756c7469636f6c6c6973696f6e202d2d20363820627974657320746f74616c2ef482dc1e
+  all 65536 equal for 4096 / 4096 random seeds
+
+summary: key-free claims hold

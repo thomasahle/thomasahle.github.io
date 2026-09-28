@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PolymurHash
+2.0: an attained 2^-53.90 pair under the shipped seeding</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="polymurhash-20-an-attained-2-5390-pair-under-the-shipped-seeding">PolymurHash
+2.0: an attained 2^-53.90 pair under the shipped seeding</h1>
+<p>The ideal-key proof (Peters) takes k uniform on the restricted key
+set K. The library never draws k that way:
+<code>polymur_init_params(k_seed, s_seed)</code> walks k_seed forward by
+a public constant and accepts the first value whose exponent e = (v
+&gt;&gt; 3) | 1 passes a coprimality filter and whose k^7 is small
+enough; k = 37^e. Accepted exponents therefore receive unequal weight:
+the number W(k) of 64-bit k_seed values that lead to k is the number of
+values v with (v &gt;&gt; 3) | 1 = e (16) plus the rejected runs in
+front of each of them.</p>
+<p>For the key k* = 391303342709703922 (exponent e* =
+0x08890268f3958b33), W(k*) = 1096 (runs of 73, 73, 73, 74, 74, 74, 66 x
+9 and 61), against a mean of about 97.6 over K. Pick a pair whose
+difference polynomial vanishes at k*: every one of the 1096 seeds
+collides, and nothing else does except with negligible probability.</p>
+<pre><code>M  = 2c336f948f6f6c99   (8 bytes, memory order)
+M&#39; = aa373a8eeff85a     (7 bytes)
+polymur_init_params(k_seed = 0x8545715fd36ce9e9, s_seed = 0xd95d3b0f3d7ebc54):
+    polymur_hash(M, 8, p, 0) = polymur_hash(M&#39;, 7, p, 0) = 0x5335b33210496b34</code></pre>
+<p>Exactness. On the 8..21-byte path (M) and the &lt;= 7-byte path (M')
+no 128-bit product overflows and the final mix is a bijection with a
+common s and tweak, so a collision happens exactly when the degree-9
+difference polynomial D(k) = (k^2+m0)(k^7+m0) + (k+m2)(k^3+8) -
+(k+m)(k^2+7) vanishes mod p = 2^61 - 1. D has 3 roots in F_p; only k* is
+a generator of F_p^* with small k^7, so only k* is reachable
+(<code>polymur_roots.py</code>). Hence, for uniform (k_seed, s_seed),
+epsilon = 1096 / 2^64 = 2^-53.902 exactly, and the pair (L = 1) caps the
+score at 53.90 bits.</p>
+<p>Counts (<code>logs/polymur_witness.txt</code>): SMHasher3
+verification 0x0722B1A7 reproduced with the unmodified header; replaying
+the rejection loop from the explicit k_seed accepts after 42 steps at
+e*; all 1096 preimage seeds collide (random s_seed each); 0 of 2,000,000
+uniform (k_seed, s_seed) controls collide.</p>
+<p>The 54.23-bit figure is a proof for uniform k on K, a distribution no
+public constructor produces. A lower bound in the shipped seeding would
+need max_k W(k), which is not established here.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>curl -LO https://raw.githubusercontent.com/orlp/polymur-hash/a7cc6b00051b4b579d718a4f26428098580029ec/polymur-hash.h
+cc -O2 -std=c11 -o polymur_witness polymur_witness.c
+./polymur_witness                 # about one second
+python3 polymur_roots.py          # needs sympy</code></pre>
+</main></body></html>

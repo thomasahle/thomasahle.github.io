@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sources</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1 id="sources">Sources</h1>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>origin</th>
+<th>pin</th>
+<th>sha256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>nmhash.h</code> (not copied; fetch it next to the
+programs)</td>
+<td><a
+href="https://raw.githubusercontent.com/gzm55/hash-garage/e022156ca866edc46e1aa79b2b6a466822b8b767/nmhash.h">https://raw.githubusercontent.com/gzm55/hash-garage/e022156ca866edc46e1aa79b2b6a466822b8b767/nmhash.h</a></td>
+<td>hash-garage e022156ca8 (the post's pinned nmhash32 v2 source;
+verification 0x12A30553)</td>
+<td><code>3dccf61d2c81104f34d7cff5cc7a33686a998aeefe5d139fbcec13231e48c641</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code>curl -LO https://raw.githubusercontent.com/gzm55/hash-garage/e022156ca866edc46e1aa79b2b6a466822b8b767/nmhash.h
+shasum -a 256 nmhash.h</code></pre>
+<p>The search runs in <code>logs/*_xeon.log</code> used SMHasher3's
+scalar port of the same function (hashes/nmhash.cpp, verification
+0x12A30553); <code>nmhash32_mc.cpp</code> here includes the upstream
+header instead and reproduces the same counts
+(<code>logs/exh512_m2.txt</code>, and the published pair's exhaustive
+count in <code>pair</code> mode).</p>
+</main></body></html>

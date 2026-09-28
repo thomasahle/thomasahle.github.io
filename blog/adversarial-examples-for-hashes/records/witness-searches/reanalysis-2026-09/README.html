@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Re-analysis
+of 28 September 2026: programs and logs</title><link rel="stylesheet" href="../../../post.css"><link rel="stylesheet" href="../../../math.css"><link rel="stylesheet" href="../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../index.html">Article</a> · <a href="../../../records/README.html">Records</a></nav><h1 id="re-analysis-of-28-september-2026-programs-and-logs">Re-analysis
+of 28 September 2026: programs and logs</h1>
+<p>Each folder reproduces one new or changed result in the post's <a
+href="../../../index.html#changelog">changelog</a>. Every program checks
+the implementation it tests (an SMHasher3 verification value, upstream
+test vectors or a linked upstream build) before it counts collisions.
+Upstream sources are pinned by URL and sha256 in each folder's
+SOURCES.md (and in <a href="SOURCES.html">SOURCES.md</a> for the key-free
+families). <code>&lt;xeon-host&gt;</code> and
+<code>&lt;scratch&gt;</code> in logs stand for the compute host and
+working directory.</p>
+<table>
+<thead>
+<tr class="header">
+<th>folder</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="a5hash-128/README.html">a5hash-128</a></td>
+<td>a5hash-128: an 18-byte every-seed family, and a 2^384 long-input
+family</td>
+</tr>
+<tr class="even">
+<td><a href="abseil/README.html">abseil</a></td>
+<td>absl::Hash (abseil-cpp 73d2688 = LTS 20260817.0): every-seed
+families by build</td>
+</tr>
+<tr class="odd">
+<td><a href="ahash/README.html">ahash</a></td>
+<td>aHash 0.8.12 (AES path): lane-tied echoes, few-way
+multicollisions</td>
+</tr>
+<tr class="even">
+<td><a href="city-farm/README.html">city-farm</a></td>
+<td>CityHash64 v1.1.1 and FarmHash64 NA: a 16-byte every-seed family,
+and a long-input differential</td>
+</tr>
+<tr class="odd">
+<td><a href="gxhash/README.html">gxhash</a></td>
+<td>gxhash 3.5.0: the shortest every-seed flooding family (18 bytes),
+and any-chunk replacement</td>
+</tr>
+<tr class="even">
+<td><a href="halftime24/README.html">halftime24</a></td>
+<td>HalftimeHash24 (advanced 24-byte API): which entry point, and one
+key condition for every leaf</td>
+</tr>
+<tr class="odd">
+<td><a href="komihash/README.html">komihash</a></td>
+<td>komihash 5.34: an every-seed pair at 73 bytes, and a 2^17-member
+family</td>
+</tr>
+<tr class="even">
+<td><a href="murmurhash2/README.html">murmurhash2</a></td>
+<td>MurmurHash2 (32-bit) and MurmurHash2A: key-free pairs and 2^16-way
+sets</td>
+</tr>
+<tr class="odd">
+<td><a href="murmurhash3/README.html">murmurhash3</a></td>
+<td>MurmurHash3_x64_128: a 144-byte every-seed family (four choices per
+16-byte block)</td>
+</tr>
+<tr class="even">
+<td><a href="murmurhash64a/README.html">murmurhash64a</a></td>
+<td>MurmurHash64A: key-free pairs and 2^16-way sets</td>
+</tr>
+<tr class="odd">
+<td><a href="museair-v2/README.html">museair-v2</a></td>
+<td>MuseAir v2 (crate museair 0.6.0): an 80-byte pair that collides for
+every seed</td>
+</tr>
+<tr class="even">
+<td><a href="museair/README.html">museair</a></td>
+<td>MuseAir v0.3: an 18-byte every-seed family</td>
+</tr>
+<tr class="odd">
+<td><a href="mx3-mum-mir/README.html">mx3-mum-mir</a></td>
+<td>mx3 v3, MUM and mir: 10-byte every-seed families and key-free pairs
+at every length</td>
+</tr>
+<tr class="even">
+<td><a href="nmhash32/README.html">nmhash32</a></td>
+<td>nmhash32 v2: lane-tied trail T2, a fixed set that floods one bucket
+for every seed</td>
+</tr>
+<tr class="odd">
+<td><a href="poly1305/README.html">poly1305</a></td>
+<td>Poly1305: the L = 1 score is exactly 104 bits; the whole score lies
+in [103.78, 104]</td>
+</tr>
+<tr class="even">
+<td><a href="polymur/README.html">polymur</a></td>
+<td>PolymurHash 2.0: an attained 2^-53.90 pair under the shipped
+seeding</td>
+</tr>
+<tr class="odd">
+<td><a href="t1ha2/README.html">t1ha2</a></td>
+<td>t1ha2_atonce (v2.1.4): a top-bit trail through the 32-byte loop</td>
+</tr>
+<tr class="even">
+<td><a href="umash128/README.html">umash128</a></td>
+<td>UMASH-128 (umash_fprint): an explicit 128-bit collision, and why
+83.99 bits is the right bound</td>
+</tr>
+<tr class="odd">
+<td><a href="xxh3-crosslen/README.html">xxh3-crosslen</a></td>
+<td>XXH3 v0.8.3: cross-length pairs on the short paths (random-secret
+model)</td>
+</tr>
+<tr class="even">
+<td><a href="xxh3-toggle/README.html">xxh3-toggle</a></td>
+<td>XXH3 v0.8.3: weak-key multicollision on the long path (&gt; 240
+bytes)</td>
+</tr>
+<tr class="odd">
+<td><a href="xxh32/README.html">xxh32</a></td>
+<td>XXH32: 8-byte pair at 1 - 2^-17, 2^16-way families, long-input loop
+differential</td>
+</tr>
+<tr class="even">
+<td><a href="xxh64/README.html">xxh64</a></td>
+<td>XXH64: key-free pair, 2^16-way family, long-input loop
+differential</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

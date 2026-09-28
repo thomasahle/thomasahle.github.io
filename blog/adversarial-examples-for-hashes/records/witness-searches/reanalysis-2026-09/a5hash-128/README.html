@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>a5hash-128:
+an 18-byte every-seed family, and a 2^384 long-input family</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="a5hash-128-an-18-byte-every-seed-family-and-a-2384-long-input-family">a5hash-128:
+an 18-byte every-seed family, and a 2^384 long-input family</h1>
+<h2 id="1-18-bytes">1. 18 bytes</h2>
+<p>On the 17..32-byte path, c = lu32(m + len - 16)&lt;&lt;32 | lu32(m +
+len - 12) and d = the last 8 bytes enter one product umul128(c + Seed3,
+d + Seed4) with the public constants Seed3 = 0xA4093822299F31D0 and
+Seed4. Setting c = -Seed3 makes that product (0, 0) whatever d is. At 18
+bytes, bytes 16..17 occur only in d, so any 16-byte prefix with c =
+-Seed3 followed by all 2^16 two-byte tails collides on the full 128-bit
+output for every seed (256 members at 17 bytes). The 64-bit a5hash has
+no such public product.</p>
+<p>Example members (memory order), from <code>mc_a5.cpp</code>:</p>
+<pre><code>5e74ddc7f65b30ce60d68503aceb37f20000
+5e74ddc7f65b30ce60d68503aceb37f20100</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>program</th>
+<th>implementation</th>
+<th>result</th>
+<th>log</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mc_a5.cpp</code> (x86-64)</td>
+<td>SMHasher3 <code>a5hash.cpp</code> v5.21 (89406B11, 14AD402C)</td>
+<td>18 B, 65,536 members: 65,536/65,536 seeds (full 128 bits); 17 B, 256
+members: 65,536/65,536</td>
+<td><code>logs/mc_a5_xeon_s16.txt</code></td>
+</tr>
+<tr class="even">
+<td><code>../museair/indep_museair_a5_murmur.cc</code> (M2)</td>
+<td>upstream <code>a5hash.h</code> v5.25, unmodified; family regenerated
+independently</td>
+<td>65,536 members, 4097/4097 seeds (full 128 bits)</td>
+<td><code>logs/indep_museair_a5_murmur_m2.txt</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code>c++ -O2 -std=c++17 mc_a5.cpp -o mc_a5 &amp;&amp; ./mc_a5 16</code></pre>
+<h2 id="2-long-inputs-six-zeroed-products-in-the-first-192-bytes">2.
+Long inputs: six zeroed products in the first 192 bytes</h2>
+<p>Only lane 1 carries the seed at the start of the bulk loop; lanes
+2..4 start from public constants and stay public for one or two more
+64-byte blocks. Zeroing words (block 0: m8 = -Seed3, m16 = -Seed5, m24 =
+-Seed7; block 1: m16 = -Seed3, m24 = -Seed5; block 2: m24 = -Seed3) make
+six public products (0, 0) and free their six partner words: 2^384
+messages, anchored in the first 192 bytes, with any content and length
+after that (at least 96 bytes for block 0, 224 for all three).</p>
+<table>
+<thead>
+<tr class="header">
+<th>length</th>
+<th>full 128-bit collisions</th>
+<th>control (one zeroing word broken)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>96 B</td>
+<td>65,536/65,536</td>
+<td>0/256</td>
+</tr>
+<tr class="even">
+<td>224 B, 256 B, 1 KiB, 64 KiB</td>
+<td>65,536/65,536 each</td>
+<td>0/256</td>
+</tr>
+<tr class="odd">
+<td>1 MiB</td>
+<td>256/256</td>
+<td>0/256</td>
+</tr>
+<tr class="even">
+<td>2^16 family at 1000 B</td>
+<td>all members equal for 1024/1024 seeds</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>a5_long.cpp</code>:
+<code>c++ -O2 -std=c++17 a5_long.cpp -o a5_long &amp;&amp; ./a5_long</code>;
+log <code>logs/a5_long_xeon.txt</code>.</p>
+</main></body></html>

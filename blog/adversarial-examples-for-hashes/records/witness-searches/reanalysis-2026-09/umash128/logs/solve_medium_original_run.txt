@@ -1,0 +1,12 @@
+[found after 1 tries]
+  M1   = 074a1dda8ebce2aab0e27d1d87698812
+  M2   = 074a1dda8ebce2aab0e27dd487698812
+  f0   = 942079892920336565  (0xd12f0abd78e00b5)
+  f1   = 796126798151015448  (0xb0c691ad7f5dc18)
+  oh0  = 0x135499bc53154bae  oh1 = 0xe2ddc31c759c3ee4
+  lrc0 = 0x46eb3a10ff22baf9  lrc1= 0x8c9aaa012ab2a6b7  seed=0xd11bd6324600d9bd
+  real umash_fprint says:
+    M1 fp = 38c8a95cbd134549 2a9c6211c6cc3492
+    M2 fp = 38c8a95cbd134549 2a9c6211c6cc3492
+    lane0 COLLIDE  lane1 COLLIDE  full128 COLLIDE
+  verifier rc = 0 (COLLISION CONFIRMED)

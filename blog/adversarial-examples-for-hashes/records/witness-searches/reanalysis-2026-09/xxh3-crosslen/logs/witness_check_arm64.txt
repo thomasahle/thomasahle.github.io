@@ -1,0 +1,16 @@
+PASS xxHash v0.8.3, XXH3_64bits("") = 2d06800538d394c2
+  XXH3-64 withSecret: H(00x5) = 79a5d45b5d6567cd  H(0fe3fba2f2528c1d) = 79a5d45b5d6567cd
+PASS XXH3-64 5 B vs 8 B collide under the logged secret
+  XXH3-128 withSecret: H(00x9) = edc8fa6d9f82abe85cff7dddfa69543d  H(m') = edc8fa6d9f82abe85cff7dddfa69543d (high64 low64)
+PASS XXH3-128 9 B vs 16 B collide under the logged secret
+PASS XXH3-64 withSeed 0xc656a656224499e4 collides (042637874fec2910)
+PASS XXH3-128 withSeed 0x223bbf0662aa12b5 collides (ef2a458a93a83ca6f65ab3c2989a22f9)
+  class secret K[7] = 0b8185638b818564
+PASS class condition (lo32(K[7]) ^ 0x7fffffff) + hi32(K[7]) = 0xfffffffe
+  all members: XXH3-64 b3c0a2ccc5a6d117  XXH3-128 3131016698da6968b3c0a2ccc5a6d117
+PASS all 65536 members of the 3648-byte set share one XXH3-64 and one XXH3-128 output
+  withSeed seed = 40a4b51e5b0eb07c: all members XXH3-64 7758cac86271a5bd  XXH3-128 2329b3c05ce848bb7758cac86271a5bd
+PASS withSeed: all 65536 members collide (64 and 128) for seed = kSecret[7] - K
+PASS withSecretandSeed (seed 12345): all 65536 members give the withSecret outputs
+PASS control: with bit 0 of K[7] flipped, one toggle changes the output
+ALL CHECKS PASSED

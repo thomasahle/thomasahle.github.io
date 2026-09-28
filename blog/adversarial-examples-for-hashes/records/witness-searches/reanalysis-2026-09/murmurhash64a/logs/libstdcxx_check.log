@@ -1,0 +1,3 @@
+SMHasher3 verification MurmurHash2_64: 0x1F0D3804 (expected 0x1F0D3804)
+_Hash_bytes vs MurmurHash64A: 0 mismatches in 1048576 random (length 0..299, seed) inputs
+witness under the std::hash default seed 0xc70f6907: 8B a7ae701751be100f  7B a7ae701751be100f COLLIDE

@@ -1,0 +1,18 @@
+
+=== p = 8191 (2^13-1) ===
+  40 pairs: collision-count == root-count : True
+  max roots seen <= max degree 2B          : 3
+  128-bit joint colliding (f0,f1) pairs = 1; roots0*roots1 = 1  -> MATCH
+  eps_128 = 1/67076100 = (r0/M)*(r1/M) = (1/8190)*(1/8190)
+  fully-split degree-4 polynomial has 4 distinct roots (=deg): YES -> per-lane bound deg/M is attainable
+
+=== p = 131071 (2^17-1) ===
+  40 pairs: collision-count == root-count : True
+  max roots seen <= max degree 2B          : 3
+  128-bit joint colliding (f0,f1) pairs = 1; roots0*roots1 = 1  -> MATCH
+  eps_128 = 1/17179344900 = (r0/M)*(r1/M) = (1/131070)*(1/131070)
+  fully-split degree-4 polynomial has 4 distinct roots (=deg): YES -> per-lane bound deg/M is attainable
+
+real	0m7.360s
+user	0m7.229s
+sys	0m0.088s

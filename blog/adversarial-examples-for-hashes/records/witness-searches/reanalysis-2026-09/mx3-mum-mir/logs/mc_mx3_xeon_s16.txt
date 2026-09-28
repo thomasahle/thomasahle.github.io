@@ -1,0 +1,13 @@
+verification mx3__v3                  computed 7B287B65 expected 7B287B65 registered 7B287B65 OK
+mx3 v3 10-byte family (every 2-byte tail, exact inverse): family of 65536 messages, 65536 distinct, max length 10 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 16fce909f2a07e42 -> common output 8b969c28a63409d9
+  member[0] = 8bfb57c33b76a9660000
+  member[1] = c57e5558458bbaba0100
+  member[2] = 055f79d2ef1bf9a80200
+  member[65535] = 4c1cf47d23b485e9ffff
+  every-length check len 9: 1024/1024 seeds (a=aaadc36a06543fc183...)
+  every-length check len 65: 1024/1024 seeds (a=ca04ebddbce26ad24c20e5b06347cf2e...)
+  every-length check len 512: 1024/1024 seeds (a=97a42d83e03dd8e4611ae8797923eccd...)
+mx3 v3 key-free equal-length pair at every length 9..512: 504/504 lengths collide on 1024/1024 seeds
+RESULT: PASS

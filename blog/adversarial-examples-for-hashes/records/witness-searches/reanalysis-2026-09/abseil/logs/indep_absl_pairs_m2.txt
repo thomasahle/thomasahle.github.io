@@ -1,0 +1,10 @@
+# M2, abseil 73d2688 default options, Apple clang default flags (ARM AES LowLevelHash)
+# arm_aes_piece_start_128B.txt
+pair |m|=128 |m'|=128: equal on 65536/65536 random seeds, 32/32 SwissTable seeds
+# scalar_reset_65B.txt
+pair |m|=65 |m'|=65: equal on 0/65536 random seeds, 0/32 SwissTable seeds
+# same source built with -march=armv8-a (no crypto extension: scalar LowLevelHash)
+# scalar_reset_65B.txt
+pair |m|=65 |m'|=65: equal on 65536/65536 random seeds, 32/32 SwissTable seeds
+# arm_aes_piece_start_128B.txt
+pair |m|=128 |m'|=128: equal on 0/65536 random seeds, 0/32 SwissTable seeds

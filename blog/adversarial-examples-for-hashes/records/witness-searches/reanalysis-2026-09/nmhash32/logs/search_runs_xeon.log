@@ -1,0 +1,51 @@
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+m' matches data.json m_prime_hex; H(m,0xb54cda26)=e00f99e0 H(m',0xb54cda26)=e00f99e0
+published pair: 1078944392 / 2^32 seeds collide (record: 1078944392)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+exh64 T2 (D=04008040, C=00008020) guess 7: 16-way family (64 B) collides for 536870912 / 2^32 seeds = 2^-3.0000; lane-0 pair 536870912 = 2^-3.0000
+  predictor (bits 26,15,6 of seed+64 == guess): 536870912 seeds; family-without-predictor 0; predictor-without-family 0
+  example colliding seed ffffffbf: all 16 members hash to 2e04a763
+  member 0  = b179379e77caeb853daeb2c22febd427000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  member 15 = f1f9379a374aeb817d2eb2c66f6bd423408000044080000440800004408000042080000020800000208000002080000040800004408000044080000440800004
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+exh64 T1 (D=80400000, C=80202808) guess 1: 16-way family (64 B) collides for 1079027392 / 2^32 seeds = 2^-1.9929; lane-0 pair 1079027392 = 2^-1.9929
+  example colliding seed ffffffbf: all 16 members hash to 2e04a763
+  member 0  = b179379e77caeb853daeb2c22febd427000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  member 15 = b179771e77caab053daef2422feb94a7000040800000408000004080000040800828208008282080082820800828208000004080000040800000408000004080
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+exh512 T2 (D=04008040, C=00008020) guess 5: lane-0 pair 536870912 / 2^32 = 2^-3.0000; {empty, lane0, all-32-lanes} equal for 536870912 = 2^-3.0000
+  T2 predictor (bits 26,15,6 of seed == guess) holds for 536870912 seeds; disagreements with the 3-member check: 0
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+exh512 T1 (D=80400000, C=80202808) guess 0: lane-0 pair 1078984705 / 2^32 = 2^-1.9930; {empty, lane0, all-32-lanes} equal for 1078984705 = 2^-1.9930
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+fam512 T2 (D=04008040, C=00008020) guess 5 k=2^16 uniform seeds: whole family collides for 509 / 4096 = 0.12427  (example seed 37510e66 -> 88f52fe7)
+fam512 T2 (D=04008040, C=00008020) guess 5 k=2^16 class seeds: whole family collides for 4096 / 4096 = 1.00000  (example seed c4906457 -> d58f48e6)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+fam512 T1 (D=80400000, C=80202808) guess 0 k=2^16 uniform seeds: whole family collides for 1042 / 4096 = 0.25439  (example seed c882b9cc -> 3890ff2b)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+fam512 T2 (D=04008040, C=00008020) guess 2 k=2^20 uniform seeds: whole family collides for 27 / 256 = 0.10547  (example seed 639789af -> 99b3b413)
+fam512 T2 (D=04008040, C=00008020) guess 2 k=2^20 class seeds: whole family collides for 256 / 256 = 1.00000  (example seed 83dade8b -> b4ecd835)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+perkey trail T2 len 512: fixed set of 65536 distinct messages (sub-family size 2^13)
+  largest full-output class over 4096 seeds: min 8192, 1st pct 8192, median 8192, max 8192
+  largest low-16-bit class over 4096 seeds: min 8192, 1st pct 8192, median 8193, max 8199
+  largest low-20-bit class over 4096 seeds: min 8192, 1st pct 8192, median 8192, max 8194
+  largest high-16-bit class over 4096 seeds: min 8192, 1st pct 8192, median 8193, max 8202
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+perkey trail T1 len 512: fixed set of 49148 distinct messages (sub-family size 2^13)
+  largest full-output class over 4096 seeds: min 8192, 1st pct 8192, median 8192, max 8409
+  largest low-16-bit class over 4096 seeds: min 8192, 1st pct 8192, median 8192, max 8410
+  largest low-20-bit class over 4096 seeds: min 8192, 1st pct 8192, median 8192, max 8409
+  largest high-16-bit class over 4096 seeds: min 8192, 1st pct 8192, median 8193, max 8409
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+perkey trail T2 len 64: fixed set of 128 distinct messages (sub-family size 2^4)
+  largest full-output class over 65536 seeds: min 16, 1st pct 16, median 16, max 16
+  largest low-16-bit class over 65536 seeds: min 16, 1st pct 16, median 16, max 18
+  largest low-20-bit class over 65536 seeds: min 16, 1st pct 16, median 16, max 17
+  largest high-16-bit class over 65536 seeds: min 16, 1st pct 16, median 16, max 18
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+perkey trail T1 len 64: fixed set of 92 distinct messages (sub-family size 2^4)
+  largest full-output class over 65536 seeds: min 16, 1st pct 16, median 16, max 17
+  largest low-16-bit class over 65536 seeds: min 16, 1st pct 16, median 16, max 17
+  largest low-20-bit class over 65536 seeds: min 16, 1st pct 16, median 16, max 17
+  largest high-16-bit class over 65536 seeds: min 16, 1st pct 16, median 16, max 30

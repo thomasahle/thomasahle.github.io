@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MuseAir v0.3: an
+18-byte every-seed family</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1 id="museair-v03-an-18-byte-every-seed-family">MuseAir v0.3: an
+18-byte every-seed family</h1>
+<p>On the 17..32-byte path the state before finalization is (i, j) =
+read16(bytes 0..15) ^ T(tail) ^ S(seed, len), where read16 is a
+bijection of the first 16 bytes (i = lu32(0)&lt;&lt;32 | lu32(12), j =
+lu32(4)&lt;&lt;32 | lu32(8)) and T is the public product term of the
+tail. For every 2-byte tail t, the head read16^-1(I ^ T(t)) gives the
+same state: 2^16 members at 18 bytes (256 at 17 bytes), colliding in all
+four SMHasher3 variants (64/128-bit, standard/bfast) for every seed.</p>
+<p>Example members (memory order), from <code>mc_museair.cpp</code>:</p>
+<pre><code>fca3e54749629f45c010373f7f561c670000
+fca31973f8f89f45da3bac007f561c670100</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>program</th>
+<th>implementation</th>
+<th>result</th>
+<th>log</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mc_museair.cpp</code> (x86-64)</td>
+<td>SMHasher3 <code>museair.cpp</code> (F89F1683, C61BEE56, D3DFE238,
+27939BF1)</td>
+<td>18 B, 65,536 members: 65,536/65,536 seeds in each of the four
+variants; 17 B, 256 members: 65,536/65,536</td>
+<td><code>logs/mc_museair_xeon_s16.txt</code></td>
+</tr>
+<tr class="even">
+<td><code>indep_museair_a5_murmur.cc</code> (M2)</td>
+<td>the same SMHasher3 source, unmodified, behind a 3-file stand-in for
+the SMHasher3 headers (<code>smh3shim/</code>); family regenerated
+independently; verification values recomputed</td>
+<td>65,536 members, 4097/4097 seeds (4096 random + seed 0) in each
+variant</td>
+<td><code>logs/indep_museair_a5_murmur_m2.txt</code></td>
+</tr>
+</tbody>
+</table>
+<p>Build and run:</p>
+<pre><code>c++ -O2 -std=c++17 mc_museair.cpp -o mc_museair &amp;&amp; ./mc_museair 16
+# independent check (fetch a5hash.h, MurmurHash3.cpp, MurmurHash3.h; see ../SOURCES.md)
+c++ -O2 -std=c++17 -I. -Ismh3shim indep_museair_a5_murmur.cc MurmurHash3.cpp -o indep_museair_a5_murmur
+./indep_museair_a5_murmur 12</code></pre>
+<p>The same program also checks the a5hash-128 and MurmurHash3 families
+(see <code>../a5hash-128/</code>, <code>../murmurhash3/</code>).</p>
+</main></body></html>

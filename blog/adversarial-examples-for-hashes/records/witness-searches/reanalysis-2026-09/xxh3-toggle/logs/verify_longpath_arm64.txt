@@ -1,0 +1,32 @@
+XXH3_64("")=2d06800538d394c2 OK
+  secret 0: 65536/65536 collide with base (bad=0)
+  secret 1: 65536/65536 collide with base (bad=0)
+  secret 2: 65536/65536 collide with base (bad=0)
+  secret 3: 65536/65536 collide with base (bad=0)
+full16 bits=64 class len=5120 nsec=8 : ALL 65536 collide for every secret
+  secret 0: 65536/65536 collide with base (bad=0)
+  secret 1: 65536/65536 collide with base (bad=0)
+  secret 2: 65536/65536 collide with base (bad=0)
+  secret 3: 65536/65536 collide with base (bad=0)
+full16 bits=128 class len=5120 nsec=8 : ALL 65536 collide for every secret
+  secret 0: 1/65536 collide with base (bad=65535)
+  secret 1: 1/65536 collide with base (bad=65535)
+full16 bits=64 unif len=5120 nsec=2 : NOT all
+  secret 0: 1/65536 collide with base (bad=65535)
+  secret 1: 1/65536 collide with base (bad=65535)
+full16 bits=128 unif len=5120 nsec=2 : NOT all
+single bits=64 class len=256 j=1 nb_blocks=0 tpb=1 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=128 class len=256 j=1 nb_blocks=0 tpb=1 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=64 unif len=256 j=1 nb_blocks=0 tpb=1 N=256 hits=0 rate=0.0000e+00 = 2^-999.000
+single bits=64 class len=576 j=7 nb_blocks=0 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=128 class len=576 j=7 nb_blocks=0 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=64 unif len=576 j=7 nb_blocks=0 tpb=4 N=256 hits=0 rate=0.0000e+00 = 2^-999.000
+single bits=64 class len=5120 j=7 nb_blocks=4 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=128 class len=5120 j=7 nb_blocks=4 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=64 unif len=5120 j=7 nb_blocks=4 tpb=4 N=256 hits=0 rate=0.0000e+00 = 2^-999.000
+single bits=64 class len=65536 j=7 nb_blocks=63 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=128 class len=65536 j=7 nb_blocks=63 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=64 unif len=65536 j=7 nb_blocks=63 tpb=4 N=256 hits=0 rate=0.0000e+00 = 2^-999.000
+single bits=64 class len=1048576 j=7 nb_blocks=1023 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=128 class len=1048576 j=7 nb_blocks=1023 tpb=4 N=256 hits=256 rate=1.0000e+00 = 2^--0.000
+single bits=64 unif len=1048576 j=7 nb_blocks=1023 tpb=4 N=256 hits=0 rate=0.0000e+00 = 2^-999.000

@@ -1,0 +1,7 @@
+validation: t1ha2_64  SMHasher3 verification 0x8F16C948 (expected 0x8F16C948) OK
+            t1ha2_128 SMHasher3 verification 0xB44C43A1 (expected 0xB44C43A1) OK
+family: n=18 blocks (576 bytes, L=72), r=16 switchable blocks, k=65536 messages
+  all k equal (64-bit): 3839/4096 seeds = 0.93726  95% [0.92941, 0.94428]; model (1-2^-8)^r = 0.93930
+  predictor (base conditions) agrees with the hash on 4096/4096 seeds
+  largest class per seed: min 16384, 1st pct 32768, median 65536, max 65536
+  first all-colliding seed 0x6a774dc53c5d8a68: all 65536 members hash to 44b285b82da26726

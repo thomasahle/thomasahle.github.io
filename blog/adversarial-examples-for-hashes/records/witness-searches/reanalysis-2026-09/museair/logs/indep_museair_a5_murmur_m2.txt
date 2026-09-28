@@ -1,0 +1,29 @@
+verification MuseAir              F89F1683 (SMHasher3 F89F1683) OK
+verification MuseAir__bfast       C61BEE56 (SMHasher3 C61BEE56) OK
+verification MuseAir_128          D3DFE238 (SMHasher3 D3DFE238) OK
+verification MuseAir_128__bfast   27939BF1 (SMHasher3 27939BF1) OK
+verification MurmurHash3_x64_128  6384BA69 (SMHasher3 6384BA69) OK
+a5hash.h version 5.25
+MuseAir v0.3                       65536 members (65536 distinct), length 18: all equal on the full 64-bit output for 4097/4097 seeds (random + seed 0)
+   member[0] = 5dbffc5de879b3d63087385e44e8e0260000
+   member[1] = 5dbf006959e3b3d62aaca36144e8e0260100
+MuseAir v0.3 bfast                 65536 members (65536 distinct), length 18: all equal on the full 64-bit output for 4097/4097 seeds (random + seed 0)
+   member[0] = 5dbffc5de879b3d63087385e44e8e0260000
+   member[1] = 5dbf006959e3b3d62aaca36144e8e0260100
+MuseAir v0.3 128                   65536 members (65536 distinct), length 18: all equal on the full 128-bit output for 4097/4097 seeds (random + seed 0)
+   member[0] = 5dbffc5de879b3d63087385e44e8e0260000
+   member[1] = 5dbf006959e3b3d62aaca36144e8e0260100
+MuseAir v0.3 bfast 128             65536 members (65536 distinct), length 18: all equal on the full 128-bit output for 4097/4097 seeds (random + seed 0)
+   member[0] = 5dbffc5de879b3d63087385e44e8e0260000
+   member[1] = 5dbf006959e3b3d62aaca36144e8e0260100
+a5hash-128                         65536 members (65536 distinct), length 18: all equal on the full 128-bit output for 4097/4097 seeds (random + seed 0)
+   member[0] = edfbddc7f65b30ce60d6374f0e92fc430000
+   member[1] = edfbddc7f65b30ce60d6374f0e92fc430100
+MurmurHash3_x64_128 (uint32 seed)  65536 members (65536 distinct), length 144: all equal on the full 128-bit output for 4097/4097 seeds (random + seed 0)
+   member[0] = 01d5d882013a011cbd43d2017b1ba9b782043b378d5fb0638d538dee0a96f90b39e654132b82dc0f2053a4cc525d1daf3703f7a16158de42fdc00ad28f05772c73c8e85d0bab1e3a15af3cd5972e2d8df26b715dca2fd2b6513330df40dd3927135bb9896fa0261056bcdef4af5e72f48ad7d2adbef515cfd3e58f8534cb284b1c59ac017ab447794629744d220dd2a3
+   member[1] = a134db605dc6ab53bd43d2017b1ba9b782043b370aad7ee68d538d2eeb0a829539e65413ae340e8d2053a48c72e894253703f7a1e40a10c0fdc00a12707affb573c8e85d8e5d50b715af3c95b7b9a403f26b715d477da0395133309f6068b19d135bb989f252588d56bcdeb4cfe9e96a8ad7d2ad41a8474cd3e58fc51440b1d47cf9a9239b756bc44629748d02825a2d
+PASS
+
+real	0m13.161s
+user	0m13.016s
+sys	0m0.082s

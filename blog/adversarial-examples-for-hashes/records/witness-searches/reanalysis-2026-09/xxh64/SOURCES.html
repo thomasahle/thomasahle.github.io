@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sources</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1 id="sources">Sources</h1>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>pinned source</th>
+<th>sha256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>upstream/xxhash.h</code> (needed by <code>loop_xxmur.c</code>,
+not copied)</td>
+<td><a
+href="https://raw.githubusercontent.com/Cyan4973/xxHash/v0.8.3/xxhash.h">https://raw.githubusercontent.com/Cyan4973/xxHash/v0.8.3/xxhash.h</a>
+(tag v0.8.3, commit e626a72)</td>
+<td><code>17973c0dc49d9854ca26caa191f0e12f7a424b68858d9a78de3860d959d85e4b</code></td>
+</tr>
+<tr class="even">
+<td>XXH64 body transcribed in <code>xxh64_witness.c</code></td>
+<td><a
+href="https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/xxhash.cpp">https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/xxhash.cpp</a></td>
+<td><code>4bef3cc80fff913b0f47be3f73b03119f24287df337d12b08634fee6f9d02240</code></td>
+</tr>
+<tr class="odd">
+<td>MurmurHash2 bodies in <code>loop_xxmur.c</code></td>
+<td><a
+href="https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/murmurhash2.cpp">https://github.com/fwojcik/smhasher3/blob/7ad8939d/hashes/murmurhash2.cpp</a></td>
+<td><code>7a70fffa9709105ed5dd03e69d829575b97d8727c5d28e12c7faf55f9a29c278</code></td>
+</tr>
+</tbody>
+</table>
+<p>Fetch the header before building <code>loop_xxmur.c</code>:</p>
+<pre><code>mkdir -p upstream &amp;&amp; curl -sL -o upstream/xxhash.h https://raw.githubusercontent.com/Cyan4973/xxHash/v0.8.3/xxhash.h
+shasum -a 256 upstream/xxhash.h   # 17973c0d...5e4b</code></pre>
+<p>SMHasher3 verification values checked at startup (registry in the
+files above): XXH-64 <code>0x8F8224C4</code>, XXH-32
+<code>0x6FD78385</code>, MurmurHash2-64 <code>0x1F0D3804</code>,
+MurmurHash2-32 <code>0x27864C1E</code>, MurmurHash2a
+<code>0x7FBD4396</code> (little-endian verification values; the xxHash
+values use the canonical big-endian output bytes, as SMHasher3
+does).</p>
+</main></body></html>

@@ -1,0 +1,18 @@
+gxhash v3.5.0 (SMHasher3 port of ogxd/gxhash 55bde47), AES = armv8-aes
+validation: hw vs sw AES round and inverse: 0 mismatches / 4096 OK
+validation: SMHasher3 verification gxhash = 0x64A77B47 (0x64A77B47) OK, gxhash_64 = 0x48F84240 (0x48F84240) OK
+
+(1) published pair 00^15 / ff^16: 4096/4096 seeds collide at 64 bits, 4096/4096 at 128 bits; seed 0xf556ecbfcbfee3ad -> 43ec3783791d0fb8 (published 43ec3783791d0fb8) OK
+(2) L = 1: states of lengths 1..8 have bytes 8..15 = len, empty -> zero block: OK; exhaustive lengths 0..2: 0 duplicate states;
+    so no two distinct <= 8-byte messages share a state and no 128-bit collision exists for any seed.
+    64-bit sampling: 65536 random <= 8-byte pairs x 64 seeds: 0 collisions (a pair with eps >= 1/2 would give ~32 per pair)
+
+(3) flooding family: 65792 messages (256 of 17 bytes, 65536 of 18 bytes), all with compress_all = T: 0 mismatches
+    example 17-byte: 0048979328eaf4cfde08239c51a5b2e507
+    example 18-byte: 3930e82fb3d3a38495c68625264b99bcdd2f
+    seed 5aa5fa96e772e4d4: all 65792 messages -> gxhash128 e2589e9dadf869fc0c04aafdb5c1d68b, gxhash_64 0c04aafdb5c1d68b
+    random seeds: 4096/4096 seeds put all 65792 messages in ONE 128-bit class (largest class per key = 65792 for every sampled key)
+    <= 16-byte path: the largest preimage set of one block under compress_all is 2 (16-byte + one shorter length), so k <= 2 there;
+    at most 2 + 256 messages of length <= 17 share a block, so 18 bytes is the shortest max length with a 2^16-way family.
+
+ALL CHECKS PASSED

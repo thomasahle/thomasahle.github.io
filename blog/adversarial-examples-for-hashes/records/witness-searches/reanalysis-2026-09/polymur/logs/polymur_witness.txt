@@ -1,0 +1,6 @@
+SMHasher3 verification polymurhash LE: 0x0722B1A7 (expected 0x0722B1A7)
+explicit key init_params(0x8545715fd36ce9e9, 0xd95d3b0f3d7ebc54): k=391303342709703922
+  H(M1,8B)=0x5335b33210496b34 H(M2,7B)=0x5335b33210496b34 COLLIDE
+replay: accepted after 42 steps, e*=0x08890268f3958b33, k=391303342709703922 (match 1)
+final values: 16; W(k*) = 1096 k_seed preimages; colliding among them 1096/1096 (random s_seed each)
+uniform (k_seed,s_seed) control: 0/2000000

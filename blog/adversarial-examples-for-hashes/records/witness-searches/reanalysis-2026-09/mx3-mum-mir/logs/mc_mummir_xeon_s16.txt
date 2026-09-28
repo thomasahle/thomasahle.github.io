@@ -1,0 +1,66 @@
+verification mum3__exact__unroll3     computed 8BD72B8C expected 8BD72B8C registered 8BD72B8C OK
+verification mum3__exact__unroll4     computed 0AD998DF expected 0AD998DF registered 0AD998DF OK
+verification mir__exact               computed 00A393C8 expected 00A393C8 registered 00A393C8 OK
+verification mir__inexact             computed 422A66FC expected 422A66FC registered 422A66FC OK
+MUM target db0f50c681268d13: 65770 members at 10 bytes
+MUM v3 exact 10-byte family (unroll3): family of 65536 messages, 65536 distinct, max length 10 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key ac39027e48bf864b -> common output c87461c55d211558
+  member[0] = 8299c118702bca980000
+  member[1] = 0d33410a0cb32d5c0100
+  member[2] = e19483f59e56363f0200
+  member[65535] = 16431df901f3f0bd16ff
+  MUM v3 exact (unroll4): family of 65536 messages, 65536 distinct, max length 10 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 263abcb6afb05dc4 -> common output 7a3ec11122456f0c
+  member[0] = 8299c118702bca980000
+  member[1] = 0d33410a0cb32d5c0100
+  member[2] = e19483f59e56363f0200
+  member[65535] = 16431df901f3f0bd16ff
+mir target 7860c04c856d82c0: 65515 members at 10 bytes
+mir target bf5916a9b1816ccf: 65464 members at 10 bytes
+mir target d84501884ab13dec: 65687 members at 10 bytes
+mir.exact 10-byte family: family of 65536 messages, 65536 distinct, max length 10 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 9a6b6fbf78cc5daa -> common output 3e74be05a4dcce1e
+  member[0] = 2705a6374fa8dc940000
+  member[1] = ed94f0ed6e3dd8470100
+  member[2] = 715855aba6d2010d0200
+  member[65535] = 4eee1fe0fa9756596bff
+mir exact AND inexact 11-byte family: family of 65536 messages, 65536 distinct, max length 11 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 7a2c026b0cc0bff7 -> common output 1555072808b9e5b2
+  member[0] = ebae3d03a9ed1028010000
+  member[1] = ab0bda039f664222030000
+  member[2] = 60c830c28f7acb35040000
+  member[65535] = 2ec5e2131272ff75369e01
+  mir.inexact: family of 65536 messages, 65536 distinct, max length 11 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 0fccca9624b27be5 -> common output 0546d0d7aed1fb58
+  member[0] = ebae3d03a9ed1028010000
+  member[1] = ab0bda039f664222030000
+  member[2] = 60c830c28f7acb35040000
+  member[65535] = 2ec5e2131272ff75369e01
+MUM v3 exact AND inexact 11-byte family (unroll3): family of 65536 messages, 65536 distinct, max length 11 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key ea3e10053e2ae0a4 -> common output d4a9b73aa5aaccb2
+  member[0] = e823355916f867f0000000
+  member[1] = b641bd1d1d5eee05010000
+  member[2] = 39c9b9bda0fc00dc020000
+  member[65535] = b4ee4e0e82f16e14d71b02
+  MUM v3 inexact (unroll3): family of 65536 messages, 65536 distinct, max length 11 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key a6e7e61027126024 -> common output b776932202c92324
+  member[0] = e823355916f867f0000000
+  member[1] = b641bd1d1d5eee05010000
+  member[2] = 39c9b9bda0fc00dc020000
+  member[65535] = b4ee4e0e82f16e14d71b02
+  MUM every-length len 9: 1024/1024
+  MUM every-length len 65: 1024/1024
+  MUM every-length len 400: 1024/1024
+MUM v3 exact unroll3: key-free equal-length pair at every length 9..400: 392/392 lengths collide on 1024/1024 seeds
+  mir every-length len 9: 1024/1024
+  mir every-length len 65: 1024/1024
+  mir every-length len 400: 1024/1024
+mir.exact: key-free equal-length pair at every length 9..400: 392/392 lengths collide on 1024/1024 seeds
+RESULT: PASS

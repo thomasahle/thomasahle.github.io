@@ -1,0 +1,4 @@
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+long V4<3> len 65536 (48 leaves), 8 varied leaves, k=2^8: class keys whole family equal 64/64; out-of-class keys any of first 64 members equal to base 0/64; uniform 0/64
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+long V4<3> len 1048576 (780 leaves), 10 varied leaves, k=2^10: class keys whole family equal 16/16; out-of-class keys any of first 64 members equal to base 0/16; uniform 0/16

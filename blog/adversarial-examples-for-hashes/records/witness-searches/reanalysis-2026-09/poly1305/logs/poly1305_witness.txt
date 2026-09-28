@@ -1,0 +1,13 @@
+RFC 8439 2.5.2 vector: a8061dc1305136c6c22b8baf0c0127a9 OK
+'cryptography' package not installed: RFC vector only
+pair: M' = d664915c5fd5 (6 bytes), M = d664915c5fd501 (7 bytes); L = 1 word
+r = j*2^72 mod p, clamp-valid for j in [0, 1, 2, 3]
+  j = 0: r = 0x0: 1000/1000 random s collide
+  j = 1: r = 0x1000000000000000000: 1000/1000 random s collide
+  j = 2: r = 0x2000000000000000000: 1000/1000 random s collide
+  j = 3: r = 0x3000000000000000000: 1000/1000 random s collide
+explicit key r = 2^72, s = 0: 0000000000000000000100000000000000000000000000000000000000000000 -> 000000000000000000d664915c5fd501 000000000000000000d664915c5fd501
+uniform random keys: 0/200000 collide
+epsilon(L=1) = 4/2^106 = 2^-104; score at L=1 = 104.0000
+envelope 7*ceil(L/2)/2^106 for L >= 2: minimum 103.7776 at L = 3
+Bernstein's 8*ceil(bytes/16)/2^106 at L = 1: 103.0000

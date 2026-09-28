@@ -1,0 +1,31 @@
+SMHasher3 verification XXH64: 0x8F8224C4 (expected 0x8F8224C4)
+
+[A] key-free pair, 16 bytes (L = 2 words)
+  M1 (16 bytes) = 616476657273617269616c2d78786836
+  M2 (16 bytes) = 815775cd1627cf6569616c2dc92cdb1f
+  collisions 16777216 / 16777216 random seeds; control pair 0
+  example seed 0x0449d3979cce63e9: a4a49b485141d198 a4a49b485141d198
+  seed 0: fee615c7742f80cd fee615c7742f80cd
+
+[B] key-free 4-way cube, 24 bytes (L = 3)
+  C0 (24 bytes) = 7878683634206b65792d6672656520347761792063756265
+  C1 (24 bytes) = 588569ce31d5e244792d667214b1ad4a7761792063756265
+  C2 (24 bytes) = 7878683634206b65593a670ac1b1b24077617920b429d54e
+  C3 (24 bytes) = 588569ce31d5e244593a670a1266252a77617920b429d54e
+  all 4 equal for 1048576 / 1048576 random seeds
+
+[C] long-path family, 64 bytes (L = 8), J = 16 per lane, 65536 messages
+  F[0] (64 bytes) = 5858483634206c6f6e672d70617468206c616e652066616d696c793a2031365e34206d657373616765732c206f6e6520636c6173732070657220736565642e2e
+  F[1] (64 bytes) = 5858483692b7869c6e672d70617468206c616e652066616d696c793a2031365eeb208d9e4e5b016365732c206f6e6520636c6173732070657220736565642e2e
+  F[65535] (64 bytes) = 58584836b6fefa136e672d70e352f7c46c616e65a244f011696c793aa20fc502ed2a4dbe4b09c0251e7e0c794704c4de1c7741cc4bb6ce232b2b53be3dfa8cec
+  distinct messages: 65536 of 65536
+  generator: word l (l=0..3) = x_l + j_l*(2^33*P2^-1), word 4+l = y_l - j_l*(P1*P2^-1), j_l in [0,16)
+  all 65536 equal for 65536 / 65536 random seeds (95% CI [0.999941, 1.000000]); min class of F[0] 65536
+  exact failure probability <= 4*(J-1)/2^31 = 2.79e-08 (union of 4 seed intervals of width (J-1)*2^33)
+  failure-set seed 0x232d23c8115a110c (lane-0 top31(V) = 2^31-1): class of F[0] has 4096 of 65536
+  explicit seed 0x7b2d6b5040ea7ec3: XXH64(F[0]) = 41b52403900cfbd4, XXH64(F[65535]) = 41b52403900cfbd4
+
+summary: A ok, B ok, C ok
+real 38.12
+user 36.20
+sys 0.21

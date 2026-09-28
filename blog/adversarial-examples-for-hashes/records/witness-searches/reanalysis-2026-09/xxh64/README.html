@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XXH64:
+key-free pair, 2^16-way family, long-input loop differential</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="xxh64-key-free-pair-216-way-family-long-input-loop-differential">XXH64:
+key-free pair, 2^16-way family, long-input loop differential</h1>
+<p>Key model: <code>XXH64(input, len, seed)</code> with a uniformly
+random 64-bit seed (xxHash v0.8.3; SMHasher3 <code>XXH-64</code>).
+Scores use L = number of 8-byte words of the longer message.</p>
+<h2 id="what-is-checked">What is checked</h2>
+<p><code>xxh64_witness.c</code> (self-contained transcription of
+SMHasher3 <code>hashes/xxhash.cpp</code>; checks the SMHasher3
+verification value <code>0x8F8224C4</code> first and exits 1 on
+mismatch):</p>
+<ul>
+<li><p><strong>[A] key-free pair, 16 bytes (L = 2).</strong> Word 1 is
+chosen so that <code>round(0, w)</code> changes by XOR 2^36; after
+<code>h ^= k; h = rotl(h, 27)</code> the difference sits in bit 63,
+survives <code>* P1 + P4</code>, and word 2 (round output changed by XOR
+2^63) cancels it. This holds for every seed. Memory order (little-endian
+words):</p>
+<pre><code>M1 = 616476657273617269616c2d78786836   (&quot;adversarial-xxh6&quot;)
+M2 = 815775cd1627cf6569616c2dc92cdb1f</code></pre>
+<p>Expected:
+<code>collisions 16777216 / 16777216 random seeds; control pair 0</code>;
+seed 0 gives <code>fee615c7742f80cd</code> for both. Score: log2(L /
+eps) = log2(2 / 1) = 1 bit.</p></li>
+<li><p><strong>[B] key-free 4-way set, 24 bytes (L = 3).</strong> Two
+chained bit-63 flips. Expected
+<code>all 4 equal for 1048576 / 1048576 random seeds</code>.</p></li>
+<li><p><strong>[C] 2^16-way family, 64 bytes (L = 8).</strong> For lanes
+l = 0..3 and j_l in [0, 16): word l = x_l + j_l * (2^33 * P2^-1), word
+4+l = y_l - j_l * (P1 * P2^-1) (mod 2^64). The set fails only if, in
+some lane, the top 31 bits of V = acc + x_l * P2 are at least 2^31 - 15:
+probability at most 4 * 15 / 2^31 = 2.8e-8 over the seed. Expected:
+<code>distinct messages: 65536 of 65536</code>,
+<code>all 65536 equal for 65536 / 65536 random seeds</code> (with
+arguments <code>24 16 0x55</code>), and a back-solved failing seed whose
+class has 4096 of 65536 members.</p></li>
+</ul>
+<p><code>loop_xxmur.c</code> (uses the unmodified upstream
+<code>xxhash.h</code> v0.8.3; see SOURCES.md; checks all four SMHasher3
+values first): position-independent loop differential. In lane l of
+stripes s and s+1 (both inside the 32-byte stripe loop), add
+<code>P2^-1 = 0x0ba79078168d4baf</code> to word (s, l) and
+<code>-2^31 * P1 * P2^-1 = 0x9c90005b80000000</code> to word (s+1, l).
+The pair collides whenever the low 33 bits of V = acc + w * P2 are not
+all ones; acc entering stripe s is a bijective function of the seed for
+any fixed prefix, so the collision probability is at least 1 - 2^-33 at
+any position, whatever the surrounding bytes. Logs: random messages,
+positions and seeds at 256 B, 1 KB, 64 KB and 1 MB (every trial
+collided, model/outcome disagreements 0); back-solved seeds (2048 of
+4096 planted failures fail and 2048 near-failures collide, exactly as
+predicted); disjoint slots give 2^16-member sets in 64 KB (64/64 keys)
+and 2^10 in 1 MB (32/32 keys).</p>
+<p>1 MB example (little-endian word values): offsets 1,029,400 and
+1,029,432, <code>bcf02d7c47a38fa5 -&gt; c897bdf45e30db54</code> and
+<code>44c55e28ef97740c -&gt; e1555e846f97740c</code>; 4096/4096 seeds
+collide.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>cc -std=c11 -O2 -o xxh64_witness xxh64_witness.c
+./xxh64_witness 24 16 0x55          # about 40 s; default family trials are 2^12
+
+mkdir -p upstream &amp;&amp; curl -sL -o upstream/xxhash.h https://raw.githubusercontent.com/Cyan4973/xxHash/v0.8.3/xxhash.h
+cc -std=c11 -O2 -pthread -Iupstream -o loop_xxmur loop_xxmur.c -lm
+THREADS=8 ./loop_xxmur rand xxh64 1048576 32768
+THREADS=8 ./loop_xxmur fixed xxh64 1048576 4096
+THREADS=8 ./loop_xxmur plant xxh64 65536 4096
+./loop_xxmur cube xxh64 65536 16 64</code></pre>
+<p>Logs: <code>logs/xxh64_witness.log</code>,
+<code>logs/loop_xxmur_xxh64.log</code> (trimmed to the XXH64 runs).</p>
+</main></body></html>

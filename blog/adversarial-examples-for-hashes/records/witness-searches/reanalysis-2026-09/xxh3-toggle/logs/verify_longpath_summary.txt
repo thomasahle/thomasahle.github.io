@@ -1,0 +1,6 @@
+full16 64 class 5120  8 secrets: ALL 65536 collide, 8/8
+full16 128 class 5120 8 secrets: ALL 65536 collide, 8/8
+full16 64 unif 5120: only empty subset (1/65536) -> ~0 nontrivial
+single class p=1: 256B(j=1,64+128), 576B(j=7), 5120B(64+128), 64KB(63 blocks), 1MB
+krate uniform density: ntog=1 -> 1/2^34=2^-34 ; ntog=4 -> 4/2^34=2^-32 (shared cond, not p^r)
+exact density (2^32-1)/2^64 = 2^-32.0000

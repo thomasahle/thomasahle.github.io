@@ -1,0 +1,185 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>t1ha2_atonce
+(v2.1.4): a top-bit trail through the 32-byte loop</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="t1ha2_atonce-v214-a-top-bit-trail-through-the-32-byte-loop">t1ha2_atonce
+(v2.1.4): a top-bit trail through the 32-byte loop</h1>
+<p>Key model: one uniform 64-bit seed; the messages are fixed before the
+seed is drawn; a hit is equality of the full 64-bit output (and, where
+stated, of the full 128-bit output of <code>t1ha2_atonce128</code>). Hex
+strings are bytes in memory order.</p>
+<h2 id="mechanism">Mechanism</h2>
+<p>For inputs longer than 32 bytes, each 32-byte block (words w0..w3,
+little-endian) updates the state (a, b, c, d):</p>
+<pre><code>d02 = w0 + rotr(w2 + d, 56);  c13 = w1 + rotr(w3 + c, 19);
+d ^= b + rotr(w1, 38);        c ^= a + rotr(w0, 57);
+b ^= P6 * (c13 + w2);         a ^= P5 * (d02 + w3);</code></pre>
+<p>A difference of exactly 2^63 is both an XOR and an additive
+difference, and it passes through <code>+</code>, <code>^</code> and
+multiplication by an odd constant unchanged.</p>
+<ul>
+<li>Block b ("switch"): flip bit 56 of w0 and bit 37 of w1 (both 0 in
+the base) and subtract 2^56 from w3. c and d gain 2^63;
+<code>d02 + w3</code> is unchanged; <code>c13</code> is unchanged iff y
+= (w3 + c) mod 2^64 &gt;= 2^56. This is the only condition.</li>
+<li>Blocks b+1 and b+2: flip bit 63 of w2 and of w3. The state
+difference goes (0,0,2^63,2^63) -&gt; (2^63,2^63,2^63,2^63) -&gt;
+0.</li>
+</ul>
+<p>Three blocks (96 bytes, L = 12) give a pair. In the first block c =
+rotr(96, 23) + ~seed, which is a bijection of the seed, so the pair
+fails for exactly 2^56 of the 2^64 seeds: eps = 1 - 2^-8 and log2(12 /
+eps) = 3.5906 bits. The 128-bit function uses the same loop and collides
+on the same seeds.</p>
+<h2 id="the-pair">The pair</h2>
+<pre><code>M  = 4b2cc652222de32c6eb402b35cdd18cae775ec4962530f8652665a38df9912e3
+     1dc78f5ae19a0cc6f585de2f819640042e1f4a635bba50f7fc6de8bf179150d9
+     8d19298b36bf110cb6a7a887c622f90d33c44afcfeaeffe3cec888710f1c64b9
+M&#39; = 4b2cc652222de32d6eb402b37cdd18cae775ec4962530f8652665a38df9912e2
+     1dc78f5ae19a0cc6f585de2f819640042e1f4a635bba5077fc6de8bf17915059
+     8d19298b36bf110cb6a7a887c622f90d33c44afcfeaeff63cec888710f1c6439</code></pre>
+<p>Failing seeds: the interval [0xe21359df385a6652, 0xe31359df385a6651],
+exactly 2^56 seeds. Seed 0 gives 0x8851841f758af2cd for both; seed
+0x7d4799c23d231d40 gives 0xcd72df04507e4a98 for both (128-bit:
+eae1666093081008:640f3d4e94bf7e81 for both).</p>
+<h2 id="families">Families</h2>
+<p>Any subset of the first n-2 blocks of an n-block base may be switched
+on (the parity flips of the next two blocks are applied per member),
+giving 2^(n-2) messages of 32n bytes. All of them collide whenever the
+n-2 carry conditions hold for the common base. 576 bytes give 2^16
+members, 704 bytes give 2^20. The conditions are not all independent:
+the one at block 1 depends on c_1 = c_0 ^ (seed + rotr(w0_0, 57)), a
+fixed function of the seed with a non-uniform top byte. For some bases
+it never fails, for others it fails about 10% of the time
+(<code>block_conditions.c</code>), so p(S) varies with the base between
+about 0.85 and 0.94. Placing the switched blocks in disjoint three-block
+windows (<code>t1ha2_longpos.c cube</code>) avoids the correlated block,
+giving (1 - 2^-8)^r.</p>
+<p>The trail is local. Its only condition involves the state entering
+the switched block, so the same three-block difference works at any
+32-byte-aligned position inside a long message with arbitrary content
+(checked from 256 B to 1 MiB).</p>
+<h2 id="files">Files</h2>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>what it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pair_check.c</code></td>
+<td>links upstream t1ha; the pair, the exact edges of the failing
+interval, uniform sample vs the condition</td>
+</tr>
+<tr class="even">
+<td><code>t1ha2_topbit.c</code>, <code>t1ha2_core.h</code></td>
+<td>search/measurement program (own port, checked against the SMHasher3
+verification values 0x8F16C948 / 0xB44C43A1): pair and 2^r-way
+families</td>
+</tr>
+<tr class="odd">
+<td><code>t1ha2_trail_check.c</code></td>
+<td>independent checker written from the mechanism description; links
+upstream t1ha; random bases</td>
+</tr>
+<tr class="even">
+<td><code>block_conditions.c</code></td>
+<td>per-block failure rates of the family conditions (why p(S) depends
+on the base)</td>
+</tr>
+<tr class="odd">
+<td><code>t1ha2_longpos.c</code></td>
+<td>position independence inside 256 B .. 1 MiB random messages;
+disjoint-window cubes</td>
+</tr>
+</tbody>
+</table>
+<p>Upstream sources: see <code>SOURCES.md</code>.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>T=&lt;path to t1ha checkout&gt;
+cc -O2 -std=c11 -I$T pair_check.c $T/src/t1ha2.c $T/src/t1ha2_selfcheck.c $T/src/t1ha_selfcheck.c -lm -o pair_check
+./pair_check 24
+cc -O2 -std=c11 t1ha2_topbit.c -lm -o t1ha2_topbit
+./t1ha2_topbit pair 30 0x51              # 2^30 seeds
+./t1ha2_topbit fam 18 16 12 0x61         # 2^16 members, 576 B, 4096 seeds
+./t1ha2_topbit fam 22 20 9 0x71          # 2^20 members, 704 B, 512 seeds
+cc -O2 -std=c11 -I$T t1ha2_trail_check.c $T/src/t1ha2.c $T/src/t1ha2_selfcheck.c $T/src/t1ha_selfcheck.c -lm -o t1ha2_trail_check
+./t1ha2_trail_check pair 28 101
+./t1ha2_trail_check family 18 14 404
+cc -O2 -std=c11 block_conditions.c -o block_conditions &amp;&amp; ./block_conditions 18 606
+cc -O2 -std=c11 -pthread -I$T t1ha2_longpos.c $T/src/t1ha2.c $T/src/t1ha2_selfcheck.c $T/src/t1ha_selfcheck.c -lm -o t1ha2_longpos
+THREADS=8 ./t1ha2_longpos rand 1048576 65536
+./t1ha2_longpos cube 65536 16 64</code></pre>
+<h2 id="expected-output-from-logs">Expected output (from
+<code>logs/</code>)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>run</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pair_check 24</code></td>
+<td>16,711,577 / 2^24 = 0.996088; 128-bit same; 0 mismatches with the
+condition; interval edges as above</td>
+</tr>
+<tr class="even">
+<td><code>t1ha2_topbit pair 30 0x51</code></td>
+<td>1,069,547,538 / 2^30 = 0.996094; misses 4,194,286 (2^-8 predicts
+4,194,304); predictor agrees on all 2^30</td>
+</tr>
+<tr class="odd">
+<td><code>t1ha2_trail_check pair 28 101</code> (other random pair)</td>
+<td>267,388,667 / 2^28 = 0.9961004; 128-bit identical; 0 mismatches</td>
+</tr>
+<tr class="even">
+<td><code>t1ha2_trail_check pair 26 202 / 303</code></td>
+<td>66,846,684 and 66,847,086 / 2^26</td>
+</tr>
+<tr class="odd">
+<td><code>t1ha2_topbit fam 18 16 12</code> (4 runs)</td>
+<td>all 2^16 equal on 3848, 3839, 3881, 3866 of 4096 seeds (pooled
+15,434 / 16,384 = 0.942)</td>
+</tr>
+<tr class="even">
+<td><code>t1ha2_topbit fam 22 20 9</code> (2 runs)</td>
+<td>all 2^20 equal on 474 and 485 of 512 seeds (pooled 959 / 1024 =
+0.937)</td>
+</tr>
+<tr class="odd">
+<td><code>t1ha2_trail_check family 18 14 404</code></td>
+<td>15,447 / 16,384 = 0.943</td>
+</tr>
+<tr class="even">
+<td><code>t1ha2_trail_check family 18 13 606</code></td>
+<td>6,960 / 8,192 = 0.850 (block-1 condition fails ~25/256)</td>
+</tr>
+<tr class="odd">
+<td><code>t1ha2_trail_check family 22 10 505</code></td>
+<td>944 / 1,024 = 0.922</td>
+</tr>
+<tr class="even">
+<td><code>t1ha2_longpos rand</code></td>
+<td>failure rate 2^-8.01 (256 B), 2^-8.01 (1 KiB), 2^-7.96 (64 KiB),
+2^-8.10 (1 MiB: 239 / 65,536); predictor exact</td>
+</tr>
+<tr class="odd">
+<td><code>t1ha2_longpos fixed 1048576</code></td>
+<td>32,644 / 32,768 at byte offset 861,792</td>
+</tr>
+<tr class="even">
+<td><code>t1ha2_longpos cube 65536 16 64</code></td>
+<td>whole 2^16 set equal for 60 / 64 keys;
+<code>cube 1048576 10 64</code>: 2^10 set for 61 / 64</td>
+</tr>
+</tbody>
+</table>
+<p>Every run first checks the upstream self-test and the SMHasher3
+verification value 0x8F16C948 and exits with status 1 on a mismatch.
+Note on <code>logs/t1_pair30.txt</code>: the 128-bit high halves on its
+"example seed" line came from an unsequenced printf argument and are
+wrong; the program in this folder sequences the calls (the counts were
+never affected). <code>pair_check</code> prints the correct values.</p>
+</main></body></html>

@@ -1,0 +1,4 @@
+SMHasher3 verification 0x8F16C948 (expected 0x8F16C948)
+family n=18 blocks (576 bytes), k=2^16 members, seeds 16384
+all members collide: 15447 / 16384 = 0.9428 [0.9391, 0.9463]; model (255/256)^16 = 0.9393; model/actual mismatches 0
+largest class histogram (floor log2): 2^14:16 2^15:921 2^16:15447

@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>komihash
+5.34: an every-seed pair at 73 bytes, and a 2^17-member family</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="komihash-534-an-every-seed-pair-at-73-bytes-and-a-217-member-family">komihash
+5.34: an every-seed pair at 73 bytes, and a 2^17-member family</h1>
+<p>Key model: <code>komihash(msg, len, UseSeed)</code> with one uniform
+64-bit seed; the messages are fixed before the seed is drawn; a hit is
+equality of the full 64-bit output. Hex strings are bytes in memory
+order.</p>
+<h2 id="mechanism">Mechanism</h2>
+<p>The published 64-byte pair ties one lane pair of the 64-byte loop
+block (w1 = w0 ^ IVAL2, so lanes 0 and 1 multiply identical operands).
+Tie both lane pairs at once:</p>
+<pre><code>w1 = w0 ^ IVAL2,   w3 = w2 ^ IVAL3 ^ IVAL4,   w5 = w4 ^ IVAL6,   w7 = w6 ^ IVAL7 ^ IVAL8.</code></pre>
+<p>Then lane 0 equals lane 1 and lane 2 equals lane 3 for every seed.
+The low product halves cancel pairwise in the fold, and after the block
+the two folded words are equal: Seed1 = Seed5 = X, for every seed. The
+first epilogue step computes (m0 ^ X) * (m1 ^ X), which is symmetric in
+m0 and m1. Exchanging the two tail words therefore gives the same hash
+for every seed.</p>
+<p>At 73 bytes the 9-byte tail is read as m0 = bytes 64..71 and m1 =
+0x100 | byte 72, so the pair is a tied block followed by [y, 01, 00 x 6,
+z] versus [z, 01, 00 x 6, y]. At 80 bytes the two 8-byte tail words are
+exchanged. L = 10 either way, so the score is log2(10) = 3.32 bits. This
+does not beat the recorded 64-byte pair (0.9106 of seeds, 3.135
+bits).</p>
+<h2 id="the-pair-73-bytes">The pair (73 bytes)</h2>
+<pre><code>M  = 2a87bfdc2277e89c6ef4cfdf0cfdf18f7827cd8bcaebf22c217a1c4e7029d580
+     6e9047ff9934dc7f029caecb565288c17557d8339262c6b9bf0ee34f909eee46
+     3c01000000000000a7
+M&#39; = 2a87bfdc2277e89c6ef4cfdf0cfdf18f7827cd8bcaebf22c217a1c4e7029d580
+     6e9047ff9934dc7f029caecb565288c17557d8339262c6b9bf0ee34f909eee46
+     a7010000000000003c</code></pre>
+<p>Seed 0 gives 0xf5d54adfc8d4643d for both (upstream
+<code>komihash.h</code> 5.34). Any tied block works; the programs below
+also build their own.</p>
+<h2 id="family-217-messages-80-bytes">Family (2^17 messages, 80
+bytes)</h2>
+<p>Start from a tied block whose shared multiplier words are common (w4,
+w6 = w4 ^ IVAL7) and vary the low 8 bits of w0 and of w2 (with w1, w3
+following the ties): 2^16 blocks. Append the 16-byte tail (m8, m9) or
+the swapped tail (m9, m8): 2^17 messages. The swap half matches the
+unswapped half for every seed; the 2^16 grid collides fully only on a
+weak-key class. All 2^17 messages collide for 157 / 16,384 seeds
+(2^-6.71) on one base and 50 / 8,192 (2^-7.36) on another. On every seed
+sampled, at least 2^10 of the 2^17 messages share one output.</p>
+<h2 id="longer-inputs">Longer inputs</h2>
+<p>The mechanism is limited to 64..127 bytes. After one more loop block
+the lanes are no longer tied. Re-tying the second block needs three
+carry relations at once, 2^-57 over the seed (measured law 2^-7.00,
+2^-10.00, 2^-13.00, 2^-16.02 at truncated widths 8, 12, 16, 20 bits, as
+predicted). The pair with one common extra block (137 B) gives 0 /
+2^30.</p>
+<h2 id="files">Files</h2>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>what it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pair73_check.c</code></td>
+<td>includes upstream <code>komihash.h</code>; the exact 73-byte pair
+above over uniform seeds</td>
+</tr>
+<tr class="even">
+<td><code>komi_swap.c</code>, <code>komihash_core.h</code></td>
+<td>own port (checks SMHasher3 verification 0x8157FF6D); the published
+64-byte pair and the 73 / 80-byte every-seed pairs</td>
+</tr>
+<tr class="odd">
+<td><code>komihash_tie_check.c</code></td>
+<td>independent checker, includes upstream <code>komihash.h</code>;
+README vectors + verification value; 73-byte pair on a random tied
+block; control with two different tied blocks</td>
+</tr>
+<tr class="even">
+<td><code>komihash_grid_swap.c</code></td>
+<td>includes upstream <code>komihash.h</code>; the 2^17 grid-times-swap
+family</td>
+</tr>
+<tr class="odd">
+<td><code>komi_long.c</code></td>
+<td>includes upstream <code>komihash.h</code>; beyond one loop block
+(137 B), and the re-tie law</td>
+</tr>
+</tbody>
+</table>
+<p>Upstream: see <code>SOURCES.md</code>.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>K=&lt;path to komihash checkout&gt;
+cc -O2 -std=c11 -I$K pair73_check.c -o pair73_check &amp;&amp; ./pair73_check 24
+cc -O2 -std=c11 komi_swap.c -lm -o komi_swap &amp;&amp; ./komi_swap swap 24 &amp;&amp; ./komi_swap pub 24
+cc -O2 -std=c11 -I$K komihash_tie_check.c -o komihash_tie_check &amp;&amp; ./komihash_tie_check 24 1
+cc -O2 -std=c11 -I$K komihash_grid_swap.c -lm -o komihash_grid_swap &amp;&amp; ./komihash_grid_swap 14 31
+cc -O2 -std=c11 -I$K komi_long.c -lm -o komi_long &amp;&amp; ./komi_long 30 26</code></pre>
+<h2 id="expected-output-from-logs">Expected output (from
+<code>logs/</code>)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>run</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pair73_check 24</code></td>
+<td>16,777,216 / 16,777,216; seed 0 -&gt; f5d54adfc8d4643d for both</td>
+</tr>
+<tr class="even">
+<td><code>komihash_tie_check</code> (the run that produced the pair
+above)</td>
+<td>67,108,864 / 67,108,864 seeds collide; control with two different
+tied blocks 0 / 65,536</td>
+</tr>
+<tr class="odd">
+<td><code>komihash_tie_check 24 1</code></td>
+<td>another random tied block: 16,777,216 / 16,777,216</td>
+</tr>
+<tr class="even">
+<td><code>komi_swap swap 24</code></td>
+<td>73-byte and 80-byte pairs 16,777,216 / 16,777,216 each</td>
+</tr>
+<tr class="odd">
+<td><code>komi_swap pub 24</code></td>
+<td>published 64-byte pair 15,274,904 / 2^24 = 0.91046 (3.135 bits)</td>
+</tr>
+<tr class="even">
+<td><code>komihash_grid_swap 14 31</code></td>
+<td>swap half = unswapped half on 16,384 / 16,384 seeds; all 2^17 equal
+on 157 (2^-6.71)</td>
+</tr>
+<tr class="odd">
+<td><code>komihash_grid_swap 13 32</code></td>
+<td>8,192 / 8,192; all 2^17 equal on 50 (2^-7.36)</td>
+</tr>
+<tr class="even">
+<td><code>komi_long</code></td>
+<td>73 B control 2^20 / 2^20; 137 B plain and re-tied 0 / 2^30; re-tie
+law as above</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

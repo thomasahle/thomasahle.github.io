@@ -1,0 +1,26 @@
+absl::Hash long-input analysis, variant: ARM AES (LowLevelHash with AESD/AESIMC)
+transcription of LowLevelHashLenGt64 vs the real library, 20000 random (len 65..1024, seed): 0 mismatches
+
+[ARM] chunk 0: the state is Set128(seed, len) = (len | seed); the low 8 bytes of every lane input are public.
+  len 128: 32 public bytes at piece 0 start (byte 0) changed, next chunk corrected |m|=128 |m'|=128 (L=16) bytes differing 95: 65536/65536 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed 7c8526889cf41687 -> 0744a44d2a739885
+    m  = adde9c8e5862b93f79cdd38a96002dc0a82205ccf43dc86dc5d6c9a8ee83b31d5155e0100bb1fd4a5baa930992a50ae1f04e6a69ce709e1639c2e32d310296b0f105e46409bfcc48481f71adf7ad2efadc9c1e5ddd12da62b5a1ae29827b5642077a0a11d3ea40e99c42b54274367030f0b71846a5f6fc47eea42ec90a9c1568
+    m' = 484ca5734f05798579cdd38a96002dc02749ae2eb196704ac5d6c9a8ee83b31d3da88fae6120f3335baa930992a50ae1857fc11285b5227d39c2e32d310296b05a571666a7abb48722146570c90f5e0b56a9f88c69e421075920a67adcc578090ec031a26e00f6e21bfab5fa6fa1fc57139ea68caddab0032c9209d88ecec30d
+  len 1024: 32 public bytes at piece 0 start (byte 0) changed, next chunk corrected |m|=1024 |m'|=1024 (L=128) bytes differing 96: 65536/65536 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed 54ac1338ee4521f1 -> 9a66139124aafdb3
+  len 65536: 32 public bytes at piece 6 start (byte 6144) changed, next chunk corrected |m|=65536 |m'|=65536 (L=8192) bytes differing 95: 65536/65536 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed f2fc1912bd885ccc -> 8cacc5696b2d338d
+  len 65536: 32 public bytes at piece 35 start (byte 35840) changed, next chunk corrected |m|=65536 |m'|=65536 (L=8192) bytes differing 95: 65536/65536 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed d500387df13b1ec8 -> b2aac43f33005fce
+  len 1048576: 32 public bytes at piece 177 start (byte 181248) changed, next chunk corrected |m|=1048576 |m'|=1048576 (L=131072) bytes differing 96: 4096/4096 = 2^0.000  95%CI [2^-0.001, 2^0.000]  e.g. seed d998b02da42604ae -> f198ee180536c5b9
+  family: 65536 members (65536 distinct) of 128 bytes, bytes 0..1 vary (piece start), chunk 1 corrected: all equal for 1024/1024 seeds; e.g. seed d4b14ff46ccffe2f -> af1e85830ccd67e7
+  family: 65536 members (65536 distinct) of 4173 bytes, bytes 2048..2049 vary (piece start), chunk 33 corrected: all equal for 1024/1024 seeds; e.g. seed 0c80a1b3c631810d -> 8a1efa0aeb146acf
+
+[ARM] mid-message trail at a random chunk (state secret):
+  inverse-S-box DDT(01 -> ab) = 4/256 (lane a, byte 5 of the word)
+  len 256: chunk 1 of piece 0 (byte 64) and chunk 2          |m|=256 |m'|=256 (L=32) bytes differing 5: 1044/65536 = 2^-5.972  95%CI [2^-6.059, 2^-5.885]  e.g. seed 5e7490baeb7a197c -> ec8f8d5c63e832e5
+    m  = 0f955c9bb68d791069c08604872b786b7aef447f60af0ddce7644fc37bc21c0efcc30c8bf6f9b5c40dd84272b6ef184231695772317e6cd9cfe29e09b9acce805fa0ccd55d273181cb42cd48a63bee006a229d59a100e8b73a6d0fca971dace7664f1a44ee8c0917720d3ab67f0550db48ad333b4b12e400c0546806acf732728b74b5764d3dc9a14ccd14bbc2a24f22be27ae7bc219ce9d1b5ad8d59a55f7637c2470dce3c3e1f4557ea7fcbac714a845b4413135f1b6f1de0f336b1b7dba7d81d65de11508baf1588726f6f022a322115d0c50e0e22b7ef665f5d49056c420cd05e776c141cde4ddd6c62f129c6aedb136d3c57181c4efe9d1ce4c8d6aa5a8
+    m' = 0f955c9bb68d791069c08604872b786b7aef447f60af0ddce7644fc37bc21c0efcc30c8bf6f9b5c40dd84272b6ef184231695772317e6cd9cfe29e09b9acce805fa0ccd55d263181cb42cd48a63bee006a229d59a100e8b73a6d0fca971dace7664f1a44ee8c0917720d3ab67f0550db48ad333b4b12e400c0546806acf732728b74b5764d3dc9a1853590a5c2a24f22be27ae7bc219ce9d1b5ad8d59a55f7637c2470dce3c3e1f4557ea7fcbac714a845b4413135f1b6f1de0f336b1b7dba7d81d65de11508baf1588726f6f022a322115d0c50e0e22b7ef665f5d49056c420cd05e776c141cde4ddd6c62f129c6aedb136d3c57181c4efe9d1ce4c8d6aa5a8
+  len 1024: chunk 12 of piece 0 (byte 768) and chunk 13      |m|=1024 |m'|=1024 (L=128) bytes differing 5: 1019/65536 = 2^-6.007  95%CI [2^-6.095, 2^-5.919]  e.g. seed 6d30819dfa2c9820 -> 62e7d617ef902b0e
+  len 65536: chunk 8 of piece 24 (byte 25088) and chunk 9    |m|=65536 |m'|=65536 (L=8192) bytes differing 5: 1066/65536 = 2^-5.942  95%CI [2^-6.028, 2^-5.856]  e.g. seed 34468f8a62565f6c -> 6a17bf2c734895df
+  len 1048576: chunk 2 of piece 595 (byte 609408) and chunk 3 |m|=1048576 |m'|=1048576 (L=131072) bytes differing 5: 999/65536 = 2^-6.036  95%CI [2^-6.124, 2^-5.947]  e.g. seed ac63c73b1eb66dd2 -> 2e276cea2e686d51
+
+[ARM] weak-key 256-way at 1024 B (byte 325 takes all 256 values, chunk 6 corrected for a guessed state byte):
+  all 256 equal for 253/65536 seeds = 2^-8.017 (95%CI [2^-8.194, 2^-7.840]); largest class per seed: 4:65283 256:253
+RESULT: PASS

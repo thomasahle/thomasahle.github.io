@@ -1,0 +1,135 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MuseAir
+v2 (crate museair 0.6.0): an 80-byte pair that collides for every
+seed</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="museair-v2-crate-museair-060-an-80-byte-pair-that-collides-for-every-seed">MuseAir
+v2 (crate museair 0.6.0): an 80-byte pair that collides for every
+seed</h1>
+<p>Key model: <code>museair::hash(bytes, seed)</code> (and
+<code>museair::bfast::hash</code>) with one uniform 64-bit seed; the
+messages are fixed before the seed is drawn; a hit is equality of the
+full 64-bit output. Hex strings are bytes in memory order.</p>
+<h2 id="mechanism-product-exchange">Mechanism (product exchange)</h2>
+<p>The 64-bit seed enters every state word in one of two classes: s_x =
+C[x] ^ SA for even x and C[x] ^ SB for odd x, where SA = seed &amp;
+0xAAAA...AA and SB = seed &amp; 0x5555...55. On the long path (more than
+32 bytes, up to 96 bytes, no compress round) the finalize computes six
+products P_m = A_m * B_m. Each operand is s_x XOR message words, so it
+is SA or SB XOR a value the message controls. Only these reach the
+output:</p>
+<pre><code>i &lt;- s0 - s1,  g(P3) + g(P4)
+j &lt;- s2 - s3,  g(P5) + g(P0)
+k &lt;- s4 - s5,  g(P1) + g(P2)            (g(P) = lo ^ hi)</code></pre>
+<p>If two products that feed the same accumulator have operands of
+matching classes, the message can make the operands equal up to bit 63.
+Flipping bit 63 of four chosen words then exchanges the two products
+(their sum is unchanged), and the 2^63 shifts cancel in pairs in the
+differences s_even - s_odd. Nothing depends on the seed value, so every
+seed collides.</p>
+<p>At 80 bytes (L = 10; P3 is not computed at this length): take A0 = B5
+^ 2^63 (t3 = 2^63), B0 = A5, B1 = A2 ^ 2^63 (r4 = 2^63), B2 = A1 ^ 2^63,
+and flip bit 63 of words 0, 2, 3 and 5. This exchanges P0 with P5 and P1
+with P2. At 88 and 96 bytes the analogous choice exchanges P1 with P2
+and P3 with P4. Under 80 bytes the construction does not close: at
+65..72 bytes a flipped word overlaps the tail words that feed P4, and at
+64 bytes or fewer the k accumulator has only one product.</p>
+<p>This extends pair D of eternal-io/museair#4 (a factor swap in the
+v0.3 BFast long path, which works because a ^ b is seed-free there). In
+v2 the seed masks make single-lane swaps seed-dependent, but the
+two-class structure still allows whole products to be exchanged.</p>
+<h2 id="the-pair-80-bytes">The pair (80 bytes)</h2>
+<pre><code>M  = 909dea05e80e02d243265f3567044597aa01c47742b811c67ad20fc2a1b5b144
+     000000000000008017cedf86b534a0667d8a71f0e684fc7ff1bc7e2b4f655fdb
+     3319d238bcff82080000000000000080
+M&#39; = 909dea05e80e025243265f3567044597aa01c47742b811467ad20fc2a1b5b1c4
+     000000000000008017cedf86b534a0e67d8a71f0e684fc7ff1bc7e2b4f655fdb
+     3319d238bcff82080000000000000080</code></pre>
+<p>They differ in bit 7 of bytes 7, 23, 31 and 47. <code>hash</code>:
+seed 0 -&gt; 0x6553a84485e3fc6a for both; seed 0xdeadbeefcafef00d -&gt;
+0x90fcb15f1b2e6ddd for both. <code>bfast::hash</code>: seed 0 -&gt;
+0x5113830ad473dfdd for both. Score log2(10 / 1) = 3.32 bits.</p>
+<p><code>hash128</code> and <code>bfast::hash128</code> do not collide
+on this pair (0 / 2^20). They seed with three masks and two seeds, so
+operands of the same class cannot be tied.</p>
+<h2 id="limits">Limits</h2>
+<ul>
+<li>Size of the set: the exchange units at a given length need
+incompatible base relations when combined, so this mechanism gives a set
+of two messages, not a larger family.</li>
+<li>Longer inputs: one compress round (inputs over 96 bytes) turns every
+state word into a chain of products and leaves no class relation. The
+80-byte pair placed after a common 96-byte chunk (176 B), or as the
+start of a 192-byte message, gives 0 / 2^24 collisions
+(<code>museair_long</code>).</li>
+</ul>
+<h2 id="files">Files</h2>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>what it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>museair2_swap.c</code>, <code>museair2_core.h</code></td>
+<td>own C port of crate 0.6.0 (checks all eight
+<code>stability_v2</code> values at startup); builds the 80, 88 and
+96-byte pairs from the relations and counts collisions</td>
+</tr>
+<tr class="even">
+<td><code>museair2_check/</code></td>
+<td>independent Rust checker linked against the crate; the 80-byte pair,
+special seeds, <code>hash128</code>, and a 96-byte variant built from
+the stated relations</td>
+</tr>
+<tr class="odd">
+<td><code>museair_long/</code></td>
+<td>Rust, crate-linked: the pair embedded in 176 and 192-byte
+inputs</td>
+</tr>
+</tbody>
+</table>
+<p>Upstream: see <code>SOURCES.md</code>.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>cc -O2 -std=c11 museair2_swap.c -o museair2_swap &amp;&amp; ./museair2_swap 24
+(cd museair2_check &amp;&amp; cargo run --release -- 26 26)
+(cd museair_long &amp;&amp; cargo run --release -- 24)</code></pre>
+<h2 id="expected-output-from-logs">Expected output (from
+<code>logs/</code>)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>run</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>museair2_check 26 26</code></td>
+<td><code>hash</code> 67,108,870 / 67,108,870 and
+<code>bfast::hash</code> 67,108,870 / 67,108,870 (2^26 random seeds plus
+0, 2^64-1, 0xAA..AA, 0x55..55, 1, 2^63); <code>hash128</code> 0 /
+65,536</td>
+</tr>
+<tr class="even">
+<td><code>museair2_check 20 26</code></td>
+<td>same pair 2^20 + 6 / 2^20 + 6; 96-byte variant 2^20 / 2^20 on both
+functions</td>
+</tr>
+<tr class="odd">
+<td><code>museair2_swap 24</code></td>
+<td>80, 88 and 96 bytes: 2^24 / 2^24 on <code>hash</code> and
+<code>bfast::hash</code>; <code>hash128</code> 0 / 2^20</td>
+</tr>
+<tr class="even">
+<td><code>museair_long 24</code></td>
+<td>80 B control 2^20 / 2^20; 176 B and 192 B 0 / 2^24 on both
+functions</td>
+</tr>
+</tbody>
+</table>
+<p><code>logs/museair2_check_2p26.log</code> was produced before the
+96-byte section was added to the program;
+<code>logs/museair2_check_2p20_96B.log</code> is a rerun of the current
+program.</p>
+</main></body></html>

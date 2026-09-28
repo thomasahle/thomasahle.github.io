@@ -1,0 +1,38 @@
+validation: hash                   0x7140CABC (crate stability_v2 0x7140CABC) OK
+validation: hash_folded            0x0B8F0243 (crate stability_v2 0x0B8F0243) OK
+validation: hash128                0x38028C88 (crate stability_v2 0x38028C88) OK
+validation: hash128_folded         0xB9CD57B7 (crate stability_v2 0xB9CD57B7) OK
+validation: bfast::hash            0xA4BFD093 (crate stability_v2 0xA4BFD093) OK
+validation: bfast::hash_folded     0xDCCDD53A (crate stability_v2 0xDCCDD53A) OK
+validation: bfast::hash128         0x81863E77 (crate stability_v2 0x81863E77) OK
+validation: bfast::hash128_folded  0x9BAAAF63 (crate stability_v2 0x9BAAAF63) OK
+
+== length 80 (L = 10 words) ==
+M  = 909dea05e80e02d243265f3567044597aa01c47742b811c67ad20fc2a1b5b144000000000000008017cedf86b534a0667d8a71f0e684fc7ff1bc7e2b4f655fdb3319d238bcff82080000000000000080
+M' = 909dea05e80e025243265f3567044597aa01c47742b811467ad20fc2a1b5b1c4000000000000008017cedf86b534a0e67d8a71f0e684fc7ff1bc7e2b4f655fdb3319d238bcff82080000000000000080
+hash (64-bit):        16777216/16777216 seeds collide
+bfast::hash (64-bit): 16777216/16777216 seeds collide
+hash128 (seed_a, seed_b independent): 0/1048576; bfast::hash128: 0/1048576; hash128(seed, seed): 0/1048576
+seed 0x0000000000000000: hash 6553a84485e3fc6a 6553a84485e3fc6a  bfast 5113830ad473dfdd 5113830ad473dfdd
+seed 0xdeadbeefcafef00d: hash 90fcb15f1b2e6ddd 90fcb15f1b2e6ddd  bfast a0d9257b2e4053f8 a0d9257b2e4053f8
+seed 0x9614375735c50417: hash a8c567218be6e2e2 a8c567218be6e2e2  bfast c8697f258869f292 c8697f258869f292
+
+== length 88 (L = 11 words) ==
+M  = ae35c85065c7fba6bb968ba7434d3d5aa27280e1d5cc6c547ef679e9e49f07250000000000000080e70d4f820609a5b95e724b74b02b29900000000000000000c615b314b234e05acb930c5ebd04956a6678692c2cbd1b78
+M' = ae35c85065c7fba6bb968ba7434d3d5aa27280e1d5cc6c547ef679e9e49f07a50000000000000080e70d4f820609a5b95e724b74b02b29100000000000000000c615b314b234e0dacb930c5ebd0495ea6678692c2cbd1b78
+hash (64-bit):        16777216/16777216 seeds collide
+bfast::hash (64-bit): 16777216/16777216 seeds collide
+hash128 (seed_a, seed_b independent): 0/1048576; bfast::hash128: 0/1048576; hash128(seed, seed): 0/1048576
+seed 0x0000000000000000: hash e719bba032c2f008 e719bba032c2f008  bfast 5d52e402cb12bc41 5d52e402cb12bc41
+seed 0xdeadbeefcafef00d: hash ad2bf1bfaaf75d9d ad2bf1bfaaf75d9d  bfast bd64065ad9739ea9 bd64065ad9739ea9
+seed 0x9614375735c50417: hash fb3cf73d8a56f2d0 fb3cf73d8a56f2d0  bfast ee47697ca8a90fdd ee47697ca8a90fdd
+
+== length 96 (L = 12 words) ==
+M  = ae35c85065c7fba6bb968ba7434d3d5aa27280e1d5cc6c547ef679e9e49f07250000000000000080e70d4f820609a5b95e724b74b02b2990e45f35939f4701130000000000000000c615b314b234e05acb930c5ebd04956a6678692c2cbd1b78
+M' = ae35c85065c7fba6bb968ba7434d3d5aa27280e1d5cc6c547ef679e9e49f07a50000000000000080e70d4f820609a5b95e724b74b02b2910e45f35939f4701130000000000000000c615b314b234e0dacb930c5ebd0495ea6678692c2cbd1b78
+hash (64-bit):        16777216/16777216 seeds collide
+bfast::hash (64-bit): 16777216/16777216 seeds collide
+hash128 (seed_a, seed_b independent): 0/1048576; bfast::hash128: 0/1048576; hash128(seed, seed): 0/1048576
+seed 0x0000000000000000: hash ed3f38b14213cdb6 ed3f38b14213cdb6  bfast b860e6b85c23ea5c b860e6b85c23ea5c
+seed 0xdeadbeefcafef00d: hash 8e5c5ad65402ff94 8e5c5ad65402ff94  bfast 9f07b7c58b44dd2b 9f07b7c58b44dd2b
+seed 0x9614375735c50417: hash d403211d3d74ad39 d403211d3d74ad39  bfast b434164f59c9077e b434164f59c9077e

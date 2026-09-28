@@ -42,6 +42,17 @@ of one block keeps the unkeyed lane sums and needs lo32+hi32 of the two keyed wo
 Pr = (2/3)2^-32 = 2^-32.58 with L >= 31 words -> ~37.5 bits, worse than 2 + 26.6.
 Prediction for (3): no fixed pair beats the complement family; recommended row score stays ~28.6.
 
+> **Correction (2026-09-28).** The statement above that cross-length pairs on the short paths are about
+> 2^-64 is wrong. Per length the paths are injective, but two lengths can collide: the 9-byte zero
+> message and the 16-byte message `00292432025470850029243202543025` collide in the full 128-bit
+> output for about 2^-20.0 of uniform 192-byte secrets (20069 / (5 x 2^32), pooled over two independent
+> programs; cap 21.0 bits at L = 2), because the length term `(len - 1) << 54` can be cancelled by an
+> additive difference of the keyed word. The same happens on the XXH3-64 4..8-byte path (5 zero bytes
+> vs `0fe3fba2f2528c1d`, about 2^-21.6). The long-path remark also understates the long path: the
+> stripe swap extends to a weak-key multicollision of unbounded size on one 2^-32 secret condition.
+> See [xxh3-crosslen](../../reanalysis-2026-09/xxh3-crosslen/README.md) and
+> [xxh3-toggle](../../reanalysis-2026-09/xxh3-toggle/README.md). The text of this record is otherwise left as written on 2026-09-19.
+
 ## 3. Runs (all deterministic; `rs128` prints the SMHasher3 verification 0x288DAA94 first)
     cc -O2 -std=gnu11 -pthread -o rs128 rs128.c -lm      # xxhash.h v0.8.3 sha256 17973c0d...
     python3 gen.py                                        # regenerates F.txt family.txt long.txt controls.txt masks*.txt

@@ -1,0 +1,32 @@
+dim ker C = 32
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x3eb2ff580d5eb7d6  (v^v' = 0x004141e282815cb8)
+start 1: v = 0x62bc6e7cacbfc3cf  v' = 0x614f13e3afb87e67  (v^v' = 0x03f37d9f0307bda8)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x3af36eba4fdaebd6  (v^v' = 0x0400d000c00500b8)
+start 1: v = 0x62bc6e7cacbfc3cf  v' = 0x79466c18504f8f86  (v^v' = 0x1bfa0264fcf04c49)
+start 2: v = 0xd4c5434b454823a5  v' = 0xc8823c07fd48c0dd  (v^v' = 0x1c477f4cb800e378)
+start 1: v = 0x62bc6e7cacbfc3cf  v' = 0x46b3d1c7ac40f0e6  (v^v' = 0x240fbfbb00ff3329)
+start 1: v = 0x62bc6e7cacbfc3cf  v' = 0x42b02cf053b9e70c  (v^v' = 0x200c428cff0624c3)
+start 4: v = 0x67a86102b3cddb4d  v' = 0x13564cfa8714048f  (v^v' = 0x74fe2df834d9dfc2)
+start 7: v = 0x87b9f3a8dad17623  v' = 0xf37392a596f4ae9d  (v^v' = 0x74ca610d4c25d8be)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x6ef2ebd80eabd7b6  (v^v' = 0x5001556281743cd8)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x6fb3fab94b577b56  (v^v' = 0x51404403c4889038)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x6bf3ebfa8aafd6f6  (v^v' = 0x5500554005703d98)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x75f377f84dbdd7ae  (v^v' = 0x4b00c942c2623cc0)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x75b2affa8df755fe  (v^v' = 0x4b4111400228be90)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x7f736fda8eef5b7e  (v^v' = 0x4180d1600130b010)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0x9b5c7f947c2e7898  (v^v' = 0xa5afc12ef3f193f6)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0xa5fb98d0204c6dbf  (v^v' = 0x9b08266aaf9386d1)
+start 6: v = 0x3ef3beba8fdfeb6e  v' = 0xba3a8e9b6894c3d3  (v^v' = 0x84c93021e74b28bd)
+start 1 done: 4 partner(s)
+start 5: v = 0x3cf0a859aa69c37c  v' = 0xbda7b7ade39325de  (v^v' = 0x81571ff449fae6a2)
+start 3 done: 0 partner(s)
+start 4 done: 1 partner(s)
+start 2 done: 1 partner(s)
+start 0 done: 0 partner(s)
+start 5 done: 1 partner(s)
+start 6 done: 11 partner(s)
+start 7 done: 1 partner(s)
+
+real	0m12.206s
+user	1m36.091s
+sys	0m0.006s

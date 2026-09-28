@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Upstream
+sources used by the programs in these folders</title><link rel="stylesheet" href="../../../post.css"><link rel="stylesheet" href="../../../math.css"><link rel="stylesheet" href="../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../index.html">Article</a> · <a href="../../../records/README.html">Records</a></nav><h1 id="upstream-sources-used-by-the-programs-in-these-folders">Upstream
+sources used by the programs in these folders</h1>
+<p>The <code>mc_*.cpp</code>, <code>*_long.cpp</code> and
+<code>kf_abseil.cpp</code> programs are single files that already
+contain the SMHasher3 platform header and the verbatim SMHasher3
+<code>hashes/*.cpp</code> source of the hash they test, plus a driver;
+they need nothing else. The <code>indep_*</code> programs include
+unmodified upstream files, fetched from these pinned URLs (sha256 of the
+file as used):</p>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>URL</th>
+<th>sha256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>city.cc</td>
+<td><a
+href="https://raw.githubusercontent.com/google/cityhash/f5dc54147fcce12cefd16548c8e760d68ac04226/src/city.cc">https://raw.githubusercontent.com/google/cityhash/f5dc54147fcce12cefd16548c8e760d68ac04226/src/city.cc</a></td>
+<td>9cd2e21da0d6131b1756f059c6f269c204ee4ecd28c7f4c487376efe2336696b</td>
+</tr>
+<tr class="even">
+<td>city.h</td>
+<td><a
+href="https://raw.githubusercontent.com/google/cityhash/f5dc54147fcce12cefd16548c8e760d68ac04226/src/city.h">https://raw.githubusercontent.com/google/cityhash/f5dc54147fcce12cefd16548c8e760d68ac04226/src/city.h</a></td>
+<td>0a65d60f1742e215e1cedd7fa081895c2bee7afdbe56b86870e63fd0536c5297</td>
+</tr>
+<tr class="odd">
+<td>citycrc.h</td>
+<td><a
+href="https://raw.githubusercontent.com/google/cityhash/f5dc54147fcce12cefd16548c8e760d68ac04226/src/citycrc.h">https://raw.githubusercontent.com/google/cityhash/f5dc54147fcce12cefd16548c8e760d68ac04226/src/citycrc.h</a></td>
+<td>4be7527f517b6744e70b3ae163125e908b5f5d660ed53740a33b93a6663bf7dd</td>
+</tr>
+<tr class="even">
+<td>farmhash.cc</td>
+<td><a
+href="https://raw.githubusercontent.com/google/farmhash/9d99331eb762e9ee22fd97d15a594525ad98310a/src/farmhash.cc">https://raw.githubusercontent.com/google/farmhash/9d99331eb762e9ee22fd97d15a594525ad98310a/src/farmhash.cc</a></td>
+<td>13751fdbc92b7a08670956d5350d288b8fd30f0f1eb83e1b19059d6435a4ac51</td>
+</tr>
+<tr class="odd">
+<td>farmhash.h</td>
+<td><a
+href="https://raw.githubusercontent.com/google/farmhash/9d99331eb762e9ee22fd97d15a594525ad98310a/src/farmhash.h">https://raw.githubusercontent.com/google/farmhash/9d99331eb762e9ee22fd97d15a594525ad98310a/src/farmhash.h</a></td>
+<td>f7c569f85c035f73705a4b9025a80ebb1c4772fb6305fd4469f7e0629a898dcd</td>
+</tr>
+<tr class="even">
+<td>mx3.h</td>
+<td><a
+href="https://raw.githubusercontent.com/jonmaiga/mx3/48924ee743d724aea2cafd2b4249ef8df57fa8b9/mx3.h">https://raw.githubusercontent.com/jonmaiga/mx3/48924ee743d724aea2cafd2b4249ef8df57fa8b9/mx3.h</a></td>
+<td>c65f1f3870ed35e06aa1dd8962132366eb7686b2aca2801035e0f8e60ecf8675</td>
+</tr>
+<tr class="odd">
+<td>mum.h</td>
+<td><a
+href="https://raw.githubusercontent.com/vnmakarov/mum-hash/595c091da6872da6a4f0a3852291c83aa37ea7eb/mum.h">https://raw.githubusercontent.com/vnmakarov/mum-hash/595c091da6872da6a4f0a3852291c83aa37ea7eb/mum.h</a></td>
+<td>a7008e07a8912fa8fbd7c949fcaf4498c7792c9a35bbe3f39b4233dddff7aaea</td>
+</tr>
+<tr class="even">
+<td>mir-hash.h</td>
+<td><a
+href="https://raw.githubusercontent.com/vnmakarov/mir/a8ab7c31cd5f9b23b77d84c60b3d83e62d9d304c/mir-hash.h">https://raw.githubusercontent.com/vnmakarov/mir/a8ab7c31cd5f9b23b77d84c60b3d83e62d9d304c/mir-hash.h</a></td>
+<td>7099eef3af2dd99f9710e5552a6dcca95dd1170f5345555ef97b9ddeb3a37971</td>
+</tr>
+<tr class="odd">
+<td>a5hash.h (v5.25)</td>
+<td><a
+href="https://raw.githubusercontent.com/avaneev/a5hash/10492dbe8c34ae043ccbab3fe4b16a2a26eebbc6/a5hash.h">https://raw.githubusercontent.com/avaneev/a5hash/10492dbe8c34ae043ccbab3fe4b16a2a26eebbc6/a5hash.h</a></td>
+<td>fca1b4b9be5ee4f5861b509563bb0643c81f83464be6656852afc6df39a3452a</td>
+</tr>
+<tr class="even">
+<td>MurmurHash3.cpp</td>
+<td><a
+href="https://raw.githubusercontent.com/aappleby/smhasher/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash3.cpp">https://raw.githubusercontent.com/aappleby/smhasher/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash3.cpp</a></td>
+<td>30f121ed155ebf336af398aabb7d8d157afdfafc8d981e7b48d2a1ceb4b63e4e</td>
+</tr>
+<tr class="odd">
+<td>MurmurHash3.h</td>
+<td><a
+href="https://raw.githubusercontent.com/aappleby/smhasher/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash3.h">https://raw.githubusercontent.com/aappleby/smhasher/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash3.h</a></td>
+<td>9af2003e3885c841fa0ac08cb5d5f31541ee9d793f8a9c4a4f771f43fb0d6f41</td>
+</tr>
+<tr class="even">
+<td>museair_smhasher3.cpp</td>
+<td>SMHasher3 <code>hashes/museair.cpp</code> (MuseAir v0.3, CC0),
+copied in <code>museair/</code></td>
+<td>59c1a4276cd3ec263f53739c326008002b513ce6d8c0d84c4702ae61565dfd90</td>
+</tr>
+<tr class="odd">
+<td>abseil-cpp</td>
+<td><a
+href="https://github.com/abseil/abseil-cpp">https://github.com/abseil/abseil-cpp</a>
+tree 73d2688 (= LTS 20260817.0); <code>absl/hash/internal/hash.cc</code>
+f2b6084b…857e, <code>hash.h</code> 65f71f11…e288,
+<code>absl/base/options.h</code> 7c869bc3…a9b6</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>config.h</code> in <code>city-farm/</code> is a six-line
+stand-in for cityhash's autoconf output (little-endian host).</p>
+<p>Hosts: <code>&lt;xeon-host&gt;</code> is an Intel Xeon Platinum 8375C
+(x86-64, AES-NI, SSE4.2); "M2" is an Apple M2 (arm64, macOS, Apple
+clang). <code>&lt;scratch&gt;</code> stands for a working directory.</p>
+</main></body></html>

@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nmhash32
+v2: lane-tied trail T2, a fixed set that floods one bucket for every
+seed</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="nmhash32-v2-lane-tied-trail-t2-a-fixed-set-that-floods-one-bucket-for-every-seed">nmhash32
+v2: lane-tied trail T2, a fixed set that floods one bucket for every
+seed</h1>
+<p>nmhash32 v2 has a 32-bit seed and a 32-bit output. Two ideas
+combine.</p>
+<p><strong>Lane tying.</strong> Each of the four lanes (33..255-byte
+path) or 32 lanes (long path, &gt;= 256 bytes) XORs its first x word
+onto a public constant (<code>NMH_PRIME32_1..4</code>, resp.
+<code>NMH_ACC_INIT[j]</code>). Choose x word j = constant_j ^ A and
+every y word = B: all lanes then carry identical state, so a per-lane
+differential succeeds in all lanes or in none.</p>
+<p><strong>Trail T2.</strong> Let L(v) = v ^ v&lt;&lt;11 ^ v&gt;&gt;9
+(the xorshift before the third multiply). XOR D = L^-1(0x8000) =
+0x04008040 into a lane's x and y word. x + y is unchanged exactly when
+bits 26, 15 and 6 of x ^ y are all 1; the surviving difference reaches
+the 16-bit multiply as 0x8000 (the top bit of a 16-bit half, which an
+odd multiplier maps to itself), leaves the round as C = 0x00008020, and
+the next round's words (x' ^= C, y' ^= D) cancel it. There is no carry
+condition. With lane tying the condition is three seed bits: bits 6, 15,
+26 of y = seed + len (64-byte path) or y = seed (long path). A = A(g)
+fixes which of the 8 values of those bits works.</p>
+<p>Families (little-endian words; lane j on, B = 0):</p>
+<ul>
+<li>64 B: x_j = P_j ^ A ^ D, y_j = D, x'_j = C, y'_j = D at byte offsets
+4j, 16+4j, 32+4j, 48+4j; lanes off are x_j = P_j ^ A and zeros. The 16
+lane subsets form a 16-way family.</li>
+<li>512 B: the same with <code>NMH_ACC_INIT[j]</code> and offsets 4j,
+128+4j, 256+4j, 384+4j, 32 lanes: 2^32 lane subsets.</li>
+<li>Fixed per-key set: the union over the 8 guesses g of 2^13 lane
+subsets = 65,536 distinct 512-byte messages. For every seed exactly one
+guess is right, so 8,192 members share one full output.</li>
+</ul>
+<h2 id="results">Results</h2>
+<table>
+<thead>
+<tr class="header">
+<th>claim</th>
+<th>count</th>
+<th>where</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>16-way 64 B family (g = 7) collides</td>
+<td>536,870,912 / 2^32 seeds = exactly 1/8; predictor (3 seed bits)
+agrees on every seed</td>
+<td><code>logs/search_runs_xeon.log</code>,
+<code>logs/nm_check_m2.txt</code> (independent program)</td>
+</tr>
+<tr class="even">
+<td>T1-tied 16-way 64 B family</td>
+<td>1,079,027,392 / 2^32 = 25.1%</td>
+<td><code>logs/search_runs_xeon.log</code></td>
+</tr>
+<tr class="odd">
+<td>512 B, {empty, lane 0, all 32 lanes} equal</td>
+<td>536,870,912 / 2^32; 0 disagreements with the 3-bit predictor</td>
+<td><code>logs/search_runs_xeon.log</code>,
+<code>logs/exh512_m2.txt</code></td>
+</tr>
+<tr class="even">
+<td>2^16-member 512 B family, class seeds / uniform seeds</td>
+<td>4,096/4,096 and 509/4,096; independent program 1,024/1,024 and
+139/1,024</td>
+<td>both logs</td>
+</tr>
+<tr class="odd">
+<td>2^20-member 512 B family, class seeds</td>
+<td>256/256</td>
+<td><code>logs/search_runs_xeon.log</code></td>
+</tr>
+<tr class="even">
+<td>fixed 65,536-message set, largest full-output class</td>
+<td>8,192 for every one of 4,096 seeds (min = median = max); same with
+low-16/low-20/high-16-bit buckets (max 8,202)</td>
+<td><code>logs/search_runs_xeon.log</code>,
+<code>logs/nm_check_m2.txt</code> (4,096 more seeds, min = max =
+8,192)</td>
+</tr>
+<tr class="odd">
+<td>fixed 128-message 64 B set (8 guesses x 16)</td>
+<td>a 16-member class for all 65,536 seeds tested</td>
+<td><code>logs/search_runs_xeon.log</code></td>
+</tr>
+<tr class="even">
+<td>position independence (T2 inserted at a 256-byte round inside random
+content)</td>
+<td>1 KB 32,790/262,144 = 2^-2.999; 64 KB 2,059/16,384 = 2^-2.992; 1 MB
+253/2,048 = 2^-3.017 (T1: 2^-1.991 / 2^-1.999 / 2^-2.020)</td>
+<td><code>logs/long_inputs_xeon.log</code></td>
+</tr>
+</tbody>
+</table>
+<p>The 2^32-way statement at 512 B rests on the trail argument (the
+collision condition is the same three seed bits for every lane subset),
+checked exhaustively over all 2^32 seeds for three members and on
+sampled seeds for 2^16- and 2^20-member subfamilies. It is not an
+exhaustive check of all 2^32 members.</p>
+<p><strong>Witness</strong> (64 B family, guess 7, seed 0xffffffbf): all
+16 members hash to 0x2e04a763. Members in memory order are in
+<code>logs/witness_16_members.txt</code>; member 0 and member 15:</p>
+<pre><code>b179379e77caeb853daeb2c22febd427000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+f1f9379a374aeb817d2eb2c66f6bd423408000044080000440800004408000042080000020800000208000002080000040800004408000044080000440800004</code></pre>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>curl -LO https://raw.githubusercontent.com/gzm55/hash-garage/e022156ca866edc46e1aa79b2b6a466822b8b767/nmhash.h
+cc  -O2 -std=c11   -pthread -o nm_check    nm_check.c        # independent check, families from the description
+c++ -O2 -std=c++17 -pthread -o nmhash32_mc nmhash32_mc.cpp   # the search program
+
+./nm_check witness              # 16 members, all -&gt; 2e04a763 at seed 0xffffffbf
+./nm_check exh64 8              # all 2^32 seeds, about 4 CPU-minutes: 536870912, predictor 536870912, 0, 0
+./nm_check perkey 4096 8        # largest class min 8192, max 8192
+./nm_check fam16 1024 8         # class seeds 1024/1024
+NT=8 ./nmhash32_mc pair         # published 64 B pair: 1078944392 / 2^32
+NT=8 ./nmhash32_mc exh64 2 7
+NT=8 ./nmhash32_mc exh512 2 5   # about 40 CPU-minutes
+NT=8 ./nmhash32_mc perkey 2 13 4096 14 512
+NT=8 ./nmhash32_mc longins 1048576 2000 2 1 1 2048 606</code></pre>
+<p>Both programs check SMHasher3's verification value 0x12A30553 first
+and exit on mismatch.</p>
+</main></body></html>

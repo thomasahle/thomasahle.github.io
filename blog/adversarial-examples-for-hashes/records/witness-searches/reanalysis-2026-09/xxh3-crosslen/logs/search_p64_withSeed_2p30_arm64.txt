@@ -1,0 +1,10 @@
+SMHasher3 XXH3-64  verification 1AAEE62C expected 1AAEE62C PASS
+SMHasher3 XXH3-128 verification 288DAA94 expected 288DAA94 PASS
+pair XXH3-64 len5 vs len8
+  m  (5 B) = 0000000000
+  m' (8 B) = 0fe3fba2f2528c1d
+  L = 1 words; api = withSeed (default secret, uniform 64-bit seed); keys = 2^30; rng seed = 0x5eed64b; threads = 8
+collisions 339 / 2^30 = 2^-21.595  95% [2^-21.753, 2^-21.441]
+score log2(L/eps) = 21.595  95% [21.441, 21.753]
+explicit colliding seed = 0xc656a656224499e4
+H(m) = 042637874fec2910  H(m') = 042637874fec2910

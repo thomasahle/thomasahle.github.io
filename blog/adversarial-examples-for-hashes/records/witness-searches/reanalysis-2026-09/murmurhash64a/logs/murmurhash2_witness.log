@@ -1,0 +1,32 @@
+SMHasher3 verification MurmurHash2_32: 0x27864C1E (expected 0x27864C1E)
+SMHasher3 verification MurmurHash2_64: 0x1F0D3804 (expected 0x1F0D3804)
+
+[M2-32 pair] 8 bytes (L = 1), key-free
+  M1 (8 bytes) = 6d75726d75723221
+  M2 (8 bytes) = ed53ffbaf550bf6e
+  collisions 16777216 / 16777216 random 32-bit seeds
+  seed 0x9747b28c (Kafka partitioner seed): b626e14b b626e14b
+  EXHAUSTIVE: 4294967296 of 2^32 seeds collide
+  (next cube) distinct messages: 65536 of 65536
+
+[M2-32 cube] 2^16 messages of 68 bytes (L = 9); generator cube32(base, 17, idx)
+  X[0] (68 bytes) = 4d75726d757248617368322033322d626974206b65792d6672656520325e31362d776179206d756c7469636f6c6c6973696f6e2036380000000000000000000000000000
+  X[65535] (68 bytes) = cd96e51f757248617368322033322d626974206b65792d6672656520325e31362d776179206d756c7469636f6c6c6973696f6e2036380000000000000000000080de8c4d
+  all 65536 equal for 4096 / 4096 random seeds
+
+[64A pair same length] 16 bytes (L = 2), key-free
+  M1 (16 bytes) = 4d75726d7572486173683634412d3136
+  M2 (16 bytes) = 4d752f871058f0ef7368f34ddc12d9c4
+[64A pair cross length] 8 bytes vs 7 bytes (L = 1), key-free: mix(w) = t ^ (8m) ^ (7m)
+  M1 (8 bytes) = dcc945912a274b56
+  M2 (7 bytes) = 6d75726d757237
+  16-byte pair: 16777216 / 16777216 seeds; 8-vs-7 pair: 16777216 / 16777216 seeds
+  explicit seed 0x8549abc3ecc215c9: 8B 086befb2bcff6334  7B 086befb2bcff6334
+  libstdc++ std::hash seed 0xc70f6907: 8B a7ae701751be100f  7B a7ae701751be100f
+  (next cube) distinct messages: 65536 of 65536
+
+[64A cube] 2^16 messages of 136 bytes (L = 17); generator cube64(base, 17, idx)
+  X[65535] (136 bytes) = 4d752f871058f0ef7368363441206b65792d6672656520325e31362d776179206d756c7469636f6c6c6973696f6e2c20313720776f7264730000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bd199be5a78e
+  all 65536 equal for 4096 / 4096 random seeds
+
+summary: all key-free claims hold

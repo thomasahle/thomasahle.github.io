@@ -1,0 +1,6 @@
+upstream README vector: 398c5bb5cc113d03, 3a52693519575aba (expected 398c5bb5cc113d03, 3a52693519575aba) OK
+umash_fprint(M1) = 38c8a95cbd134549 2a9c6211c6cc3492
+umash_fprint(M2) = 38c8a95cbd134549 2a9c6211c6cc3492
+full 128-bit collision: YES
+control f0+1: lane0 differ, lane1 collide
+control f1+1: lane0 collide, lane1 differ

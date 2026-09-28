@@ -1,0 +1,26 @@
+abseil-cpp HW-accel (CRC32C) key-free collision check
+hook: absl::hash_internal::HashWithSeed().hash(Hash<string_view>{}, sv, seed)
+CRC32C 8-byte map: rank 32, ker dim 32 (expect 32) -- CRC path confirmed
+
+Per-length seed-independent families (single CRC round, len 9..16):
+  L= 9 dim=24 (2^24 family): pair H(base,0)=3146e4736b5c9f18 H(m',0)=3146e4736b5c9f18 EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+     shortest pair (9 bytes): m  = 414243444546474849  ("ABCDEFGHI")
+                              m' = 41b335a84047474849
+  L=10 dim=16 (2^16 family): pair H(base,0)=7716e0ee671aea48 H(m',0)=7716e0ee671aea48 EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+  L=11 dim=24 (2^24 family): pair H(base,0)=ac6614207840ee81 H(m',0)=ac6614207840ee81 EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+  L=12 dim=32 (2^32 family): pair H(base,0)=5df556e6b80da9ee H(m',0)=5df556e6b80da9ee EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+  L=13 dim=40 (2^40 family): pair H(base,0)=27e8503ec52ad8fd H(m',0)=27e8503ec52ad8fd EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+  L=14 dim=48 (2^48 family): pair H(base,0)=c6fb5d123c66920d H(m',0)=c6fb5d123c66920d EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+  L=15 dim=56 (2^56 family): pair H(base,0)=27e302669db46e61 H(m',0)=27e302669db46e61 EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+  L=16 dim=64 (2^64 family): pair H(base,0)=e679b55532d4cfe9 H(m',0)=e679b55532d4cfe9 EQ; table seeds 2097152/2097152; uniform 2^24 pair 16777216/16777216; sub-family 2^16 x32 seeds 2097152/2097152  [OK]
+
+Real absl::flat_hash_set<std::string> experiment (length 9, 2^16 members):
+  family: 65536 distinct 9-byte strings; table seed=1728; distinct hash_of() values among them: 1
+  random: 65536 distinct 9-byte strings; table seed=896; distinct hash_of() values: 65536
+  distinct H2 control bytes: family=1 (of 128), random=128 (of 128)
+
+ALL CHECKS PASSED
+
+real	0m32.694s
+user	0m32.391s
+sys	0m0.020s

@@ -1,0 +1,20 @@
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+class b=1 len=168 word=6 cond high32(core_key[6])=0: in-class 1048576/1048576, out-of-class 0/1048576, uniform 0/1048576
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+class b=8 len=1344 word=48 cond high32(core_key[6])=0: in-class 262144/262144, out-of-class 0/262144, uniform 0/262144
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+class b=8 len=168 word=6 cond high32(core_key[6])=0: in-class 0/1048576, out-of-class 0/1048576, uniform 0/1048576
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+family b=8 block 6 k=2^16 (1344 B): class keys, whole family equal 256/256; uniform keys, any of 63 members equal to member 0: 0/256
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+family b=1 block 6 k=2^16 (168 B): class keys, whole family equal 1024/1024; uniform keys, any of 63 members equal to member 0: 0/1024
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+keyfree b=8: zero messages of lengths 0..63 all equal for 2000/2000 keys; length 64 equal to them for 0/2000
+keyfree b=8: zero messages of lengths 64..127 all equal for 2000/2000 keys; length 128 equal to them for 0/2000
+keyfree b=8: zero messages of lengths 1344..1407 all equal for 2000/2000 keys; length 1408 equal to them for 0/2000
+keyfree b=8: zero messages of lengths 1472..1535 all equal for 2000/2000 keys; length 1536 equal to them for 0/2000
+self-check: dispatched V2Sse2/V3Avx2/V4Avx512 vs header scalar V2..V4Scalar: 0 mismatches in 8400
+keyfree b=1: zero messages of lengths 0..7 all equal for 2000/2000 keys; length 8 equal to them for 0/2000
+keyfree b=1: zero messages of lengths 8..15 all equal for 2000/2000 keys; length 16 equal to them for 0/2000
+keyfree b=1: zero messages of lengths 168..175 all equal for 2000/2000 keys; length 176 equal to them for 0/2000
+keyfree b=1: zero messages of lengths 184..191 all equal for 2000/2000 keys; length 192 equal to them for 0/2000

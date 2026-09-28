@@ -1,0 +1,20 @@
+absl::Hash long-input analysis, variant: x86 AES (LowLevelHash with aesenc/aesdec)
+transcription of LowLevelHashLenGt64 vs the real library, 20000 random (len 65..1024, seed): 0 mismatches
+
+[x86] chunk 0: the state is Set128(seed, len) = (len | seed); the low 8 bytes of every lane input are public.
+  len 128: byte 7 at piece 0 start (byte 0), next lane-a word corrected |m|=128 |m'|=128 (L=16) bytes differing 6: 13/1048576 = 2^-16.300  95%CI [2^-17.074, 2^-15.525]  e.g. seed 6a1ff82d34f07301 -> e23048b5aec31c09
+    m  = adde9c8e5862b93f79cdd38a96002dc0a82205ccf43dc86dc5d6c9a8ee83b31d5155e0100bb1fd4a5baa930992a50ae1f04e6a69ce709e1639c2e32d310296b0f105e46409bfcc48481f71adf7ad2efadc9c1e5ddd12da62b5a1ae29827b5642077a0a11d3ea40e99c42b54274367030f0b71846a5f6fc47eea42ec90a9c1568
+    m' = adde9c8e5862b9b179cdd38a96002dc0a82205ccf43dc86dc5d6c9a8ee83b31d5155e0100bb1fd4a5baa930992a50ae1f04e6a69ce709e1639c2e32d310296b0b71704e909bfccc8481f71adf7ad2efadc9c1e5ddd12da62b5a1ae29827b5642077a0a11d3ea40e99c42b54274367030f0b71846a5f6fc47eea42ec90a9c1568
+  len 1024: byte 7 at piece 0 start (byte 0), next lane-a word corrected |m|=1024 |m'|=1024 (L=128) bytes differing 7: 18/1048576 = 2^-15.830  95%CI [2^-16.491, 2^-15.169]  e.g. seed e6d0d3a6d366a37e -> 7bb176418172ce92
+  len 65536: byte 7 at piece 8 start (byte 8192), next lane-a word corrected |m|=65536 |m'|=65536 (L=8192) bytes differing 7: 18/1048576 = 2^-15.830  95%CI [2^-16.491, 2^-15.169]  e.g. seed e3335dff80b69528 -> 7f1906cb29ce8cc6
+  len 65536: byte 7 at piece 54 start (byte 55296), next lane-a word corrected |m|=65536 |m'|=65536 (L=8192) bytes differing 7: 15/1048576 = 2^-16.093  95%CI [2^-16.816, 2^-15.371]  e.g. seed 9c96826a49df2e21 -> 658d20ff2570c112
+  len 1048576: byte 7 at piece 197 start (byte 201728), next lane-a word corrected |m|=1048576 |m'|=1048576 (L=131072) bytes differing 7: 10/1048576 = 2^-16.678  95%CI [2^-17.559, 2^-15.798]  e.g. seed 57183f234cba16d2 -> 90acc3287c2a1419
+
+[x86] mid-message trail at a random chunk (state secret):
+  len 256: chunk 2 of piece 0 (byte 128) and chunk 3         |m|=256 |m'|=256 (L=32) bytes differing 7: 0/65536 = 2^-inf  95%CI [2^-inf, 2^-14.117]
+    m  = 6110462819d2ee047c1c7f04828cc32a833a279eaf8e2b5a5270a6ee8c332d2ed23714be26da7b3cc4ce5dd7375435ea4567728d4e19d118ea2dd7de9564864368d7aebe9ed636e6b818d4999ac2fec38c190e31490155fff9de505d195fc35829ea7bb4e54694044b18a7318e0373bd119d341c55e241651886d8f2dcdfed8328b4f343db5d5b90ec87123e7fec473ff98c49d1b1a78d271406b2f6d481e473e711bcec6b1c57e31c1659201327b60059e5d836c70a6d475658d8a05c7c2cb7bcac1e24ed4881053eb33994846599d1771ed1ab11dc8b8688d787ac367836ed19d5992531c3983ab7f4477e1b8036d6a5d1099c9a9c8aa3e779d960a98cdd68
+    m' = 6110462819d2ee047c1c7f04828cc32a833a279eaf8e2b5a5270a6ee8c332d2ed23714be26da7b3cc4ce5dd7375435ea4567728d4e19d118ea2dd7de9564864368d7aebe9ed636e6b818d4999ac2fec38c190e31490155fff9de505d195fc35829ea7bb4e54694044b18a7318e0373bd119d341c55e241651886d8f2dcdfed8328b4f343db5d5b90ec87123e7fec47bff98c49d1b1a78d271406b2f6d481e473e711bcec6b1c57e31c1659201327b60059e5d836c70a6d475658d8a05c7c2cb7bcac1e24ed48810504c5591885659951771ed1ab11dc8b8688d787ac367836ed19d5992531c3983ab7f4477e1b8036d6a5d1099c9a9c8aa3e779d960a98cdd68
+  len 1024: chunk 10 of piece 0 (byte 640) and chunk 11      |m|=1024 |m'|=1024 (L=128) bytes differing 6: 0/65536 = 2^-inf  95%CI [2^-inf, 2^-14.117]
+  len 65536: chunk 6 of piece 58 (byte 59776) and chunk 7    |m|=65536 |m'|=65536 (L=8192) bytes differing 6: 0/65536 = 2^-inf  95%CI [2^-inf, 2^-14.117]
+  len 1048576: chunk 10 of piece 756 (byte 774784) and chunk 11 |m|=1048576 |m'|=1048576 (L=131072) bytes differing 7: 0/65536 = 2^-inf  95%CI [2^-inf, 2^-14.117]
+RESULT: PASS

@@ -1,0 +1,17 @@
+aHash 0.8.12 AES path (SMHasher3 rust-ahash port, hash_one(&[u8]) sequence), AES = x86-aesni
+validation: hardware vs software AES rounds: 0 mismatches / 4096
+validation: SMHasher3 rust_ahash verification 0x3BF4383B (expected 0x3BF4383B) OK
+pair E explicit internal key: 93ecf09ded4decc5 / 93ecf09ded4decc5 (published 93ecf09ded4decc5) OK
+tie: 448-byte messages, 16 = 2^4 choices of four echo slots, N = 2^31 keys, rng 0x77ad, 8 threads
+  slot0 pair                       484058  rate 2^-12.115  [2^-12.119, 2^-12.111]
+  slot1 pair                       483575  rate 2^-12.117  [2^-12.121, 2^-12.113]
+  slot2 pair                       483950  rate 2^-12.116  [2^-12.120, 2^-12.111]
+  slot3 pair                       483671  rate 2^-12.116  [2^-12.120, 2^-12.112]
+  slot0&slot2 pairs                446660  rate 2^-12.231  [2^-12.235, 2^-12.227]
+  slot1&slot3 pairs                446245  rate 2^-12.233  [2^-12.237, 2^-12.228]
+  slot0&slot1 pairs                   120  rate 2^-24.093  [2^-24.364, 2^-23.835]
+  4-way {slots 0,2} (state)        446660  rate 2^-12.231  [2^-12.235, 2^-12.227]
+  4-way {slots 1,3} (state)        446245  rate 2^-12.233  [2^-12.237, 2^-12.228]
+  16-way, all 16 outputs equal          104  rate 2^-24.300  [2^-24.591, 2^-24.023]
+  class size of message 0 among the 16: 1:2146441436 2:149404 4:892678 8:26 16:104
+  16-way explicit internal key 9644eff90e6144b3 7c41347a2bb5039f 3c026049b1eee2d8 38f6b49792da5af9: all 16 -> 5593e3264efc6b5b OK; with_seeds args = d36cce1f36b157c4 c21552b51f5c0ff3 fcae49fe7892b205 07726122279d53ee

@@ -1,0 +1,17 @@
+verification CityHash_64              computed 5FABC5C5 expected 5FABC5C5 registered 5FABC5C5 OK
+unseeded CityHash64 over 65536 members: 1 distinct value(s), e.g. 0f55c17e5eed1616
+CityHash64WithSeed family (members file): family of 65536 messages, 65536 distinct, max length 16 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 3839c9437399bcdb -> common output ae4e7055ac332180
+  member[0] = d73194b9d3f216a51455b33a85eb5311
+  member[1] = 40bde31d7e9d2b39e2ff5d30bb368ee9
+  member[2] = 189efeec1c5d001dd1def6b304f0a300
+  member[65535] = 663048a0bc517f338afe460d04f26d5d
+CityHash64WithSeeds family (members file): family of 65536 messages, 65536 distinct, max length 16 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 1024/1024 (95%CI [0.996404,1]); low-16-bit agreement 1024/1024; min members sharing member 0's value over keys: 65536
+  example key 11941fd8a1f86cc6 -> common output 41ed86eca9e46bc9
+  member[0] = d73194b9d3f216a51455b33a85eb5311
+  member[1] = 40bde31d7e9d2b39e2ff5d30bb368ee9
+  member[2] = 189efeec1c5d001dd1def6b304f0a300
+  member[65535] = 663048a0bc517f338afe460d04f26d5d
+RESULT: PASS

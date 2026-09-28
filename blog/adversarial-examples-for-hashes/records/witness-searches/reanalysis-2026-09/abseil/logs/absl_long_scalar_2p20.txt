@@ -1,0 +1,16 @@
+absl::Hash long-input analysis, variant: scalar (LowLevelHash with Mix32Bytes)
+transcription of LowLevelHashLenGt64 vs the real library, 20000 random (len 65..1024, seed): 0 mismatches
+
+[scalar] reset chunk: words 0,2,4,6 of a 64-byte loop chunk = kStaticRandomData[1..4]; all lanes become 0.
+  len 256: reset at byte 64 (piece 0), prefix+free words differ |m|=256 |m'|=256 (L=32) bytes differing 96: 1048576/1048576 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed fa96b4c6179b7b8b -> d8dcb9fda79c4107
+    m  = 8df8218d55816016507a34a9f2cc1a9a24a5fb8a01f344b7a5d5af04192e59dbfc75ce1ebf03a6fcf44ed9f6a9e727e0e9f293285d2c63a7ad42d9ea1dc9dfac447370032e8a1913904ed1c7953f99fad0319f29223809a4a0d07e301329f91e896c4eec98fa2e080990f916ce05e04f7713d038e6212845e706c4e9f53024493eb10b6c036985f354d8822e3c40e31e4d85ae11ccd6a7727b6a42a800b7332a60e2d07425c7f940229debf277f99bca368366df394f5ab867a5a9388009ae794458f427340904d81e95c0a2abb94d50ac3c84ea2f6d698a033b704ee34b0803928cd5ca3232448f739237b0a70defe75af1dc7de5ce3fd810a766741f312f9e
+    m' = cd1ea9d8507436d5ce473c133d55e2fb20a30727929f77df43eb3bff24c7984e6f0ab3920b06934bb7558ae8e45f951abf3de05e3041c95c627bac1d04523567447370032e8a191358d292c59c88b892d0319f29223809a476428606d51fdac3896c4eec98fa2e0842667031e49d62187713d038e62128454b2c6c5af79fdee03eb10b6c036985f354d8822e3c40e31e4d85ae11ccd6a7727b6a42a800b7332a60e2d07425c7f940229debf277f99bca368366df394f5ab867a5a9388009ae794458f427340904d81e95c0a2abb94d50ac3c84ea2f6d698a033b704ee34b0803928cd5ca3232448f739237b0a70defe75af1dc7de5ce3fd810a766741f312f9e
+  len 1024: reset at byte 0 (piece 0), prefix+free words differ |m|=1024 |m'|=1024 (L=128) bytes differing 30: 1048576/1048576 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed 7a65eb3df9d39d34 -> d9ff4583e3b494af
+  len 65536: reset at byte 4416 (piece 4), prefix+free words differ |m|=65536 |m'|=65536 (L=8192) bytes differing 4427: 1048576/1048576 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed ebfe4acaeae2d76e -> 65bdce6d5f25c027
+  len 1048576: reset at byte 203328 (piece 198), prefix+free words differ |m|=1048576 |m'|=1048576 (L=131072) bytes differing 202602: 1024/1024 = 2^0.000  95%CI [2^-0.005, 2^0.000]  e.g. seed 6d0ec82ba618ce0e -> b56768cd3f78c422
+  shortest: 65 B, reset at byte 0, bytes 8..15 and 24..31 differ |m|=65 |m'|=65 (L=9) bytes differing 16: 1048576/1048576 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed 7be46f6a7ed0a472 -> 5ae1519b6e200a92
+    m  = 447370032e8a1913a1e09dd4a750f449d0319f29223809a4f511768edc1ea2de896c4eec98fa2e087c0cb1bd041174457713d038e62128458d02d84368c17d3b97
+    m' = 447370032e8a1913f0d0196961aed216d0319f29223809a48a03ac5c3c859071896c4eec98fa2e087c0cb1bd041174457713d038e62128458d02d84368c17d3b97
+  cross-length: 128-B vs 512-B prefix, same reset + 333-B suffix |m|=525 |m'|=909 (L=114) bytes differing 522: 1048576/1048576 = 2^0.000  95%CI [2^-0.000, 2^0.000]  e.g. seed 46c30fd82a9d91a8 -> f5f35ecaa7e8d730
+  family: 65536 members (65536 distinct) of 1000 bytes, reset at byte 128: all equal (64-bit) for 1024/1024 seeds, low-16 1024/1024; e.g. seed 2aba5b67a486052c -> 8bdf5ad67c356311
+RESULT: PASS

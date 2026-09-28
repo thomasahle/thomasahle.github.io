@@ -1,0 +1,27 @@
+=== envelope E(L)  (proven upper bound; the plotted lower bound) ===
+  64 MiB  (L=2^23 words)              min score = 88.634778  at L=2
+  2^46 words (~512 TB)                min score = 84.000000  at L=70368744177663
+  full byte domain (2^61 words)       min score = 69.000000  at L=2305843009205305345
+  all lengths (saturation)            min score = 65.000000  at L=36893488147419103231
+
+=== Lean coefficient-1 bound (machine-checked) ===
+  64 MiB  (L=2^23 words)              min score = 83.000000  at L=1
+  2^46 words (~512 TB)                min score = 83.000000  at L=70368744177663
+  full byte domain (2^61 words)       min score = 68.000000  at L=2305843009205305345
+  all lengths (saturation)            min score = 64.000000  at L=36893488147419103231
+
+=== paper 81/128 rounded-quadratic ===
+  64 MiB  (L=2^23 words)              min score = 83.660150  at L=1
+  2^46 words (~512 TB)                min score = 83.660150  at L=70368744177663
+  full byte domain (2^61 words)       min score = 68.660150  at L=2305843009205305345
+  all lengths (saturation)            min score = 64.660150  at L=36893488147419103231
+
+=== point comparison at the plotting cap L=2^46 ===
+  envelope   eps = 3.637979e-12  score = 83.99999997
+  lean c=1   eps = 7.275958e-12  score = 83.00000000
+  81/128     eps = 4.604317e-12  score = 83.66015000
+  ratio lean/envelope eps = 2.0000  (= 2^1.0000)
+
+real	0m0.284s
+user	0m0.256s
+sys	0m0.011s

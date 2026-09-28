@@ -1,0 +1,12 @@
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+rand len=256: t1ha2_atonce collisions 4178035/4194304 = 0.996121 [95% 0.996061, 0.996180]; failures 16269 = 2^-8.010 [2^-8.032, 2^-7.988] (model 2^-8); atonce128 collisions 4178035; model-predicted failures 16269; model/outcome disagreements 0
+  example colliding seed b50b1e1ef271d99c -> both b376da8f045233c4
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+rand len=1024: t1ha2_atonce collisions 4178011/4194304 = 0.996115 [95% 0.996055, 0.996175]; failures 16293 = 2^-8.008 [2^-8.030, 2^-7.986] (model 2^-8); atonce128 collisions 4178011; model-predicted failures 16293; model/outcome disagreements 0
+  example colliding seed 350d55b2144485ff -> both 49be45525d337d6d
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+rand len=65536: t1ha2_atonce collisions 261088/262144 = 0.995972 [95% 0.995722, 0.996207]; failures 1056 = 2^-7.956 [2^-8.042, 2^-7.869] (model 2^-8); atonce128 collisions 261088; model-predicted failures 1056; model/outcome disagreements 0
+  example colliding seed c275b7570c8694f1 -> both ff5e99d16980fcec
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+rand len=1048576: t1ha2_atonce collisions 65297/65536 = 0.996353 [95% 0.995862, 0.996786]; failures 239 = 2^-8.099 [2^-8.282, 2^-7.917] (model 2^-8); atonce128 collisions 65297; model-predicted failures 239; model/outcome disagreements 0
+  example colliding seed afa758d27284669f -> both 496ddffdfdb5735b

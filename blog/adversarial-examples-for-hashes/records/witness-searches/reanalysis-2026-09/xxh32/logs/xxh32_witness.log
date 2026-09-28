@@ -1,0 +1,31 @@
+SMHasher3 verification XXH32: 0x6FD78385 (expected 0x6FD78385)
+
+[A] pair, 8 bytes (L = 1)
+  M1 (8 bytes) = 78786833322d7072
+  M2 (8 bytes) = 78f8f29f570b9cb3
+  collisions 16777098 / 16777216 random seeds (non-colliding 118, 95% CI of failure rate [5.87e-06, 8.42e-06]; predicted 2^-17 = 7.63e-06)
+  seed in the predicted failure set 0xf4730086: b5ff0f0e vs 633676ec
+  explicit colliding seed 0x08e834bc: 168f82ef 168f82ef
+  EXHAUSTIVE over all 2^32 seeds: 4294934528 collide, 32768 do not (predicted 2^15 = 32768)
+
+[B] 2^15-way family at 8 bytes: word0 = w0 + j*(2^15*P3^-1), word1 = w1 - j*(P4*P3^-1), j < 2^15; predicted p = 1 - (J-1)/2^17 = 0.75001
+  B[1] (8 bytes) = 78f8f29f570b9cb3
+  B[32767] (8 bytes) = 78f8dd060dcf5620
+  B: distinct messages 32768 of 32768
+  B: all 32768 equal for 6201 / 8192 random seeds, p(S) = 0.75696, 95% CI [0.74755, 0.76612]; smallest class of message 0: 37
+
+[C] 2^16-way family at 12 bytes: w0 + j1*d, w1 - j1*c + j2*d, w2 - j2*c (d = 2^15*P3^-1, c = P4*P3^-1), j1,j2 < 256; predicted p >= 1 - 2*255/2^17 = 0.99611
+  C[0] (12 bytes) = 787868333220313262797465
+  C[65535] (12 bytes) = 78f85d510de7d83a3dc02650
+  C: distinct messages 65536 of 65536
+  C: all 65536 equal for 8160 / 8192 random seeds, p(S) = 0.99609, 95% CI [0.99449, 0.99723]; smallest class of message 0: 768
+  explicit seed 0x264d2476: XXH32(C[0]) = 63526081, XXH32(C[65535]) = 63526081
+
+[D] long-path 16^4 family at 32 bytes: lane word += j*(2^19*P2^-1), next stripe -= j*(P1*P2^-1); predicted p >= 1 - 4*15/2^13 = 0.99268
+  D[65535] (32 bytes) = 5858905c3220b4986e6775996174b04913afedac1a7a9f78ddabb36714c1e6ba
+  D: distinct messages 65536 of 65536
+  D: all 65536 equal for 8141 / 8192 random seeds, p(S) = 0.99377, 95% CI [0.99182, 0.99526]; smallest class of message 0: 4096
+
+real	0m12.050s
+user	0m11.742s
+sys	0m0.103s

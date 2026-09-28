@@ -1,6 +1,6 @@
 {
-  "source_sha256": "06e19581f9bc1d2019108c5ed4476b17a042507236ed6d1e023c867c2e8210c3",
-  "profiles_sha256": "a9da978cccd2f17afaa91f5209521fda97f8aa8fe410dd369f38b42b26c0e518",
+  "source_sha256": "acaebefde0dcdb62acb3671521f2a1f490e4a34000326aceb84b825f1d4d45d1",
+  "profiles_sha256": "e63765c7d018921e81e5c47b70fc88c4914cf1aecf48fdf36c44d25b4764f1e9",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -172,6 +172,10 @@
           "url": "https://github.com/erthink/t1ha"
         },
         {
+          "label": "Witness programs",
+          "url": "records/witness-searches/reanalysis-2026-09/t1ha2/README.html"
+        },
+        {
           "label": "Verifier package",
           "url": "verify/t1ha2-64/README.html"
         },
@@ -183,7 +187,8 @@
       "sources": [
         "https://github.com/erthink/t1ha",
         "verify/t1ha2-64/README.html",
-        "records/speeds.json"
+        "records/speeds.json",
+        "records/witness-searches/reanalysis-2026-09/t1ha2/README.html"
       ]
     },
     "a5": {
@@ -303,7 +308,8 @@
         "https://github.com/Cyan4973/xxHash",
         "https://github.com/Cyan4973/xxHash/blob/v0.8.3/doc/xxhash_spec.md",
         "verify/xxh3-64/README.html",
-        "records/speeds.json"
+        "records/speeds.json",
+        "records/witness-searches/reanalysis-2026-09/xxh3-crosslen/README.html"
       ]
     },
     "highway": {
@@ -843,6 +849,10 @@
           "url": "https://github.com/eternal-io/museair"
         },
         {
+          "label": "Witness programs",
+          "url": "records/witness-searches/reanalysis-2026-09/museair-v2/README.html"
+        },
+        {
           "label": "Verifier package",
           "url": "verify/museair-v2/README.html"
         },
@@ -854,7 +864,8 @@
       "sources": [
         "https://github.com/eternal-io/museair",
         "verify/museair-v2/README.html",
-        "records/speeds.json"
+        "records/speeds.json",
+        "records/witness-searches/reanalysis-2026-09/museair-v2/README.html"
       ]
     },
     "wyhash": {
@@ -908,6 +919,62 @@
         "https://github.com/orlp/polyxor/blob/3123eb6c0ac95b879a46b490ecda1de0184b14bd/proofs/PolyXORCheck.lean",
         "records/polyxor/README.html",
         "records/polyxor/speeds_polyxor.json"
+      ]
+    },
+    "xxh64": {
+      "authors": "Yann Collet and the xxHash contributors",
+      "background": "XXH64 and XXH32 are the classic xxHash functions, older than XXH3 and still widely deployed. Both keep four lanes of multiply-rotate state; the seed only sets the starting values.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/Cyan4973/xxHash"
+        },
+        {
+          "label": "XXH64 witness programs",
+          "url": "records/witness-searches/reanalysis-2026-09/xxh64/README.html"
+        },
+        {
+          "label": "XXH32 witness programs",
+          "url": "records/witness-searches/reanalysis-2026-09/xxh32/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/new-hashes-timing/speeds_xxh_murmur.json"
+        }
+      ],
+      "sources": [
+        "https://github.com/Cyan4973/xxHash",
+        "records/witness-searches/reanalysis-2026-09/xxh64/README.html",
+        "records/witness-searches/reanalysis-2026-09/xxh32/README.html",
+        "records/new-hashes-timing/speeds_xxh_murmur.json"
+      ]
+    },
+    "murmur64a": {
+      "authors": "Austin Appleby",
+      "background": "MurmurHash2 and its 64-bit variant MurmurHash64A are older multiply-xorshift hashes. libstdc++ uses MurmurHash64A for std::hash<std::string> on 64-bit targets, and Kafka's default partitioner uses MurmurHash2.",
+      "links": [
+        {
+          "label": "Original project & code",
+          "url": "https://github.com/aappleby/smhasher"
+        },
+        {
+          "label": "MurmurHash64A witness programs",
+          "url": "records/witness-searches/reanalysis-2026-09/murmurhash64a/README.html"
+        },
+        {
+          "label": "MurmurHash2 witness programs",
+          "url": "records/witness-searches/reanalysis-2026-09/murmurhash2/README.html"
+        },
+        {
+          "label": "Measurements",
+          "url": "records/new-hashes-timing/speeds_xxh_murmur.json"
+        }
+      ],
+      "sources": [
+        "https://github.com/aappleby/smhasher",
+        "records/witness-searches/reanalysis-2026-09/murmurhash64a/README.html",
+        "records/witness-searches/reanalysis-2026-09/murmurhash2/README.html",
+        "records/new-hashes-timing/speeds_xxh_murmur.json"
       ]
     }
   },
@@ -1134,20 +1201,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 10.42,
-          "bits": 19.4469,
-          "score": "≈ 19.45*",
+          "bits": 3.3219,
+          "score": "≤ 3.33",
           "anchor": "appendix-museair-v2",
-          "evidence": "about 2^-17.45 of keys (sampled; 36,060 events / 1.5×2^32 keys, upstream crate)",
+          "evidence": "every seed (67,108,870 / 67,108,870 through the crate, hash and bfast; ε = 1 by construction)",
           "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Rate quoted for museair::hash with a single uniform 64-bit seed; bfast::hash collides on identical seeds; the 128-bit variants (seed_a, seed_b) collide at the same rate under a two-seed model. Not scored by SMHasher3 (ships v0.3).",
           "source": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit seed, museair::hash(bytes, seed). bfast::hash collides on exactly the same seeds; hash128 / bfast::hash128 (seed_a, seed_b uniform) collide at the same rate on a different seed set (two-seed model).",
           "profile": "muse-v2",
-          "summary": "A fixed 32-byte change in the tail product can be cancelled by changes in the head when the multiplication carries agree. Upstream crate checks give a sampled cap of 19.45 bits. The v0.3 every-seed witness is a separate result.",
+          "summary": "Two fixed 80-byte inputs collide for every seed: flipping the top bit of four words exchanges two products in the long-input finalizer. That caps the score at 3.32 bits. The pair uses the long path, not a short branch, and does not survive a compress round, so inputs above 96 bytes are unaffected. The earlier 32-byte carry pair gave 19.45 bits.",
           "reader_notes": {
-            "evidence": "Two fresh upstream-crate runs found 36,060 collisions in 1.5 × 2^32 seeds, about 2^-17.447. The 95% score interval is 19.43–19.46 bits.",
+            "evidence": "An independent checker linked to the unmodified 0.6.0 crate source found collisions for 67,108,870 of 67,108,870 seeds in both hash and bfast::hash; a C port found 2^24 of 2^24 at 80, 88 and 96 bytes. The 128-bit functions are not affected.",
             "key": "The scored function draws one uniform 64-bit seed. Both messages are fixed independently of that seed.",
-            "scope": "This is algorithm v2, crate 0.6.0, timed through a separately validated MuseAir-v2 registration with direct seed mapping. The 64-bit bfast function collides on the same seeds; the 128-bit functions use a separate two-seed model."
+            "scope": "This is algorithm v2, crate 0.6.0, timed through a separately validated MuseAir-v2 registration with direct seed mapping. The 64-bit bfast function collides on the same seeds; the 128-bit functions use a separate two-seed model and do not collide."
           },
           "smhasher": {
             "url": "https://github.com/thomasahle/hash-benchmark-reproduction/blob/038373d7f7a683436ef6dc662814aa0aef7e9e4b/verification/out/Xeon8375C/MuseAir-v2.sanity.txt",
@@ -1194,20 +1261,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 6.19,
-          "bits": 29.1928,
-          "score": "≈ 29.19*",
+          "bits": 3.5906,
+          "score": "≤ 3.6",
           "anchor": "appendix-t1ha2",
-          "evidence": "about 2^-28.19 of keys (sampled class contribution: 2^-24 × 58,715,203/2^30)",
+          "evidence": "1 − 2^-8 of seeds exactly (fails on exactly 2^56 of 2^64 seeds; measured 267,388,667 / 2^28 on a second pair)",
           "scope": "Measured score cap with sampling uncertainty; better pairs may exist (6-digit routes not enumerated). Cross-length 13/16-byte pair. Exact class density 2^-24 multiplied by the conditional rate 2^-4.19 measured at 2^30 class samples against upstream. All 701 uniform-seed hits (3 x 2^36) lie inside the class, so the class contribution is the observed rate at this resolution, but it remains a sampled lower bound on eps, not a proof of total equality.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit one-shot API seed.",
           "profile": "t1ha",
-          "summary": "A 13-byte input and a 16-byte input can reach the same internal state when multiplication carries cancel. An exactly counted seed class and a measured success rate within it give a sampled cap of 29.19 bits. The result permits different message lengths.",
+          "summary": "Two fixed 96-byte inputs collide for every seed except one interval holding 2^-8 of them: a top-bit difference passes through the 32-byte loop and cancels after three blocks. That caps the score at 3.59 bits. Switching any subset of blocks gives 65,536 inputs of 576 bytes that all collide for about 94% of seeds, at any position of a long message. The earlier 13/16-byte carry pair gave 29.19 bits.",
           "reader_notes": {
-            "evidence": "The seed class fixes 24 bits. The upstream verifier found 58,715,203 collisions in 2^30 class samples, giving a class-weighted rate of about 2^-28.19. Fresh uniform-seed runs support the result.",
-            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "This result concerns the t1ha2_atonce 64-bit function. Other t1ha versions and the streaming interface are separate cases."
+            "evidence": "The failing seeds form one explicit interval of 2^56 values. The search program found 1,069,547,538 collisions in 2^30 seeds; an independent checker linked to upstream t1ha found 267,388,667 in 2^28 on a second pair. The 128-bit function collides on the same seeds.",
+            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The messages are chosen first and do not depend on that seed.",
+            "scope": "This result concerns the t1ha2_atonce 64- and 128-bit functions for inputs longer than 32 bytes. Other t1ha versions are separate cases."
           },
           "smhasher": {
             "label": "SMHasher3 results",
@@ -1464,20 +1531,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 13.16,
-          "bits": 28.543,
-          "score": "≈ 28.54*",
+          "bits": 21.576,
+          "score": "≈ 21.58*",
           "anchor": "appendix-xxh3-64",
-          "evidence": "about 527 of every 2^36 keys (sampled; 527 events, pooled)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_64bits_withSecret; callers of withSeed or withSecretandSeed (len <= 240) are in the default-secret model, where the NAF pair gives 12.47 bits. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (527 events in 2^36 keys). No practical flooding attack is established by this fixed-pair rate.",
+          "evidence": "about 2^-21.58 of secrets (6868 / 5·2^32, pooled over two independent programs)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_64bits_withSecret; callers of withSeed or withSecretandSeed (len <= 240) are in the default-secret model, where the NAF pair gives 12.47 bits. Exact Poisson 95% interval for this witness-derived score: [21.5, 21.6] (6868 events in 5·2^32 secrets). Above 240 bytes a fixed set of any size collides for 2^-32 of secrets (weak-key multicollision).",
           "source": "records/speeds.json",
           "family": "NH-like accumulators",
           "key_model": "Uniform 192-byte secret via XXH3_64bits_withSecret (1536 key bits; API minimum 136 B = 1088). XXH3_64bits_withSeed and XXH3_64bits_withSecretandSeed (len <= 240, one-shot and streaming) use the default public secret and stay in the 64-bit-seed model",
           "profile": "xxh3-64",
-          "summary": "Complementing one keyed word of a 16-byte block leaves the folded product unchanged for about one key in 2^27, whatever the secret bytes are. Measured through XXH3_64bits_withSecret with a fresh random 192-byte secret per trial, a 24-byte pair gives a sampled cap of 28.5 bits. Callers of the seeded functions (withSeed, and withSecretandSeed or streaming at up to 240 bytes, which use the default secret) face a much weaker case: a 32-byte pair built from the default-secret words collides for one seed in about 1,423, a 12.47-bit cap. That default-secret figure is a caveat, not the score. It does not assert a flooding attack.",
+          "summary": "A 5-byte and an 8-byte input collide for about one secret in 2^21.6: the length term of the short-input finalizer cancels through its multiply. With a fresh random 192-byte secret this caps the score at 21.6 bits. Above 240 bytes one condition on a single secret word, holding for 2^-32 of secrets, makes a fixed set of any size collide. Callers of the seeded functions face the separate default-secret caveat: a 32-byte pair collides for one seed in about 1,423 (12.47 bits).",
           "reader_notes": {
-            "evidence": "An independent verifier against the upstream 0.8.3 source counted 527 collisions in 2^36 keys for the 24-byte pair (260 through withSecret, 267 with seed and secret both random; the two models give the same rate). The score interval is 28.4–28.7 bits. The default-secret 32-byte pair was measured at 2,264,081 collisions in 3 × 2^30 seeds (12.47 bits).",
-            "key": "Each trial draws 192 secret bytes at random, every value equally likely (1,536 hidden bits), and calls XXH3_64bits_withSecret. The two messages are chosen first and do not depend on the key. With withSeed, and with withSecretandSeed or the streaming interface for inputs of at most 240 bytes, the library uses its built-in secret and only the 64-bit seed is hidden; the default-secret pair applies there.",
-            "scope": "The scored pair is the paper’s fold differential under a uniform secret; the default-secret pair is a bounded-search result for the seeded 0.8.3 functions. The earlier base-1143 pair and historical pair A remain documented as controls."
+            "evidence": "Two independently written programs counted 1441 in 2^32 and 5427 in 2^34 secrets for the 5/8-byte pair, pooled 6868 in 5·2^32 (interval 21.5–21.6 bits). The earlier 24-byte fold pair (527 in 2^36, 28.5 bits) is kept as the superseded result. The default-secret 32-byte pair was measured at 2,264,081 collisions in 3 × 2^30 seeds.",
+            "key": "Each trial draws 192 secret bytes at random (1,536 hidden bits) and calls XXH3_64bits_withSecret. The messages are chosen first. With withSeed, and with withSecretandSeed for inputs of at most 240 bytes, only the 64-bit seed is hidden.",
+            "scope": "XXH3-64 0.8.3. The scored pair uses the 4–8-byte path; the long-input multicollision applies above 240 bytes and needs the 2^-32 secret class."
           },
           "smhasher": {
             "label": "SMHasher3 results",
@@ -1494,20 +1561,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 13.37,
-          "bits": 28.556,
-          "score": "≈ 28.56*",
+          "bits": 21.029,
+          "score": "≈ 21.03*",
           "anchor": "appendix-xxh3-128",
-          "evidence": "about 479 of every 2^35.46 keys (sampled; 479 events, pooled)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_128bits_withSecret; withSeed and withSecretandSeed (len <= 240) callers get the same rate with the default secret (28.6 [28.4, 28.8]). Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (479 events in 2^35.46 keys).",
+          "evidence": "about 2^-20.03 of secrets (20069 / 5·2^32, pooled over two independent programs; full 128-bit)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_128bits_withSecret. With the default secret and a random seed (withSeed, and withSecretandSeed up to 240 bytes) the same pair collides for about 2^-19.44 of seeds, a 20.44-bit cap. Above 240 bytes a fixed set of any size collides for 2^-32 of secrets (weak-key multicollision).",
           "source": "records/speeds.json",
           "family": "NH-like accumulators",
           "key_model": "Uniform 192-byte secret via XXH3_128bits_withSecret (1536 key bits; API minimum 1088); the seed is redundant for len <= 240 and XXH3_128bits_withSecretandSeed ignores the custom secret for len <= 240",
           "profile": "xxh3-64",
-          "summary": "The pair preserves both a multiplication result and a sum used by the hash, causing both output halves to collide for some keys. With a fresh random 192-byte secret per trial, 479 full 128-bit collisions in about 2^35.5 keys give a measured score cap of 28.6 bits, with a 95% interval of 28.4–28.7 bits; the default-secret seeded function gives the same rate.",
+          "summary": "A 9-byte and a 16-byte input collide in all 128 bits for about one secret in 2^20: the length term of the 9–16-byte path can be cancelled. With a fresh random 192-byte secret this caps the score at 21.0 bits. The long-input multicollision of XXH3-64 holds for the 128-bit output as well.",
           "reader_notes": {
-            "evidence": "An independent verifier counted 156 collisions in 2^34 keys through withSecret, 84 in 2^33 with seed and secret both random and 60 in a second 2^32 stream; the search harness counted 179 in 2^34. The default-secret control (165 in 2^34 plus 44 in 2^32) gives the same rate.",
-            "key": "Each trial draws 192 secret bytes at random, every value equally likely (1,536 hidden bits), and calls XXH3_128bits_withSecret; the seed adds nothing at these lengths. The two messages are chosen first and do not depend on the key.",
-            "scope": "The experiment covers XXH3-128 version 0.8.3 at 32 bytes with full 128-bit equality. withSecretandSeed ignores the custom secret for inputs of at most 240 bytes, so callers of that function with short inputs are in the seeded model, where the same pair collides at the same rate."
+            "evidence": "Two independently written programs counted 4074 in 2^32 and 15995 in 2^34 secrets, pooled 20069 in 5·2^32 full 128-bit collisions (interval 21.01–21.05 bits). With the default secret and a random seed the rate is higher, about 2^-19.44 (20.44 bits). The earlier 32-byte pair (479 in 2^35.46, 28.6 bits) is kept as the superseded result.",
+            "key": "Each trial draws 192 secret bytes at random (1,536 hidden bits) and calls XXH3_128bits_withSecret. The messages are chosen first and do not depend on the key.",
+            "scope": "XXH3-128 0.8.3 with full 128-bit equality. withSecretandSeed ignores the custom secret for inputs of at most 240 bytes, so its short-input callers are in the seeded model."
           },
           "smhasher": {
             "label": "SMHasher3 results",
@@ -1794,11 +1861,11 @@
           "kind": "witness",
           "key_free": false,
           "speed": 1.37,
-          "bits": 36.39231742277876,
-          "score": "≤ 36.4",
+          "bits": 39.39231742277876,
+          "score": "≤ 39.4",
           "anchor": "appendix-halftime24",
-          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 168-byte Encode3 pair); sampled 76/316053236830 ≈ 2^-31.95, 95% interval [2^-32.30, 2^-31.63]",
-          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 168-byte pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
+          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 1344-byte Encode3 pair on the V4 entry point, b = 8; 262,144/262,144 in the class, 0 outside)",
+          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 1344-byte (V4<3>; the 168-byte pair applies to V1<3>) pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
           "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
           "family": "NH trees",
           "key_model": "independent uniform entropy words; raw fixed-length core",
@@ -1878,6 +1945,156 @@
           "code_url": "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs"
         },
         {
+          "id": "xxh64",
+          "name": "XXH64 0.8.3",
+          "label": "XXH64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 4.88,
+          "bits": 1.0,
+          "score": "≤ 1",
+          "anchor": "appendix-xxh64",
+          "evidence": "every key (16,777,216 / 16,777,216 seeds; ε = 1 by construction)",
+          "scope": "Key-free 16-byte pair (L = 2); an 8-byte input is hashed bijectively, so no L = 1 pair exists. Flooding-grade: key-free 4-way at 24 B; 65,536 messages of 64 B collide for all but at most 2.8·10^-8 of seeds; loop differential at any position with failure 2^-33.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 64-bit seed: XXH64(input, len, seed).",
+          "profile": "xxh64",
+          "summary": "Two fixed 16-byte strings collide for every seed: a top-bit difference passes the short path's multiplication and is cancelled by the next word. That caps the score at 1 bit. 65,536 strings of 64 bytes collide for essentially every seed, and the stripe-loop difference works at any position of a long input.",
+          "reader_notes": {
+            "evidence": "16,777,216 of 16,777,216 random seeds collide; an independent program found a different key-free pair with the same result. The 64-byte set collided for 65,536 of 65,536 seeds.",
+            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The messages are chosen first and do not depend on that seed.",
+            "scope": "XXH64 from xxHash 0.8.3. XXH3 is a separate row."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/XXH-64.txt",
+            "scope": "full"
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "xxh32",
+          "name": "XXH32 0.8.3",
+          "label": "XXH32",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 2.41,
+          "bits": 1.1e-05,
+          "score": "≤ 0.01",
+          "anchor": "appendix-xxh32",
+          "evidence": "all but 2^-17 of keys (4,294,934,528 / 2^32 seeds, exhaustive)",
+          "scope": "Not key-free: exactly 2^15 of the 2^32 seeds separate the pair. Flooding-grade: 65,536 messages of 12 B collide for at least 0.9961 of seeds; loop differential at any position fails for exactly 2^13 of 2^32 seeds (exhaustive at 256 B).",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 32-bit seed: XXH32(input, len, seed).",
+          "profile": "xxh64",
+          "summary": "Two fixed 8-byte strings collide for all but 2^15 of the 2^32 seeds, checked exhaustively, so the score is essentially 0 bits. 65,536 strings of 12 bytes collide for at least 99.6% of seeds.",
+          "reader_notes": {
+            "evidence": "An exhaustive run over all 2^32 seeds found 4,294,934,528 collisions; an independent program confirmed a different pair exhaustively.",
+            "key": "The experiment chooses a 32-bit seed at random, with every possible value equally likely; for the short pair every seed was checked. The messages are chosen first.",
+            "scope": "XXH32 from xxHash 0.8.3. The pair is not key-free: 2^15 seeds separate it."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/XXH-32.txt",
+            "scope": "full"
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "murmur64a",
+          "name": "MurmurHash64A (MurmurHash2, 64-bit)",
+          "label": "MurmurHash64A",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 2.08,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-murmurhash64a",
+          "evidence": "every key (16,777,216 / 16,777,216 seeds; ε = 1 by construction)",
+          "scope": "Key-free cross-length pair (8 vs 7 B); a key-free same-length pair at 16 B; key-free 2^n-member sets of 8(n+1) bytes; key-free at any position of long inputs. Applies to libstdc++ std::hash<std::string> on 64-bit targets.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 64-bit seed: MurmurHash64A(key, len, seed). libstdc++ std::hash<std::string> uses it with the fixed seed 0xc70f6907.",
+          "profile": "murmur64a",
+          "summary": "An 8-byte and a 7-byte string collide for every seed, including libstdc++'s: the length difference is absorbed by the first word. Arbitrarily many equal-length strings collide for every seed, as Aumasson, Bernstein and Boßlet showed in 2012.",
+          "reader_notes": {
+            "evidence": "16,777,216 of 16,777,216 random seeds collide; a transcription of libstdc++ _Hash_bytes gives the same value for both strings.",
+            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The messages are chosen first and do not depend on that seed.",
+            "scope": "MurmurHash64A from aappleby/smhasher; libstdc++ std::_Hash_bytes on 64-bit targets."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/MurmurHash2-64.txt",
+            "scope": "full"
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/aappleby/smhasher/blob/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash2.cpp"
+        },
+        {
+          "id": "murmur2",
+          "name": "MurmurHash2 (32-bit)",
+          "label": "MurmurHash2",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.05,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-murmurhash2",
+          "evidence": "every key (all 2^32 seeds, exhaustive)",
+          "scope": "Key-free 8-byte pair (exhaustive over 2^32 seeds, including Kafka’s 0x9747b28c); key-free 65,536-message set at 68 B; key-free at any position of long inputs.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 32-bit seed: MurmurHash2(key, len, seed). Kafka’s default partitioner uses the fixed seed 0x9747b28c.",
+          "profile": "murmur64a",
+          "summary": "Two 8-byte strings collide for all 2^32 seeds, including Kafka's fixed seed, and 65,536 strings of 68 bytes collide for every seed. This reproduces Aumasson, Bernstein and Boßlet (2012).",
+          "reader_notes": {
+            "evidence": "All 2^32 seeds checked; Kafka's Utils.murmur2, run verbatim, gives b626e14b for both strings.",
+            "key": "The experiment chooses a 32-bit seed at random, with every possible value equally likely; for the short pair every seed was checked. The messages are chosen first.",
+            "scope": "MurmurHash2 (32-bit) from aappleby/smhasher."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/MurmurHash2-32.txt",
+            "scope": "full"
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/aappleby/smhasher/blob/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash2.cpp"
+        },
+        {
+          "id": "murmur2a",
+          "name": "MurmurHash2A (32-bit)",
+          "label": "MurmurHash2A",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.03,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-murmurhash2",
+          "evidence": "every key (all 2^32 seeds, exhaustive)",
+          "scope": "Key-free 8-byte pair (exhaustive over 2^32 seeds); key-free 65,536-message set at 68 B.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 32-bit seed: MurmurHash2A(key, len, seed).",
+          "profile": "murmur64a",
+          "summary": "MurmurHash2A uses the same block step as MurmurHash2 and falls to the same construction: two 8-byte strings collide for all 2^32 seeds.",
+          "reader_notes": {
+            "evidence": "All 2^32 seeds checked.",
+            "key": "The experiment chooses a 32-bit seed at random, with every possible value equally likely; for the short pair every seed was checked. The messages are chosen first.",
+            "scope": "MurmurHash2A (32-bit) from aappleby/smhasher."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/MurmurHash2a.txt",
+            "scope": "full"
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/aappleby/smhasher/blob/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash2.cpp"
+        },
+        {
           "id": "polymur",
           "name": "PolymurHash 2.0",
           "label": "PolymurHash 2.0",
@@ -1888,10 +2105,10 @@
           "score": "≥ 54.22",
           "anchor": "proofs",
           "evidence": "D(8L)/K0; K0 = 189729088763903999",
-          "scope": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified.",
+          "scope": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified. Shipped seeding (NEW, 2026-09-28): the proof assumes k uniform on K, but polymur_init_params walks the seed forward to the first acceptable exponent, so some keys are about 11 times likelier than average. For the key reached from 1,096 of the 2^64 seeds, the 8-byte 2c336f948f6f6c99 and the 7-byte aa373a8eeff85a collide (both 0x5335b33210496b34 under polymur_init_params(0x8545715fd36ce9e9, 0xd95d3b0f3d7ebc54)), so under the shipped seeding a pair collides with probability 2^-53.90 exactly, a score of at most 53.90 bits at L = 1. The plotted 54.23 is the ideal-key theorem; no lower bound is proved for the shipped seeding. records/witness-searches/reanalysis-2026-09/polymur/README.html",
           "source": "records/speeds.json",
           "family": "prime-field polynomial",
-          "key_model": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified.",
+          "key_model": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified. Shipped seeding (NEW, 2026-09-28): the proof assumes k uniform on K, but polymur_init_params walks the seed forward to the first acceptable exponent, so some keys are about 11 times likelier than average. For the key reached from 1,096 of the 2^64 seeds, the 8-byte 2c336f948f6f6c99 and the 7-byte aa373a8eeff85a collide (both 0x5335b33210496b34 under polymur_init_params(0x8545715fd36ce9e9, 0xd95d3b0f3d7ebc54)), so under the shipped seeding a pair collides with probability 2^-53.90 exactly, a score of at most 53.90 bits at L = 1. The plotted 54.23 is the ideal-key theorem; no lower bound is proved for the shipped seeding. records/witness-searches/reanalysis-2026-09/polymur/README.html",
           "profile": "polymur",
           "summary": "The audit establishes at least 54.22 bits on this post’s collision score for the full 64-bit output. That guarantee requires choosing the key uniformly from the specified allowed set. It does not automatically cover the library’s seed-based key generator or a hash table that keeps only some output bits.",
           "reader_notes": {
@@ -1918,7 +2135,7 @@
           "score": "≥ 103",
           "anchor": "appendix-classic",
           "evidence": "8·ceil(bytes/16)/2^106",
-          "scope": "Audited conservative 103-bit bound with uniform clamped r. The timed SMHasher3 Poly1305 wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply.",
+          "scope": "Audited conservative 103-bit bound with uniform clamped r. The timed SMHasher3 Poly1305 wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply. Tightness (2026-09-28): the one-block pair d664915c5fd5 / d664915c5fd501 collides for exactly 4 of the 2^106 clamped keys, so the L = 1 score is exactly 104; a sharper count (at most 7 key values per block) proves at least 103.78 (L = 3), so the true score lies in [103.78, 104]. The plotted 103 is the Lean-checked Bernstein bound. records/witness-searches/reanalysis-2026-09/poly1305/README.html",
           "source": "records/speeds.json",
           "family": "prime-field polynomial",
           "key_model": "uniform clamped polynomial key",
@@ -2098,10 +2315,10 @@
           "score": "≥ 56.18",
           "anchor": "appendix-umash",
           "evidence": "ε(1) = 1/(2^64−561); ε(L ≥ 2) = max{A + (1−A)ρ(L), S}; A = 205/(2^64−561); S = 435/(2^64−561) + 2/(2^61−3); ρ(L) = min(1, 2⌈L/32⌉/(2^61−3))",
-          "scope": "The published UMASH-64 headline is proved with coefficient 58 instead of 64: Pr[collision] < 58·⌈L/512⌉/2^61. The implemented accumulator modulo 8p = 2^64−8 retains three bits beyond field reduction; a final reduction modulo p alone would not give this proof. The envelope scores 56.18 bits at L = 2 under both length conventions. At 1 KB / 1 MB / 1 GB, −log₂ ε = 55.18 / 47.995 / 38.000 (published 55 / 47 / 37). Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "scope": "The published UMASH-64 headline is proved with coefficient 58 instead of 64: Pr[collision] < 58·⌈L/512⌉/2^61. The implemented accumulator modulo 8p = 2^64−8 retains three bits beyond field reduction; a final reduction modulo p alone would not give this proof. The envelope scores 56.18 bits at L = 2 under both length conventions. At 1 KB / 1 MB / 1 GB, −log₂ ε = 55.18 / 47.995 / 38.000 (published 55 / 47 / 37). Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "source": "records/speeds.json",
           "family": "PH/NH + prime-field polynomial",
-          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "profile": "umash",
           "summary": "The published 64-bit guarantee now has a complete proof, with a stronger 56.18-bit score. The proof uses three extra accumulator bits that the implementation keeps beyond its prime-field calculation. With ideal random keys and a fixed seed, the bound at 1 GB is 38.000 bits.",
           "reader_notes": {
@@ -2128,10 +2345,10 @@
           "score": "≥ 83.99",
           "anchor": "appendix-umash",
           "evidence": "(81/128)·⌈L/2^23⌉²·2^-83",
-          "scope": "The published fingerprint headline is proved independently of the 64-bit proof, using two independent polynomial multipliers and 34 shared OH words. Pr[collision] < (81/128)·⌈L/2^23⌉²·2^-83. The finer envelope scores 83.99 bits (rounded display 84) on L ≤ 2^46 words, 88.63 through 64 MiB, and approximately 69.0 on L ≤ 2^61−1. At 1 GB it gives 75.98 bits (published 75). The Python reference’s single-multiplier fingerprint is refuted: swapping two full blocks collides for every OH key at f = p−1 or f = 1, yielding a fibre of about 2^-61. Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "scope": "The published fingerprint headline is proved independently of the 64-bit proof, using two independent polynomial multipliers and 34 shared OH words. Pr[collision] < (81/128)·⌈L/2^23⌉²·2^-83. The finer envelope scores 83.99 bits (rounded display 84) on L ≤ 2^46 words, 88.63 through 64 MiB, and approximately 69.0 on L ≤ 2^61−1. At 1 GB it gives 75.98 bits (published 75). The Python reference’s single-multiplier fingerprint is refuted: swapping two full blocks collides for every OH key at f = p−1 or f = 1, yielding a fibre of about 2^-61. Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "source": "records/speeds.json",
           "family": "PH/NH + prime-field polynomial",
-          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "profile": "umash",
           "summary": "The C fingerprint’s published guarantee is also proved, using two independently random polynomial multipliers. The finer bound scores 83.99 bits (about 84) through 2^46 eight-byte words, 88.63 through 64 MiB and about 69 over the full byte-length domain. At 1 GB the bound is 75.98 bits. The single-multiplier Python fingerprint is refuted.",
           "reader_notes": {
@@ -2214,14 +2431,14 @@
           "kind": "proof",
           "key_free": false,
           "speed": 5.55,
-          "bits": 83.27,
-          "score": "≥ 83.27",
+          "bits": 96.0,
+          "score": "≥ 96",
           "anchor": "appendix-halftime24-fixed",
-          "evidence": "6804·2^-96",
-          "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "evidence": "2^-96 at L < 21b; (h+2)^2(h+5)·2^-96 beyond (envelope E_b(L))",
+          "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. The certified normalized score is 96 bits for every tree width (records/halftime/THEOREM.html, “Scores in the requested metric”), attained exactly by the one-byte pair 00/01; the earlier 83.27 was the conservative 6804·2^-96 envelope label, not the normalized score. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
           "source": "records/halftime/speeds_halftime_fixed.json",
           "family": "NH: keyed pair products summed",
-          "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. The certified normalized score is 96 bits for every tree width (records/halftime/THEOREM.html, “Scores in the requested metric”), attained exactly by the one-byte pair 00/01; the earlier 83.27 was the conservative 6804·2^-96 envelope label, not the normalized score. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
           "profile": "halftime24-fixed",
           "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, shown at about 83.27 bits here. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
           "reader_notes": {
@@ -2521,20 +2738,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 7.53,
-          "bits": 19.4469,
-          "score": "≈ 19.45*",
+          "bits": 3.3219,
+          "score": "≤ 3.33",
           "anchor": "appendix-museair-v2",
-          "evidence": "about 2^-17.45 of keys (sampled; 36,060 events / 1.5×2^32 keys, upstream crate)",
+          "evidence": "every seed (67,108,870 / 67,108,870 through the crate, hash and bfast; ε = 1 by construction)",
           "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Rate quoted for museair::hash with a single uniform 64-bit seed; bfast::hash collides on identical seeds; the 128-bit variants (seed_a, seed_b) collide at the same rate under a two-seed model. Not scored by SMHasher3 (ships v0.3).",
           "source": "records/witness-searches/muse-v2-timing/speeds_museair_v2.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit seed, museair::hash(bytes, seed). bfast::hash collides on exactly the same seeds; hash128 / bfast::hash128 (seed_a, seed_b uniform) collide at the same rate on a different seed set (two-seed model).",
           "profile": "muse-v2",
-          "summary": "A fixed 32-byte change in the tail product can be cancelled by changes in the head when the multiplication carries agree. Upstream crate checks give a sampled cap of 19.45 bits. The v0.3 every-seed witness is a separate result.",
+          "summary": "Two fixed 80-byte inputs collide for every seed: flipping the top bit of four words exchanges two products in the long-input finalizer. That caps the score at 3.32 bits. The pair uses the long path, not a short branch, and does not survive a compress round, so inputs above 96 bytes are unaffected. The earlier 32-byte carry pair gave 19.45 bits.",
           "reader_notes": {
-            "evidence": "Two fresh upstream-crate runs found 36,060 collisions in 1.5 × 2^32 seeds, about 2^-17.447. The 95% score interval is 19.43–19.46 bits.",
+            "evidence": "An independent checker linked to the unmodified 0.6.0 crate source found collisions for 67,108,870 of 67,108,870 seeds in both hash and bfast::hash; a C port found 2^24 of 2^24 at 80, 88 and 96 bytes. The 128-bit functions are not affected.",
             "key": "The scored function draws one uniform 64-bit seed. Both messages are fixed independently of that seed.",
-            "scope": "This is algorithm v2, crate 0.6.0, timed through a separately validated MuseAir-v2 registration with direct seed mapping. The 64-bit bfast function collides on the same seeds; the 128-bit functions use a separate two-seed model."
+            "scope": "This is algorithm v2, crate 0.6.0, timed through a separately validated MuseAir-v2 registration with direct seed mapping. The 64-bit bfast function collides on the same seeds; the 128-bit functions use a separate two-seed model and do not collide."
           },
           "smhasher": {
             "url": "https://github.com/thomasahle/hash-benchmark-reproduction/blob/038373d7f7a683436ef6dc662814aa0aef7e9e4b/verification/out/Xeon8375C/MuseAir-v2.sanity.txt",
@@ -2581,20 +2798,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 5.82,
-          "bits": 29.1928,
-          "score": "≈ 29.19*",
+          "bits": 3.5906,
+          "score": "≤ 3.6",
           "anchor": "appendix-t1ha2",
-          "evidence": "about 2^-28.19 of keys (sampled class contribution: 2^-24 × 58,715,203/2^30)",
+          "evidence": "1 − 2^-8 of seeds exactly (fails on exactly 2^56 of 2^64 seeds; measured 267,388,667 / 2^28 on a second pair)",
           "scope": "Measured score cap with sampling uncertainty; better pairs may exist (6-digit routes not enumerated). Cross-length 13/16-byte pair. Exact class density 2^-24 multiplied by the conditional rate 2^-4.19 measured at 2^30 class samples against upstream. All 701 uniform-seed hits (3 x 2^36) lie inside the class, so the class contribution is the observed rate at this resolution, but it remains a sampled lower bound on eps, not a proof of total equality.",
           "source": "records/speeds.json",
           "family": "keyed multiply-fold",
           "key_model": "Uniform 64-bit one-shot API seed.",
           "profile": "t1ha",
-          "summary": "A 13-byte input and a 16-byte input can reach the same internal state when multiplication carries cancel. An exactly counted seed class and a measured success rate within it give a sampled cap of 29.19 bits. The result permits different message lengths.",
+          "summary": "Two fixed 96-byte inputs collide for every seed except one interval holding 2^-8 of them: a top-bit difference passes through the 32-byte loop and cancels after three blocks. That caps the score at 3.59 bits. Switching any subset of blocks gives 65,536 inputs of 576 bytes that all collide for about 94% of seeds, at any position of a long message. The earlier 13/16-byte carry pair gave 29.19 bits.",
           "reader_notes": {
-            "evidence": "The seed class fixes 24 bits. The upstream verifier found 58,715,203 collisions in 2^30 class samples, giving a class-weighted rate of about 2^-28.19. Fresh uniform-seed runs support the result.",
-            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The two messages are chosen first and do not depend on that seed.",
-            "scope": "This result concerns the t1ha2_atonce 64-bit function. Other t1ha versions and the streaming interface are separate cases."
+            "evidence": "The failing seeds form one explicit interval of 2^56 values. The search program found 1,069,547,538 collisions in 2^30 seeds; an independent checker linked to upstream t1ha found 267,388,667 in 2^28 on a second pair. The 128-bit function collides on the same seeds.",
+            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The messages are chosen first and do not depend on that seed.",
+            "scope": "This result concerns the t1ha2_atonce 64- and 128-bit functions for inputs longer than 32 bytes. Other t1ha versions are separate cases."
           },
           "smhasher": {
             "label": "SMHasher3 results",
@@ -2851,20 +3068,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 19.69,
-          "bits": 28.543,
-          "score": "≈ 28.54*",
+          "bits": 21.576,
+          "score": "≈ 21.58*",
           "anchor": "appendix-xxh3-64",
-          "evidence": "about 527 of every 2^36 keys (sampled; 527 events, pooled)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_64bits_withSecret; callers of withSeed or withSecretandSeed (len <= 240) are in the default-secret model, where the NAF pair gives 12.47 bits. Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (527 events in 2^36 keys). No practical flooding attack is established by this fixed-pair rate.",
+          "evidence": "about 2^-21.58 of secrets (6868 / 5·2^32, pooled over two independent programs)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_64bits_withSecret; callers of withSeed or withSecretandSeed (len <= 240) are in the default-secret model, where the NAF pair gives 12.47 bits. Exact Poisson 95% interval for this witness-derived score: [21.5, 21.6] (6868 events in 5·2^32 secrets). Above 240 bytes a fixed set of any size collides for 2^-32 of secrets (weak-key multicollision).",
           "source": "records/speeds.json",
           "family": "NH-like accumulators",
           "key_model": "Uniform 192-byte secret via XXH3_64bits_withSecret (1536 key bits; API minimum 136 B = 1088). XXH3_64bits_withSeed and XXH3_64bits_withSecretandSeed (len <= 240, one-shot and streaming) use the default public secret and stay in the 64-bit-seed model",
           "profile": "xxh3-64",
-          "summary": "Complementing one keyed word of a 16-byte block leaves the folded product unchanged for about one key in 2^27, whatever the secret bytes are. Measured through XXH3_64bits_withSecret with a fresh random 192-byte secret per trial, a 24-byte pair gives a sampled cap of 28.5 bits. Callers of the seeded functions (withSeed, and withSecretandSeed or streaming at up to 240 bytes, which use the default secret) face a much weaker case: a 32-byte pair built from the default-secret words collides for one seed in about 1,423, a 12.47-bit cap. That default-secret figure is a caveat, not the score. It does not assert a flooding attack.",
+          "summary": "A 5-byte and an 8-byte input collide for about one secret in 2^21.6: the length term of the short-input finalizer cancels through its multiply. With a fresh random 192-byte secret this caps the score at 21.6 bits. Above 240 bytes one condition on a single secret word, holding for 2^-32 of secrets, makes a fixed set of any size collide. Callers of the seeded functions face the separate default-secret caveat: a 32-byte pair collides for one seed in about 1,423 (12.47 bits).",
           "reader_notes": {
-            "evidence": "An independent verifier against the upstream 0.8.3 source counted 527 collisions in 2^36 keys for the 24-byte pair (260 through withSecret, 267 with seed and secret both random; the two models give the same rate). The score interval is 28.4–28.7 bits. The default-secret 32-byte pair was measured at 2,264,081 collisions in 3 × 2^30 seeds (12.47 bits).",
-            "key": "Each trial draws 192 secret bytes at random, every value equally likely (1,536 hidden bits), and calls XXH3_64bits_withSecret. The two messages are chosen first and do not depend on the key. With withSeed, and with withSecretandSeed or the streaming interface for inputs of at most 240 bytes, the library uses its built-in secret and only the 64-bit seed is hidden; the default-secret pair applies there.",
-            "scope": "The scored pair is the paper’s fold differential under a uniform secret; the default-secret pair is a bounded-search result for the seeded 0.8.3 functions. The earlier base-1143 pair and historical pair A remain documented as controls."
+            "evidence": "Two independently written programs counted 1441 in 2^32 and 5427 in 2^34 secrets for the 5/8-byte pair, pooled 6868 in 5·2^32 (interval 21.5–21.6 bits). The earlier 24-byte fold pair (527 in 2^36, 28.5 bits) is kept as the superseded result. The default-secret 32-byte pair was measured at 2,264,081 collisions in 3 × 2^30 seeds.",
+            "key": "Each trial draws 192 secret bytes at random (1,536 hidden bits) and calls XXH3_64bits_withSecret. The messages are chosen first. With withSeed, and with withSecretandSeed for inputs of at most 240 bytes, only the 64-bit seed is hidden.",
+            "scope": "XXH3-64 0.8.3. The scored pair uses the 4–8-byte path; the long-input multicollision applies above 240 bytes and needs the 2^-32 secret class."
           },
           "smhasher": {
             "label": "SMHasher3 results",
@@ -2881,20 +3098,20 @@
           "kind": "witness",
           "key_free": false,
           "speed": 19.82,
-          "bits": 28.556,
-          "score": "≈ 28.56*",
+          "bits": 21.029,
+          "score": "≈ 21.03*",
           "anchor": "appendix-xxh3-128",
-          "evidence": "about 479 of every 2^35.46 keys (sampled; 479 events, pooled)",
-          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_128bits_withSecret; withSeed and withSecretandSeed (len <= 240) callers get the same rate with the default secret (28.6 [28.4, 28.8]). Exact Poisson 95% interval for this witness-derived score: [28.4, 28.7] (479 events in 2^35.46 keys).",
+          "evidence": "about 2^-20.03 of secrets (20069 / 5·2^32, pooled over two independent programs; full 128-bit)",
+          "scope": "Measured score cap with sampling uncertainty; better pairs may exist. Uniform 192-byte secret via XXH3_128bits_withSecret. With the default secret and a random seed (withSeed, and withSecretandSeed up to 240 bytes) the same pair collides for about 2^-19.44 of seeds, a 20.44-bit cap. Above 240 bytes a fixed set of any size collides for 2^-32 of secrets (weak-key multicollision).",
           "source": "records/speeds.json",
           "family": "NH-like accumulators",
           "key_model": "Uniform 192-byte secret via XXH3_128bits_withSecret (1536 key bits; API minimum 1088); the seed is redundant for len <= 240 and XXH3_128bits_withSecretandSeed ignores the custom secret for len <= 240",
           "profile": "xxh3-64",
-          "summary": "The pair preserves both a multiplication result and a sum used by the hash, causing both output halves to collide for some keys. With a fresh random 192-byte secret per trial, 479 full 128-bit collisions in about 2^35.5 keys give a measured score cap of 28.6 bits, with a 95% interval of 28.4–28.7 bits; the default-secret seeded function gives the same rate.",
+          "summary": "A 9-byte and a 16-byte input collide in all 128 bits for about one secret in 2^20: the length term of the 9–16-byte path can be cancelled. With a fresh random 192-byte secret this caps the score at 21.0 bits. The long-input multicollision of XXH3-64 holds for the 128-bit output as well.",
           "reader_notes": {
-            "evidence": "An independent verifier counted 156 collisions in 2^34 keys through withSecret, 84 in 2^33 with seed and secret both random and 60 in a second 2^32 stream; the search harness counted 179 in 2^34. The default-secret control (165 in 2^34 plus 44 in 2^32) gives the same rate.",
-            "key": "Each trial draws 192 secret bytes at random, every value equally likely (1,536 hidden bits), and calls XXH3_128bits_withSecret; the seed adds nothing at these lengths. The two messages are chosen first and do not depend on the key.",
-            "scope": "The experiment covers XXH3-128 version 0.8.3 at 32 bytes with full 128-bit equality. withSecretandSeed ignores the custom secret for inputs of at most 240 bytes, so callers of that function with short inputs are in the seeded model, where the same pair collides at the same rate."
+            "evidence": "Two independently written programs counted 4074 in 2^32 and 15995 in 2^34 secrets, pooled 20069 in 5·2^32 full 128-bit collisions (interval 21.01–21.05 bits). With the default secret and a random seed the rate is higher, about 2^-19.44 (20.44 bits). The earlier 32-byte pair (479 in 2^35.46, 28.6 bits) is kept as the superseded result.",
+            "key": "Each trial draws 192 secret bytes at random (1,536 hidden bits) and calls XXH3_128bits_withSecret. The messages are chosen first and do not depend on the key.",
+            "scope": "XXH3-128 0.8.3 with full 128-bit equality. withSecretandSeed ignores the custom secret for inputs of at most 240 bytes, so its short-input callers are in the seeded model."
           },
           "smhasher": {
             "label": "SMHasher3 results",
@@ -3181,11 +3398,11 @@
           "kind": "witness",
           "key_free": false,
           "speed": 12.81,
-          "bits": 36.39231742277876,
-          "score": "≤ 36.4",
+          "bits": 39.39231742277876,
+          "score": "≤ 39.4",
           "anchor": "appendix-halftime24",
-          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 168-byte Encode3 pair); sampled 76/316053236830 ≈ 2^-31.95, 95% interval [2^-32.30, 2^-31.63]",
-          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 168-byte pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
+          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 1344-byte Encode3 pair on the V4 entry point, b = 8; 262,144/262,144 in the class, 0 outside)",
+          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 1344-byte (V4<3>; the 168-byte pair applies to V1<3>) pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
           "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
           "family": "NH trees",
           "key_model": "independent uniform entropy words; raw fixed-length core",
@@ -3295,6 +3512,156 @@
           "code_url": "https://github.com/dotnet/runtime/blob/v10.0.12/src/libraries/System.Private.CoreLib/src/System/Marvin.cs"
         },
         {
+          "id": "xxh64",
+          "name": "XXH64 0.8.3",
+          "label": "XXH64",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 4.82,
+          "bits": 1.0,
+          "score": "≤ 1",
+          "anchor": "appendix-xxh64",
+          "evidence": "every key (16,777,216 / 16,777,216 seeds; ε = 1 by construction)",
+          "scope": "Key-free 16-byte pair (L = 2); an 8-byte input is hashed bijectively, so no L = 1 pair exists. Flooding-grade: key-free 4-way at 24 B; 65,536 messages of 64 B collide for all but at most 2.8·10^-8 of seeds; loop differential at any position with failure 2^-33.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 64-bit seed: XXH64(input, len, seed).",
+          "profile": "xxh64",
+          "summary": "Two fixed 16-byte strings collide for every seed: a top-bit difference passes the short path's multiplication and is cancelled by the next word. That caps the score at 1 bit. 65,536 strings of 64 bytes collide for essentially every seed, and the stripe-loop difference works at any position of a long input.",
+          "reader_notes": {
+            "evidence": "16,777,216 of 16,777,216 random seeds collide; an independent program found a different key-free pair with the same result. The 64-byte set collided for 65,536 of 65,536 seeds.",
+            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The messages are chosen first and do not depend on that seed.",
+            "scope": "XXH64 from xxHash 0.8.3. XXH3 is a separate row."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/XXH-64.txt",
+            "scope": "full"
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "xxh32",
+          "name": "XXH32 0.8.3",
+          "label": "XXH32",
+          "kind": "witness",
+          "key_free": false,
+          "speed": 2.41,
+          "bits": 1.1e-05,
+          "score": "≤ 0.01",
+          "anchor": "appendix-xxh32",
+          "evidence": "all but 2^-17 of keys (4,294,934,528 / 2^32 seeds, exhaustive)",
+          "scope": "Not key-free: exactly 2^15 of the 2^32 seeds separate the pair. Flooding-grade: 65,536 messages of 12 B collide for at least 0.9961 of seeds; loop differential at any position fails for exactly 2^13 of 2^32 seeds (exhaustive at 256 B).",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 32-bit seed: XXH32(input, len, seed).",
+          "profile": "xxh64",
+          "summary": "Two fixed 8-byte strings collide for all but 2^15 of the 2^32 seeds, checked exhaustively, so the score is essentially 0 bits. 65,536 strings of 12 bytes collide for at least 99.6% of seeds.",
+          "reader_notes": {
+            "evidence": "An exhaustive run over all 2^32 seeds found 4,294,934,528 collisions; an independent program confirmed a different pair exhaustively.",
+            "key": "The experiment chooses a 32-bit seed at random, with every possible value equally likely; for the short pair every seed was checked. The messages are chosen first.",
+            "scope": "XXH32 from xxHash 0.8.3. The pair is not key-free: 2^15 seeds separate it."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/XXH-32.txt",
+            "scope": "full"
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/Cyan4973/xxHash/blob/v0.8.3/xxhash.h"
+        },
+        {
+          "id": "murmur64a",
+          "name": "MurmurHash64A (MurmurHash2, 64-bit)",
+          "label": "MurmurHash64A",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 2.33,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-murmurhash64a",
+          "evidence": "every key (16,777,216 / 16,777,216 seeds; ε = 1 by construction)",
+          "scope": "Key-free cross-length pair (8 vs 7 B); a key-free same-length pair at 16 B; key-free 2^n-member sets of 8(n+1) bytes; key-free at any position of long inputs. Applies to libstdc++ std::hash<std::string> on 64-bit targets.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 64-bit seed: MurmurHash64A(key, len, seed). libstdc++ std::hash<std::string> uses it with the fixed seed 0xc70f6907.",
+          "profile": "murmur64a",
+          "summary": "An 8-byte and a 7-byte string collide for every seed, including libstdc++'s: the length difference is absorbed by the first word. Arbitrarily many equal-length strings collide for every seed, as Aumasson, Bernstein and Boßlet showed in 2012.",
+          "reader_notes": {
+            "evidence": "16,777,216 of 16,777,216 random seeds collide; a transcription of libstdc++ _Hash_bytes gives the same value for both strings.",
+            "key": "The experiment chooses a 64-bit seed at random, with every possible value equally likely. The messages are chosen first and do not depend on that seed.",
+            "scope": "MurmurHash64A from aappleby/smhasher; libstdc++ std::_Hash_bytes on 64-bit targets."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/MurmurHash2-64.txt",
+            "scope": "full"
+          },
+          "output_bits": 64,
+          "code_url": "https://github.com/aappleby/smhasher/blob/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash2.cpp"
+        },
+        {
+          "id": "murmur2",
+          "name": "MurmurHash2 (32-bit)",
+          "label": "MurmurHash2",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.21,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-murmurhash2",
+          "evidence": "every key (all 2^32 seeds, exhaustive)",
+          "scope": "Key-free 8-byte pair (exhaustive over 2^32 seeds, including Kafka’s 0x9747b28c); key-free 65,536-message set at 68 B; key-free at any position of long inputs.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 32-bit seed: MurmurHash2(key, len, seed). Kafka’s default partitioner uses the fixed seed 0x9747b28c.",
+          "profile": "murmur64a",
+          "summary": "Two 8-byte strings collide for all 2^32 seeds, including Kafka's fixed seed, and 65,536 strings of 68 bytes collide for every seed. This reproduces Aumasson, Bernstein and Boßlet (2012).",
+          "reader_notes": {
+            "evidence": "All 2^32 seeds checked; Kafka's Utils.murmur2, run verbatim, gives b626e14b for both strings.",
+            "key": "The experiment chooses a 32-bit seed at random, with every possible value equally likely; for the short pair every seed was checked. The messages are chosen first.",
+            "scope": "MurmurHash2 (32-bit) from aappleby/smhasher."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/MurmurHash2-32.txt",
+            "scope": "full"
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/aappleby/smhasher/blob/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash2.cpp"
+        },
+        {
+          "id": "murmur2a",
+          "name": "MurmurHash2A (32-bit)",
+          "label": "MurmurHash2A",
+          "kind": "witness",
+          "key_free": true,
+          "speed": 1.21,
+          "bits": 0.0,
+          "score": "≤ 0",
+          "anchor": "appendix-murmurhash2",
+          "evidence": "every key (all 2^32 seeds, exhaustive)",
+          "scope": "Key-free 8-byte pair (exhaustive over 2^32 seeds); key-free 65,536-message set at 68 B.",
+          "source": "records/new-hashes-timing/speeds_xxh_murmur.json",
+          "family": "constant-multiplier lanes",
+          "key_model": "Uniform 32-bit seed: MurmurHash2A(key, len, seed).",
+          "profile": "murmur64a",
+          "summary": "MurmurHash2A uses the same block step as MurmurHash2 and falls to the same construction: two 8-byte strings collide for all 2^32 seeds.",
+          "reader_notes": {
+            "evidence": "All 2^32 seeds checked.",
+            "key": "The experiment chooses a 32-bit seed at random, with every possible value equally likely; for the short pair every seed was checked. The messages are chosen first.",
+            "scope": "MurmurHash2A (32-bit) from aappleby/smhasher."
+          },
+          "smhasher": {
+            "label": "SMHasher3 results",
+            "url": "https://github.com/fwojcik/smhasher3/blob/3b619371/results/raw/MurmurHash2a.txt",
+            "scope": "full"
+          },
+          "output_bits": 32,
+          "code_url": "https://github.com/aappleby/smhasher/blob/07bb4de10a63e8cc2e1724865454eba635742383/src/MurmurHash2.cpp"
+        },
+        {
           "id": "polymur",
           "name": "PolymurHash 2.0",
           "label": "PolymurHash 2.0",
@@ -3305,10 +3672,10 @@
           "score": "≥ 54.22",
           "anchor": "proofs",
           "evidence": "D(8L)/K0; K0 = 189729088763903999",
-          "scope": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified.",
+          "scope": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified. Shipped seeding (NEW, 2026-09-28): the proof assumes k uniform on K, but polymur_init_params walks the seed forward to the first acceptable exponent, so some keys are about 11 times likelier than average. For the key reached from 1,096 of the 2^64 seeds, the 8-byte 2c336f948f6f6c99 and the 7-byte aa373a8eeff85a collide (both 0x5335b33210496b34 under polymur_init_params(0x8545715fd36ce9e9, 0xd95d3b0f3d7ebc54)), so under the shipped seeding a pair collides with probability 2^-53.90 exactly, a score of at most 53.90 bits at L = 1. The plotted 54.23 is the ideal-key theorem; no lower bound is proved for the shipped seeding. records/witness-searches/reanalysis-2026-09/polymur/README.html",
           "source": "records/speeds.json",
           "family": "prime-field polynomial",
-          "key_model": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified.",
+          "key_model": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified. Shipped seeding (NEW, 2026-09-28): the proof assumes k uniform on K, but polymur_init_params walks the seed forward to the first acceptable exponent, so some keys are about 11 times likelier than average. For the key reached from 1,096 of the 2^64 seeds, the 8-byte 2c336f948f6f6c99 and the 7-byte aa373a8eeff85a collide (both 0x5335b33210496b34 under polymur_init_params(0x8545715fd36ce9e9, 0xd95d3b0f3d7ebc54)), so under the shipped seeding a pair collides with probability 2^-53.90 exactly, a score of at most 53.90 bits at L = 1. The plotted 54.23 is the ideal-key theorem; no lower bound is proved for the shipped seeding. records/witness-searches/reanalysis-2026-09/polymur/README.html",
           "profile": "polymur",
           "summary": "The audit establishes at least 54.22 bits on this post’s collision score for the full 64-bit output. That guarantee requires choosing the key uniformly from the specified allowed set. It does not automatically cover the library’s seed-based key generator or a hash table that keeps only some output bits.",
           "reader_notes": {
@@ -3335,7 +3702,7 @@
           "score": "≥ 103",
           "anchor": "appendix-classic",
           "evidence": "8·ceil(bytes/16)/2^106",
-          "scope": "Audited conservative 103-bit bound with uniform clamped r. The timed SMHasher3 Poly1305 wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply.",
+          "scope": "Audited conservative 103-bit bound with uniform clamped r. The timed SMHasher3 Poly1305 wrapper derives its key from a 64-bit seed and therefore forms a 2^64-member subfamily to which the ideal-key bound does not apply. Tightness (2026-09-28): the one-block pair d664915c5fd5 / d664915c5fd501 collides for exactly 4 of the 2^106 clamped keys, so the L = 1 score is exactly 104; a sharper count (at most 7 key values per block) proves at least 103.78 (L = 3), so the true score lies in [103.78, 104]. The plotted 103 is the Lean-checked Bernstein bound. records/witness-searches/reanalysis-2026-09/poly1305/README.html",
           "source": "records/speeds.json",
           "family": "prime-field polynomial",
           "key_model": "uniform clamped polynomial key",
@@ -3515,10 +3882,10 @@
           "score": "≥ 56.18",
           "anchor": "appendix-umash",
           "evidence": "ε(1) = 1/(2^64−561); ε(L ≥ 2) = max{A + (1−A)ρ(L), S}; A = 205/(2^64−561); S = 435/(2^64−561) + 2/(2^61−3); ρ(L) = min(1, 2⌈L/32⌉/(2^61−3))",
-          "scope": "The published UMASH-64 headline is proved with coefficient 58 instead of 64: Pr[collision] < 58·⌈L/512⌉/2^61. The implemented accumulator modulo 8p = 2^64−8 retains three bits beyond field reduction; a final reduction modulo p alone would not give this proof. The envelope scores 56.18 bits at L = 2 under both length conventions. At 1 KB / 1 MB / 1 GB, −log₂ ε = 55.18 / 47.995 / 38.000 (published 55 / 47 / 37). Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "scope": "The published UMASH-64 headline is proved with coefficient 58 instead of 64: Pr[collision] < 58·⌈L/512⌉/2^61. The implemented accumulator modulo 8p = 2^64−8 retains three bits beyond field reduction; a final reduction modulo p alone would not give this proof. The envelope scores 56.18 bits at L = 2 under both length conventions. At 1 KB / 1 MB / 1 GB, −log₂ ε = 55.18 / 47.995 / 38.000 (published 55 / 47 / 37). Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "source": "records/speeds.json",
           "family": "PH/NH + prime-field polynomial",
-          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "profile": "umash",
           "summary": "The published 64-bit guarantee now has a complete proof, with a stronger 56.18-bit score. The proof uses three extra accumulator bits that the implementation keeps beyond its prime-field calculation. With ideal random keys and a fixed seed, the bound at 1 GB is 38.000 bits.",
           "reader_notes": {
@@ -3545,10 +3912,10 @@
           "score": "≥ 83.99",
           "anchor": "appendix-umash",
           "evidence": "(81/128)·⌈L/2^23⌉²·2^-83",
-          "scope": "The published fingerprint headline is proved independently of the 64-bit proof, using two independent polynomial multipliers and 34 shared OH words. Pr[collision] < (81/128)·⌈L/2^23⌉²·2^-83. The finer envelope scores 83.99 bits (rounded display 84) on L ≤ 2^46 words, 88.63 through 64 MiB, and approximately 69.0 on L ≤ 2^61−1. At 1 GB it gives 75.98 bits (published 75). The Python reference’s single-multiplier fingerprint is refuted: swapping two full blocks collides for every OH key at f = p−1 or f = 1, yielding a fibre of about 2^-61. Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "scope": "The published fingerprint headline is proved independently of the 64-bit proof, using two independent polynomial multipliers and 34 shared OH words. Pr[collision] < (81/128)·⌈L/2^23⌉²·2^-83. The finer envelope scores 83.99 bits (rounded display 84) on L ≤ 2^46 words, 88.63 through 64 MiB, and approximately 69.0 on L ≤ 2^61−1. At 1 GB it gives 75.98 bits (published 75). The Python reference’s single-multiplier fingerprint is refuted: swapping two full blocks collides for every OH key at f = p−1 or f = 1, yielding a fibre of about 2^-61. Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "source": "records/speeds.json",
           "family": "PH/NH + prime-field polynomial",
-          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation / umash_params_derive, the OH-repair sampler, per-call seeds and masked outputs are outside the theorems.",
+          "key_model": "Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
           "profile": "umash",
           "summary": "The C fingerprint’s published guarantee is also proved, using two independently random polynomial multipliers. The finer bound scores 83.99 bits (about 84) through 2^46 eight-byte words, 88.63 through 64 MiB and about 69 over the full byte-length domain. At 1 GB the bound is 75.98 bits. The single-multiplier Python fingerprint is refuted.",
           "reader_notes": {
@@ -3631,14 +3998,14 @@
           "kind": "proof",
           "key_free": false,
           "speed": 14.12,
-          "bits": 83.27,
-          "score": "≥ 83.27",
+          "bits": 96.0,
+          "score": "≥ 96",
           "anchor": "appendix-halftime24-fixed",
-          "evidence": "6804·2^-96",
-          "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "evidence": "2^-96 at L < 21b; (h+2)^2(h+5)·2^-96 beyond (envelope E_b(L))",
+          "scope": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. The certified normalized score is 96 bits for every tree width (records/halftime/THEOREM.html, “Scores in the requested metric”), attained exactly by the one-byte pair 00/01; the earlier 83.27 was the conservative 6804·2^-96 envelope label, not the normalized score. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
           "source": "records/halftime/speeds_halftime_fixed.json",
           "family": "NH: keyed pair products summed",
-          "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. 83.27 is the requested conservative collision-bound label (exactly 83.2678325743); the source theorem gives stronger bounds on the retained stack-safe domain. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
+          "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. The certified normalized score is 96 bits for every tree width (records/halftime/THEOREM.html, “Scores in the requested metric”), attained exactly by the one-byte pair 00/01; the earlier 83.27 was the conservative 6804·2^-96 envelope label, not the normalized score. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
           "profile": "halftime24-fixed",
           "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, shown at about 83.27 bits here. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
           "reader_notes": {

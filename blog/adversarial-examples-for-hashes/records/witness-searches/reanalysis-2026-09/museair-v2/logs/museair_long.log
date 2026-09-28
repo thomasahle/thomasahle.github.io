@@ -1,0 +1,4 @@
+verification museair::hash 7140CABC (expected 7140CABC), bfast::hash A4BFD093 (expected A4BFD093)
+M0 80 B pair: hash 1048576/1048576, bfast 1048576/1048576 seeds collide
+M1 176 B (common 96-byte chunk + the 80-byte pair): hash 0/16777216, bfast 0/16777216 seeds collide
+M2 192 B (the 80-byte pair as the start of the first compress chunk + common 112 B): hash 0/16777216, bfast 0/16777216 seeds collide

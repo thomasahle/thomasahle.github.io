@@ -1,0 +1,71 @@
+# loop_xxmur.c logs (<xeon-host>, 8 threads), filtered to xxh64; each run first printed the four verification lines below, all OK
+SMHasher3 verification xxh64  8F8224C4 (expected 8F8224C4) OK
+SMHasher3 verification xxh32  6FD78385 (expected 6FD78385) OK
+SMHasher3 verification m64a   1F0D3804 (expected 1F0D3804) OK
+SMHasher3 verification m2     27864C1E (expected 27864C1E) OK
+## xxmur_rand.log
+rand xxh64 len=256: collisions 1048576/1048576 = 1.000000000 [95% 0.999996337, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed 73945f25467dd3bf -> both hash to 144c58e9cb5e8f5f
+## xxmur_rand.log
+rand xxh64 len=1024: collisions 1048576/1048576 = 1.000000000 [95% 0.999996337, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed 82d11dc0acbc245b -> both hash to 87b4a405f29ded29
+## xxmur_rand.log
+rand xxh64 len=65536: collisions 262144/262144 = 1.000000000 [95% 0.999985346, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed e0b286f11a735f4c -> both hash to 44a71debc9fcc9a8
+## xxmur_rand.log
+rand xxh64 len=1048576: collisions 32768/32768 = 1.000000000 [95% 0.999882782, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed bec50b845e6654c2 -> both hash to 087a8fc7cf0c8210
+## xxmur_fixed.log
+fixed xxh64 len=256: message = 256 bytes from xoshiro256** seeded by splitmix64(0x4c6f6e96af), slot stripe/word 4 lane 1; differing words:
+  offset     136: 820627ebd9f541fa -> 8dadb863f0828da9
+  offset     168: 9574c70f4056f2a8 -> 3204c76ac056f2a8
+  M  = ec5d0f65e54dcc6fbc4a6500c1b3d970719386f9d841eaef8443ce81176498eff81034c3f7a3d60bad32ecc8034599fe013a3019a1925a6d043d864da7fd6ab03c97c66f28d8611b32cd33d152735e9e626d6ef99aaabc9c29836f64cfb357cc296bb77132f5f75dce1d658a1dd12d1cfb51936bf62c7889ff6c411d6a44dfcce14f69c7d40d5903fa41f5d9eb27068263eb0519ce2f385ecfcd3b801fbb1d3c9e7092ebba99d13ea8f256400fc77495a3e9a483b5a59f0a2676c59b688ffcb6d8b17d133c9e05685fa89ab28e7c631a2b360417c1d97b191e63f9b2035708f0acc8bf37afe995617c305aca33e52f7e2367727a6786bc2723fb7d84a8d21f0f
+  M' = ec5d0f65e54dcc6fbc4a6500c1b3d970719386f9d841eaef8443ce81176498eff81034c3f7a3d60bad32ecc8034599fe013a3019a1925a6d043d864da7fd6ab03c97c66f28d8611b32cd33d152735e9e626d6ef99aaabc9c29836f64cfb357cc296bb77132f5f75dce1d658a1dd12d1cfb51936bf62c7889ff6c411d6a44dfcce14f69c7d40d5903a98d82f063b8ad8d63eb0519ce2f385ecfcd3b801fbb1d3c9e7092ebba99d13ea8f256c06ac70432a3e9a483b5a59f0a2676c59b688ffcb6d8b17d133c9e05685fa89ab28e7c631a2b360417c1d97b191e63f9b2035708f0acc8bf37afe995617c305aca33e52f7e2367727a6786bc2723fb7d84a8d21f0f
+fixed xxh64 len=256: collisions 16777216/16777216 = 1.000000000 [95% 0.999999771, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed 81cbab2692017aa1 -> both hash to bf3e69b8fbcab09c
+  a back-solved FAILING seed 63f06260e77c8cf5: a4e5ac43fdd613be vs 56c63eeee9ba06f5 (predicted fail 1)
+## xxmur_fixed.log
+fixed xxh64 len=1024: message = 1024 bytes from xoshiro256** seeded by splitmix64(0x4c6f6e96af), slot stripe/word 18 lane 3; differing words:
+  offset     600: d4f2d9a9203fc5b9 -> e09a6a2136cd1168
+  offset     632: 59dcfb7c295190c8 -> f66cfbd7a95190c8
+fixed xxh64 len=1024: collisions 4194304/4194304 = 1.000000000 [95% 0.999999084, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed a44ce1dbe3dc97ac -> both hash to bda209d0901f623f
+  a back-solved FAILING seed ccf1af79ceb8ec2e: 6b291a6cf65dcdf0 vs 0bf627de8e005e71 (predicted fail 1)
+## xxmur_fixed.log
+fixed xxh64 len=65536: message = 65536 bytes from xoshiro256** seeded by splitmix64(0x4c6f6e96af), slot stripe/word 1028 lane 2; differing words:
+  offset   32912: 7ba3ddfc4661e374 -> 874b6e745cef2f23
+  offset   32944: 45ce45121b2df1df -> e25e456d9b2df1df
+fixed xxh64 len=65536: collisions 65536/65536 = 1.000000000 [95% 0.999941387, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed d179f7b092667d6a -> both hash to fa19cbd71e99cb6b
+  a back-solved FAILING seed 3635482ceb64d0af: 630d3de405d74c9d vs 323b8814e7c3f6a4 (predicted fail 1)
+## xxmur_fixed.log
+fixed xxh64 len=1048576: message = 1048576 bytes from xoshiro256** seeded by splitmix64(0x4c6f6e96af), slot stripe/word 32168 lane 3; differing words:
+  offset 1029400: bcf02d7c47a38fa5 -> c897bdf45e30db54
+  offset 1029432: 44c55e28ef97740c -> e1555e846f97740c
+fixed xxh64 len=1048576: collisions 4096/4096 = 1.000000000 [95% 0.999063023, 1.000000000]; model-predicted failures 0; model/outcome disagreements 0
+  example colliding seed 1c402e9f81f71bfb -> both hash to 729add358096adfa
+  a back-solved FAILING seed b586ba0bcea0abb8: ea0d4fc9d3eb0640 vs 86465869f64cd420 (predicted fail 1)
+## xxmur_plant.log
+plant xxh64 len=256: collisions 2048/4096 = 0.500000000 [95% 0.484694957, 0.515305043]; model-predicted failures 2048; model/outcome disagreements 0
+  example colliding seed 8be1988e371fdde9 -> both hash to 9e54617f7f29fe52
+  (plant: odd trials use V one below the failing value and must collide; even trials must fail => expected collisions = n/2, disagreements 0)
+## xxmur_plant.log
+plant xxh64 len=1024: collisions 2048/4096 = 0.500000000 [95% 0.484694957, 0.515305043]; model-predicted failures 2048; model/outcome disagreements 0
+  example colliding seed e17ae09d92c03ad9 -> both hash to 3402088f55d1711b
+  (plant: odd trials use V one below the failing value and must collide; even trials must fail => expected collisions = n/2, disagreements 0)
+## xxmur_plant.log
+plant xxh64 len=65536: collisions 2048/4096 = 0.500000000 [95% 0.484694957, 0.515305043]; model-predicted failures 2048; model/outcome disagreements 0
+  example colliding seed 193f556876ad56bf -> both hash to 818aa751f56e0410
+  (plant: odd trials use V one below the failing value and must collide; even trials must fail => expected collisions = n/2, disagreements 0)
+## xxmur_plant.log
+plant xxh64 len=1048576: collisions 2048/4096 = 0.500000000 [95% 0.484694957, 0.515305043]; model-predicted failures 2048; model/outcome disagreements 0
+  example colliding seed 01922b0bd37c4b11 -> both hash to 6671fc27546a2a61
+  (plant: odd trials use V one below the failing value and must collide; even trials must fail => expected collisions = n/2, disagreements 0)
+## cube_xxh64_64k.log
+cube xxh64 len=65536: base = 65536 bytes from xoshiro256** seeded by splitmix64(0x4c6f6ea7fc); 16 slots: (1184,1) (1600,2) (610,2) (1600,0) (308,1) (1416,2) (1404,3) (950,1) (358,1) (1690,2) (106,3) (380,3) (600,0) (574,0) (1510,2) (130,3)
+  key ccd117ce164459b8: 65536/65536 members hash to 7d8b8a49c5917b2f
+cube xxh64 len=65536 r=16: whole 65536-set collides for 64/64 keys [95% 0.9434, 1.0000]; model predicts 64; disagreements 0; smallest class-of-member-0 65536
+## cube_xxh64_1m.log
+cube xxh64 len=1048576: base = 1048576 bytes from xoshiro256** seeded by splitmix64(0x4c6f6ea7fc); 10 slots: (15038,3) (906,0) (26448,0) (23924,0) (27598,0) (32612,3) (17522,2) (30604,0) (31298,1) (13386,3)
+  key cdd06eb9b2138201: 1024/1024 members hash to 6d8e32a977457678
+cube xxh64 len=1048576 r=10: whole 1024-set collides for 32/32 keys [95% 0.8928, 1.0000]; model predicts 32; disagreements 0; smallest class-of-member-0 1024

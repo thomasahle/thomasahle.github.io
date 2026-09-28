@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sources</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1 id="sources">Sources</h1>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>origin</th>
+<th>pin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ahash_mc.c</code></td>
+<td>transcription of SMHasher3 <code>hashes/rust-ahash.cpp</code> (aHash
+AES path: from_random_state, hash_in, add_data, finish; constants PI2
+and SHUFFLE_MASK), which follows aHash <code>src/aes_hash.rs</code>; AES
+rounds implemented byte-wise and cross-checked against AES-NI /
+ARMv8-AES</td>
+<td>SMHasher3 verification value rust_ahash 0x3BF4383B (checked at
+start-up)</td>
+</tr>
+<tr class="even">
+<td><code>native-crate-check/</code></td>
+<td>uses the published crate <code>ahash = "=0.8.12"</code> from
+crates.io through its public API (<code>RandomState::with_seeds</code>,
+<code>hash_one(&amp;[u8])</code>)</td>
+<td><code>Cargo.lock</code></td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

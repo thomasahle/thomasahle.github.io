@@ -1,0 +1,40 @@
+verification MuseAir                  computed F89F1683 expected F89F1683 registered F89F1683 OK
+verification MuseAir__bfast           computed C61BEE56 expected C61BEE56 registered C61BEE56 OK
+verification MuseAir_128              computed D3DFE238 expected D3DFE238 registered D3DFE238 OK
+verification MuseAir_128__bfast       computed 27939BF1 expected 27939BF1 registered 27939BF1 OK
+MuseAir v0.3 18-byte family (every 2-byte tail): family of 65536 messages, 65536 distinct, max length 18 bytes (L=3)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key fc8595ff7e173800 -> common output d9a38a9fd902c1ef
+  member[0] = fca3e54749629f45c010373f7f561c670000
+  member[1] = fca31973f8f89f45da3bac007f561c670100
+  member[2] = fca3bd1827779e45d4e2c0007f561c670200
+  member[65535] = 831226115294445ad0a625d823d12804ffff
+  MuseAir-BFast: family of 65536 messages, 65536 distinct, max length 18 bytes (L=3)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 501c83308fb2cb07 -> common output e20ac15bd9858e67
+  member[0] = fca3e54749629f45c010373f7f561c670000
+  member[1] = fca31973f8f89f45da3bac007f561c670100
+  member[2] = fca3bd1827779e45d4e2c0007f561c670200
+  member[65535] = 831226115294445ad0a625d823d12804ffff
+  MuseAir-128: family of 65536 messages, 65536 distinct, max length 18 bytes (L=3)
+  keys where ALL 65536 members share the full 128-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key 549124c5acdf274d -> common output 9c3b930a3973eb0a732a339fd5e0ab03
+  member[0] = fca3e54749629f45c010373f7f561c670000
+  member[1] = fca31973f8f89f45da3bac007f561c670100
+  member[2] = fca3bd1827779e45d4e2c0007f561c670200
+  member[65535] = 831226115294445ad0a625d823d12804ffff
+  MuseAir-BFast-128: family of 65536 messages, 65536 distinct, max length 18 bytes (L=3)
+  keys where ALL 65536 members share the full 128-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key e9b01b2fae809520 -> common output 22bcda334ec13cc5732bc4414249bf77
+  member[0] = fca3e54749629f45c010373f7f561c670000
+  member[1] = fca31973f8f89f45da3bac007f561c670100
+  member[2] = fca3bd1827779e45d4e2c0007f561c670200
+  member[65535] = 831226115294445ad0a625d823d12804ffff
+MuseAir v0.3 17-byte family (every 1-byte tail, 256 members): family of 256 messages, 256 distinct, max length 17 bytes (L=3)
+  keys where ALL 256 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 256
+  example key b5e8d004ec420331 -> common output b48adc3256aa338c
+  member[0] = fca3e54749629f45c010373f7f561c6700
+  member[1] = 7cda937cf8f89f45da8a263f1b7b265801
+  member[2] = 09a86d2427779e45d640cb01b760208d02
+  member[255] = 831226115294445ad0a625d823d12804ff
+RESULT: PASS

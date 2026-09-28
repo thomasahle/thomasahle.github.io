@@ -1,0 +1,14 @@
+upstream selfcheck t1ha2_atonce, t1ha2_atonce128: ok
+failing seeds: [e21359df385a6652, e31359df385a6651] (mod 2^64), 2^56 seeds
+  ex.  seed 0000000000000000: 64-bit 8851841f758af2cd 8851841f758af2cd  128-bit 97bd27e36566935c:3ea79e06d03bd8b3 97bd27e36566935c:3ea79e06d03bd8b3  collide
+  ex.  seed 7d4799c23d231d40: 64-bit cd72df04507e4a98 cd72df04507e4a98  128-bit eae1666093081008:640f3d4e94bf7e81 eae1666093081008:640f3d4e94bf7e81  collide
+  lo-1 seed e21359df385a6651: 64-bit f7ae7b3fb8e1a9ae f7ae7b3fb8e1a9ae  128-bit c0313887081383d6:3c6a216c74e57f72 c0313887081383d6:3c6a216c74e57f72  collide
+  lo   seed e21359df385a6652: 64-bit 6bcd2deaef61a1e7 914cf47345c142d8  128-bit 6cdc062d025d6ad4:03cd14dfd1ac6a88 5f39a764250daa2d:ff20d054e9d4bbc6  differ
+  hi   seed e31359df385a6651: 64-bit be6625b3a4da08b4 0f7e6f4e0e48b89b  128-bit dcc949fbe6b10e49:6a5facdc58930168 99db49134973e5fe:752f5642e3523e38  differ
+  hi+1 seed e31359df385a6652: 64-bit 339edf0d5c383ad1 339edf0d5c383ad1  128-bit ebaf511296b90a62:5958ae3bbfd7816b ebaf511296b90a62:5958ae3bbfd7816b  collide
+uniform seeds: 64-bit 16711577/16777216 = 0.996088 (1 - 2^-8 = 0.996094); 128-bit 16711577; condition mismatches 0
+score log2(L/eps), L = 12, eps = 1 - 2^-8: 3.5906 bits
+
+real	0m0.722s
+user	0m0.564s
+sys	0m0.003s

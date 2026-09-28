@@ -1,0 +1,48 @@
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+fixed len=1024: message = 1024 bytes from xoshiro256** seeded by splitmix64(0x74316890df) with bits 56 of w0 and 37 of w1 of block 18 cleared; window blocks 18..20 (byte offset 576)
+  offset     576: 6e28a1ca9b818068 -> 6f28a1ca9b818068  *
+  offset     584: add65fcc58b5dcfe -> add65fec58b5dcfe  *
+  offset     592: 716794602b701e26 -> 716794602b701e26
+  offset     600: 260fb0fdf8ec1380 -> 250fb0fdf8ec1380  *
+  offset     608: 257b0e763a3be6a7 -> 257b0e763a3be6a7
+  offset     616: 5bb5f02890626914 -> 5bb5f02890626914
+  offset     624: 304d735e26f9e679 -> b04d735e26f9e679  *
+  offset     632: 2ad7368dfbbd69b7 -> aad7368dfbbd69b7  *
+  offset     640: e51dce84093c52b6 -> e51dce84093c52b6
+  offset     648: d0cea53fa1eabf3a -> d0cea53fa1eabf3a
+  offset     656: 3bc2867379b02dda -> bbc2867379b02dda  *
+  offset     664: cf8ddbc299a4e77a -> 4f8ddbc299a4e77a  *
+fixed len=1024: t1ha2_atonce collisions 4177957/4194304 = 0.996103 [95% 0.996042, 0.996162]; failures 16347 = 2^-8.003 [2^-8.025, 2^-7.981] (model 2^-8); atonce128 collisions 4177957; model-predicted failures 16347; model/outcome disagreements 0
+  example colliding seed fbfb7b16393106d1 -> both 0a921f58d2b0a417
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+fixed len=65536: message = 65536 bytes from xoshiro256** seeded by splitmix64(0x74316890df) with bits 56 of w0 and 37 of w1 of block 1717 cleared; window blocks 1717..1719 (byte offset 54944)
+  offset   54944: 9c78dfef1d42034c -> 9d78dfef1d42034c  *
+  offset   54952: ed634b9e1d5a0cf6 -> ed634bbe1d5a0cf6  *
+  offset   54960: 50a852b419202080 -> 50a852b419202080
+  offset   54968: ea1925c99bceafdd -> e91925c99bceafdd  *
+  offset   54976: 126c5d81012b9821 -> 126c5d81012b9821
+  offset   54984: 7bbfde592f31877d -> 7bbfde592f31877d
+  offset   54992: fef3a38761cb65ea -> 7ef3a38761cb65ea  *
+  offset   55000: d42cfbaf454447e5 -> 542cfbaf454447e5  *
+  offset   55008: 84644f68b8b26045 -> 84644f68b8b26045
+  offset   55016: 243a7acb1be0d453 -> 243a7acb1be0d453
+  offset   55024: d5b9c124c34b1208 -> 55b9c124c34b1208  *
+  offset   55032: 6ccf5d0d17c561bb -> eccf5d0d17c561bb  *
+fixed len=65536: t1ha2_atonce collisions 261156/262144 = 0.996231 [95% 0.995989, 0.996458]; failures 988 = 2^-8.052 [2^-8.141, 2^-7.962] (model 2^-8); atonce128 collisions 261156; model-predicted failures 988; model/outcome disagreements 0
+  example colliding seed 9a53c8fc693917c4 -> both 8d5967a60fc88b7c
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+fixed len=1048576: message = 1048576 bytes from xoshiro256** seeded by splitmix64(0x74316890df) with bits 56 of w0 and 37 of w1 of block 26931 cleared; window blocks 26931..26933 (byte offset 861792)
+  offset  861792: 081f6b6c021604cb -> 091f6b6c021604cb  *
+  offset  861800: 6027b6c511f433b0 -> 6027b6e511f433b0  *
+  offset  861808: 5e7171f5cc93a21c -> 5e7171f5cc93a21c
+  offset  861816: 7fbc7201abf4c48e -> 7ebc7201abf4c48e  *
+  offset  861824: 04ad7bc804d7600c -> 04ad7bc804d7600c
+  offset  861832: 0d099d7d96fdb659 -> 0d099d7d96fdb659
+  offset  861840: c39e745320c62b14 -> 439e745320c62b14  *
+  offset  861848: c24fe3b72769fb46 -> 424fe3b72769fb46  *
+  offset  861856: 775dca2782ad5fc4 -> 775dca2782ad5fc4
+  offset  861864: 6b5d06aecf138726 -> 6b5d06aecf138726
+  offset  861872: 05b8b690e9a9a9e3 -> 85b8b690e9a9a9e3  *
+  offset  861880: a17a7fbfbc9e8469 -> 217a7fbfbc9e8469  *
+fixed len=1048576: t1ha2_atonce collisions 32644/32768 = 0.996216 [95% 0.995490, 0.996825]; failures 124 = 2^-8.046 [2^-8.299, 2^-7.793] (model 2^-8); atonce128 collisions 32644; model-predicted failures 124; model/outcome disagreements 0
+  example colliding seed 557a1c8fd3d346ae -> both 6865aebdb789ef34

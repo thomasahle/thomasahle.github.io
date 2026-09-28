@@ -1,0 +1,18 @@
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longins T1 (D=80400000, C=80202808) len 1024 round 1, 1 insertion(s): 65925 / 262144 = 0.25148 = 2^-1.991 (+-2se 0.0017)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longins T2 (D=04008040, C=00008020) len 1024 round 1, 1 insertion(s): 32790 / 262144 = 0.12508 = 2^-2.999 (+-2se 0.0013)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longins T1 (D=80400000, C=80202808) len 65536 round 100, 1 insertion(s): 4100 / 16384 = 0.25024 = 2^-1.999 (+-2se 0.0068)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longins T2 (D=04008040, C=00008020) len 65536 round 100, 1 insertion(s): 2059 / 16384 = 0.12567 = 2^-2.992 (+-2se 0.0052)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longins T1 (D=80400000, C=80202808) len 1048576 round 2000, 1 insertion(s): 505 / 2048 = 0.24658 = 2^-2.020 (+-2se 0.0190)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longins T2 (D=04008040, C=00008020) len 1048576 round 2000, 1 insertion(s): 253 / 2048 = 0.12354 = 2^-3.017 (+-2se 0.0145)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longins T1 (D=80400000, C=80202808) len 65536 round 100, 2 insertion(s) (every other round): 981 / 16384 = 0.05988 = 2^-4.062 (+-2se 0.0037)
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longtied T1 (D=80400000, C=80202808) len 65536 round 100: lane-0 pair 1033 / 4096 = 0.2522; {base, lane0, all-32-lanes} all equal 1033 / 4096 = 0.2522
+SMHasher3 verification of embedded nmhash32: 12A30553 (expected 12A30553) OK
+longtied T2 (D=04008040, C=00008020) len 1048576 round 2000: lane-0 pair 130 / 1024 = 0.1270; {base, lane0, all-32-lanes} all equal 130 / 1024 = 0.1270

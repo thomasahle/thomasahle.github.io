@@ -57,6 +57,12 @@ carry-complement mechanism (measured below); > 240 bytes: the only unkeyed combi
 best construction found (swap two complementary words of one lane so the unkeyed sums agree and the two keyed
 `lo32 * hi32` products cancel) needs `lo1+hi1+lo2+hi2 = 2^33 - 2`, about 2^-32.6, at L >= 31 (cap ~37.5).
 
+> **Correction (2026-09-28).** "The other short paths cannot do better" holds only for pairs of equal
+> length. Across lengths the 4..8-byte path is weaker: 5 zero bytes and `0fe3fba2f2528c1d` (8 B)
+> collide for about 2^-21.6 of uniform secrets (6868 / (5 x 2^32) pooled; cap 21.6 bits at L = 1),
+> because the length term of `rrmxmx` cancels through an XOR-to-add differential of the multiply by
+> `PRIME_MX2`. See [xxh3-crosslen](../../reanalysis-2026-09/xxh3-crosslen/README.md). The text of this record is otherwise left as written on 2026-09-19.
+
 ### 3b. Measurements
 
 The fold-differential stage was not run by this harness on the Xeon; the independent verifier (`verify/`, `fold_MM_2p34` 165 / 2^34 = 2^-26.63 and `fold_M0_2p34` 144 / 2^34 = 2^-26.83) and the paper repository's `results_fold.md` table (157 and 147 per 2^34) supply the primitive rates.

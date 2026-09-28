@@ -1,0 +1,9 @@
+SMHasher3 XXH3-64  verification 1AAEE62C expected 1AAEE62C PASS
+SMHasher3 XXH3-128 verification 288DAA94 expected 288DAA94 PASS
+set: length 576 B (L = 72 words), 0 full blocks + 576-byte tail, k = 2^4 members; member c: for block b<=0, toggle t<4,
+  bit 4b+t of c selects D=000000007fffffff or ~D at offsets 1024b + 64(7-2t) + 8(2t) and 1024b + 64(6-2t) + 8(2t+1); all other bytes 0
+random secrets 2^36: member0==member1 (64-bit) 15 times = 2^-32.093 95% [2^-32.930, 2^-31.371]; in class 15; 128-bit disagreements 0
+class density (2^32-1)/2^64 = 2^-32.000000
+explicit class secret (192 B) = 7473611821db2ca5c93472ce462b8a74e95dce8a6c44c5d273689841372b5008ef8e7bb768aba215de59cca983a7d0ae94a48066c157c76b1e205a491d205ac9da6228d0d086cb786ce8e55660c9372fe041d39e146319eb82543c1e7bf0f5796dc74816dc56c75b529928f514428f4c1aa76991d15071f21580e4750a5630cf51abae65d511241babb574f9eede1d0f46e4cc436ce8de77bd5b5c86f5703f0ab14bffebf5fbd2d5bb04a6b574606ad3ad2578e11ac85aa72637720ecdd19276
+  member 0: XXH3-64 901a393df5a78c36; member 15: XXH3-64 901a393df5a78c36
+  member 0: XXH3-128 a37b54d19da0e283901a393df5a78c36

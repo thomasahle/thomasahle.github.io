@@ -1,0 +1,25 @@
+verification FarmHash_64__NA          computed EBC4A679 expected EBC4A679 registered EBC4A679 OK
+verification FarmHash_64__UO          computed 5438EF2C expected 5438EF2C registered 5438EF2C OK
+unseeded farmhashna::Hash64 over 65536 members: 1 distinct value(s)
+farmhashna::Hash64WithSeed family (members file): family of 65536 messages, 65536 distinct, max length 16 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 65536/65536 (95%CI [0.999944,1]); low-16-bit agreement 65536/65536; min members sharing member 0's value over keys: 65536
+  example key bdf2bb54586f391a -> common output b937fc39d1b2469d
+  member[0] = d73194b9d3f216a51455b33a85eb5311
+  member[1] = 40bde31d7e9d2b39e2ff5d30bb368ee9
+  member[2] = 189efeec1c5d001dd1def6b304f0a300
+  member[65535] = 663048a0bc517f338afe460d04f26d5d
+farmhashuo::Hash64WithSeed: family of 65536 messages, 65536 distinct, max length 16 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 1024/1024 (95%CI [0.996404,1]); low-16-bit agreement 1024/1024; min members sharing member 0's value over keys: 65536
+  example key f65a340da460e608 -> common output dd4232874814f93d
+  member[0] = d73194b9d3f216a51455b33a85eb5311
+  member[1] = 40bde31d7e9d2b39e2ff5d30bb368ee9
+  member[2] = 189efeec1c5d001dd1def6b304f0a300
+  member[65535] = 663048a0bc517f338afe460d04f26d5d
+farmhashna::Hash64WithSeeds: family of 65536 messages, 65536 distinct, max length 16 bytes (L=2)
+  keys where ALL 65536 members share the full 64-bit output: 1024/1024 (95%CI [0.996404,1]); low-16-bit agreement 1024/1024; min members sharing member 0's value over keys: 65536
+  example key d2c44bc401e6d234 -> common output f9b57e3fbb4568df
+  member[0] = d73194b9d3f216a51455b33a85eb5311
+  member[1] = 40bde31d7e9d2b39e2ff5d30bb368ee9
+  member[2] = 189efeec1c5d001dd1def6b304f0a300
+  member[65535] = 663048a0bc517f338afe460d04f26d5d
+RESULT: PASS

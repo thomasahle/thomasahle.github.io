@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>gxhash
+3.5.0: the shortest every-seed flooding family (18 bytes), and any-chunk
+replacement</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="gxhash-350-the-shortest-every-seed-flooding-family-18-bytes-and-any-chunk-replacement">gxhash
+3.5.0: the shortest every-seed flooding family (18 bytes), and any-chunk
+replacement</h1>
+<h2 id="1-18-bytes-and-why-nothing-shorter-works">1. 18 bytes, and why
+nothing shorter works</h2>
+<p>For 17..32 bytes, <code>compress_all</code> = aesenclast(hv, P2(v0))
+with hv = get_partial(first e bytes, e), e = len - 16, and P2(v) =
+aesenc(aesenc(v, K0), K1), all public; the seed enters only afterwards,
+through a keyed permutation of the 128-bit state. So for a target T and
+each e-byte prefix, v0 = P2^-1(T ^ SR(SB(hv))) gives a member: 256^e
+members at 16 + e bytes, all with state T. The program builds 256
+members of 17 bytes plus 65,536 of 18 bytes (65,792 in total) and checks
+them.</p>
+<p>Minimality among families that share one compressed state: up to 16
+bytes a block has at most two preimages (the 16-byte one and at most one
+shorter one), and at most 2 + 256 messages of length &lt;= 17 share a
+block, so 18 bytes is the shortest maximum length for a 2^16-member
+family. (Messages with different states would need the keyed 128-bit
+permutation to collide for most seeds.)</p>
+<p>Examples (memory order): 17 B
+<code>0048979328eaf4cfde08239c51a5b2e507</code>; 18 B
+<code>3930e82fb3d3a38495c68625264b99bcdd2f</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>program</th>
+<th>result</th>
+<th>log</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>gx_mc.c</code> on M2 (armv8 AES, cross-checked against a table
+AES; SMHasher3 verification 64A77B47 / 48F84240)</td>
+<td>65,792 members, 0 state mismatches; all in one 128-bit class for
+4096/4096 seeds; published 15/16-byte pair 4096/4096; lengths &lt;= 8:
+no shared state</td>
+<td><code>logs/gx_mc_m2_2p12.txt</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code>cc -O2 -std=c11 -march=armv8-a+crypto gx_mc.c -o gx_mc &amp;&amp; ./gx_mc 12     # x86-64: -maes</code></pre>
+<h2 id="2-long-inputs-any-128-byte-chunk-can-be-replaced">2. Long
+inputs: any 128-byte chunk can be replaced</h2>
+<p><code>compress_all</code> never sees the seed. Per 128-byte chunk the
+lanes are a = aesenc(aesenc(aesenc(v0, v2), v4), v6) and b likewise from
+v1, v3, v5, v7; for any new v2..v7, solving v0 (and v1) by inverting the
+three rounds keeps (a, b) unchanged, so any chunk can be replaced by any
+of 2^768 others. This is the mechanism of O. Peters, gxhash issue #83
+(2024); these programs only verify it.</p>
+<table>
+<thead>
+<tr class="header">
+<th>length</th>
+<th>64-bit and 128-bit collisions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>256 B, 1000 B, 1 KiB, 64 KiB, 64 KiB + 13</td>
+<td>65,536/65,536 seeds each (x86-64)</td>
+</tr>
+<tr class="even">
+<td>1 MiB, 1 MiB + 7</td>
+<td>256/256</td>
+</tr>
+<tr class="odd">
+<td>2^16 family at 1000 B</td>
+<td>all members equal for 1024/1024 seeds</td>
+</tr>
+<tr class="even">
+<td>M2 rerun, 192 B .. 1 MiB + 7 and the 1000 B family</td>
+<td>256/256 seeds each</td>
+</tr>
+</tbody>
+</table>
+<pre><code>cc -O2 -std=c11 -maes gx_long.c -o gx_long &amp;&amp; ./gx_long 16      # arm64: -march=armv8-a+crypto</code></pre>
+<p>Logs: <code>logs/gx_long_xeon.txt</code>,
+<code>logs/gx_long_m2_2p8.txt</code>.</p>
+</main></body></html>

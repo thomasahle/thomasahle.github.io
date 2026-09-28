@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MurmurHash2
+(32-bit) and MurmurHash2A: key-free pairs and 2^16-way sets</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="murmurhash2-32-bit-and-murmurhash2a-key-free-pairs-and-216-way-sets">MurmurHash2
+(32-bit) and MurmurHash2A: key-free pairs and 2^16-way sets</h1>
+<p>Key model: <code>MurmurHash2(key, len, seed)</code> and
+<code>MurmurHash2A(key, len, seed)</code> with a uniformly random 32-bit
+seed (SMHasher3 <code>MurmurHash2-32</code>, <code>MurmurHash2a</code>).
+Apache Kafka's default producer partitioner uses MurmurHash2 with the
+fixed seed <code>0x9747b28c</code>; the results are key-free, so they
+hold there too. Scores use L = number of 8-byte words of the longer
+message.</p>
+<h2 id="what-is-checked">What is checked</h2>
+<p><code>murmurhash2_witness.c</code> (SMHasher3
+<code>hashes/murmurhash2.cpp</code> transcription; checks
+<code>0x27864C1E</code> and <code>0x1F0D3804</code> first). Each 4-byte
+block is <code>h *= m; h ^= mix(w)</code>; a bit-31 XOR difference
+survives <code>* m</code>, so two consecutive bit-31 flips of
+<code>mix(w)</code> cancel.</p>
+<ul>
+<li><p><strong>Pair, 8 bytes (L = 1):</strong></p>
+<pre><code>M1 = 6d75726d75723221   (&quot;murmur2!&quot;)
+M2 = ed53ffbaf550bf6e</code></pre>
+<p>collide for all 2^32 seeds (exhaustive:
+<code>4294967296 of 2^32</code>); under Kafka's seed both give
+<code>b626e14b</code>. Score 0 bits.</p></li>
+<li><p><strong>2^16-way set, 68 bytes (L = 9):</strong> 17 blocks, cube
+generator as for MurmurHash64A with bit 31; all 65536 distinct; all
+equal for 4096/4096 random seeds.</p></li>
+</ul>
+<p><code>murmurhash2a_witness.c</code> (checks <code>0x7FBD4396</code>
+first): MurmurHash2A uses the same <code>mmix</code> block step, so the
+same construction works: pair <code>6d6d6832612d3862</code> vs
+<code>ed4bf57fe10bc5af</code> collides for all 2^32 seeds (exhaustive),
+and a 68-byte 2^16-way set collides for 4096/4096 random seeds.</p>
+<p><code>kafka_check.c</code> (checks <code>0x27864C1E</code> first): a
+C transcription of Kafka's <code>Utils.murmur2</code> equals MurmurHash2
+with seed <code>0x9747b28c</code> on 2^20 random inputs, and the pair
+lands in the same partition. <code>KafkaMurmur2Check.java</code> runs
+the Java method copied verbatim from Kafka and prints
+<code>b626e14b b626e14b</code>.</p>
+<p><code>loop_xxmur.c</code>: the two-block flip at any word position
+inside 256 B .. 1 MB of random data (every trial collided); 2^16-member
+sets in 64 KB, 2^10 in 1 MB. 1 MB example (little-endian word values):
+offsets 925,680 and 925,684, <code>4c181de1 -&gt; fe8b3f61</code> and
+<code>c30b81d8 -&gt; 757ea358</code>.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>cc -std=c11 -O2 -o murmurhash2_witness murmurhash2_witness.c &amp;&amp; ./murmurhash2_witness 12 0x2 --exhaustive
+cc -std=c11 -O2 -o murmurhash2a_witness murmurhash2a_witness.c &amp;&amp; ./murmurhash2a_witness 12 0x2a --exhaustive
+cc -std=c11 -O2 -o kafka_check kafka_check.c &amp;&amp; ./kafka_check
+java KafkaMurmur2Check.java      # JDK 11+
+
+mkdir -p upstream &amp;&amp; curl -sL -o upstream/xxhash.h https://raw.githubusercontent.com/Cyan4973/xxHash/v0.8.3/xxhash.h
+cc -std=c11 -O2 -pthread -Iupstream -o loop_xxmur loop_xxmur.c -lm
+THREADS=8 ./loop_xxmur fixed m2 1048576 4096</code></pre>
+<p>Logs: <code>logs/murmurhash2_witness.log</code>,
+<code>logs/murmurhash2a_witness.log</code>,
+<code>logs/kafka_check.log</code>,
+<code>logs/KafkaMurmur2Check.log</code>,
+<code>logs/loop_xxmur_m2.log</code>.</p>
+<h2 id="prior-work">Prior work</h2>
+<p>The MurmurHash2 pair and multicollisions reproduce Aumasson,
+Bernstein and Boßlet, "Hash-flooding DoS reloaded: attacks and
+defenses", 29C3, 2012 (slides: <a
+href="https://www.aumasson.jp/siphash/siphashdos_29c3_slides.pdf">https://www.aumasson.jp/siphash/siphashdos_29c3_slides.pdf</a>).
+The slides show the MurmurHash2 block step
+<code>k *= m; k ^= k &gt;&gt; 24; k *= m; h *= m; h ^= k</code> (in the
+64-bit-word form used by CRuby), inject a top-bit difference in one
+block, cancel it in the next, and build multicollisions by
+concatenation; their summary names MurmurHash v2 and v3. Orson Peters,
+"Breaking CityHash64, MurmurHash2/3, wyhash, and more" (2024), treats
+the 64-bit MurmurHash64A. MurmurHash2A is not named in either; the
+transfer is immediate because its block step is the same.</p>
+</main></body></html>

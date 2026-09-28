@@ -1,0 +1,3 @@
+ABSL_OPTION_INLINE_HW_ACCEL_STRATEGY = 0
+(1) 10-byte family (2 free bytes + kMul), 65536 members: all equal on 4096/4096 random seeds (common value 0 on 4096), 32/32 SwissTable seeds
+(2) 9-byte pair ABCDEFGHI / 41b335a84047474849: equal on 0/4096 random seeds; seed 0 -> 0978bab7a06d2cd6 / 5648419590a70708; seed 1 -> 5adf7b100b0a7c1d / 67ae00fdf178bc56

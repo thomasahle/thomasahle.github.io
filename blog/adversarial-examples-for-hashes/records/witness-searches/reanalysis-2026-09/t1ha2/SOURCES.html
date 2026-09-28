@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Upstream sources (not copied)</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1 id="upstream-sources-not-copied">Upstream sources (not copied)</h1>
+<p>t1ha by Leonid Yuriev (zlib license), repository <a
+href="https://github.com/erthink/t1ha">https://github.com/erthink/t1ha</a>
+(archived mirror; primary now on GitFlic), commit
+00eb779b6c042ccd831ec2f1ae757409c73f39f6
+(<code>v2.1.4-10-g00eb779</code>). The t1ha2 core is unchanged from tag
+v2.1.4 to this commit.</p>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>sha256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>t1ha.h</td>
+<td>f0b19e9a63338ea2d8e7c6c01380118f14c64e8c3e58923ac356df8932331c73</td>
+</tr>
+<tr class="even">
+<td>src/t1ha2.c</td>
+<td>ce411391f0fe1b23e5e61d720d1fb849000c48f390305a35fae8e6e397c8b900</td>
+</tr>
+<tr class="odd">
+<td>src/t1ha_bits.h</td>
+<td>c60b0e68a48b37d126d6a8c37d10161adfcb34f249030926bbd224949f56c4ab</td>
+</tr>
+<tr class="even">
+<td>src/t1ha2_selfcheck.c</td>
+<td>32276b92f9175110dbc05127a61ab00bcb5160317a2a7567521f6bcc26658a66</td>
+</tr>
+<tr class="odd">
+<td>src/t1ha_selfcheck.c</td>
+<td>02446ed952423161035eb216ffd879307df77ebca1fcf8810e2aa5b3ecb9d981</td>
+</tr>
+<tr class="even">
+<td>src/t1ha_selfcheck.h</td>
+<td>57c1a96d200af7e1d1c38afbc8a2fea813bf66599f8ded6d3eb9319e24a1d526</td>
+</tr>
+</tbody>
+</table>
+<p><code>t1ha2_core.h</code> is an independent port written from the
+SMHasher3 port <code>hashes/t1ha.cpp</code>; it reproduces the SMHasher3
+verification values of t1ha2_atonce (0x8F16C948) and t1ha2_atonce128
+(0xB44C43A1) at startup.</p>
+</main></body></html>

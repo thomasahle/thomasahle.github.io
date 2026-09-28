@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>aHash
+0.8.12 (AES path): lane-tied echoes, few-way multicollisions</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1
+id="ahash-0812-aes-path-lane-tied-echoes-few-way-multicollisions">aHash
+0.8.12 (AES path): lane-tied echoes, few-way multicollisions</h1>
+<p>The post's 424-byte pair E is a two-S-box "lane echo" in one AES
+lane: a one-byte difference from the tail is cancelled by an
+InvMixColumns column in the first loop block (difference-table entry
+4/256), and a second injection four blocks later is cancelled the same
+way. This package places the same echo in all four AES lanes of a
+448-byte message and lets each lane independently take the M or M' bytes
+of the pattern: 2^4 = 16 messages.</p>
+<p>Generator (<code>build_tie</code> in <code>ahash_mc.c</code>, and
+<code>build_tie</code> in <code>native-crate-check/src/main.rs</code>):
+448 zero bytes; for lane j = 0..3 with choice bit c_j, at offset o = 16j
++ 8:</p>
+<pre><code>m[384 + o]          = {0x03, 0x08}[c_j]                      (tail injection)
+m[o .. o+3]         = {7c067e7b, 81088180}[c_j]              (block 0 column)
+m[256 + o]          = {0x08, 0x03}[c_j]                      (block 4 injection)
+m[320 + o .. o+3]   = {80088280, 7d067d7b}[c_j]              (block 5 column)</code></pre>
+<p>Key model: four independent uniform RandomState words
+(<code>with_seeds(a, b, c, d)</code>), byte slices hashed with
+<code>hash_one(&amp;[u8])</code> (length, then bytes).</p>
+<h2 id="results">Results</h2>
+<table>
+<thead>
+<tr class="header">
+<th>event</th>
+<th>this transcription, 2^31 keys (x86 AES-NI)</th>
+<th>native crate 0.8.12, 2^30 keys (x86, target-feature aes)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>one echo (slot 0 pair)</td>
+<td>484,058 = 2^-12.115</td>
+<td>242,644 = 2^-12.112</td>
+</tr>
+<tr class="even">
+<td>echoes in lanes 0 and 2 together (4-way set {0,1,4,5})</td>
+<td>446,660 = 2^-12.231</td>
+<td>224,041 = 2^-12.227</td>
+</tr>
+<tr class="odd">
+<td>echoes in lanes 1 and 3 together (4-way set {0,2,8,10})</td>
+<td>446,245 = 2^-12.233</td>
+<td>222,952 = 2^-12.234</td>
+</tr>
+<tr class="even">
+<td>echoes in lanes 0 and 1 together</td>
+<td>120 = 2^-24.09</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>all 16 messages equal</td>
+<td>104 = 2^-24.30 [2^-24.59, 2^-24.02]</td>
+<td>47 = 2^-24.45</td>
+</tr>
+</tbody>
+</table>
+<p>Lanes 0 and 2 succeed under one key condition (joint rate 2^-12.23,
+almost the single-echo rate), and so do lanes 1 and 3; the two groups
+are independent. So 4 messages collide for about 2^-12.2 of keys and 16
+for about 2^-24.3. Longer messages would allow more independent groups
+(4^r messages at about 2^-12.3 r); only r &lt;= 2 is measured here.</p>
+<p><strong>Witness</strong> (16-way): internal key words
+9644eff90e6144b3 7c41347a2bb5039f 3c026049b1eee2d8 38f6b49792da5af9,
+i.e.
+<code>RandomState::with_seeds(0xd36cce1f36b157c4, 0xc21552b51f5c0ff3, 0xfcae49fe7892b205, 0x07726122279d53ee)</code>:
+all 16 messages hash to 0x5593e3264efc6b5b (transcription and native
+crate agree). Members 0 and 15 in memory order are printed in
+<code>logs/native_crate_2p26.txt</code>.</p>
+<h2 id="build-and-run">Build and run</h2>
+<pre><code>cc -O2 -std=c11 -maes -pthread ahash_mc.c -o ahash_mc -lm          # arm64: -march=armv8-a+crypto
+./ahash_mc tie 31 8 0x77ad        # checks 0x3BF4383B and pair E, then the 16-message family
+./ahash_mc pairE 32 8 0x77ac      # pair E: 970,320 / 2^32 = 2^-12.112
+
+cd native-crate-check
+RUSTFLAGS=&quot;-C target-feature=+aes,+sse2,+ssse3&quot; cargo build --release
+./target/release/ahcheck 30       # x86-64 only: aHash 0.8.12 uses AES on ARM only with nightly-arm-aes</code></pre>
+<p>Expected output is in <code>logs/</code>.</p>
+</main></body></html>

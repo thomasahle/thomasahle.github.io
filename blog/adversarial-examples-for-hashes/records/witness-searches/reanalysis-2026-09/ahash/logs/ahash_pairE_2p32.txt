@@ -1,0 +1,5 @@
+aHash 0.8.12 AES path (SMHasher3 rust-ahash port, hash_one(&[u8]) sequence), AES = x86-aesni
+validation: hardware vs software AES rounds: 0 mismatches / 4096
+validation: SMHasher3 rust_ahash verification 0x3BF4383B (expected 0x3BF4383B) OK
+pair E explicit internal key: 93ecf09ded4decc5 / 93ecf09ded4decc5 (published 93ecf09ded4decc5) OK
+pair E (424 B, L = 53): N = 2^32 keys, rng 0x77ac, 8 threads: 970320 collisions, eps = 2^-12.112 [2^-12.115, 2^-12.109], score 17.84 [17.84, 17.84]

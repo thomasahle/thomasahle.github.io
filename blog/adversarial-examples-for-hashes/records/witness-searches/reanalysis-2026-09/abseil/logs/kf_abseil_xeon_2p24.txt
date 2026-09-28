@@ -1,0 +1,19 @@
+validation: 132 vectors x 2 builds against the real library: 0 mismatches OK
+
+== Job 1: the recorded pair (default build) ==
+record pair, default build                     m=(empty) (0 B) m'=a6e02637c07bd386 (8 B) L=1: 16777216/16777216 uniform seeds (95% lower 0.9999998), 32/32 SwissTable seeds; e.g. seed 109c5bbc118549bd -> 1102c52b04edc007
+record pair, CRC build (information)           m=(empty) (0 B) m'=a6e02637c07bd386 (8 B) L=1: 0/65536 uniform seeds (95% lower 0.0000000), 0/32 SwissTable seeds
+
+== CRC build: key-free pairs from ker(CRC32C: 64 -> 32 bits) ==
+kernel dimensions: one 8-byte word 32, 9-byte two-window 24, 10-byte two-window 16
+CRC build 9-byte pair (0 vs kernel vector)     m=000000000000000000 (9 B) m'=00f176ec0501000000 (9 B) L=2: 16777216/16777216 uniform seeds (95% lower 0.9999998), 32/32 SwissTable seeds; e.g. seed f926b5f49f99c8c3 -> 89f3ac6b43b67355
+  same pair on the default build (info)        m=000000000000000000 (9 B) m'=00f176ec0501000000 (9 B) L=2: 0/65536 uniform seeds (95% lower 0.0000000), 0/32 SwissTable seeds
+16-byte pair, default build                    m=0000000000000000f58c1edee0f9d579 (16 B) m'=f176ec0501000000f58c1edee0f9d579 (16 B) L=2: 16777216/16777216 uniform seeds (95% lower 0.9999998), 32/32 SwissTable seeds; e.g. seed acb3991b8546d8c0 -> 0000000000000000
+16-byte pair, CRC build                        m=0000000000000000f58c1edee0f9d579 (16 B) m'=f176ec0501000000f58c1edee0f9d579 (16 B) L=2: 16777216/16777216 uniform seeds (95% lower 0.9999998), 32/32 SwissTable seeds; e.g. seed 77f6ab834eea9cb3 -> 5f060e8c6addb3bc
+
+== flooding families at 10 bytes ==
+default build, bytes 2..9 = kMul (every 2-byte prefix) 65536 members (65536 distinct), 10 bytes: all equal on 4096/4096 uniform seeds, 32/32 SwissTable seeds; members[0,1,last] = 0000f58c1edee0f9d579 0100f58c1edee0f9d579 fffff58c1edee0f9d579
+CRC build, base xor span(10-byte two-window kernel) 65536 members (65536 distinct), 10 bytes: all equal on 4096/4096 uniform seeds, 32/32 SwissTable seeds; members[0,1,last] = b499258007be2a0a211b b499d4f6ebbb2b0a211b b4991eb6fc69d5f5211b
+16 B, w1 = kMul, w0 in base xor ker: default build 65536 members (65536 distinct), 16 bytes: all equal on 4096/4096 uniform seeds, 32/32 SwissTable seeds; members[0,1,last] = e83ca9115374acb6f58c1edee0f9d579 194a45145274acb6f58c1edee0f9d579 d30a52c6ac8bacb6f58c1edee0f9d579
+  same 16-byte family, CRC build               65536 members (65536 distinct), 16 bytes: all equal on 4096/4096 uniform seeds, 32/32 SwissTable seeds; members[0,1,last] = e83ca9115374acb6f58c1edee0f9d579 194a45145274acb6f58c1edee0f9d579 d30a52c6ac8bacb6f58c1edee0f9d579
+RESULT: PASS

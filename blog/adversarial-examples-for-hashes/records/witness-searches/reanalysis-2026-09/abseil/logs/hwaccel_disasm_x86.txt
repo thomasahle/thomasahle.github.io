@@ -1,0 +1,15 @@
+### strategy=1, x86-64, g++ -O2 -msse4.2 -maes
+# preprocessor: _mm_crc32_u64 occurrences in hash.h =
+7
+# disassembly of absl::Hash<string_view>:
+  36:	f2 44 0f 38 f1 06    	crc32l (%rsi),%r8d
+  3c:	f2 0f 38 f1 54 31 fc 	crc32l -0x4(%rcx,%rsi,1),%edx
+  60:	f2 4c 0f 38 f1 06    	crc32q (%rsi),%r8
+  66:	f2 48 0f 38 f1 54 31 	crc32q -0x8(%rcx,%rsi,1),%rdx
+  74:	f2 4c 0f 38 f1 44 31 	crc32q -0x10(%rcx,%rsi,1),%r8
+  7c:	f2 48 0f 38 f1 56 08 	crc32q 0x8(%rsi),%rdx
+  9d:	f2 0f 38 f0 54 31 ff 	crc32b -0x1(%rcx,%rsi,1),%edx
+  a7:	f2 44 0f 38 f0 06    	crc32b (%rsi),%r8d
+
+### strategy=0 (shipped default), same flags: crc32 count =
+0

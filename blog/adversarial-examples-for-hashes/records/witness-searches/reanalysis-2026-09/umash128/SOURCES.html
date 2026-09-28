@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sources</title><link rel="stylesheet" href="../../../../post.css"><link rel="stylesheet" href="../../../../math.css"><link rel="stylesheet" href="../../../../../../static/vendor/katex-0.18.7/katex.min.css"><script defer src="../../../../../../static/vendor/katex-0.18.7/katex.min.js"></script><script defer src="../../../../math.js"></script><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem}pre{overflow:auto}table{display:block;overflow:auto}img{max-width:100%}h1{font-size:2.1rem}body{overflow-wrap:anywhere}</style><link href="../../../../../favicon2.png" rel="icon"/><style>.math{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle}.math-display{display:block}.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}main{min-width:0}</style></head><body><main id="article"><nav><a href="../../../../index.html">Article</a> · <a href="../../../../records/README.html">Records</a></nav><h1 id="sources">Sources</h1>
+<table>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>origin</th>
+<th>pin</th>
+<th>sha256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>umash.c</code>, <code>umash.h</code>,
+<code>umash_long.inc</code> (not copied)</td>
+<td><a
+href="https://github.com/backtrace-labs/umash">https://github.com/backtrace-labs/umash</a></td>
+<td>9709e1123c753e7ef34bc560cbdefac6fd33fe47</td>
+<td>umash.c
+<code>aad7d50dcca9d8939a67452788fe7028357a76b125ee7f11d50b622269789409</code>,
+umash.h
+<code>a0a2a69bdd59a172fd090a7f321d94eecf718b64b63a6ef5962f31c409401291</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code>for f in umash.c umash.h umash_long.inc; do
+  curl -LO https://raw.githubusercontent.com/backtrace-labs/umash/9709e1123c753e7ef34bc560cbdefac6fd33fe47/$f; done</code></pre>
+<p><code>solver/</code> is the program that found the key (it expects
+the three files in <code>../upstream/</code> or
+<code>$UMASH_DIR</code>).</p>
+</main></body></html>

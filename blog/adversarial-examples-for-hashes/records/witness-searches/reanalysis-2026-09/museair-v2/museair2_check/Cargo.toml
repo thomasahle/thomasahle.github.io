@@ -1,0 +1,11 @@
+[package]
+name = "museair2_check"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+museair = "=0.6.0"
+hashverify = "0.1.0"
+
+[profile.release]
+opt-level = 3

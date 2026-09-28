@@ -1,0 +1,8 @@
+SMHasher3 XXH3-64 verification 1AAEE62C expected 1AAEE62C PASS
+length 256 B (L = 32), secret word j = 1, 1 valid toggle positions, class secrets, fresh random content: collided (64 and 128) 4096 / 2^12; 64/128 disagreements 0
+SMHasher3 XXH3-64 verification 1AAEE62C expected 1AAEE62C PASS
+length 1024 B (L = 128), secret word j = 7, 4 valid toggle positions, class secrets, fresh random content: collided (64 and 128) 4096 / 2^12; 64/128 disagreements 0
+SMHasher3 XXH3-64 verification 1AAEE62C expected 1AAEE62C PASS
+length 65536 B (L = 8192), secret word j = 7, 256 valid toggle positions, class secrets, fresh random content: collided (64 and 128) 4096 / 2^12; 64/128 disagreements 0
+SMHasher3 XXH3-64 verification 1AAEE62C expected 1AAEE62C PASS
+length 1048576 B (L = 131072), secret word j = 7, 4096 valid toggle positions, class secrets, fresh random content: collided (64 and 128) 4096 / 2^12; 64/128 disagreements 0

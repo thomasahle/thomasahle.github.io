@@ -1,0 +1,4 @@
+upstream selfcheck atonce=0 atonce128=0 (0 = pass); SMHasher3 verification 8F16C948 (expected 8F16C948)
+cube len=65536 r=16 windows at blocks: 405 1938 1698 1362 1887 576 822 927 942 1119 939 1353 1134 45 837 198
+  key 717c545336bf1e9c: 65536/65536 members equal member 0 (2023d10e9c3a1280)
+cube len=65536 r=16: whole 65536-set collides for 60/64 keys = 0.9375 [95% 0.8500, 0.9754] (model (1-2^-8)^r = 0.9393); model predicts 60, disagreements 0; smallest class of member 0: 32768

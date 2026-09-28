@@ -1,0 +1,40 @@
+# UMASH-128 (umash_fprint): an explicit 128-bit collision, and why 83.99 bits is the right bound
+
+UMASH-128 is two UMASH-64 lanes that share the OH key and use two independent multipliers f0, f1 mod
+p = 2^61 - 1. For a fixed pair, lane i's accumulator difference is a polynomial in f_i of degree at most
+2 ceil(L/32), and lane i collides exactly when f_i is a root (the finalizer is a bijection). So
+epsilon = (n0 / M)(n1 / M), with n_i the number of accepted roots and M = p - 2 accepted multiplier values: the
+square of a per-lane root count, which is the rho^2 term of the paper's envelope E(L).
+
+`umash128_collision.c` shows the mechanism on the shipped C function. On the 16-byte path each lane is
+f^2 dx + f dy = 0 (mod 8p): one root mod p plus a mod-8 condition. The solver picked a pair and OH words for
+which both lanes' roots meet the mod-8 condition and used the roots as the two multipliers;
+`umash_params_prepare` accepts this key unchanged.
+
+    M1 = 074a1dda8ebce2aab0e27d1d87698812   (16 bytes, memory order)
+    M2 = 074a1dda8ebce2aab0e27dd487698812   (byte 6: 1d -> d4)
+    f0 = 0x0d12f0abd78e00b5, f1 = 0x0b0c691ad7f5dc18
+    oh[0] = 0x135499bc53154bae, oh[1] = 0xe2ddc31c759c3ee4, oh[2..31] = 0x100 + i,
+    fingerprint words oh[32] = 0x46eb3a10ff22baf9, oh[33] = 0x8c9aaa012ab2a6b7, seed = 0xd11bd6324600d9bd
+    umash_fprint(M1) = umash_fprint(M2) = 38c8a95cbd134549 2a9c6211c6cc3492
+    f0 + 1: lane 0 separates, lane 1 still collides; f1 + 1: the reverse.
+
+This is a collision under one valid key, not a rate: for this pair epsilon = (1/M)^2 ~ 2^-122 (score about 123
+at L = 2). The binding lengths are near the plot's cap L = 2^46 words, where each lane's difference can have
+degree 2 ceil(L/32) = 2^42.
+
+`score_model.py` evaluates the three bounds at the cap L = 2^46: the envelope E gives epsilon = 2^-38 and
+83.99999997 bits; the machine-checked coefficient-1 bound gives 2^-37 and 83.00 bits (exactly one bit less, a
+constant factor 2); the 81/128 form gives 83.66. `exhaustive_small.py` checks the root-count model exhaustively
+over all multipliers for p = 2^13 - 1 and 2^17 - 1: collision count equals root count on 40 random pairs per
+prime, the two-lane count equals the product of the root counts, and a degree-4 difference can split into 4
+distinct roots, so the per-lane factor is attainable. Since epsilon has this product form, no pair can do worse
+than the envelope, and 83 bits is not tight.
+
+## Build and run
+
+    cc -O2 -std=c11 -mpclmul -o umash128_collision umash128_collision.c umash.c              # x86-64
+    cc -O2 -std=c11 -march=armv8-a+crypto -o umash128_collision umash128_collision.c umash.c # arm64
+    ./umash128_collision      # checks the README vector 398c5bb5cc113d03, 3a52693519575aba first
+    python3 score_model.py
+    python3 exhaustive_small.py

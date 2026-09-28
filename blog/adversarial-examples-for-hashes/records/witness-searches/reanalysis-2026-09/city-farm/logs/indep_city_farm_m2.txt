@@ -1,0 +1,8 @@
+members: 65536 distinct 16-byte strings
+unseeded CityHash64 = 0f55c17e5eed1616 shared by 65536/65536; unseeded farmhashna::Hash64 = 0f55c17e5eed1616 shared by 65536/65536
+all 65536 members equal: CityHash64WithSeed 4096/4096, CityHash64WithSeeds 4096/4096, farmhashna WithSeed 4096/4096, farmhashna WithSeeds 4096/4096 seeds
+PASS
+
+real	0m3.388s
+user	0m3.357s
+sys	0m0.022s

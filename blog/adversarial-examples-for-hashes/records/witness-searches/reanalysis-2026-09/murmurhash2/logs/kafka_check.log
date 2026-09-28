@@ -1,0 +1,3 @@
+SMHasher3 verification MurmurHash2_32: 0x27864C1E (expected 0x27864C1E)
+Kafka murmur2 vs MurmurHash2_32(seed 0x9747b28c): 0 mismatches in 1048576 random inputs (length 0..299)
+pair under Kafka murmur2: b626e14b b626e14b -> COLLIDE; partition for 12 partitions: 11 11

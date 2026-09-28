@@ -1,0 +1,23 @@
+# Poly1305: the L = 1 score is exactly 104 bits; the whole score lies in [103.78, 104]
+
+Standard library Python only (`poly1305_witness.py`); Poly1305 written from RFC 8439 section 2.5 and checked
+against the RFC 2.5.2 test vector.
+
+Pair (memory order): M' = d664915c5fd5 (6 bytes) and M = d664915c5fd501 (7 bytes), both L = 1.
+
+Each is one partial block padded with 0x01, so the block values differ by exactly 2^56. With h = c r mod p
+(p = 2^130 - 5) in [0, p) and tag = (h + s) mod 2^128, the tags agree iff h(M) - h(M') = j 2^128 with |j| <= 3,
+i.e. 2^56 r = j 2^128 (mod p), r = j 2^72 mod p. For j < 0 the residue is at least 2^124 and never a clamped r;
+for j = 0, 1, 2, 3 it is 0, 2^72, 2^73, 3 * 2^72, all clamp-valid, and each collides for every s (1000/1000 random
+s each; 0/200,000 uniform keys). So epsilon(L = 1) = 4 / 2^106 = 2^-104 exactly, and the pair caps the score at
+104 bits.
+
+Lower side. For L >= 2 the same counting (7 values of j, a nonzero polynomial of degree ceil(L/2) for each)
+gives epsilon <= 7 ceil(L/2) / 2^106; the minimum of log2(L / epsilon) over L >= 2 is 103.7776 at L = 3. Together
+with the exact L = 1 value the score is in [103.78, 104]. Bernstein's 8 ceil(bytes/16) / 2^106, the bound that
+is machine-checked, gives 103.
+
+Explicit key: r = 2^72, s = 0 (key bytes 0000000000000000000100000000000000000000000000000000000000000000);
+both tags are 000000000000000000d664915c5fd501.
+
+    python3 poly1305_witness.py      # expected output in logs/poly1305_witness.txt

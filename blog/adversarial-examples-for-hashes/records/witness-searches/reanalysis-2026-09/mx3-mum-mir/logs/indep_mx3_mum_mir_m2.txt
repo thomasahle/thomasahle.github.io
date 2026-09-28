@@ -1,0 +1,16 @@
+mx3 state model vs mx3::hash (seed 0, 2000 random inputs 0..299 B): 0 mismatches
+mx3 v3                       65536 members (65536 distinct), length 10: all equal on 4096/4096 random seeds + seed 0 yes; e.g. seed 88b5ea821dd9ca12 -> d26f40609566b88e
+   member[0] = f9e7aba47f1a6e4c0000
+   member[1] = 40459d786c6518540100
+MUM (mum.h default)          65536 members (65536 distinct), length 10: all equal on 4096/4096 random seeds + seed 0 yes; e.g. seed 13cc7a1a4cb1f16d -> d768f47e64149c68
+   member[0] = 42b24de5d0d72f1f0100
+   member[1] = ef2b355c2edc8a480200
+mir_hash (relaxed)           65536 members (65536 distinct), length 10: all equal on 4096/4096 random seeds + seed 0 yes; e.g. seed 8c0ba028b49272bf -> 526670c7adc4b3b7
+   member[0] = c144b75a0cc0e2470100
+   member[1] = 976be1badcb0901e0200
+every length 9..1100 (one pair per length, 256 random seeds each): mx3 1092/1092, MUM 1092/1092 (unroll 16), mir 1092/1092 lengths collide on every seed
+PASS
+
+real	0m2.643s
+user	0m2.617s
+sys	0m0.019s

@@ -1,0 +1,8 @@
+SMHasher3 XXH3-64  verification 1AAEE62C expected 1AAEE62C PASS
+SMHasher3 XXH3-128 verification 288DAA94 expected 288DAA94 PASS
+set: length 3648 B (L = 456 words), 3 full blocks + 576-byte tail, k = 2^16 members; member c: for block b<=3, toggle t<4,
+  bit 4b+t of c selects D=000000007fffffff or ~D at offsets 1024b + 64(7-2t) + 8(2t) and 1024b + 64(6-2t) + 8(2t+1); all other bytes 0
+class secrets 2^12: whole 2^16-set collided (64 and 128) for 4096, failed for 0
+explicit class secret (192 B) = 4a74bed0463010c855c2dc0b688f05eace58aa0bbf246c536c17b7c2f664260aca2b4bdef2940033410a169f771719fa0617401460a987596485818b6385810b68eed8f1ee5f42ddb2404faae88bccc51b03fc683dda077754cbf10ea69a34c2b893f217d9771c37877726d513f5384e70a2b77dab6df4bc4a6156045a4b8f6cacd398b771bdd1af0c582a785a742c1e41cd07c57f0f68b24189308bb18afef120b704ff7c43b24a6f7d21a1f352502816b46f0d32089119b516b1b95e497144
+  member 0: XXH3-64 b3c0a2ccc5a6d117; member 65535: XXH3-64 b3c0a2ccc5a6d117
+  member 0: XXH3-128 3131016698da6968b3c0a2ccc5a6d117

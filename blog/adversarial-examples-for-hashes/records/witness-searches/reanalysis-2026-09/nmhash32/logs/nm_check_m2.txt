@@ -1,0 +1,7 @@
+SMHasher3 verification of upstream nmhash.h NMHASH32: 12A30553 (expected 12A30553) OK
+perkey: fixed set of 65536 distinct 512-byte messages (8 guesses x 2^13 lane subsets); largest full-output class over 4096 uniform seeds: min 8192, max 8192
+SMHasher3 verification of upstream nmhash.h NMHASH32: 12A30553 (expected 12A30553) OK
+fam16 T2 guess 5, 2^16 members at 512 B, uniform seeds: whole family collides for 139 / 1024
+fam16 T2 guess 5, 2^16 members at 512 B, class (bits 26,15,6 of seed = 1,0,1) seeds: whole family collides for 1024 / 1024
+SMHasher3 verification of upstream nmhash.h NMHASH32: 12A30553 (expected 12A30553) OK
+exh64 T2 guess 7: 16-way 64-byte family collides for 536870912 / 2^32 seeds; predictor (bits 26,15,6 of seed+64 all 1) 536870912; family-without-predictor 0; predictor-without-family 0

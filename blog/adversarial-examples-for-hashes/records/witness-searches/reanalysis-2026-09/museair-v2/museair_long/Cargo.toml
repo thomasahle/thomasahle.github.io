@@ -1,0 +1,10 @@
+[package]
+name = "museair_long"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+museair = "=0.6.0"
+
+[profile.release]
+opt-level = 3
