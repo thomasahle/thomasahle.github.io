@@ -1,0 +1,63 @@
+{
+  "name": "chainhash.a0116ea",
+  "run": 1,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "16-23",
+    "SMHasher3",
+    "chainhash.a0116ea",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-29T00:14:46.994754+00:00",
+    "uptime": "00:14:46 up 17 days,  8:58,  2 users,  load average: 5.42, 10.57, 13.20",
+    "load": [
+      5.42,
+      10.57,
+      13.2
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 0.5,
+      "17": 2.0,
+      "18": 1.5,
+      "19": 0.5,
+      "20": 5.4,
+      "21": 1.0,
+      "22": 2.0,
+      "23": 1.0
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-29T00:15:26.418665+00:00",
+    "uptime": "00:15:26 up 17 days,  8:59,  2 users,  load average: 5.81, 10.01, 12.90",
+    "load": [
+      5.81,
+      10.01,
+      12.9
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "16": 7.0,
+      "17": 7.5,
+      "18": 4.5,
+      "19": 6.5,
+      "20": 2.0,
+      "21": 7.0,
+      "22": 8.5,
+      "23": 8.9
+    }
+  },
+  "elapsed_seconds": 39.431341285817325,
+  "returncode": 0,
+  "raw_file": "chainhash.a0116ea.run1.txt",
+  "raw_sha256": "35c89ebde65fc9ff90e0d708534e289deee1d72e1ff7836fc25177c8bc070f62",
+  "binary_sha256": "0a192eeb266836c295650174c940ec428ae9ee4396d64bb01316f5220988853a",
+  "during_run_scans": 2,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

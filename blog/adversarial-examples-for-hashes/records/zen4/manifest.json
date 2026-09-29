@@ -1,0 +1,422 @@
+[
+  {
+    "row_id": "city",
+    "group": "heuristics",
+    "name": "CityHash-64",
+    "registered_names": {
+      "Xeon8375C": "CityHash-64",
+      "M2Pro": "CityHash-64",
+      "EPYC9R14": "CityHash-64"
+    }
+  },
+  {
+    "row_id": "farm",
+    "group": "heuristics",
+    "name": "FarmHash-64.NA",
+    "registered_names": {
+      "Xeon8375C": "FarmHash-64.NA",
+      "M2Pro": "FarmHash-64.NA",
+      "EPYC9R14": "FarmHash-64.NA"
+    }
+  },
+  {
+    "row_id": "murmur",
+    "group": "heuristics",
+    "name": "MurmurHash3-128",
+    "registered_names": {
+      "Xeon8375C": "MurmurHash3-128",
+      "M2Pro": "MurmurHash3-128",
+      "EPYC9R14": "MurmurHash3-128"
+    }
+  },
+  {
+    "row_id": "mx3",
+    "group": "heuristics",
+    "name": "mx3.v3",
+    "registered_names": {
+      "Xeon8375C": "mx3.v3",
+      "M2Pro": "mx3.v3",
+      "EPYC9R14": "mx3.v3"
+    }
+  },
+  {
+    "row_id": "fasthash-64",
+    "group": "heuristics",
+    "name": "fasthash-64",
+    "registered_names": {
+      "Xeon8375C": "fasthash-64",
+      "M2Pro": "fasthash-64",
+      "EPYC9R14": "fasthash-64"
+    }
+  },
+  {
+    "row_id": "fasthash-32",
+    "group": "heuristics",
+    "name": "fasthash-32",
+    "registered_names": {
+      "Xeon8375C": "fasthash-32",
+      "M2Pro": "fasthash-32",
+      "EPYC9R14": "fasthash-32"
+    }
+  },
+  {
+    "row_id": "muse",
+    "group": "heuristics",
+    "name": "MuseAir",
+    "registered_names": {
+      "Xeon8375C": "MuseAir",
+      "M2Pro": "MuseAir",
+      "EPYC9R14": "MuseAir"
+    }
+  },
+  {
+    "row_id": "muse-v2",
+    "group": "heuristics",
+    "name": "MuseAir-v2",
+    "registered_names": {
+      "Xeon8375C": "MuseAir-v2",
+      "M2Pro": "MuseAir-v2",
+      "EPYC9R14": "MuseAir-v2"
+    }
+  },
+  {
+    "row_id": "komi",
+    "group": "heuristics",
+    "name": "komihash",
+    "registered_names": {
+      "Xeon8375C": "komihash",
+      "M2Pro": "komihash",
+      "EPYC9R14": "komihash"
+    }
+  },
+  {
+    "row_id": "t1ha",
+    "group": "heuristics",
+    "name": "t1ha2-64",
+    "registered_names": {
+      "Xeon8375C": "t1ha2-64",
+      "M2Pro": "t1ha2-64",
+      "EPYC9R14": "t1ha2-64"
+    }
+  },
+  {
+    "row_id": "a5",
+    "group": "heuristics",
+    "name": "a5hash",
+    "registered_names": {
+      "Xeon8375C": "a5hash",
+      "M2Pro": "a5hash",
+      "EPYC9R14": "a5hash"
+    }
+  },
+  {
+    "row_id": "a5wide",
+    "group": "heuristics",
+    "name": "a5hash-128",
+    "registered_names": {
+      "Xeon8375C": "a5hash-128",
+      "M2Pro": "a5hash-128",
+      "EPYC9R14": "a5hash-128"
+    }
+  },
+  {
+    "row_id": "rapid3",
+    "group": "heuristics",
+    "name": "rapidhash",
+    "registered_names": {
+      "Xeon8375C": "rapidhash",
+      "M2Pro": "rapidhash",
+      "EPYC9R14": "rapidhash"
+    }
+  },
+  {
+    "row_id": "foldhash-fast",
+    "group": "heuristics",
+    "name": "foldhash-fast",
+    "registered_names": {
+      "Xeon8375C": "foldhash-fast",
+      "M2Pro": "foldhash-fast",
+      "EPYC9R14": "foldhash-fast"
+    }
+  },
+  {
+    "row_id": "foldhash-quality",
+    "group": "heuristics",
+    "name": "foldhash-quality",
+    "registered_names": {
+      "Xeon8375C": "foldhash-quality",
+      "M2Pro": "foldhash-quality",
+      "EPYC9R14": "foldhash-quality"
+    }
+  },
+  {
+    "row_id": "mum",
+    "group": "heuristics",
+    "name": "mum3.exact.unroll3",
+    "registered_names": {
+      "Xeon8375C": "mum3.exact.unroll3",
+      "M2Pro": "mum3.exact.unroll3",
+      "EPYC9R14": "mum3.exact.unroll3"
+    }
+  },
+  {
+    "row_id": "mir",
+    "group": "heuristics",
+    "name": "mir.exact",
+    "registered_names": {
+      "Xeon8375C": "mir.exact",
+      "M2Pro": "mir.exact",
+      "EPYC9R14": "mir.exact"
+    }
+  },
+  {
+    "row_id": "xxh3-64",
+    "group": "heuristics",
+    "name": "XXH3-64",
+    "registered_names": {
+      "Xeon8375C": "XXH3-64",
+      "M2Pro": "XXH3-64",
+      "EPYC9R14": "XXH3-64"
+    }
+  },
+  {
+    "row_id": "xxh3-128",
+    "group": "heuristics",
+    "name": "XXH3-128",
+    "registered_names": {
+      "Xeon8375C": "XXH3-128",
+      "M2Pro": "XXH3-128",
+      "EPYC9R14": "XXH3-128"
+    }
+  },
+  {
+    "row_id": "highway",
+    "group": "heuristics",
+    "name": "HighwayHash-64",
+    "registered_names": {
+      "Xeon8375C": "HighwayHash-64",
+      "M2Pro": "HighwayHash-64",
+      "EPYC9R14": "HighwayHash-64"
+    }
+  },
+  {
+    "row_id": "spooky",
+    "group": "heuristics",
+    "name": "SpookyHash2-64",
+    "registered_names": {
+      "Xeon8375C": "SpookyHash2-64",
+      "M2Pro": "SpookyHash2-64",
+      "EPYC9R14": "SpookyHash2-64"
+    }
+  },
+  {
+    "row_id": "pengyhash",
+    "group": "heuristics",
+    "name": "pengyhash",
+    "registered_names": {
+      "Xeon8375C": "pengyhash",
+      "M2Pro": "pengyhash",
+      "EPYC9R14": "pengyhash"
+    }
+  },
+  {
+    "row_id": "nmhash32",
+    "group": "heuristics",
+    "name": "NMHASH",
+    "registered_names": {
+      "Xeon8375C": "NMHASH",
+      "M2Pro": "NMHASH",
+      "EPYC9R14": "NMHASH"
+    }
+  },
+  {
+    "row_id": "nmhash32x",
+    "group": "heuristics",
+    "name": "NMHASHX",
+    "registered_names": {
+      "Xeon8375C": "NMHASHX",
+      "M2Pro": "NMHASHX",
+      "EPYC9R14": "NMHASHX"
+    }
+  },
+  {
+    "row_id": "gx",
+    "group": "heuristics",
+    "name": "gxhash-64",
+    "registered_names": {
+      "Xeon8375C": "gxhash-64",
+      "M2Pro": "gxhash-64",
+      "EPYC9R14": "gxhash-64"
+    }
+  },
+  {
+    "row_id": "ahash",
+    "group": "heuristics",
+    "name": "rust-ahash",
+    "registered_names": {
+      "Xeon8375C": "rust-ahash",
+      "M2Pro": "rust-ahash",
+      "EPYC9R14": "rust-ahash"
+    }
+  },
+  {
+    "row_id": "siphash-1-3",
+    "group": "heuristics",
+    "name": "SipHash-1-3",
+    "registered_names": {
+      "Xeon8375C": "SipHash-1-3",
+      "M2Pro": "SipHash-1-3",
+      "EPYC9R14": "SipHash-1-3"
+    }
+  },
+  {
+    "row_id": "siphash-2-4",
+    "group": "heuristics",
+    "name": "SipHash-2-4",
+    "registered_names": {
+      "Xeon8375C": "SipHash-2-4",
+      "M2Pro": "SipHash-2-4",
+      "EPYC9R14": "SipHash-2-4"
+    }
+  },
+  {
+    "row_id": "halftime24",
+    "group": "heuristics",
+    "name": "HalftimeHash24-shipped",
+    "registered_names": {
+      "Xeon8375C": "HalftimeHash24-shipped",
+      "M2Pro": "HalftimeHash24-shipped",
+      "EPYC9R14": "HalftimeHash24-shipped"
+    }
+  },
+  {
+    "row_id": "go-maphash",
+    "group": "heuristics",
+    "name": "GoMapHash",
+    "registered_names": {
+      "Xeon8375C": "GoMapHash",
+      "M2Pro": "GoMapHash",
+      "EPYC9R14": "GoMapHash"
+    }
+  },
+  {
+    "row_id": "abseil-hash",
+    "group": "heuristics",
+    "name": "AbseilHash-default",
+    "registered_names": {
+      "Xeon8375C": "AbseilHash-default",
+      "M2Pro": "AbseilHash-default",
+      "EPYC9R14": "AbseilHash-default"
+    }
+  },
+  {
+    "row_id": "dotnet-marvin",
+    "group": "heuristics",
+    "name": "Marvin32",
+    "registered_names": {
+      "Xeon8375C": "Marvin32",
+      "M2Pro": "Marvin32",
+      "EPYC9R14": "Marvin32"
+    }
+  },
+  {
+    "row_id": "polymur",
+    "group": "proven",
+    "name": "polymurhash",
+    "registered_names": {
+      "Xeon8375C": "polymurhash",
+      "M2Pro": "polymurhash",
+      "EPYC9R14": "polymurhash"
+    }
+  },
+  {
+    "row_id": "poly1305",
+    "group": "proven",
+    "name": "poly1305-hash",
+    "registered_names": {
+      "Xeon8375C": "poly1305-hash",
+      "M2Pro": "poly1305-hash",
+      "EPYC9R14": "poly1305-hash"
+    }
+  },
+  {
+    "row_id": "ghash",
+    "group": "proven",
+    "name": "ghash",
+    "registered_names": {
+      "Xeon8375C": "ghash",
+      "M2Pro": "ghash",
+      "EPYC9R14": "ghash"
+    }
+  },
+  {
+    "row_id": "umash",
+    "group": "proven",
+    "name": "UMASH-64",
+    "registered_names": {
+      "Xeon8375C": "UMASH-64",
+      "M2Pro": "UMASH-64",
+      "EPYC9R14": "UMASH-64"
+    }
+  },
+  {
+    "row_id": "umash128",
+    "group": "proven",
+    "name": "UMASH-128",
+    "registered_names": {
+      "Xeon8375C": "UMASH-128",
+      "M2Pro": "UMASH-128",
+      "EPYC9R14": "UMASH-128"
+    }
+  },
+  {
+    "row_id": "clhash",
+    "group": "proven",
+    "name": "CLhash",
+    "registered_names": {
+      "Xeon8375C": "CLhash",
+      "M2Pro": "CLhash",
+      "EPYC9R14": "CLhash"
+    }
+  },
+  {
+    "row_id": "chainhash",
+    "group": "proven",
+    "name": "chainhash",
+    "registered_names": {
+      "Xeon8375C": "chainhash",
+      "M2Pro": "chainhash",
+      "EPYC9R14": "chainhash"
+    }
+  },
+  {
+    "row_id": "halftime24-fixed",
+    "group": "proven",
+    "name": "HalftimeHash24-fixed",
+    "registered_names": {
+      "Xeon8375C": "HalftimeHash24-fixed",
+      "M2Pro": "HalftimeHash24-fixed",
+      "EPYC9R14": "HalftimeHash24-fixed"
+    }
+  },
+  {
+    "row_id": "chainhash128",
+    "group": "proven",
+    "name": "chainhash-128",
+    "registered_names": {
+      "Xeon8375C": "chainhash-128",
+      "M2Pro": "chainhash-128",
+      "EPYC9R14": "chainhash-128"
+    }
+  },
+  {
+    "row_id": "polyxor",
+    "group": "proven",
+    "name": "polyxor-128",
+    "registered_names": {
+      "Xeon8375C": "polyxor-128",
+      "M2Pro": "polyxor-128",
+      "EPYC9R14": "polyxor-128"
+    }
+  }
+]

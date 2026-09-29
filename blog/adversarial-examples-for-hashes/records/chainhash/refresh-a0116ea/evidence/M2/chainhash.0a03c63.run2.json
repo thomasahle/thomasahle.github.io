@@ -1,0 +1,42 @@
+{
+  "name": "chainhash.0a03c63",
+  "run": 2,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "SMHasher3",
+    "chainhash.0a03c63",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-29T00:18:44.352362+00:00",
+    "uptime": "2:18  up 11 days, 14:10, 1 user, load averages: 3.38 2.38 2.03",
+    "load": [
+      3.37744140625,
+      2.3837890625,
+      2.02734375
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null,
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-29T00:19:10.652034+00:00",
+    "uptime": "2:19  up 11 days, 14:10, 1 user, load averages: 5.02 2.85 2.21",
+    "load": [
+      5.0224609375,
+      2.84716796875,
+      2.205078125
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null
+  },
+  "elapsed_seconds": 26.30690016609151,
+  "returncode": 0,
+  "raw_file": "chainhash.0a03c63.run2.txt",
+  "raw_sha256": "18d0732865bbd7fb44f8336c183ec5fc0d3107f9c2d891f9300d50c3f2233100",
+  "binary_sha256": "19b9bdb4277659bbf2a1a47a99bc28c552df78bed493ac720d6201eee0589888",
+  "during_run_scans": 1,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

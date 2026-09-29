@@ -1,0 +1,108 @@
+{
+  "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)",
+  "flags": [
+    "-O3",
+    "-std=c++11",
+    "-DNDEBUG",
+    "-DHAVE_THREADS",
+    "-march=native"
+  ],
+  "chainhash": {
+    "chainhash-128.a0116ea": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "61ff0949a8fde6314458dd9e1a1dee73be2885b7ca7b89825f0b8df8f6f7323c",
+      "entry": "chainhash128() (run-time dispatch)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "f2b8378b27f79c7da7433692511e630c41b2de1cd51dd9c91c1e118fc3beef24"
+    },
+    "chainhash-128.0a03c63": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "0a03c6345ac95acc12bbd739fb55191f5d31187b",
+      "header_sha256": "7f4e8fe3b776f9b7cdbcee6564c38c07c883ae17cf4b9b55e0defb6ecc6088a8",
+      "entry": "chainhash128() (run-time dispatch)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "c9ab86f611c81a0f308ae50d91ba6fac8066d3decb97d8721d427e52de88274c"
+    },
+    "chainhash.a0116ea": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "d3a2f3694950ebf7e242f0beb0f72baf9c8be55dc40ecf1d701fdc1d7b6f08e9",
+      "entry": "chainhash() (run-time dispatch)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "acd69b2ff76623d742afd130748fe46a911b0e77785b26e502d26904540b159e"
+    },
+    "chainhash.0a03c63": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "0a03c6345ac95acc12bbd739fb55191f5d31187b",
+      "header_sha256": "30ff788728b6ce788654a0c10512fb0958dae9f8f257b5316785d7705b523ee3",
+      "entry": "chainhash() (run-time dispatch)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "a6f39e57fe828c00528603a0c19a768915c41230089e910d2dc7b7c02ab568af"
+    },
+    "chainhash-128.xmm": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "61ff0949a8fde6314458dd9e1a1dee73be2885b7ca7b89825f0b8df8f6f7323c",
+      "entry": "chainhash128_with_backend(CH128_XMM)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "ac770c54e8eebefae836702d31e1efe2cb080da1bea84b313c103d4ffdae90dd"
+    },
+    "chainhash-128.ymm": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "61ff0949a8fde6314458dd9e1a1dee73be2885b7ca7b89825f0b8df8f6f7323c",
+      "entry": "chainhash128_with_backend(CH128_YMM)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "87bfb654b1b70b63f45b1b4359ef250349825c0c5fda72cd5fefa2043556f01b"
+    },
+    "chainhash-128.zmm": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "61ff0949a8fde6314458dd9e1a1dee73be2885b7ca7b89825f0b8df8f6f7323c",
+      "entry": "chainhash128_with_backend(CH128_ZMM)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "dcbf6a0e576bf5adb37fb84034be3f24650080ee98ef5533577cce412d854b5d"
+    },
+    "chainhash.xmm": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "d3a2f3694950ebf7e242f0beb0f72baf9c8be55dc40ecf1d701fdc1d7b6f08e9",
+      "entry": "chainhash_with_backend(CH_XMM)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "8af111f0b58484b0df6505bbf97ec1a9dd03e626e400294ea702ba9992e8e3ff"
+    },
+    "chainhash.ymm": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "d3a2f3694950ebf7e242f0beb0f72baf9c8be55dc40ecf1d701fdc1d7b6f08e9",
+      "entry": "chainhash_with_backend(CH_YMM)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "b5d86040d1636f347d8c80783c0bf7f37a901be78373f206ac81ad72df8b2e6c"
+    },
+    "chainhash.zmm": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "d3a2f3694950ebf7e242f0beb0f72baf9c8be55dc40ecf1d701fdc1d7b6f08e9",
+      "entry": "chainhash_with_backend(CH_ZMM)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "30ac6494fb83a76672bc47137291811aaa03c0a7adfe9d32ba2f1ad200d4c5fa"
+    }
+  },
+  "polyxor": {
+    "note": "the reproduction build's own PolyXOR128 registration and Rust staticlib (in its Hashlib link line)"
+  },
+  "reused_objects": {
+    "link.txt": "e3dd31d039cfdd2db3e399275f715d0bdcd147a9e924078d7cab58f82184b758",
+    "SMHasher3 (base binary)": "e7763c1b01f14e9a530c6c3085613f448195306689948027a1559918c8de7be7",
+    "libSMHasher3Tests.a": "53b2c01d01f9fad993311fb1a56cc5cc54741a37182f10bb9041679af6598d42",
+    "libSMHasher3Hashlib.a": "e08a3a8fb5f22c6da9ae7c8020b1728fd1af618edf5958ebf5bd79c978990b0c",
+    "CMakeFiles/SMHasher3.dir/main.cpp.o": "568aeee799f10aa40d6e7aaa966cd5c61422f32003720e71db97fe8a77100b49"
+  },
+  "registration_sources": {
+    "chainhash128_reg.cpp": "220b7cfd028f659d1262ff9d8bafb56e82e23153dd761a8176a079017f2c3235",
+    "chainhash_reg.cpp": "cbc953ad0e551fb1a7c3f50725c68cd9d859674ad1d2ebbbbff84c4d3a47f0f0",
+    "build.py": "0be7256aa44e272e81320ed2e74fa1d9ee4eacd98488e333b290d2ed0589d310"
+  },
+  "binary_sha256": "a1fc90a1cfe3d605d079a39f6bb481ddee77b11b6300897fef33ecce834e83e4"
+}

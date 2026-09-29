@@ -1,0 +1,60 @@
+{
+  "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)",
+  "flags": [
+    "-O3",
+    "-std=c++11",
+    "-DNDEBUG",
+    "-DHAVE_THREADS",
+    "-march=native"
+  ],
+  "chainhash": {
+    "chainhash-128.a0116ea": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "61ff0949a8fde6314458dd9e1a1dee73be2885b7ca7b89825f0b8df8f6f7323c",
+      "entry": "chainhash128() (run-time dispatch)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "a41b6506ee1279ecd3f8e116a80df64a5aeed7ddbd07db2b0f44886e03317406"
+    },
+    "chainhash-128.0a03c63": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "0a03c6345ac95acc12bbd739fb55191f5d31187b",
+      "header_sha256": "7f4e8fe3b776f9b7cdbcee6564c38c07c883ae17cf4b9b55e0defb6ecc6088a8",
+      "entry": "chainhash128() (run-time dispatch)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "fb1391bd58a75a8df8b371183ff06265905f17c1b901170a80107cacbeb38f2b"
+    },
+    "chainhash.a0116ea": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "d3a2f3694950ebf7e242f0beb0f72baf9c8be55dc40ecf1d701fdc1d7b6f08e9",
+      "entry": "chainhash() (run-time dispatch)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "9bc3ec43f4bf04c8b285cd720a915381dbb1fc154edddd0e1246c07c0514cef9"
+    },
+    "chainhash.0a03c63": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "0a03c6345ac95acc12bbd739fb55191f5d31187b",
+      "header_sha256": "30ff788728b6ce788654a0c10512fb0958dae9f8f257b5316785d7705b523ee3",
+      "entry": "chainhash() (run-time dispatch)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "d9bda6b90ac24ed8308d8151ff129492a396bd058b0d1a3b4a6e80c3f373c784"
+    }
+  },
+  "polyxor": {
+    "note": "registration object and Rust staticlib reused byte-for-byte from the PolyXOR128 lane (records/polyxor/evidence/<host>/provenance.json)",
+    "staticlib_sha256": "7bca9cd56b5f6c67fcbc4f5e00d774f9782643bfa2c169096edaf89f897c23a1",
+    "registration_object_sha256": "db99c1b11c841164a5dfad4b8fcb5e8777508ec81080773bd15baa00d038e672"
+  },
+  "reused_objects": {
+    "main.cpp.o": "877a4598076d3c30326b11a352bbc3f8bd9a9a881035657e1af6756521ae8c39",
+    "libSMHasher3Tests.a": "677e878c7e4a41add883cff0d1fd1b3f7bdfef01fe9d279d2c6ba3cbaa60d55b",
+    "libSMHasher3Hashlib.a": "81dee0aff7103f2a98e520bcc18c139f2cb3b90ad31895775c43dc085301fc00"
+  },
+  "registration_sources": {
+    "chainhash128_reg.cpp": "220b7cfd028f659d1262ff9d8bafb56e82e23153dd761a8176a079017f2c3235",
+    "chainhash_reg.cpp": "cbc953ad0e551fb1a7c3f50725c68cd9d859674ad1d2ebbbbff84c4d3a47f0f0",
+    "build.py": "0be7256aa44e272e81320ed2e74fa1d9ee4eacd98488e333b290d2ed0589d310"
+  },
+  "binary_sha256": "0a192eeb266836c295650174c940ec428ae9ee4396d64bb01316f5220988853a"
+}

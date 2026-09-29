@@ -1,0 +1,63 @@
+{
+  "name": "wyhash",
+  "run": 2,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "8-15",
+    "SMHasher3",
+    "wyhash",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T23:15:58.814277+00:00",
+    "uptime": "23:15:58 up 28 days, 13:32,  1 user,  load average: 1.24, 1.80, 1.97",
+    "load": [
+      1.24,
+      1.8,
+      1.97
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 1.0,
+      "9": 0.0,
+      "10": 0.5,
+      "11": 0.0,
+      "12": 0.0,
+      "13": 1.5,
+      "14": 1.5,
+      "15": 0.0
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T23:17:06.038298+00:00",
+    "uptime": "23:17:06 up 28 days, 13:33,  1 user,  load average: 1.05, 1.62, 1.89",
+    "load": [
+      1.05,
+      1.62,
+      1.89
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 0.0,
+      "9": 0.0,
+      "10": 0.0,
+      "11": 0.0,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 0.0,
+      "15": 0.0
+    }
+  },
+  "elapsed_seconds": 67.21306541468948,
+  "returncode": 0,
+  "raw_file": "wyhash.run2.txt",
+  "raw_sha256": "d7f85c10fac5691ecbbd3df0bd3f62a49a7016d2e9a4d82e14e2b2900791491a",
+  "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+  "during_run_scans": 4,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

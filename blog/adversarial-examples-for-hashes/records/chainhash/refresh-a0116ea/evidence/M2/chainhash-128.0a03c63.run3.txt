@@ -1,0 +1,79 @@
+WARNING: Hash with verification code 1fca728c was already registered: chainhash-128.a0116ea
+         Are you certain chainhash-128.0a03c63 is a unique implementation?
+WARNING: Hash with verification code 66672bd6 was already registered: chainhash.a0116ea
+         Are you certain chainhash.0a03c63 is a unique implementation?
+WARNING: Hash with verification code fa8a8d3b was already registered: chainhash.a0116ea
+         Are you certain chainhash.0a03c63 is a unique implementation?
+WARNING: Hash with verification code 66672bd6 was already registered: chainhash.a0116ea
+         Are you certain chainhash-v3 is a unique implementation?
+WARNING: Hash with verification code fa8a8d3b was already registered: chainhash.a0116ea
+         Are you certain chainhash-v3 is a unique implementation?
+WARNING: Hash with verification code 742de5a5 was already registered: chainhash-128
+         Are you certain chainhash-128.schoolbook is a unique implementation?
+WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed
+         Are you certain HalftimeHash-512 is a unique implementation?
+--- Testing chainhash-128.0a03c63 "ChainHash-128 (thomasahle/chainhash header at the tagged commit; public chainhash128() or a forced backend)"
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -   148.90 cycles/hash
+   2-byte keys -   151.68 cycles/hash
+   3-byte keys -   151.21 cycles/hash
+   4-byte keys -   154.69 cycles/hash
+   5-byte keys -   152.61 cycles/hash
+   6-byte keys -   153.07 cycles/hash
+   7-byte keys -   153.07 cycles/hash
+   8-byte keys -   147.04 cycles/hash
+   9-byte keys -   149.36 cycles/hash
+  10-byte keys -   149.82 cycles/hash
+  11-byte keys -   148.90 cycles/hash
+  12-byte keys -   148.43 cycles/hash
+  13-byte keys -   148.43 cycles/hash
+  14-byte keys -   147.74 cycles/hash
+  15-byte keys -   148.43 cycles/hash
+  16-byte keys -   143.33 cycles/hash
+  17-byte keys -   172.09 cycles/hash
+  18-byte keys -   172.09 cycles/hash
+  19-byte keys -   172.32 cycles/hash
+  20-byte keys -   168.84 cycles/hash
+  21-byte keys -   169.07 cycles/hash
+  22-byte keys -   168.84 cycles/hash
+  23-byte keys -   168.14 cycles/hash
+  24-byte keys -   169.07 cycles/hash
+  25-byte keys -   168.61 cycles/hash
+  26-byte keys -   168.61 cycles/hash
+  27-byte keys -   169.07 cycles/hash
+  28-byte keys -   169.07 cycles/hash
+  29-byte keys -   168.84 cycles/hash
+  30-byte keys -   169.30 cycles/hash
+  31-byte keys -   168.84 cycles/hash
+Average        -   159.34 cycles/hash
+ rnd-byte keys -   160.05 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 - 16.75 bytes/cycle - 54.59 GiB/sec @ 3.5 ghz
+Alignment   6 - 16.75 bytes/cycle - 54.59 GiB/sec @ 3.5 ghz
+Alignment   5 - 15.07 bytes/cycle - 49.13 GiB/sec @ 3.5 ghz
+Alignment   4 - 16.75 bytes/cycle - 54.59 GiB/sec @ 3.5 ghz
+Alignment   3 - 16.75 bytes/cycle - 54.59 GiB/sec @ 3.5 ghz
+Alignment   2 - 16.75 bytes/cycle - 54.59 GiB/sec @ 3.5 ghz
+Alignment   1 - 16.75 bytes/cycle - 54.59 GiB/sec @ 3.5 ghz
+Alignment   0 - 16.75 bytes/cycle - 54.59 GiB/sec @ 3.5 ghz
+Average       - 16.54 bytes/cycle - 53.91 GiB/sec @ 3.5 ghz
+Alignment rnd - 15.46 bytes/cycle - 50.39 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 - 13.97 bytes/cycle - 45.53 GiB/sec @ 3.5 ghz
+Alignment   6 - 14.13 bytes/cycle - 46.06 GiB/sec @ 3.5 ghz
+Alignment   5 - 13.86 bytes/cycle - 45.17 GiB/sec @ 3.5 ghz
+Alignment   4 - 14.13 bytes/cycle - 46.06 GiB/sec @ 3.5 ghz
+Alignment   3 - 14.56 bytes/cycle - 47.45 GiB/sec @ 3.5 ghz
+Alignment   2 - 14.49 bytes/cycle - 47.23 GiB/sec @ 3.5 ghz
+Alignment   1 - 14.06 bytes/cycle - 45.82 GiB/sec @ 3.5 ghz
+Alignment   0 - 16.74 bytes/cycle - 54.58 GiB/sec @ 3.5 ghz
+Average       - 14.49 bytes/cycle - 47.24 GiB/sec @ 3.5 ghz
+Alignment rnd - 13.83 bytes/cycle - 45.07 GiB/sec @ 3.5 ghz
+
+Verification value is 0x00000001 - Testing took 45.896708 seconds
+

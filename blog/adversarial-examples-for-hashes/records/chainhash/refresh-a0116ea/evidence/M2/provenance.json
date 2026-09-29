@@ -1,0 +1,60 @@
+{
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)",
+  "flags": [
+    "-O3",
+    "-std=c++11",
+    "-DNDEBUG",
+    "-DHAVE_THREADS",
+    "-march=native+crypto"
+  ],
+  "chainhash": {
+    "chainhash-128.a0116ea": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "61ff0949a8fde6314458dd9e1a1dee73be2885b7ca7b89825f0b8df8f6f7323c",
+      "entry": "chainhash128() (run-time dispatch)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "f16467981d0c51d151d659036c183d2bd6210eb6caf2e045c5d6c42a82e3244d"
+    },
+    "chainhash-128.0a03c63": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "0a03c6345ac95acc12bbd739fb55191f5d31187b",
+      "header_sha256": "7f4e8fe3b776f9b7cdbcee6564c38c07c883ae17cf4b9b55e0defb6ecc6088a8",
+      "entry": "chainhash128() (run-time dispatch)",
+      "verification": "0x1FCA728C",
+      "registration_object_sha256": "fdee8b8244710323f89fc2733ae38577e6fb6962a1a2d089e25bf1b4508c33b6"
+    },
+    "chainhash.a0116ea": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58",
+      "header_sha256": "d3a2f3694950ebf7e242f0beb0f72baf9c8be55dc40ecf1d701fdc1d7b6f08e9",
+      "entry": "chainhash() (run-time dispatch)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "616a007502ae288239944dc254b5abf2b39cb8d51db2226f549e4d1e626c4b22"
+    },
+    "chainhash.0a03c63": {
+      "repository": "https://github.com/thomasahle/chainhash",
+      "commit": "0a03c6345ac95acc12bbd739fb55191f5d31187b",
+      "header_sha256": "30ff788728b6ce788654a0c10512fb0958dae9f8f257b5316785d7705b523ee3",
+      "entry": "chainhash() (run-time dispatch)",
+      "verification": "0x66672BD6",
+      "registration_object_sha256": "42a9f1e97ba49c674e2db3be7b73af293c9902e0989afa3725a07f00d966b1f5"
+    }
+  },
+  "polyxor": {
+    "note": "registration object and Rust staticlib reused byte-for-byte from the PolyXOR128 lane (records/polyxor/evidence/<host>/provenance.json)",
+    "staticlib_sha256": "5c613ee29778a8dc4c2c63f8f165a871c19b9d3446682b1212a0897aea5c3c77",
+    "registration_object_sha256": "e9ab3e05318a20a85cc0d9c0a6fcb1406f16f80ef3f7002f1b785a0a18ec729f"
+  },
+  "reused_objects": {
+    "main.cpp.o": "5851b8d94d393e09a68215c2deee8891f7a433ed506d371efb7969b0719702ba",
+    "libSMHasher3Tests.a": "29fdf203986808dc910c64fda427826798d118e9f2dffd68cccdf05fbaf3881d",
+    "libSMHasher3Hashlib.a": "4eae18d42d35e75036676c356bde9d16a0c508e380b9598eccc49c295d13e38b"
+  },
+  "registration_sources": {
+    "chainhash128_reg.cpp": "220b7cfd028f659d1262ff9d8bafb56e82e23153dd761a8176a079017f2c3235",
+    "chainhash_reg.cpp": "cbc953ad0e551fb1a7c3f50725c68cd9d859674ad1d2ebbbbff84c4d3a47f0f0",
+    "build.py": "0be7256aa44e272e81320ed2e74fa1d9ee4eacd98488e333b290d2ed0589d310"
+  },
+  "binary_sha256": "19b9bdb4277659bbf2a1a47a99bc28c552df78bed493ac720d6201eee0589888"
+}

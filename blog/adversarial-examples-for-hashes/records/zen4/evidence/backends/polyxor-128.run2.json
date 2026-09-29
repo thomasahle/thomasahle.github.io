@@ -1,0 +1,63 @@
+{
+  "name": "polyxor-128",
+  "run": 2,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "8-15",
+    "SMHasher3",
+    "polyxor-128",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-29T00:41:45.821090+00:00",
+    "uptime": "00:41:45 up 28 days, 14:57,  1 user,  load average: 0.99, 0.95, 1.00",
+    "load": [
+      0.99,
+      0.95,
+      1.0
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 0.0,
+      "9": 0.0,
+      "10": 1.0,
+      "11": 1.0,
+      "12": 0.0,
+      "13": 0.5,
+      "14": 0.5,
+      "15": 0.0
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-29T00:42:38.999417+00:00",
+    "uptime": "00:42:39 up 28 days, 14:58,  1 user,  load average: 1.00, 0.96, 1.00",
+    "load": [
+      1.0,
+      0.96,
+      1.0
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 0.5,
+      "9": 0.0,
+      "10": 0.5,
+      "11": 0.0,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 0.5,
+      "15": 0.5
+    }
+  },
+  "elapsed_seconds": 53.16757870884612,
+  "returncode": 0,
+  "raw_file": "polyxor-128.run2.txt",
+  "raw_sha256": "5171d76912de74a9e73867b65547b7d46bbf7dd7a9886ddce7945795a3919b48",
+  "binary_sha256": "a1fc90a1cfe3d605d079a39f6bb481ddee77b11b6300897fef33ecce834e83e4",
+  "during_run_scans": 3,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

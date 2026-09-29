@@ -1,0 +1,63 @@
+{
+  "name": "HalftimeHash-128",
+  "run": 2,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "8-15",
+    "SMHasher3",
+    "HalftimeHash-128",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T23:43:26.842293+00:00",
+    "uptime": "23:43:26 up 28 days, 13:59,  1 user,  load average: 0.92, 0.98, 1.13",
+    "load": [
+      0.92,
+      0.98,
+      1.13
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 1.0,
+      "9": 0.0,
+      "10": 0.0,
+      "11": 0.0,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 1.5,
+      "15": 0.0
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T23:44:33.065095+00:00",
+    "uptime": "23:44:33 up 28 days, 14:00,  1 user,  load average: 0.97, 0.99, 1.11",
+    "load": [
+      0.97,
+      0.99,
+      1.11
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 0.0,
+      "9": 0.0,
+      "10": 0.0,
+      "11": 0.5,
+      "12": 1.0,
+      "13": 0.0,
+      "14": 1.0,
+      "15": 0.0
+    }
+  },
+  "elapsed_seconds": 66.2142772669904,
+  "returncode": 0,
+  "raw_file": "HalftimeHash-128.run2.txt",
+  "raw_sha256": "3ff4defeae350a1a76df67bcb269cec21f00eb4a8153b9536e0a671509602e1c",
+  "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+  "during_run_scans": 4,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

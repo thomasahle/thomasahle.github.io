@@ -15,6 +15,7 @@
   const cache = new Map();
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const hostButtons = [...root.querySelectorAll('[data-host]')];
+  const hostNames = {m2: 'Apple M2 Pro', xeon: 'Intel Xeon', epyc: 'AMD EPYC 9R14 (Zen 4)'};
   const hostIndicator = document.createElement('span');
   hostIndicator.className = 'figure-host-indicator';
   hostIndicator.setAttribute('aria-hidden', 'true');
@@ -68,7 +69,7 @@
     detail.querySelector('.inspector-summary').textContent = row.summary;
     detail.querySelector('.inspector-score').textContent = row.score + ' bits';
     detail.querySelector('.inspector-speed').textContent = pretty(row.speed) + ' B/cycle';
-    detail.querySelector('.inspector-host').textContent = host === 'm2' ? 'Apple M2 Pro' : 'Intel Xeon';
+    detail.querySelector('.inspector-host').textContent = hostNames[host] || data.hosts[host].name;
     detail.querySelector('.inspector-output').textContent = row.output_bits + ' bits';
     detail.querySelector('.inspector-evidence-label').textContent = row.kind === 'witness' ? 'Collision evidence' : row.kind === 'claim' ? 'Claimed bound (unresolved)' : 'Proved bound';
     detail.querySelector('.inspector-evidence').textContent = row.reader_notes.evidence;
@@ -300,8 +301,9 @@
       status.textContent = `${data.hosts[host].name}: ${rows().length} results. ${scaleNames[scale]} score scale.${scale === 'log' ? ' Linear from zero to one bit.' : ''} ${data.hosts[host].provisional ? 'Provisional measurements.' : ''}`;
       select.disabled = false;
       chart.setAttribute('aria-busy', 'false');
-      // Warm the other host so the first toggle responds as quickly as later ones.
-      get(figureFile(host === 'm2' ? 'xeon' : 'm2', scale, layout)).catch(() => {});
+      // Warm the other hosts so the first toggle responds as quickly as later ones.
+      hostButtons.map(button => button.dataset.host).filter(other => other !== host)
+        .forEach(other => get(figureFile(other, scale, layout)).catch(() => {}));
     } catch (error) {
       if (request !== requestId) return;
       desiredHost = host; desiredScale = scale; scaleSelect.value = scale;

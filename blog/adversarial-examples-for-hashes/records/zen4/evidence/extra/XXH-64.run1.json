@@ -1,0 +1,63 @@
+{
+  "name": "XXH-64",
+  "run": 1,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "8-15",
+    "SMHasher3",
+    "XXH-64",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T22:31:08.276829+00:00",
+    "uptime": "22:31:08 up 28 days, 12:47,  1 user,  load average: 1.96, 2.03, 2.14",
+    "load": [
+      1.96,
+      2.03,
+      2.14
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 1.5,
+      "9": 0.5,
+      "10": 0.0,
+      "11": 0.0,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 0.0,
+      "15": 0.0
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T22:33:36.729731+00:00",
+    "uptime": "22:33:36 up 28 days, 12:49,  1 user,  load average: 2.01, 2.01, 2.11",
+    "load": [
+      2.01,
+      2.01,
+      2.11
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 0.0,
+      "9": 0.0,
+      "10": 0.0,
+      "11": 0.0,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 0.0,
+      "15": 0.0
+    }
+  },
+  "elapsed_seconds": 148.4414915498346,
+  "returncode": 0,
+  "raw_file": "XXH-64.run1.txt",
+  "raw_sha256": "1618d9ddccb812568d7616d82aff6005c370a098e6211b69b03fe489c5a71eff",
+  "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+  "during_run_scans": 9,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

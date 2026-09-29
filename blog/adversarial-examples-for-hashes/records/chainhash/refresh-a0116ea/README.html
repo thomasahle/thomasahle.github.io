@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ChainHash at a0116ea: same-binary refresh</title><link rel="stylesheet" href="../../../post.css"><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem;overflow-wrap:anywhere}pre,table{display:block;overflow:auto}h1{font-size:2rem}</style></head><body><main><nav><a href="../../../index.html#appendix-chainhash128">Article</a> · <a href="../../../records/README.html">Records</a></nav>
+<h1
+id="chainhash-at-a0116ea-same-binary-refresh-on-xeon-and-m2">ChainHash
+at a0116ea: same-binary refresh on Xeon and M2</h1>
+<p>The chart's ChainHash and ChainHash-128 cells on the Xeon and M2 tabs
+are measured at <a
+href="https://github.com/thomasahle/chainhash/tree/a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58">thomasahle/chainhash
+<code>a0116ea</code></a>. The AMD EPYC 9R14 (Zen 4) tab measures the
+same revision (<a href="../../zen4/README.html">records/zen4</a>), so
+all three tabs show one revision of each function.</p>
+<p>Since the previously published cells, the headers gained only
+exact-output speed changes:</p>
+<ul>
+<li>shorter paths for inputs up to 128 bytes, and faster key
+expansion;</li>
+<li>prefetch-parameterized bulk kernels and a stream fast path;</li>
+<li>fused PMULL+EOR kernels on Apple cores;</li>
+<li>vector tails on every x86 backend;</li>
+<li>a spill-free ChainHash-128 ZMM accumulation and a register-bounded
+XMM kernel;</li>
+<li>the ChainHash-128 product method chosen by the PCLMULQDQ issue
+rate.</li>
+</ul>
+<p>The calibration header is opt-in and is not used here. Both functions
+are unchanged: the verification values are the repository's, 0x66672BD6
+(ChainHash) and 0x1FCA728C (ChainHash-128), on every registration and
+host.</p>
+<p>Each binary links two revisions of the headers side by side:
+<code>a0116ea</code> and <code>0a03c63</code> as a control. PolyXOR128
+and XXH3-128 run in the same binary.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Registration</th>
+<th style="text-align: right;">Xeon bulk</th>
+<th style="text-align: right;">Xeon 1–31 B</th>
+<th style="text-align: right;">M2 bulk</th>
+<th style="text-align: right;">M2 1–31 B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>chainhash.a0116ea</strong></td>
+<td style="text-align: right;"><strong>28.25</strong></td>
+<td style="text-align: right;"><strong>80.38</strong></td>
+<td style="text-align: right;"><strong>30.15</strong></td>
+<td style="text-align: right;"><strong>89.20</strong></td>
+</tr>
+<tr class="even">
+<td>chainhash.0a03c63</td>
+<td style="text-align: right;">28.28</td>
+<td style="text-align: right;">120.14</td>
+<td style="text-align: right;">30.20</td>
+<td style="text-align: right;">89.16</td>
+</tr>
+<tr class="odd">
+<td><strong>chainhash-128.a0116ea</strong></td>
+<td style="text-align: right;"><strong>14.90</strong></td>
+<td style="text-align: right;"><strong>129.30</strong></td>
+<td style="text-align: right;"><strong>16.85</strong></td>
+<td style="text-align: right;"><strong>158.25</strong></td>
+</tr>
+<tr class="even">
+<td>chainhash-128.0a03c63</td>
+<td style="text-align: right;">14.92</td>
+<td style="text-align: right;">146.38</td>
+<td style="text-align: right;">16.70</td>
+<td style="text-align: right;">159.34</td>
+</tr>
+<tr class="odd">
+<td>polyxor-128</td>
+<td style="text-align: right;">15.58</td>
+<td style="text-align: right;">172.16</td>
+<td style="text-align: right;">16.71</td>
+<td style="text-align: right;">142.51</td>
+</tr>
+<tr class="even">
+<td>XXH3-128</td>
+<td style="text-align: right;">19.94</td>
+<td style="text-align: right;">34.11</td>
+<td style="text-align: right;">12.55</td>
+<td style="text-align: right;">30.97</td>
+</tr>
+</tbody>
+</table>
+<p>These replace the previously published cells:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Row</th>
+<th>Xeon (bulk / 1–31 B)</th>
+<th>M2 (bulk / 1–31 B)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ChainHash</td>
+<td>28.31 / 155.14</td>
+<td>26.26 / 87.49</td>
+</tr>
+<tr class="even">
+<td>ChainHash-128</td>
+<td>14.43 / 175.93</td>
+<td>10.26 / 167.89</td>
+</tr>
+</tbody>
+</table>
+<h2 id="method">Method</h2>
+<ul>
+<li>Unmodified SMHasher3 <code>--test=Speed</code>, one process at a
+time. Every start waits until no other SMHasher3 process runs. A
+whole-machine scan every 15 s discards and repeats any run that overlaps
+another SMHasher3 process; none was discarded.</li>
+<li>Xeon 8375C: the post's <code>build-release-20260917</code> objects
+and the PolyXOR128 lane's objects, as in <a
+href="../../polyxor/README.html">records/polyxor</a>. Runs use
+<code>nice -n 10 taskset -c 16-23</code>. The cell takes the higher bulk
+of two passes and, independently, the lower small-key average. Units are
+bytes per TSC tick (TSC 2.900 GHz).</li>
+<li>M2 Pro: the public reproduction's arm64 build. This is the base of
+the records/polyxor M2 binary; the post's original M2 base binary is no
+longer available. Runs use <code>nice -n 10</code>, gated on load1 &lt;
+4.5. The cell takes medians of three passes. Units are SMHasher3's
+calibrated cycles. The largest M2 spreads are about 4% (bulk passes:
+ChainHash 30.15 / 31.32 / 30.11, ChainHash-128 16.85 / 17.38 / 16.73),
+with no run more than 15% from its median.</li>
+<li>Every registration passes SMHasher3 Sanity and its verification
+value on both hosts (<code>evidence/*/NAME.sanity.txt</code>). The two
+revisions' verification values are identical, as SMHasher3's
+duplicate-code warning in the logs notes.</li>
+</ul>
+<h2 id="files">Files</h2>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+href="speeds_chainhash_a0116ea.json">speeds_chainhash_a0116ea.json</a></td>
+<td>Selected cells, every pass, spreads, per-length 1–31 B costs, load
+at launch</td>
+</tr>
+<tr class="even">
+<td><a href="evidence/Xeon/provenance.json">evidence/Xeon/</a>, <a
+href="evidence/M2/provenance.json">evidence/M2/</a></td>
+<td>Raw <code>--test=Speed</code> logs (<code>NAME.runN.txt</code>), run
+metadata (<code>NAME.runN.json</code>), Sanity logs, gate log, build
+provenance</td>
+</tr>
+<tr class="odd">
+<td><a href="bench/build.py">bench/</a></td>
+<td>Registration sources, link script, runner and summarizer</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

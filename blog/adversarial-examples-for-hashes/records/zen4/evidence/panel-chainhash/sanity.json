@@ -1,0 +1,606 @@
+{
+  "binary_sha256": "e7763c1b01f14e9a530c6c3085613f448195306689948027a1559918c8de7be7",
+  "host": "EPYC9R14",
+  "hashes": {
+    "CityHash-64": {
+      "status": "PASS",
+      "registered_name": "CityHash-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "CityHash-64.sanity.txt",
+      "raw_sha256": "af01c84c973d4f73d4c19880f6e79f0ea572d53b71ea1717dcf01ad5f6c67175",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x5FABC5C5 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.208737 seconds"
+      ]
+    },
+    "FarmHash-64.NA": {
+      "status": "PASS",
+      "registered_name": "FarmHash-64.NA",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "FarmHash-64.NA.sanity.txt",
+      "raw_sha256": "a5bb55aa785d711da87d7108b765c3a29e80db28deb64471cbb787e9f1f7f3af",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0xEBC4A679 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.209054 seconds"
+      ]
+    },
+    "MurmurHash3-128": {
+      "status": "PASS",
+      "registered_name": "MurmurHash3-128",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "MurmurHash3-128.sanity.txt",
+      "raw_sha256": "a3e3478d4a154b22d657b77392411f27dadee04c767928a4ddc41462c4514634",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x6384BA69 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.231918 seconds"
+      ]
+    },
+    "mx3.v3": {
+      "status": "PASS",
+      "registered_name": "mx3.v3",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "mx3.v3.sanity.txt",
+      "raw_sha256": "a5b64b7df2301f76aef2f86d0862716890c130df5cb7b3b563df634afb0236fb",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x7B287B65 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.213983 seconds"
+      ]
+    },
+    "fasthash-64": {
+      "status": "PASS",
+      "registered_name": "fasthash-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "fasthash-64.sanity.txt",
+      "raw_sha256": "bc20d9a24c7a52c4734f0f0cfe66e555b0eac679fb896c2592fb5590b7de0655",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0xA16231A7 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.230566 seconds"
+      ]
+    },
+    "fasthash-32": {
+      "status": "PASS",
+      "registered_name": "fasthash-32",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "fasthash-32.sanity.txt",
+      "raw_sha256": "01ee5d812f419d0cc327b6d6cefcb429c34a52628116bbddffaced74231385ee",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0xE9481AFC ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.231108 seconds"
+      ]
+    },
+    "MuseAir": {
+      "status": "PASS",
+      "registered_name": "MuseAir",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "MuseAir.sanity.txt",
+      "raw_sha256": "6e3d2a3ff3e6366c0f00a66791601783476085c28b697855e2f2a0312ce946dc",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0xF89F1683 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.196898 seconds"
+      ]
+    },
+    "MuseAir-v2": {
+      "status": "PASS",
+      "registered_name": "MuseAir-v2",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "MuseAir-v2.sanity.txt",
+      "raw_sha256": "d5d5a74957689b375a2097a6e5895334a940fdee55a54bfce5a279f53b345246",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x7140CABC ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.197526 seconds"
+      ]
+    },
+    "komihash": {
+      "status": "PASS",
+      "registered_name": "komihash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "komihash.sanity.txt",
+      "raw_sha256": "3dddc0b5e322cb3e65f88f3ab52cde2c51745f35090567561636c75c1b2a2099",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x8157FF6D ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.197631 seconds"
+      ]
+    },
+    "t1ha2-64": {
+      "status": "PASS",
+      "registered_name": "t1ha2-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "t1ha2-64.sanity.txt",
+      "raw_sha256": "15e8b5497e2dc96fb11b3f7ad1791d7dee48db44be37fd0b573538cb644c0618",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x8F16C948 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.202051 seconds"
+      ]
+    },
+    "a5hash": {
+      "status": "PASS",
+      "registered_name": "a5hash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "a5hash.sanity.txt",
+      "raw_sha256": "a5a24735ce48635de466cf47e927dde7c008170beb38f26e0f41846c90fda5e0",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0xADDE79B3 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.211270 seconds"
+      ]
+    },
+    "a5hash-128": {
+      "status": "PASS",
+      "registered_name": "a5hash-128",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "a5hash-128.sanity.txt",
+      "raw_sha256": "ec83967fa3e1aedb719ceacf0ed8fd0a665d6c75b706985596798d660db0c66b",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x89406B11 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.197329 seconds"
+      ]
+    },
+    "rapidhash": {
+      "status": "PASS",
+      "registered_name": "rapidhash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "rapidhash.sanity.txt",
+      "raw_sha256": "cb62cd2bae5e3368eb93621e53f7c3ae2bca3839a8ba6ac7c2da220670309069",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x1FDC65EE ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.195013 seconds"
+      ]
+    },
+    "foldhash-fast": {
+      "status": "FAIL",
+      "registered_name": "foldhash-fast",
+      "returncode": 0,
+      "failures": [
+        "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+        "SANITY_FAILS unset, but hash failed"
+      ],
+      "raw_file": "foldhash-fast.sanity.txt",
+      "raw_sha256": "b1aa75ce697635e8c6f1bd9546b7439f20ef246aabd9e67006746f43881c040d",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0xA167BA5E ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.180459 seconds"
+      ]
+    },
+    "foldhash-quality": {
+      "status": "FAIL",
+      "registered_name": "foldhash-quality",
+      "returncode": 0,
+      "failures": [
+        "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+        "SANITY_FAILS unset, but hash failed"
+      ],
+      "raw_file": "foldhash-quality.sanity.txt",
+      "raw_sha256": "ad2c307c0c7c23b764314c73a316db5197c6e5888fc20d66f1784cfabb9cb903",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0xE269316E ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.180240 seconds"
+      ]
+    },
+    "mum3.exact.unroll3": {
+      "status": "PASS",
+      "registered_name": "mum3.exact.unroll3",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "mum3.exact.unroll3.sanity.txt",
+      "raw_sha256": "8b9e2175c0cfcb54aadb1c14afaae8d747b80251214e316a77faaa0e420f4dc3",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x8BD72B8C ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.196008 seconds"
+      ]
+    },
+    "mir.exact": {
+      "status": "PASS",
+      "registered_name": "mir.exact",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "mir.exact.sanity.txt",
+      "raw_sha256": "c5e7c6c649bc94994dbaa3bd0ecf03ed0aa07162edd079c2cb8527991e3772be",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x00A393C8 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.222830 seconds"
+      ]
+    },
+    "XXH3-64": {
+      "status": "PASS",
+      "registered_name": "XXH3-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "XXH3-64.sanity.txt",
+      "raw_sha256": "4917dd7883d14d3c2909ece6cd2602c459200b6f5b7bb51742e5b11bda95d5c1",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x1AAEE62C ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.189901 seconds"
+      ]
+    },
+    "XXH3-128": {
+      "status": "PASS",
+      "registered_name": "XXH3-128",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "XXH3-128.sanity.txt",
+      "raw_sha256": "6d3ef27ddf856552515c1ad9bff672feb7126e063024d33f855927e6907d20cd",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x288DAA94 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.193205 seconds"
+      ]
+    },
+    "HighwayHash-64": {
+      "status": "PASS",
+      "registered_name": "HighwayHash-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "HighwayHash-64.sanity.txt",
+      "raw_sha256": "c852b22abc3906d5367ee65e58c4f77fb2e33fe58b75b4585293ef5d89757a0c",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0xF3246108 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.224400 seconds"
+      ]
+    },
+    "SpookyHash2-64": {
+      "status": "PASS",
+      "registered_name": "SpookyHash2-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "SpookyHash2-64.sanity.txt",
+      "raw_sha256": "03bfce6c2ab5045c77b7a883e7444d1c39e358c175b0650e879d50fb319bfa9d",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x972C4BDC ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.209369 seconds"
+      ]
+    },
+    "pengyhash": {
+      "status": "PASS",
+      "registered_name": "pengyhash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "pengyhash.sanity.txt",
+      "raw_sha256": "7df6a39e8070e0859bbd036cdfd11a7e4b1fd839699aa4d1db0f08ca117c1e1b",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x861A1254 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.210334 seconds"
+      ]
+    },
+    "NMHASH": {
+      "status": "PASS",
+      "registered_name": "NMHASH",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "NMHASH.sanity.txt",
+      "raw_sha256": "59bea45a20c917285e9d24c1c145691453c00e6792d3b5954da5f8068003954e",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x12A30553 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.199005 seconds"
+      ]
+    },
+    "NMHASHX": {
+      "status": "PASS",
+      "registered_name": "NMHASHX",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "NMHASHX.sanity.txt",
+      "raw_sha256": "9ac3108c09a5d30ae7eab080c759b87c18805c22b997d41ba3a6f48824008e74",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0xA8580227 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.200899 seconds"
+      ]
+    },
+    "gxhash-64": {
+      "status": "PASS",
+      "registered_name": "gxhash-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "gxhash-64.sanity.txt",
+      "raw_sha256": "37b86f392d07c8f733e69c6f7dce32a12a1ec09bdcd119ebf4b4d34dc33b68af",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x48F84240 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.190671 seconds"
+      ]
+    },
+    "rust-ahash": {
+      "status": "PASS",
+      "registered_name": "rust-ahash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "rust-ahash.sanity.txt",
+      "raw_sha256": "1eff7891d42e8b1308ab00d232eca817180a79bac430365a6951266cc9169c1b",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x3BF4383B ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.447165 seconds"
+      ]
+    },
+    "SipHash-1-3": {
+      "status": "PASS",
+      "registered_name": "SipHash-1-3",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "SipHash-1-3.sanity.txt",
+      "raw_sha256": "aac0ca58ae969f7eaea7133cfcc19945bdfb2b1009f2bc23eada793c63037f5d",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x8936B193 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.380858 seconds"
+      ]
+    },
+    "SipHash-2-4": {
+      "status": "PASS",
+      "registered_name": "SipHash-2-4",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "SipHash-2-4.sanity.txt",
+      "raw_sha256": "4295e28371edb0ad63dacbb46817e185c934f5cbbe762928f5688bf596d1d3ab",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x57B661ED ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.589426 seconds"
+      ]
+    },
+    "HalftimeHash24-shipped": {
+      "status": "FAIL",
+      "registered_name": "HalftimeHash24-shipped",
+      "returncode": 0,
+      "failures": [
+        "Running append zeroes test   . FAIL  !!!!!",
+        "SANITY_FAILS unset, but hash failed"
+      ],
+      "raw_file": "HalftimeHash24-shipped.sanity.txt",
+      "raw_sha256": "39122d2ff514935e2e1fc098935eb1b9eeb9f7c45fae6f33d6acec7eab702c8a",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x8A105352 ...... SKIP (unverifiable)",
+        "Verification value is 0x00000001 - Testing took 1.059269 seconds"
+      ]
+    },
+    "GoMapHash": {
+      "status": "PASS",
+      "registered_name": "GoMapHash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "GoMapHash.sanity.txt",
+      "raw_sha256": "f30185f8ebe4cd382f04a1212444deae4fb426d7dd697385ecf4127b23b6179c",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x710289AB ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.235979 seconds"
+      ]
+    },
+    "AbseilHash-default": {
+      "status": "PASS",
+      "registered_name": "AbseilHash-default",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "AbseilHash-default.sanity.txt",
+      "raw_sha256": "b43887ac54ded2dc9f62e039cf268eca36f0eea1b923b588ed0ae4acf63ae08a",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x07203CDB ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.198187 seconds"
+      ]
+    },
+    "Marvin32": {
+      "status": "FAIL",
+      "registered_name": "Marvin32",
+      "returncode": 0,
+      "failures": [
+        "Running prepend zeroes test  . FAIL  !!!!!",
+        "SANITY_FAILS unset, but hash failed"
+      ],
+      "raw_file": "Marvin32.sanity.txt",
+      "raw_sha256": "600d301b8700907b4ec2c9a8caa61a6f74900e95a4e367ea538036d11171d6d4",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x306A5169 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.343045 seconds"
+      ]
+    },
+    "polymurhash": {
+      "status": "PASS",
+      "registered_name": "polymurhash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "polymurhash.sanity.txt",
+      "raw_sha256": "43337b812cdd5719591607dac1fcf2dec5acfcc575d4611d098ddafe78215495",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x0722B1A7 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.239077 seconds"
+      ]
+    },
+    "poly1305-hash": {
+      "status": "PASS",
+      "registered_name": "poly1305-hash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "poly1305-hash.sanity.txt",
+      "raw_sha256": "1ae400c25be04c9e0ff20d5f2405542046cccafc695b1c3886b5e9a0efe8c2d9",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0xBD015C42 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.285889 seconds"
+      ]
+    },
+    "ghash": {
+      "status": "PASS",
+      "registered_name": "ghash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "ghash.sanity.txt",
+      "raw_sha256": "227b8b14f6161e6c7493a2548210d3a219858d9e8bd8240d74ebf3684a823de2",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x1F397201 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.649064 seconds"
+      ]
+    },
+    "UMASH-64": {
+      "status": "PASS",
+      "registered_name": "UMASH-64",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "UMASH-64.sanity.txt",
+      "raw_sha256": "fab82d58cff4a132b9bd1c8435f43a34cf6ae6701a7622a7afac8e0f2c974792",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x36A264CD ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.196194 seconds"
+      ]
+    },
+    "UMASH-128": {
+      "status": "PASS",
+      "registered_name": "UMASH-128",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "UMASH-128.sanity.txt",
+      "raw_sha256": "e6bb11cef9c2d6873055255ffcf4f9496667b00ec2eff439cd3caf7bb29a7da9",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x63857D05 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.205714 seconds"
+      ]
+    },
+    "CLhash": {
+      "status": "PASS",
+      "registered_name": "CLhash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "CLhash.sanity.txt",
+      "raw_sha256": "95bfa2fc33fcb1b8063236a4e7016ab0dcc14dc39cfe5ccb65eee06f28d391dd",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x2E554CB4 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.208798 seconds"
+      ]
+    },
+    "chainhash": {
+      "status": "PASS",
+      "registered_name": "chainhash",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "chainhash.sanity.txt",
+      "raw_sha256": "7e92dae2814388eab296d0201a4e0dfa9ab7d6c561670b12b0ee3eb3a49ca7d7",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x66672BD6 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.226870 seconds"
+      ]
+    },
+    "HalftimeHash24-fixed": {
+      "status": "PASS",
+      "registered_name": "HalftimeHash24-fixed",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "HalftimeHash24-fixed.sanity.txt",
+      "raw_sha256": "00b51a4c8c78f69a2525ab05bc8cd501a2c3e1850cafc26bf6ce79e92456e284",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value LE 0x3F1372EA ...... SKIP (unverifiable)",
+        "Verification value is 0x00000001 - Testing took 1.071517 seconds"
+      ]
+    },
+    "chainhash-128": {
+      "status": "PASS",
+      "registered_name": "chainhash-128",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "chainhash-128.sanity.txt",
+      "raw_sha256": "be02dbf4cfe4aace5f0dc72b3900c8ffb1943c4c3794e0a2ba38747855f99692",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0x1FCA728C ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.298152 seconds"
+      ]
+    },
+    "polyxor-128": {
+      "status": "PASS",
+      "registered_name": "polyxor-128",
+      "returncode": 0,
+      "failures": [],
+      "raw_file": "polyxor-128.sanity.txt",
+      "raw_sha256": "c4994ecf21e086031b621b6e379a831f5463e6824eb61cec65deb0af48959a49",
+      "verification_lines": [
+        "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+        "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+        "Verification value CE 0xA9574CA8 ...... PASS",
+        "Verification value is 0x00000001 - Testing took 0.283812 seconds"
+      ]
+    }
+  }
+}

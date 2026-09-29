@@ -1,0 +1,42 @@
+{
+  "name": "XXH3-128",
+  "run": 1,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "SMHasher3",
+    "XXH3-128",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-29T00:16:02.375660+00:00",
+    "uptime": "2:16  up 11 days, 14:07, 1 user, load averages: 1.91 1.86 1.83",
+    "load": [
+      1.90771484375,
+      1.86328125,
+      1.8251953125
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null,
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-29T00:16:42.822079+00:00",
+    "uptime": "2:16  up 11 days, 14:08, 1 user, load averages: 1.80 1.83 1.82",
+    "load": [
+      1.80078125,
+      1.8330078125,
+      1.8154296875
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": null
+  },
+  "elapsed_seconds": 40.44666237500496,
+  "returncode": 0,
+  "raw_file": "XXH3-128.run1.txt",
+  "raw_sha256": "3c0884b25e82425029f471511273278cb7faa4ca900fd3a105301fd794123f1c",
+  "binary_sha256": "19b9bdb4277659bbf2a1a47a99bc28c552df78bed493ac720d6201eee0589888",
+  "during_run_scans": 2,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

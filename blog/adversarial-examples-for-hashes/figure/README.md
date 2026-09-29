@@ -1,7 +1,7 @@
 # Publication figure
 
-`build.py` reads the article's canonical `../data.json`. It generates both host
-views, linear, square-root, quadratic, and logarithmic score options, separate phone layouts, PNG/SVG
+`build.py` reads the article's canonical `../data.json`. It generates the three host
+views (M2, Xeon, AMD EPYC 9R14), linear, square-root, quadratic, and logarithmic score options, separate phone layouts, PNG/SVG
 assets, the inspection record,
 and the article's `feature.svg` / `feature.png`.
 
@@ -18,7 +18,7 @@ The browser imports these same SVG files; `chart.js` adds point inspection,
 keyboard navigation and host selection. The score-scale selector is hidden. `chart.css` styles only the controls.
 No plotting CDN is needed. The HTML includes a static image fallback.
 
-Both hosts share fixed axes within each scale. Speed uses a logarithmic axis.
+All hosts share fixed axes within each scale. Speed uses a logarithmic axis.
 The published chart defaults to square-root spacing, with ticks showing the
 original bit scores. The Y-axis controller is hidden. The retained “Logarithmic”
 assets use
@@ -40,9 +40,9 @@ the other host fade in/out. Interrupted transitions resume from their visible
 positions, and reduced-motion preferences disable animation. The settled frame
 uses the generated SVG, with no change to its data or point positions.
 
-The browser defaults to `m2-sqrt.svg` / `xeon-sqrt.svg`. Unsuffixed `m2.svg` /
-`xeon.svg` retain the linear exports; other views use `-quadratic` or `-log`,
-followed by `-mobile` / `-compact` when needed. The builder generates all 24
+The browser defaults to `m2-sqrt.svg` / `xeon-sqrt.svg` / `epyc-sqrt.svg`. Unsuffixed `m2.svg` /
+`xeon.svg` / `epyc.svg` retain the linear exports; other views use `-quadratic` or `-log`,
+followed by `-mobile` / `-compact` when needed. The builder generates all 36
 layouts and keeps `feature.svg/png` on the default square-root M2 view.
 The HTML wraps controls and chart in `.figure-stage`; keep `#score-scale` and
 `.figure-hosts` intact; keep the `.figure-scale` label hidden and its selected

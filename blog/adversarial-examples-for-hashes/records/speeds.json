@@ -423,6 +423,19 @@
       "input_metadata_note": "Input bulk_gib_s and selected-run fields describe the original two-run selection. Bulk B/cycle and small cycles use the supplied five-run medians; normalized selection fields here describe those medians.",
       "provenance_source": "speeds_m2_v2.json",
       "bulk_gib_s_original_two_run_best": 52.46
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 11.61,
+      "bulk_gib_s": 37.84,
+      "small_cycles": 19.84,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.08620689655172153,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/rapidhash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "rapidhash.protected": {
@@ -1206,6 +1219,19 @@
       "input_metadata_note": "Input bulk_gib_s and selected-run fields describe the original two-run selection. Bulk B/cycle and small cycles use the supplied five-run medians; normalized selection fields here describe those medians.",
       "provenance_source": "speeds_m2_v2.json",
       "bulk_gib_s_original_two_run_best": 46.3
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 18.81,
+      "bulk_gib_s": 61.32,
+      "small_cycles": 20.38,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.15974440894568342,
+      "small_run_spread_percent": 0.04906771344455052,
+      "record": "records/zen4/speeds_zen4.json#/XXH3-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "XXH3-128": {
@@ -1573,6 +1599,19 @@
       "bulk_run_spread_percent": 1.3646702047005244,
       "small_run_spread_percent": 1.2768817204301008,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 18.79,
+      "bulk_gib_s": 61.25,
+      "small_cycles": 23.66,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.8047210300429208,
+      "small_run_spread_percent": 0.04226542688081647,
+      "record": "records/zen4/speeds_zen4.json#/XXH3-128/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "wyhash": {
@@ -1940,6 +1979,19 @@
       "bulk_run_spread_percent": 0.0,
       "small_run_spread_percent": 1.132075471698113,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 11.2,
+      "bulk_gib_s": 36.52,
+      "small_cycles": 17.46,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.26857654431511335,
+      "small_run_spread_percent": 0.05727376861395239,
+      "record": "records/zen4/speeds_zen4_extra.json#/wyhash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "komihash": {
@@ -2366,6 +2418,19 @@
       "input_metadata_note": "Input bulk_gib_s and selected-run fields describe the original two-run selection. Bulk B/cycle and small cycles use the supplied five-run medians; normalized selection fields here describe those medians.",
       "provenance_source": "speeds_m2_v2.json",
       "bulk_gib_s_original_two_run_best": 28.68
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 7.71,
+      "bulk_gib_s": 25.14,
+      "small_cycles": 21.65,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/komihash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "a5hash": {
@@ -2733,6 +2798,19 @@
       "bulk_run_spread_percent": 0.31347962382446415,
       "small_run_spread_percent": 0.22361359570661765,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 3.8,
+      "bulk_gib_s": 12.37,
+      "small_cycles": 11.04,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.26385224274405594,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/a5hash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "a5hash-128": {
@@ -3100,6 +3178,19 @@
       "bulk_run_spread_percent": 1.4107883817427336,
       "small_run_spread_percent": 1.8164881229622676,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 10.0,
+      "bulk_gib_s": 32.6,
+      "small_cycles": 19.36,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/a5hash-128/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "MuseAir": {
@@ -3467,6 +3558,19 @@
       "bulk_run_spread_percent": 5.041152263374493,
       "small_run_spread_percent": 4.462474645030423,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 9.95,
+      "bulk_gib_s": 32.44,
+      "small_cycles": 13.27,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/MuseAir/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "MuseAir.bfast": {
@@ -4201,6 +4305,19 @@
       "bulk_run_spread_percent": 0.16181229773464256,
       "small_run_spread_percent": 0.2544529262086481,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 7.0,
+      "bulk_gib_s": 22.83,
+      "small_cycles": 28.59,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/t1ha2-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "CityHash-64": {
@@ -4568,6 +4685,19 @@
       "bulk_run_spread_percent": 2.006688963210679,
       "small_run_spread_percent": 2.0803782505910196,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 6.82,
+      "bulk_gib_s": 22.25,
+      "small_cycles": 34.57,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/CityHash-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "FarmHash-64.NA": {
@@ -4935,6 +5065,19 @@
       "bulk_run_spread_percent": 2.936096718480141,
       "small_run_spread_percent": 2.8273464658169045,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 6.74,
+      "bulk_gib_s": 21.97,
+      "small_cycles": 34.48,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/FarmHash-64.NA/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "MurmurHash3-128": {
@@ -5302,6 +5445,19 @@
       "bulk_run_spread_percent": 9.714285714285719,
       "small_run_spread_percent": 6.598858843959299,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 2.95,
+      "bulk_gib_s": 9.62,
+      "small_cycles": 36.88,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/MurmurHash3-128/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "gxhash-64": {
@@ -5669,6 +5825,19 @@
       "bulk_run_spread_percent": 2.4476650563606928,
       "small_run_spread_percent": 1.9990004997501254,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 30.79,
+      "bulk_gib_s": 100.35,
+      "small_cycles": 31.28,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.686723348593854,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/gxhash-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "rust-ahash": {
@@ -6036,6 +6205,19 @@
       "bulk_run_spread_percent": 2.752293577981657,
       "small_run_spread_percent": 1.3486005089058617,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 0.78,
+      "bulk_gib_s": 2.53,
+      "small_cycles": 72.07,
+      "bulk_selected_run": 1,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.02775079783545742,
+      "record": "records/zen4/speeds_zen4.json#/rust-ahash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "rust-ahash-fb": {
@@ -6770,6 +6952,19 @@
       "bulk_run_spread_percent": 26.30434782608695,
       "small_run_spread_percent": 22.602013778484363,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 6.65,
+      "bulk_gib_s": 21.67,
+      "small_cycles": 34.76,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.028768699654779795,
+      "record": "records/zen4/speeds_zen4.json#/SpookyHash2-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "SpookyHash2-32": {
@@ -7504,6 +7699,19 @@
       "bulk_run_spread_percent": 2.0689655172413834,
       "small_run_spread_percent": 1.8411712511091416,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 3.88,
+      "bulk_gib_s": 12.63,
+      "small_cycles": 59.71,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/HighwayHash-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "HighwayHash-128": {
@@ -8238,6 +8446,19 @@
       "bulk_run_spread_percent": 0.2724795640327127,
       "small_run_spread_percent": 0.6990186853071512,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 6.15,
+      "bulk_gib_s": 20.03,
+      "small_cycles": 52.48,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.019054878048785362,
+      "record": "records/zen4/speeds_zen4.json#/pengyhash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "NMHASH": {
@@ -8620,6 +8841,19 @@
       "bulk_run_spread_percent": 8.15217391304348,
       "small_run_spread_percent": 6.804536357571722,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 11.43,
+      "bulk_gib_s": 37.27,
+      "small_cycles": 32.07,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/NMHASH/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "NMHASHX": {
@@ -9002,6 +9236,19 @@
       "bulk_run_spread_percent": 4.3010752688172005,
       "small_run_spread_percent": 2.259279182356111,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 11.45,
+      "bulk_gib_s": 37.33,
+      "small_cycles": 20.73,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.08741258741258306,
+      "small_run_spread_percent": 0.04823926676313928,
+      "record": "records/zen4/speeds_zen4.json#/NMHASHX/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "fasthash-32": {
@@ -9369,6 +9616,19 @@
       "bulk_run_spread_percent": 1.449275362318847,
       "small_run_spread_percent": 3.042651453409384,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 2.85,
+      "bulk_gib_s": 9.28,
+      "small_cycles": 27.6,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/fasthash-32/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "fasthash-64": {
@@ -9736,6 +9996,19 @@
       "bulk_run_spread_percent": 0.0,
       "small_run_spread_percent": 2.602974828375282,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 2.85,
+      "bulk_gib_s": 9.28,
+      "small_cycles": 26.14,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.07651109410864443,
+      "record": "records/zen4/speeds_zen4.json#/fasthash-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "HalftimeHash-64": {
@@ -10103,6 +10376,19 @@
       "bulk_run_spread_percent": 1.091703056768556,
       "small_run_spread_percent": 0.832292967124415,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 3.37,
+      "bulk_gib_s": 10.99,
+      "small_cycles": 65.03,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.33830539750883126,
+      "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "HalftimeHash-128": {
@@ -10470,6 +10756,19 @@
       "bulk_run_spread_percent": 0.3171247357293794,
       "small_run_spread_percent": 1.5011941316956712,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 11.35,
+      "bulk_gib_s": 36.99,
+      "small_cycles": 63.92,
+      "bulk_selected_run": 1,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 0.1765225066195919,
+      "small_run_spread_percent": 0.42240300375469,
+      "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-128/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "HalftimeHash-256": {
@@ -10837,6 +11136,19 @@
       "bulk_run_spread_percent": 4.170804369414105,
       "small_run_spread_percent": 2.79093369418133,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 17.12,
+      "bulk_gib_s": 55.81,
+      "small_cycles": 63.98,
+      "bulk_selected_run": 1,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 0.4105571847507372,
+      "small_run_spread_percent": 0.5314160675210955,
+      "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-256/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "HalftimeHash-512": {
@@ -11204,6 +11516,19 @@
       "bulk_run_spread_percent": 3.7396121883656486,
       "small_run_spread_percent": 2.4140107289365664,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 17.45,
+      "bulk_gib_s": 56.87,
+      "small_cycles": 70.48,
+      "bulk_selected_run": 2,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 0.4027617951668505,
+      "small_run_spread_percent": 3.490351872871722,
+      "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-512/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "polymurhash": {
@@ -11571,6 +11896,19 @@
       "bulk_run_spread_percent": 0.902527075812265,
       "small_run_spread_percent": 0.5782105903834323,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 6.13,
+      "bulk_gib_s": 19.99,
+      "small_cycles": 28.32,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.9884678747940523,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/polymurhash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "CLhash": {
@@ -11987,6 +12325,19 @@
       "input_metadata_note": "Input bulk_gib_s and selected-run fields describe the original two-run selection. Bulk B/cycle and small cycles use the supplied five-run medians; normalized selection fields here describe those medians.",
       "provenance_source": "speeds_m2_v2.json",
       "bulk_gib_s_original_two_run_best": 50.64
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 10.55,
+      "bulk_gib_s": 34.4,
+      "small_cycles": 31.23,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.06404098623118415,
+      "record": "records/zen4/speeds_zen4.json#/CLhash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "poly-mersenne.deg1": {
@@ -15035,6 +15386,19 @@
       "bulk_run_spread_percent": 0.0,
       "small_run_spread_percent": 0.14984334559324797,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 0.55,
+      "bulk_gib_s": 1.78,
+      "small_cycles": 86.3,
+      "bulk_selected_run": 1,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.03476245654692178,
+      "record": "records/zen4/speeds_zen4.json#/SipHash-2-4/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "SipHash-1-3": {
@@ -15555,6 +15919,19 @@
       "input_metadata_note": "Input bulk_gib_s and selected-run fields describe the original two-run selection. Bulk B/cycle and small cycles use the supplied five-run medians; normalized selection fields here describe those medians.",
       "provenance_source": "speeds_m2_v2.json",
       "bulk_gib_s_original_two_run_best": 4.56
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 1.03,
+      "bulk_gib_s": 3.37,
+      "small_cycles": 62.06,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/SipHash-1-3/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "chainhash-256": {
@@ -17121,6 +17498,19 @@
       "bulk_run_spread_percent": 1.0869565217391353,
       "small_run_spread_percent": 0.7219174126479988,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 3.25,
+      "bulk_gib_s": 10.6,
+      "small_cycles": 24.5,
+      "bulk_selected_run": 2,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.6191950464396356,
+      "small_run_spread_percent": 0.0,
+      "record": "records/zen4/speeds_zen4.json#/mir.exact/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "mum3.exact.unroll1": {
@@ -18222,6 +18612,19 @@
       "bulk_run_spread_percent": 4.0000000000000036,
       "small_run_spread_percent": 2.0922288642186038,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 8.8,
+      "bulk_gib_s": 28.67,
+      "small_cycles": 17.3,
+      "bulk_selected_run": 1,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 1.969872537659323,
+      "small_run_spread_percent": 0.05780346820807303,
+      "record": "records/zen4/speeds_zen4.json#/mum3.exact.unroll3/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "mum3.exact.unroll4": {
@@ -19690,6 +20093,19 @@
       "bulk_run_spread_percent": 0.46511627906977715,
       "small_run_spread_percent": 2.6139255146888862,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 4.34,
+      "bulk_gib_s": 14.13,
+      "small_cycles": 32.52,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.18450184501843658,
+      "record": "records/zen4/speeds_zen4.json#/mx3.v3/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "UMASH-64": {
@@ -20106,6 +20522,19 @@
       "input_metadata_note": "Input bulk_gib_s and selected-run fields describe the original two-run selection. Bulk B/cycle and small cycles use the supplied five-run medians; normalized selection fields here describe those medians.",
       "provenance_source": "speeds_m2_v2.json",
       "bulk_gib_s_original_two_run_best": 46.52
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 9.1,
+      "bulk_gib_s": 29.66,
+      "small_cycles": 26.91,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.14864362690449884,
+      "record": "records/zen4/speeds_zen4.json#/UMASH-64/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "UMASH-128": {
@@ -20473,6 +20902,19 @@
       "bulk_run_spread_percent": 0.5141388174807249,
       "small_run_spread_percent": 0.7170172084129955,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 6.39,
+      "bulk_gib_s": 20.82,
+      "small_cycles": 31.13,
+      "bulk_selected_run": 1,
+      "small_selected_run": 1,
+      "bulk_run_spread_percent": 0.0,
+      "small_run_spread_percent": 0.03212335367812624,
+      "record": "records/zen4/speeds_zen4.json#/UMASH-128/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "UMASH-64.reseed": {
@@ -21268,6 +21710,19 @@
       "bulk_run_spread_percent": 0.917431192660545,
       "small_run_spread_percent": 2.2489806320081573,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 5.05,
+      "bulk_gib_s": 16.48,
+      "small_cycles": 195.97,
+      "bulk_selected_run": 2,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 0.1984126984126977,
+      "small_run_spread_percent": 0.061233862325860144,
+      "record": "records/zen4/speeds_zen4.json#/poly1305-hash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "ghash": {
@@ -21696,6 +22151,19 @@
       "bulk_run_spread_percent": 3.765690376569042,
       "small_run_spread_percent": 5.086241186042306,
       "provenance_source": "speeds_m2_v2.json"
+    },
+    "EPYC9R14": {
+      "status": "complete",
+      "bulk_bytes_per_cycle": 8.91,
+      "bulk_gib_s": 29.05,
+      "small_cycles": 1418.97,
+      "bulk_selected_run": 1,
+      "small_selected_run": 2,
+      "bulk_run_spread_percent": 0.22497187851517886,
+      "small_run_spread_percent": 0.4890871547671871,
+      "record": "records/zen4/speeds_zen4.json#/ghash/EPYC9R14",
+      "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+      "clock_assumption": "B per TSC tick (TSC 2.600 GHz); printed GiB/s assumes 3.5 GHz"
     }
   },
   "meta": {

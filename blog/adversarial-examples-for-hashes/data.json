@@ -434,6 +434,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.042844901456740025,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 6.82,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/CityHash-64/EPYC9R14",
+          "registered_name": "CityHash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "CityHash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "CityHash-64.sanity.txt",
+            "raw_sha256": "802d02c95a2d35f9234dc884c50a0f336acd7b8ab38c9bf5d9897a682433a403",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x5FABC5C5 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.208556 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 34.57,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/CityHash-64/EPYC9R14",
+          "registered_name": "CityHash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "CityHash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "CityHash-64.sanity.txt",
+            "raw_sha256": "802d02c95a2d35f9234dc884c50a0f336acd7b8ab38c9bf5d9897a682433a403",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x5FABC5C5 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.208556 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
@@ -835,6 +889,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.13300820217247988,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 6.74,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/FarmHash-64.NA/EPYC9R14",
+          "registered_name": "FarmHash-64.NA",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "FarmHash-64.NA",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "FarmHash-64.NA.sanity.txt",
+            "raw_sha256": "7aca3170ac60b9d19694425748ded2c50f0429bd8204f4f253e67c3056477db9",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xEBC4A679 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.208008 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 34.48,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/FarmHash-64.NA/EPYC9R14",
+          "registered_name": "FarmHash-64.NA",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "FarmHash-64.NA",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "FarmHash-64.NA.sanity.txt",
+            "raw_sha256": "7aca3170ac60b9d19694425748ded2c50f0429bd8204f4f253e67c3056477db9",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xEBC4A679 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.208008 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
@@ -1246,6 +1354,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.0,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 2.95,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/MurmurHash3-128/EPYC9R14",
+          "registered_name": "MurmurHash3-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "MurmurHash3-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "MurmurHash3-128.sanity.txt",
+            "raw_sha256": "fbde2662acb65f085757da82fa8eeb8267d375a85b1a0ac34447d2454938fa7d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x6384BA69 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.232222 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 36.88,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/MurmurHash3-128/EPYC9R14",
+          "registered_name": "MurmurHash3-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "MurmurHash3-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "MurmurHash3-128.sanity.txt",
+            "raw_sha256": "fbde2662acb65f085757da82fa8eeb8267d375a85b1a0ac34447d2454938fa7d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x6384BA69 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.232222 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. ",
@@ -1653,6 +1815,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.7694157249338529,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 4.34,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/mx3.v3/EPYC9R14",
+          "registered_name": "mx3.v3",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "mx3.v3",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "mx3.v3.sanity.txt",
+            "raw_sha256": "a987fef37a61f9a2ee1f2234fd5327a8de0ffef91ce814d252f8d2d4aac407ad",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x7B287B65 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.215166 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 32.52,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/mx3.v3/EPYC9R14",
+          "registered_name": "mx3.v3",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.18450184501843658,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "mx3.v3",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "mx3.v3.sanity.txt",
+            "raw_sha256": "a987fef37a61f9a2ee1f2234fd5327a8de0ffef91ce814d252f8d2d4aac407ad",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x7B287B65 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.215166 seconds"
+            ]
+          }
         }
       },
       "provenance": [
@@ -2079,6 +2295,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.08823529411765563,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 2.85,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/fasthash-64/EPYC9R14",
+          "registered_name": "fasthash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "fasthash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "fasthash-64.sanity.txt",
+            "raw_sha256": "f2c7dd7cec269913a9a47f16a662ab4113489a89d23fa4c97aefc1a7db25d684",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xA16231A7 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.231573 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 26.14,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/fasthash-64/EPYC9R14",
+          "registered_name": "fasthash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.07651109410864443,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "fasthash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "fasthash-64.sanity.txt",
+            "raw_sha256": "f2c7dd7cec269913a9a47f16a662ab4113489a89d23fa4c97aefc1a7db25d684",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xA16231A7 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.231573 seconds"
+            ]
+          }
         }
       },
       "provenance": [
@@ -2510,6 +2780,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.4143646408839796,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 2.85,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/fasthash-32/EPYC9R14",
+          "registered_name": "fasthash-32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "fasthash-32",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "fasthash-32.sanity.txt",
+            "raw_sha256": "15d44861b85ce1945f6744d6ba8ed4ba6b0aac586789251859b0810d50ef11a5",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xE9481AFC ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.231024 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 27.6,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/fasthash-32/EPYC9R14",
+          "registered_name": "fasthash-32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "fasthash-32",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "fasthash-32.sanity.txt",
+            "raw_sha256": "15d44861b85ce1945f6744d6ba8ed4ba6b0aac586789251859b0810d50ef11a5",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xE9481AFC ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.231024 seconds"
+            ]
+          }
         }
       },
       "provenance": [
@@ -2914,6 +3238,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.20090406830737262,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 9.95,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/MuseAir/EPYC9R14",
+          "registered_name": "MuseAir",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "MuseAir",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "MuseAir.sanity.txt",
+            "raw_sha256": "959e84449a199edb566619763797cddab16f1e7e987d2d20aedd9c599691ca15",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xF89F1683 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196731 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 13.27,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/MuseAir/EPYC9R14",
+          "registered_name": "MuseAir",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "MuseAir",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "MuseAir.sanity.txt",
+            "raw_sha256": "959e84449a199edb566619763797cddab16f1e7e987d2d20aedd9c599691ca15",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xF89F1683 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196731 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. SMHasher3 version only. Supplied upstream audit records algorithm v2 / crate 0.6.0 and deprecates earlier versions. Also holds on upstream v0.4; does not transfer to v1/v2 (0/2^24 each). The current v2 has a separate row (32-byte pair, about 19.45 bits).",
@@ -3142,6 +3520,60 @@
             "pair_examples_reproduced": true
           },
           "timing_status": "complete"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 7.33,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/MuseAir-v2/EPYC9R14",
+          "registered_name": "MuseAir-v2",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.1366120218579292,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "MuseAir-v2",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "MuseAir-v2.sanity.txt",
+            "raw_sha256": "35ddfa0563708e675274b12708e4e511ce2f7ae89c5a9963e1bf93c4fa13c098",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x7140CABC ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.198483 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 19.92,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/MuseAir-v2/EPYC9R14",
+          "registered_name": "MuseAir-v2",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.05020080321285203,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "MuseAir-v2",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "MuseAir-v2.sanity.txt",
+            "raw_sha256": "35ddfa0563708e675274b12708e4e511ce2f7ae89c5a9963e1bf93c4fa13c098",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x7140CABC ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.198483 seconds"
+            ]
+          }
         }
       },
       "speed_registration": "MuseAir-v2, scalar-mul128; crate 0.6.0; identity 64-bit seed mapping",
@@ -3626,6 +4058,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.4001455074572613,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 7.71,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/komihash/EPYC9R14",
+          "registered_name": "komihash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "komihash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "komihash.sanity.txt",
+            "raw_sha256": "5588c9e43369d109d553e851646aab85d561410d1b16850c843c35ae5f349682",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x8157FF6D ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.198780 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 21.65,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/komihash/EPYC9R14",
+          "registered_name": "komihash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "komihash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "komihash.sanity.txt",
+            "raw_sha256": "5588c9e43369d109d553e851646aab85d561410d1b16850c843c35ae5f349682",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x8157FF6D ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.198780 seconds"
+            ]
+          }
         }
       },
       "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. This high-probability construction applies to lengths 64..127 bytes only; not an all-length probability. At 64 bytes (L = 8) no pair can score below 3.00 bits, so this cap is within 0.14 bits of the best possible witness at this length.",
@@ -4029,6 +4515,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.0,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 7.0,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/t1ha2-64/EPYC9R14",
+          "registered_name": "t1ha2-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "t1ha2-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "t1ha2-64.sanity.txt",
+            "raw_sha256": "4385bcc2c1014e5d914923c998970f276aae5451937c332279c0a41560bdb0eb",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8F16C948 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.202760 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 28.59,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/t1ha2-64/EPYC9R14",
+          "registered_name": "t1ha2-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "t1ha2-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "t1ha2-64.sanity.txt",
+            "raw_sha256": "4385bcc2c1014e5d914923c998970f276aae5451937c332279c0a41560bdb0eb",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8F16C948 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.202760 seconds"
+            ]
+          }
         }
       },
       "qualification": "Measured score cap with sampling uncertainty; better pairs may exist (6-digit routes not enumerated). Cross-length 13/16-byte pair. Exact class density 2^-24 multiplied by the conditional rate 2^-4.19 measured at 2^30 class samples against upstream. All 701 uniform-seed hits (3 x 2^36) lie inside the class, so the class contribution is the observed rate at this resolution, but it remains a sampled lower bound on eps, not a proof of total equality.",
@@ -4497,6 +5037,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.41407867494822614,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 3.8,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/a5hash/EPYC9R14",
+          "registered_name": "a5hash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.26385224274405594,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "a5hash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "a5hash.sanity.txt",
+            "raw_sha256": "fafcbf48c4a5f6895e0a76df8c24875a1e14ce28a40f3cfcf594b30ae52cbbbd",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xADDE79B3 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.211945 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 11.04,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/a5hash/EPYC9R14",
+          "registered_name": "a5hash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "a5hash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "a5hash.sanity.txt",
+            "raw_sha256": "fafcbf48c4a5f6895e0a76df8c24875a1e14ce28a40f3cfcf594b30ae52cbbbd",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xADDE79B3 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.211945 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. Exact sufficient seed class, not equality for total epsilon. Best verified score upper bound, not an exhaustive minimum over lengths.  Re-checked 2026-09-18 against upstream v5.25 (latest; 5.22-5.25 change only macros and comments): SMHasher3 verification 0xADDE79B3 reproduced from the v5.25 header, class re-enumerated over all 64 seed bits (118 x 2^19 seeds), all 61,865,984 collide.",
@@ -4893,6 +5487,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 1.0796221322536992,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 10.0,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/a5hash-128/EPYC9R14",
+          "registered_name": "a5hash-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "a5hash-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "a5hash-128.sanity.txt",
+            "raw_sha256": "6cc1d4d8e41b471934f165ff67b9555b00bb0bcbd504f557095ea1098ea4c36a",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x89406B11 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.198321 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 19.36,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/a5hash-128/EPYC9R14",
+          "registered_name": "a5hash-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "a5hash-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "a5hash-128.sanity.txt",
+            "raw_sha256": "6cc1d4d8e41b471934f165ff67b9555b00bb0bcbd504f557095ea1098ea4c36a",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x89406B11 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.198321 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. Additional variant, not one of the original ten entries.",
@@ -5311,6 +5959,38 @@
             "upstream_change": "https://github.com/wangyi-fudan/wyhash/commit/2ac9a50",
             "verification_record": "verify/wyhash/README.html"
           }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 11.2,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/wyhash/EPYC9R14",
+          "registered_name": "wyhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.26857654431511335,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 17.46,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/wyhash/EPYC9R14",
+          "registered_name": "wyhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.05727376861395239,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
         }
       },
       "reproduction": {
@@ -5498,6 +6178,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "reproduction": {
@@ -5980,6 +6672,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.03625815808556698,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 11.61,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/rapidhash/EPYC9R14",
+          "registered_name": "rapidhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.08620689655172153,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "rapidhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "rapidhash.sanity.txt",
+            "raw_sha256": "3f26ac37a996f43df4714660be8fbf3bda6ed473e0de5a6ccd1b61bd3768f051",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x1FDC65EE ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196106 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 19.84,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/rapidhash/EPYC9R14",
+          "registered_name": "rapidhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "rapidhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "rapidhash.sanity.txt",
+            "raw_sha256": "3f26ac37a996f43df4714660be8fbf3bda6ed473e0de5a6ccd1b61bd3768f051",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x1FDC65EE ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196106 seconds"
+            ]
+          }
         }
       },
       "reproduction": {
@@ -7352,6 +8098,66 @@
             },
             "mismatches": []
           }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 11.41,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/foldhash-fast/EPYC9R14",
+          "registered_name": "foldhash-fast",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.7950530035335746,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "foldhash-fast",
+            "returncode": 0,
+            "failures": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "foldhash-fast.sanity.txt",
+            "raw_sha256": "74e637443f4163f5d90d3748b08c96f346827c5c22765b038c968a2d4dc9b22d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xA167BA5E ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.181339 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 14.03,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/foldhash-fast/EPYC9R14",
+          "registered_name": "foldhash-fast",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.07127583749109156,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "foldhash-fast",
+            "returncode": 0,
+            "failures": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "foldhash-fast.sanity.txt",
+            "raw_sha256": "74e637443f4163f5d90d3748b08c96f346827c5c22765b038c968a2d4dc9b22d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xA167BA5E ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.181339 seconds"
+            ]
+          }
         }
       },
       "speed_registration": "foldhash-fast",
@@ -8052,6 +8858,66 @@
             },
             "mismatches": []
           }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 11.25,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/foldhash-quality/EPYC9R14",
+          "registered_name": "foldhash-quality",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.17809439002671734,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "foldhash-quality",
+            "returncode": 0,
+            "failures": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "foldhash-quality.sanity.txt",
+            "raw_sha256": "e3f0d824bfda51103a1e926c312f7e750b413a09f35486cd74f22a1bd10f6784",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xE269316E ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.180359 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 17.47,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/foldhash-quality/EPYC9R14",
+          "registered_name": "foldhash-quality",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.05724098454493731,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "foldhash-quality",
+            "returncode": 0,
+            "failures": [
+              "Running sanity check 2       . flipped bit 8/16, got identical output: FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "foldhash-quality.sanity.txt",
+            "raw_sha256": "e3f0d824bfda51103a1e926c312f7e750b413a09f35486cd74f22a1bd10f6784",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xE269316E ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.180359 seconds"
+            ]
+          }
         }
       },
       "speed_registration": "foldhash-quality",
@@ -8450,6 +9316,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.2090301003344397,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 8.8,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/mum3.exact.unroll3/EPYC9R14",
+          "registered_name": "mum3.exact.unroll3",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 1.969872537659323,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "mum3.exact.unroll3",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "mum3.exact.unroll3.sanity.txt",
+            "raw_sha256": "470d0c3e62e750d41af1d999b4d1d372996d92ae7df3b25b42c7f1d85cc5d656",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8BD72B8C ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196727 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 17.3,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/mum3.exact.unroll3/EPYC9R14",
+          "registered_name": "mum3.exact.unroll3",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.05780346820807303,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "mum3.exact.unroll3",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "mum3.exact.unroll3.sanity.txt",
+            "raw_sha256": "470d0c3e62e750d41af1d999b4d1d372996d92ae7df3b25b42c7f1d85cc5d656",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8BD72B8C ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196727 seconds"
+            ]
+          }
         }
       },
       "reproduction": {
@@ -8933,6 +9853,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.21752641392169814,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 3.25,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/mir.exact/EPYC9R14",
+          "registered_name": "mir.exact",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.6191950464396356,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "mir.exact",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "mir.exact.sanity.txt",
+            "raw_sha256": "5df55297bf5d65b00654962714474bee3bfa324b17363cbbf744322a15b7608d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x00A393C8 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.222688 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 24.5,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/mir.exact/EPYC9R14",
+          "registered_name": "mir.exact",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "mir.exact",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "mir.exact.sanity.txt",
+            "raw_sha256": "5df55297bf5d65b00654962714474bee3bfa324b17363cbbf744322a15b7608d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x00A393C8 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.222688 seconds"
+            ]
+          }
         }
       },
       "provenance": [
@@ -9379,6 +10353,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.03315649867374759,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 18.81,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/XXH3-64/EPYC9R14",
+          "registered_name": "XXH3-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.15974440894568342,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "XXH3-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "XXH3-64.sanity.txt",
+            "raw_sha256": "ef645f8ae5243f696703fd2904e711a493228e96383722147f79569eb659d1d2",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x1AAEE62C ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.189938 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 20.38,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/XXH3-64/EPYC9R14",
+          "registered_name": "XXH3-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.04906771344455052,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "XXH3-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "XXH3-64.sanity.txt",
+            "raw_sha256": "ef645f8ae5243f696703fd2904e711a493228e96383722147f79569eb659d1d2",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x1AAEE62C ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.189938 seconds"
+            ]
+          }
         }
       },
       "reproduction": {
@@ -9959,6 +10987,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.028636884306987298,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 18.79,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/XXH3-128/EPYC9R14",
+          "registered_name": "XXH3-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.8047210300429208,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "XXH3-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "XXH3-128.sanity.txt",
+            "raw_sha256": "1be9c06cdfe540fb0bf78c29640b812783c07e94abc3205e02a85fec691376d9",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x288DAA94 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.193379 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 23.66,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/XXH3-128/EPYC9R14",
+          "registered_name": "XXH3-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.04226542688081647,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "XXH3-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "XXH3-128.sanity.txt",
+            "raw_sha256": "1be9c06cdfe540fb0bf78c29640b812783c07e94abc3205e02a85fec691376d9",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x288DAA94 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.193379 seconds"
+            ]
+          }
         }
       },
       "reproduction": {
@@ -10490,6 +11572,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.0,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 3.88,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/HighwayHash-64/EPYC9R14",
+          "registered_name": "HighwayHash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "HighwayHash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "HighwayHash-64.sanity.txt",
+            "raw_sha256": "b716671bc3fc5f99542ca11919451ca09b5dcbe0054249615f42f1be8ab3f0c9",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xF3246108 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.224642 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 59.71,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/HighwayHash-64/EPYC9R14",
+          "registered_name": "HighwayHash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "HighwayHash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "HighwayHash-64.sanity.txt",
+            "raw_sha256": "b716671bc3fc5f99542ca11919451ca09b5dcbe0054249615f42f1be8ab3f0c9",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xF3246108 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.224642 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. Conservative 96-byte headline witness. Exact sufficient-event contribution, not exact total collision probability. All 64/128/256 output widths inherit it. Original second-family capped sample confirmed pair but not exact numerator.",
@@ -10903,6 +12039,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.021934634788323137,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 6.65,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/SpookyHash2-64/EPYC9R14",
+          "registered_name": "SpookyHash2-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "SpookyHash2-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "SpookyHash2-64.sanity.txt",
+            "raw_sha256": "ec84159598d577ddcecc3413958591dc2b296039bb8ddefc34df39e98700606d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x972C4BDC ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.210134 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 34.76,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/SpookyHash2-64/EPYC9R14",
+          "registered_name": "SpookyHash2-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.028768699654779795,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "SpookyHash2-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "SpookyHash2-64.sanity.txt",
+            "raw_sha256": "ec84159598d577ddcecc3413958591dc2b296039bb8ddefc34df39e98700606d",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x972C4BDC ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.210134 seconds"
+            ]
+          }
         }
       },
       "qualification": "Measured score cap with sampling uncertainty; better pairs may exist. The same pair collides on SpookyHash2-32 at the same measured rate, and on both 64-bit halves. SMHasher3 duplicates a 64-bit seed; native Hash32 takes a 32-bit seed. Exact half balance is unproved. The claimed 2^32 and independent-seed-word runs were not independently reproduced.",
@@ -11345,6 +12535,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.06885155604516857,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 6.15,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/pengyhash/EPYC9R14",
+          "registered_name": "pengyhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "pengyhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "pengyhash.sanity.txt",
+            "raw_sha256": "fb1e5f8e6432aa964a153b32066bdc25445a388cdc056295290b417ddd2f0955",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x861A1254 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.211510 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 52.48,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/pengyhash/EPYC9R14",
+          "registered_name": "pengyhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.019054878048785362,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "pengyhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "pengyhash.sanity.txt",
+            "raw_sha256": "fb1e5f8e6432aa964a153b32066bdc25445a388cdc056295290b417ddd2f0955",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x861A1254 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.211510 seconds"
+            ]
+          }
         }
       },
       "provenance": [
@@ -11800,6 +13044,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.020321072952644847,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 11.43,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/NMHASH/EPYC9R14",
+          "registered_name": "NMHASH",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "NMHASH",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "NMHASH.sanity.txt",
+            "raw_sha256": "2aac797e2503f719d9c90b999bea80782b59c2a044b3d0ab33e6b7df6cfa5e5b",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x12A30553 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.199818 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 32.07,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/NMHASH/EPYC9R14",
+          "registered_name": "NMHASH",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "NMHASH",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "NMHASH.sanity.txt",
+            "raw_sha256": "2aac797e2503f719d9c90b999bea80782b59c2a044b3d0ab33e6b7df6cfa5e5b",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x12A30553 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.199818 seconds"
+            ]
+          }
         }
       },
       "provenance": [
@@ -12256,6 +13554,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.16329196603528384,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 11.45,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/NMHASHX/EPYC9R14",
+          "registered_name": "NMHASHX",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.08741258741258306,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "NMHASHX",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "NMHASHX.sanity.txt",
+            "raw_sha256": "719d326ce8a04e327fb0cffcc39ac3b1694e4280f48427521b71d51d5c506e72",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xA8580227 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.202523 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 20.73,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/NMHASHX/EPYC9R14",
+          "registered_name": "NMHASHX",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.04823926676313928,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "NMHASHX",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "NMHASHX.sanity.txt",
+            "raw_sha256": "719d326ce8a04e327fb0cffcc39ac3b1694e4280f48427521b71d51d5c506e72",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0xA8580227 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.202523 seconds"
+            ]
+          }
         }
       },
       "provenance": [
@@ -12677,6 +14029,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.0,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 30.79,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/gxhash-64/EPYC9R14",
+          "registered_name": "gxhash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.686723348593854,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "gxhash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "gxhash-64.sanity.txt",
+            "raw_sha256": "3dc0e9907ce92d4c58cd2859dd994e55fd0aa1acceec760a43d5a9880a326b28",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x48F84240 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.191625 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 31.28,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/gxhash-64/EPYC9R14",
+          "registered_name": "gxhash-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "gxhash-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "gxhash-64.sanity.txt",
+            "raw_sha256": "3dc0e9907ce92d4c58cd2859dd994e55fd0aa1acceec760a43d5a9880a326b28",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x48F84240 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.191625 seconds"
+            ]
+          }
         }
       },
       "qualification": "Exact sufficient contribution; other pairs or collision events may lower the score. 15 versus 16 bytes. Equal-length 24-byte witness gives 1.585 bits; both verified.",
@@ -13118,6 +14524,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.0,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 0.78,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/rust-ahash/EPYC9R14",
+          "registered_name": "rust-ahash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "rust-ahash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "rust-ahash.sanity.txt",
+            "raw_sha256": "4f9eb00fa8b01f5a255fe442cf1dde7a089887dddf408a8c64bd230d6eeae679",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x3BF4383B ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.447567 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 72.07,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/rust-ahash/EPYC9R14",
+          "registered_name": "rust-ahash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.02775079783545742,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "rust-ahash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "rust-ahash.sanity.txt",
+            "raw_sha256": "4f9eb00fa8b01f5a255fe442cf1dde7a089887dddf408a8c64bd230d6eeae679",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x3BF4383B ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.447567 seconds"
+            ]
+          }
         }
       },
       "qualification": "at most 17.84 bits (cap; sampled); 95% about ±0.003 bits. Native Rust (crate v0.8.12, x86-64 with target-feature aes) measures 967,503/2^32 = 2^-12.116 for pair E; the C reproduction gives 3783/2^24 = 2^-12.11. About 17.6 bits is the floor of this two-S-box lane-echo family (2^-12 at L = 49); a one-S-box trail is excluded by enumeration, so a different family would be needed to go lower. Transfer to another key type or write sequence remains conditional on the mapping and AES backend.",
@@ -13613,6 +15073,60 @@
             },
             "mismatches": []
           }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 1.03,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/SipHash-1-3/EPYC9R14",
+          "registered_name": "SipHash-1-3",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "SipHash-1-3",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "SipHash-1-3.sanity.txt",
+            "raw_sha256": "55f5a2c057141b92edb52ae1a7e11ff1bf72355c8c14b0226c92c4e84194ca83",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8936B193 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.381571 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 62.06,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/SipHash-1-3/EPYC9R14",
+          "registered_name": "SipHash-1-3",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "SipHash-1-3",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "SipHash-1-3.sanity.txt",
+            "raw_sha256": "55f5a2c057141b92edb52ae1a7e11ff1bf72355c8c14b0226c92c4e84194ca83",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8936B193 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.381571 seconds"
+            ]
+          }
         }
       },
       "mechanism_family": "ARX PRF",
@@ -14081,6 +15595,60 @@
             },
             "mismatches": []
           }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 0.55,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/SipHash-2-4/EPYC9R14",
+          "registered_name": "SipHash-2-4",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "SipHash-2-4",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "SipHash-2-4.sanity.txt",
+            "raw_sha256": "b3b3f4e8d2985c99f904db04a833af067fcfea73b99396e4e388a4e7a462c3dd",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x57B661ED ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.588817 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 86.3,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/SipHash-2-4/EPYC9R14",
+          "registered_name": "SipHash-2-4",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.03476245654692178,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "SipHash-2-4",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "SipHash-2-4.sanity.txt",
+            "raw_sha256": "b3b3f4e8d2985c99f904db04a833af067fcfea73b99396e4e388a4e7a462c3dd",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x57B661ED ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.588817 seconds"
+            ]
+          }
         }
       },
       "mechanism_family": "ARX PRF",
@@ -14193,6 +15761,66 @@
           "value": 64.91,
           "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
           "record": "records/halftime24-shipped/speeds_halftime24_shipped.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 15.96,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/HalftimeHash24-shipped/EPYC9R14",
+          "registered_name": "HalftimeHash24-shipped",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0626959247649106,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "HalftimeHash24-shipped",
+            "returncode": 0,
+            "failures": [
+              "Running append zeroes test   . FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "HalftimeHash24-shipped.sanity.txt",
+            "raw_sha256": "6bcd092e3f50783209d921f5a02a12d3ee46aaa07f35bfc1e82da610ef3f49f4",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8A105352 ...... SKIP (unverifiable)",
+              "Verification value is 0x00000001 - Testing took 1.057206 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 54.51,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/HalftimeHash24-shipped/EPYC9R14",
+          "registered_name": "HalftimeHash24-shipped",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.01834525775088469,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "HalftimeHash24-shipped",
+            "returncode": 0,
+            "failures": [
+              "Running append zeroes test   . FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "HalftimeHash24-shipped.sanity.txt",
+            "raw_sha256": "6bcd092e3f50783209d921f5a02a12d3ee46aaa07f35bfc1e82da610ef3f49f4",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x8A105352 ...... SKIP (unverifiable)",
+              "Verification value is 0x00000001 - Testing took 1.057206 seconds"
+            ]
+          }
         }
       },
       "mechanism_family": "NH trees",
@@ -14390,6 +16018,60 @@
           "backend_token": "GO_AMD64_AES",
           "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
           "completed_runs": 1
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 22.38,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/GoMapHash/EPYC9R14",
+          "registered_name": "GoMapHash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "GoMapHash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "GoMapHash.sanity.txt",
+            "raw_sha256": "8cb9d2de7def91ed07a03e69d87f87c934d575a8be9b821be57bfebf631f3996",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x710289AB ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.235749 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 74.12,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/GoMapHash/EPYC9R14",
+          "registered_name": "GoMapHash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "GoMapHash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "GoMapHash.sanity.txt",
+            "raw_sha256": "8cb9d2de7def91ed07a03e69d87f87c934d575a8be9b821be57bfebf631f3996",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x710289AB ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.235749 seconds"
+            ]
+          }
         }
       },
       "chart_eligible": true,
@@ -14402,7 +16084,8 @@
         "note": "memhash_amd64.s / memhash_arm64.s unchanged on master vs the tag at the time of the port"
       },
       "chart_hosts": [
-        "Xeon8375C"
+        "Xeon8375C",
+        "EPYC9R14"
       ]
     },
     {
@@ -14556,6 +16239,60 @@
           "backend_token": "scalar-mul128",
           "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
           "completed_runs": 1
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 9.77,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/AbseilHash-default/EPYC9R14",
+          "registered_name": "AbseilHash-default",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.20512820512819108,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "AbseilHash-default",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "AbseilHash-default.sanity.txt",
+            "raw_sha256": "35ec7cccfd4300324d76939036c7026c44eb8f77ac0bbacc04444fb3a3d0bba6",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x07203CDB ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196843 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 14.06,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/AbseilHash-default/EPYC9R14",
+          "registered_name": "AbseilHash-default",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "AbseilHash-default",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "AbseilHash-default.sanity.txt",
+            "raw_sha256": "35ec7cccfd4300324d76939036c7026c44eb8f77ac0bbacc04444fb3a3d0bba6",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x07203CDB ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196843 seconds"
+            ]
+          }
         }
       },
       "chart_eligible": true,
@@ -14779,6 +16516,66 @@
           "backend_token": "scalar",
           "binary_sha256": "ae073fff3d359ce7a5c8191cde44115f880f1694e1eebc080e8598f9539a441f",
           "completed_runs": 1
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 1.14,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/Marvin32/EPYC9R14",
+          "registered_name": "Marvin32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "Marvin32",
+            "returncode": 0,
+            "failures": [
+              "Running prepend zeroes test  . FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "Marvin32.sanity.txt",
+            "raw_sha256": "0e8b3d712a51792916fc7c31c0bfc76ce57f309c9291c4244cb6a2b70ce4814f",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x306A5169 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.342782 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 22.0,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/Marvin32/EPYC9R14",
+          "registered_name": "Marvin32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.04545454545454852,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "FAIL",
+            "registered_name": "Marvin32",
+            "returncode": 0,
+            "failures": [
+              "Running prepend zeroes test  . FAIL  !!!!!",
+              "SANITY_FAILS unset, but hash failed"
+            ],
+            "raw_file": "Marvin32.sanity.txt",
+            "raw_sha256": "0e8b3d712a51792916fc7c31c0bfc76ce57f309c9291c4244cb6a2b70ce4814f",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x306A5169 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.342782 seconds"
+            ]
+          }
         }
       },
       "chart_eligible": true,
@@ -14934,6 +16731,38 @@
           "host": "Xeon8375C",
           "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
           "selection": "best of two, independently per metric"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 4.14,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/XXH-64/EPYC9R14",
+          "registered_name": "XXH-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 35.71,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/XXH-64/EPYC9R14",
+          "registered_name": "XXH-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
         }
       },
       "chart_eligible": true,
@@ -15082,6 +16911,38 @@
           "host": "Xeon8375C",
           "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
           "selection": "best of two, independently per metric"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 2.85,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/XXH-32/EPYC9R14",
+          "registered_name": "XXH-32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 27.31,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/XXH-32/EPYC9R14",
+          "registered_name": "XXH-32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.21969974368363232,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
         }
       },
       "chart_eligible": true,
@@ -15238,6 +17099,38 @@
           "host": "Xeon8375C",
           "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
           "selection": "best of two, independently per metric"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 2.85,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/MurmurHash2-64/EPYC9R14",
+          "registered_name": "MurmurHash2-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 26.6,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/MurmurHash2-64/EPYC9R14",
+          "registered_name": "MurmurHash2-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.03759398496239186,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
         }
       },
       "chart_eligible": true,
@@ -15393,6 +17286,38 @@
           "host": "Xeon8375C",
           "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
           "selection": "best of two, independently per metric"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 1.42,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/MurmurHash2-32/EPYC9R14",
+          "registered_name": "MurmurHash2-32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 22.52,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/MurmurHash2-32/EPYC9R14",
+          "registered_name": "MurmurHash2-32",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
         }
       },
       "chart_eligible": true,
@@ -15543,6 +17468,38 @@
           "host": "Xeon8375C",
           "binary_sha256": "03c2ff9f38cc564400eeb1906da90cb74ea6efcff2bea6c660626fdbe1571a99",
           "selection": "best of two, independently per metric"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 1.42,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/MurmurHash2a/EPYC9R14",
+          "registered_name": "MurmurHash2a",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 25.8,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4_extra.json",
+          "record": "records/zen4/speeds_zen4_extra.json#/MurmurHash2a/EPYC9R14",
+          "registered_name": "MurmurHash2a",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.07751937984497026,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "VerifyAll PASS; see records/zen4/verifyall.txt"
+          }
         }
       },
       "chart_eligible": true,
@@ -15882,6 +17839,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.025536261491332368,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 6.13,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/polymurhash/EPYC9R14",
+          "registered_name": "polymurhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.9884678747940523,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "polymurhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "polymurhash.sanity.txt",
+            "raw_sha256": "9e94d8360b1d6b95e08fadcdfce2c37e0f0dd3448b13d5d636bdc83da6ff7c28",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x0722B1A7 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.237376 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 28.32,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/polymurhash/EPYC9R14",
+          "registered_name": "polymurhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "polymurhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "polymurhash.sanity.txt",
+            "raw_sha256": "9e94d8360b1d6b95e08fadcdfce2c37e0f0dd3448b13d5d636bdc83da6ff7c28",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x0722B1A7 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.237376 seconds"
+            ]
+          }
         }
       },
       "qualification": "Uniform k on the exact restricted set K; fixed tweak; full 64-bit output. The key-cardinality gap was resolved with a rigorous lower bound. Shipped seed distribution and almost-strong-universality claim remain uncertified. Shipped seeding (NEW, 2026-09-28): the proof assumes k uniform on K, but polymur_init_params walks the seed forward to the first acceptable exponent, so some keys are about 11 times likelier than average. For the key reached from 1,096 of the 2^64 seeds, the 8-byte 2c336f948f6f6c99 and the 7-byte aa373a8eeff85a collide (both 0x5335b33210496b34 under polymur_init_params(0x8545715fd36ce9e9, 0xd95d3b0f3d7ebc54)), so under the shipped seeding a pair collides with probability 2^-53.90 exactly, a score of at most 53.90 bits at L = 1. The plotted 54.23 is the ideal-key theorem; no lower bound is proved for the shipped seeding. records/witness-searches/reanalysis-2026-09/polymur/README.html",
@@ -16357,6 +18368,60 @@
             "reference_check_file": "out/Xeon8375C/reference-check.txt",
             "expected_value": "0xBD015C42"
           }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 5.05,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/poly1305-hash/EPYC9R14",
+          "registered_name": "poly1305-hash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.1984126984126977,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "poly1305-hash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "poly1305-hash.sanity.txt",
+            "raw_sha256": "8fd56dbae22c58e1fb41b4874ce0bd11c8934fecf80bf694c4ec0e5eb62192b8",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xBD015C42 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.286071 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 195.97,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/poly1305-hash/EPYC9R14",
+          "registered_name": "poly1305-hash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.061233862325860144,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "poly1305-hash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "poly1305-hash.sanity.txt",
+            "raw_sha256": "8fd56dbae22c58e1fb41b4874ce0bd11c8934fecf80bf694c4ec0e5eb62192b8",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xBD015C42 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.286071 seconds"
+            ]
+          }
         }
       },
       "mechanism_family": "prime-field polynomial",
@@ -16442,6 +18507,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "Fixed length over GF(2^64), full field output; uniform field key. The output floor applies at L=1.",
@@ -16555,6 +18632,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "Fixed-length BRW envelope, 1≤L≤2^61−1. Minimum of this loose envelope at L=2^61−1; displayed ≥63 is rounded downward.",
@@ -16669,6 +18758,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "Fixed padded length, injective field-word encoding; three independent uniform field keys.",
@@ -16782,6 +18883,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "The explicitly defined eight-lane field construction, with independent lane-combining key; fixed padded length.",
@@ -17247,6 +19360,60 @@
             "reference_check_file": "out/Xeon8375C/reference-check.txt",
             "expected_value": "0x1F397201"
           }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 8.91,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/ghash/EPYC9R14",
+          "registered_name": "ghash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.22497187851517886,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "ghash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "ghash.sanity.txt",
+            "raw_sha256": "3ad626b298c65324fa8bc6716b9041eb511ad56ec3b24b8561df0e9ba7d4c6b5",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x1F397201 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.650053 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 1418.97,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/ghash/EPYC9R14",
+          "registered_name": "ghash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.4890871547671871,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "ghash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "ghash.sanity.txt",
+            "raw_sha256": "3ad626b298c65324fa8bc6716b9041eb511ad56ec3b24b8561df0e9ba7d4c6b5",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x1F397201 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.650053 seconds"
+            ]
+          }
         }
       },
       "mechanism_family": "GF(2^k) polynomial",
@@ -17323,6 +19490,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "Unsigned integer NH with 64-bit words at equal fixed padded length. One-word zero padding is admitted; unpadded pairs score 65. No unequal-length transfer is claimed.",
@@ -17443,6 +19622,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "style_speeds": {
@@ -17811,6 +20002,15 @@
             "small_run_spread_percent": 0.7546332260570443,
             "provenance_source": "speeds_existing.json",
             "backend_token": "avx512f"
+          },
+          "EPYC9R14": {
+            "status": "complete",
+            "bulk_bytes_per_cycle": 3.37,
+            "bulk_gib_s": 10.99,
+            "small_cycles": 65.03,
+            "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-64/EPYC9R14",
+            "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+            "aggregation": "higher bulk of two passes; independently lower small average"
           }
         },
         "HalftimeHash-128": {
@@ -18178,6 +20378,15 @@
             "small_run_spread_percent": 0.04821019645655511,
             "provenance_source": "speeds_existing.json",
             "backend_token": "avx512f"
+          },
+          "EPYC9R14": {
+            "status": "complete",
+            "bulk_bytes_per_cycle": 11.35,
+            "bulk_gib_s": 36.99,
+            "small_cycles": 63.92,
+            "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-128/EPYC9R14",
+            "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+            "aggregation": "higher bulk of two passes; independently lower small average"
           }
         },
         "HalftimeHash-256": {
@@ -18545,6 +20754,15 @@
             "small_run_spread_percent": 0.038629925315469826,
             "provenance_source": "speeds_existing.json",
             "backend_token": "avx512f"
+          },
+          "EPYC9R14": {
+            "status": "complete",
+            "bulk_bytes_per_cycle": 17.12,
+            "bulk_gib_s": 55.81,
+            "small_cycles": 63.98,
+            "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-256/EPYC9R14",
+            "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+            "aggregation": "higher bulk of two passes; independently lower small average"
           }
         },
         "HalftimeHash-512": {
@@ -18912,6 +21130,15 @@
             "small_run_spread_percent": 0.174947515745294,
             "provenance_source": "speeds_existing.json",
             "backend_token": "avx512f"
+          },
+          "EPYC9R14": {
+            "status": "complete",
+            "bulk_bytes_per_cycle": 17.45,
+            "bulk_gib_s": 56.87,
+            "small_cycles": 70.48,
+            "record": "records/zen4/speeds_zen4_extra.json#/HalftimeHash-512/EPYC9R14",
+            "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+            "aggregation": "higher bulk of two passes; independently lower small average"
           }
         }
       },
@@ -19278,6 +21505,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.10319917440659854,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 9.1,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/UMASH-64/EPYC9R14",
+          "registered_name": "UMASH-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "UMASH-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "UMASH-64.sanity.txt",
+            "raw_sha256": "2a93345936b597964546e2f870649e457427efdee7f24f74e3a9c8dbe044dcc3",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x36A264CD ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196476 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 26.91,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/UMASH-64/EPYC9R14",
+          "registered_name": "UMASH-64",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.14864362690449884,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "UMASH-64",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "UMASH-64.sanity.txt",
+            "raw_sha256": "2a93345936b597964546e2f870649e457427efdee7f24f74e3a9c8dbe044dcc3",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x36A264CD ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.196476 seconds"
+            ]
+          }
         }
       },
       "qualification": "The published UMASH-64 headline is proved with coefficient 58 instead of 64: Pr[collision] < 58·⌈L/512⌉/2^61. The implemented accumulator modulo 8p = 2^64−8 retains three bits beyond field reduction; a final reduction modulo p alone would not give this proof. The envelope scores 56.18 bits at L = 2 under both length conventions. At 1 KB / 1 MB / 1 GB, −log₂ ε = 55.18 / 47.995 / 38.000 (published 55 / 47 / 37). Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
@@ -19722,6 +22003,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.024857071836947853,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 6.39,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/UMASH-128/EPYC9R14",
+          "registered_name": "UMASH-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "UMASH-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "UMASH-128.sanity.txt",
+            "raw_sha256": "1141c491eb943f59f1c95d89e4e4a60541f40671aad7a9f0aa5924702828cfc4",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x63857D05 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.205483 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 31.13,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/UMASH-128/EPYC9R14",
+          "registered_name": "UMASH-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.03212335367812624,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "UMASH-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "UMASH-128.sanity.txt",
+            "raw_sha256": "1141c491eb943f59f1c95d89e4e4a60541f40671aad7a9f0aa5924702828cfc4",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x63857D05 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.205483 seconds"
+            ]
+          }
         }
       },
       "qualification": "The published fingerprint headline is proved independently of the 64-bit proof, using two independent polynomial multipliers and 34 shared OH words. Pr[collision] < (81/128)·⌈L/2^23⌉²·2^-83. The finer envelope scores 83.99 bits (rounded display 84) on L ≤ 2^46 words, 88.63 through 64 MiB, and approximately 69.0 on L ≤ 2^61−1. At 1 GB it gives 75.98 bits (published 75). The Python reference’s single-multiplier fingerprint is refuted: swapping two full blocks collides for every OH key at f = p−1 or f = 1, yielding a fibre of about 2^-61. Ideal full-key distribution, fixed seed, full output, C architecture: 34 shared OH words sampled uniformly without replacement (IID also proved), independent uniform multiplier(s) on {2,…,p−1}, p = 2^61−1; bounds also hold for the C multiplier range {1,…,p−1}. Salsa20 key derivation (umash_params_derive), per-call seeds and masked outputs are outside the theorems; umash_params_prepare on uniformly random bytes returns exactly the theorems' key distribution when it succeeds.",
@@ -20178,6 +22513,60 @@
           "selection": "best of two, independently per metric",
           "spread_percent": 0.3253544039042433,
           "verification": {}
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 10.55,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/CLhash/EPYC9R14",
+          "registered_name": "CLhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "CLhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "CLhash.sanity.txt",
+            "raw_sha256": "b586ccd30523cdada97526bda8c33f27571126c5349d53a8bcb91d68475d12dd",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x2E554CB4 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.209658 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 31.23,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/CLhash/EPYC9R14",
+          "registered_name": "CLhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.06404098623118415,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "CLhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "CLhash.sanity.txt",
+            "raw_sha256": "b586ccd30523cdada97526bda8c33f27571126c5349d53a8bcb91d68475d12dd",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x2E554CB4 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.209658 seconds"
+            ]
+          }
         }
       },
       "qualification": "Ideal Algorithm 4, byte strings shorter than 2^64 bytes, full independent key. The timed seed initializer is not certified by this theorem.",
@@ -20305,6 +22694,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "Carryless NH at equal fixed padded length, independent word keys, irreducible field reduction (or full unreduced output). One-word zero padding is admitted; unpadded even lengths score 65. No unequal-length transfer is claimed.",
@@ -20393,7 +22794,8 @@
       "chart_eligible": true,
       "chart_hosts": [
         "M2Pro",
-        "Xeon8375C"
+        "Xeon8375C",
+        "EPYC9R14"
       ],
       "key_free": false,
       "lean": {
@@ -20422,78 +22824,132 @@
       "notes": "One function: digests are independent of Horner stride k, SIMD width, lazy/eager reduction, streaming chunking and valid thread splits (the partial API joins region-aligned partitions). The flat long-input product loop follows Orson Peters’s PolymurHash lineage; the field, comb, Horner combiner and finalizer define ChainHash. Short 1–31 B inputs cost 155.14 cycles/hash on Xeon and 87.49 on M2 (XXH3-64 in the same binaries: 29.44 and 25.05). Bulk: Xeon 28.31 B/cycle, M2 26.26 (median of three). Two fixed messages chosen independently of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 64 uniformly random key bytes. The bound, the evaluation independence and the exact 63.0-bit minimum are machine-checked (89 theorems, standard axioms; 464 C/Lean vectors). The benchmark SplitMix64 seed expansion is outside the theorem; no compiler/SIMD proof is claimed.",
       "speeds": {
         "smh_m2_bulk_Bpc": {
-          "value": 26.26,
+          "value": 30.15,
           "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle",
           "source_short": "SMHasher3 M2Pro",
-          "url": "records/chainhash/speeds_chainhash.json",
-          "record": "records/chainhash/speeds_chainhash.json#/chainhash/M2Pro",
-          "registered_name": "chainhash",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash.a0116ea/M2Pro",
+          "registered_name": "chainhash.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision; arm64 reproduction build (the post’s original M2 base binary is no longer available)",
           "host": "M2Pro",
-          "selection": "median of three; >15% deviations flagged, not discarded",
+          "selection": "median of three passes, bulk and small independently",
           "selected_run": 1,
-          "binary_sha256": "f871e853d39d2a56499503153460fb9926d5dce1344d2e1b071db2116b65b230",
+          "binary_sha256": "19b9bdb4277659bbf2a1a47a99bc28c552df78bed493ac720d6201eee0589888",
+          "spread_percent": 4.018598472268353,
           "verification": {
-            "raw_file": "out/M2Pro/chainhash.sanity.txt",
-            "lines": [
-              "Verification value LE 0x66672BD6 ...... PASS",
-              "Verification value is 0x00000001 - Testing took 0.369450 seconds"
-            ]
+            "raw_file": "evidence/M2/chainhash.a0116ea.sanity.txt",
+            "value": "0x66672BD6",
+            "result": "PASS"
           }
         },
         "smh_m2_small_cycles": {
-          "value": 87.49,
+          "value": 89.2,
           "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
           "source_short": "SMHasher3 M2Pro",
-          "url": "records/chainhash/speeds_chainhash.json",
-          "record": "records/chainhash/speeds_chainhash.json#/chainhash/M2Pro",
-          "registered_name": "chainhash",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash.a0116ea/M2Pro",
+          "registered_name": "chainhash.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision; arm64 reproduction build (the post’s original M2 base binary is no longer available)",
           "host": "M2Pro",
-          "selection": "median of three; >15% deviations flagged, not discarded",
-          "selected_run": 2,
-          "binary_sha256": "f871e853d39d2a56499503153460fb9926d5dce1344d2e1b071db2116b65b230",
+          "selection": "median of three passes, bulk and small independently",
+          "selected_run": 1,
+          "binary_sha256": "19b9bdb4277659bbf2a1a47a99bc28c552df78bed493ac720d6201eee0589888",
+          "spread_percent": 1.8921691553630327,
           "verification": {
-            "raw_file": "out/M2Pro/chainhash.sanity.txt",
-            "lines": [
-              "Verification value LE 0x66672BD6 ...... PASS",
-              "Verification value is 0x00000001 - Testing took 0.369450 seconds"
-            ]
+            "raw_file": "evidence/M2/chainhash.a0116ea.sanity.txt",
+            "value": "0x66672BD6",
+            "result": "PASS"
           }
         },
         "smh_xeon_bulk_Bpc": {
-          "value": 28.31,
+          "value": 28.25,
           "source": "SMHasher3 Xeon8375C, 262144 B bulk, B/cycle",
           "source_short": "SMHasher3 Xeon8375C",
-          "url": "records/chainhash/speeds_chainhash.json",
-          "record": "records/chainhash/speeds_chainhash.json#/chainhash/Xeon8375C",
-          "registered_name": "chainhash",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash.a0116ea/Xeon8375C",
+          "registered_name": "chainhash.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision",
           "host": "Xeon8375C",
           "selection": "higher bulk of two passes; independently lower small average",
           "selected_run": 2,
-          "binary_sha256": "df5d27c32b8d3f67fcbc74c3217aeb394d7e60a37df2621869a3a56044ed5a0d",
+          "binary_sha256": "0a192eeb266836c295650174c940ec428ae9ee4396d64bb01316f5220988853a",
+          "spread_percent": 0.0708466170740385,
           "verification": {
-            "raw_file": "out/Xeon/chainhash.sanity.txt",
-            "lines": [
-              "Verification value LE 0x66672BD6 ...... PASS",
-              "Verification value is 0x00000001 - Testing took 0.693687 seconds"
-            ]
+            "raw_file": "evidence/Xeon/chainhash.a0116ea.sanity.txt",
+            "value": "0x66672BD6",
+            "result": "PASS"
           }
         },
         "smh_xeon_small_cycles": {
-          "value": 155.14,
+          "value": 80.38,
           "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
           "source_short": "SMHasher3 Xeon8375C",
-          "url": "records/chainhash/speeds_chainhash.json",
-          "record": "records/chainhash/speeds_chainhash.json#/chainhash/Xeon8375C",
-          "registered_name": "chainhash",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash.a0116ea/Xeon8375C",
+          "registered_name": "chainhash.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision",
           "host": "Xeon8375C",
           "selection": "higher bulk of two passes; independently lower small average",
-          "selected_run": 2,
-          "binary_sha256": "df5d27c32b8d3f67fcbc74c3217aeb394d7e60a37df2621869a3a56044ed5a0d",
+          "selected_run": 1,
+          "binary_sha256": "0a192eeb266836c295650174c940ec428ae9ee4396d64bb01316f5220988853a",
+          "spread_percent": 0.13684996267728788,
           "verification": {
-            "raw_file": "out/Xeon/chainhash.sanity.txt",
-            "lines": [
+            "raw_file": "evidence/Xeon/chainhash.a0116ea.sanity.txt",
+            "value": "0x66672BD6",
+            "result": "PASS"
+          }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 35.09,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/chainhash/EPYC9R14",
+          "registered_name": "chainhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "e7763c1b01f14e9a530c6c3085613f448195306689948027a1559918c8de7be7",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "chainhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "chainhash.sanity.txt",
+            "raw_sha256": "7e92dae2814388eab296d0201a4e0dfa9ab7d6c561670b12b0ee3eb3a49ca7d7",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
               "Verification value LE 0x66672BD6 ...... PASS",
-              "Verification value is 0x00000001 - Testing took 0.693687 seconds"
+              "Verification value is 0x00000001 - Testing took 0.226870 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 62.46,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/chainhash/EPYC9R14",
+          "registered_name": "chainhash",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.032020493115592075,
+          "binary_sha256": "e7763c1b01f14e9a530c6c3085613f448195306689948027a1559918c8de7be7",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "chainhash",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "chainhash.sanity.txt",
+            "raw_sha256": "7e92dae2814388eab296d0201a4e0dfa9ab7d6c561670b12b0ee3eb3a49ca7d7",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x66672BD6 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.226870 seconds"
             ]
           }
         }
@@ -20564,6 +23020,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "Simple tabulation with independent position-specific tables on fixed-length inputs; an 8-byte input is admitted. Composite string wrappers do not inherit this theorem.",
@@ -20676,6 +23144,18 @@
           "source_short": "not timed",
           "record": "records/speeds.json",
           "url": "records/speeds.json"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
+        },
+        "smh_epyc_small_cycles": {
+          "value": null,
+          "source": "Not timed on EPYC9R14",
+          "record": "records/zen4/README.html",
+          "source_short": "unavailable"
         }
       },
       "qualification": "Full-key vector multiply-add-shift; independent 128-bit coefficients including the additive key, fixed length. Named string wrappers do not inherit this theorem.",
@@ -20855,6 +23335,60 @@
             }
           },
           "binary_sha256": "f92528649d7ba774e075505518a3e8321980146b8d92f7098b615a0e7f3a3a52"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 12.44,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/HalftimeHash24-fixed/EPYC9R14",
+          "registered_name": "HalftimeHash24-fixed",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.16103059581320522,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "HalftimeHash24-fixed",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "HalftimeHash24-fixed.sanity.txt",
+            "raw_sha256": "800fd23ccd6e5d3d254fd638cbfe28b79384c703ac15ca42b44a35bc27e1eab5",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x3F1372EA ...... SKIP (unverifiable)",
+              "Verification value is 0x00000001 - Testing took 1.071529 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 71.63,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/HalftimeHash24-fixed/EPYC9R14",
+          "registered_name": "HalftimeHash24-fixed",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.12564567918469383,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "HalftimeHash24-fixed",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "HalftimeHash24-fixed.sanity.txt",
+            "raw_sha256": "800fd23ccd6e5d3d254fd638cbfe28b79384c703ac15ca42b44a35bc27e1eab5",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value LE 0x3F1372EA ...... SKIP (unverifiable)",
+              "Verification value is 0x00000001 - Testing took 1.071529 seconds"
+            ]
+          }
         }
       },
       "smhasher3": {
@@ -20909,7 +23443,8 @@
       "chart_eligible": true,
       "chart_hosts": [
         "M2Pro",
-        "Xeon8375C"
+        "Xeon8375C",
+        "EPYC9R14"
       ],
       "key_free": false,
       "lean": {
@@ -20938,70 +23473,134 @@
       "notes": "One function on every host: digests are independent of Horner stride k, SIMD width, schoolbook or Karatsuba products, lazy/eager reduction, streaming chunking and region-aligned thread splits. Bulk: Xeon 14.43 B/cycle (higher of two passes), M2 Pro 10.26 (median of three; no run more than 15% from its median). Same-binary controls: XXH3-128 19.82 / 12.53, UMASH-128 6.02 / 7.52 (Xeon / M2). Four-lane VPCLMULQDQ on ZMM carries the Xeon figure; the NEON loop is issue-bound, not multiplier-bound. Short 1–31 B inputs cost 175.93 cycles/hash on Xeon and 167.89 on M2. Two fixed messages chosen independently of the key, at fixed length or at most 8L bytes, including empty, partial-word and unequal-length inputs; 1 ≤ L ≤ 2^61−1; 128 uniformly random key bytes. The bound, the evaluation independence and the exact 127-bit minimum are machine-checked (116 theorems, standard axioms; 625 C/Lean vectors). The benchmark SplitMix64 seed expansion is outside the theorem; no full SMHasher3 suite result or compiler/SIMD proof is claimed.",
       "speeds": {
         "smh_m2_bulk_Bpc": {
-          "value": 10.26,
+          "value": 16.85,
           "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle",
           "source_short": "SMHasher3 M2Pro",
-          "url": "records/chainhash/speeds_chainhash128.json",
-          "record": "records/chainhash/speeds_chainhash128.json#/chainhash-128/M2Pro",
-          "registered_name": "chainhash-128",
-          "note": "Forced-schoolbook registration (repository key chainhash-128.schoolbook); the dispatch the shipped header uses on XMM, ZMM and NEON",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash-128.a0116ea/M2Pro",
+          "registered_name": "chainhash-128.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision; arm64 reproduction build (the post’s original M2 base binary is no longer available)",
           "host": "M2Pro",
-          "selection": "median of three; >15% deviations flagged, not discarded",
-          "selected_run": 2,
-          "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+          "selection": "median of three passes, bulk and small independently",
+          "selected_run": 1,
+          "binary_sha256": "19b9bdb4277659bbf2a1a47a99bc28c552df78bed493ac720d6201eee0589888",
+          "spread_percent": 3.8852361028093085,
           "verification": {
-            "raw_file": "evidence/M2/chainhash-128.schoolbook.sanity.txt",
-            "lines": [
-              "Verification value CE 0x1FCA728C ...... PASS",
-              "Verification value is 0x00000001 - Testing took 1.132381 seconds"
-            ]
+            "raw_file": "evidence/M2/chainhash-128.a0116ea.sanity.txt",
+            "value": "0x1FCA728C",
+            "result": "PASS"
           }
         },
         "smh_m2_small_cycles": {
-          "value": 167.89,
+          "value": 158.25,
           "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash",
           "source_short": "SMHasher3 M2Pro",
-          "url": "records/chainhash/speeds_chainhash128.json",
-          "record": "records/chainhash/speeds_chainhash128.json#/chainhash-128/M2Pro",
-          "registered_name": "chainhash-128",
-          "note": "Forced-schoolbook registration (repository key chainhash-128.schoolbook); the dispatch the shipped header uses on XMM, ZMM and NEON",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash-128.a0116ea/M2Pro",
+          "registered_name": "chainhash-128.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision; arm64 reproduction build (the post’s original M2 base binary is no longer available)",
           "host": "M2Pro",
-          "selection": "median of three; >15% deviations flagged, not discarded",
-          "selected_run": 2,
-          "binary_sha256": "538d584df3317947011c07affd42248f9a57460662c82aa9ca04d1872ae28a12",
+          "selection": "median of three passes, bulk and small independently",
+          "selected_run": 1,
+          "binary_sha256": "19b9bdb4277659bbf2a1a47a99bc28c552df78bed493ac720d6201eee0589888",
+          "spread_percent": 1.8173702333885933,
           "verification": {
-            "raw_file": "evidence/M2/chainhash-128.schoolbook.sanity.txt",
-            "lines": [
-              "Verification value CE 0x1FCA728C ...... PASS",
-              "Verification value is 0x00000001 - Testing took 1.132381 seconds"
-            ]
+            "raw_file": "evidence/M2/chainhash-128.a0116ea.sanity.txt",
+            "value": "0x1FCA728C",
+            "result": "PASS"
           }
         },
         "smh_xeon_bulk_Bpc": {
-          "value": 14.43,
+          "value": 14.9,
           "source": "SMHasher3 Xeon8375C, 262144 B bulk, B/cycle",
           "source_short": "SMHasher3 Xeon8375C",
-          "url": "records/chainhash/speeds_chainhash128.json",
-          "record": "records/chainhash/speeds_chainhash128.json#/chainhash-128/Xeon8375C",
-          "registered_name": "chainhash-128",
-          "note": "Forced-schoolbook registration (repository key chainhash-128.schoolbook); the dispatch the shipped header uses on XMM, ZMM and NEON",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash-128.a0116ea/Xeon8375C",
+          "registered_name": "chainhash-128.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision",
           "host": "Xeon8375C",
           "selection": "higher bulk of two passes; independently lower small average",
           "selected_run": 2,
-          "binary_sha256": "d8df2fbcf18e4e56ec2c6a96242ef47b10935cd20d05f0b249e6fdecae92846a"
+          "binary_sha256": "0a192eeb266836c295650174c940ec428ae9ee4396d64bb01316f5220988853a",
+          "spread_percent": 0.0,
+          "verification": {
+            "raw_file": "evidence/Xeon/chainhash-128.a0116ea.sanity.txt",
+            "value": "0x1FCA728C",
+            "result": "PASS"
+          }
         },
         "smh_xeon_small_cycles": {
-          "value": 175.93,
+          "value": 129.3,
           "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
           "source_short": "SMHasher3 Xeon8375C",
-          "url": "records/chainhash/speeds_chainhash128.json",
-          "record": "records/chainhash/speeds_chainhash128.json#/chainhash-128/Xeon8375C",
-          "registered_name": "chainhash-128",
-          "note": "Forced-schoolbook registration (repository key chainhash-128.schoolbook); the dispatch the shipped header uses on XMM, ZMM and NEON",
+          "url": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json",
+          "record": "records/chainhash/refresh-a0116ea/speeds_chainhash_a0116ea.json#/chainhash-128.a0116ea/Xeon8375C",
+          "registered_name": "chainhash-128.a0116ea",
+          "note": "thomasahle/chainhash a0116ea, public entry point; same-binary refresh so every host tab shows one revision",
           "host": "Xeon8375C",
           "selection": "higher bulk of two passes; independently lower small average",
           "selected_run": 1,
-          "binary_sha256": "d8df2fbcf18e4e56ec2c6a96242ef47b10935cd20d05f0b249e6fdecae92846a"
+          "binary_sha256": "0a192eeb266836c295650174c940ec428ae9ee4396d64bb01316f5220988853a",
+          "spread_percent": 0.030935808197973813,
+          "verification": {
+            "raw_file": "evidence/Xeon/chainhash-128.a0116ea.sanity.txt",
+            "value": "0x1FCA728C",
+            "result": "PASS"
+          }
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 19.32,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/chainhash-128/EPYC9R14",
+          "registered_name": "chainhash-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 1.7913593256059013,
+          "binary_sha256": "e7763c1b01f14e9a530c6c3085613f448195306689948027a1559918c8de7be7",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "chainhash-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "chainhash-128.sanity.txt",
+            "raw_sha256": "be02dbf4cfe4aace5f0dc72b3900c8ffb1943c4c3794e0a2ba38747855f99692",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x1FCA728C ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.298152 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 116.78,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/chainhash-128/EPYC9R14",
+          "registered_name": "chainhash-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.017126220243190993,
+          "binary_sha256": "e7763c1b01f14e9a530c6c3085613f448195306689948027a1559918c8de7be7",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "chainhash-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "chainhash-128.sanity.txt",
+            "raw_sha256": "be02dbf4cfe4aace5f0dc72b3900c8ffb1943c4c3794e0a2ba38747855f99692",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0x1FCA728C ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.298152 seconds"
+            ]
+          }
         }
       }
     },
@@ -21049,7 +23648,8 @@
       "chart_eligible": true,
       "chart_hosts": [
         "M2Pro",
-        "Xeon8375C"
+        "Xeon8375C",
+        "EPYC9R14"
       ],
       "key_free": false,
       "lean": {
@@ -21118,6 +23718,60 @@
           "selection": "higher bulk of two passes; independently lower small average",
           "selected_run": 1,
           "binary_sha256": "67322fb98c8244b442b827ab6b027c7e0c9de8b341e6334e534aa1d712718d13"
+        },
+        "smh_epyc_bulk_Bpc": {
+          "value": 19.79,
+          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/polyxor-128/EPYC9R14",
+          "registered_name": "polyxor-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 1,
+          "spread_percent": 0.0,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "polyxor-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "polyxor-128.sanity.txt",
+            "raw_sha256": "c6162611a5185499bdb3a743fd53a98b37f5477e638867f7b4731de2667e427a",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xA9574CA8 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.281727 seconds"
+            ]
+          }
+        },
+        "smh_epyc_small_cycles": {
+          "value": 129.96,
+          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
+          "source_short": "SMHasher3 EPYC9R14",
+          "url": "records/zen4/speeds_zen4.json",
+          "record": "records/zen4/speeds_zen4.json#/polyxor-128/EPYC9R14",
+          "registered_name": "polyxor-128",
+          "host": "EPYC9R14",
+          "selection": "higher bulk of two passes; independently lower small average",
+          "selected_run": 2,
+          "spread_percent": 0.030778701138811648,
+          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+          "verification": {
+            "status": "PASS",
+            "registered_name": "polyxor-128",
+            "returncode": 0,
+            "failures": [],
+            "raw_file": "polyxor-128.sanity.txt",
+            "raw_sha256": "c6162611a5185499bdb3a743fd53a98b37f5477e638867f7b4731de2667e427a",
+            "verification_lines": [
+              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
+              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
+              "Verification value CE 0xA9574CA8 ...... PASS",
+              "Verification value is 0x00000001 - Testing took 0.281727 seconds"
+            ]
+          }
         }
       }
     }

@@ -35,6 +35,7 @@ plt.rcParams.update({'font.family': 'sans-serif', 'font.sans-serif': ['Arial', '
 HOSTS = {
  'm2': dict(key='smh_m2_bulk_Bpc', host='M2Pro', name='APPLE M2 PRO', provisional=False),
  'xeon': dict(key='smh_xeon_bulk_Bpc', host='Xeon8375C', name='INTEL XEON 8375C', provisional=False),
+ 'epyc': dict(key='smh_epyc_bulk_Bpc', host='EPYC9R14', name='AMD EPYC 9R14 (ZEN 4)', provisional=False),
 }
 SCALES = {
     'linear': dict(name='Linear', power=1, ticks=list(range(0, 129, 16))),
@@ -120,7 +121,7 @@ LABELS = {'m2': {'wyhash': (7.6, 14, 'right', 'wyhash', ''),
         'ghash': (3.1296782804570187, 222.86094420380775, 'left', 'GHASH', ''),
         'poly1305': (1.9238814757276592, 168.89701257893051, 'right', 'Poly1305', ''),
         'umash128': (8.28213798512708, 222.86094420380775, 'left', 'UMASH-128', ''),
-        'chainhash128': (8.0, 147.0333894396205, 'right', 'ChainHash-128 (ours)', ''),
+        'chainhash128': (15, 230, 'left', 'ChainHash-128 (ours)', ''),
         'polyxor': (22, 128.0, 'left', 'PolyXOR128', ''),
         'halftime24-fixed': (5.0, 100, 'right', 'HalftimeHash24 (fixed)', ''),
         'chainhash': (45.47443397859695, 48.50293012833273, 'right', 'ChainHash (ours)', ''),
@@ -181,7 +182,7 @@ LINEAR_LABELS = {'m2': {'wyhash': (7.8, 36, 'right', 'wyhash', ''),
         'rapid3': (20, 38, 'left', 'rapidhash v3', ''),
         'xxh3-64': (16.5, 22, 'left', 'XXH3-64', ''),
         'komi': (8.4, 17, 'left', 'komihash', ''),
-        'chainhash128': (8.0, 128, 'right', 'ChainHash-128 (ours)', ''),
+        'chainhash128': (16, 123, 'right', 'ChainHash-128 (ours)', ''),
         'polyxor': (22, 128.0, 'left', 'PolyXOR128', ''),
         'halftime24-fixed': (4.7, 105, 'left', 'HalftimeHash24 (fixed)', '')},
  'xeon': {'wyhash': (5.5, 25, 'right', 'wyhash', ''),
@@ -222,6 +223,67 @@ LINEAR_MOBILE_LABELS = {'m2': {'wyhash': (5, 38, 'right', 'wyhash', ''),
           'polyxor': (22, 128.0, 'left', 'PolyXOR128', ''),
           'halftime24-fixed': (0.58, 91, 'left', 'HalftimeHash24 (fixed)', ''),
           'chainhash': (40, 76, 'right', 'ChainHash (ours)', '')}}
+
+# AMD EPYC 9R14 (Zen 4): hand-placed landmark labels for the third host tab.
+LABELS['epyc'] = {'wyhash': (6.5, 20, 'right', 'wyhash', ''),
+          'gx': (30, 2.8, 'right', 'gxhash', ''),
+          'siphash-1-3': (0.62, 40, 'left', 'SipHash-1-3', ''),
+          'ghash': (8.5, 230, 'right', 'GHASH', ''),
+          'poly1305': (4, 180, 'right', 'Poly1305', ''),
+          'umash128': (5.3, 80, 'right', 'UMASH-128', ''),
+          'chainhash128': (11, 230, 'left', 'ChainHash-128 (ours)', ''),
+          'polyxor': (24, 175, 'left', 'PolyXOR128', ''),
+          'halftime24-fixed': (22, 100, 'left', 'HalftimeHash24 (fixed)', ''),
+          'chainhash': (50, 45, 'right', 'ChainHash (ours)', ''),
+          'clhash': (9.5, 40, 'right', 'CLHASH', ''),
+          'polymur': (4.4, 40, 'right', 'PolymurHash', ''),
+          'highway': (2.4, 100, 'right', 'HighwayHash', ''),
+          'rapid3': (9.8, 14, 'right', 'rapidhash v3', ''),
+          'xxh3-64': (26, 12, 'left', 'XXH3-64', ''),
+          'komi': (10.563386085541142, 8.0, 'left', 'komihash', '')}
+MOBILE_LABELS['epyc'] = {'wyhash': (4, 20, 'right', 'wyhash', ''),
+          'gx': (50, 2.8, 'right', 'gxhash', ''),
+          'ghash': (4.508070852474694, 256.0, 'left', 'GHASH', ''),
+          'poly1305': (0.57, 222.86094420380775, 'left', 'Poly1305', ''),
+          'chainhash': (64, 52, 'right', 'ChainHash (ours)', ''),
+          'chainhash128': (51.35676363205364, 194.0117205133309, 'right', 'ChainHash-128 (ours)', ''),
+          'polyxor': (22, 128.0, 'left', 'PolyXOR128', ''),
+          'halftime24-fixed': (64, 82, 'right', 'HalftimeHash24 (fixed)', ''),
+          'highway': (0.57, 42.22425314473263, 'left', 'HighwayHash', ''),
+          'xxh3-64': (45.5, 14, 'right', 'XXH3-64', ''),
+          'komi': (5, 6, 'right', 'komihash', '')}
+LINEAR_LABELS['epyc'] = {'wyhash': (8.4, 21, 'right', 'wyhash', ''),
+          'gx': (30, 10, 'right', 'gxhash', ''),
+          'siphash-1-3': (0.62, 54, 'left', 'SipHash-1-3', ''),
+          'ghash': (6.3, 133, 'right', 'GHASH', ''),
+          'poly1305': (3.6, 110, 'right', 'Poly1305', ''),
+          'umash128': (4.8, 91, 'right', 'UMASH-128', ''),
+          'clhash': (9.5, 77, 'right', 'CLHASH', ''),
+          'polymur': (4.4, 43, 'right', 'PolymurHash', ''),
+          'highway': (3.1, 53, 'right', 'HighwayHash', ''),
+          'rapid3': (8.4, 47, 'left', 'rapidhash v3', ''),
+          'xxh3-64': (24, 25, 'left', 'XXH3-64', ''),
+          'komi': (8.4, 15, 'left', 'komihash', ''),
+          'chainhash128': (12, 120, 'right', 'ChainHash-128 (ours)', ''),
+          'polyxor': (22, 128.0, 'left', 'PolyXOR128', ''),
+          'chainhash': (26, 77, 'left', 'ChainHash (ours)', ''),
+          'halftime24-fixed': (14.5, 108, 'left', 'HalftimeHash24 (fixed)', '')}
+LINEAR_MOBILE_LABELS['epyc'] = {'wyhash': (5, 38, 'right', 'wyhash', ''),
+          'gx': (50, 10, 'right', 'gxhash', ''),
+          'ghash': (3, 134, 'left', 'GHASH', ''),
+          'poly1305': (0.58, 111, 'left', 'Poly1305', ''),
+          'highway': (0.58, 84, 'left', 'HighwayHash', ''),
+          'xxh3-64': (48, 40, 'right', 'XXH3-64', ''),
+          'komi': (8.5, 18, 'left', 'komihash', ''),
+          'chainhash128': (52, 112, 'right', 'ChainHash-128 (ours)', ''),
+          'polyxor': (28, 134, 'left', 'PolyXOR128', ''),
+          'halftime24-fixed': (0.58, 91, 'left', 'HalftimeHash24 (fixed)', ''),
+          'chainhash': (40, 76, 'right', 'ChainHash (ours)', '')}
+
+# Desktop anchor of the shared HalftimeHash label, per host and score scale.
+HALFTIME_LABEL = {'m2': {'log': (8.8, 40), 'linear': (5.4, 77)},
+                  'xeon': {'log': (14.5, 17), 'linear': (15, 82)},
+                  'epyc': {'log': (14.5, 17), 'linear': (15, 82)}}
 
 def render(key, mobile=False, compact=False, scale='linear'):
     host = HOSTS[key]
@@ -342,7 +404,7 @@ def render(key, mobile=False, compact=False, scale='linear'):
         annotations.append((annotation,{id}))
     if not (mobile or compact):
         half=[r for r in rows if r['id'].startswith('halftimehash-')]
-        tx,ty=((8.8,40) if key=='m2' else (14.5,17)) if logarithmic else ((5.4,77) if key=='m2' else (15,82))
+        tx,ty=HALFTIME_LABEL[key]['log' if logarithmic else 'linear']
         # The shared label identifies the fastest variant on this host.
         representative = max(half,key=lambda r:r['speed'])
         a=ax.annotate('HalftimeHash',xy=(representative['speed'],representative['bits']),xytext=(tx,ty),
@@ -455,7 +517,7 @@ for key,host in HOSTS.items():
 (OUT/'data.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'feature.svg').write_bytes((OUT/'m2-sqrt.svg').read_bytes())
 (ROOT/'feature.png').write_bytes((OUT/'m2-sqrt.png').read_bytes())
-print('Generated 24 SVGs, 24 PNGs, inspection data, and feature.svg/png from data.json.')
+print(f'Generated {12 * len(HOSTS)} SVGs, {12 * len(HOSTS)} PNGs, inspection data, and feature.svg/png from data.json.')
 
 # The existing figure note distinguishes the historical comparison from the
 # currently selected pair. Keep it generated from the same scientific record.

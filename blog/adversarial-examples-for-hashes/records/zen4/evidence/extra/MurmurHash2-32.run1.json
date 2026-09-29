@@ -1,0 +1,63 @@
+{
+  "name": "MurmurHash2-32",
+  "run": 1,
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "taskset",
+    "-c",
+    "8-15",
+    "SMHasher3",
+    "MurmurHash2-32",
+    "--test=Speed"
+  ],
+  "before": {
+    "utc": "2026-09-28T22:50:33.143328+00:00",
+    "uptime": "22:50:33 up 28 days, 13:06,  1 user,  load average: 2.10, 1.98, 1.83",
+    "load": [
+      2.1,
+      1.98,
+      1.83
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 2.5,
+      "9": 0.0,
+      "10": 0.0,
+      "11": 0.0,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 0.0,
+      "15": 0.0
+    },
+    "passed": true
+  },
+  "after": {
+    "utc": "2026-09-28T22:57:20.378748+00:00",
+    "uptime": "22:57:20 up 28 days, 13:13,  1 user,  load average: 2.11, 2.06, 1.93",
+    "load": [
+      2.11,
+      2.06,
+      1.93
+    ],
+    "smhasher_pids": [],
+    "cpu_busy_percent": {
+      "8": 0.0,
+      "9": 0.0,
+      "10": 0.0,
+      "11": 0.5,
+      "12": 0.5,
+      "13": 1.0,
+      "14": 0.0,
+      "15": 0.0
+    }
+  },
+  "elapsed_seconds": 407.2233560811728,
+  "returncode": 0,
+  "raw_file": "MurmurHash2-32.run1.txt",
+  "raw_sha256": "85ec59b55edab0f506e4b1156f950be6809a5ef1098fc6030df542109220b250",
+  "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
+  "during_run_scans": 27,
+  "during_run_rule": "whole-machine scan every 15 s for any other SMHasher3 process; a hit kills and discards the run, which is then repeated"
+}

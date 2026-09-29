@@ -1,0 +1,765 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AMD EPYC 9R14 (Zen 4) speed panel</title><link rel="stylesheet" href="../../post.css"><style>main{max-width:76ch;margin:3rem auto;padding:0 1.25rem;overflow-wrap:anywhere}pre,table{display:block;overflow:auto}h1{font-size:2rem}</style></head><body><main><nav><a href="../../index.html#comparison">Article</a> · <a href="../../records/README.html">Records</a></nav>
+<h1 id="amd-epyc-9r14-zen-4-the-full-speed-panel">AMD EPYC 9R14 (Zen 4):
+the full speed panel</h1>
+<p>This directory holds the third host of the chart, an AMD EPYC 9R14
+(Zen 4, Genoa). Every timed chart row was re-run there with the public
+<a
+href="https://github.com/thomasahle/hash-benchmark-reproduction">timing
+reproduction</a>, following its README. That covers all 42 manifest rows
+and the six chart rows outside the manifest. PolyXOR128's raw variant,
+the four HalftimeHash styles and a ChainHash backend comparison were run
+alongside. The Xeon and M2 tabs are unchanged except for the ChainHash
+rows, which were refreshed to the same revision (<a
+href="../chainhash/refresh-a0116ea/README.html">records/chainhash/refresh-a0116ea</a>).</p>
+<h2 id="host">Host</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td>CPU</td>
+<td>AMD EPYC 9R14, family 25 model 17 (Zen 4); a 16-vCPU KVM guest, one
+thread per core</td>
+</tr>
+<tr class="even">
+<td>Caches</td>
+<td>1 MiB L2 per core; two 32 MiB L3s, one shared by CPUs 0–7 and one by
+CPUs 8–15</td>
+</tr>
+<tr class="odd">
+<td>ISA</td>
+<td>AVX-512 (F, VL, BW, DQ, IFMA, VBMI), VPCLMULQDQ, VAES, GFNI,
+SHA-NI</td>
+</tr>
+<tr class="even">
+<td>Clock</td>
+<td>TSC 2.600 GHz (<code>tsc_known_freq</code>, clocksource
+<code>tsc</code>). A busy core runs at 3.66 GHz (boost), measured with a
+dependent-add loop; a user-mode <code>perf_event_open</code> cycle
+counter confirms 1.0002 cycles per add.</td>
+</tr>
+<tr class="odd">
+<td>OS</td>
+<td>Rocky Linux 9.8, kernel 5.14.0-687</td>
+</tr>
+<tr class="even">
+<td>Compiler</td>
+<td>GCC 11.5.0 (Red Hat 11.5.0-14), <code>-O3 -march=native</code>
+(resolves to <code>znver4</code>); Rust 1.98.1 for PolyXOR128 (backend
+<code>hash_blocks_avx512</code>)</td>
+</tr>
+<tr class="odd">
+<td>Pinning</td>
+<td><code>nice -n 10 taskset -c 8-15</code> for every timing, and for
+the builds</td>
+</tr>
+</tbody>
+</table>
+<p>SMHasher3's x86 timer counts TSC ticks. B/cycle on this tab therefore
+means bytes per 2.600 GHz tick. Wall-clock GB/s is 2.6 × B/cycle, and
+bytes per core cycle at 3.66 GHz is 0.71 × B/cycle. The printed GiB/s
+assumes 3.5 GHz, as on the other hosts. The Xeon's TSC runs at 2.900
+GHz, and the M2 uses a calibrated clock, so compare hashes within one
+tab.</p>
+<h2 id="protocol">Protocol</h2>
+<p>This is the reproduction's x86 rule, the same as on the Xeon. Each
+row gets two complete serial passes of unmodified
+<code>SMHasher3 NAME --test=Speed</code>. The cell takes the higher bulk
+average (262144-byte keys, eight alignments) and, independently, the
+lower 1–31-byte average.</p>
+<p>Each start waits until no other SMHasher3 process runs on CPUs 8–15.
+Every 5 s the runner samples for overlapping runs; none was excluded.
+Another job ran on CPUs 0–7, the other L3, during the measurements, so
+no machine-wide load threshold was applied. Load1 at launch ranged
+0.95–6.35 and is recorded per run.</p>
+<p>The rows outside the manifest ran on the same binary with the same
+selection. There, a whole-machine check discarded and repeated three
+runs that overlapped another SMHasher3 process
+(<code>evidence/extra/discarded.jsonl</code>). No bulk spread exceeds
+2%. The largest small-key spreads are 3.5% (HalftimeHash-512) and 3.2%
+(<code>polyxor-128.raw</code>), so no row needed the</p>
+<blockquote>
+<p>5% re-run.</p>
+</blockquote>
+<p>The ChainHash pin of the reproduction moved to <a
+href="https://github.com/thomasahle/chainhash/tree/a0116ea2072c0d9605acc6b47f0dc9f9d57b0c58"><code>a0116ea</code></a>
+during the run. ChainHash does not enter any other row. The build was
+repeated at the new pin, and VerifyAll was asserted: 0x66672BD6 and
+0x1FCA728C, unchanged. The <code>chainhash</code> and
+<code>chainhash-128</code> rows were then re-timed on that binary
+(<code>evidence/panel-chainhash</code>). Their earlier values at
+<code>30c0111</code> are kept in
+<code>speeds_zen4.json#/meta</code>.</p>
+<h2 id="results">Results</h2>
+<p>Verification is SMHasher3's VerifyAll value on this build. Sanity is
+the reproduction's native Sanity record. The four Sanity failures
+(foldhash ×2, shipped HalftimeHash24 and Marvin32) are the ones the
+reproduction README documents for x86. The two HalftimeHash24 wrappers
+have zero registered constants. Their computed values equal the Xeon's
+(0x8A105352 shipped, 0x3F1372EA fixed).</p>
+<table>
+<thead>
+<tr class="header">
+<th>Row</th>
+<th>Registration</th>
+<th style="text-align: right;">Bulk B/tick</th>
+<th style="text-align: right;">GB/s at TSC 2.6 GHz</th>
+<th style="text-align: right;">1–31 B cycles</th>
+<th>Spread bulk / small</th>
+<th>Verification</th>
+<th>Sanity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>city</td>
+<td><code>CityHash-64</code></td>
+<td style="text-align: right;">6.82</td>
+<td style="text-align: right;">17.7</td>
+<td style="text-align: right;">34.57</td>
+<td>0.00% / 0.00%</td>
+<td>0x5FABC5C5 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>farm</td>
+<td><code>FarmHash-64.NA</code></td>
+<td style="text-align: right;">6.74</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">34.48</td>
+<td>0.00% / 0.00%</td>
+<td>0xEBC4A679 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>murmur</td>
+<td><code>MurmurHash3-128</code></td>
+<td style="text-align: right;">2.95</td>
+<td style="text-align: right;">7.7</td>
+<td style="text-align: right;">36.88</td>
+<td>0.00% / 0.00%</td>
+<td>0x6384BA69 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>mx3</td>
+<td><code>mx3.v3</code></td>
+<td style="text-align: right;">4.34</td>
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">32.52</td>
+<td>0.00% / 0.18%</td>
+<td>0x7B287B65 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>fasthash-64</td>
+<td><code>fasthash-64</code></td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">7.4</td>
+<td style="text-align: right;">26.14</td>
+<td>0.00% / 0.08%</td>
+<td>0xA16231A7 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>fasthash-32</td>
+<td><code>fasthash-32</code></td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">7.4</td>
+<td style="text-align: right;">27.60</td>
+<td>0.00% / 0.00%</td>
+<td>0xE9481AFC PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>muse</td>
+<td><code>MuseAir</code></td>
+<td style="text-align: right;">9.95</td>
+<td style="text-align: right;">25.9</td>
+<td style="text-align: right;">13.27</td>
+<td>0.00% / 0.00%</td>
+<td>0xF89F1683 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>muse-v2</td>
+<td><code>MuseAir-v2</code></td>
+<td style="text-align: right;">7.33</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">19.92</td>
+<td>0.14% / 0.05%</td>
+<td>0x7140CABC PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>komi</td>
+<td><code>komihash</code></td>
+<td style="text-align: right;">7.71</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">21.65</td>
+<td>0.00% / 0.00%</td>
+<td>0x8157FF6D PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>t1ha</td>
+<td><code>t1ha2-64</code></td>
+<td style="text-align: right;">7.00</td>
+<td style="text-align: right;">18.2</td>
+<td style="text-align: right;">28.59</td>
+<td>0.00% / 0.00%</td>
+<td>0x8F16C948 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>a5</td>
+<td><code>a5hash</code></td>
+<td style="text-align: right;">3.80</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: right;">11.04</td>
+<td>0.26% / 0.00%</td>
+<td>0xADDE79B3 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>a5wide</td>
+<td><code>a5hash-128</code></td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">26.0</td>
+<td style="text-align: right;">19.36</td>
+<td>0.00% / 0.00%</td>
+<td>0x89406B11 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>rapid3</td>
+<td><code>rapidhash</code></td>
+<td style="text-align: right;">11.61</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">19.84</td>
+<td>0.09% / 0.00%</td>
+<td>0x1FDC65EE PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>foldhash-fast</td>
+<td><code>foldhash-fast</code></td>
+<td style="text-align: right;">11.41</td>
+<td style="text-align: right;">29.7</td>
+<td style="text-align: right;">14.03</td>
+<td>0.80% / 0.07%</td>
+<td>0xA167BA5E PASS</td>
+<td>FAIL</td>
+</tr>
+<tr class="odd">
+<td>foldhash-quality</td>
+<td><code>foldhash-quality</code></td>
+<td style="text-align: right;">11.25</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">17.47</td>
+<td>0.18% / 0.06%</td>
+<td>0xE269316E PASS</td>
+<td>FAIL</td>
+</tr>
+<tr class="even">
+<td>mum</td>
+<td><code>mum3.exact.unroll3</code></td>
+<td style="text-align: right;">8.80</td>
+<td style="text-align: right;">22.9</td>
+<td style="text-align: right;">17.30</td>
+<td>1.97% / 0.06%</td>
+<td>0x8BD72B8C PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>mir</td>
+<td><code>mir.exact</code></td>
+<td style="text-align: right;">3.25</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: right;">24.50</td>
+<td>0.62% / 0.00%</td>
+<td>0x00A393C8 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>xxh3-64</td>
+<td><code>XXH3-64</code></td>
+<td style="text-align: right;">18.81</td>
+<td style="text-align: right;">48.9</td>
+<td style="text-align: right;">20.38</td>
+<td>0.16% / 0.05%</td>
+<td>0x1AAEE62C PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>xxh3-128</td>
+<td><code>XXH3-128</code></td>
+<td style="text-align: right;">18.79</td>
+<td style="text-align: right;">48.9</td>
+<td style="text-align: right;">23.66</td>
+<td>0.80% / 0.04%</td>
+<td>0x288DAA94 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>highway</td>
+<td><code>HighwayHash-64</code></td>
+<td style="text-align: right;">3.88</td>
+<td style="text-align: right;">10.1</td>
+<td style="text-align: right;">59.71</td>
+<td>0.00% / 0.00%</td>
+<td>0xF3246108 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>spooky</td>
+<td><code>SpookyHash2-64</code></td>
+<td style="text-align: right;">6.65</td>
+<td style="text-align: right;">17.3</td>
+<td style="text-align: right;">34.76</td>
+<td>0.00% / 0.03%</td>
+<td>0x972C4BDC PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>pengyhash</td>
+<td><code>pengyhash</code></td>
+<td style="text-align: right;">6.15</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">52.48</td>
+<td>0.00% / 0.02%</td>
+<td>0x861A1254 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>nmhash32</td>
+<td><code>NMHASH</code></td>
+<td style="text-align: right;">11.43</td>
+<td style="text-align: right;">29.7</td>
+<td style="text-align: right;">32.07</td>
+<td>0.00% / 0.00%</td>
+<td>0x12A30553 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>nmhash32x</td>
+<td><code>NMHASHX</code></td>
+<td style="text-align: right;">11.45</td>
+<td style="text-align: right;">29.8</td>
+<td style="text-align: right;">20.73</td>
+<td>0.09% / 0.05%</td>
+<td>0xA8580227 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>gx</td>
+<td><code>gxhash-64</code></td>
+<td style="text-align: right;">30.79</td>
+<td style="text-align: right;">80.1</td>
+<td style="text-align: right;">31.28</td>
+<td>0.69% / 0.00%</td>
+<td>0x48F84240 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>ahash</td>
+<td><code>rust-ahash</code></td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">72.07</td>
+<td>0.00% / 0.03%</td>
+<td>0x3BF4383B PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>siphash-1-3</td>
+<td><code>SipHash-1-3</code></td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">62.06</td>
+<td>0.00% / 0.00%</td>
+<td>0x8936B193 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>siphash-2-4</td>
+<td><code>SipHash-2-4</code></td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">86.30</td>
+<td>0.00% / 0.03%</td>
+<td>0x57B661ED PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>halftime24</td>
+<td><code>HalftimeHash24-shipped</code></td>
+<td style="text-align: right;">15.96</td>
+<td style="text-align: right;">41.5</td>
+<td style="text-align: right;">54.51</td>
+<td>0.06% / 0.02%</td>
+<td>0x8A105352 unverifiable (zero constant)</td>
+<td>FAIL</td>
+</tr>
+<tr class="even">
+<td>go-maphash</td>
+<td><code>GoMapHash</code></td>
+<td style="text-align: right;">22.38</td>
+<td style="text-align: right;">58.2</td>
+<td style="text-align: right;">74.12</td>
+<td>0.00% / 0.00%</td>
+<td>0x710289AB PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>abseil-hash</td>
+<td><code>AbseilHash-default</code></td>
+<td style="text-align: right;">9.77</td>
+<td style="text-align: right;">25.4</td>
+<td style="text-align: right;">14.06</td>
+<td>0.21% / 0.00%</td>
+<td>0x07203CDB PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>dotnet-marvin</td>
+<td><code>Marvin32</code></td>
+<td style="text-align: right;">1.14</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">22.00</td>
+<td>0.00% / 0.05%</td>
+<td>0x306A5169 PASS</td>
+<td>FAIL</td>
+</tr>
+<tr class="odd">
+<td>polymur</td>
+<td><code>polymurhash</code></td>
+<td style="text-align: right;">6.13</td>
+<td style="text-align: right;">15.9</td>
+<td style="text-align: right;">28.32</td>
+<td>0.99% / 0.00%</td>
+<td>0x0722B1A7 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>poly1305</td>
+<td><code>poly1305-hash</code></td>
+<td style="text-align: right;">5.05</td>
+<td style="text-align: right;">13.1</td>
+<td style="text-align: right;">195.97</td>
+<td>0.20% / 0.06%</td>
+<td>0xBD015C42 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>ghash</td>
+<td><code>ghash</code></td>
+<td style="text-align: right;">8.91</td>
+<td style="text-align: right;">23.2</td>
+<td style="text-align: right;">1418.97</td>
+<td>0.22% / 0.49%</td>
+<td>0x1F397201 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>umash</td>
+<td><code>UMASH-64</code></td>
+<td style="text-align: right;">9.10</td>
+<td style="text-align: right;">23.7</td>
+<td style="text-align: right;">26.91</td>
+<td>0.00% / 0.15%</td>
+<td>0x36A264CD PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>umash128</td>
+<td><code>UMASH-128</code></td>
+<td style="text-align: right;">6.39</td>
+<td style="text-align: right;">16.6</td>
+<td style="text-align: right;">31.13</td>
+<td>0.00% / 0.03%</td>
+<td>0x63857D05 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>clhash</td>
+<td><code>CLhash</code></td>
+<td style="text-align: right;">10.55</td>
+<td style="text-align: right;">27.4</td>
+<td style="text-align: right;">31.23</td>
+<td>0.00% / 0.06%</td>
+<td>0x2E554CB4 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>chainhash</td>
+<td><code>chainhash</code></td>
+<td style="text-align: right;">35.09</td>
+<td style="text-align: right;">91.2</td>
+<td style="text-align: right;">62.46</td>
+<td>0.00% / 0.03%</td>
+<td>0x66672BD6 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>halftime24-fixed</td>
+<td><code>HalftimeHash24-fixed</code></td>
+<td style="text-align: right;">12.44</td>
+<td style="text-align: right;">32.3</td>
+<td style="text-align: right;">71.63</td>
+<td>0.16% / 0.13%</td>
+<td>0x3F1372EA unverifiable (zero constant)</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>chainhash128</td>
+<td><code>chainhash-128</code></td>
+<td style="text-align: right;">19.32</td>
+<td style="text-align: right;">50.2</td>
+<td style="text-align: right;">116.78</td>
+<td>1.79% / 0.02%</td>
+<td>0x1FCA728C PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>polyxor</td>
+<td><code>polyxor-128</code></td>
+<td style="text-align: right;">19.79</td>
+<td style="text-align: right;">51.5</td>
+<td style="text-align: right;">129.96</td>
+<td>0.00% / 0.03%</td>
+<td>0xA9574CA8 PASS</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>(extra)</td>
+<td><code>wyhash</code></td>
+<td style="text-align: right;">11.20</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">17.46</td>
+<td>0.27% / 0.06%</td>
+<td>0x9DAE7DD3 PASS</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>(extra)</td>
+<td><code>XXH-64</code></td>
+<td style="text-align: right;">4.14</td>
+<td style="text-align: right;">10.8</td>
+<td style="text-align: right;">35.71</td>
+<td>0.00% / 0.00%</td>
+<td>0x8F8224C4 PASS</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>(extra)</td>
+<td><code>XXH-32</code></td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">7.4</td>
+<td style="text-align: right;">27.31</td>
+<td>0.00% / 0.22%</td>
+<td>0x6FD78385 PASS</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>(extra)</td>
+<td><code>MurmurHash2-64</code></td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">7.4</td>
+<td style="text-align: right;">26.60</td>
+<td>0.00% / 0.04%</td>
+<td>0x1F0D3804 PASS</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>(extra)</td>
+<td><code>MurmurHash2-32</code></td>
+<td style="text-align: right;">1.42</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">22.52</td>
+<td>0.00% / 0.00%</td>
+<td>0x27864C1E PASS</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>(extra)</td>
+<td><code>MurmurHash2a</code></td>
+<td style="text-align: right;">1.42</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">25.80</td>
+<td>0.00% / 0.08%</td>
+<td>0x7FBD4396 PASS</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>(extra)</td>
+<td><code>HalftimeHash-64</code></td>
+<td style="text-align: right;">3.37</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">65.03</td>
+<td>0.00% / 0.34%</td>
+<td>0xED42E424 PASS</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>(extra)</td>
+<td><code>HalftimeHash-128</code></td>
+<td style="text-align: right;">11.35</td>
+<td style="text-align: right;">29.5</td>
+<td style="text-align: right;">63.92</td>
+<td>0.18% / 0.42%</td>
+<td>0x952DF141 PASS</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>(extra)</td>
+<td><code>HalftimeHash-256</code></td>
+<td style="text-align: right;">17.12</td>
+<td style="text-align: right;">44.5</td>
+<td style="text-align: right;">63.98</td>
+<td>0.41% / 0.53%</td>
+<td>0x912330EA PASS</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>(extra)</td>
+<td><code>HalftimeHash-512</code></td>
+<td style="text-align: right;">17.45</td>
+<td style="text-align: right;">45.4</td>
+<td style="text-align: right;">70.48</td>
+<td>0.40% / 3.49%</td>
+<td>0x1E0F99EA PASS</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>(extra)</td>
+<td><code>polyxor-128.raw</code></td>
+<td style="text-align: right;">19.83</td>
+<td style="text-align: right;">51.6</td>
+<td style="text-align: right;">96.43</td>
+<td>0.00% / 3.15%</td>
+<td>0x23A6E8BB PASS</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chainhash-backends-on-zen-4">ChainHash backends on Zen 4</h2>
+<p>The headers dispatch to ZMM when AVX-512 is present. Forcing each x86
+backend in one binary
+(<code>speeds_zen4_chainhash_backends.json</code>):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Registration</th>
+<th style="text-align: right;">Bulk B/tick</th>
+<th style="text-align: right;">1–31 B cycles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>chainhash (run-time dispatch)</td>
+<td style="text-align: right;">35.14</td>
+<td style="text-align: right;">61.78</td>
+</tr>
+<tr class="even">
+<td>chainhash.zmm</td>
+<td style="text-align: right;">35.15</td>
+<td style="text-align: right;">61.75</td>
+</tr>
+<tr class="odd">
+<td>chainhash.ymm</td>
+<td style="text-align: right;">20.14</td>
+<td style="text-align: right;">61.72</td>
+</tr>
+<tr class="even">
+<td>chainhash.xmm</td>
+<td style="text-align: right;">10.07</td>
+<td style="text-align: right;">61.79</td>
+</tr>
+<tr class="odd">
+<td>chainhash-128 (run-time dispatch)</td>
+<td style="text-align: right;">19.35</td>
+<td style="text-align: right;">116.58</td>
+</tr>
+<tr class="even">
+<td>chainhash-128.zmm</td>
+<td style="text-align: right;">19.38</td>
+<td style="text-align: right;">127.77</td>
+</tr>
+<tr class="odd">
+<td>chainhash-128.ymm</td>
+<td style="text-align: right;">12.40</td>
+<td style="text-align: right;">127.53</td>
+</tr>
+<tr class="even">
+<td>chainhash-128.xmm</td>
+<td style="text-align: right;">6.19</td>
+<td style="text-align: right;">127.94</td>
+</tr>
+</tbody>
+</table>
+<p>ZMM is 1.75× (ChainHash) and 1.56× (ChainHash-128) faster than YMM in
+bulk on Zen 4. Zen 4 executes 512-bit VPCLMULQDQ as two 256-bit halves,
+but the wider loop still wins, so the ZMM dispatch is right on this
+CPU.</p>
+<p>The forced ChainHash-128 registrations pass the backend as a
+compile-time constant. Their short-input cost (about 128 cycles) is
+higher than the dispatched entry point's 116.6; bulk is unaffected.</p>
+<h2 id="files">Files</h2>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="speeds_zen4.json">speeds_zen4.json</a></td>
+<td>The 42 manifest rows: selected cells, both passes, spreads, load,
+Sanity records (reproduction <code>benchmark.py</code> output)</td>
+</tr>
+<tr class="even">
+<td><a href="speeds_zen4_extra.json">speeds_zen4_extra.json</a></td>
+<td>wyhash, XXH64, XXH32, MurmurHash64A, MurmurHash2, MurmurHash2A, the
+four HalftimeHash styles, <code>polyxor-128.raw</code>; with per-length
+1–31 B costs</td>
+</tr>
+<tr class="odd">
+<td><a
+href="speeds_zen4_chainhash_backends.json">speeds_zen4_chainhash_backends.json</a></td>
+<td>The backend comparison above, with <code>0a03c63</code> and
+PolyXOR128/XXH3-128 controls</td>
+</tr>
+<tr class="even">
+<td><a href="provenance.json">provenance.json</a></td>
+<td>CPU, clocks, kernel, compiler and flags, rustc, patch hashes, binary
+SHA-256s, pin set, load</td>
+</tr>
+<tr class="odd">
+<td><a href="verifyall-30c0111.txt">verifyall-30c0111.txt</a>, <a
+href="verifyall-a0116ea.txt">verifyall-a0116ea.txt</a></td>
+<td>VerifyAll of the two reproduction builds</td>
+</tr>
+<tr class="even">
+<td><code>evidence/panel/</code>,
+<code>evidence/panel-chainhash/</code>, <code>evidence/extra/</code>,
+<code>evidence/backends/</code></td>
+<td>Raw <code>--test=Speed</code> output per row and pass
+(<code>NAME.runN.txt</code>), run and gate records, Sanity logs</td>
+</tr>
+<tr class="odd">
+<td><a href="bench/clockprobe.c">bench/</a></td>
+<td>The TSC and core-clock probe with its before and after output, and
+the provenance collector</td>
+</tr>
+<tr class="even">
+<td><a href="merge_epyc.py">merge_epyc.py</a></td>
+<td>Writes these cells into the article's <code>data.json</code> and
+<code>records/speeds.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>Reproduce with the repository's README
+(<code>--host EPYC9R14 --cpus 8-15 --nice 10</code>). The extra rows use
+<code>records/chainhash/refresh-a0116ea/bench/run_speed.py</code> on the
+same binary.</p>
+</main></body></html>
