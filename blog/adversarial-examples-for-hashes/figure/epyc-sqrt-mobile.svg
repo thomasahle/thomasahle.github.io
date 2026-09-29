@@ -293,11 +293,6 @@
      <use xlink:href="#m716f67a578" x="55.344805" y="458.674268" style="fill: #ffffff; stroke: #737d8d; stroke-width: 1.6" />
     </g>
    <circle cx="55.34480545303271" cy="458.67426822935226" r="12" fill="transparent" class="point-hit" /><circle cx="55.34480545303271" cy="458.67426822935226" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-halftime24" data-point-id="halftime24" data-speed="15.96" data-bits="39.39231742277876" tabindex="0" role="button" aria-label="HalftimeHash24 (shipped advanced 24-byte API): at most 39.4 bits (cap; counted 2^-32 key class for a fixed equal-length 1344-byte pair); 15.96 B/cycle. Inspect result.">
-    <g clip-path="url(#peb24a7021e)">
-     <use xlink:href="#mc9351b6c37" x="279.547652" y="515.026714" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
-    </g>
-   <circle cx="279.54765215751166" cy="515.0267136086477" r="12" fill="transparent" class="point-hit" /><circle cx="279.54765215751166" cy="515.0267136086477" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
    <g id="point-go-maphash" data-point-id="go-maphash" data-speed="22.38" data-bits="25.0" tabindex="0" role="button" aria-label="Go runtime map hash / hash/maphash (go1.27.1, amd64 AES path): at most 25.0 bits (cap; analytic trail 2^-24, measured 2^-23.96); 95% Poisson on the verifier sample [24.61, 25.33]; 22.38 B/cycle. Inspect result.">
     <g clip-path="url(#peb24a7021e)">
      <use xlink:href="#mc9351b6c37" x="302.053802" y="556.754138" style="fill: #bd5637; stroke: #bd5637; stroke-width: 0.7" />
@@ -391,17 +386,17 @@
      <use xlink:href="#m63c7f8ab11" x="251.990323" y="458.674268" style="fill: #176f83; stroke: #176f83; stroke-width: 0.7" />
     </g>
    <circle cx="251.9903233291147" cy="458.67426822935226" r="12" fill="transparent" class="point-hit" /><circle cx="251.9903233291147" cy="458.67426822935226" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-chainhash" data-point-id="chainhash" data-speed="35.09" data-bits="63.0" tabindex="0" role="button" aria-label="ChainHash (ours): ≥ 63 bits (proved; attained at L = 1); 35.09 B/cycle. Inspect result.">
+   <g id="point-chainhash" data-point-id="chainhash" data-speed="35.09" data-bits="63.0" tabindex="0" role="button" aria-label="ChainHash: ≥ 63 bits (proved; attained at L = 1); 35.09 B/cycle. Inspect result.">
     <g clip-path="url(#peb24a7021e)">
      <use xlink:href="#m63c7f8ab11" x="331.993591" y="460.725644" style="fill: #176f83; stroke: #176f83; stroke-width: 0.7" />
     </g>
    <circle cx="331.99359110980913" cy="460.7256435878543" r="12" fill="transparent" class="point-hit" /><circle cx="331.99359110980913" cy="460.7256435878543" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-halftime24-fixed" data-point-id="halftime24-fixed" data-speed="12.44" data-bits="96.0" tabindex="0" role="button" aria-label="HalftimeHash24, repaired encoder (not shipped): ≥ 96 bits (proved; attained at L = 1); 12.44 B/cycle. Inspect result.">
+   <g id="point-halftime24-fixed" data-point-id="halftime24-fixed" data-speed="12.44" data-bits="96.0" tabindex="0" role="button" aria-label="HalftimeHash24: ≥ 96 bits (proved; attained at L = 1); 12.44 B/cycle. Inspect result.">
     <g clip-path="url(#peb24a7021e)">
      <use xlink:href="#m63c7f8ab11" x="262.960487" y="399.893074" style="fill: #176f83; stroke: #176f83; stroke-width: 0.7" />
     </g>
    <circle cx="262.96048706499266" cy="399.8930741766735" r="12" fill="transparent" class="point-hit" /><circle cx="262.96048706499266" cy="399.8930741766735" r="10" fill="none" stroke="#263330" stroke-width="1.4" opacity="0" class="point-ring" /></g>
-   <g id="point-chainhash128" data-point-id="chainhash128" data-speed="19.32" data-bits="127" tabindex="0" role="button" aria-label="ChainHash-128 (ours): ≥ 127 bits (proved; attained at L = 1); 19.32 B/cycle. Inspect result.">
+   <g id="point-chainhash128" data-point-id="chainhash128" data-speed="19.32" data-bits="127" tabindex="0" role="button" aria-label="ChainHash-128: ≥ 127 bits (proved; attained at L = 1); 19.32 B/cycle. Inspect result.">
     <g clip-path="url(#peb24a7021e)">
      <use xlink:href="#m63c7f8ab11" x="292.266213" y="351.785921" style="fill: #176f83; stroke: #176f83; stroke-width: 0.7" />
     </g>
@@ -475,13 +470,13 @@
     <text style="font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #bd5637" x="237.607214" y="590.104081" transform="rotate(-0 237.607214 590.104081)">komihash*</text>
    </g>
    <g id="leader-chainhash128" data-leader-for="chainhash128">
-    <path d="M 294.363773 366.872095  Q 293.865756 363.290234 293.367739 359.708373  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
+    <path d="M 306.374735 368.053728  Q 301.940849 362.941244 297.506964 357.82876  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
    </g>
    <g id="label-chainhash128" data-label-for="chainhash128" data-label-key="chainhash128">
     <g id="patch_11">
-     <path d="M 231.761183 387.888579  L 360.577433 387.888579  L 360.577433 371.827329  L 231.761183 371.827329  z " style="fill: #ffffff; opacity: 0.96" />
+     <path d="M 272.398058 387.601704  L 360.577433 387.601704  L 360.577433 371.827329  L 272.398058 371.827329  z " style="fill: #ffffff; opacity: 0.96" />
     </g>
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #176f83" x="358.177433" y="382.962954" transform="rotate(-0 358.177433 382.962954)">ChainHash-128 (ours)</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #176f83" x="358.177433" y="382.816704" transform="rotate(-0 358.177433 382.816704)">ChainHash-128</text>
    </g>
    <g id="leader-polyxor" data-leader-for="polyxor">
     <path d="M 302.496369 349.26074  Q 301.904315 349.492756 301.312261 349.724773  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
@@ -493,22 +488,22 @@
     <text style="font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #176f83" x="292.967949" y="342.51152" transform="rotate(-0 292.967949 342.51152)">PolyXOR128</text>
    </g>
    <g id="leader-halftime24-fixed" data-leader-for="halftime24-fixed">
-    <path d="M 175.284723 413.849655  Q 215.172005 407.500237 255.059287 401.150819  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
+    <path d="M 151.598023 415.507322  Q 203.318288 408.255569 255.038554 401.003817  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
    </g>
    <g id="label-halftime24-fixed" data-label-for="halftime24-fixed" data-label-key="halftime24-fixed">
     <g id="patch_13">
-     <path d="M 56.48033 430.696739  L 183.318455 430.696739  L 183.318455 414.635489  L 56.48033 414.635489  z " style="fill: #ffffff; opacity: 0.96" />
+     <path d="M 56.48033 430.409864  L 146.647205 430.409864  L 146.647205 414.635489  L 56.48033 414.635489  z " style="fill: #ffffff; opacity: 0.96" />
     </g>
-    <text style="font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #176f83" x="58.88033" y="425.771114" transform="rotate(-0 58.88033 425.771114)">HalftimeHash24 (fixed)</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #176f83" x="58.88033" y="425.624864" transform="rotate(-0 58.88033 425.624864)">HalftimeHash24</text>
    </g>
    <g id="leader-chainhash" data-leader-for="chainhash">
-    <path d="M 311.882951 451.037278  Q 318.335687 454.145905 324.788424 457.254531  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
+    <path d="M 322.897951 452.034627  Q 324.55342 453.616452 326.208888 455.198276  " style="fill: none; opacity: 0.5; stroke: #176f83; stroke-width: 0.8; stroke-linecap: round" />
    </g>
    <g id="label-chainhash" data-label-for="chainhash" data-label-key="chainhash">
     <g id="patch_14">
-     <path d="M 238.310575 448.868344  L 343.111825 448.868344  L 343.111825 432.807094  L 238.310575 432.807094  z " style="fill: #ffffff; opacity: 0.96" />
+     <path d="M 278.94745 448.581469  L 343.111825 448.581469  L 343.111825 432.807094  L 278.94745 432.807094  z " style="fill: #ffffff; opacity: 0.96" />
     </g>
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #176f83" x="340.711825" y="443.942719" transform="rotate(-0 340.711825 443.942719)">ChainHash (ours)</text>
+    <text style="font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #176f83" x="340.711825" y="443.796469" transform="rotate(-0 340.711825 443.796469)">ChainHash</text>
    </g>
   </g>
   <g id="line2d_22">

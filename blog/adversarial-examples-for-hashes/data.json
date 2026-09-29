@@ -15658,209 +15658,6 @@
       "bound": "≈ 1/2^64 per fixed pair if the PRF claim holds (unproven)"
     },
     {
-      "id": "halftime24",
-      "pattern": [
-        "P3",
-        "P5"
-      ],
-      "name": "HalftimeHash24 (shipped advanced 24-byte API)",
-      "label": "HalftimeHash24 shipped",
-      "family": "heuristic",
-      "bits": 39.39231742277876,
-      "bits_kind": "exact",
-      "score": {
-        "calculated": 39.39231742277876,
-        "display": 39.4,
-        "display_text": "at most 39.4 bits (cap; counted 2^-32 key class for a fixed equal-length 1344-byte pair)",
-        "direction": "upper_bound",
-        "previous": {
-          "display": 36.4,
-          "reason": "that pair is for advanced::V1<3>"
-        }
-      },
-      "collision": {
-        "display": "at least 1 of every 2^32 keys (counted; equal-length 1344-byte Encode3 pair on the V4 entry point, b = 8; 262,144/262,144 in the class, 0 outside)",
-        "exact_contribution": true
-      },
-      "key_free": false,
-      "chart_eligible": true,
-      "key_bits": null,
-      "output_bits": 192,
-      "key_model": "independent uniform entropy words; raw fixed-length core",
-      "pair": {
-        "m_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        "m_prime_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        "lengths_bytes": [
-          1344,
-          1344
-        ],
-        "L_words": 168,
-        "description": "1344 zero bytes versus the same input with little-endian word 48 equal to 1 (byte 384 = 0x01); the 24-byte outputs of advanced::V4<3> agree whenever the top 32 bits of core key word 6 are zero",
-        "verifier_confirmed": true
-      },
-      "unequal_length_pair": {
-        "m_hex": "",
-        "m_prime_hex": "00",
-        "lengths_bytes": [
-          0,
-          1
-        ],
-        "L_words": 1,
-        "verifier_confirmed": true,
-        "note": "0 bits, every key: the raw advanced core does not encode length, so the empty string and one zero byte collide for every key array (1000/1000 checked). The core is fixed-length by design; this record is kept as a note only and the headline uses the equal-length pair."
-      },
-      "equal_length_pair": {
-        "lengths_bytes": [
-          1344,
-          1344
-        ],
-        "L_words": 168,
-        "description": "1344 zero bytes versus the same input with word 48 equal to 1; V4<3>, b = 8",
-        "epsilon_lower": "2^-32",
-        "score_cap": 39.39231742277876,
-        "sample_count": 76,
-        "trials": 316053236830,
-        "sample_rate": "2^-31.95",
-        "interval_95": "[2^-32.30,2^-31.63]",
-        "class_check": "262,144/262,144 in the key class, 0 outside, 0 uniform"
-      },
-      "status": "NEW",
-      "claim_category": "advertised bound refuted",
-      "official_claim": {
-        "text": "For HalftimeHash24, and for strings less than an exabyte in length, this is more than 83 bits of entropy",
-        "url": "https://arxiv.org/abs/2104.08865"
-      },
-      "qualification": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 1344-byte (V4<3>; the 168-byte pair applies to V1<3>) pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
-      "anchor": "appendix-halftime24",
-      "code_url": "verify/halftime/verify2/run.cpp",
-      "speed_registration": null,
-      "smhasher3": {
-        "verdict": "Sanity FAIL (append-zeroes), as expected from the length-free core; not in upstream SMHasher3, scratch registration"
-      },
-      "speeds": {
-        "smh_m2_bulk_Bpc": {
-          "value": 1.37,
-          "source": "SMHasher3 M2Pro, 262144 B bulk, B/cycle, median of three; the unmodified header falls back to its scalar path on arm64 because its NEON dispatch does not compile (issue #1, PR #2); with the dispatch fix the same core measures about 5.6",
-          "record": "records/halftime24-shipped/speeds_halftime24_shipped.json",
-          "url": "records/halftime24-shipped/speeds_halftime24_shipped.json",
-          "source_short": "SMHasher3 M2Pro (scalar fallback)"
-        },
-        "smh_m2_small_cycles": {
-          "value": 60.69,
-          "source": "SMHasher3 M2Pro, 1–31 B, cycles/hash (scalar fallback)",
-          "record": "records/halftime24-shipped/speeds_halftime24_shipped.json"
-        },
-        "smh_xeon_bulk_Bpc": {
-          "value": 12.81,
-          "source": "SMHasher3 Xeon8375C, 262144 B bulk, B/cycle; scratch registration of the unmodified header (AVX-512 V4<3>), higher of two passes",
-          "record": "records/halftime24-shipped/speeds_halftime24_shipped.json",
-          "url": "records/halftime24-shipped/speeds_halftime24_shipped.json",
-          "source_short": "SMHasher3 Xeon8375C"
-        },
-        "smh_xeon_small_cycles": {
-          "value": 64.91,
-          "source": "SMHasher3 Xeon8375C, 1–31 B, cycles/hash",
-          "record": "records/halftime24-shipped/speeds_halftime24_shipped.json"
-        },
-        "smh_epyc_bulk_Bpc": {
-          "value": 15.96,
-          "source": "SMHasher3 EPYC9R14, 262144 B bulk, B/cycle (B per TSC tick, TSC 2.600 GHz)",
-          "source_short": "SMHasher3 EPYC9R14",
-          "url": "records/zen4/speeds_zen4.json",
-          "record": "records/zen4/speeds_zen4.json#/HalftimeHash24-shipped/EPYC9R14",
-          "registered_name": "HalftimeHash24-shipped",
-          "host": "EPYC9R14",
-          "selection": "higher bulk of two passes; independently lower small average",
-          "selected_run": 1,
-          "spread_percent": 0.0626959247649106,
-          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
-          "verification": {
-            "status": "FAIL",
-            "registered_name": "HalftimeHash24-shipped",
-            "returncode": 0,
-            "failures": [
-              "Running append zeroes test   . FAIL  !!!!!",
-              "SANITY_FAILS unset, but hash failed"
-            ],
-            "raw_file": "HalftimeHash24-shipped.sanity.txt",
-            "raw_sha256": "6bcd092e3f50783209d921f5a02a12d3ee46aaa07f35bfc1e82da610ef3f49f4",
-            "verification_lines": [
-              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
-              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
-              "Verification value LE 0x8A105352 ...... SKIP (unverifiable)",
-              "Verification value is 0x00000001 - Testing took 1.057206 seconds"
-            ]
-          }
-        },
-        "smh_epyc_small_cycles": {
-          "value": 54.51,
-          "source": "SMHasher3 EPYC9R14, 1–31 B, cycles/hash (TSC ticks)",
-          "source_short": "SMHasher3 EPYC9R14",
-          "url": "records/zen4/speeds_zen4.json",
-          "record": "records/zen4/speeds_zen4.json#/HalftimeHash24-shipped/EPYC9R14",
-          "registered_name": "HalftimeHash24-shipped",
-          "host": "EPYC9R14",
-          "selection": "higher bulk of two passes; independently lower small average",
-          "selected_run": 1,
-          "spread_percent": 0.01834525775088469,
-          "binary_sha256": "4907770e1559c05cfc718fc6863a42d0894a5e7d7fa141389c206813156a5877",
-          "verification": {
-            "status": "FAIL",
-            "registered_name": "HalftimeHash24-shipped",
-            "returncode": 0,
-            "failures": [
-              "Running append zeroes test   . FAIL  !!!!!",
-              "SANITY_FAILS unset, but hash failed"
-            ],
-            "raw_file": "HalftimeHash24-shipped.sanity.txt",
-            "raw_sha256": "6bcd092e3f50783209d921f5a02a12d3ee46aaa07f35bfc1e82da610ef3f49f4",
-            "verification_lines": [
-              "WARNING: Hash with verification code 1e0f99ea was already registered: HalftimeHash-512-fixed",
-              "WARNING: Hash with verification code 07203cdb was already registered: AbseilHash-default",
-              "Verification value LE 0x8A105352 ...... SKIP (unverifiable)",
-              "Verification value is 0x00000001 - Testing took 1.057206 seconds"
-            ]
-          }
-        }
-      },
-      "mechanism_family": "NH trees",
-      "family_definition": "NH keyed pair products, encoding and tree combination; advanced Encode3 core.",
-      "version": "upstream header, unmodified (advanced 24-byte API)",
-      "notes": " Plotted as shipped, at the author's request, until upstream fixes the encoder: at most 36.4 bits for the full 24-byte value (equal-length Encode3 pair; counted 2^-32 key class, sampled 2^-31.95). Note on unequal lengths: the raw core does not encode length, so the empty string and one zero byte collide for every key, 0 bits; it is fixed-length by design, so the headline uses the equal-length pair. Timings: Xeon AVX-512 path 12.81 B/cycle; M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2), about 5.6 with the dispatch fix.",
-      "hover": "HalftimeHash24 as shipped: the Encode3 encoder has distance 1, not 3, so a fixed 168-byte equal-length pair collides whenever the top 32 bits of one key word are zero (at most 36.4 bits; measured 2^-31.95). Across unequal lengths the fixed-length raw core gives 0 bits (empty vs one zero byte, every key). Repaired proof and header disclosed in issue #3. M2 speed is the scalar fallback (NEON dispatch broken upstream).",
-      "multicollision": {
-        "tier": "weak-key",
-        "text": "Weak-key multicollision: when one core key word has a zero high half (2^-32 of keys), the defect frees one word per lane in every 1344-byte leaf at once, because all leaves share the key: 2^256 inputs at 1344 bytes and about 2^200,000 at 1 MB collide in the full 192-bit output (2^10-member sub-families at 1 MB: 16/16 and 128/128 class keys, 0 outside). The length-free core also collides key-free, but only within an 8b-byte window. records/witness-searches/reanalysis-2026-09/halftime24/README.html"
-      },
-      "superseded": {
-        "date": "2026-09-28",
-        "changelog": "#changelog",
-        "reason": "scope: the 168-byte pair collides for advanced::V1<3> (b = 1); the timed and named entry point is V4<3>, whose witness is 1344 bytes",
-        "pair": {
-          "m_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-          "m_prime_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-          "lengths_bytes": [
-            168,
-            168
-          ],
-          "L_words": 21,
-          "description": "168 zero bytes versus the same input with little-endian word 6 equal to 1 (byte 48 = 0x01); the 24-byte outputs agree whenever the top 32 bits of key word 6 are zero",
-          "verifier_confirmed": true
-        },
-        "score": {
-          "calculated": 36.39231742277876,
-          "display": 36.4,
-          "display_text": "at most 36.4 bits (cap; counted 2^-32 key class for a fixed equal-length pair, sampled 2^-31.95)",
-          "direction": "upper_bound"
-        },
-        "bits": 36.39231742277876,
-        "collision": {
-          "display": "at least 1 of every 2^32 keys (counted; equal-length 168-byte Encode3 pair); sampled 76/316053236830 ≈ 2^-31.95, 95% interval [2^-32.30, 2^-31.63]",
-          "exact_contribution": true
-        }
-      }
-    },
-    {
       "id": "go-maphash",
       "pattern": [
         "P2"
@@ -22752,8 +22549,8 @@
     },
     {
       "id": "chainhash",
-      "name": "ChainHash (ours)",
-      "label": "ChainHash (ours)",
+      "name": "ChainHash",
+      "label": "ChainHash",
       "pattern": [],
       "family": "proven",
       "bits": 63.0,
@@ -23202,8 +22999,8 @@
     },
     {
       "id": "halftime24-fixed",
-      "name": "HalftimeHash24, repaired encoder (not shipped)",
-      "label": "HalftimeHash24 repaired",
+      "name": "HalftimeHash24",
+      "label": "HalftimeHash24",
       "pattern": [],
       "family": "proven",
       "bits": 96.0,
@@ -23394,15 +23191,15 @@
       "smhasher3": {
         "verdict": "Sanity/verification PASS; full suite not supplied"
       },
-      "fix_provenance": "Our fixed-24byte-core branch in github.com/thomasahle/HalftimeHash; not yet upstream.",
+      "fix_provenance": "Repaired encoder on the fixed-24byte-core branch in github.com/thomasahle/HalftimeHash; not yet upstream.",
       "old_witness_result": "0 collisions in 2^36 keys at each of four widths on the old 2^-32 witness.",
       "collision_bound_bits_exact": 96.0,
-      "notes": "The experimental repaired 24-byte core is plotted separately with its own proof and timing records. The repaired header and theorem are disclosed in jbapple/HalftimeHash issue #3 and the appendix; this is not an upstream release."
+      "notes": "This row is the repaired 24-byte core, with its own proof and timing records: the published advanced function has an equal-length counterexample, so the encoder had to be repaired. The repaired header and theorem are disclosed in jbapple/HalftimeHash issue #3 and the appendix; this is not an upstream release."
     },
     {
       "id": "chainhash128",
-      "name": "ChainHash-128 (ours)",
-      "label": "ChainHash-128 (ours)",
+      "name": "ChainHash-128",
+      "label": "ChainHash-128",
       "pattern": [],
       "family": "proven",
       "bits": 127,

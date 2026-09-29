@@ -1,6 +1,6 @@
 {
-  "source_sha256": "7c2fad6bd631b38e0679a6ceb806f8a854f312fa08cfb1e54f5ee27f38ab9e33",
-  "profiles_sha256": "e63765c7d018921e81e5c47b70fc88c4914cf1aecf48fdf36c44d25b4764f1e9",
+  "source_sha256": "c3aba933fddbc7365b3b7fa725bb0af6e0c4db21ed9efb5e5cb3bd3081c5a546",
+  "profiles_sha256": "330ec70e156453acdee079614efb2f35e8665e2fd5d7b605a771f32676da03fb",
   "profiles": {
     "city": {
       "authors": "Geoff Pike and Jyrki Alakuijala · Google",
@@ -642,34 +642,6 @@
       "sources": [
         "https://github.com/veorq/SipHash",
         "records/speeds.json"
-      ]
-    },
-    "halftime24": {
-      "authors": "Jim Apple",
-      "background": "HalftimeHash’s advanced interface can return 24 bytes, or 192 bits, rather than the 64 bits returned by its public wrappers. This entry studies that original internal function. It was intended for fixed-length inputs.",
-      "links": [
-        {
-          "label": "Original project and code",
-          "url": "https://github.com/jbapple/HalftimeHash"
-        },
-        {
-          "label": "Corrected bounds and repair (PDF)",
-          "url": "records/papers/halftime_repair.pdf"
-        },
-        {
-          "label": "Measurements",
-          "url": "records/speeds.json"
-        },
-        {
-          "label": "Verifier package",
-          "url": "verify/halftime/README.html"
-        }
-      ],
-      "sources": [
-        "https://github.com/jbapple/HalftimeHash",
-        "records/papers/halftime_repair.pdf",
-        "records/speeds.json",
-        "verify/halftime/README.html"
       ]
     },
     "halftime24-fixed": {
@@ -1855,36 +1827,6 @@
           "code_url": "https://github.com/veorq/SipHash"
         },
         {
-          "id": "halftime24",
-          "name": "HalftimeHash24 (shipped advanced 24-byte API)",
-          "label": "HalftimeHash24 shipped",
-          "kind": "witness",
-          "key_free": false,
-          "speed": 1.37,
-          "bits": 39.39231742277876,
-          "score": "≤ 39.4",
-          "anchor": "appendix-halftime24",
-          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 1344-byte Encode3 pair on the V4 entry point, b = 8; 262,144/262,144 in the class, 0 outside)",
-          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 1344-byte (V4<3>; the 168-byte pair applies to V1<3>) pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
-          "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
-          "family": "NH trees",
-          "key_model": "independent uniform entropy words; raw fixed-length core",
-          "profile": "halftime24",
-          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score at most 36.4 bits for the full 24-byte value; the unequal-length identity is a note, since the core is fixed-length by design.",
-          "reader_notes": {
-            "evidence": "The equal-length counterexample has a counted sufficient key class and sampled confirmation. The unequal-length collision is an exact identity.",
-            "key": "The experiment uses the independent random key words assumed by the advanced function’s claim.",
-            "scope": "These results do not refute the corrected bounds for the public 64-bit wrappers. The original advanced function is plotted using its own timings and equal-length counterexample. The repaired 24-byte construction has a separate entry."
-          },
-          "smhasher": {
-            "url": "https://github.com/thomasahle/hash-benchmark-reproduction/blob/038373d7f7a683436ef6dc662814aa0aef7e9e4b/verification/out/Xeon8375C/HalftimeHash24-shipped.sanity.txt",
-            "label": "SMHasher3 basic checks",
-            "scope": "sanity"
-          },
-          "output_bits": 192,
-          "code_url": "verify/halftime/verify2/run.cpp"
-        },
-        {
           "id": "abseil-hash",
           "name": "absl::Hash (abseil-cpp 20260817.0 / HEAD 73d2688)",
           "label": "absl::Hash",
@@ -2396,8 +2338,8 @@
         },
         {
           "id": "chainhash",
-          "name": "ChainHash (ours)",
-          "label": "ChainHash (ours)",
+          "name": "ChainHash",
+          "label": "ChainHash",
           "kind": "proof",
           "key_free": false,
           "speed": 30.15,
@@ -2426,8 +2368,8 @@
         },
         {
           "id": "halftime24-fixed",
-          "name": "HalftimeHash24, repaired encoder (not shipped)",
-          "label": "HalftimeHash24 repaired",
+          "name": "HalftimeHash24",
+          "label": "HalftimeHash24",
           "kind": "proof",
           "key_free": false,
           "speed": 5.55,
@@ -2440,7 +2382,7 @@
           "family": "NH: keyed pair products summed",
           "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. The certified normalized score is 96 bits for every tree width (records/halftime/THEOREM.html, “Scores in the requested metric”), attained exactly by the one-byte pair 00/01; the earlier 83.27 was the conservative 6804·2^-96 envelope label, not the normalized score. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
           "profile": "halftime24-fixed",
-          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, shown at about 83.27 bits here. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
+          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, at least 96 bits, attained by a one-byte pair. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
           "reader_notes": {
             "evidence": "The displayed bound follows from the corrected construction’s proof. Tests also checked the old counterexample, but a clean test run alone would not establish the guarantee.",
             "key": "The theorem requires independent, uniformly random key words. It does not cover replacing those words with the output of an arbitrary seed expander.",
@@ -2456,8 +2398,8 @@
         },
         {
           "id": "chainhash128",
-          "name": "ChainHash-128 (ours)",
-          "label": "ChainHash-128 (ours)",
+          "name": "ChainHash-128",
+          "label": "ChainHash-128",
           "kind": "proof",
           "key_free": false,
           "speed": 16.85,
@@ -3392,36 +3334,6 @@
           "code_url": "https://github.com/veorq/SipHash"
         },
         {
-          "id": "halftime24",
-          "name": "HalftimeHash24 (shipped advanced 24-byte API)",
-          "label": "HalftimeHash24 shipped",
-          "kind": "witness",
-          "key_free": false,
-          "speed": 12.81,
-          "bits": 39.39231742277876,
-          "score": "≤ 39.4",
-          "anchor": "appendix-halftime24",
-          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 1344-byte Encode3 pair on the V4 entry point, b = 8; 262,144/262,144 in the class, 0 outside)",
-          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 1344-byte (V4<3>; the 168-byte pair applies to V1<3>) pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
-          "source": "records/halftime24-shipped/speeds_halftime24_shipped.json",
-          "family": "NH trees",
-          "key_model": "independent uniform entropy words; raw fixed-length core",
-          "profile": "halftime24",
-          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score at most 36.4 bits for the full 24-byte value; the unequal-length identity is a note, since the core is fixed-length by design.",
-          "reader_notes": {
-            "evidence": "The equal-length counterexample has a counted sufficient key class and sampled confirmation. The unequal-length collision is an exact identity.",
-            "key": "The experiment uses the independent random key words assumed by the advanced function’s claim.",
-            "scope": "These results do not refute the corrected bounds for the public 64-bit wrappers. The original advanced function is plotted using its own timings and equal-length counterexample. The repaired 24-byte construction has a separate entry."
-          },
-          "smhasher": {
-            "url": "https://github.com/thomasahle/hash-benchmark-reproduction/blob/038373d7f7a683436ef6dc662814aa0aef7e9e4b/verification/out/Xeon8375C/HalftimeHash24-shipped.sanity.txt",
-            "label": "SMHasher3 basic checks",
-            "scope": "sanity"
-          },
-          "output_bits": 192,
-          "code_url": "verify/halftime/verify2/run.cpp"
-        },
-        {
           "id": "go-maphash",
           "name": "Go runtime map hash / hash/maphash (go1.27.1, amd64 AES path)",
           "label": "Go maphash",
@@ -3963,8 +3875,8 @@
         },
         {
           "id": "chainhash",
-          "name": "ChainHash (ours)",
-          "label": "ChainHash (ours)",
+          "name": "ChainHash",
+          "label": "ChainHash",
           "kind": "proof",
           "key_free": false,
           "speed": 28.25,
@@ -3993,8 +3905,8 @@
         },
         {
           "id": "halftime24-fixed",
-          "name": "HalftimeHash24, repaired encoder (not shipped)",
-          "label": "HalftimeHash24 repaired",
+          "name": "HalftimeHash24",
+          "label": "HalftimeHash24",
           "kind": "proof",
           "key_free": false,
           "speed": 14.12,
@@ -4007,7 +3919,7 @@
           "family": "NH: keyed pair products summed",
           "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. The certified normalized score is 96 bits for every tree width (records/halftime/THEOREM.html, “Scores in the requested metric”), attained exactly by the one-byte pair 00/01; the earlier 83.27 was the conservative 6804·2^-96 envelope label, not the normalized score. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
           "profile": "halftime24-fixed",
-          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, shown at about 83.27 bits here. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
+          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, at least 96 bits, attained by a one-byte pair. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
           "reader_notes": {
             "evidence": "The displayed bound follows from the corrected construction’s proof. Tests also checked the old counterexample, but a clean test run alone would not establish the guarantee.",
             "key": "The theorem requires independent, uniformly random key words. It does not cover replacing those words with the output of an arbitrary seed expander.",
@@ -4023,8 +3935,8 @@
         },
         {
           "id": "chainhash128",
-          "name": "ChainHash-128 (ours)",
-          "label": "ChainHash-128 (ours)",
+          "name": "ChainHash-128",
+          "label": "ChainHash-128",
           "kind": "proof",
           "key_free": false,
           "speed": 14.9,
@@ -4959,36 +4871,6 @@
           "code_url": "https://github.com/veorq/SipHash"
         },
         {
-          "id": "halftime24",
-          "name": "HalftimeHash24 (shipped advanced 24-byte API)",
-          "label": "HalftimeHash24 shipped",
-          "kind": "witness",
-          "key_free": false,
-          "speed": 15.96,
-          "bits": 39.39231742277876,
-          "score": "≤ 39.4",
-          "anchor": "appendix-halftime24",
-          "evidence": "at least 1 of every 2^32 keys (counted; equal-length 1344-byte Encode3 pair on the V4 entry point, b = 8; 262,144/262,144 in the class, 0 outside)",
-          "scope": "Equal-length Encode3 witness refutes the advertised bound: the encoder has distance 1, so a fixed 1344-byte (V4<3>; the 168-byte pair applies to V1<3>) pair collides whenever the top 32 bits of one key word are zero. The raw core is fixed-length by design; across unequal lengths it gives 0 bits (see note).",
-          "source": "records/zen4/speeds_zen4.json",
-          "family": "NH trees",
-          "key_model": "independent uniform entropy words; raw fixed-length core",
-          "profile": "halftime24",
-          "summary": "An equal-length pair collides for at least one key in 2³², contradicting the claimed bound for this advanced function. Separately, an empty input and one zero byte collide for every key because the raw function does not encode length. That second example matters only if the fixed-length function is used across different lengths. Plotted as shipped until upstream fixes the encoder: Xeon 12.81 B/cycle (AVX-512), M2 Pro 1.37 B/cycle on the scalar fallback because the shipped NEON dispatch does not compile on arm64 (issue #1, PR #2; about 5.6 with the fix). Score at most 36.4 bits for the full 24-byte value; the unequal-length identity is a note, since the core is fixed-length by design.",
-          "reader_notes": {
-            "evidence": "The equal-length counterexample has a counted sufficient key class and sampled confirmation. The unequal-length collision is an exact identity.",
-            "key": "The experiment uses the independent random key words assumed by the advanced function’s claim.",
-            "scope": "These results do not refute the corrected bounds for the public 64-bit wrappers. The original advanced function is plotted using its own timings and equal-length counterexample. The repaired 24-byte construction has a separate entry."
-          },
-          "smhasher": {
-            "url": "https://github.com/thomasahle/hash-benchmark-reproduction/blob/038373d7f7a683436ef6dc662814aa0aef7e9e4b/verification/out/Xeon8375C/HalftimeHash24-shipped.sanity.txt",
-            "label": "SMHasher3 basic checks",
-            "scope": "sanity"
-          },
-          "output_bits": 192,
-          "code_url": "verify/halftime/verify2/run.cpp"
-        },
-        {
           "id": "go-maphash",
           "name": "Go runtime map hash / hash/maphash (go1.27.1, amd64 AES path)",
           "label": "Go maphash",
@@ -5530,8 +5412,8 @@
         },
         {
           "id": "chainhash",
-          "name": "ChainHash (ours)",
-          "label": "ChainHash (ours)",
+          "name": "ChainHash",
+          "label": "ChainHash",
           "kind": "proof",
           "key_free": false,
           "speed": 35.09,
@@ -5560,8 +5442,8 @@
         },
         {
           "id": "halftime24-fixed",
-          "name": "HalftimeHash24, repaired encoder (not shipped)",
-          "label": "HalftimeHash24 repaired",
+          "name": "HalftimeHash24",
+          "label": "HalftimeHash24",
           "kind": "proof",
           "key_free": false,
           "speed": 12.44,
@@ -5574,7 +5456,7 @@
           "family": "NH: keyed pair products summed",
           "key_model": "Independent uniform entropy words; supported V4 byte lengths <168·8·(19173960+1). Distance-3 encoder and scalar byte length as last tail word. The certified normalized score is 96 bits for every tree width (records/halftime/THEOREM.html, “Scores in the requested metric”), attained exactly by the one-byte pair 00/01; the earlier 83.27 was the conservative 6804·2^-96 envelope label, not the normalized score. Construction M1–M4 checked in Lean; complete C++ refinement is not claimed.",
           "profile": "halftime24-fixed",
-          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, shown at about 83.27 bits here. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
+          "summary": "The repair addresses the two problems in the original advanced function: an equal-length counterexample and ambiguity between different lengths. The corrected mathematical construction has a proved collision bound, at least 96 bits, attained by a one-byte pair. Lean has checked the construction; a complete proof that the C++ implementation matches it is still missing.",
           "reader_notes": {
             "evidence": "The displayed bound follows from the corrected construction’s proof. Tests also checked the old counterexample, but a clean test run alone would not establish the guarantee.",
             "key": "The theorem requires independent, uniformly random key words. It does not cover replacing those words with the output of an arbitrary seed expander.",
@@ -5590,8 +5472,8 @@
         },
         {
           "id": "chainhash128",
-          "name": "ChainHash-128 (ours)",
-          "label": "ChainHash-128 (ours)",
+          "name": "ChainHash-128",
+          "label": "ChainHash-128",
           "kind": "proof",
           "key_free": false,
           "speed": 19.32,
