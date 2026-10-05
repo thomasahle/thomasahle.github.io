@@ -1,351 +1,360 @@
 {% include 'templates/header.html' %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <style type="text/css">{% include 'static/style.css' %}</style>
-
-  <script type="application/javascript">
-addLoadEvent(function () {
-   /* Show hide abstracts */
-   for (let div of document.querySelectorAll('.toggle-item')) {
-      div.onclick = function() {
-          // Other options: event_category, event_label, value (numeric)
-          gtag('event', 'toggle', {'event_label': div.id});
-          this.classList.toggle('open');
-          window.history.replaceState(null, null, '#'+div.id);
-      }
-      if ('#'+div.id == window.location.hash) {
-         div.classList.add('open');
-
-      }
-      // TODO: If hash paper is not featured, we should enable show-all
-   }
-
-   /* Show hide featured */
-   let toggle = () => {
-      for (let div of document.querySelectorAll('.publications')) {
-         div.classList.toggle('toggled');
-      }
-      // hide/show show-more links
-      for (let div of document.querySelectorAll('.show-more')) {
-         div.classList.toggle('shown');
-      }
-   }
-   let checkbox = document.getElementById('show-all-checkbox');
-   checkbox.checked = {{'true' if show_all else 'false'}};
-   // If hash, we should show all, in case the hashed paper is hidden
-   if (window.location.hash)
-      checkbox.checked = true;
-   if (!checkbox.checked)
-      toggle();
-   // Only add the event listener after the initial toggling
-   checkbox.addEventListener('change', event => {
-      gtag('event', 'toggle-show-all', {'event_label': event.target.checked ? 'on' : 'off' });
-      toggle();
-   });
-
-   /* Show more links */
-   for (let div of document.querySelectorAll('.show-more')) {
-      div.onclick = function() {
-         checkbox.checked = !checkbox.checked;
-         // I think updating check doesn't automatically call the change listener.
-         toggle();
-         gtag('event', 'show-more');
-      }
-   }
-});
-  </script>
   <title>{{me.name}}</title>
 </head>
 <body>
-   <h1>{{me.name}}</h1>
-   <div id='main'>
-      <p>
-         Hello, I'm Thomas.
-         I'm Head of Machine Learning at <a href="https://normalcomputing.com/">Normal Computing</a>.
-      </p><p>
-        My work combines AI and theory. On the AI side, I build agents that design, formalize and verify chips. On the theory side, I work on hashing with machine-checked guarantees, fast polynomial evaluation, optimization theory, and the foundations of massive data: similarity search, sketching and high-dimensional geometry.
-      </p><p>
-         <a class="nav-button" href="#research">Research</a>
-         <a class="nav-button" href="#resume">Resume</a>
-         <a class="nav-button" href="#software">Software</a>
-         <a class="nav-button" href="#other">Games</a>
-         <a class="nav-button" href="/blog">Blog</a>
-      </p>
+   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+      <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+      <symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M6 11h4"/><path d="M8 9v4"/><path d="M15 12h.01"/><path d="M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59l-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258l-.017-.151A4 4 0 0 0 17.32 5z"/></symbol>
+      <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></symbol>
+   </svg>
 
-      <div id='show-all'>
-         <label for="show-all-checkbox" class='toggle-text'>Show All</label>
-         <input type="checkbox" id="show-all-checkbox" checked />
-         <label for="show-all-checkbox" class='toggle'></label>
-      </div>
-      {% for type, articles in [('Publications', papers), ('Manuscripts', manuscripts)] %}
-         <h2 class="publications {{'has-featured' if has_featured(articles) else ''}}"
-                    >{{type}}</h2>
-         <ul class="publications">
-         {%- for paper in articles -%}
-            <li class="toggle-item
-                {{'featured' if paper.featured or paper.new else ''}}
-                {{'has_image' if paper.img else ''}}
-                "
-                  id='paper-{{paper.tag}}'>
-               <div class='shown'>
-                  <span class='files'>
-                  {%- for f in paper.files -%}
-                     [<a href='{{f.href}}'
-                        onclick="gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});"
-                        >{{f.format}}</a>]
-                     {%- if not loop.last %}  {% endif -%}
-                  {%- endfor -%}
-                  </span>
-
-                  <span class='year'>
-                  {%- if paper.conference not in ('subm', 'arxiv', '') -%}
-                     {{paper.conference.upper()}}
-                  {%- elif paper.conference == 'subm' -%}
-                     {{conferences[paper.conference].name}}
-                  {% endif %}
-                  {{paper.year}}
-                  {%- if paper.new %}
-                     —
-                     <span class="new">NEW!</span>
-                  {%- endif -%}
-                  {%- if paper.comment %}
-                     —
-                     <span class="comment">{{paper.comment}}</span>
-                  {%- endif -%}
-                  </span>
-
-                  {#<br style='clear:both' />#}
-                  <span class='title'>{{paper.title}}</span>
-                  {#<br />#}
-
-                  <span class='authors'>
-                  {% for a in paper.authors -%}
-                     {%- if authors[a] != me -%}
-                        <a href='{{authors[a].href}}'
-                           title='{{authors[a].name}}'
-                           onclick="gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});"
-                           >
-                           {%- if paper.authors |length < 5 -%}
-                              {{authors[a].abrv}}
-                           {%- else -%}
-                              {{authors[a].surname or authors[a].abrv.split()[-1]}}
-                           {%- endif -%}
-                        </a>
-                     {%- else -%}
-                        {{me.abrv}}
-                     {%- endif -%}
-                     {%- if not loop.last -%}, {% endif -%}
-                  {%- endfor %}
-                  </span>
-               </div>
-               {%- if paper.img %}
-               <div class='feature_image'><img src='feature_imgs/{{paper.img}}' /></div>
-               {%- endif -%}
-               <div class='abstract'>{{paper.abstract}}</div>
-            </li>
-         {%- endfor -%}
-         </ul>
-         <div class='show-more'>
-            Show more
+   <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#top">Thomas Ahle</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="side-nav">
+         <svg class="icon"><use href="#i-menu"/></svg> Menu
+      </button>
+      <nav class="side-nav" id="side-nav" aria-label="Sections">
+         <a href="#top" class="active"><svg class="icon"><use href="#i-home"/></svg>Home</a>
+         <a href="#publications"><svg class="icon"><use href="#i-database"/></svg>Publications</a>
+         <a href="#manuscripts"><svg class="icon"><use href="#i-file"/></svg>Manuscripts</a>
+         <a href="#projects"><svg class="icon"><use href="#i-gamepad"/></svg>Software &amp; Games</a>
+         <a href="#media"><svg class="icon"><use href="#i-megaphone"/></svg>Media</a>
+         <a href="#teaching"><svg class="icon"><use href="#i-cap"/></svg>Teaching</a>
+         <a href="#about"><svg class="icon"><use href="#i-user"/></svg>About / Resume</a>
+         <a href="/blog/"><svg class="icon"><use href="#i-pen"/></svg>Blog</a>
+      </nav>
+      <div class="sidebar-foot">
+         <div class="socials">
+            <a href="https://github.com/thomasahle" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+            <a href="https://x.com/thomasahle" aria-label="X"><svg class="icon solid"><use href="#i-x"/></svg></a>
+            <a href="mailto:{{me.email}}" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
+            <a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate" aria-label="Google Scholar"><svg class="icon solid"><use href="#i-scholar"/></svg></a>
+            <a href="https://linkedin.com/in/thomasahle" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
          </div>
-      {% endfor %}
+         <p class="copyright">&copy; {{now.year}} {{me.name}}</p>
+      </div>
+   </aside>
 
-      <h2 id="research">Research</h2>
+   <main class="main" id="top">
+      <div class="container">
 
-      <h2 id="resume">Resume</h2>
-      <p>
-         I serve on the 2026&ndash;2027 Board of Directors of the <a href='https://si2.org/'>Silicon Integration Initiative</a> (Si2),
-         a not-for-profit consortium of about 70 semiconductor companies that develops shared standards for chip design.
-         Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
-         was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
-         and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
-         I did <a href='/papers/thesis.pdf' title='Similarity Search: Algorithms for Sets and other High Dimensional Data'>my PhD thesis</a> with <a href='{{authors['pagh'].href}}' title='Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark'>Rasmus Pagh</a> on the <a href='http://sss.projects.itu.dk/'>Scalable Similarity Search</a> project.
-         Previously I worked with <a href='https://www.cs.ox.ac.uk/people/oege.demoor/'>Oege de Moor</a> and <a href='https://www.cs.ox.ac.uk/samson.abramsky/'>Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics,
-         and with <a href='https://www.cs.utexas.edu/~ecprice/'>Eric Price</a> at the University of Texas at Austin, on the fundamental limits of data-limited computation.
-      </p>
+         <header class="hero">
+            <div>
+               <h1>{{me.name}}</h1>
+               <p class="intro">
+                  I'm Head of Machine Learning at <a href="https://normalcomputing.com/">Normal Computing</a>.
+                  My work combines AI and theory. On the AI side, I build agents that design, formalize and verify chips. On the theory side, I work on hashing with machine-checked guarantees, fast polynomial evaluation, optimization theory, and the foundations of massive data: similarity search, sketching and high-dimensional geometry.
+               </p>
+               <div class="buttons">
+                  <a class="btn primary" href="#publications">Research <svg class="icon"><use href="#i-arrow"/></svg></a>
+                  <a class="btn" href="#about">Resume</a>
+                  <a class="btn" href="#software">Software</a>
+                  <a class="btn" href="#games">Games</a>
+                  <a class="btn" href="/blog/">Blog</a>
+               </div>
+            </div>
+            <div class="portrait" id="portrait">
+               <img class="face" src="{{me.photo}}" alt="A drawing of me" width="638" height="638">
+               <img class="photo" data-src="static/normal_potrait.jpg" alt="">
+            </div>
+         </header>
 
-      <h2>Media</h2>
-      <ul class="main_list">
-         {%- for m in media -%}
-         <li><a href='{{m.href}}'>{{m.name}}</a> &mdash; {{m.date}}.
-            "{{m.title}}."
-            {{m.description}}
-            {% for f in m.files -%}
-               <a href='{{f.href}}'
-                  onclick="dataLayer.push({'event': 'downloadmedia_{{f.format}}'});"
-                  >({{f.format}})</a>
-            {%- endfor -%}
-         </li>
-         {%- endfor -%}
-      </ul>
+         <span class="anchor" id="research"></span>
+         {% for id, label, articles in [('publications', 'Publications', papers), ('manuscripts', 'Manuscripts', manuscripts)] %}
+         <section id="{{id}}">
+            <div class="section-head">
+               <h2><span class="when-selected">Selected </span>{{label}}</h2>
+               <button class="link-button" type="button" data-show-all aria-expanded="false">
+                  <span class="when-selected">View all {{label|lower}}</span><span class="when-all">Show selected only</span>
+                  <svg class="icon"><use href="#i-arrow"/></svg>
+               </button>
+            </div>
+            <ul class="pubs">
+            {%- for paper in articles %}
+               <li class="pub{{' selected' if paper.featured or paper.new else ''}}{{'' if paper.img else ' no-image'}}" id="paper-{{paper.tag}}">
+                  {%- if paper.img %}
+                  <div class="thumb"><img src="feature_imgs/{{paper.img}}" alt="" loading="lazy"></div>
+                  {%- endif %}
+                  <div class="info">
+                     <div class="top">
+                        <p class="venue">
+                           {%- if paper.conference not in ('subm', 'arxiv', '') -%}
+                              {{paper.conference.upper()}}
+                           {% elif paper.conference == 'subm' -%}
+                              {{conferences[paper.conference].name}}
+                           {% endif -%}
+                           {{paper.year}}
+                           {%- if paper.new %}<span class="badge">New</span>{% endif -%}
+                           {%- if paper.comment %} &middot; <span class="comment">{{paper.comment}}</span>{% endif -%}
+                        </p>
+                        <p class="files">
+                        {%- for f in paper.files -%}
+                           <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});">[{{f.format}}]</a>
+                        {%- endfor -%}
+                        </p>
+                     </div>
+                     <h3>{{paper.title|replace('&nbsp;', ' ')}}</h3>
+                     <p class="authors">
+                     {%- for a in paper.authors -%}
+                        {%- if authors[a] != me -%}
+                           <a href="{{authors[a].href}}" title="{{authors[a].name}}"
+                              onclick="window.gtag && gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});">
+                              {%- if paper.authors|length < 5 -%}
+                                 {{authors[a].abrv}}
+                              {%- else -%}
+                                 {{authors[a].surname or authors[a].abrv.split()[-1]}}
+                              {%- endif -%}
+                           </a>
+                        {%- else -%}
+                           {{me.abrv}}
+                        {%- endif -%}
+                        {%- if not loop.last %}, {% endif -%}
+                     {%- endfor -%}
+                     </p>
+                     <div class="bottom">
+                        <div class="abstract">{{paper.abstract}}</div>
+                        <button class="link-button toggle-abstract" type="button" aria-expanded="false">
+                           <span class="when-closed">View abstract</span><span class="when-open">Hide abstract</span>
+                           <svg class="icon"><use href="#i-arrow"/></svg>
+                        </button>
+                     </div>
+                  </div>
+               </li>
+            {%- endfor %}
+            </ul>
+            <button class="link-button show-more" type="button" data-show-all aria-expanded="false">Show all {{articles|length}} {{label|lower}}</button>
+         </section>
 
-      <h2 id="software">Software</h2>
-      <ul class="main_list">
-         <li><a href='https://github.com/thomasahle/tensorgrad'>tensorgrad</a> &mdash; a Python library for symbolic tensor manipulation and derivatives using tensor diagrams
-            &mdash; companion to <a href='https://tensorcookbook.com/'>The Tensor Cookbook</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/chainhash'>ChainHash</a> &mdash; a fast universal hash function with a machine-checked collision bound
-            &mdash; <a href='/blog/adversarial-examples-for-hashes/'>compared with other fast hashes</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/fast-polynomials'>Fast polynomial evaluation</a> &mdash; preprocesses a polynomial so it can be evaluated with about half the multiplications of Horner's method
-            &mdash; <a href='/fast-polynomials/'>try it online</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/trace-taxi'>Trace Taxi</a> &mdash; an interactive viewer for AI agent traces
-            &mdash; <a href='https://trace.taxi/'>open at trace.taxi</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/latex2png'>latex2png</a> &mdash; converts LaTeX equations to PNG, JPEG or SVG images
-            &mdash; <a href='/latex2png/'>use it online</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/ries'>RIES Online</a> &mdash; an inverse symbolic calculator that finds equations matching a given number
-            &mdash; <a href='/ries/'>use it online</a>
-         </li>
-      </ul>
+         {%- if id == 'publications' %}
+         <div class="panels">
+            <div class="panel">
+               <h2><svg class="icon"><use href="#i-megaphone"/></svg>Media &amp; News</h2>
+               <ul>
+                  {%- for m in media[:3] %}
+                  <li><a href="{{m.href}}">{{m.name}}</a> <span class="dim">&mdash; {{m.date}}</span>
+                     <span class="sub">&ldquo;{{m.title}}&rdquo;</span></li>
+                  {%- endfor %}
+               </ul>
+               <a class="more" href="#media">View all media <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="panel">
+               <h2><svg class="icon"><use href="#i-gamepad"/></svg>Software &amp; Games</h2>
+               <ul>
+                  <li><a href="https://github.com/thomasahle/tensorgrad">tensorgrad</a> <span class="dim">&mdash; symbolic tensor library</span></li>
+                  <li><a href="https://github.com/thomasahle/chainhash">ChainHash</a> <span class="dim">&mdash; hashing with a proven bound</span></li>
+                  <li><a href="https://github.com/thomasahle/sunfish">Sunfish</a> <span class="dim">&mdash; minimalist chess engine</span></li>
+                  <li><a href="https://pychess.github.io/">PyChess</a> <span class="dim">&mdash; chess engine and client</span></li>
+                  <li><a href="https://github.com/thomasahle/liars-dice">Liar's Dice</a> <span class="dim">&mdash; play at</span> <a href="https://dudo.ai">dudo.ai</a></li>
+               </ul>
+               <a class="more" href="#projects">More software and games <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="panel">
+               <h2><svg class="icon"><use href="#i-user"/></svg>Contact</h2>
+               <ul class="contact">
+                  <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:{{me.email}}">{{me.email}}</a></li>
+                  <li><svg class="icon solid"><use href="#i-scholar"/></svg><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a></li>
+                  <li><svg class="icon"><use href="#i-github"/></svg><a href="https://github.com/thomasahle">GitHub</a></li>
+                  <li><svg class="icon"><use href="#i-linkedin"/></svg><a href="https://linkedin.com/in/thomasahle">LinkedIn</a></li>
+                  <li><svg class="icon"><use href="#i-at"/></svg><a href="https://bsky.app/profile/thomasahle.bsky.social">Bluesky</a></li>
+                  <li><svg class="icon"><use href="#i-file"/></svg><a href="cv.pdf">CV / Resume</a></li>
+               </ul>
+            </div>
+         </div>
+         {%- endif %}
+         {% endfor %}
 
-      <!-- Dummy element to ease jumping to this part -->
-      <div id="other"></div>
+         <section class="section" id="projects">
+            <h2 id="software">Software</h2>
+            <ul class="list">
+               <li><a href="https://github.com/thomasahle/tensorgrad">tensorgrad</a> &mdash; a Python library for symbolic tensor manipulation and derivatives using tensor diagrams
+                  &mdash; companion to <a href="https://tensorcookbook.com/">The Tensor Cookbook</a></li>
+               <li><a href="https://github.com/thomasahle/chainhash">ChainHash</a> &mdash; a fast universal hash function with a machine-checked collision bound
+                  &mdash; <a href="/blog/adversarial-examples-for-hashes/">compared with other fast hashes</a></li>
+               <li><a href="https://github.com/thomasahle/fast-polynomials">Fast polynomial evaluation</a> &mdash; preprocesses a polynomial so it can be evaluated with about half the multiplications of Horner's method
+                  &mdash; <a href="/fast-polynomials/">try it online</a></li>
+               <li><a href="https://github.com/thomasahle/trace-taxi">Trace Taxi</a> &mdash; an interactive viewer for AI agent traces
+                  &mdash; <a href="https://trace.taxi/">open at trace.taxi</a></li>
+               <li><a href="https://github.com/thomasahle/latex2png">latex2png</a> &mdash; converts LaTeX equations to PNG, JPEG or SVG images
+                  &mdash; <a href="/latex2png/">use it online</a></li>
+               <li><a href="https://github.com/thomasahle/ries">RIES Online</a> &mdash; an inverse symbolic calculator that finds equations matching a given number
+                  &mdash; <a href="/ries/">use it online</a></li>
+            </ul>
 
-      <h2>Games</h2>
-      <ul class="main_list">
-         <li><a href='https://github.com/thomasahle/sunfish'>Sunfish</a> &mdash; a minimalist chess engine &mdash;
-            <a href='https://lichess.org/@/sunfish-engine'>play at Lichess</a>
-         </li>
-         <li><a href='https://pychess.github.io/'>PyChess</a> &mdash; a chess engine and Internet chess client
-            &mdash; <a href='https://pychess.org/'>online version</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/liars-dice'>Liar's Dice</a> &mdash; a bluffing dice game based on Neural Counterfactual Regret. Play at <a href="https://dudo.ai">dudo.ai</a> and read <a href="https://towardsdatascience.com/3bbed6addde0">the blog post</a>.</li>
-         <li><a href='https://github.com/thomasahle/numberlink'>numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles
-            &mdash;
-            <a href='https://numberlinks.puzzlebaron.com/'>play at Puzzle Baron</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/codenames'>codenames</a> &mdash; an AI that plays Codenames using word embeddings 
-            &mdash;
-            <a href='https://codewords.app/'>play at Codewords.org</a>
-         </li>
-         <li><a href='https://github.com/thomasahle/fastchess'>fastchess</a> &mdash; an experiment into using the FastText library to play chess.</li>
-         <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
-      </ul>
+            <span class="anchor" id="other"></span>
+            <h3 id="games">Games</h3>
+            <ul class="list">
+               <li><a href="https://github.com/thomasahle/sunfish">Sunfish</a> &mdash; a minimalist chess engine &mdash; <a href="https://lichess.org/@/sunfish-engine">play at Lichess</a></li>
+               <li><a href="https://pychess.github.io/">PyChess</a> &mdash; a chess engine and Internet chess client &mdash; <a href="https://pychess.org/">online version</a></li>
+               <li><a href="https://github.com/thomasahle/liars-dice">Liar's Dice</a> &mdash; a bluffing dice game based on Neural Counterfactual Regret. Play at <a href="https://dudo.ai">dudo.ai</a> and read <a href="https://towardsdatascience.com/3bbed6addde0">the blog post</a>.</li>
+               <li><a href="https://github.com/thomasahle/numberlink">numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles &mdash; <a href="https://numberlinks.puzzlebaron.com/">play at Puzzle Baron</a></li>
+               <li><a href="https://github.com/thomasahle/codenames">codenames</a> &mdash; an AI that plays Codenames using word embeddings &mdash; <a href="https://codewords.app/">play at Codewords.org</a></li>
+               <li><a href="https://github.com/thomasahle/fastchess">fastchess</a> &mdash; an experiment into using the FastText library to play chess</li>
+               <li><a href="http://trainbox.github.io/game/TrainBox.html">TrainBox</a> &mdash; a train-based puzzle game</li>
+            </ul>
+         </section>
 
-      <h2>Teaching</h2>
-      <ul class="main_list">
-      {%- for t in teachings -%}
-         <li>
-            <a href='{{t.href}}'>{{t.name}}</a> - {{t.year}}.
-            {{t.description}}
-         </li>
-      {%- endfor -%}
-         <li>
-            Programming problems &mdash; algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>:
-            <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
-            <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
-            <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
-            <a href="https://spoj.com/problems/NANO/">NANO</a>,
-            <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
-            <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
-            <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>.
-         </li>
-      </ul>
+         <section class="section" id="media">
+            <h2>Media</h2>
+            <ul class="list">
+               {%- for m in media %}
+               <li><a href="{{m.href}}">{{m.name}}</a> <span class="dim">&mdash; {{m.date}}.</span>
+                  <span class="title">&ldquo;{{m.title}}.&rdquo;</span>
+                  {{m.description}}
+                  {%- for f in m.files %}
+                  <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'downloadmedia_{{f.format}}');">({{f.format}})</a>
+                  {%- endfor %}
+               </li>
+               {%- endfor %}
+            </ul>
+         </section>
 
-      <h2>Other</h2>
-      <ul class="main_list">
-         <li>Memrise <a href='https://www.memrise.com/course/44645/500-most-common-danish-words/'>course for learning Danish</a> through the most common 500 words.</li>
-         <li><a href='http://spjdrpedia.dk/wiki/'>Spejdrpedia</a> &mdash; an online scout handbook</li>
-      </ul>
+         <section class="section" id="teaching">
+            <h2>Teaching</h2>
+            <ul class="list">
+            {%- for t in teachings %}
+               <li><a href="{{t.href}}">{{t.name}}</a> <span class="dim">&mdash; {{t.year}}.</span> {{t.description}}</li>
+            {%- endfor %}
+               <li>Programming problems &mdash; algorithmic challenges I set on the <a href="https://spoj.com">Sphere online judge</a>:
+                  <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
+                  <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
+                  <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
+                  <a href="https://spoj.com/problems/NANO/">NANO</a>,
+                  <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
+                  <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
+                  <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>.</li>
+            </ul>
+         </section>
 
-   </div>
-   <div id='side'>
+         <section class="section" id="about">
+            <span class="anchor" id="resume"></span>
+            <h2>About / Resume</h2>
+            <p>
+               I serve on the 2026&ndash;2027 Board of Directors of the <a href="https://si2.org/">Silicon Integration Initiative</a> (Si2),
+               a not-for-profit consortium of about 70 semiconductor companies that develops shared standards for chip design.
+               Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
+               was the Chief of Machine Learning at the Natural Language Processing startup, <a href="https://supwiz.com">SupWiz</a>,
+               and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href="https://barc.ku.dk/">Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href="http://hjemmesider.diku.dk/~mthorup/">Mikkel Thorup</a>.
+               I did <a href="/papers/thesis.pdf" title="Similarity Search: Algorithms for Sets and other High Dimensional Data">my PhD thesis</a> with <a href="{{authors['pagh'].href}}" title="Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark">Rasmus Pagh</a> on the <a href="http://sss.projects.itu.dk/">Scalable Similarity Search</a> project.
+               Previously I worked with <a href="https://www.cs.ox.ac.uk/people/oege.demoor/">Oege de Moor</a> and <a href="https://www.cs.ox.ac.uk/samson.abramsky/">Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics,
+               and with <a href="https://www.cs.utexas.edu/~ecprice/">Eric Price</a> at the University of Texas at Austin, on the fundamental limits of data-limited computation.
+            </p>
+            <p><a href="cv.pdf">Download my CV (PDF)</a></p>
+            <p class="profiles">
+               <a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős Number</a>
+            </p>
 
-      <script>
-         /* Only include Face and Twitter feed when we have room enough for it. */
-         if (window.matchMedia("(min-width: 500px)").matches) {
-            let holder = document.createElement( 'div' );
-            holder.id = 'me_holder';
-            let img = document.createElement( 'img' );
-            img.src = '{{me.photo}}';
-            img.alt = 'A photo of me';
-            img.id = 'me';
-            holder.append(img);
-            document.getElementById('side').prepend(holder);
-            /* Mouse over me */
-            //let img = document.getElementById('me');
-            img.onmouseover = function() {
-              img.setAttribute('src', 'static/normal_potrait.jpg');
-              gtag('event', 'hover_me', {'event_label': 'on'});
-            }
-            img.onmouseout = function() {
-              img.setAttribute('src', '{{me.photo}}');
-              gtag('event', 'hover_me', {'event_label': 'off'});
-            }
+            <h3>Other</h3>
+            <ul class="list">
+               <li>Memrise <a href="https://www.memrise.com/course/44645/500-most-common-danish-words/">course for learning Danish</a> through the most common 500 words.</li>
+               <li><a href="http://spjdrpedia.dk/wiki/">Spejdrpedia</a> &mdash; an online scout handbook</li>
+            </ul>
 
-            // Elon destroyed the embedded tweet format :(
-            if (false) {
-               let el = document.createElement( 'div' );
-               el.innerHTML = `
-                  <a class="twitter-timeline"
-                     href="https://twitter.com/thomasahle"
-                     data-tweet-limit="3"
-                     data-chrome="nofooter, noscrollbar"
-                     data-dnt="true"
-                     >Tweets</a>`;
-               let script = document.createElement("script");
-               script.async = "true";
-               script.src = "https://platform.twitter.com/widgets.js";
-               script.charset = "utf-8";
-               el.appendChild(script);
-               document.getElementById('side').appendChild(el);
-            }
-            // Let's use bluesky instead
-            if (true) {
-               // Styles
-               let link = document.createElement('link');
-               link.rel = `stylesheet`;
-               link.href = `https://embedbsky.com/embedbsky.com-master-min.css`;
-               document.head.appendChild(link);
-               // Feed
-               let feedDiv = document.createElement('div');
-               feedDiv.id = `embedbsky-com-timeline-embed`;
-               (async function() {
-                   const t=(new Date).toISOString();
-                   const response = await fetch(`https://embedbsky.com/feeds/f1d35c2c78e7beb5fa1ac253132c9af5250129083cf1be639ce947920b35487e.html?v=${t}`);
-                   feedDiv.innerHTML = response.ok ? (await response.text()) : `No feed data could be located`;
-               })();
-               let holderDiv = document.createElement('div');
-               holderDiv.id = `embedbsky-com-timeline-embed-holder`;
-               let holderDiv2 = document.createElement('div');
-               holderDiv2.id = `embedbsky-com-timeline-embed-holder2`;
-               holderDiv.appendChild(holderDiv2);
-               holderDiv2.appendChild(feedDiv);
-               document.getElementById('side').appendChild(holderDiv);
-            }
-         }
-      </script>
+            <h3>Coauthors</h3>
+            <ul class="coauthors">
+            {%- for person in coauthors %}
+               <li><a href="{{person.href}}">{{person.name}}</a></li>
+            {%- endfor %}
+            </ul>
+         </section>
 
-      <ul>
-         <li><a href='/blog' title='My blog'>Blog</a></li>
-         <li><a href='https://twitter.com/thomasahle'>Twitter</a></li>
-      </ul>
+      </div>
+   </main>
 
-      <h3>Contact</h3>
-      <ul>
-         <li>Email: {{authors['thdy'].email}}</li>
-         <!--<li><a href='statement.pdf'>Academic Statement</a></li>-->
-         <li><a href='https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&sortby=pubdate'>Google Scholar</a></li>
-         <li><a href='https://github.com/thomasahle'>GitHub</a></li>
-         <li><a href='https://en.wikipedia.org/wiki/User:Thomasda'>Wikipedia</a></li>
-         <li><a href='https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle'>OEIS</a></li>
-         <li><a href='https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D='>DBLP</a></li>
-         <li><a href='https://orcid.org/0000-0001-9747-0479'>ORCID</a></li>
-         <li><a href='https://www.mathgenealogy.org/id.php?id=254777'>Mathematics Genealogy</a></li>
-         <li><a href='https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&target=189017'>Erdős Number</a></li>
-         <li><a href='https://linkedin.com/in/thomasahle'>LinkedIn</a></li>
-         <li><a href='cv.pdf'>CV</a></li>
-      </ul>
+   <script>
+(function () {
+   function track() {
+      if (window.gtag) window.gtag.apply(null, arguments);
+   }
+   var body = document.body;
 
-      <h3>Coauthors</h3>
-      <ul>
-      {%- for person in coauthors: -%}
-         <li><a href='{{person.href}}'>{{person.name}}</a></li>
-      {%- endfor -%}
+   /* Selected vs. all publications */
+   var showAllButtons = document.querySelectorAll('[data-show-all]');
+   function setShowAll(on) {
+      body.classList.toggle('show-all', on);
+      showAllButtons.forEach(function (b) { b.setAttribute('aria-expanded', String(on)); });
+   }
+   var target = /^#paper-/.test(location.hash) ? document.getElementById(location.hash.slice(1)) : null;
+   setShowAll({{'true' if show_all else 'false'}} || !!(target && !target.classList.contains('selected')));
+   showAllButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+         var on = !body.classList.contains('show-all');
+         setShowAll(on);
+         track('event', 'toggle-show-all', {'event_label': on ? 'on' : 'off'});
+      });
+   });
 
-      </ul>
+   /* Abstracts: click a card (outside its links) to open or close it */
+   document.querySelectorAll('.pub').forEach(function (pub) {
+      var button = pub.querySelector('.toggle-abstract');
+      pub.addEventListener('click', function (e) {
+         if (e.target.closest('a')) return;
+         if (!e.target.closest('.toggle-abstract') && String(window.getSelection()).length) return;
+         var open = pub.classList.toggle('open');
+         button.setAttribute('aria-expanded', String(open));
+         history.replaceState(null, '', '#' + pub.id);
+         track('event', 'toggle', {'event_label': pub.id});
+      });
+   });
+   if (target) {
+      target.classList.add('open');
+      target.querySelector('.toggle-abstract').setAttribute('aria-expanded', 'true');
+      requestAnimationFrame(function () { target.scrollIntoView(); });
+   }
 
-   </div>
+   /* Narrow screens: menu button */
+   var sidebar = document.getElementById('sidebar');
+   var menu = document.getElementById('menu-toggle');
+   function closeMenu() {
+      sidebar.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+   }
+   menu.addEventListener('click', function () {
+      var open = sidebar.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+   });
+   sidebar.querySelectorAll('.side-nav a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+   });
+
+   /* Highlight the sidebar link of the section in view */
+   var links = Array.prototype.slice.call(document.querySelectorAll('.side-nav a[href^="#"]'));
+   var sections = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+   function spy() {
+      var current = 0;
+      sections.forEach(function (s, i) {
+         if (s.getBoundingClientRect().top < 140) current = i;
+      });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = sections.length - 1;
+      links.forEach(function (a, i) { a.classList.toggle('active', i === current); });
+   }
+   window.addEventListener('scroll', spy, {passive: true});
+   spy();
+
+   /* Portrait: show the photo on hover, loading it only when first needed */
+   var portrait = document.getElementById('portrait');
+   var photo = portrait.querySelector('.photo');
+   portrait.addEventListener('mouseenter', function () {
+      if (!photo.getAttribute('src')) photo.src = photo.dataset.src;
+      track('event', 'hover_me', {'event_label': 'on'});
+   });
+})();
+   </script>
 </body>
 </html>
