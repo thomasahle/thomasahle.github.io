@@ -51,6 +51,9 @@ p {
     border-radius: .4rem;
     padding: .4rem .7rem;
     margin-right: .7rem;
+    /* Keep wrapped rows from overlapping on narrow screens */
+    display: inline-block;
+    margin-bottom: .5rem;
  }
 .main_list {
    margin-left: var(--left-shift);

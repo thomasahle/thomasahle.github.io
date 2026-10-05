@@ -10,6 +10,8 @@ class Person:
     href: str = ''
     photo: Optional[str] = None
     email: Optional[str] = None
+    # Shown in long author lists; defaults to the last word of abrv.
+    surname: Optional[str] = None
 
 @dataclass
 class Paper:
@@ -106,6 +108,22 @@ class Vars:
         , 'gavc': Person('Gavin E. Crooks', 'G E Crooks', 'https://threeplusone.com/')
         , 'patc': Person('Patrick J. Coles', 'P J Coles', 'https://patcoles.com/')
         , 'sduf': Person('Sam Duffield', 'S Duffield', 'https://twitter.com/Sam_Duffield')
+        , 'dmel': Person('Denis Melanson', 'D Melanson', 'https://scholar.google.com/citations?user=Ee_tECgAAAAJ&hl=en')
+        , 'moak': Person('Mohammad Abu Khater', 'M Abu Khater', 'https://scholar.google.com/citations?user=TbO7kjW1GlwC&hl=en', surname='Abu Khater')
+        , 'anma': Person('Antonio J. Martinez', 'A J Martinez', 'https://scholar.google.com/citations?user=GS0gdQIAAAAJ&hl=en')
+        , 'fasb': Person('Faris Sbahi', 'F Sbahi', 'https://scholar.google.com/citations?user=8mnfsnYAAAAJ&hl=en')
+        , 'phkl': Person('Phoebe Klett', 'P Klett', 'https://www.phoebezeng.com/')
+        , 'bula': Person('Yaroslav Bulatov', 'Y Bulatov', 'https://scholar.google.com/citations?user=zIv6YN0AAAAJ&hl=en')
+        , 'desa': Person('Christopher De Sa', 'C De Sa', 'https://www.cs.cornell.edu/~cdesa/', surname='De Sa')
+        , 'chre': Person('Christopher Ré', 'C Ré', 'https://cs.stanford.edu/~chrismre/')
+        , 'jaer': Person('Jan Ole Ernst', 'J O Ernst', 'https://janoleernst.com/')
+        , 'dmsa': Person('Dmitri Michelangelo Saberi', 'D M Saberi', 'https://github.com/dmitrisaberi')
+        , 'dech': Person('Derek Christ', 'D Christ', 'https://www.informatik.uni-wuerzburg.de/ce/team/derek-christ/')
+        , 'thzi': Person('Thomas Zimmermann', 'T Zimmermann', 'https://www.iese.fraunhofer.de/blog/author/thomas-zimmermann/')
+        , 'rasa': Person('Rajath Salegame', 'R Salegame', 'https://rajath.com/')
+        , 'subh': Person('Suhaas M. Bhat', 'S M Bhat', 'https://oatml.cs.ox.ac.uk/members/suhaas_bhat/')
+        , 'stle': Person('Stanislav Levental', 'S Levental', 'https://github.com/slevental')
+        , 'maju': Person('Matthias Jung', 'M Jung', 'https://www.informatik.uni-wuerzburg.de/ce/team/matthias-jung/')
     }
     me = authors['thdy']
     coauthors = [p for k, p in authors.items() if k != 'thdy']
@@ -124,14 +142,15 @@ class Vars:
         'neurips': Conference('Advances in Neural Information Processing Systems (NeurIPS)'),
         'Stat. Prob. Lett.': Journal('Statistics & Probability Letters'),
         'natcom': Journal('Nature Communications'),
-        'unconv': Journal('Unconventional Computing'),
+        'unconv': Journal('npj Unconventional Computing'),
+        'prr': Journal('Physical Review Research'),
     }
 
     papers = [
         Paper(
             'pcb',
             'Thermodynamic Computing System for AI Applications',
-            ['thdy', 'maxa', 'kaed', 'patc'],  # Add other authors if needed
+            ['dmel', 'moak', 'maxa', 'kaed', 'maxg', 'thdy', 'gavc', 'anma', 'fasb', 'patc'],
             open('abstracts/pcb').read(),
             2025,
             'natcom',
@@ -145,14 +164,31 @@ class Vars:
             img='pcb.png',  # Add image file if available
             ),
         Paper(
+            'expm',
+            'Thermodynamic Matrix Exponentials and Thermodynamic Parallelism',
+            ['sduf', 'maxa', 'gavc', 'thdy', 'patc'],
+            open('abstracts/expm').read(),
+            2025,
+            'prr',
+            '',
+            files=[
+                File('journal', 'https://doi.org/10.1103/PhysRevResearch.7.013147'),
+                File('arxiv', 'https://arxiv.org/abs/2311.12759'),
+                ],
+            featured=False,
+            new=False,
+            img='expm.png',
+            ),
+        Paper(
             'tla',
             'Thermodynamic Linear Algebra',
-            ['maxa', 'kaed', 'maxg', 'thdy', 'dans', 'gavc', 'patc'],
+            ['maxa', 'kaed', 'maxg', 'sduf', 'thdy', 'dans', 'gavc', 'patc'],
             open('abstracts/tla').read(),
             2024,
             'unconv',
             '',
             files=[
+                File('journal', 'https://www.nature.com/articles/s44335-024-00014-0'),
                 File('arxiv', 'https://arxiv.org/abs/2308.05660'),
                 ],
             featured=False,
@@ -187,8 +223,9 @@ class Vars:
             open('abstracts/tiling').read(),
             2022,
             'socg',
-            '',
+            'Journal version in ACM Transactions on Algorithms',
             files=[
+                File('journal', 'https://doi.org/10.1145/3597932'),
                 File('arxiv', 'https://arxiv.org/abs/2011.10983'),
                 File('pdf', 'papers/tiling.pdf'),
                 File('slides', 'papers/tiling_mikkel.pdf'),
@@ -349,6 +386,20 @@ class Vars:
 
     manuscripts = [
         Paper(
+            'powerlaw',
+            'Stochastic Optimization Under Power-Law Spectra: Tight&nbsp;Bounds and Shuffling&nbsp;Analysis',
+            ['thdy', 'bula', 'desa', 'chre'],
+            open('abstracts/powerlaw').read(),
+            2026,
+            'arxiv',
+            '',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2609.36271'),
+                ],
+            featured=False,
+            new=True,
+            ),
+        Paper(
             'polyeval',
             'Fast Evaluation of Polynomials with Rational&nbsp;Preprocessing',
             ['thdy', 'jbtk'],
@@ -366,19 +417,63 @@ class Vars:
             img='polyeval.png',
             ),
         Paper(
-            'expm',
-            'Thermodynamic Matrix Exponentials and Thermodynamic Parallelism',
-            ['maxa', 'sduf', 'thdy', 'patc'],
-            open('abstracts/expm').read(),
-            2023,
-            '',
-            '',
+            'autoformal',
+            'Autoformalizing Memory Specifications with Agents',
+            ['jaer', 'dmsa', 'dech', 'thzi', 'rasa', 'subh', 'stle', 'thdy', 'maju'],
+            open('abstracts/autoformal').read(),
+            2026,
+            'arxiv',
+            'ICLR 2026 VerifAI Workshop',
             files=[
-                File('arxiv', 'https://arxiv.org/abs/2311.12759'),
+                File('arxiv', 'https://arxiv.org/abs/2605.00058'),
                 ],
             featured=False,
             new=False,
-            img='expm.png',
+            ),
+        Paper(
+            'emt',
+            'Extended Mind Transformers',
+            ['phkl', 'thdy'],
+            open('abstracts/emt').read(),
+            2024,
+            'arxiv',
+            '',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2406.02332'),
+                ],
+            featured=False,
+            new=False,
+            ),
+        Paper(
+            'cookbook',
+            'The Tensor Cookbook',
+            ['thdy'],
+            open('abstracts/tensor_cookbook').read(),
+            2024,
+            '',
+            'Updated July 2026',
+            files=[
+                File('pdf', 'https://raw.githubusercontent.com/thomasahle/tensorgrad/main/paper/cookbook.pdf'),
+                File('website', 'https://tensorcookbook.com/'),
+                File('github', 'https://github.com/thomasahle/tensorgrad'),
+                ],
+            featured=True,
+            new=False,
+            img='tensor_cookbook.png',
+            ),
+        Paper(
+            'errmit',
+            'Error Mitigation for Thermodynamic Computing',
+            ['maxa', 'dmel', 'kaed', 'gavc', 'thdy', 'patc'],
+            open('abstracts/errmit').read(),
+            2024,
+            'arxiv',
+            '',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2401.16231'),
+                ],
+            featured=False,
+            new=False,
             ),
         Paper(
             'favour',
@@ -389,6 +484,7 @@ class Vars:
             'arxiv',
             '',
             files=[
+                File('arxiv', 'https://arxiv.org/abs/2311.13036'),
                 File('pdf', 'papers/favour.pdf'),
                 File('video', 'https://youtu.be/Ct63ikA2q-c'),
                 ],
@@ -518,6 +614,22 @@ class Vars:
 
     media = [
         Newspaper(
+            'Tim Scarfe',
+            'Machine Learning Street Talk', 'June 2026',
+            'The Thermodynamic AI Chip',
+            'https://www.youtube.com/watch?v=5pieVHmlbyk',
+            'Podcast interview on using swarms of AI agents to design and formally verify chips, and on Normal Computing\'s thermodynamic computing work.'
+            , files=[]
+        ),
+        Newspaper(
+            'Thomas Dybdahl Ahle',
+            'Normal Computing Blog', 'March 2026',
+            'Building an Open-Source Verilog Simulator with AI: 580K Lines in 43 Days',
+            'https://normalcomputing.com/blog/building-an-open-source-verilog-simulator-with-ai-580k-lines-in-43-days',
+            'My write-up of how we used AI agents to build an open-source Verilog simulation and formal verification stack on top of CIRCT in 43 days.'
+            , files=[]
+        ),
+        Newspaper(
             'Brian Bailey',
             'Semiconductor Engineering', 'July 2025',
             'Multi-Modal AI In EDA Development Flows',
@@ -562,7 +674,8 @@ class Vars:
             'Computerworld', 'October 2013',
             'Denmark\'s Three Greatest Programmers',
             'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
-            '', files=[]
+            'Interview with my team after we won the Danish university programming championship against 34 other teams.'
+            , files=[]
             )
     ]
 
@@ -593,6 +706,10 @@ I developed the machine learning strategy for Normal Computing, which had previo
 I built the team from scratch, hiring 10 engineers and researchers from top companies and universities.
 We developed an AI system for the US's largest chip manufacturer, which allowed creating formal models for new chips, which previously took months, in just a few hours.
 While at Normal Computing I published five papers on algorithms for thermodynamic computing, as well as one about a new approach to long‑context language models.
+            ''', False),
+        Job('Board of Directors', 'Silicon Integration Initiative (Si2)', '2026 - 2027',
+            '''
+I was elected to the board of Si2, a not-for-profit consortium of about 70 semiconductor companies that develops shared standards for chip design.
             ''', False),
         Job('Research Scientist', 'Meta', '2020 - 2023',
             '''

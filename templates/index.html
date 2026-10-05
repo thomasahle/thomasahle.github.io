@@ -59,12 +59,13 @@ addLoadEvent(function () {
    <div id='main'>
       <p>
          Hello, I'm Thomas.
-         I lead the Foundational AI efforts at <a href="https://normalcomputing.ai/">Normal Computing</a>.
+         I'm Head of Machine Learning at <a href="https://normalcomputing.com/">Normal Computing</a>.
       </p><p>
-        My research focuses on mechanistic interpretability and capabilities of large language models, the theoretical foundations of machine learning and massive data, including similarity search, hashing, high dimensional geometry, sketching and derandomization.
+        My work combines AI and theory. On the AI side, I build agents that design, formalize and verify chips. On the theory side, I work on hashing with machine-checked guarantees, fast polynomial evaluation, optimization theory, and the foundations of massive data: similarity search, sketching and high-dimensional geometry.
       </p><p>
          <a class="nav-button" href="#research">Research</a>
          <a class="nav-button" href="#resume">Resume</a>
+         <a class="nav-button" href="#software">Software</a>
          <a class="nav-button" href="#other">Games</a>
          <a class="nav-button" href="/blog">Blog</a>
       </p>
@@ -125,7 +126,7 @@ addLoadEvent(function () {
                            {%- if paper.authors |length < 5 -%}
                               {{authors[a].abrv}}
                            {%- else -%}
-                              {{authors[a].abrv.split()[-1]}}
+                              {{authors[a].surname or authors[a].abrv.split()[-1]}}
                            {%- endif -%}
                         </a>
                      {%- else -%}
@@ -151,6 +152,8 @@ addLoadEvent(function () {
 
       <h2 id="resume">Resume</h2>
       <p>
+         I serve on the 2026&ndash;2027 Board of Directors of the <a href='https://si2.org/'>Silicon Integration Initiative</a> (Si2),
+         a not-for-profit consortium of about 70 semiconductor companies that develops shared standards for chip design.
          Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
          was the Chief of Machine Learning at the Natural Language Processing startup, <a href='https://supwiz.com'>SupWiz</a>,
          and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href='https://barc.ku.dk/'>Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href='http://hjemmesider.diku.dk/~mthorup/'>Mikkel Thorup</a>.
@@ -164,6 +167,7 @@ addLoadEvent(function () {
          {%- for m in media -%}
          <li><a href='{{m.href}}'>{{m.name}}</a> &mdash; {{m.date}}.
             "{{m.title}}."
+            {{m.description}}
             {% for f in m.files -%}
                <a href='{{f.href}}'
                   onclick="dataLayer.push({'event': 'downloadmedia_{{f.format}}'});"
@@ -171,6 +175,28 @@ addLoadEvent(function () {
             {%- endfor -%}
          </li>
          {%- endfor -%}
+      </ul>
+
+      <h2 id="software">Software</h2>
+      <ul class="main_list">
+         <li><a href='https://github.com/thomasahle/tensorgrad'>tensorgrad</a> &mdash; a Python library for symbolic tensor manipulation and derivatives using tensor diagrams
+            &mdash; companion to <a href='https://tensorcookbook.com/'>The Tensor Cookbook</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/chainhash'>ChainHash</a> &mdash; a fast universal hash function with a machine-checked collision bound
+            &mdash; <a href='/blog/adversarial-examples-for-hashes/'>compared with other fast hashes</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/fast-polynomials'>Fast polynomial evaluation</a> &mdash; preprocesses a polynomial so it can be evaluated with about half the multiplications of Horner's method
+            &mdash; <a href='/fast-polynomials/'>try it online</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/trace-taxi'>Trace Taxi</a> &mdash; an interactive viewer for AI agent traces
+            &mdash; <a href='https://trace.taxi/'>open at trace.taxi</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/latex2png'>latex2png</a> &mdash; converts LaTeX equations to PNG, JPEG or SVG images
+            &mdash; <a href='/latex2png/'>use it online</a>
+         </li>
+         <li><a href='https://github.com/thomasahle/ries'>RIES Online</a> &mdash; an inverse symbolic calculator that finds equations matching a given number
+            &mdash; <a href='/ries/'>use it online</a>
+         </li>
       </ul>
 
       <!-- Dummy element to ease jumping to this part -->
@@ -197,20 +223,6 @@ addLoadEvent(function () {
          <li><a href='http://trainbox.github.io/game/TrainBox.html'>TrainBox</a> &mdash; A train-based puzzle game</li>
       </ul>
 
-      <h2>Programming Problems</h2>
-      <p>
-      These are various algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>.
-      </p>
-      <p>
-           <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
-           <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
-           <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
-           <a href="https://spoj.com/problems/NANO/">NANO</a>,
-           <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
-           <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
-           <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>
-      </p>
-
       <h2>Teaching</h2>
       <ul class="main_list">
       {%- for t in teachings -%}
@@ -219,6 +231,16 @@ addLoadEvent(function () {
             {{t.description}}
          </li>
       {%- endfor -%}
+         <li>
+            Programming problems &mdash; algorithmic challenges I set on the <a href='https://spoj.com'>Sphere online judge</a>:
+            <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
+            <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
+            <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
+            <a href="https://spoj.com/problems/NANO/">NANO</a>,
+            <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
+            <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
+            <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>.
+         </li>
       </ul>
 
       <h2>Other</h2>
