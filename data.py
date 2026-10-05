@@ -359,6 +359,7 @@ class Vars:
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2609.06022'),
                 File('github', 'https://github.com/thomasahle/fast-polynomials'),
+                File('website', 'https://thomasahle.com/fast-polynomials/'),
                 ],
             featured=False,
             new=True,
