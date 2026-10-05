@@ -376,7 +376,7 @@ class Vars:
                 File('arxiv', 'https://arxiv.org/abs/2311.12759'),
                 ],
             featured=False,
-            new=True,
+            new=False,
             img='expm.png',
             ),
         Paper(
