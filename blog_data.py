@@ -11,6 +11,8 @@ class Post:
     date: date
     img: str
     read_time: int
+    # Short topic label shown above the title on the blog index.
+    category: str = ''
 
 
 class Vars:
@@ -19,6 +21,7 @@ class Vars:
     posts = [
         Post(
             tag='hashadv',
+            category='Algorithms',
             url="adversarial-examples-for-hashes/",
             title='Adversarial Examples for Fast Hash Functions',
             lead='Explicit colliding inputs for komihash, a5hash, MuseAir, t1ha2, HighwayHash and others under random seeds, measured as worst-case collision bits, next to hash functions with proven bounds and their speed.',
@@ -28,6 +31,7 @@ class Vars:
         ),
         Post(
             tag='verilogsim',
+            category='AI for Hardware',
             url="https://normalcomputing.com/blog/building-an-open-source-verilog-simulator-with-ai-580k-lines-in-43-days",
             title='Building an Open-Source Verilog Simulator with AI: 580K Lines in 43 Days',
             lead='Over 43 days, AI agents landed 2,968 commits on a fork of CIRCT: an event-driven Verilog simulator, UVM and cocotb support, bounded model checking, equivalence checking and mutation testing. Published on the Normal Computing blog.',
@@ -37,6 +41,7 @@ class Vars:
         ),
         Post(
             tag='stirling',
+            category='Probability',
             url="stirling_bounds.html",
             title='Simple Stirling Upper/Lower Bounds',
             lead='A short, elementary route from n! = ∫ x^n e^{-x} to sharp Stirling bounds via a Gaussian change of variables—and a natural path to the full expansion.',
@@ -46,6 +51,7 @@ class Vars:
         ),
         Post(
             tag='termo',
+            category='Stochastic Processes',
             url="termo_linalg.html",
             title='Analysis of Ornstein-Uhlenbeck Process for Linear Systems',
             lead='''
@@ -57,6 +63,7 @@ class Vars:
         ),
         Post(
             tag='topk',
+            category='Machine Learning',
             url="differentiable_topk.html",
             title='A Differentiable Top-k Layer for PyTorch',
             lead='Binary-search a scalar shift, reuse it in backprop via implicit differentiation, and you get a simple, exact top-k relaxation that plays nicely with PyTorch autograd.',
@@ -66,6 +73,7 @@ class Vars:
         ),
         Post(
             tag='ziplm',
+            category='Language Models',
             url="https://github.com/thomasahle/ziplm",
             title='ZipLM with Beam Search, BPE and Progressive Compression',
             lead='''
@@ -77,6 +85,7 @@ class Vars:
         ),
         Post(
             tag='einsum',
+            category='Tensors',
             url="einsum_to_dot.html",
             title='Convert Einsum to Tensor Network',
             lead='A technical guide on converting Einstein summation to tensor network operations.',
@@ -86,6 +95,7 @@ class Vars:
         ),
         Post(
             tag='liars_dice',
+            category='Game AI',
             url="https://towardsdatascience.com/3bbed6addde0",
             title="Liar’s Dice by Self-Play",
             lead='I’ve been meaning to learn about AIs for games like Poker or Liar’s Dice for a while. Recently while reading DeepMind’s article Player of Games, I thought I might be able to make something really simple that works well enough to be fun. “It shouldn’t take more than an afternoon,” I thought. Of course, I ended up spending much more time on it, but it did turn out to be fun and very simple.',
@@ -95,6 +105,7 @@ class Vars:
         ),
         Post(
             tag='sets',
+            category='Data Structures',
             url="sets.html",
             title="An Evolutionary Data Structure for Sets",
             lead='I recently published a preprint, together with Jakob Knudsen, describing a new, optimal data structure for set similarity search. An interesting way to look at this is as an Evolutionary Algorithm (aka genetic algorithm). We think it\'s probably the first time the provably best way to solve a problem has been evolutionary. This post won\'t go deep into the mathematics, but will contain code samples and some fun gadgets I built to simulate it.',
@@ -104,6 +115,7 @@ class Vars:
         ),
         Post(
             tag='hypergeometric',
+            category='Probability',
             url="https://ahlenotes.wordpress.com/2015/12/08/hypergeometric_tail/",
             title="Another Tail of the Hypergeometric Distribution",
             lead='This blog post sheds light on the less-discussed sampling without replacement scenario, its implications in algorithm analysis, and how it compares with its more famous counterpart, the binomial distribution.',
