@@ -27,6 +27,15 @@ class Vars:
             read_time=25,
         ),
         Post(
+            tag='verilogsim',
+            url="https://normalcomputing.com/blog/building-an-open-source-verilog-simulator-with-ai-580k-lines-in-43-days",
+            title='Building an Open-Source Verilog Simulator with AI: 580K Lines in 43 Days',
+            lead='Over 43 days, AI agents landed 2,968 commits on a fork of CIRCT: an event-driven Verilog simulator, UVM and cocotb support, bounded model checking, equivalence checking and mutation testing. Published on the Normal Computing blog.',
+            date=date(2026, 3, 2),
+            img='../feature_imgs/verilog_sim.png',
+            read_time=8,
+        ),
+        Post(
             tag='stirling',
             url="stirling_bounds.html",
             title='Simple Stirling Upper/Lower Bounds',
