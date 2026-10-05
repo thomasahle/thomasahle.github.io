@@ -34,7 +34,7 @@
     "m2_paper": {
       "metric": "single-thread GB/s, decimal; columns 16 KB and 512 B",
       "source": "records/README.html, tab:injective:adversarial",
-      "citation": "Ahle, Fast Evaluation of Polynomials with Rational Preprocessing (in prep.), with Jakob B. T. Knudsen."
+      "citation": "Ahle, Fast Evaluation of Polynomials with Rational Preprocessing (arXiv:2609.06022), with Jakob B. T. Knudsen."
     },
     "numbers_pass": {
       "records": "records/speeds.json",
@@ -5583,7 +5583,7 @@
       "prior_work": [
         {
           "label": "Paper: harness results and fold differential",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         },
         {
           "label": "Peters 2024: fixed-seed multicollisions; he found no seed-independent attack",
@@ -6040,7 +6040,7 @@
       "prior_work": [
         {
           "label": "Paper: harness results and fold differential",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         },
         {
           "label": "N-R-K, issue #10 (2024-11-23): seed-independent collision; the word at len-16 equals secret[1], zeroing the final multiply",
@@ -6251,7 +6251,7 @@
       "prior_work": [
         {
           "label": "Paper: harness results and fold differential",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         },
         {
           "label": "N-R-K, issue #10 (2024-11-23): seed-independent collision; the word at len-16 equals secret[1], zeroing the final multiply",
@@ -7385,7 +7385,7 @@
       "prior_work": [
         {
           "label": "Paper: wyhash/rapidhash complement-both-operands mechanism",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         },
         {
           "label": "Orson Peters 2024; known/fixed-seed family attacks",
@@ -8190,7 +8190,7 @@
       "prior_work": [
         {
           "label": "Paper: wyhash/rapidhash complement-both-operands mechanism",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         },
         {
           "label": "Orson Peters 2024; known/fixed-seed family attacks",
@@ -8944,7 +8944,7 @@
       "prior_work": [
         {
           "label": "Paper: MUM harness result",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         }
       ],
       "official_claim": {
@@ -9482,7 +9482,7 @@
       "prior_work": [
         {
           "label": "Paper: MUM public-term result",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         }
       ],
       "official_claim": {
@@ -9966,7 +9966,7 @@
       "prior_work": [
         {
           "label": "Paper: harness results and fold differential",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         }
       ],
       "official_claim": {
@@ -10599,7 +10599,7 @@
       "prior_work": [
         {
           "label": "Paper: harness results and fold differential",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         }
       ],
       "official_claim": {
@@ -15908,7 +15908,7 @@
       "prior_work": [
         {
           "label": "Paper: wyhash/rapidhash complement-both-operands mechanism (same Mix primitive)",
-          "url": "https://github.com/thomasahle/fast-polynomials"
+          "url": "https://arxiv.org/abs/2609.06022"
         }
       ],
       "official_claim": {
@@ -18499,7 +18499,7 @@
         4.1,
         10.1
       ],
-      "reference_url": "https://github.com/thomasahle/fast-polynomials",
+      "reference_url": "https://arxiv.org/abs/2609.06022",
       "notes": "Fixed padded length, injective field-word encoding; three independent uniform field keys.",
       "provenance": [
         "records/README.html",
@@ -18624,7 +18624,7 @@
         23.8,
         17.9
       ],
-      "reference_url": "https://github.com/thomasahle/fast-polynomials",
+      "reference_url": "https://arxiv.org/abs/2609.06022",
       "notes": "The explicitly defined eight-lane field construction, with independent lane-combining key; fixed padded length.",
       "provenance": [
         "records/README.html",
