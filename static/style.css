@@ -10,8 +10,8 @@
    --accent-ink: #1d4ed8;
    --accent-soft: #eaf1fe;
    --radius: 8px;
-   --sans: Inter, "Helvetica Neue", Arial, sans-serif;
-   --serif: Cardo, "Source Serif 4", Georgia, serif;
+   --sans: Lato, "Helvetica Neue", sans-serif;
+   --serif: "Latin Modern Roman", "Latin Modern", Cardo, Garamond, serif;
 }
 
 * {
@@ -32,6 +32,7 @@ body {
    color: var(--text);
    font-family: var(--sans);
    font-size: 16px;
+   font-weight: 300;
    line-height: 1.6;
    -webkit-font-smoothing: antialiased;
    text-rendering: optimizeLegibility;
@@ -71,6 +72,11 @@ sup {
 
 sub {
    bottom: -0.25em;
+}
+
+/* Lato Light for running text, regular for controls */
+.side-nav a, .btn, .link-button, .files, .venue, .authors, .panel ul, .copyright {
+   font-weight: 400;
 }
 
 .icon {
@@ -247,7 +253,7 @@ section, h2[id], h3[id], [id^="paper-"], .anchor {
    max-width: 38em;
    margin: 0 0 24px;
    font-size: 1.08rem;
-   color: #475569;
+   color: var(--text);
 }
 
 .buttons {
@@ -380,15 +386,20 @@ body.show-all .when-selected {
 /********** Publication cards **********/
 
 .pubs {
-   display: flex;
-   flex-direction: column;
+   display: grid;
+   grid-template-columns: minmax(0, 1fr);
    gap: 12px;
+}
+
+/* While an abstract is open, cards keep their own height */
+.pubs:has(.pub.open) {
+   align-items: start;
 }
 
 .pub {
    display: grid;
    grid-template-columns: 152px minmax(0, 1fr);
-   gap: 0 24px;
+   gap: 0 22px;
    padding: 12px 18px 12px 12px;
    background: #fff;
    border: 1px solid var(--line);
@@ -432,16 +443,9 @@ body:not(.show-all) .pub:not(.selected) {
    flex-direction: column;
 }
 
-.pub .top {
-   display: flex;
-   align-items: flex-start;
-   justify-content: space-between;
-   gap: 4px 16px;
-}
-
 .venue {
    margin: 0;
-   font-size: .8rem;
+   font-size: .82rem;
    color: #475569;
 }
 
@@ -464,42 +468,23 @@ body:not(.show-all) .pub:not(.selected) {
    font-style: italic;
 }
 
-.files {
-   margin: 0;
-   font-size: .9rem;
-   text-align: right;
-}
-
-.files a + a {
-   margin-left: 8px;
-}
-
 .pub h3 {
    margin: 2px 0 1px;
-   font-size: 1.06rem;
-   font-weight: 600;
+   font-size: 1.08rem;
+   font-weight: 700;
    line-height: 1.35;
-   letter-spacing: -0.01em;
+   letter-spacing: -0.005em;
    hyphens: none;
 }
 
 .authors {
    margin: 0;
-   font-size: .9rem;
+   font-size: .92rem;
    color: #475569;
 }
 
-.pub .bottom {
-   display: flex;
-   align-items: flex-end;
-   justify-content: space-between;
-   gap: 8px 32px;
-   margin-top: 6px;
-}
-
 .abstract {
-   flex: 1;
-   min-width: 0;
+   margin-top: 6px;
    display: -webkit-box;
    -webkit-box-orient: vertical;
    -webkit-line-clamp: 2;
@@ -520,8 +505,27 @@ body:not(.show-all) .pub:not(.selected) {
    content: " ";
 }
 
+.pub .bottom {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 4px 20px;
+   margin-top: auto;
+   padding-top: 8px;
+}
+
+.files {
+   margin: 0;
+   font-size: .9rem;
+}
+
+.files a + a {
+   margin-left: 8px;
+}
+
 .toggle-abstract {
-   flex: none;
+   margin-left: auto;
    white-space: nowrap;
 }
 
@@ -534,17 +538,13 @@ body:not(.show-all) .pub:not(.selected) {
    cursor: auto;
 }
 
-.pub.open .bottom {
-   flex-direction: column;
-   align-items: stretch;
-}
-
 .pub.open .abstract {
    display: block;
    overflow: visible;
+   margin-top: 10px;
    font-style: normal;
-   font-size: 1rem;
-   line-height: 1.55;
+   font-size: 1.02rem;
+   line-height: 1.5;
    color: var(--text);
    text-align: justify;
    hyphens: auto;
@@ -562,10 +562,6 @@ body:not(.show-all) .pub:not(.selected) {
    content: none;
 }
 
-.pub.open .toggle-abstract {
-   align-self: flex-end;
-}
-
 .pub.open .toggle-abstract .icon {
    transform: rotate(-90deg);
 }
@@ -577,6 +573,25 @@ body:not(.show-all) .pub:not(.selected) {
 
 body.show-all .show-more {
    display: none;
+}
+
+/* Wide screens: two cards per row */
+@media (min-width: 1300px) {
+   .pubs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+   }
+
+   .pub {
+      grid-template-columns: 124px minmax(0, 1fr);
+      gap: 0 18px;
+      padding: 12px 16px 12px 12px;
+   }
+
+   .pub .thumb {
+      width: 124px;
+      height: 96px;
+   }
 }
 
 /********** Panels **********/
@@ -849,20 +864,8 @@ body.show-all .show-more {
       height: 64px;
    }
 
-   .pub .top {
-      flex-direction: column;
-   }
-
-   .files {
-      text-align: left;
-   }
-
    .pub:not(.open) .abstract {
       display: none;
-   }
-
-   .pub .bottom {
-      justify-content: flex-end;
    }
 
    .pub.open .info {

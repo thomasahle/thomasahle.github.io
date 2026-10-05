@@ -1,7 +1,7 @@
 {% include 'templates/header.html' %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet">
   <style type="text/css">{% include 'static/style.css' %}</style>
   <title>{{me.name}}</title>
 </head>
@@ -93,8 +93,7 @@
                   <div class="thumb"><img src="feature_imgs/{{paper.img}}" alt="" loading="lazy"></div>
                   {%- endif %}
                   <div class="info">
-                     <div class="top">
-                        <p class="venue">
+                     <p class="venue">
                            {%- if paper.conference not in ('subm', 'arxiv', '') -%}
                               {{paper.conference.upper()}}
                            {% elif paper.conference == 'subm' -%}
@@ -103,13 +102,7 @@
                            {{paper.year}}
                            {%- if paper.new %}<span class="badge">New</span>{% endif -%}
                            {%- if paper.comment %} &middot; <span class="comment">{{paper.comment}}</span>{% endif -%}
-                        </p>
-                        <p class="files">
-                        {%- for f in paper.files -%}
-                           <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});">[{{f.format}}]</a>
-                        {%- endfor -%}
-                        </p>
-                     </div>
+                     </p>
                      <h3>{{paper.title|replace('&nbsp;', ' ')}}</h3>
                      <p class="authors">
                      {%- for a in paper.authors -%}
@@ -128,8 +121,13 @@
                         {%- if not loop.last %}, {% endif -%}
                      {%- endfor -%}
                      </p>
+                     <div class="abstract">{{paper.abstract}}</div>
                      <div class="bottom">
-                        <div class="abstract">{{paper.abstract}}</div>
+                        <p class="files">
+                        {%- for f in paper.files -%}
+                           <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});">[{{f.format}}]</a>
+                        {%- endfor -%}
+                        </p>
                         <button class="link-button toggle-abstract" type="button" aria-expanded="false">
                            <span class="when-closed">View abstract</span><span class="when-open">Hide abstract</span>
                            <svg class="icon"><use href="#i-arrow"/></svg>
