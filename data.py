@@ -363,6 +363,7 @@ class Vars:
                 ],
             featured=False,
             new=True,
+            img='polyeval.png',
             ),
         Paper(
             'expm',
