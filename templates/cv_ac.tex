@@ -70,7 +70,7 @@
       \VAR{award.giver},
       \VAR{award.date}}.
    \\
-   \VAR{award.description}
+   \VAR{award.description|tex}
 %% endfor
 \end{itemize}
 
@@ -80,7 +80,7 @@
       \item[]
       \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
       \\
-      \VAR{job.description}
+      \VAR{job.description|tex}
 %% endfor
 \end{itemize}
 
@@ -91,7 +91,7 @@
       \item[]
       \emph{\VAR{job.title} at \VAR{job.company}, \VAR{job.date}}.
       \\
-      \VAR{job.description}
+      \VAR{job.description|tex}
    %% endif
 %% endfor
 \end{itemize}
@@ -103,7 +103,7 @@
    \item[]
       \emph{\BLOCK{if m.author}\VAR{m.author}.
          \BLOCK{endif}"\VAR{m.title}", \VAR{m.name}, \VAR{m.date}.}
-      \VAR{m.description}
+      \VAR{m.description|tex}
 %% endfor
 \end{itemize}
 
