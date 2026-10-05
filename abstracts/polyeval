@@ -1,0 +1,8 @@
+<p>Horner's rule evaluates a monic degree-n polynomial using n−1 multiplications. We show that with rational preprocessing of the coefficients, any such polynomial can be evaluated using only ⌊n/2⌋ + 1 multiplications over fields of characteristic zero or of characteristic p &gt; n. This resolves the multiplication side of a conjecture of Rabin and Winograd (Comm. Pure Appl. Math 1972), who achieved n/2 + 2⌈log<sub>2</sub> n⌉ multiplications and conjectured the logarithmic overhead was necessary.
+</p><p>
+We show that this multiplication count can't be beaten in general, proving that three multiplications do not suffice for degree 6. This strengthens the lower bound of Pan (STOC 1978), who proved a tight bound for general, complex preprocessing.
+</p><p>
+In characteristic 2, for every n &gt; 1 and every finite field of size at least 2n, we prove that an n-multiplication chain cannot parametrize all value vectors at 2n distinct evaluation points, even with arbitrary preprocessing. We give ⌊n/2⌋ + 1 multiplication schedules over characteristic 2, each with an explicit inverse, for every odd degree n ≤ 25 and conjecture that this is possible for all n.
+</p><p>
+We also give an injective polynomial construction for universal hashing that uses N multiplications to hash 2N values with a single random key. This improves the best previous construction by Daniel J. Bernstein (cr.yp.to).
+</p>

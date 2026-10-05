@@ -349,6 +349,21 @@ class Vars:
 
     manuscripts = [
         Paper(
+            'polyeval',
+            'Fast Evaluation of Polynomials with Rational&nbsp;Preprocessing',
+            ['thdy', 'jbtk'],
+            open('abstracts/polyeval').read(),
+            2026,
+            'arxiv',
+            '',
+            files=[
+                File('arxiv', 'https://arxiv.org/abs/2609.06022'),
+                File('github', 'https://github.com/thomasahle/fast-polynomials'),
+                ],
+            featured=False,
+            new=True,
+            ),
+        Paper(
             'expm',
             'Thermodynamic Matrix Exponentials and Thermodynamic Parallelism',
             ['maxa', 'sduf', 'thdy', 'patc'],
