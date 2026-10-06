@@ -104,7 +104,7 @@ class Vars:
         , 'mika': Person('Michael Kapralov', 'M Kapralov', 'https://theory.epfl.ch/kapralov/')
         , 'amve': Person('Ameya Velingker', 'A Velingker', 'http://www.cs.cmu.edu/~avelingk/')
         , 'dawo': Person('David P. Woodruff', 'D Woodruff', 'http://www.cs.cmu.edu/~dwoodruf/')
-        , 'amza': Person('Amir Zandieh', 'A Zandieh', 'https://people.epfl.ch/amir.zandieh')
+        , 'amza': Person('Amir Zandieh', 'A Zandieh', 'https://scholar.google.com/citations?user=S9Ss8M8AAAAJ&hl=en')
         , 'mtho': Person('Mikkel Thorup', 'M Thorup', 'http://hjemmesider.diku.dk/~mthorup/')
         , 'aama': Person('Anders Åmand', 'A Aamand', 'https://di.ku.dk/english/staff/?pure=en/persons/433494')
         , 'mabr': Person('Mikkel Abrahamsen', 'M Abrahamsen', 'https://sites.google.com/view/mikkel-abrahamsen')
@@ -112,12 +112,12 @@ class Vars:
         , 'sahark': Person('Sahar Karimi', 'S Karimi', 'https://scholar.google.com/citations?user=bPiE44QAAAAJ&hl=en')
         , 'ptpt': Person('Peter Tang', 'P Tang', 'https://dl.acm.org/profile/81452604699')
         , 'henry': Person('Henry Ling-Hei Tsang', 'H Tsang', 'https://scholars.croucher.org.hk/scholars/ling-hei-tsang')
-        , 'maxa': Person('Maxwell Aifer', 'M Aifer', 'https://quthermo.umbc.edu/group-members/graduate-students/maxwell-aifer/')
+        , 'maxa': Person('Maxwell Aifer', 'M Aifer', 'https://scholar.google.com/citations?user=A9p6aIIAAAAJ&hl=en')
         , 'kaed': Person('Kaelan Donatella', 'K Donatella', 'https://scholar.google.com/citations?user=iM2qRCkAAAAJ&hl=en')
         , 'maxg': Person('Max Hunter Gordon', 'M H Gordon', 'https://scholar.google.co.uk/citations?user=I2W8xCoAAAAJ&hl=en')
         , 'dans': Person('Daniel Simpson', 'D Simpson', 'https://dpsimpson.github.io/')
         , 'gavc': Person('Gavin E. Crooks', 'G E Crooks', 'https://threeplusone.com/')
-        , 'patc': Person('Patrick J. Coles', 'P J Coles', 'https://patcoles.com/')
+        , 'patc': Person('Patrick J. Coles', 'P J Coles', 'https://scholar.google.com/citations?user=jvz1G9EAAAAJ&hl=en')
         , 'sduf': Person('Sam Duffield', 'S Duffield', 'https://twitter.com/Sam_Duffield')
         , 'dmel': Person('Denis Melanson', 'D Melanson', 'https://scholar.google.com/citations?user=Ee_tECgAAAAJ&hl=en')
         , 'moak': Person('Mohammad Abu Khater', 'M Abu Khater', 'https://scholar.google.com/citations?user=TbO7kjW1GlwC&hl=en', surname='Abu Khater')
@@ -536,6 +536,20 @@ class Vars:
             img='mersenne.png',
             ),
         Paper(
+            'phd',
+            'Similarity Search: Algorithms for Sets and other High&nbsp;Dimensional&nbsp;Data',
+            ['thdy'],
+            open('abstracts/phd').read(),
+            2019,
+            '',
+            'PhD thesis',
+            files=[
+                File('pdf', 'papers/thesis.pdf'),
+                ],
+            featured=False,
+            new=False,
+            ),
+        Paper(
             'tensorsketch2',
             'Almost Optimal Tensor Sketch', ['thdy', 'jbtk'],
             open('abstracts/tensorsketch2').read(),
@@ -645,7 +659,7 @@ class Vars:
         Project('PyChess', 'A chess engine and Internet chess client.',
                 [File('website', 'https://pychess.github.io/'), File('play', 'https://pychess.org/')]),
         Project("Liar's Dice", 'A bluffing dice game with an AI based on Neural Counterfactual Regret.',
-                [File('source', 'https://github.com/thomasahle/liars-dice'), File('play', 'https://dudo.ai'), File('blog post', 'https://towardsdatascience.com/3bbed6addde0')]),
+                [File('source', 'https://github.com/thomasahle/liars-dice'), File('play', 'https://dudo.ai'), File('blog post', 'https://towardsdatascience.com/lairs-dice-by-self-play-3bbed6addde0/')]),
         Project('TrainBox', 'A train-based puzzle game.',
                 [File('play', 'http://trainbox.github.io/game/TrainBox.html')]),
         Project('numberlink', 'A generator and a fast solver for numberlink puzzles.',
@@ -665,6 +679,9 @@ class Vars:
 
     # Problems I set on the Sphere Online Judge (spoj.com/problems/<name>/)
     spoj_problems = ['POWTOW', 'TRANSFER', 'REALROOT', 'NANO', 'WAYHOME', 'VFRIENDS', 'VFRIEND2']
+
+    # Recent posts from this Bluesky account are shown on the home page
+    bluesky_handle = 'thomasahle.bsky.social'
 
     # The newest blog posts, previewed on the home page
     latest_posts = sorted(blog_data.Vars.posts, key=lambda p: p.date, reverse=True)[:2]
@@ -698,7 +715,7 @@ class Vars:
             'Jon Lund',
             'Prosa', 'May 2021',
             'En ulv i fåreklæder',
-            'https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/',
+            'https://web.archive.org/web/20210613001402/https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/',
             'I was interviewed by the IT workers union on Google\'s FLoC system and the use of SimHash.'
             , logo='prosa.png', files=[]
         ),
@@ -706,7 +723,7 @@ class Vars:
             '',
             'Stibo', 'August 2016',
             'The Stibo-Foundation supports IT-talents',
-            'http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/',
+            'https://web.archive.org/web/20160829103514/http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/',
             'The announcement of my winning the Stibo Travel grant.'
             , logo='stibo.png', files=[]
         ),

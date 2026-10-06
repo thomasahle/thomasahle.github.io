@@ -43,6 +43,7 @@
          <a href="/blog/"><svg class="icon"><use href="#i-pen"/></svg>Blog</a>
       </nav>
       <div class="sidebar-foot">
+         <p class="side-about dots"><span>Elsewhere:</span> <a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős number</a></p>
          <div class="socials">
             <a href="https://github.com/thomasahle" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
             <a href="https://x.com/thomasahle" aria-label="X"><svg class="icon solid"><use href="#i-x"/></svg></a>
@@ -159,9 +160,6 @@
          <section class="section" id="coauthors">
             <span class="anchor" id="about"></span>
             <span class="anchor" id="resume"></span>
-            <p class="research-links">See my <a href="cv.pdf">CV (PDF)</a> for my background and experience, and <a href="/papers/thesis.pdf">my PhD thesis</a> on similarity search.
-               Elsewhere:
-               <span class="dots"><a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős number</a></span>.</p>
             <h2>Coauthors</h2>
             <p class="coauthor-list">
                {% for p in coauthors %}<a href="{{p.href}}">{{p.name}}</a>{{ ', ' if not loop.last else '.' }}{% endfor %}</p>
@@ -189,6 +187,19 @@
                </article>
                {%- endfor %}
             </div>
+         </section>
+
+         <section id="posts">
+            <div class="section-head">
+               <h2>Recent Posts</h2>
+               <span class="head-links">
+                  <a class="link-button" href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky <svg class="icon"><use href="#i-arrow"/></svg></a>
+                  <a class="link-button" href="https://x.com/thomasahle">X <svg class="icon"><use href="#i-arrow"/></svg></a>
+               </span>
+            </div>
+            <div class="feed" id="bsky-feed" data-actor="{{bluesky_handle}}" hidden></div>
+            <p class="feed-fallback" id="bsky-fallback">Most of my day-to-day posting happens on
+               <a href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky</a> and <a href="https://x.com/thomasahle">X</a>.</p>
          </section>
 
          <section class="section" id="projects">
@@ -329,6 +340,56 @@
    }
    window.addEventListener('scroll', spy, {passive: true});
    spy();
+
+   /* Recent Bluesky posts, read from the public API; the fallback line stays if it fails */
+   (function () {
+      var feed = document.getElementById('bsky-feed');
+      var fallback = document.getElementById('bsky-fallback');
+      var actor = feed.dataset.actor;
+      var api = 'https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?filter=posts_no_replies&limit=20&actor=' + encodeURIComponent(actor);
+      function el(tag, cls, text) {
+         var e = document.createElement(tag);
+         if (cls) e.className = cls;
+         if (text) e.textContent = text;
+         return e;
+      }
+      function thumbOf(embed) {
+         if (!embed) return null;
+         var media = embed.media || embed;
+         if (media.images && media.images.length) return media.images[0].thumb;
+         if (media.external && media.external.thumb) return media.external.thumb;
+         return null;
+      }
+      var controller = window.AbortController ? new AbortController() : null;
+      if (controller) setTimeout(function () { controller.abort(); }, 8000);
+      fetch(api, controller ? {signal: controller.signal} : {})
+         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+         .then(function (data) {
+            var posts = (data.feed || []).filter(function (item) { return !item.reason; }).slice(0, 3);
+            if (!posts.length) return;
+            posts.forEach(function (item) {
+               var post = item.post;
+               var rkey = post.uri.split('/').pop();
+               var card = el('a', 'feed-card');
+               card.href = 'https://bsky.app/profile/' + actor + '/post/' + rkey;
+               var thumb = thumbOf(post.embed);
+               if (thumb) {
+                  var img = el('img', 'feed-img');
+                  img.src = thumb;
+                  img.alt = '';
+                  img.loading = 'lazy';
+                  card.appendChild(img);
+               }
+               card.appendChild(el('p', 'feed-text', post.record.text));
+               var date = new Date(post.record.createdAt).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
+               card.appendChild(el('p', 'feed-meta', date + ' · Bluesky'));
+               feed.appendChild(card);
+            });
+            feed.hidden = false;
+            fallback.hidden = true;
+         })
+         .catch(function () {});
+   })();
 
    /* Portrait: show the photo on hover, loading it only when first needed */
    var portrait = document.getElementById('portrait');

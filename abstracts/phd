@@ -1,0 +1,9 @@
+<p>
+We study five fundamental problems in the field of high dimensional algorithms, similarity search and machine learning. We obtain many new results, including:
+</p><p>
+&bull; Data structures with Las Vegas guarantees for ℓ<sub>1</sub>-Approximate Near Neighbours and Braun Blanquet Approximate Set Similarity Search, with performance matching state of the art Monte Carlo algorithms up to factors n<sup>o(1)</sup>.<br>
+&bull; &ldquo;Supermajorities&rdquo;: the first space/time tradeoff for Approximate Set Similarity Search, along with a number of lower bounds suggesting that the algorithms are optimal among all Locality Sensitive Hashing (LSH) data structures.<br>
+&bull; The first lower bounds on approximative data structures based on the Orthogonal Vectors Conjecture (OVC).<br>
+&bull; Output Sensitive LSH data structures with query time near t + n<sup>ρ</sup> for outputting t distinct elements, where n<sup>ρ</sup> is the state of the art time to output a single element and tn<sup>ρ</sup> was the previous best for t items.<br>
+&bull; A Johnson Lindenstrauss embedding with fast multiplication on tensors (a Tensor Sketch), with high probability guarantees for subspace- and near-neighbour-embeddings.
+</p>

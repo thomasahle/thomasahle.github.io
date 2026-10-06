@@ -96,7 +96,7 @@ class Vars:
         Post(
             tag='liars_dice',
             category='Game AI',
-            url="https://towardsdatascience.com/3bbed6addde0",
+            url="https://towardsdatascience.com/lairs-dice-by-self-play-3bbed6addde0/",
             title="Liar’s Dice by Self-Play",
             lead='I’ve been meaning to learn about AIs for games like Poker or Liar’s Dice for a while. Recently while reading DeepMind’s article Player of Games, I thought I might be able to make something really simple that works well enough to be fun. “It shouldn’t take more than an afternoon,” I thought. Of course, I ended up spending much more time on it, but it did turn out to be fun and very simple.',
             date=date(2022, 1, 1),  # Replace with the correct date
