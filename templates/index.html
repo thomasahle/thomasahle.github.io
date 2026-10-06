@@ -36,7 +36,6 @@
          <a href="#top" class="active"><svg class="icon"><use href="#i-home"/></svg>Home</a>
          <a href="#publications"><svg class="icon"><use href="#i-database"/></svg>Publications</a>
          <a href="#manuscripts"><svg class="icon"><use href="#i-file"/></svg>Manuscripts</a>
-         <a href="#coauthors"><svg class="icon"><use href="#i-users"/></svg>Coauthors</a>
          <a href="#projects"><svg class="icon"><use href="#i-gamepad"/></svg>Software &amp; Games</a>
          <a href="#media"><svg class="icon"><use href="#i-megaphone"/></svg>Media</a>
          <a href="#teaching"><svg class="icon"><use href="#i-cap"/></svg>Teaching</a>
@@ -160,8 +159,7 @@
          <section class="section" id="coauthors">
             <span class="anchor" id="about"></span>
             <span class="anchor" id="resume"></span>
-            <h2>Coauthors</h2>
-            <p class="coauthor-list">
+            <p class="coauthor-list"><b>Coauthors:</b>
                {% for p in coauthors %}<a href="{{p.href}}">{{p.name}}</a>{{ ', ' if not loop.last else '.' }}{% endfor %}</p>
          </section>
 

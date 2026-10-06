@@ -797,6 +797,11 @@ body.show-all .show-more {
    max-width: none;
 }
 
+.coauthor-list b {
+   font-weight: 700;
+   color: var(--ink);
+}
+
 .dots a + a::before {
    content: "·";
    display: inline-block;
