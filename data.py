@@ -749,7 +749,7 @@ class Vars:
             'Checkmate: Linux chess program PyChess',
             'https://www.linux-magazine.com/Issues/2016/187/PyChess',
             'Article about my PyChess chess software.'
-            , files=[]
+            , logo='linux-magazine.png', files=[]
         ),
         Newspaper(
             'Bidwell, Jonni',
@@ -781,7 +781,7 @@ class Vars:
             'Winners of the Oxford Computer Science Programming Competition Announced',
             'https://www.cs.ox.ac.uk/news/622-full.html',
             'Announcement of my win in the Oxford programming competition with a Numberlink puzzle solver.'
-            , files=[]
+            , logo='oxford.png', files=[]
         ),
         Newspaper(
             '',
@@ -789,7 +789,7 @@ class Vars:
             'PyChess: Thomas Dybdahl Ahle, Trophées du Logiciel Libre',
             'https://www.youtube.com/watch?v=QoVEeZdvTQ8',
             'Video interview about PyChess at the 2009 Trophées du Libre in Soissons, where PyChess won first place in the Hobbies category.'
-            , files=[]
+            , logo='trophees-du-libre.png', files=[]
         ),
     ]
 
