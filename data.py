@@ -99,10 +99,10 @@ class Vars:
         , 'pagh': Person('Rasmus Pagh', 'R Pagh', 'http://rasmuspagh.net/')
         , 'ilya': Person('Ilya Razenshteyn', 'I Razenshteyn', 'http://www.ilyaraz.org/')
         , 'fran': Person('Francesco Silvestri', 'F Silvestri', 'http://www.dei.unipd.it/~silvestri/')
-        , 'maau': Person('Martin Aumüller', 'M Aumüller', 'http://itu.dk/people/maau/')
+        , 'maau': Person('Martin Aumüller', 'M Aumüller', 'https://researcher.itu.dk/p/en/persons/martin-aum%C3%BCller')
         , 'jbtk': Person('Jakob Bæk Tejs Knudsen', 'J Knudsen', 'https://di.ku.dk/english/staff/?pure=en/persons/493157')
         , 'mika': Person('Michael Kapralov', 'M Kapralov', 'https://theory.epfl.ch/kapralov/')
-        , 'amve': Person('Ameya Velingker', 'A Velingker', 'http://www.cs.cmu.edu/~avelingk/')
+        , 'amve': Person('Ameya Velingker', 'A Velingker', 'https://www.ameyavelingker.com/')
         , 'dawo': Person('David P. Woodruff', 'D Woodruff', 'http://www.cs.cmu.edu/~dwoodruf/')
         , 'amza': Person('Amir Zandieh', 'A Zandieh', 'https://scholar.google.com/citations?user=S9Ss8M8AAAAJ&hl=en')
         , 'mtho': Person('Mikkel Thorup', 'M Thorup', 'http://hjemmesider.diku.dk/~mthorup/')
@@ -218,7 +218,7 @@ class Vars:
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2210.05974'),
                 File('pdf', 'papers/cqr.pdf'),
-                File('website', 'https://thomasahle.github.io/cce'),
+                File('website', 'https://thomasahle.com/cce/'),
                 File('github', 'https://github.com/thomasahle/cce'),
                 File('poster', 'papers/cce_poster.pdf'),
                 ],
