@@ -1,0 +1,39 @@
+{#- Shared top bar for the home page and the blog index.
+    nav_base: '' on the home page (in-page anchors), '/' elsewhere.
+    nav_active: label of the current page, e.g. 'Home' or 'Blog'. -#}
+   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+   </svg>
+
+   <header class="topbar" id="topbar">
+      <a class="brand" href="{{ '#top' if nav_base == '' else '/' }}">Thomas Ahle</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav">
+         <svg class="icon"><use href="#i-menu"/></svg> Menu
+      </button>
+      <nav class="top-nav" id="top-nav" aria-label="Sections">
+         {%- for label, href in [('Home', '#top'), ('Publications', '#publications'), ('Manuscripts', '#manuscripts'),
+                                 ('Software & Games', '#projects'), ('Media', '#media'), ('Teaching', '#teaching'), ('Blog', '/blog/')] %}
+         {%- set url = href if not href.startswith('#') else ('/' if (nav_base and href == '#top') else nav_base ~ href) %}
+         <a href="{{ url }}"{% if label == nav_active %} class="active" aria-current="page"{% endif %}>{{ label|replace('&', '&amp;') }}</a>
+         {%- endfor %}
+      </nav>
+   </header>
+   <script>
+(function () {
+   /* Narrow screens: the menu button opens the section list */
+   var topbar = document.getElementById('topbar');
+   var menu = document.getElementById('menu-toggle');
+   function closeMenu() {
+      topbar.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+   }
+   menu.addEventListener('click', function () {
+      var open = topbar.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+   });
+   topbar.querySelectorAll('.top-nav a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+   });
+})();
+   </script>

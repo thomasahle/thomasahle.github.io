@@ -1,301 +1,107 @@
 {% include 'templates/header.html' %}
-  <style type="text/css">
+  <style type="text/css">{% include 'static/base.css' %}
 
-:root {
-   --ink: #111827;
-   --text: #374151;
-   --muted: #6b7280;
-   --line: #e5e7eb;
-   --accent: #1d4ed8;
-   --bg: #ffffff;
-   --serif: "Calendas Plus", "Crimson Text", "Hoefler Text", Georgia, serif;
-}
+/********** Blog index **********/
 
-* {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
-}
-
-[hidden] {
-   display: none !important;
-}
-
-html {
-   font-size: 20px;
-}
-
-body {
-   background: var(--bg);
-   color: var(--text);
-   font-family: var(--serif);
-   line-height: 1.5;
-   -webkit-font-smoothing: antialiased;
-}
-
-a {
-   color: inherit;
-   text-decoration: none;
-}
-
-.wrap {
-   max-width: 1080px;
-   margin: 0 auto;
-   padding: 0 24px;
-}
-
-/* Header */
-
-.site-header .wrap {
+.page-head {
    display: flex;
-   align-items: center;
+   align-items: baseline;
    justify-content: space-between;
-   gap: 1rem;
-   min-height: 76px;
+   gap: 12px 24px;
+   flex-wrap: wrap;
+   margin: 4px 0 18px;
 }
 
-.brand {
-   font-size: 1.5rem;
-   font-weight: 700;
-   color: var(--ink);
-   letter-spacing: -0.01em;
-   white-space: nowrap;
+.page-title {
+   font-size: 2.4rem;
 }
 
-.site-nav {
-   display: flex;
-   align-items: center;
-   gap: 2.2rem;
-   font-size: .9rem;
-}
-
-.site-nav a {
-   color: var(--ink);
-   padding: 8px 0;
-   border-bottom: 2px solid transparent;
-}
-
-.site-nav a:hover {
-   color: var(--accent);
-}
-
-.site-nav a[aria-current="page"] {
-   color: var(--accent);
-   border-bottom-color: var(--accent);
-}
-
-.search-toggle {
-   display: flex;
-   background: none;
-   border: 0;
-   padding: 4px;
-   color: var(--ink);
-   cursor: pointer;
-}
-
-.search-toggle:hover {
-   color: var(--accent);
-}
-
-.search-bar {
-   padding-bottom: .8rem;
-}
-
-.search-bar input {
-   width: 100%;
+.search {
+   width: min(18rem, 100%);
+   padding: 7px 12px;
    font: inherit;
-   font-size: 1rem;
+   font-size: .95rem;
+   font-weight: 400;
    color: var(--ink);
-   padding: .7rem .9rem;
+   background: #fff;
    border: 1px solid var(--line);
-   border-radius: 6px;
+   border-radius: 4px;
    outline: none;
 }
 
-.search-bar input:focus {
-   border-color: var(--accent);
+.search:focus {
+   border-color: var(--link);
 }
 
-/* Title */
-
-h1 {
-   margin: 2.2rem 0 0;
-   font-size: clamp(3.2rem, 9vw, 5.4rem);
-   font-weight: 700;
-   line-height: 1;
-   letter-spacing: -0.025em;
-   color: var(--ink);
-}
-
-/* Posts */
-
-.posts {
-   margin: 2.2rem 0 4rem;
-}
-
-.post {
+/* One post per row: the index has room for the full lead */
+.post-list {
    display: grid;
-   grid-template-columns: minmax(0, 405px) minmax(0, 1fr);
-   gap: 2.6rem;
-   padding: 1.4rem 0;
-   border-top: 1px solid var(--line);
+   gap: 1rem;
 }
 
-.post:first-child {
-   border-top: 0;
+.post-list .post-card {
+   grid-template-columns: 15rem minmax(0, 1fr);
+   min-height: 12rem;
 }
 
-.thumb img {
-   display: block;
-   width: 100%;
-   aspect-ratio: 5 / 3;
-   object-fit: cover;
-   border: 1px solid var(--line);
-   background: #fafafa;
-}
-
-.category {
-   margin: .25rem 0 .55rem;
-   font-size: .62rem;
-   letter-spacing: .28em;
-   text-transform: uppercase;
-   color: var(--muted);
-}
-
-.post h2 {
-   font-size: 1.75rem;
-   font-weight: 600;
-   line-height: 1.18;
-   letter-spacing: -0.01em;
-   color: var(--ink);
-}
-
-.post h2 a:hover {
-   color: var(--accent);
-}
-
-.meta {
-   margin: .55rem 0 .7rem;
-   font-size: .9rem;
-   color: var(--muted);
-}
-
-.meta .sep {
-   margin: 0 .55em;
-}
-
-.lead {
-   color: #4b5563;
-}
-
-.more {
-   display: inline-flex;
-   align-items: center;
-   gap: .5rem;
-   margin-top: .8rem;
-   font-size: .95rem;
-   color: var(--accent);
-}
-
-.more svg {
-   transition: transform .15s;
-}
-
-.more:hover svg {
-   transform: translateX(3px);
+.post-list .post-lead {
+   -webkit-line-clamp: 4;
 }
 
 .no-results {
-   margin: 2rem 0 4rem;
    color: var(--muted);
 }
 
-@media (max-width: 760px) {
-   html {
-      font-size: 17px;
-   }
-
-   .site-nav {
-      gap: 1.3rem;
-   }
-
-   .post {
+@media (max-width: 640px) {
+   .post-list .post-card {
       grid-template-columns: minmax(0, 1fr);
-      gap: 1rem;
-      padding: 1.8rem 0;
-   }
-
-   .post h2 {
-      font-size: 1.5rem;
    }
 }
-
-@media (max-width: 420px) {
-   .brand {
-      font-size: 1.25rem;
-   }
-
-   .site-nav {
-      gap: 1rem;
-   }
-}
-
   </style>
   <title>Blog</title>
 </head>
 
 <body>
-   <header class="site-header">
-      <div class="wrap">
-         <a class="brand" href="/">Thomas Ahle</a>
-         <nav class="site-nav" aria-label="Site">
-            <a href="/">Home</a>
-            <a href="/blog/" aria-current="page">Blog</a>
-            <button class="search-toggle" id="search-toggle" type="button" aria-label="Search posts" aria-expanded="false" aria-controls="search-bar">
-               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4-4"/></svg>
-            </button>
-         </nav>
-      </div>
-      <div class="search-bar" id="search-bar" hidden>
-         <div class="wrap">
-            <input id="search" type="search" placeholder="Search posts" aria-label="Search posts" autocomplete="off">
+{%- set nav_base = '/' %}
+{%- set nav_active = 'Blog' %}
+{% include 'templates/topbar.html' %}
+
+   <main class="main" id="top">
+      <div class="container">
+         <div class="page-head">
+            <h1 class="page-title">{{ header_title }}</h1>
+            <input class="search" id="search" type="search" placeholder="Search posts" aria-label="Search posts" autocomplete="off">
          </div>
-      </div>
-   </header>
 
-   <main class="wrap">
-      <h1>{{ header_title }}</h1>
+         <div class="post-list">
+            {%- for post in posts %}
+            <article class="post-card">
+               <a class="post-thumb" href="{{ post.url }}" tabindex="-1" aria-hidden="true"><img src="{{ post.img }}" alt="" loading="{{ 'eager' if loop.index <= 3 else 'lazy' }}"></a>
+               <div class="post-body">
+                  {%- if post.category %}
+                  <p class="post-category">{{ post.category }}</p>
+                  {%- endif %}
+                  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                  <p class="post-meta"><time datetime="{{ post.date }}">{{ post.date.strftime('%b %Y') }}</time> &middot; {{ post.read_time }} min</p>
+                  <p class="post-lead">{{ post.lead }}</p>
+                  <a class="link-button" href="{{ post.url }}" aria-label="Read {{ post.title }}">Read more <svg class="icon"><use href="#i-arrow"/></svg></a>
+               </div>
+            </article>
+            {%- endfor %}
+         </div>
+         <p class="no-results" id="no-results" hidden>No posts match your search.</p>
 
-      <div class="posts">
-         {% for post in posts %}
-         <article class="post">
-            <a class="thumb" href="{{ post.url }}" tabindex="-1" aria-hidden="true">
-               <img src="{{ post.img }}" alt="" loading="{{ 'eager' if loop.index <= 2 else 'lazy' }}">
-            </a>
-            <div class="body">
-               {% if post.category %}<p class="category">{{ post.category }}</p>{% endif %}
-               <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-               <p class="meta"><time datetime="{{ post.date }}">{{ post.date }}</time><span class="sep">&middot;</span>{{ post.read_time }} min</p>
-               <p class="lead">{{ post.lead }}</p>
-               <a class="more" href="{{ post.url }}" aria-label="Read {{ post.title }}">Read more
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-               </a>
-            </div>
-         </article>
-         {% endfor %}
+{% include 'templates/footer.html' %}
       </div>
-      <p class="no-results" id="no-results" hidden>No posts match your search.</p>
    </main>
 
    <script>
 (function () {
-   var toggle = document.getElementById('search-toggle');
-   var bar = document.getElementById('search-bar');
+   /* Filter the posts as you type */
    var input = document.getElementById('search');
    var empty = document.getElementById('no-results');
-   var posts = Array.prototype.slice.call(document.querySelectorAll('.post'));
-
-   function filter() {
+   var posts = Array.prototype.slice.call(document.querySelectorAll('.post-card'));
+   input.addEventListener('input', function () {
       var q = input.value.trim().toLowerCase();
       var shown = 0;
       posts.forEach(function (post) {
@@ -304,21 +110,6 @@ h1 {
          if (hit) shown++;
       });
       empty.hidden = shown > 0;
-   }
-
-   toggle.addEventListener('click', function () {
-      bar.hidden = !bar.hidden;
-      toggle.setAttribute('aria-expanded', String(!bar.hidden));
-      if (bar.hidden) {
-         input.value = '';
-         filter();
-      } else {
-         input.focus();
-      }
-   });
-   input.addEventListener('input', filter);
-   input.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') toggle.click();
    });
 })();
    </script>

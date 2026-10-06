@@ -1,0 +1,431 @@
+:root {
+   /* One neutral grey family and one link blue across the site */
+   --ink: #111;
+   --text: #333;
+   --muted: #666;
+   --line: #e5e5e5;
+   --bg: #fff;
+   --link: #0645ad;
+   --radius: 8px;
+   --sans: Lato, "Helvetica Neue", sans-serif;
+   --serif: Cardo, Garamond, "Times New Roman", serif;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+[hidden] {
+   display: none !important;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   margin: 0;
+   background: var(--bg);
+   color: var(--text);
+   font-family: var(--sans);
+   font-size: 16px;
+   font-weight: 300;
+   line-height: 1.6;
+   -webkit-font-smoothing: antialiased;
+   text-rendering: optimizeLegibility;
+}
+
+a {
+   color: var(--link);
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: underline;
+   text-decoration-skip-ink: auto;
+}
+
+h1, h2, h3 {
+   color: var(--ink);
+}
+
+ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+sub, sup {
+   font-size: 75%;
+   line-height: 0;
+   position: relative;
+   vertical-align: baseline;
+}
+
+sup {
+   top: -0.5em;
+}
+
+sub {
+   bottom: -0.25em;
+}
+
+/* Lato Light for running text, regular for controls */
+.top-nav a, .link-button {
+   font-weight: 400;
+}
+
+.icon {
+   width: 20px;
+   height: 20px;
+   flex: none;
+   fill: none;
+   stroke: currentColor;
+   stroke-width: 1.75;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+.icon.solid {
+   fill: currentColor;
+   stroke: none;
+}
+
+/********** Top bar: centered section links in serif small caps **********/
+
+.topbar {
+   position: sticky;
+   top: 0;
+   z-index: 10;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 12px 52px;
+   background: rgba(255, 255, 255, .97);
+   border-bottom: 3px double #ccc;
+}
+
+/* The name is in the letterhead; the bar only shows it on phones */
+.brand {
+   display: none;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-size: 1.3rem;
+   letter-spacing: .03em;
+   color: #111;
+}
+
+.brand:hover {
+   text-decoration: none;
+}
+
+.menu-toggle {
+   display: none;
+   align-items: center;
+   gap: 6px;
+   padding: 6px 10px;
+   font: inherit;
+   font-size: .95rem;
+   color: var(--ink);
+   background: #fff;
+   border: 1px solid var(--line);
+   border-radius: 6px;
+   cursor: pointer;
+}
+
+.top-nav {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 4px 0;
+}
+
+.top-nav a {
+   padding: 4px 0;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-size: 1.12rem;
+   letter-spacing: .05em;
+   color: #222;
+}
+
+.top-nav a:not(:last-child)::after {
+   content: "·";
+   margin: 0 16px;
+   color: #aaa;
+}
+
+.top-nav a:hover {
+   color: var(--link);
+   text-decoration: none;
+}
+
+.top-nav a.active {
+   font-style: italic;
+   color: #000;
+}
+
+/********** Main **********/
+
+.main {
+   padding: 40px 52px 72px;
+}
+
+.container {
+   max-width: 1100px;
+   margin: 0 auto;
+}
+
+@media (min-width: 1600px) {
+   .container {
+      max-width: 1400px;
+   }
+}
+
+section, h2[id], h3[id], [id^="paper-"], .anchor {
+   scroll-margin-top: 76px;
+}
+
+.anchor {
+   display: block;
+}
+
+/********** Section headings **********/
+
+.section-head {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 8px 16px;
+   flex-wrap: wrap;
+   margin: 36px 0 14px;
+}
+
+.section-head h2,
+.section h2,
+.page-title {
+   margin: 0;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-weight: 400;
+   font-size: 1.85rem;
+   line-height: 1.2;
+   letter-spacing: .03em;
+}
+
+.link-button {
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+   padding: 0;
+   font: inherit;
+   font-size: .95rem;
+   color: var(--link);
+   background: none;
+   border: 0;
+   cursor: pointer;
+}
+
+.link-button:hover {
+   text-decoration: underline;
+}
+
+.link-button .icon {
+   width: 17px;
+   height: 17px;
+}
+
+
+/********** Blog preview **********/
+
+.post-grid {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr);
+   gap: 1rem;
+}
+
+@media (min-width: 1300px) {
+   .post-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+}
+
+.post-card {
+   display: grid;
+   grid-template-columns: 15rem minmax(0, 1fr);
+   background: white;
+   border: 1px solid rgba(0,0,0,.1);
+   border-radius: 4px;
+   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.1);
+   overflow: hidden;
+}
+
+/* Images fill the left column edge to edge, like the paper cards */
+.post-thumb {
+   position: relative;
+   display: block;
+   border-right: 1px solid #eee;
+   background: #fafafa;
+}
+
+/* Card height follows the text; the image fills whatever space that leaves */
+.post-thumb img {
+   position: absolute;
+   inset: 0;
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   /* Charts and screenshots have their titles and axes at the top left */
+   object-position: left top;
+}
+
+.post-body {
+   display: flex;
+   flex-direction: column;
+   min-width: 0;
+   padding: 14px 18px 16px;
+}
+
+.post-category {
+   margin: 0;
+   font-size: .72rem;
+   font-weight: 400;
+   letter-spacing: .14em;
+   text-transform: uppercase;
+   color: var(--muted);
+}
+
+.post-card h3 {
+   margin: 4px 0 2px;
+   font-size: 1.08rem;
+   font-weight: 700;
+   line-height: 1.3;
+}
+
+.post-card h3 a {
+   color: var(--ink);
+}
+
+.post-meta {
+   margin: 0 0 6px;
+   font-size: .82rem;
+   font-weight: 400;
+   color: var(--muted);
+}
+
+.post-lead {
+   margin: 0 0 10px;
+   font-size: .95rem;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 3;
+   overflow: hidden;
+}
+
+.post-body .link-button {
+   margin-top: auto;
+   align-self: flex-start;
+   font-size: .92rem;
+}
+
+/********** Footer: profiles and social links **********/
+
+/* Inline link lists separated by dots */
+.dots a + a::before {
+   content: "·";
+   display: inline-block;
+   margin: 0 .55em;
+   color: #999;
+}
+
+.page-foot {
+   margin-top: 64px;
+   padding-top: 18px;
+   border-top: 1px solid var(--line);
+   text-align: center;
+   font-size: .85rem;
+   color: var(--muted);
+}
+
+.page-foot p {
+   margin: 0 auto 8px;
+   max-width: none;
+}
+
+.page-foot a {
+   white-space: nowrap;
+}
+
+/********** Narrow screens: name and a menu button **********/
+
+@media (max-width: 900px) {
+   .topbar {
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+   }
+
+   .brand {
+      display: block;
+   }
+
+   .menu-toggle {
+      display: inline-flex;
+   }
+
+   .top-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 8px 20px 14px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, .06);
+   }
+
+   .topbar.open .top-nav {
+      display: flex;
+   }
+
+   .top-nav a {
+      padding: 9px 0;
+      font-size: 1.15rem;
+   }
+
+   .top-nav a:not(:last-child)::after {
+      content: none;
+   }
+
+   .main {
+      padding: 28px 20px 56px;
+   }
+}
+
+@media (max-width: 1180px) {
+   .main {
+      padding: 36px 36px 64px;
+   }
+
+}
+
+@media (max-width: 640px) {
+   .post-card {
+      grid-template-columns: minmax(0, 1fr);
+   }
+
+   .post-thumb {
+      border-right: 0;
+      border-bottom: 1px solid #eee;
+   }
+
+   .post-thumb img {
+      position: static;
+      height: auto;
+      aspect-ratio: 2 / 1;
+   }
+}

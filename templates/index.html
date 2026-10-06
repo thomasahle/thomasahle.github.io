@@ -1,31 +1,12 @@
 {% include 'templates/header.html' %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet">
-  <style type="text/css">{% include 'static/style.css' %}</style>
+  <style type="text/css">{% include 'static/base.css' %}
+{% include 'static/style.css' %}</style>
   <title>{{me.name}}</title>
 </head>
 <body>
-   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
-   </svg>
-
-   <header class="topbar" id="topbar">
-      <a class="brand" href="#top">Thomas Ahle</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav">
-         <svg class="icon"><use href="#i-menu"/></svg> Menu
-      </button>
-      <nav class="top-nav" id="top-nav" aria-label="Sections">
-         <a href="#top" class="active">Home</a>
-         <a href="#publications">Publications</a>
-         <a href="#manuscripts">Manuscripts</a>
-         <a href="#projects">Software &amp; Games</a>
-         <a href="#media">Media</a>
-         <a href="#teaching">Teaching</a>
-         <a href="/blog/">Blog</a>
-      </nav>
-   </header>
+{%- set nav_base = '' %}
+{%- set nav_active = 'Home' %}
+{% include 'templates/topbar.html' %}
 
    <main class="main" id="top">
 {%- macro index(items) %}
@@ -59,7 +40,7 @@
             <div class="section-head">
                <h2><span class="when-selected">Selected </span>{{label}}</h2>
                <button class="link-button" type="button" data-show-all aria-expanded="false">
-                  <span class="when-selected">View all {{label|lower}}</span><span class="when-all">Show selected only</span>
+                  <span class="when-selected">All {{label|lower}}</span><span class="when-all">Selected {{label|lower}}</span>
                   <svg class="icon"><use href="#i-arrow"/></svg>
                </button>
             </div>
@@ -123,7 +104,7 @@
                </li>
             {%- endfor %}
             </ul>
-            <button class="link-button show-more" type="button" data-show-all aria-expanded="false">Show all {{articles|length}} {{label|lower}}</button>
+            <button class="link-button show-more" type="button" data-show-all aria-expanded="false">All {{label|lower}} <svg class="icon"><use href="#i-arrow"/></svg></button>
          </section>
 
          {% endfor %}
@@ -138,7 +119,7 @@
          <section id="blog">
             <div class="section-head">
                <h2>From the Blog</h2>
-               <a class="link-button" href="/blog/">More posts <svg class="icon"><use href="#i-arrow"/></svg></a>
+               <a class="link-button" href="/blog/">All posts <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
             <div class="post-grid">
                {%- for p in latest_posts %}
@@ -150,7 +131,7 @@
                      <p class="post-category">{{p.category}}</p>
                      {%- endif %}
                      <h3><a href="{{href}}">{{p.title}}</a></h3>
-                     <p class="post-meta">{{p.date}} &middot; {{p.read_time}} min</p>
+                     <p class="post-meta">{{p.date.strftime('%b %Y')}} &middot; {{p.read_time}} min</p>
                      <p class="post-lead">{{p.lead}}</p>
                      <a class="link-button" href="{{href}}">Read more <svg class="icon"><use href="#i-arrow"/></svg></a>
                   </div>
@@ -161,7 +142,7 @@
 
          <section id="posts">
             <div class="section-head">
-               <h2>Recent Posts</h2>
+               <h2>On Bluesky</h2>
                <span class="head-links">
                   <a class="link-button" href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky <svg class="icon"><use href="#i-arrow"/></svg></a>
                   <a class="link-button" href="https://x.com/thomasahle">X <svg class="icon"><use href="#i-arrow"/></svg></a>
@@ -192,7 +173,7 @@
                <h2>Media</h2>
                {%- if media|length > 6 %}
                <button class="link-button" type="button" data-media-all aria-expanded="false">
-                  <span class="when-recent">Show all {{media|length}}</span><span class="when-all-media">Show recent</span>
+                  <span class="when-recent">All media</span><span class="when-all-media">Recent media</span>
                   <svg class="icon"><use href="#i-arrow"/></svg>
                </button>
                {%- endif %}
@@ -215,7 +196,7 @@
                {%- endfor %}
             </div>
             {%- if media|length > 6 %}
-            <button class="link-button media-more" type="button" data-media-all aria-expanded="false">Show all {{media|length}} media items</button>
+            <button class="link-button media-more" type="button" data-media-all aria-expanded="false">All media <svg class="icon"><use href="#i-arrow"/></svg></button>
             {%- endif %}
          </section>
 
@@ -241,10 +222,7 @@
             </div>
          </section>
 
-         <footer class="page-foot">
-            <p class="dots"><span>Elsewhere:</span> <a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős number</a></p>
-            <p class="dots"><a href="https://github.com/thomasahle">GitHub</a><a href="https://x.com/thomasahle">X</a><a href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky</a><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a><a href="https://linkedin.com/in/thomasahle">LinkedIn</a><a href="mailto:{{me.email}}">Email</a></p>
-         </footer>
+{% include 'templates/footer.html' %}
       </div>
    </main>
 
@@ -296,21 +274,6 @@
       target.setAttribute('aria-expanded', 'true');
       requestAnimationFrame(function () { target.scrollIntoView(); });
    }
-
-   /* Narrow screens: menu button */
-   var topbar = document.getElementById('topbar');
-   var menu = document.getElementById('menu-toggle');
-   function closeMenu() {
-      topbar.classList.remove('open');
-      menu.setAttribute('aria-expanded', 'false');
-   }
-   menu.addEventListener('click', function () {
-      var open = topbar.classList.toggle('open');
-      menu.setAttribute('aria-expanded', String(open));
-   });
-   topbar.querySelectorAll('.top-nav a').forEach(function (a) {
-      a.addEventListener('click', closeMenu);
-   });
 
    /* Highlight the top bar link of the section in view */
    var links = Array.prototype.slice.call(document.querySelectorAll('.top-nav a[href^="#"]'));
@@ -384,7 +347,7 @@
                var body = el('div', 'post-body');
                body.appendChild(el('p', 'post-category', 'Bluesky'));
                body.appendChild(el('p', 'post-lead bsky-text', post.record.text));
-               var date = new Date(post.record.createdAt).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
+               var date = new Date(post.record.createdAt).toLocaleDateString('en-US', {month: 'short', year: 'numeric'});
                body.appendChild(el('p', 'post-meta', date));
                var more = el('a', 'link-button', 'View on Bluesky ');
                more.href = url;

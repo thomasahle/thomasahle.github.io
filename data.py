@@ -463,7 +463,7 @@ class Vars:
             open('abstracts/tensor_cookbook').read(),
             2024,
             '',
-            'Updated July 2026',
+            'Updated Jul 2026',
             files=[
                 File('pdf', 'https://raw.githubusercontent.com/thomasahle/tensorgrad/main/paper/cookbook.pdf'),
                 File('website', 'https://tensorcookbook.com/'),
@@ -689,7 +689,7 @@ class Vars:
     media = [
         Newspaper(
             'Brian Bailey',
-            'Semiconductor Engineering', 'July 2026',
+            'Semiconductor Engineering', 'Jul 2026',
             'An AI Model Fit For Purpose',
             'https://semiengineering.com/an-ai-model-fit-for-purpose/',
             'Quoted on why compact model representations generalize better.'
@@ -697,7 +697,7 @@ class Vars:
         ),
         Newspaper(
             'Tim Scarfe',
-            'Machine Learning Street Talk', 'June 2026',
+            'Machine Learning Street Talk', 'Jun 2026',
             'The Thermodynamic AI Chip',
             'https://www.youtube.com/watch?v=5pieVHmlbyk',
             'Podcast interview on using swarms of AI agents to design and formally verify chips, and on Normal Computing\'s thermodynamic computing work.'
@@ -705,7 +705,7 @@ class Vars:
         ),
         Newspaper(
             'Brian Bailey',
-            'Semiconductor Engineering', 'June 2026',
+            'Semiconductor Engineering', 'Jun 2026',
             'Can AI Create Missing Models?',
             'https://semiengineering.com/can-ai-create-missing-models/',
             'Quoted on training surrogate models versus steering real systems end-to-end with AI.'
@@ -713,7 +713,7 @@ class Vars:
         ),
         Newspaper(
             'Thomas Dybdahl Ahle',
-            'Normal Computing Blog', 'March 2026',
+            'Normal Computing Blog', 'Mar 2026',
             'Building an Open-Source Verilog Simulator with AI: 580K Lines in 43 Days',
             'https://normalcomputing.com/blog/building-an-open-source-verilog-simulator-with-ai-580k-lines-in-43-days',
             'My write-up of how we used AI agents to build an open-source Verilog simulation and formal verification stack on top of CIRCT in 43 days.'
@@ -721,7 +721,7 @@ class Vars:
         ),
         Newspaper(
             'Brian Bailey',
-            'Semiconductor Engineering', 'July 2025',
+            'Semiconductor Engineering', 'Jul 2025',
             'Multi-Modal AI In EDA Development Flows',
             'https://semiengineering.com/multi-modal-ai-in-eda-development-flows/',
             'Interview on how our company, Normal Computing, is using AI to improve chip design and development.'
@@ -737,7 +737,7 @@ class Vars:
         ),
         Newspaper(
             '',
-            'Stibo', 'August 2016',
+            'Stibo', 'Aug 2016',
             'The Stibo-Foundation supports IT-talents',
             'https://web.archive.org/web/20160829103514/http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/',
             'The announcement of my winning the Stibo Travel grant.'
@@ -745,7 +745,7 @@ class Vars:
         ),
         Newspaper(
             'Erik Bärwaldt',
-            'Linux Magazine', 'June 2016',
+            'Linux Magazine', 'Jun 2016',
             'Checkmate: Linux chess program PyChess',
             'https://www.linux-magazine.com/Issues/2016/187/PyChess',
             'Article about my PyChess chess software.'
@@ -753,7 +753,7 @@ class Vars:
         ),
         Newspaper(
             'Bidwell, Jonni',
-            'Linux Format', 'January 2016',
+            'Linux Format', 'Jan 2016',
             'Python: Sunfish chess engine',
             'http://www.pressreader.com/australia/linux-format/20151222/282802125292910',
             'Article about my Sunfish chess software.'
@@ -761,7 +761,7 @@ class Vars:
         ),
         Newspaper(
             '',
-            'Computerworld', 'June 2015',
+            'Computerworld', 'Jun 2015',
             'The National Team at the Programming World Cup',
             'http://www.computerworld.dk/art/234196',
             'Coverage of my team\'s participation in the ICPC World Finals.'
@@ -769,7 +769,7 @@ class Vars:
             ),
         Newspaper(
             'Elkær, Mads',
-            'Computerworld', 'October 2013',
+            'Computerworld', 'Oct 2013',
             'Denmark\'s Three Greatest Programmers',
             'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
             'Interview with my team after we won the Danish university programming championship against 34 other teams.'
@@ -777,7 +777,7 @@ class Vars:
             ),
         Newspaper(
             '',
-            'University of Oxford', 'March 2013',
+            'University of Oxford', 'Mar 2013',
             'Winners of the Oxford Computer Science Programming Competition Announced',
             'https://www.cs.ox.ac.uk/news/622-full.html',
             'Announcement of my win in the Oxford programming competition with a Numberlink puzzle solver.'
@@ -785,7 +785,7 @@ class Vars:
         ),
         Newspaper(
             '',
-            'Les Trophées du Libre', 'July 2009',
+            'Les Trophées du Libre', 'Jul 2009',
             'PyChess: Thomas Dybdahl Ahle, Trophées du Logiciel Libre',
             'https://www.youtube.com/watch?v=QoVEeZdvTQ8',
             'Video interview about PyChess at the 2009 Trophées du Libre in Soissons, where PyChess won first place in the Hobbies category.'
