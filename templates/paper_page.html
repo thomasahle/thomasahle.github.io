@@ -1,0 +1,42 @@
+{#- A full list of papers. Set page_title, page_items and nav_active before including. -#}
+{% include 'templates/header.html' %}
+  <style type="text/css">{% include 'static/base.css' %}
+{% include 'static/style.css' %}
+.page-head {
+   margin: 4px 0 18px;
+}
+
+.page-title {
+   font-size: 2.4rem;
+}
+
+.page-count {
+   margin: 2px 0 0;
+   color: var(--muted);
+}
+</style>
+  <title>{{ page_title }} &middot; {{ me.name }}</title>
+</head>
+<body>
+{%- set nav_base = '/' %}
+{% include 'templates/topbar.html' %}
+
+   <main class="main" id="top">
+      <div class="container">
+         <div class="page-head">
+            <h1 class="page-title">{{ page_title }}</h1>
+            <p class="page-count">{{ page_items|length }} {{ page_title|lower }}, newest first. Click a card to read its abstract.</p>
+         </div>
+         {%- from 'templates/paper_card.html' import paper_card with context %}
+         <ul class="pubs">
+         {%- for paper in page_items %}
+            {{- paper_card(paper) }}
+         {%- endfor %}
+         </ul>
+
+{% include 'templates/footer.html' %}
+      </div>
+   </main>
+{% include 'templates/paper_script.html' %}
+</body>
+</html>

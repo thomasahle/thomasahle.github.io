@@ -34,79 +34,32 @@
             </div>
          </header>
 
+         <section class="book" id="book" aria-label="The Tensor Cookbook">
+            <a class="book-cover" href="https://tensorcookbook.com/" tabindex="-1" aria-hidden="true"><img src="feature_imgs/cookbook_cover.png" alt=""></a>
+            <div class="book-body">
+               <p class="book-label">Book</p>
+               <h2 class="book-title"><a href="https://tensorcookbook.com/">The Tensor Cookbook</a></h2>
+               <p class="book-pitch">The Matrix Cookbook, rewritten in tensor diagrams.</p>
+               <p class="book-desc">A reference and a crash course in the visual language of tensor diagrams: matrix and tensor derivatives, statistics and probability, Kronecker products, decompositions and machine learning applications, with exercises throughout.</p>
+               <p class="book-meta">82 pages &middot; Updated Jul 2026</p>
+               <p class="book-links"><a href="https://raw.githubusercontent.com/thomasahle/tensorgrad/main/paper/cookbook.pdf">[pdf]</a> <a href="https://tensorcookbook.com/">[website]</a> <a href="https://tensorcookbook.com/playground">[playground]</a> <a href="https://github.com/thomasahle/tensorgrad">[tensorgrad]</a></p>
+            </div>
+         </section>
+
          <span class="anchor" id="research"></span>
+         {%- from 'templates/paper_card.html' import paper_card with context %}
          {% for id, heading, label, articles in [('publications', 'Research', 'Publications', papers), ('manuscripts', 'Manuscripts', 'Manuscripts', manuscripts)] %}
          <section id="{{id}}">
             <div class="section-head">
                <h2>{{heading}}</h2>
-               <button class="link-button" type="button" data-show-all aria-expanded="false">
-                  <span class="when-selected">All {{label|lower}}</span><span class="when-all">Selected {{label|lower}}</span>
-                  <svg class="icon"><use href="#i-arrow"/></svg>
-               </button>
+               <a class="link-button" href="{{id}}.html">All {{label|lower}} <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
             <ul class="pubs">
-            {%- for paper in articles %}
-               <li class="toggle-item{{' featured' if paper.featured or paper.new else ''}}{{' has_image' if paper.img else ''}}"
-                   id="paper-{{paper.tag}}" tabindex="0" aria-expanded="false">
-                  <div class="shown">
-                     <span class="files">
-                     {%- for f in paper.files -%}
-                        [<a href="{{f.href}}"
-                           onclick="window.gtag && gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});"
-                           >{{f.format}}</a>]
-                        {%- if not loop.last %}  {% endif -%}
-                     {%- endfor -%}
-                     </span>
-
-                     <span class="year">
-                     {%- if paper.conference not in ('subm', 'arxiv', '') -%}
-                        {{paper.conference.upper()}}
-                     {%- elif paper.conference == 'subm' -%}
-                        {{conferences[paper.conference].name}}
-                     {% endif %}
-                     {{paper.year}}
-                     {%- if paper.new %}
-                        &mdash;
-                        <span class="new">NEW!</span>
-                     {%- endif -%}
-                     {%- if paper.comment %}
-                        &mdash;
-                        <span class="comment">{{paper.comment}}</span>
-                     {%- endif -%}
-                     </span>
-
-                     <span class="title">{{paper.title|replace('&nbsp;', ' ')}}</span>
-
-                     <span class="authors">
-                     {% for a in paper.authors -%}
-                        {%- if authors[a] != me -%}
-                           <a href="{{authors[a].href}}"
-                              title="{{authors[a].name}}"
-                              onclick="window.gtag && gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});"
-                              >
-                              {%- if paper.authors|length < 5 -%}
-                                 {{authors[a].abrv}}
-                              {%- else -%}
-                                 {{authors[a].surname or authors[a].abrv.split()[-1]}}
-                              {%- endif -%}
-                           </a>
-                        {%- else -%}
-                           {{me.abrv}}
-                        {%- endif -%}
-                        {%- if not loop.last -%}, {% endif -%}
-                     {%- endfor %}
-                     </span>
-                  </div>
-                  {%- if paper.img %}
-                  <div class="feature_image"><img src="feature_imgs/{{paper.img}}" alt="" loading="lazy"></div>
-                  {%- endif %}
-                  <div class="abstract">{{paper.abstract}}</div>
-               </li>
+            {%- for paper in articles if (paper.featured or paper.new) and paper.tag != 'cookbook' %}
+               {{- paper_card(paper) }}
             {%- endfor %}
             </ul>
-            <button class="link-button show-more" type="button" data-show-all aria-expanded="false">All {{label|lower}} <svg class="icon"><use href="#i-arrow"/></svg></button>
          </section>
-
          {% endfor %}
 
          <section class="section" id="coauthors">
@@ -235,48 +188,14 @@
    function track() {
       if (window.gtag) window.gtag.apply(null, arguments);
    }
-   var body = document.body;
-
-   /* Selected vs. all publications */
-   var showAllButtons = document.querySelectorAll('[data-show-all]');
-   function setShowAll(on) {
-      body.classList.toggle('show-all', on);
-      showAllButtons.forEach(function (b) { b.setAttribute('aria-expanded', String(on)); });
-   }
-   var target = /^#paper-/.test(location.hash) ? document.getElementById(location.hash.slice(1)) : null;
-   setShowAll({{'true' if show_all else 'false'}} || !!(target && !target.classList.contains('featured')));
-   showAllButtons.forEach(function (button) {
-      button.addEventListener('click', function () {
-         var on = !body.classList.contains('show-all');
-         setShowAll(on);
-         track('event', 'toggle-show-all', {'event_label': on ? 'on' : 'off'});
-      });
-   });
-
-   /* Abstracts: click a card (outside its links) to open or close it */
-   function toggleCard(card) {
-      var open = card.classList.toggle('open');
-      card.setAttribute('aria-expanded', String(open));
-      history.replaceState(null, '', '#' + card.id);
-      track('event', 'toggle', {'event_label': card.id});
-   }
-   document.querySelectorAll('.toggle-item').forEach(function (card) {
-      card.addEventListener('click', function (e) {
-         if (e.target.closest('a')) return;
-         if (String(window.getSelection()).length) return;
-         toggleCard(card);
-      });
-      card.addEventListener('keydown', function (e) {
-         if (e.target === card && (e.key === 'Enter' || e.key === ' ')) {
-            e.preventDefault();
-            toggleCard(card);
-         }
-      });
-   });
-   if (target) {
-      target.classList.add('open');
-      target.setAttribute('aria-expanded', 'true');
-      requestAnimationFrame(function () { target.scrollIntoView(); });
+   /* Links to a paper that is only on the full lists go there */
+   var paperPages = {
+      {%- for paper in papers if not (paper.featured or paper.new) %}'{{paper.tag}}': 'publications.html', {% endfor %}
+      {%- for paper in manuscripts if not (paper.featured or paper.new) or paper.tag == 'cookbook' %}'{{paper.tag}}': 'manuscripts.html', {% endfor %}
+   };
+   var hashTag = location.hash.replace(/^#paper-/, '');
+   if (/^#paper-/.test(location.hash) && paperPages[hashTag]) {
+      location.replace(paperPages[hashTag] + location.hash);
    }
 
    /* Highlight the top bar link of the section in view */
@@ -380,5 +299,6 @@
    });
 })();
    </script>
+{% include 'templates/paper_script.html' %}
 </body>
 </html>

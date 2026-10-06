@@ -1,0 +1,59 @@
+{#- One paper card, in the original thomasahle.com design. Import with context. -#}
+{%- macro paper_card(paper) %}
+               <li class="toggle-item{{' featured' if paper.featured or paper.new else ''}}{{' has_image' if paper.img else ''}}"
+                   id="paper-{{paper.tag}}" tabindex="0" aria-expanded="false">
+                  <div class="shown">
+                     <span class="files">
+                     {%- for f in paper.files -%}
+                        [<a href="{{f.href}}"
+                           onclick="window.gtag && gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});"
+                           >{{f.format}}</a>]
+                        {%- if not loop.last %}  {% endif -%}
+                     {%- endfor -%}
+                     </span>
+
+                     <span class="year">
+                     {%- if paper.conference not in ('subm', 'arxiv', '') -%}
+                        {{paper.conference.upper()}}
+                     {%- elif paper.conference == 'subm' -%}
+                        {{conferences[paper.conference].name}}
+                     {% endif %}
+                     {{paper.year}}
+                     {%- if paper.new %}
+                        &mdash;
+                        <span class="new">NEW!</span>
+                     {%- endif -%}
+                     {%- if paper.comment %}
+                        &mdash;
+                        <span class="comment">{{paper.comment}}</span>
+                     {%- endif -%}
+                     </span>
+
+                     <span class="title">{{paper.title|replace('&nbsp;', ' ')}}</span>
+
+                     <span class="authors">
+                     {% for a in paper.authors -%}
+                        {%- if authors[a] != me -%}
+                           <a href="{{authors[a].href}}"
+                              title="{{authors[a].name}}"
+                              onclick="window.gtag && gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});"
+                              >
+                              {%- if paper.authors|length < 5 -%}
+                                 {{authors[a].abrv}}
+                              {%- else -%}
+                                 {{authors[a].surname or authors[a].abrv.split()[-1]}}
+                              {%- endif -%}
+                           </a>
+                        {%- else -%}
+                           {{me.abrv}}
+                        {%- endif -%}
+                        {%- if not loop.last -%}, {% endif -%}
+                     {%- endfor %}
+                     </span>
+                  </div>
+                  {%- if paper.img %}
+                  <div class="feature_image"><img src="feature_imgs/{{paper.img}}" alt="" loading="lazy"></div>
+                  {%- endif %}
+                  <div class="abstract">{{paper.abstract}}</div>
+               </li>
+{%- endmacro %}

@@ -439,7 +439,7 @@ class Vars:
             files=[
                 File('arxiv', 'https://arxiv.org/abs/2605.00058'),
                 ],
-            featured=False,
+            featured=True,
             new=False,
             ),
         Paper(

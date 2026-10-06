@@ -1,0 +1,34 @@
+{#- Paper cards: click a card to show its abstract; #paper-<tag> in the URL opens and scrolls to it -#}
+   <script>
+(function () {
+   function track() {
+      if (window.gtag) window.gtag.apply(null, arguments);
+   }
+   var target = /^#paper-/.test(location.hash) ? document.getElementById(location.hash.slice(1)) : null;
+   /* Abstracts: click a card (outside its links) to open or close it */
+   function toggleCard(card) {
+      var open = card.classList.toggle('open');
+      card.setAttribute('aria-expanded', String(open));
+      history.replaceState(null, '', '#' + card.id);
+      track('event', 'toggle', {'event_label': card.id});
+   }
+   document.querySelectorAll('.toggle-item').forEach(function (card) {
+      card.addEventListener('click', function (e) {
+         if (e.target.closest('a')) return;
+         if (String(window.getSelection()).length) return;
+         toggleCard(card);
+      });
+      card.addEventListener('keydown', function (e) {
+         if (e.target === card && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            toggleCard(card);
+         }
+      });
+   });
+   if (target) {
+      target.classList.add('open');
+      target.setAttribute('aria-expanded', 'true');
+      requestAnimationFrame(function () { target.scrollIntoView(); });
+   }
+})();
+   </script>
