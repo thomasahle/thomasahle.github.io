@@ -703,8 +703,8 @@ class Vars:
                 [File('profile', 'https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle')]),
         Project('Juleflet', 'A designer and templates for Danish woven Christmas hearts.',
                 [File('website', 'https://juleflet.dk'), File('source', 'https://github.com/thomasahle/julehjerte')]),
-        Project('Danish course', 'Learn Danish through its 500 most common words, on Memrise.',
-                [File('memrise', 'https://www.memrise.com/course/44645/500-most-common-danish-words/')]),
+        Project('Danish course', 'Learn Danish through its 500 most common words, taken from film subtitles. Memrise has since retired its community courses, so this links to an archived copy.',
+                [File('memrise', 'https://web.archive.org/web/20200121133312/https://www.memrise.com/course/44645/500-most-common-danish-words/')]),
         Project('Spejdrpedia', 'An online scout handbook.',
                 [File('website', 'http://spjdrpedia.dk/wiki/')]),
     ]
