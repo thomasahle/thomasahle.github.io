@@ -570,6 +570,19 @@ body.show-all .show-more {
    }
 }
 
+/* Media shows the six most recent items until "Show all" is pressed */
+#media:not(.all) .media-card.extra,
+#media:not(.all) .when-all-media,
+#media.all .when-recent,
+#media.all .media-more {
+   display: none;
+}
+
+.media-more {
+   display: block;
+   margin: 16px auto 0;
+}
+
 /********** Blog preview **********/
 
 .post-grid {

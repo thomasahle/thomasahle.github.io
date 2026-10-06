@@ -214,11 +214,19 @@
             </div>
          </section>
 
-         <section class="section" id="media">
-            <h2>Media</h2>
+         <section id="media">
+            <div class="section-head">
+               <h2>Media</h2>
+               {%- if media|length > 6 %}
+               <button class="link-button" type="button" data-media-all aria-expanded="false">
+                  <span class="when-recent">Show all {{media|length}}</span><span class="when-all-media">Show recent</span>
+                  <svg class="icon"><use href="#i-arrow"/></svg>
+               </button>
+               {%- endif %}
+            </div>
             <div class="media-grid">
                {%- for m in media %}
-               <article class="media-card{{'' if m.logo else ' no-logo'}}">
+               <article class="media-card{{'' if m.logo else ' no-logo'}}{{' extra' if loop.index > 6 else ''}}">
                   {%- if m.logo %}
                   <div class="media-logo"><img src="feature_imgs/media/{{m.logo}}" alt="{{m.name}}" loading="lazy"></div>
                   {%- endif %}
@@ -233,6 +241,9 @@
                </article>
                {%- endfor %}
             </div>
+            {%- if media|length > 6 %}
+            <button class="link-button media-more" type="button" data-media-all aria-expanded="false">Show all {{media|length}} media items</button>
+            {%- endif %}
          </section>
 
          <section class="section" id="teaching">
@@ -337,6 +348,17 @@
    }
    window.addEventListener('scroll', spy, {passive: true});
    spy();
+
+   /* Media: the six most recent, with a toggle for the rest */
+   var mediaSection = document.getElementById('media');
+   var mediaButtons = mediaSection.querySelectorAll('[data-media-all]');
+   mediaButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+         var on = mediaSection.classList.toggle('all');
+         mediaButtons.forEach(function (b) { b.setAttribute('aria-expanded', String(on)); });
+         track('event', 'media-all', {'event_label': on ? 'on' : 'off'});
+      });
+   });
 
    /* Recent Bluesky posts, read from the public API; the fallback line stays if it fails */
    (function () {

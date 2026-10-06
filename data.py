@@ -688,12 +688,28 @@ class Vars:
 
     media = [
         Newspaper(
+            'Brian Bailey',
+            'Semiconductor Engineering', 'July 2026',
+            'An AI Model Fit For Purpose',
+            'https://semiengineering.com/an-ai-model-fit-for-purpose/',
+            'Quoted on why compact model representations generalize better.'
+            , logo='semiengineering.png', files=[]
+        ),
+        Newspaper(
             'Tim Scarfe',
             'Machine Learning Street Talk', 'June 2026',
             'The Thermodynamic AI Chip',
             'https://www.youtube.com/watch?v=5pieVHmlbyk',
             'Podcast interview on using swarms of AI agents to design and formally verify chips, and on Normal Computing\'s thermodynamic computing work.'
             , logo='mlst.png', files=[]
+        ),
+        Newspaper(
+            'Brian Bailey',
+            'Semiconductor Engineering', 'June 2026',
+            'Can AI Create Missing Models?',
+            'https://semiengineering.com/can-ai-create-missing-models/',
+            'Quoted on training surrogate models versus steering real systems end-to-end with AI.'
+            , logo='semiengineering.png', files=[]
         ),
         Newspaper(
             'Thomas Dybdahl Ahle',
@@ -728,6 +744,14 @@ class Vars:
             , logo='stibo.png', files=[]
         ),
         Newspaper(
+            'Erik Bärwaldt',
+            'Linux Magazine', 'June 2016',
+            'Checkmate: Linux chess program PyChess',
+            'https://www.linux-magazine.com/Issues/2016/187/PyChess',
+            'Article about my PyChess chess software.'
+            , files=[]
+        ),
+        Newspaper(
             'Bidwell, Jonni',
             'Linux Format', 'January 2016',
             'Python: Sunfish chess engine',
@@ -750,7 +774,23 @@ class Vars:
             'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
             'Interview with my team after we won the Danish university programming championship against 34 other teams.'
             , logo='computerworld.png', files=[]
-            )
+            ),
+        Newspaper(
+            '',
+            'University of Oxford', 'March 2013',
+            'Winners of the Oxford Computer Science Programming Competition Announced',
+            'https://www.cs.ox.ac.uk/news/622-full.html',
+            'Announcement of my win in the Oxford programming competition with a Numberlink puzzle solver.'
+            , files=[]
+        ),
+        Newspaper(
+            '',
+            'Les Trophées du Libre', 'July 2009',
+            'PyChess: Thomas Dybdahl Ahle, Trophées du Logiciel Libre',
+            'https://www.youtube.com/watch?v=QoVEeZdvTQ8',
+            'Video interview about PyChess at the 2009 Trophées du Libre in Soissons, where PyChess won first place in the Hobbies category.'
+            , files=[]
+        ),
     ]
 
     awards = [
@@ -769,8 +809,8 @@ class Vars:
             'Magdalen College', '2010, 2011',
             'A historic scholarship awarded to the top students each year.'),
         Award('Les Trophées du Libre', '1st',
-              'Free Software Foundation Europe', 2007,
-              'For my work on the PyChess free software chess suite.'),
+              'CETRIL, Soissons', 2009,
+              'First place in the Hobbies category, for my work on the PyChess free software chess suite.'),
     ]
 
     jobs = [
@@ -827,7 +867,7 @@ I was also in charge of our hiring efforts, interviewing dozens of candidates an
     ]
 
     oss = [
-            Job('Project Owner', 'PyChess', '2006 - current', 'I developed this chess engine and client for Linux desktop, which became the most popular way to play chess on the Free Internet Chess Server. Through the years I have led a team of 4–8 developers and designers, as well as numerous other contributors — including the volunteers who translated it into more than 35 languages. In 2009 we won Les Trophées du Libre in Paris.',
+            Job('Project Owner', 'PyChess', '2006 - current', 'I developed this chess engine and client for Linux desktop, which became the most popular way to play chess on the Free Internet Chess Server. Through the years I have led a team of 4–8 developers and designers, as well as numerous other contributors — including the volunteers who translated it into more than 35 languages. In 2009 we won Les Trophées du Libre in Soissons.',
                 True),
             Job('Project Owner', 'Sunfish', '2012 - current', 'A 111‑line Python chess engine, which nevertheless has a 2000+ rating on the online Lichess server. Because of the simplicity and focus on teaching good AI techniques, it has become a popular project on GitHub with 2400+ stars and nearly 500 forks. Sunfish was referenced in multiple early applications of neural networks to chess.',
                 True),
