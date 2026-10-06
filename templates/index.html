@@ -36,15 +36,13 @@
          <a href="#top" class="active"><svg class="icon"><use href="#i-home"/></svg>Home</a>
          <a href="#publications"><svg class="icon"><use href="#i-database"/></svg>Publications</a>
          <a href="#manuscripts"><svg class="icon"><use href="#i-file"/></svg>Manuscripts</a>
+         <a href="#coauthors"><svg class="icon"><use href="#i-users"/></svg>Coauthors</a>
          <a href="#projects"><svg class="icon"><use href="#i-gamepad"/></svg>Software &amp; Games</a>
          <a href="#media"><svg class="icon"><use href="#i-megaphone"/></svg>Media</a>
          <a href="#teaching"><svg class="icon"><use href="#i-cap"/></svg>Teaching</a>
-         <a href="#coauthors"><svg class="icon"><use href="#i-users"/></svg>Coauthors</a>
          <a href="/blog/"><svg class="icon"><use href="#i-pen"/></svg>Blog</a>
       </nav>
       <div class="sidebar-foot">
-         <p class="side-about">See my <a href="cv.pdf">CV (PDF)</a> for my background and experience, and <a href="/papers/thesis.pdf">my PhD thesis</a> on similarity search.</p>
-         <p class="side-about dots"><span>Elsewhere:</span> <a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős number</a></p>
          <div class="socials">
             <a href="https://github.com/thomasahle" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
             <a href="https://x.com/thomasahle" aria-label="X"><svg class="icon solid"><use href="#i-x"/></svg></a>
@@ -158,6 +156,41 @@
 
          {% endfor %}
 
+         <section class="section" id="coauthors">
+            <span class="anchor" id="about"></span>
+            <span class="anchor" id="resume"></span>
+            <p class="research-links">See my <a href="cv.pdf">CV (PDF)</a> for my background and experience, and <a href="/papers/thesis.pdf">my PhD thesis</a> on similarity search.
+               Elsewhere:
+               <span class="dots"><a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős number</a></span>.</p>
+            <h2>Coauthors</h2>
+            <p class="coauthor-list">
+               {% for p in coauthors %}<a href="{{p.href}}">{{p.name}}</a>{{ ', ' if not loop.last else '.' }}{% endfor %}</p>
+         </section>
+
+         <section id="blog">
+            <div class="section-head">
+               <h2>From the Blog</h2>
+               <a class="link-button" href="/blog/">More posts <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="post-grid">
+               {%- for p in latest_posts %}
+               {%- set href = p.url if p.url.startswith('http') else '/blog/' ~ p.url %}
+               <article class="post-card">
+                  <a class="post-thumb" href="{{href}}" tabindex="-1" aria-hidden="true"><img src="{{p.img|replace('../', '')}}" alt="" loading="lazy"></a>
+                  <div class="post-body">
+                     {%- if p.category %}
+                     <p class="post-category">{{p.category}}</p>
+                     {%- endif %}
+                     <h3><a href="{{href}}">{{p.title}}</a></h3>
+                     <p class="post-meta">{{p.date}} &middot; {{p.read_time}} min</p>
+                     <p class="post-lead">{{p.lead}}</p>
+                     <a class="link-button" href="{{href}}">Read more <svg class="icon"><use href="#i-arrow"/></svg></a>
+                  </div>
+               </article>
+               {%- endfor %}
+            </div>
+         </section>
+
          <section class="section" id="projects">
             <h2>Software &amp; Games</h2>
             <div class="index-cols">
@@ -214,14 +247,6 @@
                   {{- index(other) }}
                </div>
             </div>
-         </section>
-
-         <section class="section" id="coauthors">
-            <span class="anchor" id="about"></span>
-            <span class="anchor" id="resume"></span>
-            <h2>Coauthors</h2>
-            <p class="coauthor-list">
-               {% for p in coauthors %}<a href="{{p.href}}">{{p.name}}</a>{{ ', ' if not loop.last else '.' }}{% endfor %}</p>
          </section>
 
       </div>

@@ -194,20 +194,7 @@ sub {
    padding: 24px 10px 0;
 }
 
-.side-about {
-   margin: 0 0 12px;
-   font-size: .82rem;
-   line-height: 1.5;
-   color: var(--muted);
-}
 
-.side-about a {
-   white-space: nowrap;
-}
-
-.side-about + .socials {
-   margin-top: 18px;
-}
 
 .socials {
    display: flex;
@@ -579,6 +566,90 @@ body.show-all .show-more {
    }
 }
 
+/********** Blog preview **********/
+
+.post-grid {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 1rem;
+}
+
+.post-card {
+   display: flex;
+   flex-direction: column;
+   background: white;
+   border: 1px solid rgba(0,0,0,.1);
+   border-radius: 4px;
+   box-shadow: 0px 4px 4px -3px rgba(0,0,0,.1);
+   overflow: hidden;
+}
+
+/* Blog images are wide charts, so they go on top, close to their own shape */
+.post-thumb {
+   display: block;
+   border-bottom: 1px solid #eee;
+   background: #fafafa;
+}
+
+.post-thumb img {
+   display: block;
+   width: 100%;
+   aspect-ratio: 2 / 1;
+   object-fit: cover;
+   object-position: top;
+}
+
+.post-body {
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   min-width: 0;
+   padding: 14px 18px 16px;
+}
+
+.post-category {
+   margin: 0;
+   font-size: .72rem;
+   font-weight: 400;
+   letter-spacing: .14em;
+   text-transform: uppercase;
+   color: var(--muted);
+}
+
+.post-card h3 {
+   margin: 4px 0 2px;
+   font-size: 1.08rem;
+   font-weight: 700;
+   line-height: 1.3;
+   letter-spacing: -0.005em;
+}
+
+.post-card h3 a {
+   color: var(--ink);
+}
+
+.post-meta {
+   margin: 0 0 6px;
+   font-size: .82rem;
+   font-weight: 400;
+   color: var(--muted);
+}
+
+.post-lead {
+   margin: 0 0 10px;
+   font-size: .95rem;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 3;
+   overflow: hidden;
+}
+
+.post-body .link-button {
+   margin-top: auto;
+   align-self: flex-start;
+   font-size: .92rem;
+}
+
 /********** Full sections **********/
 
 .section {
@@ -640,6 +711,16 @@ body.show-all .show-more {
    font-size: 1.04rem;
    line-height: 1.4;
    color: #222;
+}
+
+/* CV, thesis and profiles, closing the research part of the page */
+.research-links {
+   margin-bottom: 30px !important;
+   font-size: 1rem;
+}
+
+.research-links .dots a {
+   white-space: nowrap;
 }
 
 .dots a + a::before {
@@ -823,6 +904,10 @@ body.show-all .show-more {
    }
 
    .index-cols {
+      grid-template-columns: minmax(0, 1fr);
+   }
+
+   .post-grid {
       grid-template-columns: minmax(0, 1fr);
    }
 

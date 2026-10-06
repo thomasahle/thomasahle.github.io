@@ -3,6 +3,8 @@ import datetime
 from dataclasses import dataclass, field
 from typing import List, Optional, Sequence
 
+import blog_data
+
 @dataclass
 class Person:
     name: str = 'Anonymous'
@@ -663,6 +665,9 @@ class Vars:
 
     # Problems I set on the Sphere Online Judge (spoj.com/problems/<name>/)
     spoj_problems = ['POWTOW', 'TRANSFER', 'REALROOT', 'NANO', 'WAYHOME', 'VFRIENDS', 'VFRIEND2']
+
+    # The newest blog posts, previewed on the home page
+    latest_posts = sorted(blog_data.Vars.posts, key=lambda p: p.date, reverse=True)[:2]
 
     media = [
         Newspaper(
