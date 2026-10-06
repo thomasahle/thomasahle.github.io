@@ -181,9 +181,32 @@ sub {
    background: var(--accent);
 }
 
+/* Nav and footer share one panel, which becomes the dropdown menu on phones */
+.side-panel {
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   min-height: 0;
+}
+
 .sidebar-foot {
    margin-top: auto;
    padding: 24px 10px 0;
+}
+
+.side-about {
+   margin: 0 0 12px;
+   font-size: .82rem;
+   line-height: 1.5;
+   color: var(--muted);
+}
+
+.side-about a {
+   white-space: nowrap;
+}
+
+.side-about + .socials {
+   margin-top: 18px;
 }
 
 .socials {
@@ -619,10 +642,6 @@ body.show-all .show-more {
    color: #222;
 }
 
-.about {
-   max-width: 46em;
-}
-
 .dots a + a::before {
    content: "·";
    display: inline-block;
@@ -749,24 +768,28 @@ body.show-all .show-more {
       display: inline-flex;
    }
 
-   .side-nav {
+   .side-panel {
       display: none;
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
-      padding: 8px 12px 12px;
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+      padding: 8px 12px 16px;
       background: var(--panel);
       border-bottom: 1px solid var(--line);
       box-shadow: 0 8px 16px rgba(15, 23, 42, .06);
    }
 
-   .sidebar.open .side-nav {
+   .sidebar.open .side-panel {
       display: block;
    }
 
    .sidebar-foot {
-      display: none;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      margin-top: 8px;
    }
 
    .main {
