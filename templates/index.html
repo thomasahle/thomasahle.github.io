@@ -195,7 +195,7 @@
                   <a class="link-button" href="https://x.com/thomasahle">X <svg class="icon"><use href="#i-arrow"/></svg></a>
                </span>
             </div>
-            <div class="feed" id="bsky-feed" data-actor="{{bluesky_handle}}" hidden></div>
+            <div class="post-grid" id="bsky-feed" data-actor="{{bluesky_handle}}" hidden></div>
             <p class="feed-fallback" id="bsky-fallback">Most of my day-to-day posting happens on
                <a href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky</a> and <a href="https://x.com/thomasahle">X</a>.</p>
          </section>
@@ -363,24 +363,41 @@
       fetch(api, controller ? {signal: controller.signal} : {})
          .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
          .then(function (data) {
-            var posts = (data.feed || []).filter(function (item) { return !item.reason; }).slice(0, 3);
+            var posts = (data.feed || []).filter(function (item) { return !item.reason; }).slice(0, 2);
             if (!posts.length) return;
             posts.forEach(function (item) {
                var post = item.post;
-               var rkey = post.uri.split('/').pop();
-               var card = el('a', 'feed-card');
-               card.href = 'https://bsky.app/profile/' + actor + '/post/' + rkey;
+               var url = 'https://bsky.app/profile/' + actor + '/post/' + post.uri.split('/').pop();
                var thumb = thumbOf(post.embed);
+               // Same card as the blog preview: image on the left, text on the right
+               var card = el('article', 'post-card' + (thumb ? '' : ' no-thumb'));
                if (thumb) {
-                  var img = el('img', 'feed-img');
+                  var link = el('a', 'post-thumb');
+                  link.href = url;
+                  link.tabIndex = -1;
+                  link.setAttribute('aria-hidden', 'true');
+                  var img = el('img');
                   img.src = thumb;
                   img.alt = '';
                   img.loading = 'lazy';
-                  card.appendChild(img);
+                  link.appendChild(img);
+                  card.appendChild(link);
                }
-               card.appendChild(el('p', 'feed-text', post.record.text));
+               var body = el('div', 'post-body');
+               body.appendChild(el('p', 'post-category', 'Bluesky'));
+               body.appendChild(el('p', 'post-lead bsky-text', post.record.text));
                var date = new Date(post.record.createdAt).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
-               card.appendChild(el('p', 'feed-meta', date + ' · Bluesky'));
+               body.appendChild(el('p', 'post-meta', date));
+               var more = el('a', 'link-button', 'View on Bluesky ');
+               more.href = url;
+               var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+               svg.setAttribute('class', 'icon');
+               var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+               use.setAttribute('href', '#i-arrow');
+               svg.appendChild(use);
+               more.appendChild(svg);
+               body.appendChild(more);
+               card.appendChild(body);
                feed.appendChild(card);
             });
             feed.hidden = false;
