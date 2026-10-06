@@ -601,21 +601,20 @@ body.show-all .show-more {
    overflow: hidden;
 }
 
-/* Blog images are wide charts: shown whole on the left, padded like the media logos */
+/* Images fill the left column edge to edge, like the paper cards */
 .post-thumb {
-   display: grid;
-   place-items: center;
-   padding: 12px;
+   display: block;
    border-right: 1px solid #eee;
-   background: white;
+   background: #fafafa;
 }
 
 .post-thumb img {
    display: block;
    width: 100%;
-   height: auto;
-   max-height: 200px;
-   object-fit: contain;
+   height: 100%;
+   object-fit: cover;
+   /* Charts and screenshots have their titles and axes at the top left */
+   object-position: left top;
 }
 
 .post-body {
@@ -956,6 +955,11 @@ body.show-all .show-more {
    .post-thumb {
       border-right: 0;
       border-bottom: 1px solid #eee;
+   }
+
+   .post-thumb img {
+      height: auto;
+      aspect-ratio: 2 / 1;
    }
 
    .index-cols > div + div {
