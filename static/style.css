@@ -75,7 +75,7 @@ sub {
 }
 
 /* Lato Light for running text, regular for controls */
-.side-nav a, .btn, .link-button, .panel ul, .copyright {
+.side-nav a, .btn, .link-button, .copyright {
    font-weight: 400;
 }
 
@@ -378,8 +378,7 @@ section, h2[id], h3[id], [id^="paper-"], .anchor {
    text-decoration: underline;
 }
 
-.link-button .icon,
-.more .icon {
+.link-button .icon {
    width: 17px;
    height: 17px;
 }
@@ -589,85 +588,6 @@ body.show-all .show-more {
    }
 }
 
-/********** Panels **********/
-
-.panels {
-   display: grid;
-   grid-template-columns: repeat(3, minmax(0, 1fr));
-   gap: 18px;
-   margin-top: 36px;
-}
-
-.panel {
-   display: flex;
-   flex-direction: column;
-   padding: 18px 20px 20px;
-   border: 1px solid var(--line);
-   border-radius: var(--radius);
-}
-
-.panel h2 {
-   display: flex;
-   align-items: center;
-   gap: 12px;
-   margin: 0 0 12px;
-   font-size: 1.15rem;
-   font-weight: 700;
-}
-
-.panel h2 .icon {
-   width: 24px;
-   height: 24px;
-   color: var(--ink);
-}
-
-.panel ul {
-   display: flex;
-   flex-direction: column;
-   gap: 9px;
-   font-size: .92rem;
-}
-
-.panel .sub {
-   display: block;
-   font-family: var(--serif);
-   font-style: italic;
-   font-size: .92rem;
-   line-height: 1.35;
-   color: #475569;
-}
-
-.panel .dim {
-   color: var(--muted);
-}
-
-.more {
-   display: inline-flex;
-   align-items: center;
-   gap: 6px;
-   margin-top: auto;
-   padding-top: 16px;
-   font-size: .92rem;
-}
-
-.contact li {
-   display: flex;
-   align-items: center;
-   gap: 14px;
-}
-
-.contact .icon {
-   color: #475569;
-}
-
-.contact a {
-   color: var(--text);
-}
-
-.contact a:hover {
-   color: var(--accent-ink);
-}
-
 /********** Full sections **********/
 
 .section {
@@ -811,10 +731,6 @@ body.show-all .show-more {
       width: 190px;
       height: 190px;
    }
-
-   .panels {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-   }
 }
 
 /********** Narrow screens: sidebar becomes a top bar **********/
@@ -914,10 +830,6 @@ body.show-all .show-more {
 
    .btn {
       padding: 8px 16px;
-   }
-
-   .panels {
-      grid-template-columns: minmax(0, 1fr);
    }
 
    .media-grid {

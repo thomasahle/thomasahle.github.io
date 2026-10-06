@@ -149,42 +149,6 @@
             <button class="link-button show-more" type="button" data-show-all aria-expanded="false">Show all {{articles|length}} {{label|lower}}</button>
          </section>
 
-         {%- if id == 'publications' %}
-         <div class="panels">
-            <div class="panel">
-               <h2><svg class="icon"><use href="#i-megaphone"/></svg>Media &amp; News</h2>
-               <ul>
-                  {%- for m in media[:3] %}
-                  <li><a href="{{m.href}}">{{m.name}}</a> <span class="dim">&mdash; {{m.date}}</span>
-                     <span class="sub">&ldquo;{{m.title}}&rdquo;</span></li>
-                  {%- endfor %}
-               </ul>
-               <a class="more" href="#media">View all media <svg class="icon"><use href="#i-arrow"/></svg></a>
-            </div>
-            <div class="panel">
-               <h2><svg class="icon"><use href="#i-gamepad"/></svg>Software &amp; Games</h2>
-               <ul>
-                  <li><a href="https://github.com/thomasahle/tensorgrad">tensorgrad</a> <span class="dim">&mdash; symbolic tensor library</span></li>
-                  <li><a href="https://github.com/thomasahle/chainhash">ChainHash</a> <span class="dim">&mdash; hashing with a proven bound</span></li>
-                  <li><a href="https://github.com/thomasahle/sunfish">Sunfish</a> <span class="dim">&mdash; minimalist chess engine</span></li>
-                  <li><a href="https://pychess.github.io/">PyChess</a> <span class="dim">&mdash; chess engine and client</span></li>
-                  <li><a href="https://github.com/thomasahle/liars-dice">Liar's Dice</a> <span class="dim">&mdash; play at</span> <a href="https://dudo.ai">dudo.ai</a></li>
-               </ul>
-               <a class="more" href="#projects">More software and games <svg class="icon"><use href="#i-arrow"/></svg></a>
-            </div>
-            <div class="panel">
-               <h2><svg class="icon"><use href="#i-user"/></svg>Contact</h2>
-               <ul class="contact">
-                  <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:{{me.email}}">{{me.email}}</a></li>
-                  <li><svg class="icon solid"><use href="#i-scholar"/></svg><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a></li>
-                  <li><svg class="icon"><use href="#i-github"/></svg><a href="https://github.com/thomasahle">GitHub</a></li>
-                  <li><svg class="icon"><use href="#i-linkedin"/></svg><a href="https://linkedin.com/in/thomasahle">LinkedIn</a></li>
-                  <li><svg class="icon"><use href="#i-at"/></svg><a href="https://bsky.app/profile/thomasahle.bsky.social">Bluesky</a></li>
-                  <li><svg class="icon"><use href="#i-file"/></svg><a href="cv.pdf">CV / Resume</a></li>
-               </ul>
-            </div>
-         </div>
-         {%- endif %}
          {% endfor %}
 
          <section class="section" id="projects">
@@ -269,6 +233,9 @@
                and with <a href="https://www.cs.utexas.edu/~ecprice/">Eric Price</a> at the University of Texas at Austin, on the fundamental limits of data-limited computation.
             </p>
             <p><a href="cv.pdf">Download my CV (PDF)</a></p>
+            <p class="profiles">
+               <a href="mailto:{{me.email}}">{{me.email}}</a><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a><a href="https://github.com/thomasahle">GitHub</a><a href="https://linkedin.com/in/thomasahle">LinkedIn</a><a href="https://bsky.app/profile/thomasahle.bsky.social">Bluesky</a><a href="https://x.com/thomasahle">X</a>
+            </p>
             <p class="profiles">
                <a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős Number</a>
             </p>

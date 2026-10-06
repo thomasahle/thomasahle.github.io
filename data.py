@@ -340,7 +340,7 @@ class Vars:
                     'https://docs.google.com/presentation/d/1HgNCrDFdIZ_oh2RRedmd1qOHgWxk74HSkUCMGcuUbP8/edit'
                 )
                 ],
-            featured=True,
+            featured=False,
             new=False,
             img='necklace.png',
             ),
@@ -389,7 +389,7 @@ class Vars:
     manuscripts = [
         Paper(
             'powerlaw',
-            'Stochastic Optimization Under Power-Law Spectra: Tight&nbsp;Bounds and Shuffling&nbsp;Analysis',
+            'Stochastic Optimization Under Power&#8209;Law Spectra:<br>Tight Bounds and Shuffling Analysis',
             ['thdy', 'bula', 'desa', 'chre'],
             open('abstracts/powerlaw').read(),
             2026,
@@ -400,6 +400,7 @@ class Vars:
                 ],
             featured=False,
             new=True,
+            img='powerlaw.png',
             ),
         Paper(
             'polyeval',
@@ -505,7 +506,7 @@ class Vars:
                 File('pdf', 'papers/minner.pdf'),
                 File('slides', 'https://docs.google.com/presentation/d/e/2PACX-1vTdvK58YN2UcDYbEPM-BOEUwtChKekUvu08Ezz07810dn54bJliaxSZbaapqtHmojHdD_aK-sa44mWp/pub?start=false&loop=false&delayms=5000')
                 ],
-            featured=True,
+            featured=False,
             new=False,
             img='minner.png',
             ),
