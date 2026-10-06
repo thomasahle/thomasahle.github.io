@@ -410,6 +410,12 @@ body:not(.show-all) .toggle-item:not(.featured) {
    display: none;
 }
 
+/* The original cards were sized with the default box model; with
+   border-box the 14rem image would overflow the bottom border. */
+.toggle-item, .toggle-item * {
+   box-sizing: content-box;
+}
+
 .toggle-item {
    border: 1px solid rgba(0,0,0,.1);
    border-radius: var(--border-radius);
