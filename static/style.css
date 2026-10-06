@@ -1,5 +1,4 @@
 :root {
-   --sidebar-w: 248px;
    --ink: #0f172a;
    --text: #334155;
    --muted: #64748b;
@@ -75,7 +74,7 @@ sub {
 }
 
 /* Lato Light for running text, regular for controls */
-.side-nav a, .link-button {
+.top-nav a, .link-button {
    font-weight: 400;
 }
 
@@ -95,30 +94,28 @@ sub {
    stroke: none;
 }
 
-/********** Sidebar **********/
+/********** Top bar: centered section links in serif small caps **********/
 
-.sidebar {
-   position: fixed;
+.topbar {
+   position: sticky;
    top: 0;
-   bottom: 0;
-   left: 0;
    z-index: 10;
-   width: var(--sidebar-w);
    display: flex;
-   flex-direction: column;
-   padding: 28px 20px 22px;
-   background: var(--panel);
-   border-right: 1px solid var(--line);
-   overflow-y: auto;
+   align-items: center;
+   justify-content: center;
+   padding: 12px 52px;
+   background: rgba(255, 255, 255, .97);
+   border-bottom: 3px double #ccc;
 }
 
+/* The name is in the letterhead; the bar only shows it on phones */
 .brand {
-   display: block;
-   margin: 0 0 26px 10px;
-   font-size: 1.55rem;
-   font-weight: 800;
-   letter-spacing: -0.03em;
-   color: var(--ink);
+   display: none;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-size: 1.3rem;
+   letter-spacing: .03em;
+   color: #111;
 }
 
 .brand:hover {
@@ -139,101 +136,47 @@ sub {
    cursor: pointer;
 }
 
-.side-nav a {
-   position: relative;
+.top-nav {
    display: flex;
-   align-items: center;
-   gap: 14px;
-   margin-bottom: 4px;
-   padding: 10px 14px;
-   border-radius: var(--radius);
-   font-size: .97rem;
-   color: var(--text);
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 4px 0;
 }
 
-.side-nav a .icon {
-   color: #475569;
+.top-nav a {
+   padding: 4px 0;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-size: 1.12rem;
+   letter-spacing: .05em;
+   color: #222;
 }
 
-.side-nav a:hover {
-   background: #eef2f7;
+.top-nav a:not(:last-child)::after {
+   content: "·";
+   margin: 0 16px;
+   color: #aaa;
+}
+
+.top-nav a:hover {
+   color: var(--accent-ink);
    text-decoration: none;
 }
 
-.side-nav a.active {
-   background: var(--accent-soft);
-   color: var(--accent-ink);
-   font-weight: 500;
-}
-
-.side-nav a.active .icon {
-   color: var(--accent);
-}
-
-.side-nav a.active::before {
-   content: "";
-   position: absolute;
-   top: 6px;
-   bottom: 6px;
-   left: 0;
-   width: 3px;
-   border-radius: 2px;
-   background: var(--accent);
-}
-
-/* Nav and footer share one panel, which becomes the dropdown menu on phones */
-.side-panel {
-   display: flex;
-   flex-direction: column;
-   flex: 1;
-   min-height: 0;
-}
-
-.sidebar-foot {
-   margin-top: auto;
-   padding: 24px 10px 0;
-}
-
-.side-about {
-   margin: 0 0 18px;
-   font-size: .82rem;
-   line-height: 1.5;
-   color: var(--muted);
-}
-
-.side-about a {
-   white-space: nowrap;
-}
-
-
-
-.socials {
-   display: flex;
-   gap: 18px;
-}
-
-.socials a {
-   color: #334155;
-}
-
-.socials a:hover {
-   color: var(--accent);
-}
-
-.socials .icon {
-   width: 21px;
-   height: 21px;
+.top-nav a.active {
+   font-style: italic;
+   color: #000;
 }
 
 /********** Main **********/
 
 .main {
-   margin-left: var(--sidebar-w);
-   padding: 44px 52px 72px;
+   padding: 40px 52px 72px;
 }
 
 .container {
    max-width: 1100px;
+   margin: 0 auto;
 }
 
 @media (min-width: 1600px) {
@@ -243,28 +186,33 @@ sub {
 }
 
 section, h2[id], h3[id], [id^="paper-"], .anchor {
-   scroll-margin-top: 24px;
+   scroll-margin-top: 76px;
 }
 
 .anchor {
    display: block;
 }
 
-/********** Letterhead **********/
+/********** Letterhead: centered on the page, drawing to the right **********/
 
 .letterhead {
    display: grid;
-   grid-template-columns: 170px minmax(0, 1fr);
-   gap: 36px;
+   grid-template-columns: minmax(0, 1fr) minmax(0, 40em) minmax(0, 1fr);
    align-items: center;
-   padding: 26px 0 24px;
-   border-top: 1px solid #111;
-   border-bottom: 4px double #111;
+   column-gap: 32px;
+   padding: 8px 0 12px;
+   text-align: center;
+}
+
+.letterhead .lh-text {
+   grid-column: 2;
 }
 
 .letterhead .portrait {
+   grid-column: 3;
+   justify-self: start;
    position: relative;
-   width: 170px;
+   width: 180px;
 }
 
 .letterhead .portrait img {
@@ -291,22 +239,21 @@ section, h2[id], h3[id], [id^="paper-"], .anchor {
    font-family: var(--serif);
    font-variant: small-caps;
    font-weight: 400;
-   font-size: clamp(2.1rem, 4vw, 2.9rem);
+   font-size: clamp(2.1rem, 4vw, 3rem);
    line-height: 1.1;
    letter-spacing: .03em;
 }
 
 .letterhead .role {
-   margin: 4px 0 14px;
+   margin: 6px 0 16px;
    font-family: var(--serif);
    font-style: italic;
-   font-size: 1.22rem;
+   font-size: 1.25rem;
    color: #333;
 }
 
 .letterhead .bio {
-   max-width: 42em;
-   margin: 0 0 14px;
+   margin: 0 auto 16px;
    font-size: 1.05rem;
 }
 
@@ -853,6 +800,26 @@ body.show-all .show-more {
    font-size: .95rem;
 }
 
+/********** Footer: profiles and social links **********/
+
+.page-foot {
+   margin-top: 64px;
+   padding-top: 18px;
+   border-top: 1px solid #e5e5e5;
+   text-align: center;
+   font-size: .85rem;
+   color: var(--muted);
+}
+
+.page-foot p {
+   margin: 0 auto 8px;
+   max-width: none;
+}
+
+.page-foot a {
+   white-space: nowrap;
+}
+
 /********** Medium screens: smaller portrait **********/
 
 @media (max-width: 1180px) {
@@ -860,85 +827,85 @@ body.show-all .show-more {
       padding: 36px 36px 64px;
    }
 
+   /* Text stays centered in its column, drawing to its right */
    .letterhead {
-      grid-template-columns: 140px minmax(0, 1fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 1fr) 150px;
+   }
+
+   .letterhead .lh-text {
+      grid-column: 1;
    }
 
    .letterhead .portrait {
-      width: 140px;
+      grid-column: 2;
+      width: 150px;
    }
 }
 
-/********** Narrow screens: sidebar becomes a top bar **********/
+/********** Narrow screens: name and a menu button **********/
 
 @media (max-width: 900px) {
-   .sidebar {
-      position: sticky;
-      bottom: auto;
-      width: auto;
-      flex-direction: row;
-      align-items: center;
+   .topbar {
       justify-content: space-between;
       padding: 12px 20px;
-      overflow: visible;
-      background: rgba(248, 250, 252, .97);
-      border-right: 0;
       border-bottom: 1px solid var(--line);
    }
 
    .brand {
-      margin: 0;
-      font-size: 1.3rem;
+      display: block;
    }
 
    .menu-toggle {
       display: inline-flex;
    }
 
-   .side-panel {
+   .top-nav {
       display: none;
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
-      max-height: calc(100vh - 64px);
-      overflow-y: auto;
-      padding: 8px 12px 16px;
-      background: var(--panel);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 8px 20px 14px;
+      background: #fff;
       border-bottom: 1px solid var(--line);
       box-shadow: 0 8px 16px rgba(15, 23, 42, .06);
    }
 
-   .sidebar.open .side-panel {
-      display: block;
+   .topbar.open .top-nav {
+      display: flex;
    }
 
-   .sidebar-foot {
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      margin-top: 8px;
+   .top-nav a {
+      padding: 9px 0;
+      font-size: 1.15rem;
+   }
+
+   .top-nav a:not(:last-child)::after {
+      content: none;
    }
 
    .main {
-      margin-left: 0;
       padding: 28px 20px 56px;
    }
-
-   section, h2[id], h3[id], [id^="paper-"], .anchor {
-      scroll-margin-top: 76px;
-   }
-
 }
 
 @media (max-width: 640px) {
    .letterhead {
       grid-template-columns: minmax(0, 1fr);
-      gap: 14px;
-      padding-top: 18px;
+      row-gap: 14px;
+      padding-top: 0;
+   }
+
+   .letterhead .lh-text {
+      grid-column: 1;
    }
 
    .letterhead .portrait {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: center;
       width: 110px;
    }
 
