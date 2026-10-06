@@ -55,24 +55,18 @@
    <main class="main" id="top">
       <div class="container">
 
-         <header class="hero">
-            <div>
-               <h1>{{me.name}}</h1>
-               <p class="intro">
-                  I'm Head of Machine Learning at <a href="https://normalcomputing.com/">Normal Computing</a>.
-                  My work combines AI and theory. On the AI side, I build agents that design, formalize and verify chips. On the theory side, I work on hashing with machine-checked guarantees, fast polynomial evaluation, optimization theory, and the foundations of massive data: similarity search, sketching and high-dimensional geometry.
-               </p>
-               <div class="buttons">
-                  <a class="btn primary" href="#publications">Research <svg class="icon"><use href="#i-arrow"/></svg></a>
-                  <a class="btn" href="#about">Resume</a>
-                  <a class="btn" href="#software">Software</a>
-                  <a class="btn" href="#games">Games</a>
-                  <a class="btn" href="/blog/">Blog</a>
-               </div>
-            </div>
+         <header class="letterhead">
             <div class="portrait" id="portrait">
                <img class="face" src="{{me.photo}}" alt="A drawing of me" width="638" height="638">
                <img class="photo" data-src="static/normal_potrait.jpg" alt="">
+            </div>
+            <div>
+               <h1>{{me.name}}</h1>
+               <p class="role">Head of Machine Learning, <a href="https://normalcomputing.com/">Normal Computing</a> &middot; Copenhagen</p>
+               <p class="bio">My work combines AI and theory. On the AI side, I build agents that design, formalize and verify chips. On the theory side, I work on hashing with machine-checked guarantees, fast polynomial evaluation, optimization theory, and the foundations of massive data: similarity search, sketching and high-dimensional geometry.</p>
+               <p class="contact">
+                  <a href="mailto:{{me.email}}">{{me.email}}</a><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a><a href="https://github.com/thomasahle">GitHub</a><a href="https://linkedin.com/in/thomasahle">LinkedIn</a><a href="https://bsky.app/profile/thomasahle.bsky.social">Bluesky</a><a href="https://x.com/thomasahle">X</a><a href="cv.pdf">CV</a>
+               </p>
             </div>
          </header>
 
@@ -175,7 +169,7 @@
                <li><a href="https://pychess.github.io/">PyChess</a> &mdash; a chess engine and Internet chess client &mdash; <a href="https://pychess.org/">online version</a></li>
                <li><a href="https://github.com/thomasahle/liars-dice">Liar's Dice</a> &mdash; a bluffing dice game based on Neural Counterfactual Regret. Play at <a href="https://dudo.ai">dudo.ai</a> and read <a href="https://towardsdatascience.com/3bbed6addde0">the blog post</a>.</li>
                <li><a href="https://github.com/thomasahle/numberlink">numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles &mdash; <a href="https://numberlinks.puzzlebaron.com/">play at Puzzle Baron</a></li>
-               <li><a href="https://github.com/thomasahle/codenames">codenames</a> &mdash; an AI that plays Codenames using word embeddings &mdash; <a href="https://codewords.app/">play at Codewords.org</a></li>
+               <li><a href="https://github.com/thomasahle/codenames">codenames</a> &mdash; an AI that plays Codenames using word embeddings</li>
                <li><a href="https://github.com/thomasahle/fastchess">fastchess</a> &mdash; an experiment into using the FastText library to play chess</li>
                <li><a href="http://trainbox.github.io/game/TrainBox.html">TrainBox</a> &mdash; a train-based puzzle game</li>
             </ul>
