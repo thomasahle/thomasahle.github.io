@@ -504,6 +504,20 @@ class Vars:
             new=False,
             ),
         Paper(
+            'weighted-sampling',
+            'An Experimental Survey of Weighted Sampling Without&nbsp;Replacement',
+            ['thdy'],
+            open('abstracts/weighted_sampling').read(),
+            2022,
+            '',
+            '',
+            files=[
+                File('pdf', 'papers/unbiased_sampling_with_replacement.pdf'),
+                ],
+            featured=False,
+            new=False,
+            ),
+        Paper(
             'minner',
             'Minner: Improved Similarity Estimation and Recall on&nbsp;MinHashed&nbsp;Databases',
             ['thdy'],
@@ -670,7 +684,14 @@ class Vars:
                 [File('source', 'https://github.com/thomasahle/fastchess')]),
     ]
 
+    teaching_material = [
+        Project('ICPC team notebook', 'The algorithms reference my team, Lambdabamserne, brought to the 2015 ICPC World Finals.',
+                [File('source', 'https://github.com/thomasahle/icpc')]),
+    ]
+
     other = [
+        Project('Juleflet', 'A designer and templates for Danish woven Christmas hearts.',
+                [File('website', 'https://juleflet.dk'), File('source', 'https://github.com/thomasahle/julehjerte')]),
         Project('Danish course', 'Learn Danish through its 500 most common words, on Memrise.',
                 [File('memrise', 'https://www.memrise.com/course/44645/500-most-common-danish-words/')]),
         Project('Spejdrpedia', 'An online scout handbook.',

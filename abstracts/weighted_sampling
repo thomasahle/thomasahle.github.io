@@ -1,0 +1,5 @@
+<p>
+For many applications it is beneficial to sample from a set of vectors with a distribution other than uniform, to increase the amount of information in a sample while still estimating the same expected value. Importance sampling rescales the sampled values by the new probability distribution so that the mean stays fixed, but this only works for sampling a single element, while machine learning applications (and many others) need a &ldquo;batch&rdquo; of samples of a fixed size, preferably without repetitions.
+</p><p>
+In this note we investigate how importance sampling can be made to work in this setting, and we show experimentally that our algorithms lower the variance of samples while keeping the mean unbiased, with an application to survey sampling.
+</p>

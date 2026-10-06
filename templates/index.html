@@ -213,6 +213,10 @@
                      <dt><b>Programming problems</b></dt>
                      <dd>Challenges I set on the <a href="https://spoj.com">Sphere Online Judge</a>:
                         {% for p in spoj_problems %}<a href="https://spoj.com/problems/{{p}}/">{{p}}</a>{{ ', ' if not loop.last else '.' }}{% endfor %}</dd>
+                     {%- for p in teaching_material %}
+                     <dt><b>{{p.name}}</b><span class="links">{% for f in p.links %} [<a href="{{f.href}}">{{f.format}}</a>]{% endfor %}</span></dt>
+                     <dd>{{p.description}}</dd>
+                     {%- endfor %}
                   </dl>
                </div>
                <div>
