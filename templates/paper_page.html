@@ -1,9 +1,10 @@
-{#- A full list of papers. Set page_title, page_items and nav_active before including. -#}
+{#- The full lists of papers on one page. Set page_title and page_sections
+    (a list of (id, heading, items)) before including. -#}
 {% include 'templates/header.html' %}
   <style type="text/css">{% include 'static/base.css' %}
 {% include 'static/style.css' %}
 .page-head {
-   margin: 4px 0 18px;
+   margin: 4px 0 6px;
 }
 
 .page-title {
@@ -19,20 +20,29 @@
 </head>
 <body>
 {%- set nav_base = '/' %}
+{%- set nav_active = '' %}
 {% include 'templates/topbar.html' %}
 
    <main class="main" id="top">
       <div class="container">
          <div class="page-head">
             <h1 class="page-title">{{ page_title }}</h1>
-            <p class="page-count">{{ page_items|length }} {{ page_title|lower }}, newest first. Click a card to read its abstract.</p>
+            <p class="page-count">All my papers, newest first. Click a card to read its abstract.</p>
          </div>
          {%- from 'templates/paper_card.html' import paper_card with context %}
-         <ul class="pubs">
-         {%- for paper in page_items %}
-            {{- paper_card(paper) }}
+         {%- for id, heading, items in page_sections %}
+         <section id="{{ id }}">
+            <div class="section-head">
+               <h2>{{ heading }}</h2>
+               <span class="page-count">{{ items|length }} {{ heading|lower }}</span>
+            </div>
+            <ul class="pubs">
+            {%- for paper in items %}
+               {{- paper_card(paper) }}
+            {%- endfor %}
+            </ul>
+         </section>
          {%- endfor %}
-         </ul>
 
 {% include 'templates/footer.html' %}
       </div>

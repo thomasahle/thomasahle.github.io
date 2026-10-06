@@ -9,8 +9,7 @@ mkdir -p tex4ht/build
 # Render HTML pages
 python3 render_html.py data templates/index.html > compiled/index.html
 python3 render_html.py blog_data templates/blog/index.html > compiled/blog/index.html
-python3 render_html.py data templates/publications.html > compiled/publications.html
-python3 render_html.py data templates/manuscripts.html > compiled/manuscripts.html
+python3 render_html.py data templates/research.html > compiled/research.html
 
 # Latex blog things
 mkdir -p compiled/blog

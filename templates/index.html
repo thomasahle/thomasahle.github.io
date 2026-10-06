@@ -52,7 +52,7 @@
          <section id="{{id}}">
             <div class="section-head">
                <h2>{{heading}}</h2>
-               <a class="link-button" href="{{id}}.html">All {{label|lower}} <svg class="icon"><use href="#i-arrow"/></svg></a>
+               <a class="link-button" href="research.html#{{id}}">All {{label|lower}} <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
             <ul class="pubs">
             {%- for paper in articles if (paper.featured or paper.new) and paper.tag != 'cookbook' %}
@@ -188,14 +188,14 @@
    function track() {
       if (window.gtag) window.gtag.apply(null, arguments);
    }
-   /* Links to a paper that is only on the full lists go there */
+   /* Links to a paper that is only on the Research page go there */
    var paperPages = {
-      {%- for paper in papers if not (paper.featured or paper.new) %}'{{paper.tag}}': 'publications.html', {% endfor %}
-      {%- for paper in manuscripts if not (paper.featured or paper.new) or paper.tag == 'cookbook' %}'{{paper.tag}}': 'manuscripts.html', {% endfor %}
+      {%- for paper in papers if not (paper.featured or paper.new) %}'{{paper.tag}}': 1, {% endfor %}
+      {%- for paper in manuscripts if not (paper.featured or paper.new) or paper.tag == 'cookbook' %}'{{paper.tag}}': 1, {% endfor %}
    };
    var hashTag = location.hash.replace(/^#paper-/, '');
    if (/^#paper-/.test(location.hash) && paperPages[hashTag]) {
-      location.replace(paperPages[hashTag] + location.hash);
+      location.replace('research.html' + location.hash);
    }
 
    /* Highlight the top bar link of the section in view */
