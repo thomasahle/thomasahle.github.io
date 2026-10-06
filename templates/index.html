@@ -35,10 +35,10 @@
          </header>
 
          <span class="anchor" id="research"></span>
-         {% for id, label, articles in [('publications', 'Publications', papers), ('manuscripts', 'Manuscripts', manuscripts)] %}
+         {% for id, heading, label, articles in [('publications', 'Research', 'Publications', papers), ('manuscripts', 'Manuscripts', 'Manuscripts', manuscripts)] %}
          <section id="{{id}}">
             <div class="section-head">
-               <h2><span class="when-selected">Selected </span>{{label}}</h2>
+               <h2>{{heading}}</h2>
                <button class="link-button" type="button" data-show-all aria-expanded="false">
                   <span class="when-selected">All {{label|lower}}</span><span class="when-all">Selected {{label|lower}}</span>
                   <svg class="icon"><use href="#i-arrow"/></svg>
