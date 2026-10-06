@@ -650,6 +650,7 @@ class Vars:
 
     teachings = [
             Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.', 'teaching/pcpp2019')
+            , Teaching('Algorithms and Data Structures', 'bads', 2015, "Teaching assistant for Thore Husfeldt's BSc course at ITU in 2015, where I contributed to the lab exercises.", 'https://github.com/thorehusfeldt/bads-labs')
             ]
 
     software = [
@@ -668,6 +669,8 @@ class Vars:
     ]
 
     games = [
+        Project('Lichess', 'Challenge me to a game of chess.',
+                [File('profile', 'https://lichess.org/@/thomasahle')]),
         Project('Sunfish', 'A minimalist chess engine, playing as a bot on Lichess.',
                 [File('source', 'https://github.com/thomasahle/sunfish'), File('play', 'https://lichess.org/@/sunfish-engine')]),
         Project('PyChess', 'A chess engine and Internet chess client.',
@@ -690,6 +693,13 @@ class Vars:
     ]
 
     other = [
+        Project('Wikipedia', 'I created the articles on <a href="https://en.wikipedia.org/wiki/Tensor_sketch">Tensor sketch</a> and <a href="https://en.wikipedia.org/wiki/Pagh%27s_problem">Pagh\'s problem</a>, wrote most of <a href="https://en.wikipedia.org/wiki/Polynomial_evaluation">Polynomial evaluation</a>, and added substantially to <a href="https://en.wikipedia.org/wiki/Count_sketch">Count sketch</a>, <a href="https://en.wikipedia.org/wiki/Tabulation_hashing">Tabulation hashing</a>, <a href="https://en.wikipedia.org/wiki/K-independent_hashing">k-independent hashing</a>, <a href="https://en.wikipedia.org/wiki/CUR_matrix_approximation">CUR matrix approximation</a>, <a href="https://en.wikipedia.org/wiki/Cantelli%27s_inequality">Cantelli\'s</a> and <a href="https://en.wikipedia.org/wiki/Khintchine_inequality">Khintchine</a> inequalities, and the <a href="https://en.wikipedia.org/wiki/Marchenko%E2%80%93Pastur_distribution">Marchenko–Pastur</a>, <a href="https://en.wikipedia.org/wiki/Wishart_distribution">Wishart</a> and <a href="https://en.wikipedia.org/wiki/Super-Poissonian_distribution">super-Poissonian</a> distributions.',
+                [File('contributions', 'https://en.wikipedia.org/wiki/Special:Contributions/Thomasda')]),
+        Project('Math Q&amp;A', 'Answers on probability, inequalities and algorithms: about 100 on Math.SE, plus MathOverflow and cstheory. On Chess.SE I worked out <a href="https://chess.stackexchange.com/a/4899">the average length of a chess game</a> from 731,000 games.',
+                [File('math.se', 'https://math.stackexchange.com/users/7072'), File('mathoverflow', 'https://mathoverflow.net/users/5429'),
+                 File('cstheory', 'https://cstheory.stackexchange.com/users/4310')]),
+        Project('OEIS', 'Integer sequences I added: <a href="https://oeis.org/A188668">A188668</a> and <a href="https://oeis.org/A188816">A188816</a> (the Irwin–Hall distribution), <a href="https://oeis.org/A217595">A217595</a> (polyominoes without holes), <a href="https://oeis.org/A239288">A239288</a> (a maximal composition sum) and <a href="https://oeis.org/A255192">A255192</a> (connected subgraphs of K(n,n)).',
+                [File('profile', 'https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle')]),
         Project('Juleflet', 'A designer and templates for Danish woven Christmas hearts.',
                 [File('website', 'https://juleflet.dk'), File('source', 'https://github.com/thomasahle/julehjerte')]),
         Project('Danish course', 'Learn Danish through its 500 most common words, on Memrise.',
