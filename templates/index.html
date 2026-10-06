@@ -88,27 +88,44 @@
             </div>
             <ul class="pubs">
             {%- for paper in articles %}
-               <li class="pub{{' selected' if paper.featured or paper.new else ''}}{{'' if paper.img else ' no-image'}}" id="paper-{{paper.tag}}">
-                  {%- if paper.img %}
-                  <div class="thumb"><img src="feature_imgs/{{paper.img}}" alt="" loading="lazy"></div>
-                  {%- endif %}
-                  <div class="info">
-                     <p class="venue">
-                           {%- if paper.conference not in ('subm', 'arxiv', '') -%}
-                              {{paper.conference.upper()}}
-                           {% elif paper.conference == 'subm' -%}
-                              {{conferences[paper.conference].name}}
-                           {% endif -%}
-                           {{paper.year}}
-                           {%- if paper.new %}<span class="badge">New</span>{% endif -%}
-                           {%- if paper.comment %} &middot; <span class="comment">{{paper.comment}}</span>{% endif -%}
-                     </p>
-                     <h3>{{paper.title|replace('&nbsp;', ' ')}}</h3>
-                     <p class="authors">
-                     {%- for a in paper.authors -%}
+               <li class="toggle-item{{' featured' if paper.featured or paper.new else ''}}{{' has_image' if paper.img else ''}}"
+                   id="paper-{{paper.tag}}" tabindex="0" aria-expanded="false">
+                  <div class="shown">
+                     <span class="files">
+                     {%- for f in paper.files -%}
+                        [<a href="{{f.href}}"
+                           onclick="window.gtag && gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});"
+                           >{{f.format}}</a>]
+                        {%- if not loop.last %}  {% endif -%}
+                     {%- endfor -%}
+                     </span>
+
+                     <span class="year">
+                     {%- if paper.conference not in ('subm', 'arxiv', '') -%}
+                        {{paper.conference.upper()}}
+                     {%- elif paper.conference == 'subm' -%}
+                        {{conferences[paper.conference].name}}
+                     {% endif %}
+                     {{paper.year}}
+                     {%- if paper.new %}
+                        &mdash;
+                        <span class="new">NEW!</span>
+                     {%- endif -%}
+                     {%- if paper.comment %}
+                        &mdash;
+                        <span class="comment">{{paper.comment}}</span>
+                     {%- endif -%}
+                     </span>
+
+                     <span class="title">{{paper.title|replace('&nbsp;', ' ')}}</span>
+
+                     <span class="authors">
+                     {% for a in paper.authors -%}
                         {%- if authors[a] != me -%}
-                           <a href="{{authors[a].href}}" title="{{authors[a].name}}"
-                              onclick="window.gtag && gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});">
+                           <a href="{{authors[a].href}}"
+                              title="{{authors[a].name}}"
+                              onclick="window.gtag && gtag('event', 'coauthor', {'event_label': '{{authors[a].abrv}}'});"
+                              >
                               {%- if paper.authors|length < 5 -%}
                                  {{authors[a].abrv}}
                               {%- else -%}
@@ -118,22 +135,14 @@
                         {%- else -%}
                            {{me.abrv}}
                         {%- endif -%}
-                        {%- if not loop.last %}, {% endif -%}
-                     {%- endfor -%}
-                     </p>
-                     <div class="abstract">{{paper.abstract}}</div>
-                     <div class="bottom">
-                        <p class="files">
-                        {%- for f in paper.files -%}
-                           <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'download', {'event_label': 'download_{{paper.tag}}_{{f.format}}'});">[{{f.format}}]</a>
-                        {%- endfor -%}
-                        </p>
-                        <button class="link-button toggle-abstract" type="button" aria-expanded="false">
-                           <span class="when-closed">View abstract</span><span class="when-open">Hide abstract</span>
-                           <svg class="icon"><use href="#i-arrow"/></svg>
-                        </button>
-                     </div>
+                        {%- if not loop.last -%}, {% endif -%}
+                     {%- endfor %}
+                     </span>
                   </div>
+                  {%- if paper.img %}
+                  <div class="feature_image"><img src="feature_imgs/{{paper.img}}" alt="" loading="lazy"></div>
+                  {%- endif %}
+                  <div class="abstract">{{paper.abstract}}</div>
                </li>
             {%- endfor %}
             </ul>
@@ -210,17 +219,23 @@
 
          <section class="section" id="media">
             <h2>Media</h2>
-            <ul class="list">
+            <div class="media-grid">
                {%- for m in media %}
-               <li><a href="{{m.href}}">{{m.name}}</a> <span class="dim">&mdash; {{m.date}}.</span>
-                  <span class="title">&ldquo;{{m.title}}.&rdquo;</span>
-                  {{m.description}}
-                  {%- for f in m.files %}
-                  <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'downloadmedia_{{f.format}}');">({{f.format}})</a>
-                  {%- endfor %}
-               </li>
+               <article class="media-card{{'' if m.logo else ' no-logo'}}">
+                  {%- if m.logo %}
+                  <div class="media-logo"><img src="feature_imgs/media/{{m.logo}}" alt="{{m.name}}" loading="lazy"></div>
+                  {%- endif %}
+                  <div class="media-body">
+                     <div class="media-top"><span class="outlet">{{m.name}}</span><span>{{m.date}}</span></div>
+                     <h3><a href="{{m.href}}">&ldquo;{{m.title}}&rdquo;</a></h3>
+                     <p>{{m.description}}
+                     {%- for f in m.files %}
+                        <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'downloadmedia_{{f.format}}');">({{f.format}})</a>
+                     {%- endfor %}</p>
+                  </div>
+               </article>
                {%- endfor %}
-            </ul>
+            </div>
          </section>
 
          <section class="section" id="teaching">
@@ -289,7 +304,7 @@
       showAllButtons.forEach(function (b) { b.setAttribute('aria-expanded', String(on)); });
    }
    var target = /^#paper-/.test(location.hash) ? document.getElementById(location.hash.slice(1)) : null;
-   setShowAll({{'true' if show_all else 'false'}} || !!(target && !target.classList.contains('selected')));
+   setShowAll({{'true' if show_all else 'false'}} || !!(target && !target.classList.contains('featured')));
    showAllButtons.forEach(function (button) {
       button.addEventListener('click', function () {
          var on = !body.classList.contains('show-all');
@@ -299,20 +314,28 @@
    });
 
    /* Abstracts: click a card (outside its links) to open or close it */
-   document.querySelectorAll('.pub').forEach(function (pub) {
-      var button = pub.querySelector('.toggle-abstract');
-      pub.addEventListener('click', function (e) {
+   function toggleCard(card) {
+      var open = card.classList.toggle('open');
+      card.setAttribute('aria-expanded', String(open));
+      history.replaceState(null, '', '#' + card.id);
+      track('event', 'toggle', {'event_label': card.id});
+   }
+   document.querySelectorAll('.toggle-item').forEach(function (card) {
+      card.addEventListener('click', function (e) {
          if (e.target.closest('a')) return;
-         if (!e.target.closest('.toggle-abstract') && String(window.getSelection()).length) return;
-         var open = pub.classList.toggle('open');
-         button.setAttribute('aria-expanded', String(open));
-         history.replaceState(null, '', '#' + pub.id);
-         track('event', 'toggle', {'event_label': pub.id});
+         if (String(window.getSelection()).length) return;
+         toggleCard(card);
+      });
+      card.addEventListener('keydown', function (e) {
+         if (e.target === card && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            toggleCard(card);
+         }
       });
    });
    if (target) {
       target.classList.add('open');
-      target.querySelector('.toggle-abstract').setAttribute('aria-expanded', 'true');
+      target.setAttribute('aria-expanded', 'true');
       requestAnimationFrame(function () { target.scrollIntoView(); });
    }
 

@@ -57,6 +57,8 @@ class Newspaper:
     href: str
     description: str
     files: Sequence[File] = ()
+    # Square logo of the outlet, in feature_imgs/media/
+    logo: Optional[str] = None
 
 @dataclass
 class Award:
@@ -619,7 +621,7 @@ class Vars:
             'The Thermodynamic AI Chip',
             'https://www.youtube.com/watch?v=5pieVHmlbyk',
             'Podcast interview on using swarms of AI agents to design and formally verify chips, and on Normal Computing\'s thermodynamic computing work.'
-            , files=[]
+            , logo='mlst.png', files=[]
         ),
         Newspaper(
             'Thomas Dybdahl Ahle',
@@ -627,7 +629,7 @@ class Vars:
             'Building an Open-Source Verilog Simulator with AI: 580K Lines in 43 Days',
             'https://normalcomputing.com/blog/building-an-open-source-verilog-simulator-with-ai-580k-lines-in-43-days',
             'My write-up of how we used AI agents to build an open-source Verilog simulation and formal verification stack on top of CIRCT in 43 days.'
-            , files=[]
+            , logo='normal-computing.png', files=[]
         ),
         Newspaper(
             'Brian Bailey',
@@ -635,7 +637,7 @@ class Vars:
             'Multi-Modal AI In EDA Development Flows',
             'https://semiengineering.com/multi-modal-ai-in-eda-development-flows/',
             'Interview on how our company, Normal Computing, is using AI to improve chip design and development.'
-            , files=[]
+            , logo='semiengineering.png', files=[]
         ),
         Newspaper(
             'Jon Lund',
@@ -643,7 +645,7 @@ class Vars:
             'En ulv i fåreklæder',
             'https://www.prosa.dk/artikel/en-ulv-i-faareklaeder/',
             'I was interviewed by the IT workers union on Google\'s FLoC system and the use of SimHash.'
-            , files=[]
+            , logo='prosa.png', files=[]
         ),
         Newspaper(
             '',
@@ -651,7 +653,7 @@ class Vars:
             'The Stibo-Foundation supports IT-talents',
             'http://www.stibo.com/da/2016/08/26/the-stibo-foundation-supports-it-talents/',
             'The announcement of my winning the Stibo Travel grant.'
-            , files=[]
+            , logo='stibo.png', files=[]
         ),
         Newspaper(
             'Bidwell, Jonni',
@@ -659,7 +661,7 @@ class Vars:
             'Python: Sunfish chess engine',
             'http://www.pressreader.com/australia/linux-format/20151222/282802125292910',
             'Article about my Sunfish chess software.'
-            , files=[File('pdf','papers/sunfish.pdf')]
+            , logo='linux-format.png', files=[File('pdf','papers/sunfish.pdf')]
         ),
         Newspaper(
             '',
@@ -667,7 +669,7 @@ class Vars:
             'The National Team at the Programming World Cup',
             'http://www.computerworld.dk/art/234196',
             'Coverage of my team\'s participation in the ICPC World Finals.'
-            , files=[]
+            , logo='computerworld.png', files=[]
             ),
         Newspaper(
             'Elkær, Mads',
@@ -675,7 +677,7 @@ class Vars:
             'Denmark\'s Three Greatest Programmers',
             'https://www.computerworld.dk/art/228544/her-er-danmarks-tre-bedste-programmoerer',
             'Interview with my team after we won the Danish university programming championship against 34 other teams.'
-            , files=[]
+            , logo='computerworld.png', files=[]
             )
     ]
 
