@@ -37,7 +37,7 @@
          <a href="#projects"><svg class="icon"><use href="#i-gamepad"/></svg>Software &amp; Games</a>
          <a href="#media"><svg class="icon"><use href="#i-megaphone"/></svg>Media</a>
          <a href="#teaching"><svg class="icon"><use href="#i-cap"/></svg>Teaching</a>
-         <a href="#about"><svg class="icon"><use href="#i-user"/></svg>About / Resume</a>
+         <a href="#about"><svg class="icon"><use href="#i-user"/></svg>About</a>
          <a href="/blog/"><svg class="icon"><use href="#i-pen"/></svg>Blog</a>
       </nav>
       <div class="sidebar-foot">
@@ -53,6 +53,14 @@
    </aside>
 
    <main class="main" id="top">
+{%- macro index(items) %}
+               <dl class="index">
+                  {%- for p in items %}
+                  <dt><b>{{p.name}}</b><span class="links">{% for f in p.links %} [<a href="{{f.href}}">{{f.format}}</a>]{% endfor %}</span></dt>
+                  <dd>{{p.description}}</dd>
+                  {%- endfor %}
+               </dl>
+{%- endmacro %}
       <div class="container">
 
          <header class="letterhead">
@@ -146,33 +154,18 @@
          {% endfor %}
 
          <section class="section" id="projects">
-            <h2 id="software">Software</h2>
-            <ul class="list">
-               <li><a href="https://github.com/thomasahle/tensorgrad">tensorgrad</a> &mdash; a Python library for symbolic tensor manipulation and derivatives using tensor diagrams
-                  &mdash; companion to <a href="https://tensorcookbook.com/">The Tensor Cookbook</a></li>
-               <li><a href="https://github.com/thomasahle/chainhash">ChainHash</a> &mdash; a fast universal hash function with a machine-checked collision bound
-                  &mdash; <a href="/blog/adversarial-examples-for-hashes/">compared with other fast hashes</a></li>
-               <li><a href="https://github.com/thomasahle/fast-polynomials">Fast polynomial evaluation</a> &mdash; preprocesses a polynomial so it can be evaluated with about half the multiplications of Horner's method
-                  &mdash; <a href="/fast-polynomials/">try it online</a></li>
-               <li><a href="https://github.com/thomasahle/trace-taxi">Trace Taxi</a> &mdash; an interactive viewer for AI agent traces
-                  &mdash; <a href="https://trace.taxi/">open at trace.taxi</a></li>
-               <li><a href="https://github.com/thomasahle/latex2png">latex2png</a> &mdash; converts LaTeX equations to PNG, JPEG or SVG images
-                  &mdash; <a href="/latex2png/">use it online</a></li>
-               <li><a href="https://github.com/thomasahle/ries">RIES Online</a> &mdash; an inverse symbolic calculator that finds equations matching a given number
-                  &mdash; <a href="/ries/">use it online</a></li>
-            </ul>
-
-            <span class="anchor" id="other"></span>
-            <h3 id="games">Games</h3>
-            <ul class="list">
-               <li><a href="https://github.com/thomasahle/sunfish">Sunfish</a> &mdash; a minimalist chess engine &mdash; <a href="https://lichess.org/@/sunfish-engine">play at Lichess</a></li>
-               <li><a href="https://pychess.github.io/">PyChess</a> &mdash; a chess engine and Internet chess client &mdash; <a href="https://pychess.org/">online version</a></li>
-               <li><a href="https://github.com/thomasahle/liars-dice">Liar's Dice</a> &mdash; a bluffing dice game based on Neural Counterfactual Regret. Play at <a href="https://dudo.ai">dudo.ai</a> and read <a href="https://towardsdatascience.com/3bbed6addde0">the blog post</a>.</li>
-               <li><a href="https://github.com/thomasahle/numberlink">numberlink</a> &mdash; a generator and a fast solver for numberlink puzzles &mdash; <a href="https://numberlinks.puzzlebaron.com/">play at Puzzle Baron</a></li>
-               <li><a href="https://github.com/thomasahle/codenames">codenames</a> &mdash; an AI that plays Codenames using word embeddings</li>
-               <li><a href="https://github.com/thomasahle/fastchess">fastchess</a> &mdash; an experiment into using the FastText library to play chess</li>
-               <li><a href="http://trainbox.github.io/game/TrainBox.html">TrainBox</a> &mdash; a train-based puzzle game</li>
-            </ul>
+            <h2>Software &amp; Games</h2>
+            <div class="index-cols">
+               <div>
+                  <h3 id="software">Software</h3>
+                  {{- index(software) }}
+               </div>
+               <div>
+                  <span class="anchor" id="other"></span>
+                  <h3 id="games">Games</h3>
+                  {{- index(games) }}
+               </div>
+            </div>
          </section>
 
          <section class="section" id="media">
@@ -197,55 +190,37 @@
          </section>
 
          <section class="section" id="teaching">
-            <h2>Teaching</h2>
-            <ul class="list">
-            {%- for t in teachings %}
-               <li><a href="{{t.href}}">{{t.name}}</a> <span class="dim">&mdash; {{t.year}}.</span> {{t.description}}</li>
-            {%- endfor %}
-               <li>Programming problems &mdash; algorithmic challenges I set on the <a href="https://spoj.com">Sphere online judge</a>:
-                  <a href="https://spoj.com/problems/POWTOW/">POWTOW</a>,
-                  <a href="https://spoj.com/problems/TRANSFER/">TRANSFER</a>,
-                  <a href="https://spoj.com/problems/REALROOT/">REALROOT</a>,
-                  <a href="https://spoj.com/problems/NANO/">NANO</a>,
-                  <a href="https://spoj.com/problems/WAYHOME/">WAYHOME</a>,
-                  <a href="https://spoj.com/problems/VFRIENDS/">VFRIENDS</a>,
-                  <a href="https://spoj.com/problems/VFRIEND2/">VFRIEND2</a>.</li>
-            </ul>
+            <h2>Teaching &amp; Other</h2>
+            <div class="index-cols">
+               <div>
+                  <h3>Teaching</h3>
+                  <dl class="index">
+                     {%- for t in teachings %}
+                     <dt><b><a href="{{t.href}}">{{t.name}}</a></b></dt>
+                     <dd>{{t.description}}</dd>
+                     {%- endfor %}
+                     <dt><b>Programming problems</b></dt>
+                     <dd>Challenges I set on the <a href="https://spoj.com">Sphere Online Judge</a>:
+                        {% for p in spoj_problems %}<a href="https://spoj.com/problems/{{p}}/">{{p}}</a>{{ ', ' if not loop.last else '.' }}{% endfor %}</dd>
+                  </dl>
+               </div>
+               <div>
+                  <h3>Other</h3>
+                  {{- index(other) }}
+               </div>
+            </div>
          </section>
 
          <section class="section" id="about">
             <span class="anchor" id="resume"></span>
-            <h2>About / Resume</h2>
-            <p>
-               I serve on the 2026&ndash;2027 Board of Directors of the <a href="https://si2.org/">Silicon Integration Initiative</a> (Si2),
-               a not-for-profit consortium of about 70 semiconductor companies that develops shared standards for chip design.
-               Previously I ran Meta's "Mach&shy;ine Lear&shy;ning Efficiency" group,
-               was the Chief of Machine Learning at the Natural Language Processing startup, <a href="https://supwiz.com">SupWiz</a>,
-               and a Postdoctoral researcher in Theoretical Computer Sci&shy;ence at the <a href="https://barc.ku.dk/">Basic Algorithms Research</a> group (BARC) in Copenhagen with <a href="http://hjemmesider.diku.dk/~mthorup/">Mikkel Thorup</a>.
-               I did <a href="/papers/thesis.pdf" title="Similarity Search: Algorithms for Sets and other High Dimensional Data">my PhD thesis</a> with <a href="{{authors['pagh'].href}}" title="Professor in the Algorithms and Complexity section of the computer science department at University of Copenhagen, Denmark">Rasmus Pagh</a> on the <a href="http://sss.projects.itu.dk/">Scalable Similarity Search</a> project.
-               Previously I worked with <a href="https://www.cs.ox.ac.uk/people/oege.demoor/">Oege de Moor</a> and <a href="https://www.cs.ox.ac.uk/samson.abramsky/">Samson Abramsky</a> at the University of Oxford on Computational Ling&shy;uistics,
-               and with <a href="https://www.cs.utexas.edu/~ecprice/">Eric Price</a> at the University of Texas at Austin, on the fundamental limits of data-limited computation.
-            </p>
-            <p><a href="cv.pdf">Download my CV (PDF)</a></p>
-            <p class="profiles">
-               <a href="mailto:{{me.email}}">{{me.email}}</a><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a><a href="https://github.com/thomasahle">GitHub</a><a href="https://linkedin.com/in/thomasahle">LinkedIn</a><a href="https://bsky.app/profile/thomasahle.bsky.social">Bluesky</a><a href="https://x.com/thomasahle">X</a>
-            </p>
-            <p class="profiles">
-               <a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős Number</a>
-            </p>
-
-            <h3>Other</h3>
-            <ul class="list">
-               <li>Memrise <a href="https://www.memrise.com/course/44645/500-most-common-danish-words/">course for learning Danish</a> through the most common 500 words.</li>
-               <li><a href="http://spjdrpedia.dk/wiki/">Spejdrpedia</a> &mdash; an online scout handbook</li>
-            </ul>
-
-            <h3>Coauthors</h3>
-            <ul class="coauthors">
-            {%- for person in coauthors %}
-               <li><a href="{{person.href}}">{{person.name}}</a></li>
-            {%- endfor %}
-            </ul>
+            <h2>About</h2>
+            <div class="about">
+               <p>See my <a href="cv.pdf">CV (PDF)</a> for my background and experience, and <a href="/papers/thesis.pdf">my PhD thesis</a> on similarity search.
+                  Elsewhere:
+                  <span class="dots"><a href="https://en.wikipedia.org/wiki/User:Thomasda">Wikipedia</a><a href="https://oeis.org/wiki/User:Thomas_Dybdahl_Ahle">OEIS</a><a href="https://dblp1.uni-trier.de/pers/hd/a/Ahle:Thomas_D=">DBLP</a><a href="https://orcid.org/0000-0001-9747-0479">ORCID</a><a href="https://www.mathgenealogy.org/id.php?id=254777">Mathematics Genealogy</a><a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1223412&amp;target=189017">Erdős number</a></span>.</p>
+               <p>Coauthors:
+                  {% for p in coauthors %}<a href="{{p.href}}">{{p.name}}</a>{{ ', ' if not loop.last else '.' }}{% endfor %}</p>
+            </div>
          </section>
 
       </div>

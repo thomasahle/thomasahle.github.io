@@ -77,6 +77,13 @@ class Job:
     academic: bool = False
 
 
+@dataclass
+class Project:
+    """A piece of software, a game or another side project listed on the home page."""
+    name: str
+    description: str
+    links: Sequence[File] = ()
+
 
 class Vars:
     now = datetime.datetime.now()
@@ -614,6 +621,48 @@ class Vars:
     teachings = [
             Teaching('Practical Concurrent and Parallel Programming', 'pcpp', 2019, 'MSc course on correct and efficient concurrent and parallel software, primarily using Java, on standard shared-memory multicore hardware.', 'teaching/pcpp2019')
             ]
+
+    software = [
+        Project('tensorgrad', 'Symbolic tensor manipulation and derivatives using tensor diagrams. Companion to The Tensor Cookbook.',
+                [File('source', 'https://github.com/thomasahle/tensorgrad'), File('cookbook', 'https://tensorcookbook.com/')]),
+        Project('ChainHash', 'A fast universal hash function with a machine-checked collision bound.',
+                [File('source', 'https://github.com/thomasahle/chainhash'), File('benchmarks', '/blog/adversarial-examples-for-hashes/')]),
+        Project('Fast polynomials', "Compiles a polynomial into a chain with about half the multiplications of Horner's method.",
+                [File('source', 'https://github.com/thomasahle/fast-polynomials'), File('try it', '/fast-polynomials/')]),
+        Project('Trace Taxi', 'An interactive viewer for AI agent traces.',
+                [File('source', 'https://github.com/thomasahle/trace-taxi'), File('open', 'https://trace.taxi/')]),
+        Project('latex2png', 'Converts LaTeX equations to PNG, JPEG or SVG images.',
+                [File('source', 'https://github.com/thomasahle/latex2png'), File('use it', '/latex2png/')]),
+        Project('RIES Online', 'An inverse symbolic calculator that finds equations matching a given number.',
+                [File('source', 'https://github.com/thomasahle/ries'), File('use it', '/ries/')]),
+    ]
+
+    games = [
+        Project('Sunfish', 'A minimalist chess engine, playing as a bot on Lichess.',
+                [File('source', 'https://github.com/thomasahle/sunfish'), File('play', 'https://lichess.org/@/sunfish-engine')]),
+        Project('PyChess', 'A chess engine and Internet chess client.',
+                [File('website', 'https://pychess.github.io/'), File('play', 'https://pychess.org/')]),
+        Project("Liar's Dice", 'A bluffing dice game with an AI based on Neural Counterfactual Regret.',
+                [File('source', 'https://github.com/thomasahle/liars-dice'), File('play', 'https://dudo.ai'), File('blog post', 'https://towardsdatascience.com/3bbed6addde0')]),
+        Project('TrainBox', 'A train-based puzzle game.',
+                [File('play', 'http://trainbox.github.io/game/TrainBox.html')]),
+        Project('numberlink', 'A generator and a fast solver for numberlink puzzles.',
+                [File('source', 'https://github.com/thomasahle/numberlink'), File('play', 'https://numberlinks.puzzlebaron.com/')]),
+        Project('codenames', 'An AI that plays Codenames using word embeddings.',
+                [File('source', 'https://github.com/thomasahle/codenames')]),
+        Project('fastchess', 'Predicts chess moves with a single matrix multiplication.',
+                [File('source', 'https://github.com/thomasahle/fastchess')]),
+    ]
+
+    other = [
+        Project('Danish course', 'Learn Danish through its 500 most common words, on Memrise.',
+                [File('memrise', 'https://www.memrise.com/course/44645/500-most-common-danish-words/')]),
+        Project('Spejdrpedia', 'An online scout handbook.',
+                [File('website', 'http://spjdrpedia.dk/wiki/')]),
+    ]
+
+    # Problems I set on the Sphere Online Judge (spoj.com/problems/<name>/)
+    spoj_problems = ['POWTOW', 'TRANSFER', 'REALROOT', 'NANO', 'WAYHOME', 'VFRIENDS', 'VFRIEND2']
 
     media = [
         Newspaper(

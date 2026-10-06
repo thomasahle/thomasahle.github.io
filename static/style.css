@@ -566,50 +566,68 @@ body.show-all .show-more {
    margin-bottom: 14px;
 }
 
-.section h3 {
-   margin: 26px 0 10px;
-   font-size: 1.1rem;
-   font-weight: 600;
-}
-
 .section p {
    max-width: 46em;
    margin: 0 0 12px;
 }
 
-.list {
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   max-width: 50em;
+/* Two-column typographic index (software, games, teaching, other) */
+.index-cols {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 0 48px;
 }
 
-.list .title {
-   font-family: var(--serif);
-   font-style: italic;
-   font-size: 1.04rem;
-}
-
-.list .dim {
+.index-cols h3 {
+   margin: 0 0 6px;
+   font-size: .8rem;
+   font-weight: 700;
+   letter-spacing: .12em;
+   text-transform: uppercase;
    color: var(--muted);
 }
 
-.profiles a + a::before {
+.index {
+   margin: 0;
+}
+
+.index dt {
+   margin-top: 12px;
+   font-size: 1.05rem;
+}
+
+.index dt b {
+   font-weight: 700;
+   color: var(--ink);
+}
+
+.index .links {
+   margin-left: .3em;
+   font-size: .9rem;
+   font-weight: 400;
+}
+
+.index .links a {
+   white-space: nowrap;
+}
+
+.index dd {
+   margin: 1px 0 0;
+   font-family: var(--serif);
+   font-size: 1.04rem;
+   line-height: 1.4;
+   color: #222;
+}
+
+.about {
+   max-width: 46em;
+}
+
+.dots a + a::before {
    content: "·";
    display: inline-block;
-   margin: 0 .5em;
-   color: var(--muted);
-}
-
-.coauthors {
-   columns: 3 190px;
-   column-gap: 24px;
-   font-size: .93rem;
-}
-
-.coauthors li {
-   break-inside: avoid;
-   padding: 2px 0;
+   margin: 0 .55em;
+   color: #999;
 }
 
 /********** Media cards **********/
@@ -779,6 +797,14 @@ body.show-all .show-more {
 
    .media-grid {
       grid-template-columns: minmax(0, 1fr);
+   }
+
+   .index-cols {
+      grid-template-columns: minmax(0, 1fr);
+   }
+
+   .index-cols > div + div {
+      margin-top: 22px;
    }
 
    .media-card {
