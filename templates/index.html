@@ -34,18 +34,6 @@
             </div>
          </header>
 
-         <section class="book" id="book" aria-label="The Tensor Cookbook">
-            <a class="book-cover" href="https://tensorcookbook.com/" tabindex="-1" aria-hidden="true"><img src="feature_imgs/cookbook_cover.png" alt=""></a>
-            <div class="book-body">
-               <p class="book-label">Book</p>
-               <h2 class="book-title"><a href="https://tensorcookbook.com/">The Tensor Cookbook</a></h2>
-               <p class="book-pitch">The Matrix Cookbook, rewritten in tensor diagrams.</p>
-               <p class="book-desc">A reference and a crash course in the visual language of tensor diagrams: matrix and tensor derivatives, statistics and probability, Kronecker products, decompositions and machine learning applications, with exercises throughout.</p>
-               <p class="book-meta">82 pages &middot; Updated Jul 2026</p>
-               <p class="book-links"><a href="https://raw.githubusercontent.com/thomasahle/tensorgrad/main/paper/cookbook.pdf">[pdf]</a> <a href="https://tensorcookbook.com/">[website]</a> <a href="https://tensorcookbook.com/playground">[playground]</a> <a href="https://github.com/thomasahle/tensorgrad">[tensorgrad]</a></p>
-            </div>
-         </section>
-
          <span class="anchor" id="research"></span>
          {%- from 'templates/paper_card.html' import paper_card with context %}
          {% for id, heading, label, articles in [('publications', 'Research', 'Publications', papers), ('manuscripts', 'Manuscripts', 'Manuscripts', manuscripts)] %}
@@ -55,7 +43,7 @@
                <a class="link-button" href="research.html#{{id}}">All {{label|lower}} <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
             <ul class="pubs">
-            {%- for paper in articles if (paper.featured or paper.new) and paper.tag != 'cookbook' %}
+            {%- for paper in articles if paper.featured or paper.new %}
                {{- paper_card(paper) }}
             {%- endfor %}
             </ul>
@@ -191,7 +179,7 @@
    /* Links to a paper that is only on the Research page go there */
    var paperPages = {
       {%- for paper in papers if not (paper.featured or paper.new) %}'{{paper.tag}}': 1, {% endfor %}
-      {%- for paper in manuscripts if not (paper.featured or paper.new) or paper.tag == 'cookbook' %}'{{paper.tag}}': 1, {% endfor %}
+      {%- for paper in manuscripts if not (paper.featured or paper.new) %}'{{paper.tag}}': 1, {% endfor %}
    };
    var hashTag = location.hash.replace(/^#paper-/, '');
    if (/^#paper-/.test(location.hash) && paperPages[hashTag]) {

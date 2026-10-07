@@ -469,7 +469,7 @@ class Vars:
                 File('website', 'https://tensorcookbook.com/'),
                 File('github', 'https://github.com/thomasahle/tensorgrad'),
                 ],
-            featured=True,
+            featured=False,
             new=False,
             img='tensor_cookbook.png',
             ),
