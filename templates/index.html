@@ -127,7 +127,7 @@
                   {%- endif %}
                   <div class="media-body">
                      <div class="media-top"><span class="outlet">{{m.name}}</span><span>{{m.date}}</span></div>
-                     <h3><a href="{{m.href}}">&ldquo;{{m.title}}&rdquo;</a></h3>
+                     <h3><a href="{{m.href}}">{{m.title}}</a></h3>
                      <p>{{m.description}}
                      {%- for f in m.files %}
                         <a href="{{f.href}}" onclick="window.gtag && gtag('event', 'downloadmedia_{{f.format}}');">({{f.format}})</a>

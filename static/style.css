@@ -63,7 +63,9 @@
 
 .letterhead .bio {
    margin: 0 auto 16px;
-   font-size: 1.05rem;
+   font-family: var(--serif);
+   font-size: 1.125rem;
+   line-height: 1.5;
 }
 
 /* Contact links stack in the left column, mirroring the drawing on the right */
@@ -76,10 +78,11 @@
    align-items: flex-end;
    gap: 7px;
    text-align: right;
-   font-size: .82rem;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-size: 1.02rem;
    font-weight: 400;
-   letter-spacing: .08em;
-   text-transform: uppercase;
+   letter-spacing: .05em;
 }
 
 .letterhead .bio {
@@ -297,7 +300,7 @@
 /* Bluesky posts have no title, so their text gets more lines */
 .bsky-text {
    margin-top: 4px;
-   color: var(--ink);
+   color: var(--text);
    white-space: pre-line;
    -webkit-line-clamp: 5;
 }
@@ -345,18 +348,17 @@
 
 .index dt {
    margin-top: 12px;
-   font-size: 1.05rem;
+   font-size: var(--size-title);
 }
 
 .index dt b {
-   font-weight: 700;
+   font-weight: 400;
    color: var(--ink);
 }
 
 .index .links {
    margin-left: .3em;
-   font-size: .9rem;
-   font-weight: 400;
+   font-size: var(--size-detail);
 }
 
 .index .links a {
@@ -366,9 +368,9 @@
 .index dd {
    margin: 1px 0 0;
    font-family: var(--serif);
-   font-size: 1.04rem;
-   line-height: 1.4;
-   color: #222;
+   font-size: var(--size-read);
+   line-height: 1.45;
+   color: var(--text);
 }
 
 /* The coauthor list uses the full width of the page */
@@ -377,8 +379,16 @@
 }
 
 .coauthor-list b {
-   font-weight: 700;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-size: 1.1rem;
+   font-weight: 400;
+   letter-spacing: .05em;
    color: var(--ink);
+}
+
+.section p.coauthor-list {
+   font-weight: 400;
 }
 
 /********** Media cards **********/
@@ -426,26 +436,25 @@
 .media-top {
    display: flex;
    justify-content: space-between;
+   align-items: baseline;
    gap: 12px;
-   font-size: .82rem;
-   font-weight: 400;
+   font-size: var(--size-detail);
    color: var(--muted);
 }
 
 .media-top .outlet {
-   text-transform: uppercase;
-   letter-spacing: .06em;
+   font-family: var(--serif);
+   font-variant: small-caps;
+   font-size: var(--size-label);
+   letter-spacing: .05em;
    color: var(--muted);
 }
 
 .media-card h3 {
-   margin: 6px 0;
-   font-family: var(--serif);
-   font-style: italic;
+   margin: 2px 0 4px;
    font-weight: 400;
-   font-size: 1.2rem;
-   line-height: 1.3;
-   letter-spacing: 0;
+   font-size: var(--size-title);
+   line-height: 1.35;
 }
 
 .media-card h3 a {
@@ -454,7 +463,10 @@
 
 .media-card p {
    margin: 0;
-   font-size: .95rem;
+   font-family: var(--serif);
+   font-size: var(--size-read);
+   line-height: 1.45;
+   color: var(--text);
 }
 
 /********** Medium screens: smaller portrait **********/
