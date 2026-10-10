@@ -720,6 +720,14 @@ class Vars:
 
     media = [
         Newspaper(
+            'Rob Aslett',
+            'Si2', 'Aug 2026',
+            "Si2 Welcomes Normal Computing's Thomas Ahle to Si2 Board",
+            'https://si2.org/si2-welcomes-normal-computings-thomas-ahle-to-si2-board/',
+            'Announcement of my election to the Board of Directors of the Silicon Integration Initiative for 2026–2027.'
+            , logo='si2.png', files=[]
+        ),
+        Newspaper(
             'Brian Bailey',
             'Semiconductor Engineering', 'Jul 2026',
             'An AI Model Fit For Purpose',
