@@ -369,6 +369,20 @@ section, h2[id], h3[id], [id^="paper-"], .anchor {
    white-space: nowrap;
 }
 
+/* Phones: wrapped lines would start with a dot, so the links are spaced instead */
+@media (max-width: 640px) {
+   .page-foot p {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 18px;
+   }
+
+   .page-foot .dots a + a::before {
+      content: none;
+   }
+}
+
 /********** Narrow screens: name and a menu button **********/
 
 @media (max-width: 900px) {
