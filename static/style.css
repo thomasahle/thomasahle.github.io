@@ -69,6 +69,11 @@
    line-height: 1.5;
 }
 
+/* The email is plain text, not a link */
+.letterhead .contact .email {
+   color: var(--ink);
+}
+
 /* Contact links stack in the left column, mirroring the drawing on the right */
 .letterhead .contact {
    grid-column: 1;

@@ -21,7 +21,7 @@
 
          <header class="letterhead">
             <nav class="contact" aria-label="Contact and profiles">
-               <a href="https://x.com/thomasahle">X</a><a href="cv.pdf">CV</a><a href="https://github.com/thomasahle">GitHub</a><a href="https://bsky.app/profile/thomasahle.bsky.social">Bluesky</a><a href="https://linkedin.com/in/thomasahle">LinkedIn</a><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a><a href="mailto:{{me.email}}">{{me.email}}</a>
+               <a href="cv.pdf">CV</a><a href="https://github.com/thomasahle">GitHub</a><a href="https://bsky.app/profile/thomasahle.bsky.social">Bluesky</a><a href="https://twitter.com/thomasahle">Twitter</a><a href="https://linkedin.com/in/thomasahle">LinkedIn</a><a href="https://scholar.google.dk/citations?user=aRiVoYgAAAAJ&amp;sortby=pubdate">Google Scholar</a><span class="email" data-user="{{me.email.split('@')[0]}}" data-domain="{{me.email.split('@')[1]}}"><noscript>{{me.email.split('@')[0]}} at {{me.email.split('@')[1]}}</noscript></span>
             </nav>
             <div class="lh-text">
                <h1>{{me.name}}</h1>
@@ -86,12 +86,12 @@
                <h2>Recent Posts</h2>
                <span class="head-links">
                   <a class="link-button" href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky <svg class="icon"><use href="#i-arrow"/></svg></a>
-                  <a class="link-button" href="https://x.com/thomasahle">X <svg class="icon"><use href="#i-arrow"/></svg></a>
+                  <a class="link-button" href="https://twitter.com/thomasahle">Twitter <svg class="icon"><use href="#i-arrow"/></svg></a>
                </span>
             </div>
             <div class="post-grid" id="bsky-feed" data-actor="{{bluesky_handle}}" hidden></div>
             <p class="feed-fallback" id="bsky-fallback">Most of my day-to-day posting happens on
-               <a href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky</a> and <a href="https://x.com/thomasahle">X</a>.</p>
+               <a href="https://bsky.app/profile/{{bluesky_handle}}">Bluesky</a> and <a href="https://twitter.com/thomasahle">Twitter</a>.</p>
          </section>
 
          <section class="section" id="projects">
@@ -209,6 +209,11 @@
          mediaButtons.forEach(function (b) { b.setAttribute('aria-expanded', String(on)); });
          track('event', 'media-all', {'event_label': on ? 'on' : 'off'});
       });
+   });
+
+   /* The email address is plain text, assembled here so that simple scrapers don't see it */
+   document.querySelectorAll('.email[data-user]').forEach(function (el) {
+      el.textContent = el.dataset.user + '@' + el.dataset.domain;
    });
 
    /* Recent Bluesky posts, read from the public API; the fallback line stays if it fails */
