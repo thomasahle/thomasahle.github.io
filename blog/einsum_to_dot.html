@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+      <!-- Google Analytics (GA4). Keep in sync with /static/analytics.html -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-40XB6Q54CE"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-40XB6Q54CE', (function () {
+          var ref = document.referrer || '';
+          var host = '';
+          if (ref) {
+            // android-app:// and other odd schemes may not parse; fall back to the raw string.
+            try { host = new URL(ref).hostname || ref; } catch (e) { host = ref; }
+          }
+          var params = {
+            full_referrer: ref || '(direct)',
+            referrer_host: host || '(direct)',
+            landing_page: location.pathname + location.search
+          };
+          var tag = new URLSearchParams(location.search).get('ref');
+          if (tag) { params.ref_tag = tag; }
+          return params;
+        })());
+      </script>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Tensor Graph Visualizer</title>
@@ -15,14 +38,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-graphviz/5.0.2/d3-graphviz.min.js"></script>
    </head>
    <body>
-      <script>
-         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-         ga('create', 'UA-337734-4', 'auto');
-         ga('send', 'pageview');
-      </script>
       <div class="container mt-5">
          <h1 class="mb-4">Einsum to Tensor Network</h1>
 

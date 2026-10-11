@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
+    <!-- Google Analytics (GA4). Keep in sync with /static/analytics.html -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40XB6Q54CE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-40XB6Q54CE', (function () {
+        var ref = document.referrer || '';
+        var host = '';
+        if (ref) {
+          // android-app:// and other odd schemes may not parse; fall back to the raw string.
+          try { host = new URL(ref).hostname || ref; } catch (e) { host = ref; }
+        }
+        var params = {
+          full_referrer: ref || '(direct)',
+          referrer_host: host || '(direct)',
+          landing_page: location.pathname + location.search
+        };
+        var tag = new URLSearchParams(location.search).get('ref');
+        if (tag) { params.ref_tag = tag; }
+        return params;
+      })());
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Not Found</title>

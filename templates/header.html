@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
    <head>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-40XB6Q54CE"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         gtag('config', 'G-40XB6Q54CE');
-      </script>
+      {% include 'static/analytics.html' %}
 
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,8 +15,6 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Cardo:ital@0;1&amp;family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
-
-      {% include 'static/tagmanager_head.html' %}
 
       {# <script src="/static/script.js"></script> #}
       <script type="application/javascript">{% include 'static/script.js' %}</script>
