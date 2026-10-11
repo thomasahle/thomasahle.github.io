@@ -77,8 +77,7 @@ jobs:
           cp -r feature_imgs dist
           cp -r papers dist
           cp -r blog dist
-          cp -r drafts dist
-          cp robots.txt dist
+          cp -r fast-polynomials dist
           cp compiled/*.html dist
           cp compiled/*.pdf dist
           cp compiled/blog/*.html dist/blog

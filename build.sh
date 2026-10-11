@@ -92,6 +92,9 @@ cd ../..
 # For https
 echo "thomasahle.com" > compiled/CNAME
 
+# GitHub Pages serves 404.html from the site root for missing pages
+cp 404.html compiled/
+
 cp -r feature_imgs compiled
 cp -r teaching compiled
 cp -r static compiled
