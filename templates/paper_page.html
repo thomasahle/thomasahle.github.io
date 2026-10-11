@@ -28,7 +28,7 @@
       <div class="container">
          <div class="page-head">
             <h1 class="page-title">{{ page_title }}</h1>
-            <p class="page-count">All my papers, newest first. Click a card to read its abstract.</p>
+            <p class="page-count">All my papers, newest first. Click a paper to read its abstract.</p>
          </div>
          {%- from 'templates/paper_card.html' import paper_card with context %}
          {%- for id, heading, items in page_sections %}
